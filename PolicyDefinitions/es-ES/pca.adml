@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+
+
+      <!-- Overall category text -->
+      <string id="PcaScenarioCategory">Diagnósticos de compatibilidad de aplicaciones</string>
+      
+
+      <!-- Generic WDI text -->
+      <string id="WdiScenarioExecutionPolicyLevelResolution">Detección, solución de problemas y resolución</string>
+      <string id="WdiScenarioExecutionPolicyLevelTsOnly">Solo detección y solución de problemas</string>
+
+
+      <!-- Individual scenario text -->
+      <string id="DetectBlockedDriversText">Notificar acerca de controladores bloqueados</string>
+      <string id="DetectDeprecatedComponentFailuresText">Detectar errores de aplicaciones provocados por archivos DLL de Windows desusados</string>
+      <string id="DetectDeprecatedCOMComponentFailuresText">Detectar errores de aplicación provocados por objetos COM desusados</string> 
+      <string id="DetectInstallFailuresText">Detectar errores de instalación de aplicaciones</string>
+      <string id="DetectUpdateFailuresText">Detectar aplicaciones que no pueden iniciar instaladores en UAC</string>
+      <string id="DetectUndetectedInstallersText">Detectar instaladores de aplicaciones que necesitan ejecutarse como administrador</string>
+      <string id="DisablePcaUIText">Detectar problemas de compatibilidad de aplicaciones y controladores</string>      
+      <!-- End individual scenario text -->
+
+      <!-- Start detailed explain text -->
+      <string id="DetectBlockedDriversExplain">Esta configuración solo está presente para la compatibilidad con versiones anteriores y no es válida para esta versión de Windows. Para configurar el Asistente para la compatibilidad de programas, use la configuración "Desactivar el Asistente para la compatibilidad de programas" de Configuración del equipo\Plantillas administrativas\Componentes de Windows\Compatibilidad de aplicaciones.</string>
+      <string id="DetectDeprecatedComponentFailuresExplain">Esta configuración solo está presente para la compatibilidad con versiones anteriores y no es válida para esta versión de Windows. Para configurar el Asistente para la compatibilidad de programas, use la configuración "Desactivar el Asistente para la compatibilidad de programas" de Configuración del equipo\Plantillas administrativas\Componentes de Windows\Compatibilidad de aplicaciones.</string>
+      <string id="DetectDeprecatedCOMComponentFailuresExplain">Esta configuración solo está presente para la compatibilidad con versiones anteriores y no es válida para esta versión de Windows. Para configurar el Asistente para la compatibilidad de programas, use la configuración "Desactivar el Asistente para la compatibilidad de programas" de Configuración del equipo\Plantillas administrativas\Componentes de Windows\Compatibilidad de aplicaciones.</string>
+      <string id="DetectInstallFailuresExplain">Esta configuración solo está presente para la compatibilidad con versiones anteriores y no es válida para esta versión de Windows. Para configurar el Asistente para la compatibilidad de programas, use la configuración "Desactivar el Asistente para la compatibilidad de programas" de Configuración del equipo\Plantillas administrativas\Componentes de Windows\Compatibilidad de aplicaciones.</string>
+      <string id="DetectUpdateFailuresExplain">Esta configuración solo está presente para la compatibilidad con versiones anteriores y no es válida para esta versión de Windows. Para configurar el Asistente para la compatibilidad de programas, use la configuración "Desactivar el Asistente para la compatibilidad de programas" de Configuración del equipo\Plantillas administrativas\Componentes de Windows\Compatibilidad de aplicaciones.</string>
+      <string id="DetectUndetectedInstallersExplain">Esta configuración solo está presente para la compatibilidad con versiones anteriores y no es válida para esta versión de Windows. Para configurar el Asistente para la compatibilidad de programas, use la configuración "Desactivar el Asistente para la compatibilidad de programas" de Configuración del equipo\Plantillas administrativas\Componentes de Windows\Compatibilidad de aplicaciones.</string>
+
+      <string id="DisablePcaUIExplain">Esta configuración de directiva establece el Asistente para la compatibilidad de programas (PCA) de modo que diagnostique errores relativos a la compatibilidad de aplicaciones y controladores. 
+
+Si habilita esta configuración de directiva, PCA se configura de modo que detecte errores durante la instalación de aplicaciones, errores durante el tiempo de ejecución de aplicaciones y controladores bloqueados debido a problemas de compatibilidad. Al detectar errores, PCA proporciona opciones para ejecutar la aplicación en un modo de compatibilidad u obtener ayuda en línea a través de un sitio web de Microsoft.
+
+Si deshabilita esta configuración de directiva, PCA no detectará errores de compatibilidad de aplicaciones y controladores.
+
+Si no establece esta configuración de directiva, PCA se configura de modo que no detecte errores durante la instalación de aplicaciones, errores durante el tiempo de ejecución de aplicaciones y controladores bloqueados debido a problemas de compatibilidad.
+
+Nota: esta configuración de directiva no tiene efecto si se habilita la configuración de directiva "Desactivar el Asistente para la compatibilidad de programas". El Servicio de directivas de diagnóstico (DPS) y el Servicio Asistente para la compatibilidad de programas deben estar ejecutándose para que PCA se ejecute. Estos servicios se pueden configurar mediante el complemento Servicios en Microsoft Management Console.</string>
+      <!-- End detailed explain text -->
+      
+    </stringTable>
+
+    <presentationTable>
+      <presentation id="DetectUpdateFailuresTable">
+        <dropdownList refId="DetectUpdateFailuresLevel" noSort="true" defaultItem="1">Nivel de ejecución de escenario</dropdownList>
+      </presentation>
+      <presentation id="DetectDeprecatedComponentFailuresTable">
+        <dropdownList refId="DetectDeprecatedComponentFailuresLevel" noSort="true" defaultItem="1">Nivel de ejecución de escenario</dropdownList>
+      </presentation>
+      <presentation id="DetectDeprecatedCOMComponentFailuresTable">
+        <dropdownList refId="DetectDeprecatedCOMComponentFailuresLevel" noSort="true" defaultItem="1">Nivel de ejecución de escenario</dropdownList>
+      </presentation>
+      <presentation id="DetectUndetectedInstallersTable">
+        <dropdownList refId="DetectUndetectedInstallersLevel" noSort="true" defaultItem="1">Nivel de ejecución de escenario</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

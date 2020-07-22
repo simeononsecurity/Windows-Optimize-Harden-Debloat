@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="fullarmor" namespace="FullArmor.a6dbfaf9-98b7-463f-a7c7-ac0447f00743" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+    <using prefix="vdm_agent_base" namespace="VMware.Policies.vdm_agent_base" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_NotSpecified" displayName="$(string.ADMXMigrator_NoSupportedOn)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="VMwareViewClientRTAV" displayName="$(string.VMwareViewClientRTAV)">
+      <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+    </category>
+    <category name="VMwareViewClientRTAVWebcam" displayName="$(string.VMwareViewClientRTAVWebcam)">
+      <parentCategory ref="VMwareViewClientRTAV" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="DisableRTAV" class="Machine" displayName="$(string.DisableRTAV)" explainText="$(string.DisableRTAVExplain)" presentation="$(presentation.DisableRTAV)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\RTAV" valueName="DisableRTAV">
+      <parentCategory ref="VMwareViewClientRTAV" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="WebcamMaxFrameRate" class="Machine" displayName="$(string.WebcamMaxFrameRate)" explainText="$(string.WebcamMaxFrameRateExplain)" presentation="$(presentation.WebcamMaxFrameRate)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\RTAV">
+      <parentCategory ref="VMwareViewClientRTAVWebcam" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="WebcamMaxFrameRate" valueName="WebcamMaxFrameRate" minValue="1" maxValue="25" />
+      </elements>
+    </policy>
+    <policy name="WebcamMaxResHeight" class="Machine" displayName="$(string.WebcamMaxResHeight)" explainText="$(string.WebcamMaxResHeightExplain)" presentation="$(presentation.WebcamMaxResHeight)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\RTAV">
+      <parentCategory ref="VMwareViewClientRTAVWebcam" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="WebcamMaxResHeight" valueName="WebcamMaxResHeight" minValue="0" />
+      </elements>
+    </policy>
+    <policy name="WebcamMaxResWidth" class="Machine" displayName="$(string.WebcamMaxResWidth)" explainText="$(string.WebcamMaxResWidthExplain)" presentation="$(presentation.WebcamMaxResWidth)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\RTAV">
+      <parentCategory ref="VMwareViewClientRTAVWebcam" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="WebcamMaxResWidth" valueName="WebcamMaxResWidth" minValue="0" />
+      </elements>
+    </policy>
+    <policy name="WebcamDefaultResHeight" class="Machine" displayName="$(string.WebcamDefaultResHeight)" explainText="$(string.WebcamDefaultResHeightExplain)" presentation="$(presentation.WebcamDefaultResHeight)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\RTAV">
+      <parentCategory ref="VMwareViewClientRTAVWebcam" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="WebcamDefaultResHeight" valueName="WebcamDefaultResHeight" minValue="0" />
+      </elements>
+    </policy>
+    <policy name="WebcamDefaultResWidth" class="Machine" displayName="$(string.WebcamDefaultResWidth)" explainText="$(string.WebcamDefaultResWidthExplain)" presentation="$(presentation.WebcamDefaultResWidth)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\RTAV">
+      <parentCategory ref="VMwareViewClientRTAVWebcam" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="WebcamDefaultResWidth" valueName="WebcamDefaultResWidth" minValue="0" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="VMwareViewClientRTAV">View RTAV Configuration</string>
+      <string id="DisableRTAV">Disable RTAV</string>
+      <string id="DisableRTAVExplain">Disable Real Time Audio-Video</string>
+      <string id="VMwareViewClientRTAVWebcam">View RTAV Webcam Settings</string>
+      <string id="WebcamMaxResWidth">Resolution - Max image width in pixels</string>
+      <string id="WebcamMaxResWidthExplain">Maximum width in pixels of an image frame when capturing from Webcam</string>
+      <string id="WebcamMaxResHeight">Resolution - Max image height in pixels</string>
+      <string id="WebcamMaxResHeightExplain">Maximum height in pixels of an image frame when capturing from Webcam</string>
+      <string id="WebcamMaxFrameRate">Max frames per second</string>
+      <string id="WebcamMaxFrameRateExplain">Maximum rate at which frames can be captured from Webcam per second.
+Minimum = 1 &amp; Maximum = 25</string>
+      <string id="WebcamDefaultResWidth">Resolution - Default image resolution width in pixels</string>
+      <string id="WebcamDefaultResWidthExplain">Sets the default image resolution width. If unset, default is 320. This is used if no resolution value is defined by the user</string>
+      <string id="WebcamDefaultResHeight">Resolution - Default image resolution height in pixels</string>
+      <string id="WebcamDefaultResHeightExplain">Sets the default image resolution height. If unset, default is 240. This is used if no resolution value is defined by the user</string>
+      <string id="VMwareViewAgent">VMware View Agent Configuration</string>
+      <string id="ADMXMigrator_UnresolvedString">ADMX Migrator encountered a string that is not present in the source ADM string table.</string>
+      <string id="ADMXMigrator_NoSupportedOn">ADMX Migrator encountered a policy that does not have a supportedOn value.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DisableRTAV" />
+      <presentation id="WebcamMaxFrameRate">
+        <decimalTextBox refId="WebcamMaxFrameRate" defaultValue="15">Max frames per second</decimalTextBox>
+      </presentation>
+      <presentation id="WebcamMaxResHeight">
+        <decimalTextBox refId="WebcamMaxResHeight" defaultValue="0">Resolution - Max image height in pixels</decimalTextBox>
+      </presentation>
+      <presentation id="WebcamMaxResWidth">
+        <decimalTextBox refId="WebcamMaxResWidth" defaultValue="0">Resolution - Max image width in pixels</decimalTextBox>
+      </presentation>
+      <presentation id="WebcamDefaultResHeight">
+        <decimalTextBox refId="WebcamDefaultResHeight" defaultValue="0">Resolution - Default image resolution height in pixels</decimalTextBox>
+      </presentation>
+      <presentation id="WebcamDefaultResWidth">
+        <decimalTextBox refId="WebcamDefaultResWidth" defaultValue="0">Resolution - Default image resolution width in pixels</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

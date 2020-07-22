@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2019 Michael Grafnetter  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions"  xsi:schemaLocation="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions ../../Schema/PolicyDefinitionFiles.xsd">
+  <displayName>YubiKey Minidriver</displayName>
+  <description>YubiKey Smart Card Minidriver Settings</description>
+  <resources>
+    <stringTable>
+      <string id="YubiKeyMinidriver">YubiKey Minidriver</string>
+      <string id="YubiKeyMinidriver_DebugOn">Enable debug logging</string>
+      <string id="YubiKeyMinidriver_DebugOn_Help">To assist in diagnosing issues, it is recommend that you include a log file containing the issue observed.
+
+If you enable this policy setting, log files will be created for each running process in C:\Logs.
+
+If you disable or do not configure this setting, no log files will be created.</string>
+      <string id="YubiKeyMinidriver_NewKeyTouchPolicy">Configure touch policy for new keys</string>
+      <string id="YubiKeyMinidriver_NewKeyTouchPolicy_Help">The YubiKey can be set to require a physical touch to confirm any cryptographic operations. This is an optional feature to increase security, ensuring that any authentication operation must be carried out in person. The YubiKey Minidriver sets the touch policy are set when a key is first imported or generated. Once set for a key on the YubiKey, the policies cannot be changed.
+
+If you enable this policy setting, one of the following touch policies will be configured on new keys generated or imported through the minidriver:
+
+Never
+Default policy of never requiring a user touch
+
+Always
+Policy is set to require a user touch to confirm each and every cryptographic operation. Yubico does not recommend using this setting, as some Windows services, such as login, may require multiple cryptographic operations in a short time span.
+
+Cached
+Policy is set to require physical touch once, then allow for cryptographic operations in a small time window afterwards. For using the physical touch option with Windows Smart Card Logon, this option is required. 
+
+If you disable or do not configure this policy setting, newly imported or generated keys through the minidriver will never require a user touch.</string>
+      <string id="NewKeyTouchPolicy_Never">Never</string>
+      <string id="NewKeyTouchPolicy_Always">Always</string>
+      <string id="NewKeyTouchPolicy_Cached">Cached</string>
+      <string id="YubiKeyMinidriver_EnableUnsafeKeygen">Enable ROCA mitigation</string>
+      <string id="YubiKeyMinidriver_EnableUnsafeKeygen_Help">Some YubiKey 4 devices were part of the Infineon RSA key generation vulnerability, CVE-2017-15361, referred to by its discoverers as “Return of Coppersmith’s Attack” (ROCA). This vulnerability concerns the generation of weak keys that may allow the private key to be derived by an attacker in possession of public key. 
+
+If you enable this setting, the YubiKey Minidriver will block RSA key generation on vulnerable YubiKey 4 hardware and will create an error in the Windows Log for all failed RSA key generation events.
+
+If you disable or do not configure this setting, the YubiKey Minidriver will allow RSA key generation on vulnerable YubiKey 4 hardware, but will create a warning in the Windows Log for all successful RSA key generation events. The log message will include the serial number of the YubiKey 4, indicate the YubiKey needs to be replaced, and refers to the YSA-2017-01 security advisory for additional information.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="YubiKeyMinidriver_NewKeyTouchPolicy">
+        <dropdownList refId="NewKeyTouchPolicy_Options" defaultItem="0" noSort="true">Touch policy:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

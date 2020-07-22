@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="AllowPersistAutoAcceptCalls">Permitir la aceptación automática persistente de llamadas</string>
+      <string id="AllowPersistAutoAcceptCalls_Help">Hacer persistente la aceptación automática de llamadas entrantes.</string>
+      <string id="AppSharing">Compartir aplicaciones</string>
+      <string id="AudioVideo">Audio y vídeo</string>
+      <string id="DisableAdvCallingButton">Deshabilitar el botón Llamada avanzada</string>
+      <string id="DisableAdvCallingButton_Help">Deshabilita el botón Llamada avanzada de la página Opciones generales. De esta forma, los usuarios no podrán cambiar el método de realización de llamada y los servidores usados.</string>
+      <string id="DisableAppSharing">Deshabilitar el uso compartido de aplicaciones</string>
+      <string id="DisableAppSharing_Help">Deshabilita completamente la característica de NetMeeting que permite compartir. Los usuarios no podrán ser host o ver aplicaciones compartidas.</string>
+      <string id="DisableAudioPage">Ocultar la página Audio</string>
+      <string id="DisableAudioPage_Help">Oculta la página Audio del cuadro de diálogo Opciones de herramientas. De esta forma, los usuarios no podrán cambiar la configuración de audio.</string>
+      <string id="DisableChat">Deshabilitar chat</string>
+      <string id="DisableChat_Help">Deshabilita la función Chat de NetMeeting.</string>
+      <string id="DisableGeneralPage">Ocultar la página General</string>
+      <string id="DisableGeneralPage_Help">Oculta la página General del cuadro de diálogo Opciones de herramientas. De esta forma, los usuarios no podrán cambiar sus identificaciones personales ni la configuración del ancho de banda.</string>
+      <string id="DisableNewWhiteboard">Deshabilitar Pizarra</string>
+      <string id="DisableNewWhiteboard_Help">Deshabilita la característica de pizarra T.126 de NetMeeting.</string>
+      <string id="DisableOldWhiteboard">Deshabilitar Pizarra de NetMeeting 2.x</string>
+      <string id="DisableOldWhiteboard_Help">Deshabilita la función Pizarra 2.x de NetMeeting.
+
+Pizarra 2.x está disponible únicamente a efectos de compatibilidad con versiones anteriores de NetMeeting.
+
+Los implementadores que no la necesiten pueden deshabilitarla para ahorrar ancho de banda.</string>
+      <string id="DisableRDS">Deshabilitar el uso compartido de escritorio remoto</string>
+      <string id="DisableRDS_Help">Deshabilita la característica de NetMeeting que permite compartir escritorio remoto. Los usuarios no podrán configurarla o usarla para controlar sus equipos de forma remota.</string>
+      <string id="DisableSecurityPage">Ocultar la página Seguridad</string>
+      <string id="DisableSecurityPage_Help">Oculta la página Seguridad del cuadro de diálogo Opciones de herramientas. Los usuarios no podrán cambiar las configuraciones de seguridad y de autenticación de las llamadas.</string>
+      <string id="DisableVideoPage">Ocultar la página Vídeo</string>
+      <string id="DisableVideoPage_Help">Oculta la página Vídeo del cuadro de diálogo Opciones avanzadas. De esta forma, los usuarios no podrán cambiar la configuración de vídeo.</string>
+      <string id="EnableAutoConfiguration">Habilitar configuración automática</string>
+      <string id="EnableAutoConfiguration_Help">Configura NetMeeting para que descargue opciones para los usuarios cada vez que se inicie.
+
+Estas opciones se descargan desde la dirección URL incluida en el cuadro de texto  "URL de configuración".
+
+La configuración basada en la directiva de grupo tiene preferencia sobre cualquier conflicto de configuración (producido por la descarga desde esta dirección URL).</string>
+      <string id="NetMeeting">NetMeeting</string>
+      <string id="OptionDialog">Página de opciones</string>
+      <string id="PreventAddingNewILS">Impedir la adición de servidores de directorio</string>
+      <string id="PreventAddingNewILS_Help">Impide a los usuarios que agreguen servidores de directorio (ILS) a la lista de los que pueden usar para realizar llamadas.</string>
+      <string id="PreventAudio">Deshabilitar audio</string>
+      <string id="PreventAudio_Help">Deshabilita la función de audio de NetMeeting. De esta forma, los usuarios no podrán enviar ni recibir audio.</string>
+      <string id="PreventAutoAccept">Impedir la aceptación automática de llamadas</string>
+      <string id="PreventAutoAccept_Help">Impide que los usuarios activen la aceptación automática de llamadas entrantes.
+
+Esto garantiza que otras personas no puedan llamar y conectarse a NetMeeting cuando el usuario no esté presente.
+
+Se recomienda esta directiva cuando se implemente NetMeeting para ejecutarse siempre.</string>
+      <string id="PreventChangeDirectSound">Impedir la modificación de la configuración de audio de DirectSound</string>
+      <string id="PreventChangeDirectSound_Help">Impide que el usuario cambie la configuración de audio de DirectSound. DirectSound ofrece mejor calidad de audio, pero es posible que no sea compatible con el hardware de audio más antiguo.</string>
+      <string id="PreventChangingCallMode">Impedir la modificación del método de realización de llamada</string>
+      <string id="PreventChangingCallMode_Help">Impide que los usuarios cambien la forma en que realizan las llamadas, ya sea directamente o mediante un servidor de equipo selector (gatekeeper).</string>
+      <string id="PreventDirectoryServices">Deshabilitar servicios de directorio</string>
+      <string id="PreventDirectoryServices_Help">Deshabilita la característica de directorio de NetMeeting.
+
+Los usuarios no iniciarán una sesión en un servidor de directorio (ILS) cuando se inicie NetMeeting. Además, los usuarios no podrán ver ni realizar llamadas a través de un directorio de NetMeeting.
+
+Esta directiva está destinada a los implementadores que tengan sus propios esquemas de ubicación o de llamada, como un sitio web o una libreta de direcciones. </string>
+      <string id="PreventFullDuplex">Deshabilitar audio de dúplex completo</string>
+      <string id="PreventFullDuplex_Help">Deshabilita el audio en modo dúplex completo. Los usuarios no podrán escuchar el audio entrante mientras hablan por el micrófono. El hardware de audio más antiguo no funciona correctamente cuando se habilita el modo dúplex completo.</string>
+      <string id="PreventGrantingControl">Impedir el control</string>
+      <string id="PreventGrantingControl_Help">Impide que los usuarios permitan que otras personas en una conferencia controlen lo que han compartido. Esta opción aplica un modo de solo lectura; el resto de participantes no puede cambiar los datos en la aplicación compartida.</string>
+      <string id="PreventReceivingFiles">Impedir la recepción de archivos</string>
+      <string id="PreventReceivingFiles_Help">Impide que los usuarios reciban archivos de otros usuarios durante una conferencia.</string>
+      <string id="PreventReceivingVideo">Impedir la recepción de vídeo</string>
+      <string id="PreventReceivingVideo_Help">Impide que los usuarios reciban vídeo. Los usuarios todavía podrán enviar vídeo si tienen el hardware necesario. </string>
+      <string id="PreventSendingFiles">Impedir el envío de archivos</string>
+      <string id="PreventSendingFiles_Help">Impide que los usuarios se envíen archivos entre sí durante una conferencia.</string>
+      <string id="PreventSendingVideo">Impedir el envío de vídeo</string>
+      <string id="PreventSendingVideo_Help">Impide que los usuarios envíen vídeo aunque tengan el hardware necesario. Los usuarios podrán recibir vídeo de otros usuarios.</string>
+      <string id="PreventSharing">Impedir el uso compartido</string>
+      <string id="PreventSharing_Help">Impide que los usuarios puedan compartir. Todavía podrán ver las aplicaciones o escritorios compartidos de otros usuarios.</string>
+      <string id="PreventSharingCMDPrompt">Impedir el uso compartido de símbolos del sistema</string>
+      <string id="PreventSharingCMDPrompt_Help">Impide que los usuarios compartan símbolos del sistema. Esta directiva impide que los usuarios compartan aplicaciones por error, ya que los símbolos del sistema pueden usarse para iniciar otras aplicaciones.</string>
+      <string id="PreventSharingDesktop">Impedir el uso compartido del escritorio</string>
+      <string id="PreventSharingDesktop_Help">Impide que los usuarios compartan el escritorio completo. Todavía podrán compartir aplicaciones individuales.</string>
+      <string id="PreventSharingExplorer">Impedir el uso compartido de las ventanas del Explorador</string>
+      <string id="PreventSharingExplorer_Help">Impide que los usuarios compartan ventanas del Explorador. Esta directiva impide que los usuarios compartan aplicaciones por error, ya que las ventanas del Explorador pueden usarse para iniciar otras aplicaciones.</string>
+      <string id="PreventSharingTrueColor">Impedir el uso compartido de aplicaciones de color verdadero</string>
+      <string id="PreventSharingTrueColor_Help">Impide que los usuarios compartan aplicaciones de color verdadero. Se necesita más ancho de banda para compartir color verdadero en una conferencia.</string>
+      <string id="PreventWebDirectory">Impedir ver el directorio web</string>
+      <string id="PreventWebDirectory_Help">Impide a los usuarios que vean los directorios como páginas web en un explorador.</string>
+      <string id="RestrictFTSendSize">Limitar el tamaño de los archivos enviados</string>
+      <string id="RestrictFTSendSize_Help">Limita el tamaño de los archivos que los usuarios pueden enviarse entre sí durante una conferencia.</string>
+      <string id="SecurityLevelDisabled">Deshabilitado</string>
+      <string id="SecurityLevelRequired">Requerido</string>
+      <string id="SetAVThroughput">Limitar el ancho de banda de audio y vídeo</string>
+      <string id="SetAVThroughput_Help">Limita el ancho de banda que el audio y el vídeo usarán durante una conferencia. Esta opción permitirá que NetMeeting elija los formatos y la velocidad de envío adecuados para limitar el ancho de banda.</string>
+      <string id="SetIntranetSupport">Establecer página web de soporte de la intranet</string>
+      <string id="SetIntranetSupport_Help">Determina que la URL NetMeeting aparecerá cuando el usuario elija el comando Help Online Support.</string>
+      <string id="SetSecurityOptions">Establecer opciones de seguridad de llamada</string>
+      <string id="SetSecurityOptions_Help">Establece el nivel de seguridad para las llamadas de NetMeeting salientes y entrantes.</string>
+      <string id="SUPPORTED_NetMeeting3">al menos Windows NetMeeting 3.0.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="EnableAutoConfiguration">
+        <textBox refId="AutoConfigFile">
+          <label>URL de configuración:</label>
+        </textBox>
+      </presentation>
+      <presentation id="RestrictFTSendSize">
+        <decimalTextBox refId="RestrictFTSize" defaultValue="500" spinStep="100">Tamaño máximo en kilobytes</decimalTextBox>
+        <text>El valor es el tamaño en kilobytes. El usuario solo puede enviar los archivos que tengan un tamaño inferior.</text>
+        <text>  </text>
+      </presentation>
+      <presentation id="SetAVThroughput">
+        <decimalTextBox refId="AVThroughput" defaultValue="621700">Ancho de banda máximo en kilobytes por segundo:</decimalTextBox>
+      </presentation>
+      <presentation id="SetIntranetSupport">
+        <textBox refId="IntranetSupportURL">
+          <label>Dirección URL de la página web de soporte</label>
+        </textBox>
+      </presentation>
+      <presentation id="SetSecurityOptions">
+        <dropdownList refId="SetSecurityLevel">Seguridad de llamada</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

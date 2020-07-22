@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policyDefinitions xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="Immuniser" namespace="SaferNetworking.Policies.SaferNetworking.SpybotAntiBeacon.Immuniser" />
+    <using prefix="SpybotAntiBeacon" namespace="SaferNetworking.Policies.SaferNetworking.SpybotAntiBeacon" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.3" />
+  <categories>
+    <category name="Immunisation"
+      displayName="$(string.Immunisation)"
+       explainText="$(string.Immunisation_Help)">
+      <parentCategory ref="SpybotAntiBeacon:SpybotAntiBeacon" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="Disable_SpybotAntiBeacon_Acer-User-Experience-Improvement-Program-Scheduled-Task" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Acer-User-Experience-Improvement-Program-Scheduled-Task)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Acer-User-Experience-Improvement-Program-Scheduled-Task_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableAcer-User-Experience-Improvement-Program-Scheduled-Task">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_TWindows10TelemetryIPImmunization" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_TWindows10TelemetryIPImmunization)"
+     explainText="$(string.Disable_SpybotAntiBeacon_TWindows10TelemetryIPImmunization_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableTWindows10TelemetryIPImmunization">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Google-Chrome-Telemetry-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Google-Chrome-Telemetry-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Google-Chrome-Telemetry-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableGoogle-Chrome-Telemetry-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_HP-CEEment-Scheduled-Task" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_HP-CEEment-Scheduled-Task)"
+     explainText="$(string.Disable_SpybotAntiBeacon_HP-CEEment-Scheduled-Task_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableHP-CEEment-Scheduled-Task">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_HP-Touch-Point-Analytics-System-Service" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_HP-Touch-Point-Analytics-System-Service)"
+     explainText="$(string.Disable_SpybotAntiBeacon_HP-Touch-Point-Analytics-System-Service_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableHP-Touch-Point-Analytics-System-Service">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Lenovo-Customer-Feedback-Program-Scheduled-Task" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Lenovo-Customer-Feedback-Program-Scheduled-Task)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Lenovo-Customer-Feedback-Program-Scheduled-Task_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableLenovo-Customer-Feedback-Program-Scheduled-Task">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Lenovo-Experience-Improvement-Scheduled-Task" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Lenovo-Experience-Improvement-Scheduled-Task)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Lenovo-Experience-Improvement-Scheduled-Task_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableLenovo-Experience-Improvement-Scheduled-Task">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_LibreOffice-Telemetry" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_LibreOffice-Telemetry)"
+     explainText="$(string.Disable_SpybotAntiBeacon_LibreOffice-Telemetry_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableLibreOffice-Telemetry">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Biometrics-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Biometrics-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Biometrics-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Biometrics-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Clipboard-Sharing" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Clipboard-Sharing)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Clipboard-Sharing_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Clipboard-Sharing">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Cortana-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Cortana-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Cortana-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Cortana-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Cortana-Restrictions" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Cortana-Restrictions)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Cortana-Restrictions_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Cortana-Restrictions">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Edge-DoNotTrack-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Edge-DoNotTrack-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Edge-DoNotTrack-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Edge-DoNotTrack-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Edge-Telemetry" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Edge-Telemetry)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Edge-Telemetry_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Edge-Telemetry">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Map-AutoUpdate" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Map-AutoUpdate)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Map-AutoUpdate_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Map-AutoUpdate">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Office-15-2013-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-15-2013-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-15-2013-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Office-15-2013-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Office-15-2013-Scheduled-Task" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-15-2013-Scheduled-Task)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-15-2013-Scheduled-Task_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Office-15-2013-Scheduled-Task">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Office-16-2016-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-16-2016-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-16-2016-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Office-16-2016-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Office-16-2016-Scheduled-Task" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-16-2016-Scheduled-Task)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-16-2016-Scheduled-Task_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Office-16-2016-Scheduled-Task">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Office-17-2019-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-17-2019-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-17-2019-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Office-17-2019-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Office-Telemetry-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-Telemetry-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Office-Telemetry-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Office-Telemetry-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-OneDrive-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-OneDrive-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-OneDrive-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-OneDrive-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-OneDrive-System-Service" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-OneDrive-System-Service)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-OneDrive-System-Service_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-OneDrive-System-Service">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Mozilla-Firefox-Config-Telemetry" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Mozilla-Firefox-Config-Telemetry)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Mozilla-Firefox-Config-Telemetry_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMozilla-Firefox-Config-Telemetry">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Mozilla-Firefox-Policy-Telemetry" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Mozilla-Firefox-Policy-Telemetry)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Mozilla-Firefox-Policy-Telemetry_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMozilla-Firefox-Policy-Telemetry">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_TRedShellHostsImmunization" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_TRedShellHostsImmunization)"
+     explainText="$(string.Disable_SpybotAntiBeacon_TRedShellHostsImmunization_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableTRedShellHostsImmunization">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_TWindows10TelemetryHostsImmunization" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_TWindows10TelemetryHostsImmunization)"
+     explainText="$(string.Disable_SpybotAntiBeacon_TWindows10TelemetryHostsImmunization_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableTWindows10TelemetryHostsImmunization">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_TWindows10TelemetryHostsOptionalImmunization" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_TWindows10TelemetryHostsOptionalImmunization)"
+     explainText="$(string.Disable_SpybotAntiBeacon_TWindows10TelemetryHostsOptionalImmunization_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableTWindows10TelemetryHostsOptionalImmunization">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Account-Location-Services" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Account-Location-Services)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Account-Location-Services_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Account-Location-Services">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-AIT-Application-Compatibility-Program-Inventory-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-AIT-Application-Compatibility-Program-Inventory-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-AIT-Application-Compatibility-Program-Inventory-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-AIT-Application-Compatibility-Program-Inventory-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-AIT-Application-Impact-Telemetry-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-AIT-Application-Impact-Telemetry-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-AIT-Application-Impact-Telemetry-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-AIT-Application-Impact-Telemetry-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-AIT-Application-Impact-Telemetry-Scheduled-Task" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-AIT-Application-Impact-Telemetry-Scheduled-Task)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-AIT-Application-Impact-Telemetry-Scheduled-Task_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-AIT-Application-Impact-Telemetry-Scheduled-Task">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Consumer-Features" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Consumer-Features)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Consumer-Features_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Consumer-Features">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Background-Access-Applications" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Background-Access-Applications)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Background-Access-Applications_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Background-Access-Applications">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-CEIP-Coustomer-Experience-Improvement-Program-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-CEIP-Coustomer-Experience-Improvement-Program-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-CEIP-Coustomer-Experience-Improvement-Program-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-CEIP-Coustomer-Experience-Improvement-Program-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-CEIP-Coustomer-Experience-Improvement-Program-Scheduled-Task" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-CEIP-Coustomer-Experience-Improvement-Program-Scheduled-Task)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-CEIP-Coustomer-Experience-Improvement-Program-Scheduled-Task_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-CEIP-Coustomer-Experience-Improvement-Program-Scheduled-Task">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Device-Location-Services" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Device-Location-Services)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Device-Location-Services_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Device-Location-Services">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Error-Reporting" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Error-Reporting)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Error-Reporting_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Error-Reporting">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Feedback-Firewall" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Feedback-Firewall)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Feedback-Firewall_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Feedback-Firewall">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Feedback-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Feedback-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Feedback-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Feedback-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Handwriting-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Handwriting-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Handwriting-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Handwriting-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Location-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Location-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Location-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Location-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Lockscreen-Camera-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Lockscreen-Camera-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Lockscreen-Camera-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Lockscreen-Camera-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Advertising-ID-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Advertising-ID-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Advertising-ID-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Advertising-ID-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Remote-Registry" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Remote-Registry)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Remote-Registry_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Remote-Registry">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Sensors-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Sensors-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Sensors-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Sensors-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Steps-Recorder-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Steps-Recorder-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Steps-Recorder-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Steps-Recorder-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Tailored-Experience-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Tailored-Experience-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Tailored-Experience-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Tailored-Experience-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Telemetry-Firewall" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Telemetry-Firewall)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Telemetry-Firewall_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Telemetry-Firewall">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Telemetry-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Telemetry-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Telemetry-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Telemetry-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Telemetry-System-Service" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Telemetry-System-Service)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Telemetry-System-Service_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Telemetry-System-Service">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Updates-P2P" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Updates-P2P)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Updates-P2P_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Updates-P2P">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-User-Activities-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-User-Activities-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-User-Activities-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-User-Activities-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-Web-Search-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Web-Search-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-Web-Search-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-Web-Search-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-WiFi-Sense-HotSpot-Sharing-Group-Policy" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-WiFi-Sense-HotSpot-Sharing-Group-Policy)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-WiFi-Sense-HotSpot-Sharing-Group-Policy_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-WiFi-Sense-HotSpot-Sharing-Group-Policy">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+    <policy name="Disable_SpybotAntiBeacon_Microsoft-Windows-UPNP-Device-Sharing" class="Both"
+     displayName="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-UPNP-Device-Sharing)"
+     explainText="$(string.Disable_SpybotAntiBeacon_Microsoft-Windows-UPNP-Device-Sharing_Help)"
+     key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Immunisation" valueName="DisableMicrosoft-Windows-UPNP-Device-Sharing">
+       <parentCategory ref="Immunisation" />
+       <supportedOn ref="supported_antibeacon_1b5" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

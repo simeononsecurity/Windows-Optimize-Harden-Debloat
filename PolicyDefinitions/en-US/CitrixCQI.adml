@@ -1,0 +1,118 @@
+﻿<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>Connection Quality Indicator</displayName>
+  <description>Citrix Health Policy</description>
+  <resources>
+    <stringTable>
+      <string id="CAT_VirtualDesktopAgent">Virtual Desktop Agent</string>
+      <string id="CAT_CQI">CQI</string>
+      <string id="POL_EnableCQI">Enable CQI</string>
+      <string id="Explain_EnableCQI">This policy setting allows you to manage Connection Quality Indicator (CQI) configuration.
+
+If this policy is disabled, CQI will not be launched.
+If this policy is not configured then default behavior is to launch CQI according to startup settings of the VDA.
+
+Counters refresh rate:
+
+This setting determines the frequency of data collection in seconds. 
+Note: This setting does not control how frequent to display notification.</string>
+      <string id="SUPPORTED_NotSpecified">Not specified</string>
+      <string id="POL_ThresholdSettings">Connection Threshold settings</string>
+      <string id="POL_ThresholdSettings_Help">This policy setting allows you to manage threshold setting of connection counters to evaluate connection quality indicator.
+
+High Latency:
+
+This setting determines the high latency value in milliseconds. Any value greater than this will be considered as high latency.
+
+Low Latency:
+
+This setting determines the low latency value in milliseconds. Any value lower than this will be considered as low latency.
+
+High ICA RTT:
+
+This setting determines the high ica round trip time in milliseconds. Any value greater than this will be considered as high round trip time.
+
+Low ICA RTT:
+
+This setting determines the low ica round trip time in milliseconds. Any value lower than this will be considered as low round trip time.
+
+High Bandwidth:
+
+This setting determines the high bandwidth value in Mbps. Any value greater than this will be considered as high bandwidth.
+
+Low Bandwidth:
+
+This setting determines the low bandwidth value in Mbps. Any value lower than this will be considered as low bandwidth.</string>
+      <string id="POL_NotificationDisplaySettings">Notification display settings</string>
+      <string id="POL_NotificationDisplaySettings_Help">This policy setting allows you to manage notification display settings.
+
+Initial Notification Delay:
+
+This setting determines the wait time in seconds before first notification is displayed after session launch.
+
+Disable Initial Notification:
+
+Select this option to disable initial notification. All subsequent change in connection state will be notified to user.
+
+Minimum Interval between Notifications:
+
+This setting determines the minimum interval in seconds between notifications. Next notification will be displayed only if connection quality is consistent for time specified in this value.
+
+Desktop Default Notification Position:
+
+This policy setting allows you to set a default position for connection status notifications for published desktops, the default is lower right hand corner.
+
+Seamless Default Notification Position:
+
+This policy setting allows you to set a default position for connection status notifications for seamless applications, the default is upper right hand corner.
+
+Disable All Notifications:
+
+Select this option to disable all notifications. User will not be notified for any connection state change. System tray icon in Desktop mode and Keyboard shortcut for seamless applications can still be accessed.
+
+Disable Audible Notification:
+
+This policy setting allows you to disable audible notifications.  By default, audible notifications are enabled to alert the user to a change in connection status.
+
+Custom Message:
+Notification messages can be customized using this setting.</string>
+<string id="TXT_NotificationPosition1">TopLeft</string>
+<string id="TXT_NotificationPosition2">TopRight</string>
+<string id="TXT_NotificationPosition3">BottomLeft</string>
+<string id="TXT_NotificationPosition4">BottomRight</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="POL_CQI">
+        <decimalTextBox refId="DXT_CountersRefreshInterval" defaultValue="5">Counters refresh rate</decimalTextBox>
+      </presentation>
+      <presentation id="POL_ThresholdSettings">
+        <decimalTextBox refId="DXT_HighLatencyLowerRange" defaultValue="150">High Latency</decimalTextBox>
+        <decimalTextBox refId="DXT_LowLatencyUpperRange" defaultValue="60">Low Latency</decimalTextBox>
+        <decimalTextBox refId="DXT_HighIcaRttLowerRange" defaultValue="180">High ICA RTT</decimalTextBox>
+        <decimalTextBox refId="DXT_LowIcaRttUpperRange" defaultValue="80">Low ICA RTT</decimalTextBox>
+        <decimalTextBox refId="DXT_HighBandwidthLowerRange" defaultValue="8">High Bandwidth</decimalTextBox>
+        <decimalTextBox refId="DXT_LowBandwidthUpperRange">Low Bandwidth</decimalTextBox>
+      </presentation>
+      <presentation id="POL_NotificationDisplaySettings">
+        <decimalTextBox refId="DXT_FirstNotificationWaitTime" defaultValue="60">Initial Notification Delay</decimalTextBox>
+        <checkBox refId="CHK_DoNotShowFirstNotification">Disable Initial Notification</checkBox>
+        <decimalTextBox refId="DXT_HeatlthNoticiationInterval" defaultValue="30">Minimum Interval between Notifications</decimalTextBox>
+		<dropdownList refId="DDL_DesktopDefaultNotificationPosition" defaultItem="1">Desktop Default Notification Position</dropdownList>
+		<dropdownList refId="DDL_SeamlessDefaultNotificationPosition" defaultItem="3">Seamless Default Notification Position</dropdownList>
+        <checkBox refId="CHK_DoNotShowNotifications">Disable All Notifications</checkBox>
+        <checkBox refId="CHK_DisableAudibleNotification">Disable Audible Notification</checkBox>
+        <textBox refId="TXT_StrongConnectionMessage">
+          <label>Strong Connection Custom Message</label>
+          <defaultValue>Network is operating normally</defaultValue>
+        </textBox>
+        <textBox refId="TXT_WeakConnectionMessage">
+          <label>Weak Connection Custom Message</label>
+          <defaultValue>User experience may be degraded due to network congestion</defaultValue>
+        </textBox>
+        <textBox refId="TXT_PoorConnectionMessage">
+          <label>Poor Connection Custom Message</label>
+          <defaultValue>User experience is being impacted due to network problems</defaultValue>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

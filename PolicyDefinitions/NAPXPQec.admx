@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+      <target prefix="nap" namespace="Microsoft.Policies.NAP" />
+      <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="NAP_Category" displayName="$(string.NAP_Category)">
+      <parentCategory ref="windows:WindowsComponents" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="NAP_XP_1x_QEC_1" class="Machine" displayName="$(string.NAP_XP_1x_QEC)" explainText="$(string.NAP_XP_1x_Help)" key="SOFTWARE\Policies\Microsoft\NetworkAccessProtection\ClientConfig\Qecs\79620" valueName="Enabled">
+      <parentCategory ref="NAP_Category" />
+      <supportedOn ref="windows:SUPPORTED_WindowsXPSP2" />
+        <enabledValue>
+            <decimal value="1" />
+        </enabledValue>
+        <disabledValue>
+            <decimal value="0" />
+        </disabledValue>
+    </policy>
+   </policies>
+</policyDefinitions>

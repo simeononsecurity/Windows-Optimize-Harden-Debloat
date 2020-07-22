@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="AppMgmt_COM_SearchForCLSID">Descargar componentes COM que faltan</string>
+      <string id="AppMgmt_COM_SearchForCLSID_Help">Esta configuración de directiva indica al sistema que busque en Active Directory los componentes COM (Modelo de objetos componentes) que faltan y que un programa necesita.
+
+Muchos programas de Windows, como los complementos MMC, usan las interfaces proporcionadas por los componentes COM. Estos programas no pueden realizar todas las funciones a menos que Windows haya registrado internamente los componentes necesarios.
+
+Si habilita esta configuración de directiva y falta el registro de un componente, el sistema lo busca en Active Directory y, si lo encuentra, lo descarga. Las búsquedas resultantes pueden hacer que algunos programas se inicien o se ejecuten más lentamente.
+
+Si deshabilita o no establece esta configuración de directiva, el programa continúa sin el registro. En consecuencia, es posible que el programa no realice todas las funciones o que se detenga.
+
+Esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.</string>
+    </stringTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  ActivIdentity  -->
+<policyDefinitions	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					revision="702.1" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+	<policyNamespaces>
+		<target prefix="ailogging" namespace="ActivIdentity.Policies.ActivIdentity.Logging" />
+		<using prefix="windows" namespace="Microsoft.Policies.Windows" />
+		<using prefix="ai" namespace="ActivIdentity.Policies.ActivIdentity" />
+	</policyNamespaces>
+	<resources minRequiredRevision="702.1" />
+	<supportedOn>
+		<definitions>
+			<definition name="SUPPORTED_LOG_GENERIC" displayName="$(string.SUPPORTED_LOG_GENERIC)"/>
+		</definitions>
+	</supportedOn>
+	<!--  Use category Logging defined in ActivIdentity.admx  -->
+	<policies>
+		<policy name="LogFile" class="Machine" displayName="$(string.policy_displayName_LogFile)" explainText="$(string.policy_explainText_LogFile)"
+				key="SOFTWARE\Policies\ActivIdentity\Logging"
+				presentation="$(presentation.policy_presentation_LogFile)">
+				<parentCategory ref="ai:Logging" />
+				<supportedOn ref="SUPPORTED_LOG_GENERIC" />
+				<elements>
+					<text id="idLogFile" valueName="LogFile" required="true" />
+				</elements>
+		</policy>
+		
+		<policy name="MaxFileBackups" class="Machine" displayName="$(string.policy_displayName_MaxFileBackups)" explainText="$(string.policy_explainText_MaxFileBackups)"
+				key="SOFTWARE\Policies\ActivIdentity\Logging"
+				presentation="$(presentation.policy_presentation_MaxFileBackups)">
+				<parentCategory ref="ai:Logging" />
+				<supportedOn ref="SUPPORTED_LOG_GENERIC" />
+				<elements>
+					<decimal id="idMaxFileBackups" valueName="MaxFileBackups" required="true" minValue="1" />
+				</elements>
+		</policy>
+		
+		<policy name="MaxFileSize" class="Machine" displayName="$(string.policy_displayName_MaxFileSize)" explainText="$(string.policy_explainText_MaxFileSize)"
+				key="SOFTWARE\Policies\ActivIdentity\Logging"
+				presentation="$(presentation.policy_presentation_MaxFileSize)">
+				<parentCategory ref="ai:Logging" />
+				<supportedOn ref="SUPPORTED_LOG_GENERIC" />
+				<elements>
+					<decimal id="idMaxFileSize" valueName="MaxFileSize" required="true" minValue="1" />
+				</elements>
+		</policy>
+	</policies>
+</policyDefinitions>

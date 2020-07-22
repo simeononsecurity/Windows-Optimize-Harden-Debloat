@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Windows Hello for Business</displayName>
+  <description>Configuration for Windows Hello for Business</description>
+  <resources>
+    <stringTable>
+        <string id="MSPassportForWorkCategory">Windows Hello for Business</string>
+        <string id="MSPassportForWorkPINComplexityCategory">PIN Complexity</string>
+        <string id="MSPassport_UsePassportForWork">Use Windows Hello for Business</string>
+        <!-- Add support for certificate trust deployments -->
+        <string id="WHFB_UseCertificateForOnPremAuth">Use certificate for on-premises authentication</string>
+        <!-- DropdownList Button strings -->
+        <string id="MSPassport_UsePassportForWorkExplain">Windows Hello for Business is an alternative method for signing into Windows using your Active Directory or Azure Active Directory account that can replace passwords, Smart Cards, and Virtual Smart Cards.
+
+If you enable this policy, the device provisions Windows Hello for Business using keys or certificates for all users.
+
+If you disable this policy setting, the device does not provision Windows Hello for Business for any user.
+
+If you do not configure this policy setting, users can provision Windows Hello for Business as a convenience credential that encrypts their domain password.
+
+Select "Do not start Windows Hello provisioning after sign-in" when you use a third-party solution to provision Windows Hello for Business.
+
+If you select "Do not start Windows Hello provisioning after sign-in", Windows Hello for Business does not automatically start provisioning after the user has signed in.
+
+If you do not select "Do not start Windows Hello provisioning after sign-in", Windows Hello for Business automatically starts provisioning after the user has signed in.
+
+        </string>
+        <string id="MSPassport_RequireSecurityDevice">Use a hardware security device</string>
+        <string id="MSPassport_RequireSecurityDeviceExplain">A Trusted Platform Module (TPM) provides additional security benefits over software because data protected by it cannot be used on other devices.
+
+If you enable this policy setting, Windows Hello for Business provisioning only occurs on devices with usable 1.2 or 2.0 TPMs. You can optionally exclude security devices, which prevents Windows Hello for Business provisioning from using those devices.
+
+If you disable or do not configure this policy setting, the TPM is still preferred, but all devices may provision Windows Hello for Business using software if the TPM is non-functional or unavailable.
+        </string>
+        <string id="MSPassport_MinimumPINLength">Minimum PIN length</string>
+        <string id="MSPassport_MinimumPINLengthExplain">Minimum PIN length configures the minimum number of characters required for the PIN.  The lowest number you can configure for this policy setting is 4.  The largest number you can configure must be less than the number configured in the Maximum PIN length policy setting or the number 127, whichever is the lowest.
+
+If you configure this policy setting, the PIN length must be greater than or equal to this number.
+
+If you disable or do not configure this policy setting, the PIN length must be greater than or equal to 4.
+
+NOTE: If the above specified conditions for the minimum PIN length are not met, default values will be used for both the maximum and minimum PIN lengths.
+        </string>
+        <string id="MSPassport_MaximumPINLength">Maximum PIN length</string>
+        <string id="MSPassport_MaximumPINLengthExplain">Maximum PIN length configures the maximum number of characters allowed for the PIN.  The largest number you can configure for this policy setting is 127. The lowest number you can configure must be larger than the number configured in the Minimum PIN length policy setting or the number 4, whichever is greater.
+
+If you configure this policy setting, the PIN length must be less than or equal to this number.
+
+If you disable or do not configure this policy setting, the PIN length must be less than or equal to 127.
+
+NOTE: If the above specified conditions for the maximum PIN length are not met, default values will be used for both the maximum and minimum PIN lengths.
+        </string>
+        <string id="MSPassport_UppercaseLetters">Require uppercase letters</string>
+        <string id="MSPassport_UppercaseLettersExplain">Use this policy setting to configure the use of uppercase letters in the PIN.
+
+If you enable this policy setting, Windows requires the user to include at least one uppercase letter in their PIN.
+
+If you disable this policy setting, Windows does not allow the user to include uppercase letters in their PIN.
+
+If you do not configure this policy setting, Windows allows, but does not require, uppercase letters in the PIN.
+        </string>
+        <string id="MSPassport_LowercaseLetters">Require lowercase letters</string>
+        <string id="MSPassport_LowercaseLettersExplain">Use this policy setting to configure the use of lowercase letters in the PIN.
+
+If you enable this policy setting, Windows requires the user to include at least one lowercase letter in their PIN.
+
+If you disable this policy setting, Windows does not allow the user to include lowercase letters in their PIN.
+
+If you do not configure this policy setting, Windows allows, but does not require, lowercase letters in the PIN.
+        </string>
+        <string id="MSPassport_SpecialCharacters">Require special characters</string>
+        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Use this policy setting to configure the use of special characters in the PIN.  Allowable special characters are: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
+
+If you enable this policy setting, Windows requires the user to include at least one special character in their PIN.
+
+If you disable this policy setting, Windows does not allow the user to include special characters in their PIN.
+
+If you do not configure this policy setting, Windows allows, but does not require, special characters in the PIN.]]>
+        </string>
+        <string id="MSPassport_Digits">Require digits</string>
+        <string id="MSPassport_DigitsExplain">Use this policy setting to configure the use of digits in the PIN.
+
+If you enable this policy setting, Windows requires the user to include at least one digit in their PIN.
+
+If you disable this policy setting, Windows does not allow the user to include digits in their PINs.
+
+If you do not configure this policy setting, Windows allows, but does not require, digits in the PIN.
+        </string>
+        <string id="MSPassport_PINHistory">History</string>
+        <string id="MSPassport_PINHistoryExplain">This setting specifies the number of past PINs that can be associated to a user account that can’t be reused. This policy enables administrators to enhance security by ensuring that old PINs are not reused continually. PIN history is not preserved through PIN reset.
+
+The value must be between 0 to 50 PINs. If this policy is set to 0, then storage of previous PINs is not required.
+
+Default: 0.
+        </string>
+        <string id="MSPassport_PINExpiration">Expiration</string>
+        <string id="MSPassport_PINExpirationExplain">This setting specifies the period of time (in days) that a PIN can be used before the system requires the user to change it. The PIN can be set to expire after any number of days between 1 and 730, or PINs can be set to never expire if the policy is set to 0.
+
+Default: 0.
+        </string>
+        <string id="MSPassport_UseBiometrics">Use biometrics</string>
+        <string id="MSPassport_UseBiometricsExplain">Windows Hello for Business enables users to use biometric gestures, such as face and fingerprints, as an alternative to the PIN gesture. However users must still configure a PIN to use in case of failures.
+
+If you enable or do not configure this policy setting, Windows Hello for Business allows the use biometric gestures.
+
+If you disable this policy setting, Windows Hello for Business prevents the use of biometric gestures.
+
+NOTE: Disabling this policy prevents the user of biometric gestures on the device for all account types.
+        </string>
+        <string id="MSPassport_EnablePinRecovery">Use PIN Recovery</string>
+        <string id="MSPassport_EnablePinRecoveryExplain">PIN recovery enables a user to change a forgotten PIN using the Windows Hello for Business PIN recovery service, without losing any associated credentials or certificates, including any keys associated with the user's personal accounts on the device. To achieve this, the Azure-based PIN recovery service encrypts a recovery secret, which is stored on the device, and requires both the PIN recovery service and the device to decrypt. PIN recovery requires the user to perform multi-factor authentication to Azure Active Directory.
+
+If you enable this policy setting, Windows Hello for Business uses the PIN recovery service. 
+
+If you disable or do not configure this policy setting, Windows does not create or store the PIN recovery secret. If the user forgets their PIN, they must delete their existing PIN and create a new one, and they will have to to re-register with any services to which the old PIN provided access.
+
+NOTE: This policy is only applicable to devices which are registered with Azure Active Directory.
+        </string>
+        <!-- Explain Text for UseCertificateForOnPremAuth -->
+        <string id="WHFB_UseCertificateForOnPremAuthExplain">Use this policy setting to configure Windows Hello for Business to enroll a sign-in certificate used for on-premises authentication.
+
+If you enable this policy setting, Windows Hello for Business enrolls a sign-in certificate that is used for on-premises authentication.
+
+If you disable or do not configure this policy setting, Windows Hello for Business enrolls a key that is used for on-premises authentication.
+
+NOTE: Disabling or not configuring this policy setting and enabling the "Use Windows Hello for Business" policy setting requires the environment to have one or more Windows Server 2016 domain controllers to prevent Windows Hello for Business authentication from failing.
+        </string>
+        <!-- Explain text for device unlock policy -->
+        <string id="MSPassport_UseDeviceUnlock">Configure device unlock factors</string>
+        <string id="MSPassport_UseDeviceUnlock_Explain">Configure a comma separated list of credential provider GUIDs, such as face and fingerprint provider GUIDs, to be used as the first and second unlock factors. If the trusted signal provider is specified as one of the unlock factors, you should also configure a comma separated list of signal rules in the form of xml for each signal type to be verified.
+
+If you enable this policy setting, the user will have to use one factor from each list to successfully unlock.
+
+If you disable or do not configure this policy setting, users can continue to unlock with existing unlock options.
+
+For more information see: https://go.microsoft.com/fwlink/?linkid=849684
+        </string>
+        <!-- Explain text for dynamic lock policy -->
+        <string id="MSPassport_UseDynamicLock">Configure dynamic lock factors</string>
+        <string id="MSPassport_UseDynamicLock_Explain">Configure a comma separated list of signal rules in the form of xml for each signal type.
+
+If you enable this policy setting, these signal rules will be evaluated to detect user absence and automatically lock the device.
+
+If you disable or do not configure this policy setting, users can continue to lock with existing locking options.
+
+For more information see: https://go.microsoft.com/fwlink/?linkid=849684
+        </string>
+        <!-- Explain text for smart card emulation policy -->
+        <string id="MSPassport_DisableSmartCardNode">Turn off smart card emulation</string>
+        <string id="MSPassport_DisableSmartCardNodeExplain">Windows Hello for Business automatically provides smart card emulation for compatibility with smart card enabled applications.
+
+If you enable this policy setting, Windows Hello for Business provisions Windows Hello for Business credentials that are not compatible with smart card applications.
+
+If you disable or do not configure this policy setting, Windows Hello for Business provisions Windows Hello for Business credentials compatible with smart card applications.
+
+NOTE: This policy affects Windows Hello for Business credentials at the time of creation. Credentials created before the application of this policy continue to provide smart card emulation. To change an existing credential, enable this policy setting and select "I forgot my PIN" from Settings.
+        </string>
+        <string id="MSPassport_AllowAllUserAccessToSmartCardNode">Allow enumeration of emulated smart card for all users</string>
+        <string id="MSPassport_AllowAllUserAccessToSmartCardNodeExplain">Windows prevents users on the same computer from enumerating provisioned Windows Hello for Business credentials for other users.
+
+If you enable this policy setting, Windows allows all users of the computer to enumerate all Windows Hello for Business credentials, but still require each user to provide their own factors for authentication.
+
+If you disable or do not configure this policy setting, Windows does not allow the enumeration of provisioned Windows Hello for Business credentials for other users on the same device.
+
+This policy setting is designed for a single user who has enrolled privileged and non-privileged on a single device. The user owns both credentials, which enables them to sign-in using non-privileged credentials, but can performed elevated tasks without signing-out.
+
+This policy setting is incompatible with Windows Hello for Business credentials provisioned when the "Turn off smart card emulation" is enabled.
+
+Windows requires a reboot after you apply this setting to a computer.
+        </string>
+        <!-- Explain text for certificate propagation policy -->
+        <string id="MSPassport_UseHelloCertificatesAsSmartCardCertificates">Use Windows Hello for Business certificates as smart card certificates</string>
+        <string id="MSPassport_UseHelloCertificatesAsSmartCardCertificatesExplain">If you enable this policy setting, applications use Windows Hello for Business certificates as smart card certificates. Biometric factors are unavailable when a user is asked to authorize the use of the certificate's private key. This policy setting is designed to allow compatibility with applications that rely exclusively on smart card certificates.
+
+If you disable or do not configure this policy setting, applications do not use Windows Hello for Business certificates as smart card certificates, and biometric factors are available when a user is asked to authorize the use of the certificate's private key.
+
+This policy setting is incompatible with Windows Hello for Business credentials provisioned when the "Turn off smart card emulation" is enabled.
+
+Windows requires a user to lock and unlock their session after changing this setting if the user is currently signed in.
+        </string>
+    </stringTable>
+    <presentationTable>
+        <presentation id="MSPassport_MinimumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MinimumPINLengthDataType" spin="true" spinStep="1" defaultvalue="6">Minimum PIN length</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_MaximumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MaximumPINLengthDataType" spin="true" spinStep="1" defaultvalue="127">Maximum PIN length</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_UppercaseLettersControl">
+            <dropdownList refId="MSPassport_UppercaseLettersChoices" defaultItem="0">Uppercase letters:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_LowercaseLettersControl">
+            <dropdownList refId="MSPassport_LowercaseLettersChoices" defaultItem="0">Lowercase letters:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_SpecialCharactersControl">
+            <dropdownList refId="MSPassport_SpecialCharactersChoices" defaultItem="0">Special characters:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_DigitsControl">
+            <dropdownList refId="MSPassport_DigitsChoices" defaultItem="0">digits:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_PINHistoryControl">
+            <decimalTextBox refId="MSPassport_PINHistoryDataType" spin="true" spinStep="1" defaultvalue="0">PIN History</decimalTextBox>
+        </presentation>
+      <presentation id="MSPassport_PINExpirationControl">
+        <decimalTextBox refId="MSPassport_PINExpirationDataType" spin="true" spinStep="1" defaultvalue="0">PIN Expiration</decimalTextBox>
+      </presentation>
+      <presentation id="MSPassport_ExcludeSecurityDevicesControl">
+        <text>Do not use the following security devices:</text>
+        <checkBox refId="MSPassport_ExcludeTPM12DataType" defaultChecked="false">TPM 1.2</checkBox>
+      </presentation>
+      <presentation id="MSPassport_UsePassportForWorkControl">
+        <checkBox refId="MSPassport_DisablePostLogonProvisioning" defaultChecked="false">Do not start Windows Hello provisioning after sign-in</checkBox>
+      </presentation>
+      <presentation id="MSPassport_UseDeviceUnlock_Control">
+        <textBox refId="MSPassport_UseDeviceUnlock_GroupA">
+            <label>First unlock factor credential providers</label>
+            <defaultValue>{D6886603-9D2F-4EB2-B667-1971041FA96B},{8AF662BF-65A0-4D0A-A540-A338A999D36F},{BEC09223-B018-416D-A0AC-523971B639F5}</defaultValue>
+        </textBox>
+        <textBox refId="MSPassport_UseDeviceUnlock_GroupB">
+            <label>Second unlock factor credential providers</label>
+            <defaultValue>{27FBDB57-B613-4AF2-9D7E-4FA7A66C21AD},{D6886603-9D2F-4EB2-B667-1971041FA96B}</defaultValue>
+        </textBox>
+        <textBox refId="MSPassport_UseDeviceUnlock_Plugins">
+            <label>Signal rules for device unlock</label>
+            <defaultValue><![CDATA[<rule schemaVersion="1.0"> <signal type="bluetooth" scenario="Authentication" classOfDevice="512" rssiMin="-10" rssiMaxDelta="-10"/> </rule>]]> </defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="MSPassport_UseDynamicLock_Control">
+        <textBox refId="MSPassport_UseDynamicLock_Plugins">
+            <label>Signal rules for dynamic lock</label>
+            <defaultValue><![CDATA[<rule schemaVersion="1.0"> <signal type="bluetooth" scenario="Dynamic Lock" classOfDevice="512" rssiMin="-10" rssiMaxDelta="-10"/> </rule>]]> </defaultValue>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

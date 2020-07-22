@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2011 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="OpsMgr" namespace="Microsoft.Policies.SystemCenter.OperationsManager" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="Cat_OpsMgr" displayName="$(string.Cat_OpsMgr)" />
+  </categories>
+  <policies>
+     <policy name="Pol_LogonTypePolicy" class="Machine" displayName="$(string.Pol_LogonTypePolicy)" explainText="$(string.Pol_LogonTypePolicy_Help)" presentation="$(presentation.Pol_LogonTypePolicy)" key="SOFTWARE\Policies\Microsoft\System Center\Health Service">
+      <parentCategory ref="Cat_OpsMgr" />
+      <supportedOn ref="windows:SUPPORTED_WindowsXP" />
+      <elements>
+        <enum id="Lbl_LogonTypePolicyCombo" valueName="Worker Process Logon Type" required="true">
+          <item displayName="$(string.Lbl_LogonTypeInteractive)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Lbl_LogonTypeBatch)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+          <item displayName="$(string.Lbl_LogonTypeService)">
+            <value>
+              <decimal value="5" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="Pol_RuntimeClrGarbageCollectorType" class="Machine" displayName="$(string.Pol_RuntimeClrGarbageCollectorType)" explainText="$(string.Pol_RuntimeClrGarbageCollectorType_Help)" presentation="$(presentation.Pol_RuntimeClrGarbageCollectorType)" key="SOFTWARE\Policies\Microsoft\System Center\Health Service">
+      <parentCategory ref="Cat_OpsMgr" />
+      <supportedOn ref="windows:SUPPORTED_WindowsXP" />
+      <elements>
+        <boolean id="Pol_RuntimeClrGarbageCollectorTypeChoice" valueName="Runtime Use Workstation GC">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="Pol_RuntimeClrGarbageCollectorUseConcurrent" class="Machine" displayName="$(string.Pol_RuntimeClrGarbageCollectorUseConcurrent)" explainText="$(string.Pol_RuntimeClrGarbageCollectorUseConcurrent_Help)" presentation="$(presentation.Pol_RuntimeClrGarbageCollectorUseConcurrent)" key="SOFTWARE\Policies\Microsoft\System Center\Health Service">
+      <parentCategory ref="Cat_OpsMgr" />
+      <supportedOn ref="windows:SUPPORTED_WindowsXP" />
+      <elements>
+        <boolean id="Pol_RuntimeClrGarbageCollectorUseConcurrentChoice" valueName="Runtime Use Concurrent GC">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="Pol_RuntimeClrVersion" class="Machine" displayName="$(string.Pol_RuntimeClrVersion)" explainText="$(string.Pol_RuntimeClrVersion_Help)" presentation="$(presentation.Pol_RuntimeClrVersion)" key="SOFTWARE\Policies\Microsoft\System Center\Health Service">
+      <parentCategory ref="Cat_OpsMgr" />
+      <supportedOn ref="windows:SUPPORTED_WindowsXP" />
+      <elements>
+        <enum id="Lbl_RuntimeClrVersionCombo" valueName="Runtime CLR Version" required="true">
+          <item displayName="$(string.Lbl_RuntimeClrVersion20)">
+            <value>
+              <string>v2.0.50727</string>
+            </value>
+          </item>
+          <item displayName="$(string.Lbl_RuntimeClrVersion40)">
+            <value>
+              <string>v4.0.30319</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

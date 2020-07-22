@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<policyDefinitionResources
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	revision="1.0"
+	schemaVersion="1.0"
+	xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+
+<displayName>enter display name here</displayName>
+
+<description>enter description here</description>
+
+<resources>
+
+<stringTable>
+
+<string id="CASCADIA_APP_COMPATIBILITY">Application Compatibility</string>
+
+<string id="CASCADIA_APP_COMPATIBILITY_Help">Controls application compatibility settings on an RD Session Host server</string>
+
+<string id="CASCADIA_ENABLE_IP_VIRTUALIZATION">Turn on Remote Desktop IP Virtualization</string>
+
+<string id="CASCADIA_ENABLE_IP_VIRTUALIZATION_EXPLAIN">This policy setting specifies whether Remote Desktop IP Virtualization is turned on.
+By default, Remote Desktop IP Virtualization is turned off.
+
+If you enable this policy setting, Remote Desktop IP Virtualization is turned on. You can select the mode in which this setting is applied. If you are using Per Program mode, you must enter a list of programs to use virtual IP addresses. List each program on a separate line (do not enter any blank lines between programs). For example:
+
+explorer.exe
+mstsc.exe
+
+If you disable or do not configure this policy setting, Remote Desktop IP Virtualization is turned off.
+</string>
+
+<string id="CASCADIA_ENABLE_SESSION_MODE_IP_VIRTUALIZATION">Per Session</string>
+
+<string id="CASCADIA_ENABLE_PRPGRAM_MODE_IP_VIRTUALIZATION">Per Program</string>
+
+<string id="CASCADIA_NET_ID_IP_VIRTUALIZATION">Select the network adapter to be used for Remote Desktop IP Virtualization</string>
+
+<string id="CASCADIA_NET_ID_IP_VIRTUALIZATION_EXPLAIN">This policy setting specifies the IP address and network mask that corresponds to the network adapter used for virtual IP addresses. The IP address and network mask should be entered in Classless Inter-Domain Routing notation; for example, 192.0.2.96/24.
+
+If you enable this policy setting, the specified IP address and network mask are used to select the network adapter used for the virtual IP addresses.
+
+If you disable or do not configure this policy setting, Remote Desktop IP Virtualization is turned off. A network adapter must be configured for Remote Desktop IP Virtualization to work.
+</string>
+
+<string id="CASCADIA_NOT_USE_SERVER_IP_WITH_IP_VIRTUALIZATION">Do not use Remote Desktop Session Host server IP address when virtual IP address is not available</string>
+
+<string id="CASCADIA_NOT_USE_SERVER_IP_WITH_IP_VIRTUALIZATION_EXPLAIN">This policy setting specifies whether a session uses the IP address of the Remote Desktop Session Host server if a virtual IP address is not available.
+
+If you enable this policy setting, the IP address of the RD Session Host server is not used if a virtual IP is not available. The session will not have network connectivity.
+
+If you disable or do not configure this policy setting, the IP address of the RD Session Host server is used if a virtual IP is not available.
+</string>
+
+<string id="CASCADIA_ENABLE_DFSS">Turn off Fair Share CPU Scheduling</string>
+
+<string id="CASCADIA_ENABLE_DFSS_EXPLAIN">Fair Share CPU Scheduling dynamically distributes processor time across all Remote Desktop Services sessions on the same RD Session Host server, based on the number of sessions and the demand for processor time within each session.
+
+If you enable this policy setting, Fair Share CPU Scheduling is turned off.
+
+If you disable or do not configure this policy setting, Fair Share CPU Scheduling is turned on.
+</string>
+
+<string id="CASCADIA_DISABLE_MSI">Turn off Windows Installer RDS Compatibility</string>
+
+<string id="CASCADIA_DISABLE_MSI_EXPLAIN">This policy setting specifies whether Windows Installer RDS Compatibility runs on a per user basis for fully installed applications. Windows Installer allows one instance of the msiexec process to run at a time. By default, Windows Installer RDS Compatibility is turned on.
+
+If you enable this policy setting, Windows Installer RDS Compatibility is turned off, and only one instance of the msiexec process can run at a time.
+
+If you disable or do not configure this policy setting, Windows Installer RDS Compatibility is turned on, and multiple per user application installation requests are queued and handled by the msiexec process in the order in which they are received.
+</string>
+
+</stringTable>
+
+<presentationTable>
+	<presentation id="CASCADIA_NET_ID_IP_VIRTUALIZATION">
+		<textBox refId="CASCADIA_NET_ID_IP_VIRTUALIZATION">
+		<label>Define IP address and network mask corresponding to the network adapter to be used for Remote Desktop IP Virtualization:</label>
+		</textBox>
+		<text>The format is [IP address]/[network mask]. For Example:192.0.2.96/24</text>
+		</presentation>
+		<presentation id="CASCADIA_ENABLE_IP_VIRTUALIZATION">
+		<dropdownList refId="CASCADIA_ENABLE_IP_VIRTUALIZATION" noSort="true" defaultItem="0">Turn on Remote Desktop IP Virtualization mode:</dropdownList>
+		<multiTextBox refId="CASCADIA_ENABLE_IP_VIRTUALIZATION_EDIT">Assign virtual IP addresses to these programs:</multiTextBox>
+		<text>If you are listing more than one program,  list each program on a separate line (do not enter any blank lines between programs). For example:</text>
+		<text>explorer.exe
+		mstsc.exe</text>
+	</presentation>
+</presentationTable>
+</resources>
+</policyDefinitionResources>

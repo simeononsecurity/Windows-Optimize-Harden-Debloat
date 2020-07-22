@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">Carpetas de trabajo</string>
+      <string id="Pol_MachineEnableWorkFolders">Forzar configuración automática para todos los usuarios</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">Esta configuración de directiva especifica si las carpetas de trabajo deben configurarse automáticamente para todos los usuarios del equipo afectado.
+      
+Si habilita esta configuración de directiva, las carpetas de trabajo se configurarán automáticamente para todos los usuarios del equipo afectado. Esto impide que los usuarios opten por no usar las carpetas de trabajo en el equipo y, asimismo, que especifiquen manualmente la carpeta local en la que las carpetas de trabajo almacenan los archivos. Las carpetas de trabajo usan la configuración especificada en la configuración de directiva "Especificar configuración de carpetas de trabajo", en Configuración de usuario\Plantillas administrativas\Windows Components\WorkFolders. Si la configuración de directiva "Especificar configuración de carpetas de trabajo" no se aplica a un usuario, las carpetas de trabajo no se configurarán automáticamente.
+      
+Si deshabilita o no establece esta configuración de directiva, las carpetas de trabajo usan la opción "Forzar configuración automática" de la configuración de directiva "Especificar configuración de carpetas de trabajo" para saber si hay que configurar automáticamente las carpetas de trabajo para un usuario determinado.
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">Especificar configuración de carpetas de trabajo</string>
+      <string id="Pol_UserEnableWorkFolders_Help">Esta configuración de directiva especifica el servidor de Carpetas de trabajo para los usuarios afectados, así como si los usuarios pueden cambiar la configuración cuando configuran Carpetas de trabajo en un equipo unido a un dominio.
+
+Si habilitas esta configuración de directiva, los usuarios afectados recibirán la configuración de Carpetas de trabajo cuando inicien sesión en un equipo unido a un dominio. Si se deshabilita o no se establece esta configuración de directiva, no se especificará ninguna configuración de Carpetas de trabajo para los usuarios afectados, aunque los usuarios podrán establecerla manualmente mediante el elemento del Panel de control de Carpetas de trabajo.
+
+La "URL de carpetas de trabajo" puede especificar la dirección URL usada por la organización para la detección de Carpetas de trabajo o la dirección URL específica del servidor de archivos que almacena los datos de los usuarios afectados.
+
+La "Ruta de acceso local de Carpetas de trabajo" especifica la carpeta local usada en la máquina cliente para sincronizar los archivos. Esta ruta puede contener variables de entorno. Nota: Para que esta configuración se pueda aplicar, también debe especificarse una "URL de Carpetas de trabajo" válida.
+ 
+La opción "Preferencias de acceso a archivos a petición" controla si se habilita el acceso a archivos a petición. Cuando se habilita, el usuario controla qué archivos de Carpetas de trabajo están disponibles sin conexión en un equipo determinado. El resto de los archivos de Carpetas de trabajo están siempre visibles y no ocupan espacio en el equipo, pero el usuario debe estar conectado a Internet para tener acceso a ellos.
+
+Si habilitas esta configuración de directiva, se habilita el acceso a archivos a petición.
+Si deshabilitas esta configuración de directiva, el acceso a archivos a petición se deshabilita y se requiere que haya espacio suficiente para almacenar todos los archivos del usuario en cada uno de sus equipos.
+Si se especifica la elección del usuario o no se establece esta configuración de directiva, el usuario decide si se habilita el acceso a archivos a petición. Sin embargo, si la configuración de directiva Forzar configuración automática está habilitada, Carpetas de trabajo se configura automáticamente con el acceso a archivos a petición habilitado.
+
+La opción "Forzar configuración automática" especifica que la función Carpetas de trabajo debe configurarse automáticamente sin pedir confirmación a los usuarios. Esto impide que los usuarios puedan elegir no usar Carpetas de trabajo en el equipo; también impide que puedan especificar manualmente la carpeta local en que Carpetas de trabajo almacena los archivos. De manera predeterminada, Carpetas de trabajo se almacena en la carpeta "%USERPROFILE%\Work Folders". Si no se especifica esta opción, los usuarios deben usar el elemento del Panel de Control Carpetas de trabajo en sus equipos para configurar Carpetas de trabajo.
+      </string>
+      <string id="Pol_UserEnableTokenBroker">Habilita el uso del agente de tokens para la autenticación de AD FS</string>
+      <string id="Pol_UserEnableTokenBroker_Help">Esta directiva especifica si Carpetas de trabajo debe usar el agente de tokens para la autenticación de AD FS interactiva en lugar de su propio flujo de tokens de OAuth2 usado en las versiones anteriores.</string>
+      <string id="Pol_GhostingPreference_Enabled">Habilitar (recomendado)</string>
+      <string id="Pol_GhostingPreference_Disabled">Deshabilitar</string>
+      <string id="Pol_GhostingPreference_UserDefined">Elección del usuario</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>Dirección URL de carpetas de trabajo:  </label>
+        </textBox>
+        <text> </text>
+        <textBox refId="Lbl_LocalFolderPath_Edit">
+          <label>Ruta de acceso local de Carpetas de trabajo: </label>
+        </textBox>
+        <text> </text>
+        <dropdownList refId="Lbl_GhostingPreference_Enum" noSort="true" defaultItem="0">Preferencia de acceso a archivos a petición:</dropdownList>        
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">Forzar configuración automática</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

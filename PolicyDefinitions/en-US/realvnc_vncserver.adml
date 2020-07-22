@@ -1,0 +1,3146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Version 6.7.2 (r42646) -->
+<policyDefinitionResources revision="607.2" schemaVersion="1.0">
+  <displayName>realvnc_vncserver</displayName>
+  <description>VNC Server</description>
+  <resources>
+    <stringTable>
+      <string id="RealVNC_vncserver_User_Hosts_help">Filter connections by IPv4 address to allow, query, or reject particular VNC Viewer computers, or + to allow connections from all.
+DEPRECATED in favor of IpClientAddresses.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "+".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_CaptureMethod_help">Capture screen updates using the optimal method (0) or by polling (1). On Windows 8+, the optimal method uses DirectX. On earlier platforms, the optimal method uses VNC Mirror Driver for VNC Server in Service Mode, or polling for VNC Server in User Mode.
+
+The default value for this parameter is "0".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_LdapSecurity">LdapSecurity</string>
+      <string id="RealVNC_vncserver_User_Desktop_help">A name for the desktop to display to connected VNC Viewer users.
+
+The default value for this parameter is "$HOSTNAME".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ServerPreferredEncoding_Raw">Raw</string>
+      <string id="RealVNC_vncserver_Machine_RemoveWallpaper_help">Hide the desktop wallpaper from connected VNC Viewer users.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_LdapSecurity_Auto">Auto</string>
+      <string id="RealVNC_vncserver_Machine_OcspNonce_Request">Request</string>
+      <string id="RealVNC_vncserver_User_AlwaysShared_help">Determine whether multiple VNC Viewer users can be connected at the same time, in conjunction with NeverShared.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_QuitOnCloseStatusDialog">QuitOnCloseStatusDialog</string>
+      <string id="RealVNC_vncserver_User_QueryOfferViewOnly">QueryOfferViewOnly</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateCrlLimit">LdapCertificateCrlLimit</string>
+      <string id="RealVNC_vncserverui_service_User_Locale">Locale</string>
+      <string id="RealVNC_vncserver_Machine_AudioEnable">AudioEnable</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateRevocation_EnforceOcsp">EnforceOcsp</string>
+      <string id="RealVNC_vncserver_Machine_LdapSecurity">LdapSecurity</string>
+      <string id="RealVNC_vncserver_Machine_UpdateCheckFrequencyDays_help">The number of days to leave between automatic checks for critical software patches or product updates.
+
+The default value for this parameter is "1".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_user_User_Log">Log</string>
+      <string id="RealVNC_vncserver_Machine_PollCursorTime_help">How often to poll for cursor movement in ms.
+
+The default value for this parameter is "100".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_AudioEnable_help">Enable Audio
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_UpdateMethod">UpdateMethod</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateRevocation_help">Choose 'Enforce' to strictly check revocation for user certificates fetched from LDAP (or 'EnforceOcsp' to disallow fallback to CRLs if OCSP fetching fails), 'CheckIfAvailable' to allow the certificate if downloading the CRL/OCSP response fails, or 'Ignore' to bypass revocation checking.
+
+The default value for this parameter is "Enforce".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_SendCutText_help">Allow connected VNC Viewer users to copy and paste text to their own computers.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_RadiusPrompt">RadiusPrompt</string>
+      <string id="RealVNC_vncserver_User_LogFile">LogFile</string>
+      <string id="RealVNC_vncserver_Machine_Desktop">Desktop</string>
+      <string id="RealVNC_vncserverui_user_User_ChatExpiryLimit_help">Number of messages/days to keep in chat history
+
+The default value for this parameter is "90days".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ServerPreferredEncoding_help">Specify an encoding for VNC Server to use (if supported), or 'Viewer' to grant the VNC Viewer preference
+
+The default value for this parameter is "Viewer".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ConnNotifyAlways_help">Specify True to display the name of the connected user throughout the session, or the most recently connected if more than one.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_IpListenAddresses">IpListenAddresses</string>
+      <string id="RealVNC_vncserver_Machine_RadiusSecret">RadiusSecret</string>
+      <string id="RealVNC_vncserver_User_ProtocolVersion_50">5.0</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateIntermediateStore_help">Optional URL containing intermediate certificates for user public keys.  "file://" and "ldap://" are supported, or "enterprise://" (Windows).
+
+The default value for this parameter is "enterprise://".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ShareFiles_help">Allow connected VNC Viewer users to transfer files.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_EnableAutoUpdateChecks">EnableAutoUpdateChecks</string>
+      <string id="RealVNC_vncserver_Machine_ServerPreferredEncoding_ZRLE2">ZRLE2</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateUserStore">LdapCertificateUserStore</string>
+      <string id="RealVNC_vncserver_User_DisplayDevice_help">The name of the monitor to remote to connected VNC Viewer users, or empty to remote all monitors.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_MSLWorkaround_help">Changes the workaround for maxSendLength (1 = default behaviour, 2 = alternative behaviour)
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_InputOnlyPassword_help">Obfuscated binary password for input-only user.
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ProtocolVersion_40">4.0</string>
+      <string id="RealVNC_vncserver_Machine_AdminPassword">AdminPassword</string>
+      <string id="RealVNC_vncserver_Machine_HttpPort_help">TCP/IP port on which to accept connections from web browsers.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "5800".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_EnableAutoUpdateChecks_help">Allow automatic checks for critical software patches and product updates (1), do not allow automatic checks (0), or let the user decide when the VNC Server user interface first appears (2).
+
+The default value for this parameter is "2".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_OcspNonce">OcspNonce</string>
+      <string id="RealVNC_vncserver_Machine_RfbPort_help">Port on which to accept direct VNC connections.
+
+The default value for this parameter is "5900".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_QueryConnectMessage">QueryConnectMessage</string>
+      <string id="RealVNC_vncserver_Machine_BlacklistTimeout">BlacklistTimeout</string>
+      <string id="RealVNC_vncserverui_service_User_LogFile">LogFile</string>
+      <string id="RealVNC_vncserver_User_UpdateMethod_help">Discover screen updates by polling (0), using application hooking (1), or using DirectX tracking [Windows 8 and above only] and mirror driver technology [Windows 7 and older platforms only] (2).
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AutoLogonOverride_help">VNC Server in Service Mode only. Allow connected VNC Viewer users pressing Shift while logging the current user account off to bypass set ForceAutoLogon and IgnoreShiftOverride Windows Registry values, and prevent the same user account automatically logging back on.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_QueryConnectTimeout">QueryConnectTimeout</string>
+      <string id="RealVNC_vncserver_Machine_ShowCloudHints">ShowCloudHints</string>
+      <string id="RealVNC_vncserver_Machine_AcceptKeyEvents_help">Allow connected VNC Viewer users to control this computer using their keyboards.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisableAddNewClient">DisableAddNewClient</string>
+      <string id="RealVNC_vncserver_Machine_IpListenProtocols_help">List of protocols via which to accept direct connections (UDP, TCP)
+
+The default value for this parameter is "TCP,UDP".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_service_User_FetchDir_help">Directory in which to store transferred files.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateIntermediateStore_help">Optional URL containing intermediate certificates for user public keys.  "file://" and "ldap://" are supported, or "enterprise://" (Windows).
+
+The default value for this parameter is "enterprise://".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_EnableManualUpdateChecks_help">Disable the Check for updates option on the shortcut menu.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_BlacklistThreshold">BlacklistThreshold</string>
+      <string id="RealVNC_vncserver_User_ProtocolVersion_38">3.8</string>
+      <string id="RealVNC_vncserverui_service_User_KeepChatHistory">KeepChatHistory</string>
+      <string id="RealVNC_vncserver_User_QueryConnectTimeout">QueryConnectTimeout</string>
+      <string id="RealVNC_vncserver_Machine_Log_help">Record events in the format &lt;log&gt;:&lt;target&gt;:&lt;level&gt;[,...].
+
+The default value for this parameter is "*:file:30".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ConnTimeout">ConnTimeout</string>
+      <string id="RealVNC_vncserver_Machine_Password_help">Obfuscated binary encoding of the password that VNC Viewer users must supply in order to authenticate to VNC Server.
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_TcpListenAddresses">TcpListenAddresses</string>
+      <string id="RealVNC_vncserver_Machine_CompareFB_help">Perform pixel comparison on framebuffer to reduce unnecessary updates.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_NeverShared_help">Determine whether multiple VNC Viewer users can be connected at the same time, in conjunction with AlwaysShared and DisconnectClients.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_BlankScreen">BlankScreen</string>
+      <string id="RealVNC_vncserver_User_AcceptPointerEvents">AcceptPointerEvents</string>
+      <string id="RealVNC_vncserver_User_Log">Log</string>
+      <string id="RealVNC_vncserver_User_ProtocolVersion">ProtocolVersion</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateNameMapping_help">Choose 'ActiveDirectory' to perform LDAP name mapping using userPrincipalName/sAMAccountName attributes, or 'RFC2307' to use POSIX uid/uidNumber attributes (which may also be enabled in Active Directory)
+
+The default value for this parameter is "ActiveDirectory".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_Password">Password</string>
+      <string id="RealVNC_vncserver_Machine_QueryTimeoutRights_help">Determine whether connections exceeding the accept/reject prompt's timeout are accepted or made view-only. Leave empty to reject connections.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AcceptPointerEvents_help">Allow connected VNC Viewer users to control this computer using their mice.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_AllowCloudRelay">AllowCloudRelay</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateNameMapping_RFC2307">RFC2307</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateRevocation_help">Choose 'Enforce' to strictly check revocation for user certificates fetched from LDAP (or 'EnforceOcsp' to disallow fallback to CRLs if OCSP fetching fails), 'CheckIfAvailable' to allow the certificate if downloading the CRL/OCSP response fails, or 'Ignore' to bypass revocation checking.
+
+The default value for this parameter is "Enforce".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_httpd">httpd</string>
+      <string id="RealVNC_vncserver_Machine_AlwaysShared_help">Determine whether multiple VNC Viewer users can be connected at the same time, in conjunction with NeverShared.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_EnableAnalytics_help">Send usage data to help improve RealVNC products.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateRevocation_Enforce">Enforce</string>
+      <string id="RealVNC_vncserver_Machine_CaptureMethod_help">Capture screen updates using the optimal method (0) or by polling (1). On Windows 8+, the optimal method uses DirectX. On earlier platforms, the optimal method uses VNC Mirror Driver for VNC Server in Service Mode, or polling for VNC Server in User Mode.
+
+The default value for this parameter is "0".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_httpd_help">Directory from which to serve resources to web browser users, or &lt;inline&gt; to serve from VNC Server.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "&lt;inline&gt;".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_GuestPassword_help">Obfuscated binary password for guest access.
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_RadiusAddress_help">The address to bind to for sending RADIUS requests, or empty to use the default route to the RADIUS server
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ProtocolVersion_37">3.7</string>
+      <string id="RealVNC_vncserver_User_AllowChangeDefaultPrinter_help">If printing is enabled, change this computer's default printer to the local printer of the first VNC Viewer user who connects.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_MSLWorkaround_help">Changes the workaround for maxSendLength (1 = default behaviour, 2 = alternative behaviour)
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisableAddNewClient_help">Disable the Connect to Listening VNC Viewer option on the shortcut menu.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_EnableAutoUpdateChecks">EnableAutoUpdateChecks</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateCrlLimit_help">The maximum size in bytes for downloaded CRLs.
+
+The default value for this parameter is "26214400".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_Encryption_help">The level of encryption to offer for incoming connections (AlwaysMaximum | AlwaysOn | PreferOn | PreferOff), or AlwaysOff to turn off encryption (direct connections only, and not recommended).
+
+The default value for this parameter is "AlwaysOn".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_Authentication_help">The authentication scheme(s) to offer for incoming connections (SingleSignOn | SystemAuth | VncAuth | Certificate | Radius | InteractiveSystemAuth), or None to turn off password protection (direct connections only, and not recommended).
+
+The default value for this parameter is "SystemAuth".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ClipboardFT_help">Allow connected VNC Viewer users on Windows computers to transfer files via copy and paste.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ProxyServer_help">The URL of a proxy server, or alternatively "&lt;system&gt;" to use IE or system proxy settings.
+
+The default value for this parameter is "&lt;system&gt;".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ClipboardFT_help">Allow connected VNC Viewer users on Windows computers to transfer files via copy and paste.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_RadiusTimeout_help">The time spent waiting per RADIUS server; a few retries are sent at 1-second intervals, then the rest of the timeout interval is spent waiting before falling back to the next server.
+
+The default value for this parameter is "60".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AuthTimeout">AuthTimeout</string>
+      <string id="RealVNC_vncserver_Machine_OcspNonce_Require">Require</string>
+      <string id="RealVNC_vncserver_Machine_QueryConnect_help">Show a prompt identifying each connecting VNC Viewer user, where possible, enabling the connection to be accepted, rejected, or made view-only.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_Permissions_help">Register user accounts or groups with VNC Server so connecting VNC Viewer users can authenticate using familiar, securely-managed credentials. Grant permissions to these users to use remote control features while connections are in progress.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_IpListenProtocols_help">List of protocols via which to accept direct connections (UDP, TCP)
+
+The default value for this parameter is "TCP,UDP".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateRevocation_Enforce">Enforce</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateIntermediateStore">LdapCertificateIntermediateStore</string>
+      <string id="RealVNC_vncserver_User_Password_help">Obfuscated binary encoding of the password that VNC Viewer users must supply in order to authenticate to VNC Server.
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_OcspNonce_help">Do not use nonces with OCSP requests (None), or request nonces but do not mandate a nonce's presence (Request), or request and mandate a nonce (Require, most secure).
+
+The default value for this parameter is "None".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_RadiusNasId">RadiusNasId</string>
+      <string id="RealVNC_vncserver_Machine_RadiusNormalizeUsername_help">Strip the domain/realm component from usernames when contacting the RADIUS server
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_CompareFB_help">Perform pixel comparison on framebuffer to reduce unnecessary updates.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_RfbPort">RfbPort</string>
+      <string id="RealVNC_vncserver_Machine_DisableAero_help">Disable the Windows Aero interface to improve performance while VNC Viewer users are connected.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_AutoLogonOverride_help">VNC Server in Service Mode only. Allow connected VNC Viewer users pressing Shift while logging the current user account off to bypass set ForceAutoLogon and IgnoreShiftOverride Windows Registry values, and prevent the same user account automatically logging back on.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateIntermediateStore">LdapCertificateIntermediateStore</string>
+      <string id="RealVNC_vncserver_Machine_EnableChat_help">Allow connected VNC Viewer users to chat.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_RadiusNormalizeUsername_help">Strip the domain/realm component from usernames when contacting the RADIUS server
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ConnNotifyTimeout">ConnNotifyTimeout</string>
+      <string id="RealVNC_vncserver_User_EnableRemotePrinting_help">Allow connected VNC Viewer users to print directly to their local printers.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_RemoveWallpaper">RemoveWallpaper</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateTrustStore">LdapCertificateTrustStore</string>
+      <string id="RealVNC_vncserver_Machine_DisableLocalInputs">DisableLocalInputs</string>
+      <string id="RealVNC_vncserver_User_RadiusServer">RadiusServer</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateNameMapping_ActiveDirectory">ActiveDirectory</string>
+      <string id="RealVNC_vncserver_User_DisableOptions">DisableOptions</string>
+      <string id="RealVNC_vncserverui_service_User_LogDir">LogDir</string>
+      <string id="RealVNC_vncserver_User_DisableClose">DisableClose</string>
+      <string id="RealVNC_vncserver_User_AllowIpListenRfb">AllowIpListenRfb</string>
+      <string id="RealVNC_vncserver_Machine_DisconnectAction">DisconnectAction</string>
+      <string id="RealVNC_vncserverui_user_User_KeepChatHistory_help">Keep chat history.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_RadiusPrompt">RadiusPrompt</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateCrlLimit_help">The maximum size in bytes for downloaded CRLs.
+
+The default value for this parameter is "26214400".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisableAero">DisableAero</string>
+      <string id="RealVNC_vncserver_User_CompareFB">CompareFB</string>
+      <string id="RealVNC_vncserver_Machine_PollInterval">PollInterval</string>
+      <string id="RealVNC_vncserver_User_IpClientAddresses">IpClientAddresses</string>
+      <string id="RealVNC_vncserver_Machine_localhost_help">Restrict direct VNC connections to those originating from this computer.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisconnectClients">DisconnectClients</string>
+      <string id="RealVNC_vncserver_User_NtLogonAsInteractive">NtLogonAsInteractive</string>
+      <string id="RealVNC_vncserver_User_QueryConnectTimeout_help">The number of seconds to show the accept/reject prompt for, before connections are automatically granted timeout permissions.
+
+The default value for this parameter is "10".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateNameMapping_RFC2307">RFC2307</string>
+      <string id="RealVNC_vncserver_User_BlacklistTimeout">BlacklistTimeout</string>
+      <string id="RealVNC_vncserver_User_QueryOnlyIfLoggedOn">QueryOnlyIfLoggedOn</string>
+      <string id="RealVNC_vncserver_User_GuestPermissions_help">Allow guests to connect with particular permissions.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_DisconnectClients_help">Determine whether multiple VNC Viewer users can be connected at the same time, in conjunction with AlwaysShared, NeverShared, and VNC Viewer.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ServerPreferredEncoding_ZRLE">ZRLE</string>
+      <string id="RealVNC_vncserver_Machine_RadiusNormalizeUsername">RadiusNormalizeUsername</string>
+      <string id="RealVNC_vncserver_Machine_InputOnlyPassword">InputOnlyPassword</string>
+      <string id="RealVNC_vncserver_Machine_HttpPort">HttpPort</string>
+      <string id="RealVNC_vncserver_User_IdleTimeout">IdleTimeout</string>
+      <string id="RealVNC_vncserver_Machine_DisconnectAction_help">VNC Server in Service Mode only. Protect the computer when the last user disconnects (Lock | Logoff), or do nothing (None).
+
+The default value for this parameter is "None".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ServerPreferredEncoding">ServerPreferredEncoding</string>
+      <string id="RealVNC_vncserver_User_QueryTimeoutRights">QueryTimeoutRights</string>
+      <string id="RealVNC_vncserver_User_AllowCloudRelay">AllowCloudRelay</string>
+      <string id="RealVNC_vncserver_User_ShareFiles">ShareFiles</string>
+      <string id="RealVNC_vncserver_Machine_DisableTrayIcon">DisableTrayIcon</string>
+      <string id="RealVNC_vncserver_User_AllowIpListenRfb_help">Allow direct VNC connections over TCP/UDP.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_service_User_Log">Log</string>
+      <string id="RealVNC_vncserver_User_QueryOfferViewOnly_help">Offer a view-only choice in the accept/reject prompt.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AllowTcpListenRfb">AllowTcpListenRfb</string>
+      <string id="RealVNC_vncserver_User_OcspNonce_Request">Request</string>
+      <string id="RealVNC_vncserverui_user_User_TlsProfile_help">The security strength to enforce when making TLS connections. For 'Normal', TLS 1.2 is mandated, no broken fallback ciphers are allowed, and key strength is checked for security (no SHA-1 or small keys). Selecting 'High' limits cipher choices to AES-256 with no legacy ciphers.
+
+The default value for this parameter is "Normal".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateRevocation_CheckIfAvailable">CheckIfAvailable</string>
+      <string id="RealVNC_vncserverui_user_User_ChatLogFile">ChatLogFile</string>
+      <string id="RealVNC_vncserver_Machine_ServerPreferredEncoding">ServerPreferredEncoding</string>
+      <string id="RealVNC_vncserver_Machine_DisableOptions">DisableOptions</string>
+      <string id="RealVNC_vncserver_Machine_RemapKeys">RemapKeys</string>
+      <string id="RealVNC_vncserverui_service_User_ChatLogFile">ChatLogFile</string>
+      <string id="RealVNC_vncserver_Machine_RadiusServer_help">The RADIUS server to use for authentication (host/IP address with optional port).  Fallback servers can be specified using a comma-separated list.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_TlsProfile_Normal">Normal</string>
+      <string id="RealVNC_vncserver_Machine_EnableRemotePrinting">EnableRemotePrinting</string>
+      <string id="RealVNC_vncserver_User_DisableLocalInputs_help">Disable the keyboard and mouse of this computer to protect the privacy of connected VNC Viewer users.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ViewOnlyPassword_help">Obfuscated binary password for view-only user.
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisableTrayIcon_help">Specify 1 to hide the VNC Server icon in the notification area when no VNC Viewer users are connected.
+
+The default value for this parameter is "0".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_RemovePattern">RemovePattern</string>
+      <string id="RealVNC_vncserver_User_Locale">Locale</string>
+      <string id="RealVNC_vncserverui_service_User_KeepChatHistory_help">Keep chat history.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ServerPreferredEncoding_Viewer">Viewer</string>
+      <string id="RealVNC_vncserver_Machine_LogDir_help">Directory in which to store log output directed to file.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_InputOnlyPassword_help">Obfuscated binary password for input-only user.
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_Locale">Locale</string>
+      <string id="RealVNC_vncserver_User_SendCutText">SendCutText</string>
+      <string id="RealVNC_vncserver_Machine_QueryTimeoutRights">QueryTimeoutRights</string>
+      <string id="RealVNC_vncserver_Machine_TlsProfile">TlsProfile</string>
+      <string id="RealVNC_vncserver_Machine_ProtocolVersion">ProtocolVersion</string>
+      <string id="RealVNC_vncserver_Machine_OcspNonce_None">None</string>
+      <string id="RealVNC_vncserver_Machine_AllowTcpListenRfb">AllowTcpListenRfb</string>
+      <string id="RealVNC_vncserver_Machine_EnableRemotePrinting_help">Allow connected VNC Viewer users to print directly to their local printers.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_CaptureMethod">CaptureMethod</string>
+      <string id="RealVNC_vncserver_User_ConnNotifyTimeout_help">The number of seconds to display connection and disconnection notification messages for, or 0 to disable notifications.
+
+The default value for this parameter is "4".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_IpListenAddresses_help">Comma-separated list of IP addresses on which to listen for TCP/UDP connections, or empty to listen on all available IP addresses. Note this parameter is ignored if the localhost parameter is set to True.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_user_User_Locale">Locale</string>
+      <string id="RealVNC_vncserver_Machine_SimulateSAS_help">VNC Server in Service Mode on Vista or later only. Either allow connected VNC Viewer users to send Ctrl-Alt-Delete when the SoftwareSASGeneration Windows policy setting is unconfigured or disabled (1), or obey the policy setting (0), or bypass Windows policy (2).
+
+The default value for this parameter is "1".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_TlsProfile_help">The security strength to enforce when making TLS connections. For 'Normal', TLS 1.2 is mandated, no broken fallback ciphers are allowed, and key strength is checked for security (no SHA-1 or small keys). Selecting 'High' limits cipher choices to AES-256 with no legacy ciphers.
+
+The default value for this parameter is "Normal".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_TlsProfile_Normal">Normal</string>
+      <string id="RealVNC_vncserver_User_OcspNonce">OcspNonce</string>
+      <string id="RealVNC_vncserver_User_UserPasswdVerifier">UserPasswdVerifier</string>
+      <string id="RealVNC_vncserver_User_TcpListenAddresses_help">Comma-separated list of IP addresses on which to listen for TCP connections, or empty to listen on all available IP addresses. Note this parameter is ignored if the localhost parameter is set to True.
+DEPRECATED in favor of IpListenAddresses.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ServiceDiscoveryEnabled_help">Advertise VNC Server using Zeroconf on the local domain. Requires the Bonjour library (Windows, MacOS, Solaris) or Avahi (Linux).
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ServiceDiscoveryEnabled">ServiceDiscoveryEnabled</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateRevocation">LdapCertificateRevocation</string>
+      <string id="RealVNC_vncserver_User_UserPasswdVerifier_help">The authentication scheme to use.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_LogFile">LogFile</string>
+      <string id="RealVNC_vncserver_Machine_MSLWorkaround">MSLWorkaround</string>
+      <string id="RealVNC_vncserver_Machine_MaxHttpConns">MaxHttpConns</string>
+      <string id="RealVNC_vncserver_User_ServerPreferredEncoding_Hextile">Hextile</string>
+      <string id="RealVNC_vncserver_User_ServerPreferredEncoding_JPEG">JPEG</string>
+      <string id="RealVNC_vncserver_User_PollInterval">PollInterval</string>
+      <string id="RealVNC_vncserver_User_ProtocolVersion_"></string>
+      <string id="RealVNC_vncserver_User_QuitOnCloseStatusDialog_help">Stop VNC Server if the status dialog is closed.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ProxyUserName">ProxyUserName</string>
+      <string id="RealVNC_vncserver_User_ServerPreferredEncoding_Viewer">Viewer</string>
+      <string id="RealVNC_vncserver_Machine_UserPasswdVerifier">UserPasswdVerifier</string>
+      <string id="RealVNC_vncserver_Machine_Locale_help">Locale to use. Specify one of en_US, de_DE, es_ES, fr_FR, or pt_BR, or leave empty to select the user or system locale as appropriate.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_RadiusAuthenticationProtocol_CHAP">CHAP</string>
+      <string id="RealVNC_vncserver_Machine_InTransports">InTransports</string>
+      <string id="RealVNC_vncserver_User_LdapSecurity_StartTLS">StartTLS</string>
+      <string id="RealVNC_vncserver_Machine_DisableEffects_help">Disable special effects such as font smoothing to improve performance while VNC Viewer users are connected.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_LogDir">LogDir</string>
+      <string id="RealVNC_vncserver_Machine_ProxyPassword_help">The password to use to authenticate to a proxy server.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ServerPreferredEncoding_ZRLE2">ZRLE2</string>
+      <string id="RealVNC_vncserver_User_AllowHttp_help">Serve resources such as VNC Viewer for Java to web browser users.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ConnTimeout_help">The maximum number of seconds a connection may last, or 0 for no timeout.
+
+The default value for this parameter is "0".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_MaxHttpConns_help">The maximum number of simultaneous HTTP connections to allow.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "50".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="SUPPORTED_ProductOnly">VNC Server</string>
+      <string id="RealVNC_vncserver_User_RadiusAuthenticationProtocol_help">The authentication protocol to use (CHAP | PAP).  Note that CHAP is potentially more secure than PAP, but requires the server to have access to plaintext credentials, so PAP is more widely supported.
+
+The default value for this parameter is "CHAP".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_QueryConnect">QueryConnect</string>
+      <string id="RealVNC_vncserver_User_ServerPreferredEncoding_ZRLE">ZRLE</string>
+      <string id="RealVNC_vncserver_User_RfbPort">RfbPort</string>
+      <string id="RealVNC_vncserverui_service_User_TlsProfile_High">High</string>
+      <string id="RealVNC_vncserver_Machine_RadiusPrompt_help">The initial prompt to present to VNC Viewer users, or empty to send a blank password to the RADIUS server initially
+
+The default value for this parameter is "RADIUS password:".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_QueryOnlyIfLoggedOn_help">Only show the accept/reject prompt if there is likely to be a user present to respond.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_SecurityTypes">SecurityTypes</string>
+      <string id="RealVNC_vncserver_User_RadiusAuthenticationProtocol_PAP">PAP</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateNameMapping">LdapCertificateNameMapping</string>
+      <string id="RealVNC_vncserver_User_Log_help">Record events in the format &lt;log&gt;:&lt;target&gt;:&lt;level&gt;[,...].
+
+The default value for this parameter is "*:file:30".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_PollInterval_help">How often to poll for display updates in ms.
+
+The default value for this parameter is "50".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ViewOnlyPassword">ViewOnlyPassword</string>
+      <string id="RealVNC_vncserver_Machine_ProtocolVersion_33">3.3</string>
+      <string id="vncserver_User_category">User Mode</string>
+      <string id="RealVNC_vncserver_User_TlsProfile_High">High</string>
+      <string id="RealVNC_vncserverui_user_User_FetchDir_help">Directory in which to store transferred files.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_RadiusAuthenticationProtocol">RadiusAuthenticationProtocol</string>
+      <string id="RealVNC_vncserver_Machine_BlacklistThreshold_help">The number of unsuccessful authentication attempts that can be made before a particular connecting computer is blacklisted for a timeout period.
+
+The default value for this parameter is "5".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ProtocolVersion_"></string>
+      <string id="RealVNC_vncserverui_user_User_Locale_help">Locale to use. Specify one of en_US, de_DE, es_ES, fr_FR, or pt_BR, or leave empty to select the user or system locale as appropriate.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_httpd_help">Directory from which to serve resources to web browser users, or &lt;inline&gt; to serve from VNC Server.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "&lt;inline&gt;".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_PollInterval_help">How often to poll for display updates in ms.
+
+The default value for this parameter is "50".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_EnableAnalytics">EnableAnalytics</string>
+      <string id="RealVNC_vncserver_User_EnableChat_help">Allow connected VNC Viewer users to chat.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_Desktop">Desktop</string>
+      <string id="RealVNC_vncserver_Machine_ReverseSecurityTypes">ReverseSecurityTypes</string>
+      <string id="RealVNC_vncserver_User_LogDir_help">Directory in which to store log output directed to file.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_service_User_ChatExpiryLimit_help">Number of messages/days to keep in chat history
+
+The default value for this parameter is "90days".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_GuestPermissions_help">Allow guests to connect with particular permissions.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_Log">Log</string>
+      <string id="RealVNC_vncserver_Machine_AllowHttp">AllowHttp</string>
+      <string id="RealVNC_vncserver_Machine_Authentication">Authentication</string>
+      <string id="RealVNC_vncserver_User_EnableManualUpdateChecks_help">Disable the Check for updates option on the shortcut menu.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_RadiusTimeout_help">The time spent waiting per RADIUS server; a few retries are sent at 1-second intervals, then the rest of the timeout interval is spent waiting before falling back to the next server.
+
+The default value for this parameter is "60".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_PollCursorTime">PollCursorTime</string>
+      <string id="RealVNC_vncserver_Machine_ProtocolVersion_40">4.0</string>
+      <string id="RealVNC_vncserver_User_Hosts">Hosts</string>
+      <string id="RealVNC_vncserver_Machine_RadiusAuthenticationProtocol_CHAP">CHAP</string>
+      <string id="RealVNC_vncserver_User_NeverShared">NeverShared</string>
+      <string id="RealVNC_vncserver_User_ReverseSecurityTypes_help">The security scheme(s) to offer for reverse connections, or "&lt;auto&gt;" to determine using the Encryption and ReverseAuthentication parameters.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "&lt;auto&gt;".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_DisableAddNewClient_help">Disable the Connect to Listening VNC Viewer option on the shortcut menu.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_BlacklistTimeout_help">The initial number of seconds during which connections from a blacklisted computer are rejected before the connecting user can attempt to authenticate again.
+
+The default value for this parameter is "10".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_RadiusAuthenticationProtocol_help">The authentication protocol to use (CHAP | PAP).  Note that CHAP is potentially more secure than PAP, but requires the server to have access to plaintext credentials, so PAP is more widely supported.
+
+The default value for this parameter is "CHAP".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_Encryption_help">The level of encryption to offer for incoming connections (AlwaysMaximum | AlwaysOn | PreferOn | PreferOff), or AlwaysOff to turn off encryption (direct connections only, and not recommended).
+
+The default value for this parameter is "AlwaysOn".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ConnNotifyTimeout_help">The number of seconds to display connection and disconnection notification messages for, or 0 to disable notifications.
+
+The default value for this parameter is "4".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ConnNotifyAlways_help">Specify True to display the name of the connected user throughout the session, or the most recently connected if more than one.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_AcceptPointerEvents_help">Allow connected VNC Viewer users to control this computer using their mice.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AllowTcpListenRfb_help">Allow direct VNC connections over TCP.
+DEPRECATED in favor of AllowIpListenRfb.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_QueryConnectMessage">QueryConnectMessage</string>
+      <string id="RealVNC_vncserver_Machine_Hosts">Hosts</string>
+      <string id="RealVNC_vncserver_User_RemovePattern">RemovePattern</string>
+      <string id="RealVNC_vncserver_Machine_UseCaptureBlt">UseCaptureBlt</string>
+      <string id="RealVNC_vncserver_Machine_DisconnectAction_Logoff">Logoff</string>
+      <string id="RealVNC_vncserver_Machine_QueryOfferViewOnly">QueryOfferViewOnly</string>
+      <string id="RealVNC_vncserver_User_SimulateSAS">SimulateSAS</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateRevocation_Ignore">Ignore</string>
+      <string id="RealVNC_vncserver_Machine_AllowChangeDefaultPrinter_help">If printing is enabled, change this computer's default printer to the local printer of the first VNC Viewer user who connects.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_user_User_KeepChatHistory">KeepChatHistory</string>
+      <string id="RealVNC_vncserver_Machine_UpdateMethod">UpdateMethod</string>
+      <string id="RealVNC_vncserver_Machine_QueryOnlyIfLoggedOn">QueryOnlyIfLoggedOn</string>
+      <string id="RealVNC_vncserver_User_LdapSecurity_None">None</string>
+      <string id="RealVNC_vncserver_User_DisconnectAction_None">None</string>
+      <string id="RealVNC_vncserver_User_ProxyServer_help">The URL of a proxy server, or alternatively "&lt;system&gt;" to use IE or system proxy settings.
+
+The default value for this parameter is "&lt;system&gt;".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_UpdateCheckFrequencyDays">UpdateCheckFrequencyDays</string>
+      <string id="RealVNC_vncserver_User_NeverShared_help">Determine whether multiple VNC Viewer users can be connected at the same time, in conjunction with AlwaysShared and DisconnectClients.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_UpdateCheckFrequencyDays_help">The number of days to leave between automatic checks for critical software patches or product updates.
+
+The default value for this parameter is "1".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ProtocolVersion_38">3.8</string>
+      <string id="RealVNC_vncserver_Machine_BlacklistTimeout_help">The initial number of seconds during which connections from a blacklisted computer are rejected before the connecting user can attempt to authenticate again.
+
+The default value for this parameter is "10".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_DisableOptions_help">Disable the Options option on the shortcut menu. Note that if you do this you will need to manually edit the appropriate Registry key (Windows) or VNC configuration file (other platforms) in order to access the Options dialog again.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_DisplayDevice">DisplayDevice</string>
+      <string id="RealVNC_vncserver_Machine_ServerPreferredEncoding_Raw">Raw</string>
+      <string id="RealVNC_vncserver_User_ProxyPassword">ProxyPassword</string>
+      <string id="RealVNC_vncserver_Machine_RadiusServer">RadiusServer</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateRevocation">LdapCertificateRevocation</string>
+      <string id="RealVNC_vncserver_User_SecurityTypes">SecurityTypes</string>
+      <string id="RealVNC_vncserver_Machine_IdleTimeout_help">The number of seconds to wait before disconnecting idle VNC Viewer users, or 0 to set no timeout.
+
+The default value for this parameter is "3600".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_OcspNonce_None">None</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateNameMapping">LdapCertificateNameMapping</string>
+      <string id="RealVNC_vncserver_Machine_GuestPermissions">GuestPermissions</string>
+      <string id="RealVNC_vncserver_Machine_TlsProfile_help">The security strength to enforce when making TLS connections. For 'Normal', TLS 1.2 is mandated, no broken fallback ciphers are allowed, and key strength is checked for security (no SHA-1 or small keys). Selecting 'High' limits cipher choices to AES-256 with no legacy ciphers.
+
+The default value for this parameter is "Normal".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_AutoLogonOverride">AutoLogonOverride</string>
+      <string id="RealVNC_vncserver_User_Authentication">Authentication</string>
+      <string id="RealVNC_vncserver_Machine_ShareFiles">ShareFiles</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateUserStore_help">URL of the LDAP server used for authenticating user public keys, of the form "ldap[s]://[credentials@][host]/[search-base]".  If the host or base is left empty, the system default will be used.  Specify "GSSAPI@" for Kerberos authentication, "binddn:password@" for a simple bind, or no credentials for anonymous access.
+
+The default value for this parameter is "ldap://GSSAPI@/CN=Users,&lt;PATH-TO-USERS&gt;".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ServiceDiscoveryEnabled">ServiceDiscoveryEnabled</string>
+      <string id="RealVNC_vncserver_Machine_ShowCloudHints_help">VNC Server in Service Mode only. Show RealVNC services information.
+DEPRECATED in favor of AllowCloudRfb.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_SendCutText">SendCutText</string>
+      <string id="RealVNC_vncserverui_service_User_LogFile_help">File in which to store log output directed to file.
+
+The default value for this parameter is "vncserverui-user.log".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_TlsProfile_High">High</string>
+      <string id="RealVNC_vncserver_User_ViewOnlyPassword">ViewOnlyPassword</string>
+      <string id="RealVNC_vncserver_User_AcceptKeyEvents_help">Allow connected VNC Viewer users to control this computer using their keyboards.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AllowCloudRelay_help">Allow cloud connections to relay data via RealVNC services, when peer-to-peer connectivity is not possible (VNC connections are end-to-end encrypted, and the keys never leave your device, so RealVNC is never able to read relayed data).
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_QueryConnectMessage_help">Message to use on query connect prompt, maximum length 4096 utf-8 bytes. A very restricted form of HTML is supported. The characters &amp;&lt;&gt;"' must be quoted as in HTML.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_EnableAutoUpdateChecks_help">Allow automatic checks for critical software patches and product updates (1), do not allow automatic checks (0), or let the user decide when the VNC Server user interface first appears (2).
+
+The default value for this parameter is "2".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_DisableEffects">DisableEffects</string>
+      <string id="RealVNC_vncserver_Machine_AllowCloudRfb_help">VNC Server in Service Mode only. Allow cloud connections via RealVNC services.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_IpClientAddresses_help">Filter connections by IP address to allow, query, or reject particular VNC Viewer computers, or + to allow connections from all.
+
+The default value for this parameter is "+".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_EnableChat">EnableChat</string>
+      <string id="RealVNC_vncserver_Machine_ProtocolVersion_37">3.7</string>
+      <string id="RealVNC_vncserver_Machine_TcpListenAddresses_help">Comma-separated list of IP addresses on which to listen for TCP connections, or empty to listen on all available IP addresses. Note this parameter is ignored if the localhost parameter is set to True.
+DEPRECATED in favor of IpListenAddresses.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ProxyUserName">ProxyUserName</string>
+      <string id="RealVNC_vncserver_Machine_httpd">httpd</string>
+      <string id="RealVNC_vncserver_Machine_AllowCloudRelay_help">Allow cloud connections to relay data via RealVNC services, when peer-to-peer connectivity is not possible (VNC connections are end-to-end encrypted, and the keys never leave your device, so RealVNC is never able to read relayed data).
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_user_User_LogFile">LogFile</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateNameMapping_help">Choose 'ActiveDirectory' to perform LDAP name mapping using userPrincipalName/sAMAccountName attributes, or 'RFC2307' to use POSIX uid/uidNumber attributes (which may also be enabled in Active Directory)
+
+The default value for this parameter is "ActiveDirectory".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_LdapSecurity_Auto">Auto</string>
+      <string id="RealVNC_vncserver_User_GuestPermissions">GuestPermissions</string>
+      <string id="RealVNC_vncserver_Machine_RemapKeys_help">Map or swap keyboard keys. Specify a comma-separated list of hexadecimal keysyms, prefixed by 0x and separated by -&gt; (to map) or &lt;&gt; (to swap).
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_Permissions_help">Register user accounts or groups with VNC Server so connecting VNC Viewer users can authenticate using familiar, securely-managed credentials. Grant permissions to these users to use remote control features while connections are in progress.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_EnableManualUpdateChecks">EnableManualUpdateChecks</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateTrustStore_help">URL containing the trusted root certificates for authenticating user public keys.  "file://" and "ldap://" are supported, or "enterprise://" (Windows).
+
+The default value for this parameter is "enterprise://".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_RemovePattern_help">Hide the desktop background from connected VNC Viewer users.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_DisableAero">DisableAero</string>
+      <string id="RealVNC_vncserver_User_BlacklistThreshold">BlacklistThreshold</string>
+      <string id="RealVNC_vncserver_User_Permissions">Permissions</string>
+      <string id="RealVNC_vncserver_Machine_ReverseSecurityTypes_help">The security scheme(s) to offer for reverse connections, or "&lt;auto&gt;" to determine using the Encryption and ReverseAuthentication parameters.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "&lt;auto&gt;".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisconnectAction_help">VNC Server in Service Mode only. Protect the computer when the last user disconnects (Lock | Logoff), or do nothing (None).
+
+The default value for this parameter is "None".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_InputOnlyPassword">InputOnlyPassword</string>
+      <string id="RealVNC_vncserver_Machine_InTransports_help">Restrict connections to a particular version of the Internet Protocol only.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "IPv6,IPv4".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_user_User_Log_help">Record events in the format &lt;log&gt;:&lt;target&gt;:&lt;level&gt;[,...].
+
+The default value for this parameter is "*:file:10".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_IpClientAddresses_help">Filter connections by IP address to allow, query, or reject particular VNC Viewer computers, or + to allow connections from all.
+
+The default value for this parameter is "+".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_GuestPassword_help">Obfuscated binary password for guest access.
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_RadiusAddress">RadiusAddress</string>
+      <string id="RealVNC_vncserver_Machine_RemoveWallpaper">RemoveWallpaper</string>
+      <string id="RealVNC_vncserver_Machine_GuestPassword">GuestPassword</string>
+      <string id="RealVNC_vncserver_User_UpdateCheckFrequencyDays">UpdateCheckFrequencyDays</string>
+      <string id="RealVNC_vncserver_Machine_Authentication_help">The authentication scheme(s) to offer for incoming connections (SingleSignOn | SystemAuth | VncAuth | Certificate | Radius | InteractiveSystemAuth), or None to turn off password protection (direct connections only, and not recommended).
+
+The default value for this parameter is "SystemAuth".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisconnectAction">DisconnectAction</string>
+      <string id="RealVNC_vncserver_User_RadiusAuthenticationProtocol">RadiusAuthenticationProtocol</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateTrustStore">LdapCertificateTrustStore</string>
+      <string id="RealVNC_vncserver_User_RadiusTimeout">RadiusTimeout</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateTrustStore_help">URL containing the trusted root certificates for authenticating user public keys.  "file://" and "ldap://" are supported, or "enterprise://" (Windows).
+
+The default value for this parameter is "enterprise://".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AutoLogonOverride">AutoLogonOverride</string>
+      <string id="RealVNC_vncserver_Machine_ClipboardFT">ClipboardFT</string>
+      <string id="RealVNC_vncserver_Machine_IpClientAddresses">IpClientAddresses</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateCrlLimit">LdapCertificateCrlLimit</string>
+      <string id="RealVNC_vncserverui_user_User_TlsProfile">TlsProfile</string>
+      <string id="RealVNC_vncserver_Machine_ConnNotifyAlways">ConnNotifyAlways</string>
+      <string id="RealVNC_vncserver_User_RadiusPrompt_help">The initial prompt to present to VNC Viewer users, or empty to send a blank password to the RADIUS server initially
+
+The default value for this parameter is "RADIUS password:".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ProtocolVersion_41">4.1</string>
+      <string id="RealVNC_vncserverui_service_User_FetchDir">FetchDir</string>
+      <string id="RealVNC_vncserver_User_EnableRemotePrinting">EnableRemotePrinting</string>
+      <string id="RealVNC_vncserver_Machine_AuthTimeout">AuthTimeout</string>
+      <string id="RealVNC_vncserver_User_NtLogonAsInteractive_help">Establish connections as a Windows interactive logon (LOGON32_LOGON_INTERACTIVE) rather than a network logon (LOGON32_LOGON_NETWORK).
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ProtocolVersion_help">The maximum version number of the RFB protocol to support, or empty for all.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_AllowTcpListenRfb_help">Allow direct VNC connections over TCP.
+DEPRECATED in favor of AllowIpListenRfb.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisconnectAction_Logoff">Logoff</string>
+      <string id="RealVNC_vncserver_Machine_ConnNotifyTimeout">ConnNotifyTimeout</string>
+      <string id="RealVNC_vncserver_Machine_AllowCloudRfb">AllowCloudRfb</string>
+      <string id="RealVNC_vncserver_Machine_QueryOfferViewOnly_help">Offer a view-only choice in the accept/reject prompt.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ProtocolVersion_60">6.0</string>
+      <string id="RealVNC_vncserver_Machine_ProtocolVersion_60">6.0</string>
+      <string id="RealVNC_vncserver_Machine_AcceptPointerEvents">AcceptPointerEvents</string>
+      <string id="RealVNC_vncserver_Machine_AcceptCutText_help">Allow connected VNC Viewer users to paste text to this computer.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ServerPreferredEncoding_Hextile">Hextile</string>
+      <string id="RealVNC_vncserver_User_AcceptCutText">AcceptCutText</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateUserStore_help">URL of the LDAP server used for authenticating user public keys, of the form "ldap[s]://[credentials@][host]/[search-base]".  If the host or base is left empty, the system default will be used.  Specify "GSSAPI@" for Kerberos authentication, "binddn:password@" for a simple bind, or no credentials for anonymous access.
+
+The default value for this parameter is "ldap://GSSAPI@/CN=Users,&lt;PATH-TO-USERS&gt;".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_UseCaptureBlt_help">Always capture screen updates to semi-transparent windows and tooltips, to give connected VNC Viewer users perfect picture fidelity at the possible expense of performance.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_LdapSecurity_help">Choose LDAP security when not using LDAPS: use signatures with Kerberos and StartTLS with simple binding (Auto), use StartTLS always (StartTLS), or no encryption (None)
+
+The default value for this parameter is "Auto".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ProxyUserName_help">The user name with which to authenticate to a proxy server.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_HttpPort">HttpPort</string>
+      <string id="RealVNC_vncserverui_user_User_LogDir">LogDir</string>
+      <string id="RealVNC_vncserver_User_ReverseSecurityTypes">ReverseSecurityTypes</string>
+      <string id="RealVNC_vncserver_Machine_RadiusAddress">RadiusAddress</string>
+      <string id="RealVNC_vncserver_Machine_CompareFB">CompareFB</string>
+      <string id="RealVNC_vncserver_User_RadiusSecret_help">The RADIUS secret
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_MSLWorkaround">MSLWorkaround</string>
+      <string id="RealVNC_vncserver_Machine_AdminPassword_help">Obfuscated binary password for admin user.
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AllowCloudRfb_help">VNC Server in Service Mode only. Allow cloud connections via RealVNC services.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_RadiusNormalizeUsername">RadiusNormalizeUsername</string>
+      <string id="RealVNC_vncserver_User_AdminPassword">AdminPassword</string>
+      <string id="RealVNC_vncserver_User_EnableChat">EnableChat</string>
+      <string id="RealVNC_vncserver_Machine_ServerPreferredEncoding_TRLE">TRLE</string>
+      <string id="RealVNC_vncserver_Machine_DisableAddNewClient">DisableAddNewClient</string>
+      <string id="RealVNC_vncserver_User_ServerPreferredEncoding_help">Specify an encoding for VNC Server to use (if supported), or 'Viewer' to grant the VNC Viewer preference
+
+The default value for this parameter is "Viewer".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_RadiusNasId">RadiusNasId</string>
+      <string id="RealVNC_vncserver_Machine_EnableManualUpdateChecks">EnableManualUpdateChecks</string>
+      <string id="RealVNC_vncserver_Machine_Permissions">Permissions</string>
+      <string id="RealVNC_vncserver_User_GuestPassword">GuestPassword</string>
+      <string id="RealVNC_vncserver_Machine_AllowIpListenRfb_help">Allow direct VNC connections over TCP/UDP.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_user_User_ChatLogFile_help">Location of the message history file.
+
+The default value for this parameter is "$LOCAL_APPDATA_COMPANY\vncchat.xml".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_user_User_LogDir_help">Directory in which to store log output directed to file.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateRevocation_Ignore">Ignore</string>
+      <string id="RealVNC_vncserver_Machine_ConnTimeout_help">The maximum number of seconds a connection may last, or 0 for no timeout.
+
+The default value for this parameter is "0".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_QuitOnCloseStatusDialog_help">Stop VNC Server if the status dialog is closed.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_NeverShared">NeverShared</string>
+      <string id="RealVNC_vncserver_User_UseCaptureBlt">UseCaptureBlt</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateRevocation_CheckIfAvailable">CheckIfAvailable</string>
+      <string id="RealVNC_vncserver_Machine_IpListenProtocols">IpListenProtocols</string>
+      <string id="RealVNC_vncserver_User_RadiusSecret">RadiusSecret</string>
+      <string id="RealVNC_vncserverui_service_User_ChatLogFile_help">Location of the message history file.
+
+The default value for this parameter is "$LOCAL_APPDATA_COMPANY\vncchat.xml".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_user_User_TlsProfile_High">High</string>
+      <string id="RealVNC_vncserver_User_localhost">localhost</string>
+      <string id="RealVNC_vncserver_Machine_DisableTrayIcon_help">Specify 1 to hide the VNC Server icon in the notification area when no VNC Viewer users are connected.
+
+The default value for this parameter is "0".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ServerPreferredEncoding_JRLE">JRLE</string>
+      <string id="RealVNC_vncserver_Machine_RadiusNasId_help">The 'Network Access Server' identifier to present to the RADIUS server, which identifies this RADIUS client, or empty to send the IP address as the identifier instead (RadiusAddress).
+
+The default value for this parameter is "vncserver".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_Encryption">Encryption</string>
+      <string id="RealVNC_vncserver_Machine_LdapSecurity_None">None</string>
+      <string id="RealVNC_vncserver_Machine_AuthTimeout_help">The number of seconds to give connecting VNC Viewer users time to authenticate.
+
+The default value for this parameter is "900".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_IpListenAddresses">IpListenAddresses</string>
+      <string id="RealVNC_vncserver_Machine_Desktop_help">A name for the desktop to display to connected VNC Viewer users.
+
+The default value for this parameter is "$HOSTNAME".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ClipboardFT">ClipboardFT</string>
+      <string id="RealVNC_vncserverui_user_User_FetchDir">FetchDir</string>
+      <string id="RealVNC_vncserver_User_DisconnectClients_help">Determine whether multiple VNC Viewer users can be connected at the same time, in conjunction with AlwaysShared, NeverShared, and VNC Viewer.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisableTrayIcon">DisableTrayIcon</string>
+      <string id="RealVNC_vncserver_User_BlankScreen">BlankScreen</string>
+      <string id="RealVNC_vncserver_Machine_ProxyServer">ProxyServer</string>
+      <string id="RealVNC_vncserver_Machine_CaptureMethod">CaptureMethod</string>
+      <string id="RealVNC_vncserver_Machine_UserPasswdVerifier_help">The authentication scheme to use.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AllowHttp">AllowHttp</string>
+      <string id="RealVNC_vncserver_User_AdminPassword_help">Obfuscated binary password for admin user.
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ConnNotifyAlways">ConnNotifyAlways</string>
+      <string id="RealVNC_vncserver_Machine_LdapCertificateRevocation_EnforceOcsp">EnforceOcsp</string>
+      <string id="RealVNC_vncserver_Machine_NtLogonAsInteractive">NtLogonAsInteractive</string>
+      <string id="RealVNC_vncserver_User_SecurityTypes_help">The security scheme(s) to offer for incoming connections, or "&lt;auto&gt;" to determine using the Encryption and Authentication parameters.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "&lt;auto&gt;".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ProxyServer">ProxyServer</string>
+      <string id="RealVNC_vncserver_Machine_DisableClose">DisableClose</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateUserStore">LdapCertificateUserStore</string>
+      <string id="RealVNC_vncserver_User_RemapKeys_help">Map or swap keyboard keys. Specify a comma-separated list of hexadecimal keysyms, prefixed by 0x and separated by -&gt; (to map) or &lt;&gt; (to swap).
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_localhost_help">Restrict direct VNC connections to those originating from this computer.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_service_User_ChatExpiryLimit">ChatExpiryLimit</string>
+      <string id="RealVNC_vncserver_User_DisableLocalInputs">DisableLocalInputs</string>
+      <string id="RealVNC_vncserver_Machine_QueryConnect">QueryConnect</string>
+      <string id="RealVNC_vncserver_User_LdapCertificateNameMapping_ActiveDirectory">ActiveDirectory</string>
+      <string id="RealVNC_vncserver_Machine_RadiusSecret_help">The RADIUS secret
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_IpListenAddresses_help">Comma-separated list of IP addresses on which to listen for TCP/UDP connections, or empty to listen on all available IP addresses. Note this parameter is ignored if the localhost parameter is set to True.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_EnableAnalytics_help">Send usage data to help improve RealVNC products.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_QueryConnectTimeout_help">The number of seconds to show the accept/reject prompt for, before connections are automatically granted timeout permissions.
+
+The default value for this parameter is "10".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AudioEnable_help">Enable Audio
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_BlankScreen_help">Blank the monitor or screen of this computer while VNC Viewer users are connected.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_QueryTimeoutRights_help">Determine whether connections exceeding the accept/reject prompt's timeout are accepted or made view-only. Leave empty to reject connections.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_DisconnectAction_Lock">Lock</string>
+      <string id="RealVNC_vncserver_User_PollCursorTime_help">How often to poll for cursor movement in ms.
+
+The default value for this parameter is "100".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_IpListenProtocols">IpListenProtocols</string>
+      <string id="RealVNC_vncserver_Machine_Hosts_help">Filter connections by IPv4 address to allow, query, or reject particular VNC Viewer computers, or + to allow connections from all.
+DEPRECATED in favor of IpClientAddresses.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "+".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisableOptions_help">Disable the Options option on the shortcut menu. Note that if you do this you will need to manually edit the appropriate Registry key (Windows) or VNC configuration file (other platforms) in order to access the Options dialog again.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_user_User_ChatExpiryLimit">ChatExpiryLimit</string>
+      <string id="RealVNC_vncserver_Machine_RadiusTimeout">RadiusTimeout</string>
+      <string id="RealVNC_vncserver_Machine_AllowChangeDefaultPrinter">AllowChangeDefaultPrinter</string>
+      <string id="vncserverui_service_User_category">User Interface</string>
+      <string id="RealVNC_vncserver_Machine_LdapSecurity_StartTLS">StartTLS</string>
+      <string id="RealVNC_vncserver_Machine_ProxyPassword">ProxyPassword</string>
+      <string id="RealVNC_vncserver_Machine_LogDir">LogDir</string>
+      <string id="RealVNC_vncserver_User_ServiceDiscoveryEnabled_help">Advertise VNC Server using Zeroconf on the local domain. Requires the Bonjour library (Windows, MacOS, Solaris) or Avahi (Linux).
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_TlsProfile">TlsProfile</string>
+      <string id="RealVNC_vncserver_User_AcceptKeyEvents">AcceptKeyEvents</string>
+      <string id="RealVNC_vncserver_Machine_RadiusAddress_help">The address to bind to for sending RADIUS requests, or empty to use the default route to the RADIUS server
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_LogFile_help">File in which to store log output directed to file.
+
+The default value for this parameter is "vncserver.log".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AllowChangeDefaultPrinter">AllowChangeDefaultPrinter</string>
+      <string id="RealVNC_vncserver_User_ProtocolVersion_33">3.3</string>
+      <string id="RealVNC_vncserver_User_RadiusNasId_help">The 'Network Access Server' identifier to present to the RADIUS server, which identifies this RADIUS client, or empty to send the IP address as the identifier instead (RadiusAddress).
+
+The default value for this parameter is "vncserver".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_AlwaysShared">AlwaysShared</string>
+      <string id="RealVNC_vncserver_User_AudioEnable">AudioEnable</string>
+      <string id="RealVNC_vncserver_Machine_DisconnectAction_None">None</string>
+      <string id="RealVNC_vncserverui_user_User_TlsProfile_Normal">Normal</string>
+      <string id="RealVNC_vncserver_Machine_AllowHttp_help">Serve resources such as VNC Viewer for Java to web browser users.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ServerPreferredEncoding_JRLE">JRLE</string>
+      <string id="RealVNC_vncserver_User_AcceptCutText_help">Allow connected VNC Viewer users to paste text to this computer.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_QueryOnlyIfLoggedOn_help">Only show the accept/reject prompt if there is likely to be a user present to respond.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="vncserverui_user_User_category">User Interface</string>
+      <string id="RealVNC_vncserver_Machine_AcceptCutText">AcceptCutText</string>
+      <string id="RealVNC_vncserver_User_DisplayDevice">DisplayDevice</string>
+      <string id="RealVNC_vncserver_Machine_RemovePattern_help">Hide the desktop background from connected VNC Viewer users.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_RadiusServer_help">The RADIUS server to use for authentication (host/IP address with optional port).  Fallback servers can be specified using a comma-separated list.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ServerPreferredEncoding_JPEG">JPEG</string>
+      <string id="RealVNC_vncserver_Machine_IdleTimeout">IdleTimeout</string>
+      <string id="RealVNC_vncserver_User_OcspNonce_Require">Require</string>
+      <string id="RealVNC_vncserver_User_MaxHttpConns_help">The maximum number of simultaneous HTTP connections to allow.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "50".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_TcpListenAddresses">TcpListenAddresses</string>
+      <string id="RealVNC_vncserver_User_MaxHttpConns">MaxHttpConns</string>
+      <string id="RealVNC_vncserver_User_Locale_help">Locale to use. Specify one of en_US, de_DE, es_ES, fr_FR, or pt_BR, or leave empty to select the user or system locale as appropriate.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_Encryption">Encryption</string>
+      <string id="RealVNC_vncserver_Machine_SecurityTypes_help">The security scheme(s) to offer for incoming connections, or "&lt;auto&gt;" to determine using the Encryption and Authentication parameters.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "&lt;auto&gt;".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AllowCloudRfb">AllowCloudRfb</string>
+      <string id="RealVNC_vncserver_User_RfbPort_help">Port on which to accept direct VNC connections.
+
+The default value for this parameter is "5900".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_user_User_LogFile_help">File in which to store log output directed to file.
+
+The default value for this parameter is "vncserverui-user.log".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_LogFile_help">File in which to store log output directed to file.
+
+The default value for this parameter is "vncserver.log".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_service_User_Log_help">Record events in the format &lt;log&gt;:&lt;target&gt;:&lt;level&gt;[,...].
+
+The default value for this parameter is "*:file:10".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisableEffects_help">Disable special effects such as font smoothing to improve performance while VNC Viewer users are connected.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ProtocolVersion_50">5.0</string>
+      <string id="VNC_Server_category">VNC Server</string>
+      <string id="RealVNC_vncserver_User_BlacklistThreshold_help">The number of unsuccessful authentication attempts that can be made before a particular connecting computer is blacklisted for a timeout period.
+
+The default value for this parameter is "5".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_service_User_TlsProfile_Normal">Normal</string>
+      <string id="RealVNC_vncserver_Machine_ProxyUserName_help">The user name with which to authenticate to a proxy server.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisableClose_help">Disable the Stop VNC Server option on the shortcut menu.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ProtocolVersion_41">4.1</string>
+      <string id="RealVNC_vncserver_User_RemapKeys">RemapKeys</string>
+      <string id="RealVNC_vncserver_User_IdleTimeout_help">The number of seconds to wait before disconnecting idle VNC Viewer users, or 0 to set no timeout.
+
+The default value for this parameter is "3600".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ConnTimeout">ConnTimeout</string>
+      <string id="RealVNC_vncserver_Machine_Password">Password</string>
+      <string id="RealVNC_vncserverui_service_User_Locale_help">Locale to use. Specify one of en_US, de_DE, es_ES, fr_FR, or pt_BR, or leave empty to select the user or system locale as appropriate.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserverui_service_User_LogDir_help">Directory in which to store log output directed to file.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ProxyPassword_help">The password to use to authenticate to a proxy server.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_ViewOnlyPassword_help">Obfuscated binary password for view-only user.
+
+To obtain a password in the correct format, use the vncpasswd utility.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_SendCutText_help">Allow connected VNC Viewer users to copy and paste text to their own computers.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_PollCursorTime">PollCursorTime</string>
+      <string id="RealVNC_vncserver_Machine_DisableClose_help">Disable the Stop VNC Server option on the shortcut menu.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ProtocolVersion_help">The maximum version number of the RFB protocol to support, or empty for all.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_BlankScreen_help">Blank the monitor or screen of this computer while VNC Viewer users are connected.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ServerPreferredEncoding_TRLE">TRLE</string>
+      <string id="RealVNC_vncserverui_service_User_TlsProfile">TlsProfile</string>
+      <string id="RealVNC_vncserver_Machine_AllowIpListenRfb">AllowIpListenRfb</string>
+      <string id="RealVNC_vncserver_Machine_QueryConnectMessage_help">Message to use on query connect prompt, maximum length 4096 utf-8 bytes. A very restricted form of HTML is supported. The characters &amp;&lt;&gt;"' must be quoted as in HTML.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_QuitOnCloseStatusDialog">QuitOnCloseStatusDialog</string>
+      <string id="vncserver_Machine_category">Service Mode</string>
+      <string id="RealVNC_vncserver_User_DisableAero_help">Disable the Windows Aero interface to improve performance while VNC Viewer users are connected.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_OcspNonce_help">Do not use nonces with OCSP requests (None), or request nonces but do not mandate a nonce's presence (Request), or request and mandate a nonce (Require, most secure).
+
+The default value for this parameter is "None".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_ShareFiles_help">Allow connected VNC Viewer users to transfer files.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisconnectAction_Lock">Lock</string>
+      <string id="RealVNC_vncserver_User_EnableAnalytics">EnableAnalytics</string>
+      <string id="RealVNC_vncserver_Machine_DisconnectClients">DisconnectClients</string>
+      <string id="RealVNC_vncserver_User_RemoveWallpaper_help">Hide the desktop wallpaper from connected VNC Viewer users.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_InTransports_help">Restrict connections to a particular version of the Internet Protocol only.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "IPv6,IPv4".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_UseCaptureBlt_help">Always capture screen updates to semi-transparent windows and tooltips, to give connected VNC Viewer users perfect picture fidelity at the possible expense of performance.
+
+The default value for this parameter is true.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_SimulateSAS">SimulateSAS</string>
+      <string id="RealVNC_vncserver_User_HttpPort_help">TCP/IP port on which to accept connections from web browsers.
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "5800".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_InTransports">InTransports</string>
+      <string id="RealVNC_vncserver_Machine_RadiusAuthenticationProtocol_PAP">PAP</string>
+      <string id="RealVNC_vncserverui_service_User_TlsProfile_help">The security strength to enforce when making TLS connections. For 'Normal', TLS 1.2 is mandated, no broken fallback ciphers are allowed, and key strength is checked for security (no SHA-1 or small keys). Selecting 'High' limits cipher choices to AES-256 with no legacy ciphers.
+
+The default value for this parameter is "Normal".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_LdapSecurity_help">Choose LDAP security when not using LDAPS: use signatures with Kerberos and StartTLS with simple binding (Auto), use StartTLS always (StartTLS), or no encryption (None)
+
+The default value for this parameter is "Auto".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_QueryConnect_help">Show a prompt identifying each connecting VNC Viewer user, where possible, enabling the connection to be accepted, rejected, or made view-only.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_SimulateSAS_help">VNC Server in Service Mode on Vista or later only. Either allow connected VNC Viewer users to send Ctrl-Alt-Delete when the SoftwareSASGeneration Windows policy setting is unconfigured or disabled (1), or obey the policy setting (0), or bypass Windows policy (2).
+
+The default value for this parameter is "1".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_AcceptKeyEvents">AcceptKeyEvents</string>
+      <string id="RealVNC_vncserver_User_AuthTimeout_help">The number of seconds to give connecting VNC Viewer users time to authenticate.
+
+The default value for this parameter is "900".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_AlwaysShared">AlwaysShared</string>
+      <string id="RealVNC_vncserver_Machine_localhost">localhost</string>
+      <string id="RealVNC_vncserver_Machine_DisableLocalInputs_help">Disable the keyboard and mouse of this computer to protect the privacy of connected VNC Viewer users.
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_NtLogonAsInteractive_help">Establish connections as a Windows interactive logon (LOGON32_LOGON_INTERACTIVE) rather than a network logon (LOGON32_LOGON_NETWORK).
+
+The default value for this parameter is false.
+
+If you enable this policy setting, the corresponding parameter will be set to TRUE.
+
+If you disable this policy setting, the corresponding parameter will be set to FALSE.
+
+If you do not configure this policy setting, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_Machine_DisplayDevice_help">The name of the monitor to remote to connected VNC Viewer users, or empty to remote all monitors.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+      <string id="RealVNC_vncserver_User_DisableEffects">DisableEffects</string>
+      <string id="RealVNC_vncserver_Machine_UpdateMethod_help">Discover screen updates by polling (0), using application hooking (1), or using DirectX tracking [Windows 8 and above only] and mirror driver technology [Windows 7 and older platforms only] (2).
+THIS IS A LEGACY POLICY SETTING. The corresponding parameter applies to older versions of the software. It is ignored by the latest version, and only needs to be set if policy is being deployed to computers running older versions.
+
+The default value for this parameter is "".
+
+If you enable this policy setting, the corresponding parameter will be set to the value you specify.
+
+If you disable this policy setting or do not configure it, the corresponding parameter will use the default or user-specified value.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="RealVNC_vncserver_Machine_AcceptCutText">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AcceptKeyEvents">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AcceptPointerEvents">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AdminPassword">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AllowChangeDefaultPrinter">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AllowCloudRelay">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AllowCloudRfb">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AllowHttp">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AllowIpListenRfb">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AllowTcpListenRfb">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AlwaysShared">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AudioEnable">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_Authentication">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>SystemAuth</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AuthTimeout">
+        <decimalTextBox refId="Value" defaultValue="900" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_AutoLogonOverride">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_BlacklistThreshold">
+        <decimalTextBox refId="Value" defaultValue="5" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_BlacklistTimeout">
+        <decimalTextBox refId="Value" defaultValue="10" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_BlankScreen">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_CaptureMethod">
+        <decimalTextBox refId="Value" defaultValue="0" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ClipboardFT">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_CompareFB">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ConnNotifyAlways">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ConnNotifyTimeout">
+        <decimalTextBox refId="Value" defaultValue="4" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ConnTimeout">
+        <decimalTextBox refId="Value" defaultValue="0" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_Desktop">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>$HOSTNAME</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_DisableAddNewClient">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_DisableAero">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_DisableClose">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_DisableEffects">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_DisableLocalInputs">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_DisableOptions">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_DisableTrayIcon">
+        <decimalTextBox refId="Value" defaultValue="0" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_DisconnectAction">
+        <dropdownList refId="Value" noSort="true" defaultItem="2">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_DisconnectClients">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_DisplayDevice">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_EnableAnalytics">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_EnableAutoUpdateChecks">
+        <decimalTextBox refId="Value" defaultValue="2" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_EnableChat">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_EnableManualUpdateChecks">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_EnableRemotePrinting">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_Encryption">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>AlwaysOn</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_GuestPassword">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_GuestPermissions">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_Hosts">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>+</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_httpd">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>&lt;inline&gt;</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_HttpPort">
+        <decimalTextBox refId="Value" defaultValue="5800" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_IdleTimeout">
+        <decimalTextBox refId="Value" defaultValue="3600" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_InputOnlyPassword">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_InTransports">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>IPv6,IPv4</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_IpClientAddresses">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>+</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_IpListenAddresses">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_IpListenProtocols">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>TCP,UDP</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_LdapCertificateCrlLimit">
+        <decimalTextBox refId="Value" defaultValue="26214400" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_LdapCertificateIntermediateStore">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>enterprise://</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_LdapCertificateNameMapping">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_LdapCertificateRevocation">
+        <dropdownList refId="Value" noSort="true" defaultItem="1">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_LdapCertificateTrustStore">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>enterprise://</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_LdapCertificateUserStore">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>ldap://GSSAPI@/CN=Users,&lt;PATH-TO-USERS&gt;</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_LdapSecurity">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_Locale">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_localhost">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_Log">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>*:file:30</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_LogDir">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_LogFile">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>vncserver.log</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_MaxHttpConns">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>50</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_MSLWorkaround">
+        <decimalTextBox refId="Value" defaultValue="" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_NeverShared">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_NtLogonAsInteractive">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_OcspNonce">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_Password">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_Permissions">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_PollCursorTime">
+        <decimalTextBox refId="Value" defaultValue="100" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_PollInterval">
+        <decimalTextBox refId="Value" defaultValue="50" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ProtocolVersion">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ProxyPassword">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ProxyServer">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>&lt;system&gt;</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ProxyUserName">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_QueryConnect">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_QueryConnectMessage">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_QueryConnectTimeout">
+        <decimalTextBox refId="Value" defaultValue="10" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_QueryOfferViewOnly">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_QueryOnlyIfLoggedOn">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_QueryTimeoutRights">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_QuitOnCloseStatusDialog">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RadiusAddress">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RadiusAuthenticationProtocol">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RadiusNasId">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>vncserver</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RadiusNormalizeUsername">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RadiusPrompt">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>RADIUS password:</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RadiusSecret">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RadiusServer">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RadiusTimeout">
+        <decimalTextBox refId="Value" defaultValue="60" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RemapKeys">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RemovePattern">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RemoveWallpaper">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ReverseSecurityTypes">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>&lt;auto&gt;</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_RfbPort">
+        <decimalTextBox refId="Value" defaultValue="5900" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_SecurityTypes">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>&lt;auto&gt;</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_SendCutText">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ServerPreferredEncoding">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ServiceDiscoveryEnabled">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ShareFiles">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ShowCloudHints">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_SimulateSAS">
+        <decimalTextBox refId="Value" defaultValue="1" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_TcpListenAddresses">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_TlsProfile">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_UpdateCheckFrequencyDays">
+        <decimalTextBox refId="Value" defaultValue="1" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_UpdateMethod">
+        <decimalTextBox refId="Value" defaultValue="" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_UseCaptureBlt">
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_UserPasswdVerifier">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_ViewOnlyPassword">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_service_User_ChatExpiryLimit">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>90days</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_service_User_ChatLogFile">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>$LOCAL_APPDATA_COMPANY\vncchat.xml</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_service_User_FetchDir">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_service_User_KeepChatHistory">
+      </presentation>
+      <presentation id="RealVNC_vncserverui_service_User_Locale">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_service_User_Log">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>*:file:10</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_service_User_LogDir">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_service_User_LogFile">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>vncserverui-user.log</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_service_User_TlsProfile">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AcceptCutText">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AcceptKeyEvents">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AcceptPointerEvents">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AdminPassword">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AllowChangeDefaultPrinter">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AllowCloudRelay">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AllowCloudRfb">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AllowHttp">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AllowIpListenRfb">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AllowTcpListenRfb">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AlwaysShared">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AudioEnable">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_Authentication">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>SystemAuth</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AuthTimeout">
+        <decimalTextBox refId="Value" defaultValue="900" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_AutoLogonOverride">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_BlacklistThreshold">
+        <decimalTextBox refId="Value" defaultValue="5" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_BlacklistTimeout">
+        <decimalTextBox refId="Value" defaultValue="10" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_BlankScreen">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_CaptureMethod">
+        <decimalTextBox refId="Value" defaultValue="0" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ClipboardFT">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_CompareFB">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ConnNotifyAlways">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ConnNotifyTimeout">
+        <decimalTextBox refId="Value" defaultValue="4" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ConnTimeout">
+        <decimalTextBox refId="Value" defaultValue="0" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_Desktop">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>$HOSTNAME</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_DisableAddNewClient">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_DisableAero">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_DisableClose">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_DisableEffects">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_DisableLocalInputs">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_DisableOptions">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_DisableTrayIcon">
+        <decimalTextBox refId="Value" defaultValue="0" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_DisconnectAction">
+        <dropdownList refId="Value" noSort="true" defaultItem="2">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_DisconnectClients">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_DisplayDevice">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_EnableAnalytics">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_EnableAutoUpdateChecks">
+        <decimalTextBox refId="Value" defaultValue="2" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_EnableChat">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_EnableManualUpdateChecks">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_EnableRemotePrinting">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_Encryption">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>AlwaysOn</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_GuestPassword">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_GuestPermissions">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_Hosts">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>+</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_httpd">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>&lt;inline&gt;</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_HttpPort">
+        <decimalTextBox refId="Value" defaultValue="5800" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_IdleTimeout">
+        <decimalTextBox refId="Value" defaultValue="3600" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_InputOnlyPassword">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_InTransports">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>IPv6,IPv4</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_IpClientAddresses">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>+</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_IpListenAddresses">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_IpListenProtocols">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>TCP,UDP</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_LdapCertificateCrlLimit">
+        <decimalTextBox refId="Value" defaultValue="26214400" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_LdapCertificateIntermediateStore">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>enterprise://</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_LdapCertificateNameMapping">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_LdapCertificateRevocation">
+        <dropdownList refId="Value" noSort="true" defaultItem="1">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_LdapCertificateTrustStore">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>enterprise://</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_LdapCertificateUserStore">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>ldap://GSSAPI@/CN=Users,&lt;PATH-TO-USERS&gt;</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_LdapSecurity">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_Locale">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_localhost">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_Log">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>*:file:30</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_LogDir">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_LogFile">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>vncserver.log</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_MaxHttpConns">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>50</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_MSLWorkaround">
+        <decimalTextBox refId="Value" defaultValue="" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_NeverShared">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_NtLogonAsInteractive">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_OcspNonce">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_Password">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_Permissions">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_PollCursorTime">
+        <decimalTextBox refId="Value" defaultValue="100" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_PollInterval">
+        <decimalTextBox refId="Value" defaultValue="50" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ProtocolVersion">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ProxyPassword">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ProxyServer">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>&lt;system&gt;</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ProxyUserName">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_QueryConnect">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_QueryConnectMessage">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_QueryConnectTimeout">
+        <decimalTextBox refId="Value" defaultValue="10" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_QueryOfferViewOnly">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_QueryOnlyIfLoggedOn">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_QueryTimeoutRights">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_QuitOnCloseStatusDialog">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RadiusAddress">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RadiusAuthenticationProtocol">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RadiusNasId">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>vncserver</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RadiusNormalizeUsername">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RadiusPrompt">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>RADIUS password:</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RadiusSecret">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RadiusServer">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RadiusTimeout">
+        <decimalTextBox refId="Value" defaultValue="60" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RemapKeys">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RemovePattern">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RemoveWallpaper">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ReverseSecurityTypes">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>&lt;auto&gt;</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_RfbPort">
+        <decimalTextBox refId="Value" defaultValue="5900" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_SecurityTypes">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>&lt;auto&gt;</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_SendCutText">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ServerPreferredEncoding">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ServiceDiscoveryEnabled">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ShareFiles">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_SimulateSAS">
+        <decimalTextBox refId="Value" defaultValue="1" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_TcpListenAddresses">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_TlsProfile">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_UpdateCheckFrequencyDays">
+        <decimalTextBox refId="Value" defaultValue="1" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_UpdateMethod">
+        <decimalTextBox refId="Value" defaultValue="" />
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_UseCaptureBlt">
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_UserPasswdVerifier">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_User_ViewOnlyPassword">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_user_User_ChatExpiryLimit">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>90days</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_user_User_ChatLogFile">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>$LOCAL_APPDATA_COMPANY\vncchat.xml</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_user_User_FetchDir">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_user_User_KeepChatHistory">
+      </presentation>
+      <presentation id="RealVNC_vncserverui_user_User_Locale">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_user_User_Log">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>*:file:10</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_user_User_LogDir">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_user_User_LogFile">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue>vncserverui-user.log</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserverui_user_User_TlsProfile">
+        <dropdownList refId="Value" noSort="true" defaultItem="0">Value</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

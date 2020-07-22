@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>
+  </displayName>
+  <description>
+  </description>
+  <resources>
+    <stringTable>
+      <string id="KeepLastChromeTab_Policy">Mantener última pestaña de Chrome en transición</string>
+      <string id="ShowTransitionScreen_Policy">Mostrar la pantalla de transición en Chrome durante un tiempo</string>
+      <string id="ChromeArguments_Explain">Permite especificar los argumentos que se transmitirán a Chrome cuando se ejecute.
+
+Si se habilita esta política, los parámetros proporcionados se utilizarán cuando se invoque Chrome.
+
+También puedes utilizar el marcador de posición especial ${url} para especificar dónde debe aparecer la URL en la línea de comandos. Por ejemplo: "--url=${url} --kiosk".
+No tienes que especificar el marcador de posición si se debe añadir al final o, si debe ser el único argumento, puedes dejar esta política en blanco.
+
+Si se inhabilita la política o si se deja en blanco, solo se transmitirá la URL como parámetro al navegador.</string>
+      <string id="AlternativeBrowserArguments">Argumentos del navegador alternativo</string>
+      <string id="ChromeArguments">Argumentos de Chrome</string>
+      <string id="AlternativeBrowserPath_Part">Ruta del navegador alternativo</string>
+      <string id="URLList_Part">Hosts que se abrirán en el navegador alternativo</string>
+      <string id="KeepLastChromeTab_Explain">Permite especificar lo que ocurre cuando la última pestaña abierta en Chrome se redirige al navegador alternativo.
+
+Si se habilita esta política o no se establece, la última pestaña se quedará abierta y dirigirá a la página Nueva pestaña después de la transición. Si se inhabilita esta política, la última pestaña se cerrará. Como resultado, Chrome se cerrará si no hay más ventanas del navegador abiertas.</string>
+      <string id="UseIeSiteList_Part">Usar la política de lista de sitios web de IE del modo de empresa</string>
+      <string id="SUPPORTED_WINXPSP2">Microsoft Windows XP SP2 o posterior</string>
+      <string id="AlternativeBrowserPath">Ruta del navegador alternativo</string>
+      <string id="UseIeSiteList_Explain">Si se habilita, las transiciones entre navegadores también se activarán con las entradas de la política SiteList de Internet Explorer de acuerdo con lo que se especifica en https://technet.microsoft.com/itpro/internet-explorer/ie11-deploy-guide/turn-on-enterprise-mode-and-use-a-site-list.
+
+Si se inhabilita esta política o no se establece, solo se usarán las URL de la política de extensión.</string>
+      <string id="AlternativeBrowserPath_Explain">Especifica el ejecutable del navegador alternativo.
+Permite especificar el programa que se utilizará como navegador alternativo.
+
+Si se habilita esta política, puedes especificar una ruta absoluta en la política o utilizar una de las siguientes variables:
+
+${ie}: la ubicación de instalación predeterminada de Internet Explorer
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\IEXPLORE.EXE se utiliza para seleccionar la ubicación del navegador en este caso.
+${firefox}: la ubicación de instalación predeterminada de Firefox
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\FIREFOX.EXE se utiliza para seleccionar la ubicación del navegador en este caso.
+${safari}: la ubicación de instalación predeterminada de Safari
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\SAFARI.EXE se utiliza para seleccionar la ubicación del navegador en este caso.
+
+Si no se habilita la política o si se deja en blanco, se utilizará Internet Explorer, el navegador alternativo predeterminado, como si se hubiera utilizado el valor ${ie}.</string>
+      <string id="ShowTransitionScreen_Part">Mostrar la pantalla de transición en Chrome durante un tiempo</string>
+      <string id="URLList_Explain">Permite especificar una lista de nombres de dominio de host que se abrirán en el navegador alternativo.
+
+Si se habilita esta política, tendrás que proporcionar una lista de filtros para activar la transición al navegador alternativo. Cada entrada debe ser uno de los cuatro tipos que se indican a continuación:
+
+Parte del nombre de host: se deben especificar nombres de dominio completos, como "www.example.com", o bien parciales, como "example.com" o solo "example". El uso de comodines aún no está permitido.
+Prefijo de URL: solo los prefijos de URL adecuados se corresponden completamente con el protocolo y el puerto si es necesario. Por ejemplo, "http://login.example.com" o "https://www.example.com:8080/login/".
+Entrada negativa: empieza con "!" y continúa como parte del nombre de host o el prefijo de URL como se describen anteriormente. Las entradas negativas siempre se abren en Chrome. Por ejemplo, "!example.com" o "!file:///c:/localapp/".
+Entrada de comodín: solo contiene un único carácter "*". Corresponde a cualquier URL. Está destinada a utilizarse junto con entradas negativas si la mayoría de las URL deberían abrirse en el navegador alternativo y solo una pequeña selección, en Chrome.
+
+Las entradas negativas tienen una prioridad superior a las entradas positivas, lo que permite incluir en una lista blanca gran parte de un dominio, mientras se reservan secciones más pequeñas de un dominio para abrirlas en Chrome.
+Si hay una entrada de comodín, solo se aplica después de haber comprobado todas las demás reglas.
+
+Los siguientes protocolos se supervisan para redirigirlos: http: y https:.
+
+Si no se especifica la política o se deja en blanco, no se activará la transición al navegador alternativo.</string>
+      <string id="ChromePath_Explain">Permite especificar qué ejecutable de Chrome se va a iniciar al volver del navegador alternativo(*).
+
+Al habilitar esta política, puedes especificar una ruta absoluta en la política o utilizar la siguiente variable:
+${chrome}: la ubicación de instalación predeterminada de Chrome
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Chrome.EXE se utiliza para seleccionar la ubicación del navegador en este caso.
+
+Si no se habilita la política o si se deja en blanco, se utilizará la instalación predeterminada de Chrome, como si se hubiera utilizado el valor ${chrome}.
+
+* En este momento, solo Internet Explorer permite volver a Chrome automáticamente.</string>
+      <string id="Cat_LegacyBrowserSupport">Compatibilidad con navegadores antiguos</string>
+      <string id="AlternativeBrowserArguments_Part">Argumentos del navegador alternativo</string>
+      <string id="URLGreyList_Part">Hosts que no deberían activar una transición en ningún navegador</string>
+      <string id="UseIeSiteList_Policy">Usar la política de lista de sitios web de IE del modo de empresa</string>
+      <string id="URLGreyList_Policy">Hosts que no deberían activar una transición en ningún navegador</string>
+      <string id="ShowTransitionScreen_Explain">Permite especificar la duración del mensaje de transición en la pestaña de Chrome antes de cambiar al otro navegador. De esta forma, se puede visualizar la transición. La política se debe definir en segundos.
+
+Si no se establece, la pestaña se cerrará inmediatamente cuando la transición se pueda completar.</string>
+      <string id="URLList_Policy">Hosts que se abrirán en el navegador alternativo</string>
+      <string id="ChromePath">Ruta de Chrome</string>
+      <string id="ChromeArguments_Part">Argumentos de Chrome</string>
+      <string id="KeepLastChromeTab_Part">Mantener última pestaña de Chrome en transición</string>
+      <string id="AlternativeBrowserArguments_Explain">Permite especificar los argumentos que se van a transmitir al ejecutable del navegador alternativo.
+
+Si se habilita esta política, los parámetros proporcionados se utilizarán cuando se invoque el navegador alternativo.
+
+También puedes utilizar el marcador de posición especial ${url} para especificar dónde debe aparecer la URL en la línea de comandos. Por ejemplo: "--url=${url} --kiosk".
+No tienes que especificar el marcador de posición si se debe añadir al final o, si debe ser el único argumento, puedes dejar esta política vacía.
+
+Si se inhabilita la política o si se deja en blanco, solo se transmitirá la URL como parámetro al navegador.</string>
+      <string id="URLGreyList_Explain">Permite especificar una lista de nombres de dominio de host que se abrirán en cualquiera de los dos navegadores.
+
+Si se habilita esta política, los dominios incluidos en esta lista estarán disponibles en ambos navegadores y no se activará una transición a ninguno de ellos.
+
+Un posible caso de uso sería cualquier dominio de autenticación compartido entre aplicaciones nuevas y antiguas de la lista.
+
+Partes del nombre de host: se deben especificar nombres de dominio completos, como "www.example.com", o bien parciales, como "example.com" o solo "example". El uso de comodines aún no está permitido.
+Prefijos de URL: solo los prefijos de URL adecuados se corresponden completamente con el protocolo y el puerto si es necesario. Por ejemplo, "http://login.example.com" o "https://www.example.com:8080/login/".
+
+Si no se especifica o se deja en blanco, cualquier dominio no incluido en la lista "Hosts que se abrirán en el navegador alternativo" activará una transición para volver a Chrome(*).
+
+*: En este momento, solo Internet Explorer permite volver a Chrome automáticamente.</string>
+      <string id="ChromePath_Part">Ruta de Chrome</string>
+</stringTable>
+  <presentationTable>
+    <presentation id="AlternativeBrowserPath">
+      <textBox refId="AlternativeBrowserPath_Part">
+        <label>Ruta del navegador alternativo</label>
+        <defaultValue></defaultValue>
+      </textBox>
+    </presentation>
+    <presentation id="AlternativeBrowserArguments">
+      <textBox refId="AlternativeBrowserArguments_Part">
+        <label>Argumentos del navegador alternativo</label>
+        <defaultValue></defaultValue>
+      </textBox>
+    </presentation>
+    <presentation id="ChromePath">
+      <textBox refId="ChromePath_Part">
+        <label>Ruta de Chrome</label>
+        <defaultValue></defaultValue>
+      </textBox>
+    </presentation>
+    <presentation id="ChromeArguments">
+      <textBox refId="ChromeArguments_Part">
+        <label>Argumentos de Chrome</label>
+        <defaultValue></defaultValue>
+      </textBox>
+    </presentation>
+    <presentation id="URLList_Policy">
+      <listBox refId="URLList_Part">Hosts que se abrirán en el navegador alternativo</listBox>
+    </presentation>
+    <presentation id="URLGreyList_Policy">
+      <listBox refId="URLGreyList_Part">Hosts que no deberían activar una transición en ningún navegador</listBox>
+    </presentation>
+    <presentation id="KeepLastChromeTab_Policy"/>
+    <presentation id="ShowTransitionScreen_Policy">
+      <decimalTextBox refId="ShowTransitionScreen_Part">Mostrar la pantalla de transición en Chrome durante un tiempo</decimalTextBox>
+    </presentation>
+    <presentation id="UseIeSiteList_Policy"/>
+  </presentationTable>
+</resources>
+</policyDefinitionResources>

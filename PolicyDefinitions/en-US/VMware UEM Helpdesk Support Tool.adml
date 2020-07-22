@@ -1,0 +1,33 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <displayName />
+  <description />
+  <resources>
+    <stringTable>
+      <string id="Cat_ImmidioFlexPlusHelpdeskSupportTool">Helpdesk Support Tool</string>
+      <string id="Cat_ImmidioFlexPlusHelpdeskSupportTool_Help">Contains settings to allow configuration of the VMware UEM Helpdesk Support Tool.</string>
+      <string id="Cat_AdvancedSettings">Advanced settings</string>
+      <string id="PlatformSupport">At least Microsoft Windows 7 with SP1 or Windows Server 2008 R2 with SP1</string>
+      <string id="FlexConfigFilesPath">UEM configuration share</string>
+      <string id="FlexConfigFilesPath_Help">Use this setting to configure the UEM configuration share.&#10;NOTE: do not append the 'General' folder.&#10;&#10;VMware UEM Helpdesk Support Tool expects its configuration file 'Immidio Flex+ Helpdesk Support Tool.XML' at this location.</string>
+      <string id="AllowExplore">Allow showing profile archives in Windows Explorer</string>
+      <string id="AllowExplore_Help">If you enable this setting, operators of VMware UEM Helpdesk Support Tool can directly jump to a profile archive in Windows Explorer.</string>
+      <string id="AllowEditArchive">Allow editing profile archives</string>
+      <string id="AllowEditArchive_Help">If you enable this setting, operators of VMware UEM Helpdesk Support Tool can edit profile archives.&#10;&#10;IMPORTANT: Take precaution in enabling this setting. VMware recommends only enabling this setting for experienced VMware UEM administrators. Manually editing profile archives is very error prone and requires extensive knowledge of user profiles including the registry. Making a mistake could render a profile archive inoperable.</string>
+      <string id="AllowMultiSelect">Allow resetting multiple profile archives at the same time</string>
+      <string id="AllowMultiSelect_Help">If you enable this setting, operators of VMware UEM Helpdesk Support Tool can reset multiple profile archives at the same time.</string>
+      <string id="AllowForcedDebugLogging">Allow overriding the FlexEngine log level</string>
+      <string id="AllowForcedDebugLogging_Help">If you enable this setting, operators of VMware UEM Helpdesk Support Tool can override the configured FlexEngine log level, forcing it to 'Debug'.</string>
+      <string id="DisableAclUpdate">Disable copying NTFS permissions</string>
+      <string id="DisableAclUpdate_Help">By default, VMware UEM Helpdesk Support Tool tries to correctly set the NTFS permissions for any files it creates, copies, or modifies.&#10;&#10;If you enable this setting, no such actions are performed.</string>
+      <string id="DisallowAllLabels">Hide '&lt;ALL&gt;' from label drop-down</string>
+      <string id="DisallowAllLabels_Help">If you enable this setting, the label drop-down will not include the '&lt;ALL&gt;' option.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="FlexConfigFilesPath">
+        <textBox refId="Txt_FlexConfigFilesPath">
+          <label>UEM configuration share:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

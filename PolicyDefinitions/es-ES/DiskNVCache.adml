@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="BootResumePolicy">Desactivar las optimizaciones de arranque y reanudación</string>
+      <string id="BootResumePolicyHelp">Esta configuración de directiva desactiva las optimizaciones de arranque y reanudación para los discos duros híbridos del sistema.
+
+Si habilita esta configuración de directiva, el sistema no usa la memoria caché no volátil (NV) para optimizar el arranque y la reanudación.
+
+Si deshabilita esta configuración de directiva, el sistema usa la memoria caché NV para conseguir un arranque y una reanudación más rápidos. El sistema determina los datos que se almacenarán en la memoria caché NV para optimizar el arranque y la reanudación. Los datos necesarios se almacenan en la memoria caché NV durante el apagado y la hibernación, respectivamente. Esto puede hacer que el tiempo necesario para apagar e hibernar el sistema aumente ligeramente.
+
+Si no configura esta configuración de directiva, se aplica el comportamiento predeterminado y se usa la memoria caché NV para las optimizaciones de arranque y reanudación.
+
+Nota: esta configuración de directiva solo es aplicable si está activada la característica de caché NV.</string>
+      <string id="CachePowerModePolicy">Desactivar modo de energía en caché</string>
+      <string id="CachePowerModePolicyHelp">Esta configuración de directiva desactiva el modo de ahorro de energía en los discos duros híbridos del sistema.
+
+Si habilita esta configuración de directiva, los discos no se colocarán en modo de ahorro de energía en caché NV y no se obtendrán ahorros de energía.
+
+Si deshabilita esta configuración de directiva, los discos duros se colocan en modo de ahorro de energía en caché NV. En este modo, el sistema intenta ahorrar energía reduciendo drásticamente la velocidad de giro del disco.
+
+Si no establece esta configuración de directiva, el comportamiento predeterminado es permitir que los discos duros híbridos estén en modo de ahorro de energía.
+
+Nota: esta configuración de directiva solo es aplicable si está activada la característica de caché NV.</string>
+      <string id="FeatureOffPolicy">Desactivar la característica de caché no volátil</string>
+      <string id="FeatureOffPolicyHelp">Esta configuración de directiva desactiva la compatibilidad con la memoria caché no volátil (NV) en todos los discos duros híbridos del sistema. Para comprobar si tiene discos duros híbridos en el sistema, en el Administrador de dispositivos, haga clic con el botón secundario en la unidad de disco correspondiente y seleccione Propiedades. La memoria caché NV se puede usar para optimizar el arranque y la reanudación mediante la lectura de datos de la memoria caché mientras los discos estén girando. La memoria caché NV también se puede usar para reducir el consumo de energía del sistema al mantener una velocidad baja de giro de los discos a la vez que se realizan las lecturas y escrituras desde la memoria caché.
+
+Si habilita esta configuración de directiva, el sistema no administrará la memoria caché NV y no habilitará el modo de ahorro de energía en caché NV.
+
+Si deshabilita esta configuración de directiva, el sistema administrará la memoria caché NV de los discos si las demás configuraciones de directiva de la memoria caché NV estén configuradas correctamente.
+
+Nota: esta configuración de directiva surtirá efecto la próxima vez que se arranque el sistema.
+
+Si no establece esta configuración de directiva, el comportamiento predeterminado es desactivar la compatibilidad con la memoria caché NV.</string>
+      <string id="NvCacheCat">Caché NV de disco</string>
+      <string id="SolidStatePolicy">Desactivar modo de estado sólido</string>
+      <string id="SolidStatePolicyHelp">Esta configuración de directiva desactiva el modo de estado sólido para los discos duros híbridos. 
+
+Si habilita esta configuración de directiva, es posible que los archivos que se escriben con frecuencia (como los metadatos del sistema de archivos y el Registro) no se almacenen en la memoria caché NV.
+
+Si deshabilita esta configuración de directiva, el sistema almacenará los datos escritos con frecuencia en la memoria caché no volátil (NV). Esto permite al sistema agotar la memoria caché NV y apagar el disco de forma exclusiva durante períodos de tiempo más largos para ahorrar energía. Tenga en cuenta que esto puede aumentar el desgaste de la memoria caché NV.
+
+Si no establece esta configuración de directiva, se aplica el comportamiento predeterminado del sistema y los archivos que se escriben con frecuencia se almacenarán en la memoria caché NV.
+
+Nota: esta configuración de directiva solo es aplicable si está activada la característica de caché NV.</string>
+    </stringTable>
+  </resources>
+</policyDefinitionResources>

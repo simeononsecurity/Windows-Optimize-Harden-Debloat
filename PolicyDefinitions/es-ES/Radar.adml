@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="WdiScenarioCategory">Detección y resolución de agotamiento de recursos de Windows</string>
+      <string id="WdiScenarioExecutionPolicy">Configurar nivel de ejecución de escenario</string>
+      <string id="WdiScenarioExecutionPolicyExplain">Determina el nivel de ejecución para la detección y la resolución del agotamiento de recursos de Windows.
+
+Si habilita esta configuración de directiva, debe seleccionar un nivel de ejecución en el menú desplegable. Si selecciona solo la detección y la solución de problemas, el Servicio de directivas de diagnóstico (DPS) detectará los problemas de agotamiento de los recursos de Windows e intentará determinar las causas. Estas causas se registran en el registro de eventos al detectarse, pero no se realiza ninguna acción correctiva. Si selecciona la detección, la solución de problemas y la resolución, DPS detecta los problemas de agotamiento de recursos de Windows e indica al usuario que la resolución asistida está disponible.
+
+Si deshabilita esta configuración de directiva, Windows no puede detectar ni resolver ningún problema de agotamiento de los recursos de Windows controlado mediante DPS.
+
+Si no define esta configuración de directiva, DPS habilita la resolución del agotamiento de recursos de Windows de forma predeterminada.
+
+Esta configuración de directiva solo surte efecto si no se ha configurado la directiva de ejecución del escenario para todos los diagnósticos.
+
+No es necesario reiniciar el sistema ni el servicio para que esta directiva surta efecto; los cambios se aplican de inmediato.
+
+Esta configuración de directiva solo surte efecto si el Servicio de directivas de diagnóstico está en ejecución. Si el servicio se detiene o se deshabilita, los escenarios de diagnóstico no se ejecutan. DPS se puede configurar con el complemento Servicios para Microsoft Management Console.</string>
+      <string id="WdiScenarioExecutionPolicyLevelResolution">Detección, solución de problemas y resolución</string>
+      <string id="WdiScenarioExecutionPolicyLevelTsOnly">Solo detección y solución de problemas</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="WdiScenarioExecutionPolicy">
+        <dropdownList refId="WdiScenarioExecutionPolicyLevel" noSort="true" defaultItem="1">Nivel de ejecución de escenario</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="Arp">Agregar o quitar programas</string>
+      <string id="DefaultCategory">Especificar categoría predeterminada para Agregar nuevos programas</string>
+      <string id="DefaultCategory_Help">Especifica la categoría de programas que aparece cuando los usuarios abren la página "Agregar nuevos programas".
+
+Si habilita este valor, solo se mostrarán los programas de la categoría que especifique cuando se abra la página "Agregar nuevos programas". Los usuarios pueden usar el cuadro Categoría de la página "Agregar nuevos programas" para mostrar programas de otras categorías.
+
+Para usar esta opción, escriba el nombre de una categoría en el cuadro Categoría correspondiente. Debe especificar una categoría que ya esté definida en Agregar o quitar programas. Para definir una categoría, use Instalación de software.
+
+Si deshabilita o no configura esta opción, se muestran todos los programas (Categoría: Todos) cuando se abre la página "Agregar nuevos programas".
+
+Puede usar esta opción para dirigir a los usuarios a los programas que necesiten con mayor probabilidad.
+
+Nota: esta opción se omite si se habilita "Quitar Agregar o quitar programas" u "Ocultar la página Agregar nuevos programas".</string>
+      <string id="NoAddFromCDorFloppy">Ocultar la opción "Agregar un programa desde un CD-ROM o disquete</string>
+      <string id="NoAddFromCDorFloppy_Help">Quita la sección "Agregar un programa desde un CD-ROM o disquete" de la página Agregar nuevos programas. Esto impide que los usuarios usen Agregar o quitar programas para instalar programas desde medios extraíbles.
+
+Si deshabilita esta opción o no la configura, la opción "Agregar un programa desde un CD-ROM o disquete" está disponible para todos los usuarios.
+
+Esta opción no impide que los usuarios usen otros métodos y herramientas para agregar o quitar componentes de programa.
+
+Nota: esta opción se omitirá si "Ocultar la página Agregar nuevos programas" está habilitada. Asimismo, si la directiva "Impedir la instalación de cualquier medio extraíble" (ubicada en Configuración del equipo\Plantillas administrativas\Componentes de Windows\Windows Installer) está habilitada, los usuarios no pueden agregar programas desde medios extraíbles, aunque se habilite esta directiva.</string>
+      <string id="NoAddFromInternet">Ocultar la opción "Agregar programas desde Microsoft"</string>
+      <string id="NoAddFromInternet_Help">Quita la sección "Agregar programas desde Microsoft" de la página Agregar nuevos programas. Esta opción impide que los usuarios usen Agregar o quitar programas para conectarse a Windows Update.
+
+Si deshabilita esta opción o no la configura, "Agregar programas desde Microsoft" está disponible para todos los usuarios.
+
+Esta opción no impide que los usuarios usen otros métodos y herramientas para conectarse a Windows Update.
+
+Nota: esta opción se omitirá si "Ocultar la página Agregar nuevos programas" está habilitada.</string>
+      <string id="NoAddFromNetwork">Ocultar la opción "Agregar programas desde la red"</string>
+      <string id="NoAddFromNetwork_Help">Impide que los usuarios vean o instalen programas publicados.
+
+Esta opción quita la sección "Agregar programas desde la red" de la página Agregar nuevos programas. La sección "Agregar programas desde la red" enumera programas publicados y proporciona una manera sencilla de instalarlos.
+
+Los programas publicados son aquellos programas que el administrador del sistema ha puesto a disposición del usuario explícitamente con una herramienta como Windows Installer. Normalmente, los administradores del sistema publican programas para notificar a los usuarios los programas que están disponibles, recomendar su uso o permitirles instalarlos sin tener que buscar los archivos de instalación.
+
+Si habilita este valor, los usuarios no pueden saber qué programas ha publicado el administrador del sistema y no pueden usar Agregar o quitar programas para instalar programas publicados. No obstante, todavía pueden instalar programas mediante otros métodos, y pueden ver e instalar programas asignados (parcialmente instalados) que se ofrezcan en el escritorio o en el menú Inicio.
+
+Si deshabilita esta opción o no la configura, "Agregar programas desde la red" está disponible para todos los usuarios.
+
+Nota: esta opción se omitirá si "Ocultar la página Agregar nuevos programas" está habilitada.</string>
+      <string id="NoAddPage">Ocultar la página Agregar nuevos programas</string>
+      <string id="NoAddPage_Help">Quita el botón Agregar nuevos programas de la barra de Agregar o quitar programas. En consecuencia, los usuarios no pueden ver ni cambiar la página adjunta.
+
+El botón Agregar nuevos programas permite a los usuarios instalar programas publicados o asignados por un administrador del sistema.
+
+Si deshabilita esta opción o no la configura, el botón Agregar nuevos programas está disponible para todos los usuarios.
+
+Esta opción no impide que los usuarios usen otros métodos y herramientas para instalar programas.</string>
+      <string id="NoAddRemovePrograms">Quitar Agregar o quitar programas</string>
+      <string id="NoAddRemovePrograms_Help">Impide que los usuarios usen Agregar o quitar programas.
+
+Esta opción quita Agregar o quitar programas del Panel de control; también quita la opción Agregar o quitar programas de los menús.
+
+Agregar o quitar programas permite a los usuarios instalar, desinstalar, reparar, agregar y quitar características y componentes de Windows 2000 Professional y una amplia variedad de programas de Windows. Los programas publicados o asignados al usuario aparecen en Agregar o quitar programas.
+
+Si deshabilita esta opción o no la configura, Agregar o quitar programas está disponible para todos los usuarios.
+
+Cuando se habilita, esta opción tiene preferencia sobre el resto de los valores de esta carpeta.
+
+Esta opción no impide que los usuarios usen otros métodos y herramientas para instalar o desinstalar programas.</string>
+      <string id="NoChooseProgramsPage">Ocultar la página Configurar acceso y programas predeterminados</string>
+      <string id="NoChooseProgramsPage_Help">Quita el botón Configurar acceso y programas predeterminados de la barra Agregar o quitar programas. En consecuencia, los usuarios no pueden ver ni cambiar la página asociada.
+
+El botón Configurar acceso y programas predeterminados permite a los administradores especificar los programas predeterminados para ciertas actividades, como exploración de Internet o envío de correo electrónico, así como los programas que a los que se tiene acceso desde el menú Inicio, el escritorio y otras ubicaciones.
+
+Si deshabilita esta opción o no la configura, el botón Configurar acceso y programas predeterminados está disponible para todos los usuarios.
+
+Esta opción no impide que los usuarios usen otros métodos y herramientas para cambiar el acceso o las opciones predeterminadas de los programas.
+
+Esta opción no impide que el icono Configurar acceso y programas predeterminados aparezca en el menú Inicio. Consulte la opción "Quitar del menú Inicio Configurar acceso y programas predeterminados ".</string>
+      <string id="NoRemovePage">Ocultar la página Cambiar o quitar programas</string>
+      <string id="NoRemovePage_Help">Quita o modifica el botón Cambiar o quitar programas de la barra Agregar o quitar programas. En consecuencia, los usuarios no pueden ver ni cambiar la página adjunta.
+
+El botón Cambiar o quitar programas permite a los usuarios desinstalar, reparar, agregar o quitar características de programas instalados.
+
+Si deshabilita esta opción o no la configura, la página Cambiar o quitar programas está disponible para todos los usuarios.
+
+Esta opción no impide que los usuarios usen otros métodos y herramientas para eliminar o desinstalar programas.</string>
+      <string id="NoServices">Asistente para componentes de Windows</string>
+      <string id="NoServices_Help">Impide que los usuarios usen Agregar o quitar programas para configurar servicios instalados.
+
+Esta opción quita la sección "Instalar servicios" de la página Agregar o quitar componentes de Windows. La sección "Instalar servicios" enumera los servicios del sistema que no se han configurado y ofrece a los usuarios un acceso fácil a las herramientas de configuración.
+
+Si deshabilita esta opción o no la configura, "Instalar servicios" solo aparece cuando hay servicios del sistema sin configurar. Si la habilita, "Instalar servicios" no aparece nunca.
+
+Esta opción no impide que los usuarios usen otros métodos para configurar servicios.
+
+Nota: cuando "Instalar servicios" no aparezca, si hace clic en el botón Agregar o quitar componentes de Windows se iniciará inmediatamente el Asistente para componentes de Windows. Puesto que la única opción restante de la página Agregar o quitar componentes de Windows inicia el asistente, se selecciona automáticamente y se omite la página.
+
+Para quitar "Instalar servicios" e impedir que se inicie el Asistente para componentes de Windows, habilite la opción "Ocultar la página Agregar o quitar componentes de Windows". Esta opción se omitirá si "Ocultar la página Agregar o quitar componentes de Windows" está habilitada.</string>
+      <string id="NoSupportInfo">Quitar la información de soporte técnico</string>
+      <string id="NoSupportInfo_Help">Quita vínculos al cuadro de diálogo Información de soporte técnico desde los programas en la página Cambiar o quitar programas.
+
+Los programas de la lista de la página Cambiar o quitar programas pueden incluir un hipervínculo "Haga clic aquí para obtener información de soporte". Cuando se hace clic en este hipervínculo, se abre un cuadro de diálogo que muestra información de solución de problemas, incluido un vínculo a los archivos de instalación y los datos que los usuarios necesitan para obtener soporte técnico, como el Id. de producto y el número de versión del programa. El cuadro de diálogo también incluye un hipervínculo a información de soporte técnico en Internet, como la página web de servicios de soporte técnico de Microsoft.
+
+Si deshabilita esta opción o no la configura, aparece el hipervínculo de información de soporte técnico.
+
+Nota: no todos los programas proporcionan un hipervínculo a información de soporte técnico.</string>
+      <string id="NoWindowsSetupPage">Ocultar la página Agregar o quitar componentes de Windows</string>
+      <string id="NoWindowsSetupPage_Help">Quita el botón Agregar o quitar componentes de Windows de la barra Agregar o quitar programas. En consecuencia, los usuarios no pueden ver ni cambiar la página asociada.
+
+El botón Agregar o quitar componentes de Windows permite a los usuarios configurar servicios instalados y usar el Asistente para componentes de Windows para agregar, quitar y configurar componentes de Windows a partir de los archivos de instalación.
+
+Si deshabilita esta opción o no la configura, el botón Agregar o quitar componentes de Windows está disponible para todos los usuarios.
+
+Esta opción no impide que los usuarios usen otros métodos y herramientas para configurar servicios, o bien para agregar o quitar componentes de programa. Sin embargo, esta opción impide que el usuario pueda tener acceso al Asistente para componentes de Windows.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DefaultCategory">
+        <textBox refId="DefaultCategoryBox">
+          <label>Categoría:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

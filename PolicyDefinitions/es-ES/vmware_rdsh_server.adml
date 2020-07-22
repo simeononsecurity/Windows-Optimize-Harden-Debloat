@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<policyDefinitionResources
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	revision="1.0"
+	schemaVersion="1.0"
+	xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+
+<displayName>introduzca el nombre para mostrar aquí</displayName>
+
+<description>introduzca la descripción aquí</description>
+
+<resources>
+
+<stringTable>
+
+<string id="CASCADIA_APP_COMPATIBILITY">Compatibilidad de aplicaciones</string>
+
+<string id="CASCADIA_APP_COMPATIBILITY_Help">Controla los ajustes de compatibilidad de aplicaciones en un servidor host de sesión de escritorio remoto</string>
+
+<string id="CASCADIA_ENABLE_IP_VIRTUALIZATION">Activar virtualización de IP de Escritorio remoto</string>
+
+<string id="CASCADIA_ENABLE_IP_VIRTUALIZATION_EXPLAIN">Esta configuración de directiva especifica si se activa la virtualización de IP de Escritorio remoto.
+La virtualización de IP de Escritorio remoto está desactivada por defecto.
+
+Si activa esta configuración de directiva, se activa la virtualización de IP de Escritorio remoto. Puede elegir de qué forma se aplica la configuración. Si utiliza el modo Por programa, debe introducir una lista de programas que deban utilizar direcciones IP virtuales. Indique cada programa en una línea separada (no introduzca líneas en blanco entre programas). Por ejemplo:
+
+explorer.exe
+mstsc.exe
+
+Si deshabilita o no configura esta configuración de directiva, se desactiva la virtualización de IP de Escritorio remoto.
+</string>
+
+<string id="CASCADIA_ENABLE_SESSION_MODE_IP_VIRTUALIZATION">Por sesión</string>
+
+<string id="CASCADIA_ENABLE_PRPGRAM_MODE_IP_VIRTUALIZATION">Por programa</string>
+
+<string id="CASCADIA_NET_ID_IP_VIRTUALIZATION">Seleccionar el adaptador de red que debe utilizarse para la virtualización de IP de Escritorio remoto</string>
+
+<string id="CASCADIA_NET_ID_IP_VIRTUALIZATION_EXPLAIN">Esta configuración de directiva indica la dirección IP y la máscara de red que corresponden al adaptador de red utilizado para direcciones IP virtuales. La dirección IP y la máscara de red deben escribirse en la notación Classless Inter-Domain Routing; por ejemplo: 192.0.2.96/24.
+
+Si habilita esta configuración de directiva, la dirección IP y la máscara de red especificadas se utilizarán para seleccionar el adaptador de red usado para las direcciones IP virtuales.
+
+Si deshabilita o no configura esta configuración de directiva, se desactiva la virtualización de IP de Escritorio remoto. Se debe configurar un adaptador de red para que la virtualización de IP de Escritorio remoto funcione.
+</string>
+
+<string id="CASCADIA_NOT_USE_SERVER_IP_WITH_IP_VIRTUALIZATION">No utilizar la dirección IP del servidor host de sesión de escritorio remoto cuando no hay disponible una dirección IP virtual</string>
+
+<string id="CASCADIA_NOT_USE_SERVER_IP_WITH_IP_VIRTUALIZATION_EXPLAIN">Esta configuración de directiva especifica si una sesión utiliza la dirección IP del servidor host de sesión de escritorio remoto si no hay disponible una dirección IP virtual.
+
+Si habilita esta configuración de directiva, no se utiliza la dirección IP del servidor host de sesión de escritorio remoto si no hay disponible una IP virtual. Está sesión no dispondrá de conectividad de red.
+
+Si deshabilita o no configura esta configuración de directiva, se utiliza la dirección IP del servidor host de sesión de escritorio remoto si no hay disponible una IP virtual.
+</string>
+
+<string id="CASCADIA_ENABLE_DFSS">Desactivar la Programación de reparto justo de CPU</string>
+
+<string id="CASCADIA_ENABLE_DFSS_EXPLAIN">La Programación de reparto justo de CPU distribuye de manera dinámica el tiempo de procesador a todas las sesiones de Servicios de Escritorio remoto en el mismo servidor host de sesión de escritorio remoto en función del número de sesiones y de la demanda de tiempo del procesador en cada sesión.
+
+Si habilita esta configuración de directiva, se desactiva la Programación de reparto justo de CPU.
+
+Si deshabilita o no configura esta configuración de directiva, se activa la Programación de reparto justo de CPU.
+</string>
+
+<string id="CASCADIA_DISABLE_MSI">Desactivar compatibilidad de RDS con Windows Installer</string>
+
+<string id="CASCADIA_DISABLE_MSI_EXPLAIN">Esta configuración de directiva especifica si la compatibilidad de RDS con Windows Installer se ejecuta por usuario para aplicaciones instaladas completamente. Windows Installer solo permite ejecutar las instancias del proceso msiexec de una en una. Por defecto, la compatibilidad de RDS con Windows Installer está activada.
+
+Si habilita esta configuración de directiva, la compatibilidad de RDS con Windows Installer estará desactivada y las instancias del proceso msiexec solo se ejecutarán de una en una.
+
+Si deshabilita o no configura esta configuración de directiva, la compatibilidad de RDS con Windows Installer estará activada y el proceso msiexec pondrá en cola y administrará varias solicitudes por usuario de instalación de aplicaciones en el orden en que se reciban.
+</string>
+
+</stringTable>
+
+<presentationTable>
+	<presentation id="CASCADIA_NET_ID_IP_VIRTUALIZATION">
+		<textBox refId="CASCADIA_NET_ID_IP_VIRTUALIZATION">
+		<label>Defina la dirección IP y la máscara de red que correspondan al adaptador de red usado para la virtualización de IP de Escritorio remoto:</label>
+		</textBox>
+		<text>El formato es [dirección IP]/[máscara de red]. Por ejemplo: 192.0.2.96/24</text>
+		</presentation>
+		<presentation id="CASCADIA_ENABLE_IP_VIRTUALIZATION">
+		<dropdownList refId="CASCADIA_ENABLE_IP_VIRTUALIZATION" noSort="true" defaultItem="0">Modo Activar virtualización de IP de Escritorio remoto:</dropdownList>
+		<multiTextBox refId="CASCADIA_ENABLE_IP_VIRTUALIZATION_EDIT">Asignar direcciones IP virtuales a estos programas:</multiTextBox>
+		<text>Si va a especificar más de un programa, indique cada programa en una línea separada (no introduzca líneas en blanco entre programas). Por ejemplo:</text>
+		<text>explorer.exe
+		mstsc.exe</text>
+	</presentation>
+</presentationTable>
+</resources>
+</policyDefinitionResources>

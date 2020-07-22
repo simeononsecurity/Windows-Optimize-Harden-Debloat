@@ -1,0 +1,204 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>
+  </displayName>
+  <description>
+  </description>
+  <resources>
+    <stringTable>
+      <string id="Root_CatName">Redireccionamiento de escáner</string>
+      <string id="DisableFunctionality_PolicyName">Deshabilitar función</string>
+      <string id="DisableFunctionality_PolicyExplain">Esta configuración de directiva se usa para deshabilitar la función de redireccionamiento de escáner.
+
+Si se habilita esta configuración de directiva, no se pueden redireccionar escáneres y no aparecen en el menú de escáner.
+
+Si se deshabilita o no se configura esta configuración de directiva, el redireccionamiento de escáner funciona y los escáneres aparecen en el menú de escáner.</string>
+      <string id="LockConfig_PolicyName">Bloquear configuración</string>
+      <string id="LockConfig_PolicyExplain">Esta configuración de directiva sirve para bloquear la interfaz de usuario de configuración del programa.
+
+Si se habilita esta configuración de directiva, se bloquea la interfaz de usuario que contiene la configuración del programa y el usuario no puede realizar modificaciones de configuración en el menú de la bandeja.
+
+Si se deshabilita o no se configura esta configuración de directiva, los usuarios pueden acceder a la interfaz de usuario que contiene la configuración del programa.</string>
+      <string id="HideWebcam_PolicyName">Ocultar cámaras web</string>
+      <string id="HideWebcam_PolicyExplain_COMP">Actualmente, las cámaras web pueden redireccionarse al lado de VMware Agent y pueden usarse como escáner virtual para capturar imágenes.
+Esta configuración de directiva evita que las cámaras web aparezcan en el menú de selección de escáner de la interfaz de usuario.
+
+Si se habilita esta configuración de directiva, se habilita el modo de ocultación de cámaras web para todos los usuarios del equipo.
+
+Si se deshabilita esta configuración de directiva, se deshabilita el modo de ocultación de cámaras web para todos los usuarios del equipo.
+
+Además, esta configuración de directiva anula configuraciones de directivas similares para todos los usuarios del equipo y estos no podrán modificar el modo de ocultación de cámaras web mediante la interfaz de configuración.
+
+Si no se configura esta configuración de directiva, el modo de ocultación de cámaras web se determina mediante la configuración de directiva de usuario similar o mediante la interfaz de configuración.</string>
+      <string id="HideWebcam_PolicyExplain_USER">Actualmente, las cámaras web pueden redireccionarse al lado de VMware Agent y pueden usarse como escáner virtual para capturar imágenes.
+Esta configuración de directiva evita que las cámaras web aparezcan en el menú de selección de escáner de la interfaz de usuario.
+
+Si se habilita esta configuración de directiva, esta asignará el modo de ocultación de cámaras web para los usuarios.
+
+Si se deshabilita o no se configura esta configuración de directiva, se deshabilita el modo de ocultación de cámaras web.
+
+El usuario puede modificar el modo de ocultación de cámaras web en cualquier momento mediante la interfaz de configuración, incluso si la configuración de directiva está habilitada.
+
+Si se utiliza esta configuración de directiva para el equipo, reemplaza la configuración de directiva de todos los usuarios del equipo. En ese caso, el usuario no podrá modificar el modo de ocultación de cámaras web mediante la interfaz de configuración.</string>
+      <string id="DefaultColorMode_PolicyName">Modo de color predeterminado</string>
+      <string id="DefaultColorMode_PolicyExplain">Esta política le permite anular el modo de color predeterminado del escáner (por ejemplo, Color o Escala de grises).
+Puede ser útil en caso de que la aplicación que utilice para escanear lo haga sin mostrar el cuadro de diálogo de preferencias de escaneo y tampoco permite configurar el modo de color de forma interna.
+      </string>
+      <string id="DefaultColorMode_DropDownListName">Modo de color:</string>
+      <string id="DefaultColorMode_BlackAndWhite">Blanco y negro</string>
+      <string id="DefaultColorMode_Grayscale">Escala de grises</string>
+      <string id="DefaultColorMode_Color">Color</string>
+      <string id="DefaultDuplex_PolicyName">Doble cara predeterminado</string>
+      <string id="DefaultDuplex_PolicyExplain">Esta política le permite anular el modo de escaneo predeterminado (Una cara o Doble cara).
+&quot;Doble cara&quot; solo es compatible con las aplicaciones que admitan escaneo a doble cara y que soliciten dos páginas por escáner.
+      </string>
+      <string id="DefaultDuplex_DropDownListName">Modo doble cara:</string>
+      <string id="DefaultDuplex_Simplex">Una cara</string>
+      <string id="DefaultDuplex_Duplex">Doble cara</string>
+      <string id="DefaultScanner_PolicyName">Escáner predeterminado</string>
+      <string id="DefaultScanners_PolicyExplain_COMP">Esta configuración de directiva sirve para una gestión centralizada de la selección automática de escáneres.
+Se utilizan los siguientes modos de selección automática:
+&quot;Ninguno&quot;: no seleccionar escáneres de forma automática;
+&quot;Selección automática&quot;: seleccionar el escáner conectado de forma automática;
+&quot;Último usado&quot;: seleccionar el último escáner usado de forma automática;
+&quot;Especificado&quot;: el escáner seleccionado se determina en función del contenido del campo &quot;Escáner especificado&quot;.
+
+Si se habilita esta configuración de directiva, esta reemplazará el modo de selección automática de escáneres de todos los usuarios del equipo y los usuarios no podrán modificar el modo de selección automática mediante la interfaz de configuración.
+Además, esta configuración de directiva anula configuraciones de directivas similares para todos los usuarios del equipo.
+
+Si se deshabilita o no se configura esta configuración de directiva, se determina el modo de selección automática mediante la configuración de directiva similar para el usuario o mediante la interfaz de configuración.</string>
+      <string id="DefaultScanners_PolicyExplain_USER">Esta configuración de directiva sirve para una gestión centralizada de la selección automática de escáneres.
+Se utilizan los siguientes modos de selección automática:
+&quot;Ninguno&quot;: no seleccionar escáneres de forma automática
+&quot;Selección automática&quot;: seleccionar el escáner conectado de forma automática
+&quot;Último usado&quot;: seleccionar de forma automática el último escáner conectado que se haya usado
+&quot;Especificado&quot;: el escáner seleccionado se determinada en función del contenido del campo &quot;Escáner especificado&quot;.
+
+Si se habilita esta configuración de directiva, esta establece el modo de selección automática de escáneres del usuario.
+
+Si se deshabilita o no se configura esta configuración de directiva, se utiliza el modo &quot;Selección automática&quot;.
+
+El usuario puede modificar el modo de selección automática en cualquier momento mediante la interfaz de configuración, incluso si la configuración de directiva está habilitada.
+
+Si se utiliza esta configuración de directiva para el equipo, reemplaza la configuración de directiva de todos los usuarios del equipo. En ese caso, el usuario no podrá modificar el modo de selección automática mediante la interfaz de configuración.</string>
+      <string id="TWAINScanners_Caption">Para escáneres TWAIN:
+
+</string>
+      <string id="WIAScanners_Caption">Para escáneres WIA:
+
+</string>
+      <string id="Scanners_SelectionMode_DropDownListName">Modo de selección:</string>
+      <string id="Scanners_SelectionMode_None">Ninguno</string>
+      <string id="Scanners_SelectionMode_Auto">Selección automática</string>
+      <string id="Scanners_SelectionMode_Last">Último usado</string>
+      <string id="Scanners_SelectionMode_Specified">Especificado</string>
+      <string id="Scanners_Specified_EditName">Escáner especificado:</string>
+      <string id="Compression_PolicyName">Compresión</string>
+      <string id="Compression_PolicyExplain">Esta configuración de directiva sirve para establecer el índice de compresión de imágenes durante su transferencia al lado del agente.
+Se utilizan los siguientes modos de compresión:
+&quot;Deshabilitar&quot;: compresión de imágenes deshabilitada
+&quot;Sin pérdidas&quot;: se utiliza la compresión sin pérdida de calidad de la imagen (zlib)
+&quot;JPEG&quot;: se utiliza la compresión con pérdida de calidad JPEG. El nivel de calidad de imagen se especifica en el campo &quot;Calidad de compresión JPEG&quot;.
+
+Si se habilita esta configuración de directiva, esta establece el modo de compresión del usuario.
+
+Si se deshabilita o no se configura esta configuración de directiva, se utiliza el modo de compresión &quot;JPEG&quot;.
+
+El usuario puede modificar el modo de compresión en cualquier momento mediante la interfaz de configuración, incluso si la configuración de directiva está habilitada.</string>
+      <string id="Compression_Mode_DropDownListName">Modo de compresión:</string>
+      <string id="Compression_Mode_Disable">Deshabilitar</string>
+      <string id="Compression_Mode_Lossless">Sin pérdidas</string>
+      <string id="Compression_Mode_JPEG">JPEG</string>
+      <string id="Compression_JPEGQuality_NumericName">Calidad de compresión JPEG:</string>
+      <string id="ADMXMigrator_UnresolvedString">ADMX Migrator encontró una cadena no presente en la tabla de cadenas ADM de origen.</string>
+      <string id="ADMXMigrator_NoSupportedOn">ADMX Migrator encontró una cadena que no contiene un valor On compatible.</string>
+      <string id="SUPPORTED_WindowsXP">Familia Windows Server 2003 o Microsoft Windows XP Professional como mínimo</string>
+	  <string id="BandwidthLimit_PolicyName">BandwidthLimit</string>
+	  <string id="BandwidthLimit_PolicyExplain">Esta configuración de directiva especifica el ancho de banda máximo permitido (en kilobytes por segundo) para transferir datos escaneados a una sesión de usuario. 
+Si se establece el valor cero o no se especifica, no se aplicará ningún límite.</string>
+	  <string id="BandwidthLimit_NumericName">Límite de kilobytes/seg.:</string>
+	  <string id="UseVendorUI_PolicyName">Ubicación del cuadro de diálogo de propiedades del escáner TWAIN</string>
+      <string id="UseVendorUI_PolicyExplain">Esta directiva permite especificar si el cuadro de diálogo de propiedades de escaneo TWAIN aparecerá en el lado del agente o del cliente.
+Si se selecciona Agente, el cuadro de diálogo de propiedades del escáner de VMware aparecerá en el lado del agente.
+Si se selecciona Cliente, el cuadro de diálogo TWAIN del escáner de proveedor nativo aparecerá en el lado del cliente.
+      </string>
+      <string id="UseVendorUI_DropDownListName">Ubicación del cuadro de diálogo de propiedades del escáner TWAIN:</string>
+      <string id="UseVendorUI_Server">Agente</string>
+      <string id="UseVendorUI_Wks">Cliente</string>
+	  <string id="ForceTwainDialog_PolicyName">Forzar el cuadro de diálogo de propiedades de escaneo TWAIN</string>
+      <string id="ForceTwainDialog_PolicyExplain_USER">Esta directiva permite forzar la visualización del cuadro de diálogo de propiedades de escaneo TWAIN aunque una aplicación de escáner no muestre el cuadro de diálogo de escaneo.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DisableFunctionality_PolicyName" />
+      <presentation id="LockConfig_PolicyName" />
+      <presentation id="HideWebcam_PolicyName" />
+      <presentation id="DefaultColorMode_PolicyName">
+        <dropdownList refId="DefaultColorMode_DropDownListName" noSort="true" defaultItem="2">Modo de color:</dropdownList>
+      </presentation>
+      <presentation id="DefaultDuplex_PolicyName">
+        <dropdownList refId="DefaultDuplex_DropDownListName" noSort="true" defaultItem="1">Modo doble cara:</dropdownList>
+      </presentation>
+      <presentation id="DefaultScanner_PolicyName">
+        <text>Para escáneres TWAIN:
+
+</text>
+        <dropdownList refId="Scanners_SelectionMode_DropDownListName" noSort="true" defaultItem="1">Modo de selección:</dropdownList>
+        <textBox refId="Scanners_Specified_EditName">
+          <label>Escáner especificado:</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+        <text>
+        </text>
+        <text>Para escáneres WIA:
+
+</text>
+        <dropdownList refId="Scanners_SelectionMode_DropDownListName_1" noSort="true" defaultItem="1">Modo de selección:</dropdownList>
+        <textBox refId="Scanners_Specified_EditName_1">
+          <label>Escáner especificado:</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="Compression_PolicyName">
+        <dropdownList refId="Compression_Mode_DropDownListName" noSort="true" defaultItem="2">Modo de compresión:</dropdownList>
+        <decimalTextBox refId="Compression_JPEGQuality_NumericName" defaultValue="80">Calidad de compresión JPEG:</decimalTextBox>
+      </presentation>
+      <presentation id="HideWebcam_PolicyName_1" />
+      <presentation id="DefaultColorMode_PolicyName_1">
+        <dropdownList refId="DefaultColorMode_DropDownListName" noSort="true" defaultItem="2">Modo de color:</dropdownList>
+      </presentation>
+      <presentation id="DefaultDuplex_PolicyName_1">
+        <dropdownList refId="DefaultDuplex_DropDownListName" noSort="true" defaultItem="1">Modo doble cara:</dropdownList>
+      </presentation>
+      <presentation id="DefaultScanner_PolicyName_1">
+        <text>Para escáneres TWAIN:
+
+</text>
+        <dropdownList refId="Scanners_SelectionMode_DropDownListName" noSort="true" defaultItem="1">Modo de selección:</dropdownList>
+        <textBox refId="Scanners_Specified_EditName">
+          <label>Escáner especificado:</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+        <text>
+        </text>
+        <text>Para escáneres WIA:
+
+</text>
+        <dropdownList refId="Scanners_SelectionMode_DropDownListName_1" noSort="true" defaultItem="1">Modo de selección:</dropdownList>
+        <textBox refId="Scanners_Specified_EditName_1">
+          <label>Escáner especificado:</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+      </presentation>
+	   <presentation id="BandwidthLimit_PolicyName">
+        <decimalTextBox refId="BandwidthLimit_NumericName" defaultValue="0">Límite de kilobytes/seg.:</decimalTextBox>
+      </presentation>
+	  <presentation id="UseVendorUI_PolicyName">
+        <dropdownList refId="UseVendorUI_DropDownListName" noSort="true" defaultItem="0">Ubicación del cuadro de diálogo:</dropdownList>
+      </presentation>
+	  <presentation id="ForceTwainDialog_PolicyName" />
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

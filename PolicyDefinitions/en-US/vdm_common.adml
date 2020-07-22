@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+	<displayName >Enter Display Name here</displayName>
+	<description >VMware Horizon View common configuration settings for Client, Server and Agent</description>
+	<resources >
+		<stringTable ><!--Storage for String Definitions-->
+
+			<string id="Undefined" >Undefined</string>
+
+			<string id="View_Common_Config" >VMware View Common Configuration</string>
+
+			<string id="Log_Config" >Log Configuration</string>
+
+			<string id="Perf_alarms" >Performance Alarms</string>
+
+			<string id="Security_Config" >Security Configuration</string>
+
+			<string id="Enable_extended_logging" >Enable extended logging</string>
+
+			<string id="Enable_extended_logging_Desc" >Determines if trace and debug events are included in the log files</string>
+
+			<string id="Log_event_disk_threshhold" >Disk threshold for log and events in Megabytes</string>
+
+			<string id="Log_event_disk_threshhold_Desc" >Specifies the minimum remaining disk space threshold for logs and events. If no value is specified, a default of 200 applies. When this value is reached, event logging will stop.</string>
+
+			<string id="Override_the_default_Windows_Event_Gen" >Override the default View Windows event generation</string>
+
+			<string id="Override_the_default_Windows_Event_Gen_Desc" >The following values are supported:
+    0 = Event log entries are only produced for view events (no event log entries are generated for log messages)
+    1 = Event log entries are produced in 4.5 (and earlier) compatibility mode. Event log entries are not produced for standard view events. Event log entries are based solely on log file text.
+    2 = Event log entries are produced in 4.5 (and earlier) compatibility mode with view events also being included.</string>
+
+			<string id="Production_Logs_Duration" >Number of days to keep production logs</string>
+
+			<string id="Production_Logs_Duration_Desc" >Specifies the number of days for which log files are retained on the system. If no value is set, the default applies and log files will only be kept for 7 days.</string>
+
+			<string id="Max_Debug_logs" >Maximum number of debug logs</string>
+
+			<string id="Max_Debug_logs_Desc" >Specifies the maximum number of debug log files to retain on the system (default is 10). When a log file reaches its maximum size, no further entries are added and a new log file is created. When the number of previous log files reaches this value, the oldest log file is deleted.</string>
+
+			<string id="Max_Debug_logs_size" >Maximum debug log size in Megabytes</string>
+
+			<string id="Max_Debug_logs_size_Desc" >Specifies the maximum size in Megabytes that a debug log can reach before the log file is closed and a new log file is created. (default is 10MB)</string>
+
+			<string id="Log_Dir" >Log directory</string>
+
+			<string id="Log_Dir_Desc" >The full path to the directory for log files. If this location is not writeable, the default location is used. Note that for client log files, an extra directory with the client name is created for the logs.</string>
+
+			<string id="Send_logs_to_Syslog_Svr" >Send logs to a Syslog server</string>
+
+			<string id="Send_logs_to_Syslog_Svr_Desc" >Enable and set to send View Server Logs to a Syslog Server such as VMware LogInsight. Use of this feature on an unsecured network is not recommended.
+Format:LogLevel|ServerFQDNorIP[|PortNumber(default is 514)], example Debug|192.0.2.2</string>
+
+			<string id="CPU_Mem_Sampling_Interval" >CPU and Memory Sampling Interval in Seconds</string>
+
+			<string id="CPU_Mem_Sampling_Interval_Desc" >Specifies the interval at which the CPU and memory are polled. Please note that a low sampling interval may result in an extremely high level of output being written to the log.</string>
+
+			<string id="Overall_CPU_usage" >Overall CPU usage percentage to issue log info</string>
+
+			<string id="Overall_CPU_usage_Desc" >The threshold at which the overall CPU use of the system is logged. Note that where multiple processors are available, this percentage represents the combined usage.</string>
+
+			<string id="Overall_memory_usage" >Overall memory usage percentage to issue log info</string>
+
+			<string id="Overall_memory_usage_Desc" >The threshold at which the overall committed system memory use (memory that has been allocated by processes and to which the operating system has committed physical memory and/or a page slot in the pagefile) is logged.</string>
+
+			<string id="Process_CPU_usage" >Process CPU usage percentage to issue log info</string>
+
+			<string id="Process_CPU_usage_Desc" >The threshold at which the CPU usage of any individual process is logged.</string>
+
+			<string id="Process_memory_usage" >Process memory usage percentage to issue log info</string>
+
+			<string id="Process_memory_usage_Desc" >The threshold at which the memory usage of any individual process is logged.</string>
+
+			<string id="Processes_to_check" >Processes to check, comma separated name list allowing wild cards and exclusion</string>
+
+			<string id="Processes_to_check_Desc" >A comma-separated list of queries that correspond to the name of one or more processes to be examined. In order to filter the list, you can use the following wildcards within each query: an asterisk (*) that matches zero or more characters, a question mark (?) that matches exactly one character, and an exclamation mark (!) that can be used as a prefix to a query in order to exclude any results yielded by that query. For example: '!*sys,ws*' - select all processes starting with 'ws' but exclude all processes ending with 'sys'.</string>
+
+			<string id="Type_of_certificate_revocation" >Type of certificate revocation check</string>
+
+			<string id="Type_of_certificate_revocation_Desc" >Select the type of certificate revocation check to be done, None, EndCertificateOnly, WholeChain or WholeChainButRoot. Default is WholeChainButRoot.</string>
+
+			<string id="None" >None</string>
+
+			<string id="End_Cert_Only" >EndCertificateOnly</string>
+
+			<string id="Whole_Chain" >WholeChain</string>
+
+			<string id="Whole_Chain_But_Root" >WholeChainButRoot</string>
+
+			<string id="Only_use_cached_revocation_URL" >Only use cached revocation URLs</string>
+
+			<string id="Only_use_cached_revocation_URL_Desc" >Certificate revocation checking will only access cached URLs. Default if not configured is false.</string>
+
+			<string id="Revocation_URL_check_timeout" >Revocation URL check timeout milliseconds</string>
+
+			<string id="Revocation_URL_check_timeout_Desc" >The cumulative timeout across all revocation URL wire retrievals in milliseconds. Not configured or value set to 0 means that Microsoft default handling is used.</string>
+
+		</stringTable>
+
+		<presentationTable ><!--Storage for Presentation Definitions-->
+
+			<presentation id="Log_event_disk_threshhold" >
+				<decimalTextBox refId="Log_event_disk_threshhold_DecimalBox_1" defaultValue="200" >Disk threshold for log and events in Megabytes</decimalTextBox>
+			</presentation>
+
+			<presentation id="Override_the_default_Windows_Event_Gen" >
+				<decimalTextBox refId="Override_the_default_Windows_Event_Gen_DecimalBox" defaultValue="0" >Override the default View Windows event generation</decimalTextBox>
+			</presentation>
+
+			<presentation id="Production_Logs_Duration" >
+				<decimalTextBox refId="Production_Logs_Duration_DecimalBox" defaultValue="7" >Number of days to keep production logs</decimalTextBox>
+			</presentation>
+
+			<presentation id="Max_Debug_logs" >
+				<decimalTextBox refId="Max_Debug_logs_DecimalBox" defaultValue="10" >Maximum number of debug logs</decimalTextBox>
+			</presentation>
+
+			<presentation id="Max_Debug_logs_size" >
+				<decimalTextBox refId="Max_Debug_logs_size_DecimalBox" defaultValue="10" >Maximum debug log size in Megabytes</decimalTextBox>
+			</presentation>
+
+			<presentation id="Log_Dir" >
+				<textBox refId="Log_Dir_TextBox" >
+					<label >Log directory</label>
+				</textBox>
+			</presentation>
+
+			<presentation id="Send_logs_to_Syslog_Svr" >
+				<textBox refId="Send_logs_to_Syslog_Svr_TextBox" >
+					<label >Send logs to a Syslog server</label>
+				</textBox>
+			</presentation>
+
+			<presentation id="CPU_Mem_Sampling_Interval" >
+				<decimalTextBox refId="CPU_Mem_Sampling_Interval_DecimalBox" defaultValue="60" >CPU and Memory Sampling Interval in Seconds</decimalTextBox>
+			</presentation>
+
+			<presentation id="Overall_CPU_usage" >
+				<decimalTextBox refId="Overall_CPU_usage_DecimalBox" defaultValue="90" >Overall CPU usage percentage to issue log info</decimalTextBox>
+			</presentation>
+
+			<presentation id="Overall_memory_usage" >
+				<decimalTextBox refId="Overall_memory_usage_DecimalBox" defaultValue="75" >Overall memory usage percentage to issue log info</decimalTextBox>
+			</presentation>
+
+			<presentation id="Process_CPU_usage" >
+				<decimalTextBox refId="Process_CPU_usage_DecimalBox" defaultValue="90" >Process CPU usage percentage to issue log info</decimalTextBox>
+			</presentation>
+
+			<presentation id="Process_memory_usage" >
+				<decimalTextBox refId="Process_memory_usage_DecimalBox" defaultValue="75" >Process memory usage percentage to issue log info</decimalTextBox>
+			</presentation>
+
+			<presentation id="Processes_to_check" >
+				<textBox refId="Processes_to_check_TextBox" >
+					<label >Processes to check, comma separated name list allowing wild cards and exclusion</label>
+				</textBox>
+			</presentation>
+
+			<presentation id="Type_of_certificate_revocation" >
+				<dropdownList refId="Type_of_certificate_revocation_DropDown" defaultItem="3" >Type of certificate revocation check</dropdownList>
+			</presentation>
+
+			<presentation id="Revocation_URL_check_timeout" >
+				<decimalTextBox refId="Revocation_URL_check_timeout_DecimalBox" defaultValue="0" >Revocation URL check timeout milliseconds</decimalTextBox>
+			</presentation>
+
+		</presentationTable>
+
+	</resources>
+
+</policyDefinitionResources>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- WKU Group Policies for: Firefox with CCK extension -->
+<!-- created by Scott.Copus@wku.edu -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<policyNamespaces>
+<target prefix="Firefox" namespace="Firefox" />
+<using prefix="windows" namespace="Microsoft.Policies.Windows" />
+</policyNamespaces>
+<resources minRequiredRevision="1.0" />
+<categories>
+	<category name="MOZILLA_CATEGORY" displayName="$(string.MOZILLA_CATEGORY)"/>
+	<category name="FIREFOX_CATEGORY" displayName="$(string.FIREFOX_CATEGORY)"><parentCategory ref="MOZILLA_CATEGORY"/></category>
+</categories>
+<policies>
+
+	<policy name="cck_config_dontCheckDefaultBrowser" class="Machine" displayName="$(string.cck_config_dontCheckDefaultBrowser)" explainText="$(string.cck_config_dontCheckDefaultBrowser_EXPLAIN)" presentation="$(presentation.cck_config_dontCheckDefaultBrowser)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.dontCheckDefaultBrowser">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_homePage" class="Machine" displayName="$(string.cck_config_homePage)" explainText="$(string.cck_config_homePage_EXPLAIN)" presentation="$(presentation.cck_config_homePage)" key="Software\Policies\Mozilla\Firefox">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<elements><text id="cck_config_homePage" valueName="cck.config.homePage" maxLength="32768"/></elements>
+	</policy>
+
+	<policy name="cck_config_lockHomePage" class="Machine" displayName="$(string.cck_config_lockHomePage)" explainText="$(string.cck_config_lockHomePage_EXPLAIN)" presentation="$(presentation.cck_config_lockHomePage)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.lockHomePage">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_preferences" class="Machine" displayName="$(string.cck_config_preferences)" explainText="$(string.cck_config_preferences_EXPLAIN)" presentation="$(presentation.cck_config_preferences)" key="Software\Policies\Mozilla\Firefox">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<elements><text id="cck_config_preferences" valueName="cck.config.preferences" maxLength="32768"/></elements>
+	</policy>
+
+	<policy name="cck_config_permissions" class="Machine" displayName="$(string.cck_config_permissions)" explainText="$(string.cck_config_permissions_EXPLAIN)" presentation="$(presentation.cck_config_permissions)" key="Software\Policies\Mozilla\Firefox">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<elements><text id="cck_config_permissions" valueName="cck.config.permissions" maxLength="32768"/></elements>
+	</policy>
+
+	<policy name="cck_config_noAddonCompatibilityCheck" class="Machine" displayName="$(string.cck_config_noAddonCompatibilityCheck)" explainText="$(string.cck_config_noAddonCompatibilityCheck_EXPLAIN)" presentation="$(presentation.cck_config_noAddonCompatibilityCheck)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.noAddonCompatibilityCheck">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_displayBookmarksToolbar" class="Machine" displayName="$(string.cck_config_displayBookmarksToolbar)" explainText="$(string.cck_config_displayBookmarksToolbar_EXPLAIN)" presentation="$(presentation.cck_config_displayBookmarksToolbar)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.displayBookmarksToolbar">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_dontUseDownloadDir" class="Machine" displayName="$(string.cck_config_dontUseDownloadDir)" explainText="$(string.cck_config_dontUseDownloadDir_EXPLAIN)" presentation="$(presentation.cck_config_dontUseDownloadDir)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.dontUseDownloadDir">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disableFormFill" class="Machine" displayName="$(string.cck_config_disableFormFill)" explainText="$(string.cck_config_disableFormFill_EXPLAIN)" presentation="$(presentation.cck_config_disableFormFill)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disableFormFill">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_dontRememberPasswords" class="Machine" displayName="$(string.cck_config_dontRememberPasswords)" explainText="$(string.cck_config_dontRememberPasswords_EXPLAIN)" presentation="$(presentation.cck_config_dontRememberPasswords)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.dontRememberPasswords">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disableSync" class="Machine" displayName="$(string.cck_config_disableSync)" explainText="$(string.cck_config_disableSync_EXPLAIN)" presentation="$(presentation.cck_config_disableSync)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disableSync">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disableCrashReporter" class="Machine" displayName="$(string.cck_config_disableCrashReporter)" explainText="$(string.cck_config_disableCrashReporter_EXPLAIN)" presentation="$(presentation.cck_config_disableCrashReporter)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disableCrashReporter">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disableTelemetry" class="Machine" displayName="$(string.cck_config_disableTelemetry)" explainText="$(string.cck_config_disableTelemetry_EXPLAIN)" presentation="$(presentation.cck_config_disableTelemetry)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disableTelemetry">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disableFirefoxHealthReportUpload" class="Machine" displayName="$(string.cck_config_disableFirefoxHealthReportUpload)" explainText="$(string.cck_config_disableFirefoxHealthReportUpload_EXPLAIN)" presentation="$(presentation.cck_config_disableFirefoxHealthReportUpload)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disableFirefoxHealthReportUpload">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disableFirefoxHealthReport" class="Machine" displayName="$(string.cck_config_disableFirefoxHealthReport)" explainText="$(string.cck_config_disableFirefoxHealthReport_EXPLAIN)" presentation="$(presentation.cck_config_disableFirefoxHealthReport)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disableFirefoxHealthReport">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disableFirefoxUpdates" class="Machine" displayName="$(string.cck_config_disableFirefoxUpdates)" explainText="$(string.cck_config_disableFirefoxUpdates_EXPLAIN)" presentation="$(presentation.cck_config_disableFirefoxUpdates)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disableFirefoxUpdates">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_dontShowRights" class="Machine" displayName="$(string.cck_config_dontShowRights)" explainText="$(string.cck_config_dontShowRights_EXPLAIN)" presentation="$(presentation.cck_config_dontShowRights)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.dontShowRights">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_removeSnippets" class="Machine" displayName="$(string.cck_config_removeSnippets)" explainText="$(string.cck_config_removeSnippets_EXPLAIN)" presentation="$(presentation.cck_config_removeSnippets)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.removeSnippets">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disableResetFirefox" class="Machine" displayName="$(string.cck_config_disableResetFirefox)" explainText="$(string.cck_config_disableResetFirefox_EXPLAIN)" presentation="$(presentation.cck_config_disableResetFirefox)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disableResetFirefox">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disablePDFjs" class="Machine" displayName="$(string.cck_config_disablePDFjs)" explainText="$(string.cck_config_disablePDFjs_EXPLAIN)" presentation="$(presentation.cck_config_disablePDFjs)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disablePDFjs">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disableHello" class="Machine" displayName="$(string.cck_config_disableHello)" explainText="$(string.cck_config_disableHello_EXPLAIN)" presentation="$(presentation.cck_config_disableHello)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disableHello">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disableForget" class="Machine" displayName="$(string.cck_config_disableForget)" explainText="$(string.cck_config_disableForget_EXPLAIN)" presentation="$(presentation.cck_config_disableForget)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disableForget">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disableHeartbeat" class="Machine" displayName="$(string.cck_config_disableHeartbeat)" explainText="$(string.cck_config_disableHeartbeat_EXPLAIN)" presentation="$(presentation.cck_config_disableHeartbeat)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disableHeartbeat">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+	<policy name="cck_config_disablePocket" class="Machine" displayName="$(string.cck_config_disablePocket)" explainText="$(string.cck_config_disablePocket_EXPLAIN)" presentation="$(presentation.cck_config_disablePocket)" key="Software\Policies\Mozilla\Firefox" valueName="cck.config.disablePocket">
+	<parentCategory ref="FIREFOX_CATEGORY" />
+	<supportedOn ref="windows:SUPPORTED_ProductOnly" />
+	<enabledValue>
+		<decimal value="999001"/>
+	</enabledValue>
+	<disabledValue>
+		<decimal value="999009"/>
+	</disabledValue>
+	</policy>
+
+</policies>
+</policyDefinitions>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Configuración de directiva de grupo del Administrador de conexiones de Windows</displayName>
+  <description>Configuración de directiva de grupo del Administrador de conexiones de Windows</description>
+  <resources>
+    <stringTable>
+      <string id="WCM_Category">Administrador de conexiones de Windows
+</string>
+      <string id="WCM_BlockNonDomain">Prohibir la conexión a redes sin dominio cuando esté conectado a una red con dominio autenticado</string>
+      <string id="WCM_BlockNonDomain_Help">Esta configuración de directiva evita que los equipos se conecten a una red basada en dominio y a una red no basada en dominio al mismo tiempo.
+
+Si esta configuración de directiva está habilitada, el equipo responde a intentos de conexión manual y automática a redes de acuerdo con las siguientes circunstancias:
+
+Intentos de conexión automática
+- Si el equipo ya está conectado a una red basada en dominio, se bloquean todos los intentos de conexión automática a redes no basadas en dominio.
+- Si el equipo ya está conectado a una red no basada en dominio, se bloquean los intentos de conexión automática a redes basadas en dominio.
+
+Intentos de conexión manual
+- Si el equipo ya está conectado a una red no basada en dominio o a una red basada en dominio a través de medios diferentes de Ethernet y un usuario intenta crear una conexión manual a una red adicional infringiendo esta configuración de directiva, la conexión de red existente se desconecta y se permite realizar la conexión manual.
+- Si el equipo ya está conectado a una red no basada en dominio o a una red basada en dominio a través de Ethernet y un usuario intenta crear una conexión manual a una red adicional infringiendo esta configuración de directiva, la conexión Ethernet se mantiene y se bloquea el intento de conexión manual.
+
+Si esta configuración de directiva está deshabilitada o no se establece, los equipos pueden conectarse de manera simultánea a ambos tipos de red: basada en dominio y no basada en dominio.
+      </string>
+      <string id="WCM_DisableRoaming">Prohibir la conexión a redes de banda ancha móvil de proveedores móviles</string>
+      <string id="WCM_DisableRoaming_Help">Esta configuración de directiva impide que los clientes se conecten a redes de banda ancha móvil cuando el cliente está registrado en una red de proveedores móviles. 
+
+Si esta configuración de directiva está habilitada, se bloquean todos los intentos de conexión manual y automática a redes de proveedores móviles hasta que el cliente se registre en la red del proveedor doméstico.
+
+Si esta configuración de directiva está deshabilitada o no se establece, los clientes pueden conectarse a redes de banda ancha móvil de proveedores móviles.
+      </string>
+      <string id="WCM_MinimizeConnections">Minimizar la cantidad de conexiones simultáneas a Internet o a un dominio de Windows</string>
+      <string id="WCM_MinimizeConnections_AllowAllConnections">0 = Permitir conexiones simultáneas</string>
+      <string id="WCM_MinimizeConnections_MinimizeSimultaneousConnections">1 = Minimizar las conexiones simultáneas</string>
+      <string id="WCM_MinimizeConnections_AlwaysConnectedToCellular">2 = Permanecer conectado a la red de telefonía móvil</string>
+      <string id="WCM_MinimizeConnections_PreventWifiOnEthernet">3 = Impedir Wi-Fi cuando se está usando Ethernet</string>
+      <string id="WCM_MinimizeConnections_Help">
+        Esta configuración de directiva determina si un equipo puede tener varias conexiones a Internet o a un dominio de Windows. Si se permiten varias conexiones, determina cómo se enrutará el tráfico de red.
+
+        Si este valor de configuración de directiva se establece en 0, un equipo puede tener conexiones simultáneas a internet, a un dominio de Windows, o a ambos. El tráfico de Internet puede enrutarse a través de cualquier conexión (incluidas una conexión móvil y cualquier red de uso medido). Este estado anteriormente estaba deshabilitado para esta configuración de directiva. Esta opción estuvo disponible por primera vez en Windows 8.
+
+        Si este valor de configuración de directiva se establece en 1, cualquier nueva conexión automática a internet se bloqueará cuando el equipo tenga al menos una conexión a Internet activa con un tipo de red preferido. Aquí encontrarás el orden de preferencia (de mayor a menor preferencia): Ethernet, WLAN y red de telefonía móvil. Ethernet siempre es preferible cuando esté conectada. Los usuarios aún pueden conectarse manualmente a cualquier red. Este estado estaba habilitado anteriormente para esta configuración de directiva. Esta opción estuvo disponible por primera vez en Windows 8.
+
+        Si este valor de configuración de directiva se establece en 2, el comportamiento es similar a 1. Sin embargo, si hay una conexión de datos móviles disponible, permanecerá siempre conectada para los servicios que requieran una conexión de red de telefonía móvil. Cuando el usuario está conectado a una conexión WLAN o Ethernet, no se redirigirá el tráfico de Internet a través de la conexión de red de telefonía móvil. Esta opción estuvo disponible por primera vez en Windows 10 (versión 1703).
+
+        Si este valor de configuración de directiva se establece en 3, el comportamiento es similar a 2. Sin embargo, si hay una conexión Ethernet, Windows no permitirá que los usuarios se conecten a una WLAN manualmente. Una conexión WLAN solo se puede establecer (automáticamente o manualmente) cuando no haya conexión Ethernet.
+
+        Esta configuración de directiva está relacionada con la configuración de directiva "Habilitar Windows para desconectar de forma no forzada un equipo de una red".
+      </string>
+      <string id="WCM_DisablePowerManagement">Deshabilitar la administración de energía en el modo de espera conectado</string>
+      <string id="WCM_DisablePowerManagement_Help">Esta configuración de directiva especifica que la administración de energía está deshabilitada cuando el equipo entra en modo de espera conectado. 
+
+Si esta configuración de directiva está habilitada, el Administrador de conexiones de Windows no administra adaptadores de radio para reducir el consumo de energía cuando el equipo entra en modo de espera conectado.
+
+Si esta configuración de directiva está deshabilitada o no se establece, la administración de energía está habilitada cuando el equipo entra en modo de espera conectado.
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Habilitar Windows para desconectar de forma no forzada un equipo de una red</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Esta configuración de directiva determina si Windows desconectará de forma no forzada un equipo de una red.
+
+Si esta configuración de directiva está habilitada o no configurada, Windows desconectará de forma no forzada un equipo de una red cuando determine que el equipo ya no debe estar conectado a una red.
+
+Si esta configuración de directiva está deshabilitada, Windows desconectará un equipo de una red inmediatamente cuando determine que el equipo ya no debe estar conectado a una red.
+
+Cuando está activada la desconexión no forzada:
+- Cuando Windows decide que el equipo ya no debe estar conectado a una red, espera que el tráfico se calme en esa red. La sesión TCP existente continuará sin interrupciones.
+- Windows comprueba periódicamente el nivel de tráfico de la red. Si el nivel de tráfico está por encima de un determinado umbral, no se realizarán más acciones. El equipo permanece conectado a la red y la continua usando. Por ejemplo, si la conexión de red se utiliza actualmente para descargar archivos de Internet, los archivos se continuarán descargando mediante esa conexión de red.
+- Cuando el tráfico de la red desciende por debajo de este umbral, el equipo se desconectará de la red. Las aplicaciones que mantienen una conexión de red activa, incluso cuando no la están utilizando (por ejemplo, las aplicaciones de correo electrónico), pueden perder su conexión. Si esto sucede, estas aplicaciones deben restablecer la conexión a través de una red diferente.
+
+Esta configuración de directiva depende de otras opciones de configuración de directiva de grupo. Por ejemplo, si se deshabilita la opción "Minimizar el número de conexiones simultáneas a Internet o a un dominio de Windows", Windows no se desconectará de ninguna red.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="WCM_MinimizeConnections">
+        <dropdownList refId="WCM_MinimizeConnections_Options" noSort="true" defaultItem="2">Minimizar las opciones de directiva</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

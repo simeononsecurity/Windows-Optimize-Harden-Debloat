@@ -1,0 +1,106 @@
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<displayName>Storage Sense</displayName>
+<description>ADMX file for Storage Sense</description>
+<resources>
+    <stringTable>
+    <string id="StorageSense">Storage Sense</string>
+    <string id="SS_AllowStorageSenseGlobal">Allow Storage Sense</string>
+    <string id="SS_AllowStorageSenseGlobal_Explain">
+Storage Sense can automatically clean some of the user’s files to free up disk space. By default, Storage Sense is automatically turned on when the machine runs into low disk space and is set to run whenever the machine runs into storage pressure. This cadence can be changed in Storage settings or set with the "Configure Storage Sense cadence" group policy.
+
+Enabled:
+Storage Sense is turned on for the machine, with the default cadence as ‘during low free disk space’. Users cannot disable Storage Sense, but they can adjust the cadence (unless you also configure the "Configure Storage Sense cadence" group policy).
+
+Disabled:
+Storage Sense is turned off the machine. Users cannot enable Storage Sense.
+
+Not Configured:
+By default, Storage Sense is turned off until the user runs into low disk space or the user enables it manually. Users can configure this setting in Storage settings.
+    </string>
+    <string id="SS_ConfigStorageSenseGlobalCadence">Configure Storage Sense cadence</string>
+    <string id="SS_ConfigStorageSenseGlobalCadence_Explain">
+Storage Sense can automatically clean some of the user’s files to free up disk space.
+
+If the group policy "Allow Storage Sense" is disabled, then this policy does not have any effect.
+
+Enabled:
+You must provide the desired Storage Sense cadence. Supported options are: daily, weekly, monthly, and during low free disk space. The default is 0 (during low free disk space).
+
+Disabled or Not Configured:
+By default, the Storage Sense cadence is set to “during low free disk space”. Users can configure this setting in Storage settings.
+    </string>
+    <string id="SS_StorageSenseGlobalCadence_Daily">Every day</string>
+    <string id="SS_StorageSenseGlobalCadence_Weekly">Every week</string>
+    <string id="SS_StorageSenseGlobalCadence_Monthly">Every month</string>
+    <string id="SS_StorageSenseGlobalCadence_DuringLowFreeDiskSpace">During low free disk space</string>
+    <string id="SS_AllowStorageSenseTemporaryFilesCleanup">Allow Storage Sense Temporary Files cleanup</string>
+    <string id="SS_AllowStorageSenseTemporaryFilesCleanup_Explain">
+When Storage Sense runs, it can delete the user’s temporary files that are not in use.
+
+If the group policy "Allow Storage Sense" is disabled, then this policy does not have any effect.
+
+Enabled:
+Storage Sense will delete the user’s temporary files that are not in use. Users cannot disable this setting in Storage settings.
+
+Disabled:
+Storage Sense will not delete the user’s temporary files. Users cannot enable this setting in Storage settings.
+
+Not Configured:
+By default, Storage Sense will delete the user’s temporary files. Users can configure this setting in Storage settings.
+    </string>
+    <string id="SS_ConfigStorageSenseRecycleBinCleanupThreshold">Configure Storage Sense Recycle Bin cleanup threshold</string>
+    <string id="SS_ConfigStorageSenseRecycleBinCleanupThreshold_Explain">
+When Storage Sense runs, it can delete files in the user’s Recycle Bin if they have been there for over a certain amount of days.
+
+If the group policy "Allow Storage Sense" is disabled, then this policy does not have any effect.
+
+Enabled:
+You must provide the minimum age threshold (in days) of a file in the Recycle Bin before Storage Sense will delete it. Supported values are: 0 - 365.
+If you set this value to zero, Storage Sense will not delete files in the user’s Recycle Bin. The default is 30 days.
+
+Disabled or Not Configured:
+By default, Storage Sense will delete files in the user’s Recycle Bin that have been there for over 30 days. Users can configure this setting in Storage settings.
+    </string>
+    <string id="SS_ConfigStorageSenseDownloadsCleanupThreshold">Configure Storage Storage Downloads cleanup threshold</string>
+    <string id="SS_ConfigStorageSenseDownloadsCleanupThreshold_Explain">
+When Storage Sense runs, it can delete files in the user’s Downloads folder if they haven’t been opened for more than a certain number of days.
+
+If the group policy "Allow Storage Sense" is disabled, then this policy does not have any effect.
+
+Enabled:
+You must provide the minimum number of days a file can remain unopened before Storage Sense deletes it from Downloads folder. Supported values are: 0 - 365.
+If you set this value to zero, Storage Sense will not delete files in the user’s Downloads folder. The default is 0, or never deleting files in the Downloads folder.
+
+Disabled or Not Configured:
+By default, Storage Sense will not delete files in the user’s Downloads folder. Users can configure this setting in Storage settings.
+    </string>
+    <string id="SS_ConfigStorageSenseCloudContentDehydrationThreshold">Configure Storage Sense Cloud Content dehydration threshold</string>
+    <string id="SS_ConfigStorageSenseCloudContentDehydrationThreshold_Explain">
+When Storage Sense runs, it can dehydrate cloud-backed content that hasn’t been opened in a certain amount of days.
+
+If the group policy "Allow Storage Sense" is disabled, then this policy does not have any effect.
+
+Enabled:
+You must provide the minimum number of days a cloud-backed file can remain unopened before Storage Sense dehydrates it from the sync root. Supported values are: 0 - 365.
+If you set this value to zero, Storage Sense will not dehydrate any cloud-backed content. The default value is 0, or never dehydrating cloud-backed content.
+
+Disabled or Not Configured:
+By default, Storage Sense will not dehydrate any cloud-backed content. Users can configure this setting in Storage settings.
+    </string>
+    </stringTable>
+    <presentationTable>
+    <presentation id="SS_ConfigStorageSenseGlobalCadence_Presentation">
+        <dropdownList refId="StorageSenseGlobalCadence" noSort="true" defaultItem="3">Run Storage Sense:</dropdownList>
+    </presentation>
+    <presentation id="SS_ConfigStorageSenseRecycleBinCleanupThreshold_Presentation">
+        <decimalTextBox refId="StorageSenseRecycleBinCleanupThreshold" defaultValue="30">Minimum age (in days) of a files in the Recycle Bin folder before Storage sense will delete it (0 is never deleting files):</decimalTextBox>
+    </presentation>
+    <presentation id="SS_ConfigStorageSenseDownloadsCleanupThreshold_Presentation">
+        <decimalTextBox refId="StorageSenseDownloadsCleanupThreshold" defaultValue="0">Minimum age (in days) of a files in the Downloads folder before Storage sense will delete it (0 is never deleting files):</decimalTextBox>
+    </presentation>
+    <presentation id="SS_ConfigStorageSenseCloudContentDehydrationThreshold_Presentation">
+        <decimalTextBox refId="StorageSenseCloudContentDehydrationThreshold" defaultValue="0">Number of days since a cloud-backed file has been opened before Storage Sense will dehydrate it (0 is never dehydrating files):</decimalTextBox>
+    </presentation>
+    </presentationTable>
+</resources>
+</policyDefinitionResources>

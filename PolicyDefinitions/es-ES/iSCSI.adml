@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="iSCSI_Category">iSCSI</string>
+      <string id="iSCSIDiscovery_Category">Detección de destinos iSCSI</string>
+      <string id="iSCSIDiscovery_ConfigureiSNSServers">No permitir la configuración manual de servidores iSNS</string>
+      <string id="iSCSIDiscovery_ConfigureiSNSServers_Help">Si esta directiva está habilitada, no se pueden agregar servidores iSNS ni, por lo tanto, los nuevos destinos detectados mediante dichos servidores iSNS; tampoco se pueden eliminar los servidores iSNS existentes. Si esta directiva está deshabilitada, se pueden agregar servidores iSNS y, por lo tanto, los nuevos destinos detectados mediante dichos servidores iSNS. Además, se pueden eliminar los servidores iSNS existentes.</string>
+      <string id="iSCSIDiscovery_ConfigureTargetPortals">No permitir la configuración manual de portales de destino</string>
+      <string id="iSCSIDiscovery_ConfigureTargetPortals_Help">Si esta directiva está habilitada, no se pueden agregar portales de destino ni, por lo tanto, los nuevos destinos detectados en dichos portales. Tampoco se pueden eliminar los portales de destino existentes. Si esta directiva está deshabilitada, se pueden agregar portales de destino y, por lo tanto, los nuevos destinos detectados en dichos portales. Además, se pueden eliminar los portales de destino existentes.</string>
+      <string id="iSCSIDiscovery_ConfigureTargets">No permitir la configuración manual de los destinos detectados</string>
+      <string id="iSCSIDiscovery_ConfigureTargets_Help">Si esta directiva está habilitada, los destinos detectados no se pueden configurar manualmente. Si esta directiva está deshabilitada, los destinos detectados se pueden configurar manualmente. Nota: al habilitarse, podrían producirse casos de incompatibilidad con VDS.</string>
+      <string id="iSCSIDiscovery_Help">Configuraciones de directivas que controlan la detección de destinos iSCSI.</string>
+      <string id="iSCSIDiscovery_NewStaticTargets">No permitir la adición de destinos nuevos mediante configuración manual</string>
+      <string id="iSCSIDiscovery_NewStaticTargets_Help">Si esta directiva está habilitada, no se pueden configurar manualmente los destinos nuevos si se escribe el nombre y el portal del destino. Los destinos detectados previamente sí pueden configurarse manualmente. Si esta directiva está deshabilitada, se pueden configurar manualmente tanto los destinos nuevos como los detectados previamente. Nota: al habilitarse, podrían producirse casos de incompatibilidad con VDS.</string>
+      <string id="iSCSIGeneral_Category">iSCSI general</string>
+      <string id="iSCSIGeneral_ChangeIQNName">No permitir cambios en el nombre iqn del iniciador</string>
+      <string id="iSCSIGeneral_ChangeIQNName_Help">  Si está directiva está habilitada, no se puede cambiar el nombre iqn del iniciador. Si está deshabilitada, sí se puede modificar el nombre iqn.</string>
+      <string id="iSCSIGeneral_Help">Configuraciones de directivas que controlan los inicios de sesión y el nombre de nodo iSCSI.</string>
+      <string id="iSCSIGeneral_RestrictAdditionalLogins">No permitir inicios de sesión adicionales</string>
+      <string id="iSCSIGeneral_RestrictAdditionalLogins_Help">Si esta directiva está habilitada, solo se establecerán las sesiones establecidas mediante un inicio de sesión persistente y no se podrán crear nuevos inicios de sesión persistentes. Si está deshabilitada, se podrán establecer inicios de sesión persistentes y no persistentes.</string>
+      <string id="iSCSISecurity_Category">Seguridad iSCSI</string>
+      <string id="iSCSISecurity_ChangeCHAPSecret">No permitir cambios en el secreto CHAP del iniciador</string>
+      <string id="iSCSISecurity_ChangeCHAPSecret_Help"> Si está directiva está habilitada, no se puede cambiar el secreto CHAP del iniciador. Si está deshabilitada, sí se puede modificar el secreto CHAP del iniciador.</string>
+      <string id="iSCSISecurity_Help">Configuraciones de directivas que controlan la seguridad (autenticación, cifrado, etc.) de las sesiones iSCSI.</string>
+      <string id="iSCSISecurity_RequireIPSec">No permitir conexiones sin IPSec</string>
+      <string id="iSCSISecurity_RequireIPSec_Help">Si esta directiva está habilitada, solo se podrán establecer las conexiones configuradas con IPSec. Si está deshabilitada, se pueden establecer conexiones configuradas con y sin IPSec.</string>
+      <string id="iSCSISecurity_RequireMutualCHAP">No permitir sesiones sin CHAP mutuo</string>
+      <string id="iSCSISecurity_RequireMutualCHAP_Help">Si esta directiva está habilitada, solo se podrán establecer las sesiones configuradas con CHAP mutuo. Si está deshabilitada, se pueden establecer sesiones configuradas con y sin CHAP mutuo.</string>
+      <string id="iSCSISecurity_RequireOneWayCHAP">No permitir sesiones sin CHAP unidireccional</string>
+      <string id="iSCSISecurity_RequireOneWayCHAP_Help">Si esta directiva está habilitada, solo se podrán establecer las sesiones configuradas con CHAP unidireccional. Si está deshabilitada, se pueden establecer sesiones configuradas con y sin CHAP unidireccional. Tenga en cuenta que, en caso de que la opción "No permitir sesiones sin CHAP mutuo" esté habilitada, ésta invalida la anterior.</string>
+    </stringTable>
+  </resources>
+</policyDefinitionResources>

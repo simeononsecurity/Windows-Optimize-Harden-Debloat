@@ -1,0 +1,38 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="fullarmor" namespace="FullArmor.Policies.44FC7F4B_FEF4_4954_957F_96F9748401D5" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+    <using prefix="dnsclient" namespace="Microsoft.Policies.DNSClient" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <policies>
+    <policy name="NetBIOSNodeType" class="Machine" displayName="$(string.NetBIOSNodeType_Title)" explainText="$(string.NetBIOSNodeType_Explain)" presentation="$(presentation.NetBIOSNodeType)" key="SYSTEM\CurrentControlSet\Services\NetBT\Parameters">
+      <parentCategory ref="dnsclient:DNS_Client" />
+      <supportedOn ref="windows:SUPPORTED_Win2k" />
+      <elements>
+        <enum id="NetBIOSNodeType" valueName="NodeType" required="true" nosort="true">
+          <item displayName="$(string.NetBIOSNodeType_B_Node_Value_Display)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.NetBIOSNodeType_P_Node_Value_Display)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.NetBIOSNodeType_M_Node_Value_Display)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+          <item displayName="$(string.NetBIOSNodeType_H_Node_Value_Display)">
+            <value>
+              <decimal value="8" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

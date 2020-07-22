@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xsi:schemaLocation="" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" ><!--Created using ADM Template Editor V4.2.10-->
+<!--Created on 13 May 2015 15:12:24-->
+<!--ADM Template Editor is marketed by Syspro. Visit us at www.sysprosoft.com-->
+
+	<displayName >Enter Display Name here</displayName>
+	<description >90meter CACPIVMD DoD Policies - Build SCM 1.4.32-S</description>
+	<resources >
+		<stringTable ><!--Storage for String Definitions-->
+
+			<string id="String_SupportedOn_Windows_2k_Server_2" >Windows 2k Server, Windows 2k3 Server, Windows 2k SP4, Windows XP Pro SP2, Windows XP Home SP2, Windows Vista</string>
+			<string id="String_Cat_90meter_CACPIVMD_4" >90meter CACPIVMD DoD Policies - Build SCM 1.4.32-S</string>
+			<string id="String_Policy_Card_Authentication_6" >Card Authentication Management (CAM) Service</string>
+			<string id="String_Explain_7" >---------- ---------- ---------- ----------
+Card Authentication Management (CAM) Service
+---------- ---------- ---------- ----------
+This service allows the Administrator to enable Card Authentication Management (CAM) service.  CAM service is used to control smart card PIN caching.
+
+Please note: This policy is only supported on Windows Vista and higher.
+
+---------- ---------- ---------- ----------
+Configuration Options
+---------- ---------- ---------- ----------
+Not Configured:
+- This policy has not yet been configured.  By default CAM service is provided by the Windows OS.
+
+Enable:
+- PIN caching behavior defined by Card Authentication Management (CAM) Time Out policy settings.
+- Enable CAM setting that will Always require the PIN.
+
+Disable:
+- Remove policy and reset policy to default.
+
+
+</string>
+			<string id="String_Policy_DropList_Select_Card_Authentication_PIN_caching_defined_9" >PIN caching defined by Time Out policy</string>
+			<string id="String_Policy_DropList_Select_Card_Authentication_Always_require_10" >Always require PIN</string>
+			<string id="String_Policy_Card_Authentication_12" >Card Authentication Management (CAM) Time Out </string>
+			<string id="String_Explain_13" >---------- ---------- ---------- ----------
+Card Authentication Management (CAM) Time Out Setting
+---------- ---------- ---------- ----------
+This policy allow administrator to set the time interval CAM PIN caching should expire.  
+
+---------- ---------- ---------- ----------
+Configuration Options
+---------- ---------- ---------- ----------
+Not Configured:
+- This policy has not yet been set. CAM services handled by Windows.
+
+Enable:
+- Set number of minutes PIN will be cached.
+
+Disable:
+- Remove policy and reset to default.
+
+</string>
+			<string id="String_Policy_Certificate_Removal_16" >Certificate Removal on Card Removal</string>
+			<string id="String_Explain_17" >---------- ---------- ---------- ----------
+Certificate Removal on Card Removal
+---------- ---------- ---------- ----------
+This policy allows administrators to set whether SCM should remove smart card user's certificate from Windows certificate store when user has removed their card from the reader.
+
+---------- ---------- ---------- ----------
+Configuration Options
+---------- ---------- ---------- ----------
+Not Configured:
+- This policy has not yet been configured.  SCM will use default, do NOT remove certificate on card removal
+
+Enable:
+- Remove Certificates = will remove certificates when the smart card is removed from the reader.
+- Do NOT remove =  Will NOT remove certificates on card removal.
+
+Disable:
+- Will remove the policy and give back control to SCM.  End users are allowed to enable/disable this policy. (SCM Setting Tab)
+
+</string>
+			<string id="String_Policy_DropList_Select_Certificate_Removal_Remove_certificates_19" >Remove certificates</string>
+			<string id="String_Policy_DropList_Select_Certificate_Removal_Do_NOT_remove_certificate_20" >Do NOT remove certificates</string>
+			<string id="String_Policy_Certificate_Removal_22" >Certificate Removal On Log Off</string>
+			<string id="String_Explain_23" >---------- ---------- ---------- ----------
+Certificate Removal On Log Off
+---------- ---------- ---------- ----------
+This policy allow an administrator to set if smart card user's certificates are removed from the workstation's certificate store when the user logs off the workstation.
+
+---------- ---------- ---------- ----------
+Configuration Options
+---------- ---------- ---------- ----------
+Not Configured
+- This policy has not yet been configured.  By default SCM will remove certificates on Window's log off.
+
+Enable
+- Remove certificate = Removes user certificates from Windows certificate store when the user has logged off the workstation.
+- Do NOT remove certificate = User certificates will not be removed when the user has logged off the workstation.  .
+
+Disable:
+- Will remove this server side policy and give back control to SCM application and allow the user to enable/disable this policy. (SCM Setting Tab) 
+
+</string>
+			<string id="String_Policy_DropList_Select_Certificate_Removal_Remove_certificates_25" >Remove certificates </string>
+			<string id="String_Policy_DropList_Select_Certificate_Removal_Do_NOT_remove_certificate_26" >Do NOT remove certificates </string>
+		</stringTable>
+		<presentationTable ><!--Storage for Presentation Definitions-->
+
+			<presentation id="Policy_Card_Authentication_5" >
+				<dropdownList refId="Policy_DropList_Element_Card_Authentication_8" defaultItem="1" >Provide Card Authentication (CAM) Services</dropdownList>
+			</presentation>
+			<presentation id="Policy_Card_Authentication_11" >
+				<decimalTextBox refId="Policy_Numeric_ElementCard_Authentication_14" spinStep="1" spin="true" defaultValue="15" >Card Authentication Management (CAM) Time Out </decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Certificate_Removal_15" >
+				<dropdownList refId="Policy_DropList_Element_Certificate_Removal_18" defaultItem="1" >Remove certificates on card removal</dropdownList>
+			</presentation>
+			<presentation id="Policy_Certificate_Removal_21" >
+				<dropdownList refId="Policy_DropList_Element_Certificate_Removal_24" defaultItem="0" >Remove user certificates on log off</dropdownList>
+			</presentation>
+		</presentationTable>
+	</resources>
+</policyDefinitionResources>

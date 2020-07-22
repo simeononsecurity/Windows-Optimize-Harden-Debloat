@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="CustomLocalesNoSelect">Denegar selección de configuraciones regionales personalizadas</string>
+      <string id="CustomLocalesNoSelect_Help">Esta configuración de directiva impide que un usuario seleccione una configuración regional complementaria como su configuración regional del usuario. El usuario está limitado al conjunto de configuraciones regionales que se instalan con el sistema operativo.
+
+Esto no afecta a la selección de configuraciones regionales de reemplazo. Para evitar la selección de configuraciones regionales de reemplazo, ajuste los permisos del directorio %windir%\Globalization para que los usuarios sin autorización no puedan instalar configuraciones regionales.
+
+La configuración de directiva "Limitar configuraciones regionales del usuario" también puede habilitarse para impedir la selección de una configuración regional personalizada, aunque esta configuración de directiva no se haya configurado.
+
+Si habilita esta configuración de directiva, el usuario no podrá seleccionar una configuración regional personalizada como configuración regional del usuario, pero puede seleccionar una configuración regional de reemplazo siempre que se haya instalado una.
+
+Si deshabilita o no establece esta configuración de directiva, el usuario puede seleccionar una configuración regional personalizada como su configuración regional del usuario.
+
+Si esta configuración de directiva está habilitada en el nivel de equipo, no podrá deshabilitarse mediante una configuración de directiva por usuario. Si esta configuración de directiva está deshabilitada en el nivel de equipo, se omitirá la configuración de directiva por usuario. Si esta directiva no se ha configurado en el nivel de equipo, las restricciones se basarán en configuraciones de directivas por usuario.
+
+Para establecer esta configuración de directiva de forma individual para cada usuario, asegúrese de que la configuración de directiva por equipo no esté configurada.
+
+      
+
+      </string>
+      <string id="HideAdminOptions">Ocultar opciones administrativas de configuración regional y de idioma</string>
+      <string id="HideAdminOptions_Help">Esta configuración de directiva quita las opciones administrativas del panel de control de Configuración regional.  Las opciones administrativas incluyen interfaces para establecer la configuración regional del sistema y copiar la configuración al usuario predeterminado. Esta configuración de directiva, sin embargo, no impide que un administrador u otra aplicación cambie estos valores mediante programación.
+
+La configuración de directiva solo se usa para simplificar el panel de control de Configuración regional.
+
+Si habilita esta configuración de directiva, el usuario no puede ver las opciones administrativas.
+
+Si deshabilita o no establece esta configuración de directiva, el usuario podrá ver las opciones administrativas.
+
+Nota: aunque un usuario pueda ver las opciones administrativas, otras directivas podrían impedirle modificar los valores.</string>
+      <string id="HideCurrentLocation">Ocultar la opción de ubicación geográfica</string>
+      <string id="HideCurrentLocation_Help">Esta configuración de directiva quita la opción para cambiar la ubicación geográfica del usuario (GeoID) del panel de control de Configuración regional.
+
+La configuración de directiva solo se usa para simplificar el panel de control de Configuración regional.
+
+Si habilita esta configuración de directiva, el usuario no puede ver la opción para modificar GeoID. Esto no impide que el usuario o una aplicación puedan cambiar el valor de GeoID mediante programación.
+
+Si deshabilita o no establece esta configuración de directiva, el usuario puede ver la opción para cambiar la ubicación del usuario (GeoID).
+
+Nota: aunque un usuario pueda ver la opción GeoID, la opción "Denegar el cambio de ubicación geográfica" podría impedirle cambiar su ubicación geográfica actual.</string>
+      <string id="HideLanguageSelection">Ocultar las opciones de grupo de selección de idioma</string>
+      <string id="HideLanguageSelection_Help">Esta configuración de directiva quita la opción para cambiar el idioma de los menús y cuadros de diálogo del usuario (interfaz de usuario) del panel de control de Configuración regional y de idioma.
+
+La configuración de directiva solo se usa para simplificar el panel de control de Configuración regional.
+
+Si habilita esta configuración de directiva, el usuario no verá la opción para cambiar el idioma de la interfaz de usuario. Esto no impide que el usuario o una aplicación puedan cambiar el idioma de la interfaz de usuario mediante programación.
+
+Si deshabilita o no establece esta configuración de directiva, el usuario puede ver la opción para cambiar el idioma de la interfaz del usuario.
+
+Nota: aunque un usuario pueda ver la opción para cambiar el idioma de la interfaz de usuario, otras configuraciones de directivas pueden impedir que lo cambie.</string>
+      <string id="HideLocaleSelectAndCustomize">Ocultar las opciones de personalización y selección de configuración regional del usuario</string>
+      <string id="HideLocaleSelectAndCustomize_Help">Esta configuración de directiva quita la interfaz de formatos regionales del panel de control de Configuración regional.
+
+La directiva solo se usa para simplificar el panel de control de Configuración regional y de idioma.
+
+Si habilita esta configuración de directiva, el usuario no ve las opciones de formato regionales. Esto no impide que el usuario o una aplicación puedan cambiar la configuración regional del usuario o personalizaciones de usuario mediante programación.
+
+Si deshabilita o no establece esta configuración de directiva, el usuario puede ver las opciones de formato regionales para cambiar y personalizar la configuración regional del usuario.</string>
+      <string id="LocaleSystemRestrict">Limitar configuraciones regionales del sistema</string>
+      <string id="LocaleSystemRestrict_Help">Esta configuración de directiva limita a la lista especificada las configuraciones regionales del sistema que se permiten. Si la lista está vacía, bloquea la configuración regional del sistema con su valor actual. Esta configuración de directiva no cambia la configuración regional del sistema existente; sin embargo, la siguiente vez que un administrador intente cambiar la configuración regional del sistema del equipo tendrá que limitarse a la lista especificada.
+
+La lista de configuraciones regionales se especifica mediante nombres de idioma separados por un punto y coma (;). Por ejemplo, en-US es inglés (Estados Unidos). Si se especifica "en-US;en-CA", la configuración regional del sistema se limitará a inglés (Estados Unidos) e inglés (Canadá).
+
+Si habilita esta configuración de directiva, los administradores pueden seleccionar una configuración regional del sistema solo a partir de la lista especificada de configuraciones regionales del sistema.
+
+Si deshabilita o no establece esta configuración de directiva, los administradores pueden seleccionar cualquier configuración regional del sistema que se haya suministrado con el sistema operativo.</string>
+      <string id="LocaleUserRestrict">Limitar configuraciones regionales del usuario</string>
+      <string id="LocaleUserRestrict_Help">Esta configuración de directiva limita los usuarios de un equipo a la lista especificada de configuraciones regionales del usuario. Si la lista está vacía, bloquea todas las configuraciones regionales del usuario con sus valores actuales. Esta configuración de directiva no cambia la configuración regional del usuario existente; no obstante, la siguiente vez que un usuario intente cambiar la configuración regional del usuario, las opciones se limitarán a la lista.
+
+Para establecer esta configuración de directiva de forma individual para cada usuario, asegúrese de que la configuración de directiva por equipo no esté configurada.
+
+La lista de configuraciones regionales se especifica mediante etiquetas de idioma separadas por un punto y coma (;). Por ejemplo, en-US es inglés (Estados Unidos). Si especifica "en-CA;fr-CA" la configuración regional del usuario se restringirá a inglés (Canadá) y francés (Canadá).
+
+Si habilita esta configuración de directiva, los usuarios solo podrán seleccionar configuraciones regionales de la lista de configuraciones regionales especificada.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios pueden seleccionar cualquier configuración regional instalada en el equipo, a menos que la configuración de directiva "Denegar selección de configuraciones regionales personalizadas" se lo impida.
+
+Si esta configuración de directiva está habilitada en el nivel de equipo, no podrá deshabilitarse mediante una directiva por usuario. Si esta configuración de directiva está deshabilitada en el nivel de equipo, se omitirá la directiva por usuario. Si esta configuración de directiva no se ha establecido en el nivel de equipo, las restricciones se basan en las directivas por usuario.
+      
+      </string>
+      <string id="LockMachineUILanguage">Limita los idiomas de la interfaz de usuario que Windows usa para todos los usuarios que hayan iniciado sesión</string>
+      <string id="LockMachineUILanguage_Help">Esta configuración de directiva restringe el idioma de interfaz de usuario de Windows para todos los usuarios.
+
+Esta configuración de directiva es para equipos que tengan más de un idioma de interfaz de usuario instalado.
+
+Si habilita esta configuración de directiva, el idioma de los menús y cuadros de diálogo del usuario (interfaz de usuario) de Windows para sistemas que tengan más de un idioma seguirá el idioma especificado por el administrador como idiomas de la interfaz de usuario del sistema. El idioma de interfaz del usuario seleccionado por el usuario se ignorará si es diferente a cualquier otro idioma de la interfaz de usuario del sistema.
+
+Si deshabilita o no establece esta configuración de directiva, el usuario puede especificar qué idioma de interfaz de usuario se usa.</string>
+      <string id="LockUserUILanguage">Limita los idiomas de la interfaz de usuario que Windows debería usar para el usuario seleccionado</string>
+      <string id="LockUserUILanguage_Help">Esta configuración de directiva restringe el idioma de interfaz de usuario de Windows para usuarios específicos.
+
+Esta configuración de directiva se aplica a los equipos que tengan más de un idioma de interfaz de usuario instalado.
+
+Si habilita esta configuración de directiva, el idioma de los menús y cuadros de diálogo del usuario (interfaz de usuario) de Windows para sistemas que tengan más de un idioma se limitará a un idioma concreto para el usuario seleccionado. Si el idioma especificado no está instalado en el equipo de destino o deshabilita esta configuración de directiva, la selección de idioma usará de forma predeterminada el idioma seleccionado por el usuario.
+
+Si deshabilita o no establece esta configuración de directiva, no hay restricciones con respecto al idioma que deben usar los usuarios.
+
+Para habilitar esta configuración de directiva en Windows 2003, Windows XP o Windows Server 2000, use la configuración de directiva "Restringir selección de idiomas en menús y diálogos de Windows".</string>
+      <string id="MachineUILanguageOverwrite">Exigir que el idioma seleccionado de interfaz del sistema sobrescriba el idioma de la interfaz de usuario</string>
+      <string id="MachineUILanguageOverwrite_Help">Esta configuración de directiva controla qué idioma de interfaz de usuario se usa para los equipos con más de un idioma de interfaz de usuario instalado.
+
+Si habilita esta configuración de directiva, el idioma de los menús y cuadros de diálogo del usuario (interfaz de usuario) de Windows para sistemas que tengan más de un idioma se limitará a un idioma concreto. Si el idioma especificado no está instalado en el equipo de destino o deshabilita esta configuración de directiva, la selección de idioma usará de forma predeterminada el idioma seleccionado por el administrador local.
+
+Si deshabilita o no configura esta configuración de directiva, no hay restricciones con respecto al idioma específico que se usa para los menús y cuadros de diálogo de Windows.</string>
+      <string id="NlsManagementCat">Servicios de configuración regional</string>
+      <string id="PreventGeoIdChange">Denegar el cambio de ubicación geográfica</string>
+      <string id="PreventGeoIdChange_Help">Esta configuración de directiva evita que los usuarios cambien la ubicación geográfica del usuario (GeoID).
+
+Si habilita esta configuración de directiva, los usuarios no pueden cambiar el GeoID.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios pueden seleccionar cualquier GeoID.
+
+Si habilita esta configuración de directiva en el nivel de equipo, no podrá deshabilitarse mediante una configuración de directiva por usuario. Si deshabilita esta configuración de directiva en el nivel de equipo, se omitirá la directiva por usuario. Si no establece esta configuración de directiva en el nivel del equipo, las restricciones se basan en las configuraciones de directiva por usuario.
+
+Para establecer esta configuración de directiva de forma individual para cada usuario, asegúrese de que la configuración de directiva por equipo no se haya configurado.</string>
+      <string id="PreventUserOverrides">Denegar la invalidación de configuraciones regionales por parte del usuario</string>
+      <string id="PreventUserOverrides_Help">Esta configuración de directiva evita que el usuario pueda personalizar la configuración regional cambiando las invalidaciones del usuario.
+
+Se congelará cualquier invalidación existente cuando se habilite esta directiva. Para eliminar las invalidaciones del usuario existentes, primero restablezca los valores predeterminados de los usuarios y aplique esta directiva.
+
+Cuando se habilita esta configuración de directiva, los usuarios aún pueden elegir diferentes configuraciones regionales instaladas en el sistema a menos que otras directivas no lo permitan; sin embargo, no podrán personalizar esas opciones.  El usuario no puede personalizar la configuración regional del usuario con invalidaciones del usuario.
+
+Si se deshabilita o no se establece esta configuración de directiva, el usuario puede personalizar las invalidaciones de configuración regional por parte del usuario.
+
+Si se habilita esta configuración de directiva en el nivel de equipo, no podrá deshabilitarse mediante una directiva por usuario. Si se deshabilita esta configuración de directiva en el nivel de equipo, la directiva por usuario se ignorará. Si no se configura esta directiva en el nivel de equipo, las restricciones se basarán en directivas por usuario.
+
+Para establecer esta directiva de forma individual para cada usuario, asegúrese de que la directiva por equipo no esté configurada.</string>
+      <string id="RegionalOptions">Configuración regional y de idioma</string>
+      <string id="RestrictUILangSelect">Limitar la selección del idioma de los cuadros de diálogo y menús de Windows</string>
+      <string id="RestrictUILangSelect_Help">Esta configuración de directiva limita a los usuarios al idioma especificado desactivando los menús y los controles de los cuadros de diálogo en el panel de control de Configuración regional. Si no se instala el idioma especificado en el equipo de destino, la selección de idioma usará de forma predeterminada el inglés.
+
+Si habilita esta configuración de directiva, los controles del cuadro de diálogo del panel de control de Configuración regional y de idioma no estarán disponibles para el usuario que ha iniciado sesión. Esto evita que los usuarios puedan especificar un idioma diferente al utilizado.
+
+Para habilitar esta configuración de directiva en Windows Vista, use la configuración de directiva "Limita los idiomas de la interfaz de usuario que Windows debería usar para el usuario seleccionado".
+
+Si deshabilita o no configura esta configuración de directiva, el usuario que ha iniciado sesión puede acceder a los controles del cuadro de diálogo en el panel de control de Configuración regional y de idioma para seleccionar cualquier idioma de interfaz de usuario disponible.</string>
+      <string id="UILang1">Inglés</string>
+      <string id="UILang10">Sueco</string>
+      <string id="UILang11">Neerlandés</string>
+      <string id="UILang12">Portugués (Brasil)</string>
+      <string id="UILang13">Finés</string>
+      <string id="UILang14">Noruego</string>
+      <string id="UILang15">Danés</string>
+      <string id="UILang16">Húngaro</string>
+      <string id="UILang17">Polaco</string>
+      <string id="UILang18">Ruso</string>
+      <string id="UILang19">Checo</string>
+      <string id="UILang2">Japonés</string>
+      <string id="UILang20">Griego</string>
+      <string id="UILang21">Portugués (Portugal)</string>
+      <string id="UILang22">Turco</string>
+      <string id="UILang23">Árabe</string>
+      <string id="UILang24">Hebreo</string>
+      <string id="UILang25">Eslovaco</string>
+      <string id="UILang26">Esloveno</string>
+      <string id="UILang27">Rumano</string>
+      <string id="UILang28">Croata</string>
+      <string id="UILang29">Búlgaro</string>
+      <string id="UILang3">Coreano</string>
+      <string id="UILang30">Estonio</string>
+      <string id="UILang31">Lituano</string>
+      <string id="UILang32">Letón</string>
+      <string id="UILang33">Tailandés</string>
+      <string id="UILang4">Alemán</string>
+      <string id="UILang5">Chino simplificado</string>
+      <string id="UILang6">Chino tradicional</string>
+      <string id="UILang34">Chino tradicional (Hong Kong RAE)</string>
+      <string id="UILang35">Chino tradicional (Taiwán)</string>
+      <string id="UILang7">Francés</string>
+      <string id="UILang8">Español</string>
+      <string id="UILang9">Italiano</string>
+      <string id="UILang36">Serbio (latino)</string>
+      <string id="UILang37">Ucraniano</string>
+      <string id="Y2K">Interpretación de siglo para el año 2000</string>
+      <string id="Y2K_Help">Esta configuración de directiva determina el modo en que los programas interpretan los años de dos dígitos.
+
+Esta configuración de directiva solo afecta a los programas que usan esta característica de Windows para interpretar los años de dos dígitos. Si un programa no interpreta los años de dos dígitos correctamente, consulte la documentación o pregunte al fabricante del programa.
+
+Si habilita esta configuración de directiva, el sistema especifica el año de dos dígitos más alto interpretado como si fuera precedidos por 20. Todos los números menores o iguales que el valor especificado se interpretan como si fueran precedidos por 20. Todos los números mayores que el valor especificado se interpretan como si fueran precedidos por 19.
+
+Por ejemplo, el valor predeterminado (2029) especifica que todos los años de dos dígitos menores o iguales que 29 (de 00 a 29) se interpretan como si fueran precedidos por 20, es decir, de 2000 a 2029. Por el contrario, todos los años de dos dígitos mayores que 29 (de 30 a 99) se interpretan como si fueran precedidos por 19, es decir, de 1930 a 1999.
+
+Si deshabilita o no establece esta configuración de directiva, Windows no interpreta formatos de dos dígitos con este esquema para el programa.</string>
+      <string id="TurnOffOfferTextPredictions">Desactivar las predicciones de texto mientras escribo</string>
+      <string id="TurnOffOfferTextPredictions_Help">
+        
+        Esta directiva desactiva la opción de predicciones de texto mientras escribo. Esto no impide, sin embargo, que el usuario o una aplicación puedan cambiar la configuración mediante programación.
+
+        La opción de predicciones de texto mientras escribo controla si se presentarán o no al usuario las sugerencias de predicción de texto en el teclado en pantalla.
+
+        Si esta directiva está habilitada, la opción se bloqueará para no ofrecer predicciones de texto.
+
+        Si esta directiva está deshabilitada o no está configurada, el usuario podrá modificar la configuración de acuerdo con sus preferencias.
+
+        Tenga en cuenta que la disponibilidad y la función de esta configuración depende de los idiomas admitidos que están habilitados.</string>
+      <string id="TurnOffInsertSpace">Desactivar la inserción de un espacio después de seleccionar una predicción de texto</string>
+      <string id="TurnOffInsertSpace_Help">
+        
+        Esta directiva desactiva la inserción de un espacio después de seleccionar una opción de predicción de texto. Esto no impide, sin embargo, que el usuario o una aplicación puedan cambiar la configuración mediante programación.
+
+        La opción de inserción de un espacio después de seleccionar una predicción de texto controla si se insertará o no un espacio después de que el usuario seleccione un candidato de predicción de texto cuando use el teclado en pantalla.
+
+        Si esta directiva está habilitada, la opción se bloqueará para no insertar un espacio después de seleccionar una predicción de texto.
+
+        Si esta directiva está deshabilitada o no está configurada, el usuario podrá modificar la configuración de acuerdo con sus preferencias.
+
+        Tenga en cuenta que la disponibilidad y la función de esta configuración depende de los idiomas admitidos que están habilitados.</string>
+      <string id="TurnOffAutocorrectMisspelledWords">Desactivar corrección automática de las palabras mal escritas</string>
+      <string id="TurnOffAutocorrectMisspelledWords_Help">
+        
+        Esta directiva desactiva la opción de corrección automática de las palabras mal escritas. Esto no impide, sin embargo, que el usuario o una aplicación puedan cambiar la configuración mediante programación.
+
+        La opción de corrección automática de las palabras mal escritas controla si se corregirán o no automáticamente los errores del texto escrito.
+
+        Si esta directiva está habilitada, la opción se bloqueará para no corregir automáticamente las palabras mal escritas.
+
+        Si esta directiva está deshabilitada o no está configurada, el usuario podrá modificar la configuración de acuerdo con sus preferencias.
+
+        Tenga en cuenta que la disponibilidad y la función de esta configuración depende de los idiomas admitidos que están habilitados.</string>
+      <string id="TurnOffHighlightMisspelledWords">Desactivar opción de resaltar las palabras mal escritas</string>
+      <string id="TurnOffHighlightMisspelledWords_Help">
+        
+        Esta política resalta la opción de resaltar las palabras mal escritas. Esto no impide, sin embargo, que el usuario o una aplicación puedan cambiar la configuración mediante programación.
+
+        La opción de resaltar las palabras mal escritas controla si se resaltarán o no los errores ortográficos del texto escrito.
+
+        Si esta directiva está habilitada, la opción se bloqueará para no resaltar las palabras mal escritas.
+
+        Si esta directiva está deshabilitada o no está configurada, el usuario podrá modificar la configuración de acuerdo con sus preferencias.
+
+        Tenga en cuenta que la disponibilidad y la función de esta configuración depende de los idiomas admitidos que están habilitados.</string>
+      <string id="ImplicitDataCollectionOff">Desactivar el aprendizaje automático</string>
+      <string id="ImplicitDataCollectionOff_Help">
+        
+        Esta configuración de directiva desactiva el componente de aprendizaje automático de la personalización del reconocimiento de escritura a mano. 
+
+		El aprendizaje automático permite recopilar y almacenar el texto y entrada de lápiz escritos por el usuario para facilitar la adaptación del reconocimiento de escritura a mano al vocabulario y el estilo de escritura a mano del usuario. 
+
+		En el texto recopilado se incluyen todos los mensajes salientes de Windows Mail y los clientes de correo electrónico habilitados para MAPI, además de las direcciones URL del historial de exploración de Internet Explorer. Entre la información almacenada se incluyen la frecuencia de las palabras y las palabras nuevas aún desconocidas por los motores de reconocimiento de escritura a mano (por ejemplo, los nombres propios y los acrónimos). Al eliminar el contenido de un mensaje de correo electrónico o el historial del explorador no se eliminan los datos de personalización almacenados. La entrada de lápiz escrita mediante el panel de entrada se recopila y almacena.  
+
+		Nota: es posible que el aprendizaje automático del texto y la entrada de lápiz no esté disponible para todos los idiomas, incluso si la personalización de escritura a mano está disponible. Consulte la ayuda de Tablet PC para obtener más información.
+
+		Si habilita esta configuración de directiva, se detendrá el aprendizaje automático y se eliminarán los datos almacenados. Los usuarios no pueden configurar esta configuración en el Panel de control.
+
+		Si deshabilita esta configuración de directiva, el aprendizaje automático se activará. Los usuarios no pueden configurar esta configuración de directiva en el Panel de control. Los datos recopilados solo se usan para el reconocimiento de escritura a mano si la personalización de escritura a mano está activada.
+
+		Si no configura esta directiva, los usuarios pueden elegir si desean habilitar o deshabilitar el aprendizaje automático desde la pestaña Escritura a mano en Configuración de Tablet PC en el Panel de control o en el cuadro de diálogo de la opción.
+
+		Esta configuración de directiva está relacionada con la directiva “Desactivar la personalización de escritura a mano”.
+
+		Nota: la cantidad de entrada de lápiz almacenada se limita a 50 MB y la de información de texto a aproximadamente 5 MB. Al alcanzar estos límites, si se recopilan nuevos datos, los datos anteriores se eliminan para crear espacio para los datos más recientes.
+
+		Nota: la personalización de escritura a mano solo funciona con reconocedores de escritura a mano de Microsoft y no con reconocedores de terceros.</string>
+      <string id="InputPersonalization">Personalización de escritura a mano</string>
+      <string id="BlockUserInputMethodsForSignIn">No permitir copiar los métodos de entrada del usuario a la cuenta del sistema para inicio de sesión</string>
+      <string id="BlockUserInputMethodsForSignIn_Help">
+        
+        Esta directiva impide que se copien automáticamente los métodos de entrada del usuario a la cuenta del sistema para usarlos en la pantalla de inicio de sesión. El usuario está limitado al conjunto de métodos de entrada que están habilitados en la cuenta del sistema.
+
+        Tenga en cuenta que esto no afecta a la disponibilidad de los métodos de entrada en la pantalla de bloqueo o en el mensaje de UAC.
+
+        Si la directiva está habilitada, el usuario obtendrá los métodos de entrada habilitados para la cuenta del sistema en la página de inicio de sesión.
+
+        Si la directiva está deshabilitada o no configurada, el usuario podrá usar los métodos de entrada habilitados para su cuenta de usuario en la página de inicio de sesión.</string>
+      <string id="BlockCleanupOfUnusedPreinstalledLangPacks">Bloquear la limpieza de paquetes de idioma no utilizados</string>
+      <string id="BlockCleanupOfUnusedPreinstalledLangPacks_Help">
+          
+          Esta configuración de directiva controla si la tarea LPRemove se ejecutará para limpiar los paquetes de idioma que están instalados en un equipo pero no utilicen los usuarios de dicho equipo.
+
+          Si habilita esta configuración de directiva, los paquetes de idioma que están instalados como parte de la imagen del sistema permanecerán instalados incluso si los usuarios de ese sistema no los utilizan.
+
+          Si deshabilita o no establece esta configuración de directiva, los paquetes de idioma que están instalados como parte de la imagen del sistema pero que los usuarios de ese sistema no utilizan se eliminarán como parte de una tarea de limpieza programada.
+      
+      </string>
+      <string id="AllowInputPersonalization">Permitir que los usuarios habiliten servicios de reconocimiento de voz en línea</string>
+      <string id="AllowInputPersonalization_Help">
+        Esta directiva especifica si los usuarios del dispositivo tienen la opción de habilitar los servicios de reconocimiento de voz en línea.
+        
+        Si habilitas o configuras esta directiva, se otorga el control a los usuarios y ellos pueden elegir si habilitar los servicios de voz mediante la configuración.
+        
+        Si deshabilitas esta directiva, los servicios de voz se deshabilitarán y los usuarios no podrán habilitar los servicios de voz mediante la configuración.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="LocaleSystemRestrict">
+        <text>Estos sistemas se limitan a las siguientes configuraciones regionales</text>
+        <text>El formato esperado es en-US;fr-FR</text>
+        <textBox refId="AllowableSystemLocaleTagList">
+          <label>Configuraciones regionales del sistema</label>
+        </textBox>
+      </presentation>
+      <presentation id="LocaleUserRestrict_1">
+        <text>El usuario está limitado a usar las siguientes configuraciones regionales</text>
+        <text>El formato esperado es en-US;fr-FR</text>
+        <textBox refId="AllowableUserLocaleTagList">
+          <label>Configuraciones regionales del usuario</label>
+        </textBox>
+      </presentation>
+      <presentation id="LocaleUserRestrict_2">
+        <text>El usuario está limitado a usar las siguientes configuraciones regionales</text>
+        <text>El formato esperado es en-US;fr-FR</text>
+        <textBox refId="AllowableUserLocaleTagList">
+          <label>Configuraciones regionales del usuario</label>
+        </textBox>
+      </presentation>
+      <presentation id="LockMachineUILanguage">
+        <dropdownList refId="UILangSelect" noSort="true" defaultItem="0">Limitar usuarios al siguiente idioma:</dropdownList>
+      </presentation>
+      <presentation id="LockUserUILanguage">
+        <dropdownList refId="UILangSelect" noSort="true" defaultItem="0">Limitar usuarios al siguiente idioma:</dropdownList>
+      </presentation>
+      <presentation id="RestrictUILangSelect">
+        <dropdownList refId="UILangSelect" noSort="true" defaultItem="0">Limitar usuarios al siguiente idioma:</dropdownList>
+      </presentation>
+      <presentation id="Y2K">
+        <text>Especificar el valor máximo de año para el cual los años de dos dígitos se interpretan como parte del siglo 21:</text>
+        <decimalTextBox refId="Y2KYear" defaultValue="2029">Año  </decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

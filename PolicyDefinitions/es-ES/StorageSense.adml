@@ -1,0 +1,106 @@
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<displayName>Sensor de almacenamiento</displayName>
+<description>Archivo ADMX para el Sensor de almacenamiento</description>
+<resources>
+    <stringTable>
+    <string id="StorageSense">Sensor de almacenamiento</string>
+    <string id="SS_AllowStorageSenseGlobal">Permitir el Sensor de almacenamiento</string>
+    <string id="SS_AllowStorageSenseGlobal_Explain">
+El Sensor de almacenamiento puede eliminar automáticamente algunos de los archivos del usuario para liberar espacio en el disco. De forma predeterminada, el Sensor de almacenamiento se activa automáticamente cuando el equipo tiene poco espacio en el disco y se configura para su ejecución cuando queda poco espacio de almacenamiento. Esta cadencia se puede cambiar en la configuración de almacenamiento o se puede establecer en la directiva de grupo "Configurar la cadencia del Sensor de almacenamiento".
+
+Habilitado:
+El Sensor de almacenamiento se activa en el equipo, con la opción de cadencia predeterminada "cuando quede poco espacio en el disco". Los usuarios no pueden deshabilitar el Sensor de almacenamiento, pero pueden ajustar la cadencia (a no ser que también se configure la directiva de grupo "Configurar la cadencia del Sensor de almacenamiento").
+
+Deshabilitado:
+El Sensor de almacenamiento se desactiva en el equipo y los usuarios no podrán habilitarlo.
+
+Sin configurar:
+De forma predeterminada, el Sensor de almacenamiento estará desactivado hasta que el usuario tenga poco espacio en el disco o lo active de forma manual. Los usuarios pueden configurar esta opción en la configuración de almacenamiento.
+    </string>
+    <string id="SS_ConfigStorageSenseGlobalCadence">Configurar la cadencia del Sensor de almacenamiento</string>
+    <string id="SS_ConfigStorageSenseGlobalCadence_Explain">
+El Sensor de almacenamiento puede eliminar automáticamente algunos de los archivos del usuario para liberar espacio en el disco.
+
+Si la directiva de grupo "Permitir el Sensor de almacenamiento" se deshabilita, no tendrá ningún efecto.
+
+Habilitado:
+Es necesario proporcionar la cadencia del Sensor de almacenamiento que quieras usar. Estas son las opciones admitidas: diariamente, semanalmente, mensualmente y cuando quede poco espacio en el disco. El valor predeterminado es 0 (cuando queda poco espacio en el disco).
+
+Deshabilitado o Sin configurar:
+De forma predeterminada, la cadencia del Sensor de almacenamiento se establece en "cuando quede poco espacio en el disco". Los usuarios pueden configurar esta opción en la configuración de almacenamiento.
+    </string>
+    <string id="SS_StorageSenseGlobalCadence_Daily">Diariamente</string>
+    <string id="SS_StorageSenseGlobalCadence_Weekly">Semanalmente</string>
+    <string id="SS_StorageSenseGlobalCadence_Monthly">Mensualmente</string>
+    <string id="SS_StorageSenseGlobalCadence_DuringLowFreeDiskSpace">Cuando haya poco espacio libre en el disco</string>
+    <string id="SS_AllowStorageSenseTemporaryFilesCleanup">Permitir la limpieza de archivos temporales del Sensor de almacenamiento</string>
+    <string id="SS_AllowStorageSenseTemporaryFilesCleanup_Explain">
+Cuando se ejecuta el Sensor de almacenamiento, puede eliminar los archivos temporales que el usuario ya no use.
+
+Si la directiva de grupo "Permitir el Sensor de almacenamiento" está deshabilitada, no tendrá ningún efecto.
+
+Habilitado:
+El Sensor de almacenamiento eliminará los archivos temporales que el usuario ya no use. Los usuarios no pueden deshabilitar esta opción en la configuración del Sensor de almacenamiento.
+
+Deshabilitado:
+El Sensor de almacenamiento no eliminará los archivos temporales del usuario. Los usuarios no podrán habilitar esta opción en la configuración de almacenamiento.
+
+Sin configurar:
+De forma predeterminada, el Sensor de almacenamiento eliminará los archivos temporales del usuario. Los usuarios pueden configurar esta opción en la configuración de almacenamiento.
+    </string>
+    <string id="SS_ConfigStorageSenseRecycleBinCleanupThreshold">Configurar el umbral de limpieza de la papelera de reciclaje del Sensor de almacenamiento</string>
+    <string id="SS_ConfigStorageSenseRecycleBinCleanupThreshold_Explain">
+Cuando se ejecuta el Sensor de almacenamiento, puede eliminar los archivos de la carpeta Papelera de reciclaje del usuario que hayan estado ahí durante un período determinado de días.
+
+Si la directiva de grupo "Permitir el Sensor de almacenamiento" está deshabilitada, no tendrá ningún efecto.
+
+Habilitado:
+Debes proporcionar el umbral de antigüedad mínimo (en días) de un archivo de la Papelera de reciclaje antes de que el Sensor de almacenamiento lo elimine. Los valores que se admiten son: 0 - 365.
+Si estableces el valor en cero, el Sensor de almacenamiento no eliminará los archivos de la Papelera de reciclaje del usuario. El valor predeterminado son 30 días.
+
+Deshabilitado o Sin configurar:
+De forma predeterminada, el Sensor de almacenamiento eliminará los archivos que hayan estado más de 30 días en la Papelera de reciclaje del usuario. Los usuarios pueden configurar esta opción en la configuración de almacenamiento.
+    </string>
+    <string id="SS_ConfigStorageSenseDownloadsCleanupThreshold">Configurar el umbral de limpieza de las descargas de almacenamiento del Sensor de almacenamiento</string>
+    <string id="SS_ConfigStorageSenseDownloadsCleanupThreshold_Explain">
+Cuando se ejecuta el Sensor de almacenamiento, puede eliminar archivos de la carpeta Descargas del usuario si no se han abierto durante un período determinado de días.
+
+Si la directiva de grupo "Permitir el Sensor de almacenamiento" está deshabilitada, no tendrá ningún efecto.
+
+Habilitado:
+Debes proporcionar el umbral de antigüedad mínimo (en días) de un archivo de la carpeta Descargas antes de que el Sensor de almacenamiento lo elimine. Los valores que se admiten son: 0 - 365.
+Si estableces el valor en cero, el Sensor de almacenamiento no eliminará los archivos de la carpeta Descargas del usuario. El valor predeterminado es 0, o la opción de no eliminar nunca los archivos de la carpeta Descargas.
+
+Deshabilitado o Sin configurar:
+De forma predeterminada, el Sensor de almacenamiento no eliminará archivos de la carpeta Descargas del usuario. Los usuarios pueden configurar esta opción en la configuración de almacenamiento.
+    </string>
+    <string id="SS_ConfigStorageSenseCloudContentDehydrationThreshold">Configurar el umbral de deshidratación del contenido en la nube del Sensor de almacenamiento</string>
+    <string id="SS_ConfigStorageSenseCloudContentDehydrationThreshold_Explain">
+Cuando se ejecuta el Sensor de almacenamiento, puede deshidratar contenido con copia de seguridad en la nube que no se haya abierto durante un período determinado de días.
+
+Si la directiva de grupo "Permitir el Sensor de almacenamiento" está deshabilitada, no tendrá ningún efecto.
+
+Habilitado:
+Debes proporcionar el número de días desde la última vez que abriste un archivo con copia de seguridad en la nube, antes de que el Sensor de almacenamiento lo deshidrate. Los valores que se admiten son: 0 - 365.
+Si estableces el valor en cero, el Sensor de almacenamiento no deshidratará el contenido con copia de seguridad en la nube. El valor predeterminado es 0, o la opción de no deshidratar nunca el contenido con copia de seguridad en la nube.
+
+Deshabilitado o Sin configurar:
+De forma predeterminada, el Sensor de almacenamiento no deshidratará ningún contenido con copia de seguridad en la nube. Los usuarios pueden configurar esta opción en la configuración de almacenamiento.
+    </string>
+    </stringTable>
+    <presentationTable>
+    <presentation id="SS_ConfigStorageSenseGlobalCadence_Presentation">
+        <dropdownList refId="StorageSenseGlobalCadence" noSort="true" defaultItem="3">Ejecutar el Sensor de almacenamiento:</dropdownList>
+    </presentation>
+    <presentation id="SS_ConfigStorageSenseRecycleBinCleanupThreshold_Presentation">
+        <decimalTextBox refId="StorageSenseRecycleBinCleanupThreshold" defaultValue="30">Antigüedad mínima (en días) de los archivos de la carpeta Papelera de reciclaje antes de que el Sensor de almacenamiento los elimine (el valor 0 significa que nunca se eliminan archivos):</decimalTextBox>
+    </presentation>
+    <presentation id="SS_ConfigStorageSenseDownloadsCleanupThreshold_Presentation">
+        <decimalTextBox refId="StorageSenseDownloadsCleanupThreshold" defaultValue="0">Antigüedad mínima (en días) de los archivos de la carpeta Descargas antes de que el Sensor de almacenamiento los elimine (el valor 0 significa que nunca se eliminan archivos):</decimalTextBox>
+    </presentation>
+    <presentation id="SS_ConfigStorageSenseCloudContentDehydrationThreshold_Presentation">
+        <decimalTextBox refId="StorageSenseCloudContentDehydrationThreshold" defaultValue="0">Número de días desde que se abrió un archivo con una copia de seguridad en la nube antes de que el Sensor de almacenamiento lo deshidratara (el valor 0 significa que nunca se deshidratan los archivos):</decimalTextBox>
+    </presentation>
+    </presentationTable>
+</resources>
+</policyDefinitionResources>

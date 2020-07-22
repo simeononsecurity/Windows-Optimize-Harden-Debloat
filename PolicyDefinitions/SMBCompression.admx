@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="SMBComp" namespace="Microsoft.Policies.SMBCompression" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+
+  <categories>
+    <category name="Cat_SMBComp" displayName="$(string.SMBComp)" />
+  </categories>
+
+  <policies>
+
+    <policy name="Pol_SMB_DisableCompression" 
+        class="Machine" 
+        displayName="$(string.DisableCompression)"
+        explainText="$(string.DisableCompression_Help)"
+        key="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters"
+        presentation="$(presentation.SMBCompdropdown)" >
+      <parentCategory ref="Cat_SMBComp" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <elements>
+                <enum id="SMBCompdropdown" key="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" valueName="DisableCompression">
+                    <item displayName="$(string.Enabled)">
+                        <value>
+                            <decimal value="1"/>
+                        </value>
+                    </item>
+                    <item displayName="$(string.Disabled)">
+                        <value>
+                            <decimal value="0"/>
+                        </value>
+                    </item>
+
+                </enum>
+            </elements>
+      </policy>
+  </policies>
+</policyDefinitions>

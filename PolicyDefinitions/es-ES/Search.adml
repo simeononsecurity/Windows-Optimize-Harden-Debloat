@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>escribir el nombre aquí</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="Search">Buscar</string>
+      <string id="WindowsComponents">Componentes de Windows</string>
+      <string id="VistaOnly">Microsoft Windows Vista o versión posterior</string>
+      <string id="VistaOrRedist">Microsoft Windows Vista, o cualquier versión de Windows con Windows Search 3.01 o posterior</string>
+      <string id="RedistOnly">Microsoft Windows XP, o Windows Server 2003 con la versión Windows Search 3.01 o posterior</string>
+      <string id="RedistOnly4OrLater">Microsoft Windows XP, o Windows Server 2003 con la versión Windows Search 4.0 o posterior</string>
+      <string id="301OrLater">Microsoft Windows XP, Windows Server 2003 con la versión Windows Search 3.01, o cualquier versión de Microsoft Windows con Windows Search 4.0 o posterior</string>
+      <string id="301To4">Microsoft Windows XP, Windows Server 2003 con la versión Windows Search 3.01, o cualquier versión de Microsoft Windows con Windows Search 4.0</string>
+      <string id="4OrLater">Cualquier versión de Microsoft Windows con Windows Search 4.0 o posterior</string>
+      <string id="VistaOr4">Microsoft Windows Vista, o cualquier versión de Windows con Windows Search 4.0 o posterior</string>
+      <string id="VistaWith4">Microsoft Windows Vista con Windows Search 4.0 o posterior</string>
+      <string id="AllowUsingDiacritics">Permitir el uso de diacríticos</string>
+      <string id="Win7Only">Microsoft Windows 7 o posterior</string>
+      <string id="WS4Only">Cualquier versión de Microsoft Windows con Windows Search 4.0</string>
+      <string id="Win8Only">Microsoft Windows 8 o posterior</string>
+      <string id="WinBlueOnly">Microsoft Windows 8.1 o versiones posteriores</string>
+      <string id="WinBlueExclusive">Microsoft Windows 8.1. No es compatible con Windows 10 o versiones posteriores</string>
+      <string id="ExplainAllowUsingDiacritics">Esta configuración de directiva permite que las palabras que contienen caracteres diacríticos se traten como palabras independientes. Si habilita esta configuración, las palabras que solo se diferencian por diacríticos se considerarán palabras distintas. Si, por el contrario, deshabilita esta configuración, las palabras con y sin diacríticos se tratarán como palabras iguales. Esta configuración de directiva no está definida de forma predeterminada. Si no establece esta configuración, se respetará el valor local, configurado mediante el Panel de control. Nota: de forma predeterminada, la configuración del Panel de control está establecida para tratar las palabras que solo difieren en los diacríticos como si se tratara de la misma palabra.</string>
+      <string id="AlwaysUseAutoLangDetection">Utilizar siempre la detección automática de idiomas al indizar contenido y propiedades</string>
+      <string id="ExplainAlwaysUseAutoLangDetection">Esta configuración de directiva determina cuándo Windows usa resultados de la detección automática de idiomas y cuándo se basa en el historial de indización. Si habilita esta configuración de directiva, Windows utilizará siempre la detección automática de idiomas para indizar (como lo hacía en Windows 7). La utilización de la detección automática de idiomas puede aumentar el uso de la memoria. Se recomienda habilitar esta configuración de directiva solo en los equipos en los que los documentos se almacenan en muchos idiomas. Si deshabilita o no establece esta configuración de directiva, Windows utilizará la detección automática de idiomas solo cuando pueda determinar el idioma de un documento con confianza alta.</string>
+      <string id="DisableRemovableDriveIndexing">No permitir que se agreguen a las bibliotecas ubicaciones en unidades extraíbles</string>
+      <string id="ExplainDisableRemovableDriveIndexing">Esta directiva permite configurar si las ubicaciones en unidades extraíbles se pueden agregar o no a las bibliotecas.
+      
+Si habilita esta configuración de directiva, las ubicaciones en unidades extraíbles no se pueden agregar a las bibliotecas.  Además, las ubicaciones en unidades extraíbles no se pueden indizar.
+
+Si deshabilita o no configura esta configuración de directiva, las ubicaciones en unidades extraíbles se pueden agregar a las bibliotecas.  Además, las ubicaciones en unidades extraíbles se pueden indizar.</string>
+      <string id="DoNotUseWebResults">No buscar en Internet o mostrar resultados de Internet en Search</string>
+      <string id="ExplainDoNotUseWebResults">Esta configuración de directiva permite controlar si Search puede o no realizar consultas en Internet y si se muestran resultados de Internet en Search.
+
+Si habilita esta configuración de directiva, no se realizarán consultas en Internet y no se mostrarán resultados de Internet cuando un usuario haga una consulta en Search.
+
+Si deshabilita esta configuración de directiva, se realizarán consultas en Internet y se mostrarán resultados de Internet cuando un usuario haga una consulta en Search.
+
+Si no establece esta configuración de directiva, un usuario puede elegir si Search puede o no realizar consultas en Internet y si se muestran resultados de Internet en Search.</string>
+      <string id="DoNotUseWebResultsOverMeteredConnections">No buscar en Internet o mostrar resultados de Internet en Search a través de conexiones de uso medido</string>
+      <string id="ExplainDoNotUseWebResultsOverMeteredConnections">Esta configuración de directiva permite controlar si Search puede o no realizar consultas en Internet a través de conexiones de uso medido y si se muestran resultados de Internet en Search.
+
+Si habilita esta configuración de directiva, no se realizarán consultas en Internet a través de conexiones de uso medido y no se mostrarán resultados de Internet cuando un usuario haga una consulta en Search.
+
+Si deshabilita esta configuración de directiva, se realizarán consultas en Internet a través de conexiones de uso medido y se mostrarán resultados de Internet cuando un usuario haga una consulta en Search.
+
+Si no establece esta configuración de directiva, un usuario puede elegir si Search puede o no realizar consultas en Internet a través de conexiones de uso medido y si se muestran resultados de Internet en Search.
+
+Nota: si habilita la configuración de directiva "No buscar en Internet o mostrar resultados de Internet en Search", no se realizarán consultas en Internet a través de conexiones de uso medido y no se mostrarán resultados de Internet cuando un usuario haga una consulta en Search.</string>
+      <string id="SearchExperience">Definir qué información se comparte en Search</string>
+      <string id="ExplainSearchExperience">Esta configuración de directiva permite controlar qué información se comparte con Bing en Search.
+
+Si habilita esta configuración de directiva, puede especificar una de las cuatro opciones siguientes, que los usuarios no podrán modificar:
+
+    -Información y ubicación del usuario: comparta el historial de búsqueda de un usuario, parte de su información de cuenta de Microsoft y la ubicación específica para personalizar su experiencia de búsqueda, entre otras experiencias de Microsoft.
+    
+    -Solo información del usuario: comparta el historial de búsqueda de un usuario y parte de su información de cuenta de Microsoft para personalizar su experiencia de búsqueda, entre otras experiencias de Microsoft.
+    
+    -Información anónima: comparta la información de uso, pero no el historial de búsqueda, la información de cuenta de Microsoft y la ubicación específica.    
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios pueden elegir qué información se comparte en Search.</string>
+      <string id="DoNotUseLocation">No usar ubicación en Search</string>
+      <string id="ExplainDoNotUseLocation">Esta configuración de directiva permite controlar si Search usará o no la ubicación actual del usuario al ofrecer resultados de búsqueda.
+
+Si habilita esta configuración de directiva, Search no usará la ubicación actual del usuario al ofrecer resultados de búsqueda.
+
+Si deshabilita o no establece esta configuración de directiva, Search usará la ubicación actual del usuario al ofrecer resultados de búsqueda.</string>
+      <string id="SafeSearch">Establecer la configuración de Búsqueda segura en Search</string>
+      <string id="ExplainSafeSearch">Esta configuración de directiva permite controlar la configuración de Búsqueda segura utilizada cuando se realiza una consulta en Buscar. 
+
+Si habilitas esta configuración de directiva, puedes especificar una de las tres opciones de configuración de Búsqueda segura, que los usuarios no podrán cambiar:
+
+-Estricto: filtra el texto, las imágenes y los vídeos para adultos de los resultados de la búsqueda;
+
+-Moderado: filtra las imágenes y vídeos para adultos, pero no el texto de los resultados de la búsqueda;
+
+-Desactivado: no filtra el contenido para adultos de los resultados de la búsqueda.
+
+Si deshabilitas o no configuras esta opción de configuración de directiva, los usuarios pueden especificar la opción de configuración de Búsqueda segura.
+
+Los usuarios de Windows 10 deben usar Search/DoNotUseWebResults</string>
+      <string id="SharePrivacyAllAndLocation">Información y ubicación del usuario</string>
+      <string id="SharePrivacyAll">Solo información del usuario</string>
+      <string id="SharePrivacyAnonymous">Información anónima</string>
+      <string id="SafeSearchStrict">Estricto</string>      
+      <string id="SafeSearchModerate">Moderado</string>
+      <string id="SafeSearchOff">Desactivado</string>
+      <string id="AutoIndexSharedFolders">Impedir la adición automática de carpetas compartidas al índice de Windows Search</string>
+      <string id="ExplainAutoIndexSharedFolders">Esta configuración de directiva establece de qué manera Windows Search agrega carpetas al índice de búsqueda.
+
+Si habilita esta configuración de directiva, Windows Search no podrá agregar automáticamente carpetas compartidas al índice. Windows Search no agrega automáticamente recursos compartidos creados en el equipo al ámbito del índice.
+
+Si deshabilita o no establece esta configuración de directiva, Windows Search supervisa qué carpetas están compartidas en el equipo y cuáles no, y las agrega o las quita automáticamente del índice.</string>
+      <string id="FavoriteLocations">Impedir la adición de las ubicaciones especificadas por el usuario al menú Todas las ubicaciones</string>
+      <string id="ExplainFavoriteLocations">Esta configuración de directiva le permite habilitar o deshabilitar las opciones Agregar/Eliminar ubicación del menú Todas las ubicaciones, así como cualquier ubicación definida por el usuario.  Cuando esta directiva no esté configurada, el comportamiento predeterminado es permitir que los usuarios agreguen o quiten ubicaciones nuevas en el menú de ubicaciones.  Cuando la directiva esté habilitada, las opciones Agregar/Eliminar ubicación y cualquier ubicación definida anteriormente por el usuario no se encontrarán visibles.  Sin embargo, cuando la directiva se encuentre deshabilitada, las opciones Agregar/Eliminar ubicación y cualquier ubicación definida anteriormente por el usuario sí se encontrarán visibles.</string>
+      <string id="PreventUsingAdvancedIndexingOptions">Impedir la visualización de las opciones de indización avanzadas para Windows Search en el Panel de control</string>
+      <string id="ExplainPreventUsingAdvancedIndexingOptions">Esta configuración de directiva oculta o muestra el cuadro de diálogo Opciones avanzadas para las opciones de búsqueda e indización en el Panel de control.
+
+Si habilita esta configuración de directiva, no se podrá abrir el cuadro de diálogo Opciones avanzadas para las opciones de búsqueda e indización en el Panel de control.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios podrán tener acceso al cuadro de diálogo Opciones avanzadas para las opciones de búsqueda e indización en el Panel de control. Este es el valor predeterminado para esta configuración de directiva.</string>
+      <string id="HideUNCTab">Impedir la adición de ubicaciones UNC al índice desde el Panel de control</string>
+      <string id="ExplainHideUNCTab">La habilitación de esta directiva impide que los usuarios agreguen ubicaciones UNC al índice desde las opciones de búsqueda e indización del Panel de control.  Cualquier ubicación UNC que el usuario ya haya agregado al índice no se eliminará.
+
+Cuando esta directiva está deshabilitada o no está establecida, los usuarios podrán agregar ubicaciones UNC al índice.
+
+Esta directiva no tiene ningún efecto si no se han instalado los Archivos en el complemento de las redes de Microsoft.
+
+Esta configuración de directiva no está definida de forma predeterminada.</string>
+      <string id="PreventModifyingIndexedLocations">Impedir la personalización de ubicaciones indizadas en el Panel de control</string>
+      <string id="ExplainPreventModifyingIndexedLocations">Si se habilita, las opciones de búsqueda e indización del Panel de control no permitirán abrir el cuadro de diálogo Modificar ubicaciones. De lo contrario, se puede abrir. Esta configuración de directiva no está establecida de forma predeterminada.</string>
+      <string id="AllowIndexingEncryptedStoresOrItems">Permitir la indización de archivos cifrados</string>
+      <string id="ExplainAllowIndexingEncryptedStoresOrItems">Esta configuración de directiva permite indizar los elementos cifrados. Si habilita esta configuración de directiva, la indización intentará descifrar e indizar el contenido (se aplicarán restricciones de acceso). Si deshabilita esta configuración de directiva, se espera que los componentes del servicio de búsqueda (incluidos los de terceros) no indicen elementos o almacenes cifrados. Esta configuración de directiva no está definida de forma predeterminada. Si no establece esta configuración de directiva, se respetará el valor local, configurado mediante el Panel de control. De forma predeterminada, la configuración del Panel de control está definida para no indizar el contenido cifrado.  
+
+Cuando se habilite o deshabilite esta configuración, el índice se volverá a generar completamente. 
+
+El cifrado completo de volúmenes (como el cifrado de unidades BitLocker o soluciones de terceros) debe usarse en la ubicación del índice para mantener la seguridad de los archivos cifrados.</string>
+      <string id="PreventIndexOnBattery">Impedir la indización cuando la carga de la batería está en ejecución para conservar la energía</string>
+      <string id="ExplainPreventIndexOnBattery">Si se deshabilita, el indizador hace una pausa cada vez que el equipo ejecuta la batería. Si se habilita, el indizador sigue un comportamiento predeterminado. Esta configuración de directiva no está establecida de forma predeterminada.</string>
+      <string id="PreventRemoteQueries">Impedir que los clientes soliciten el índice de forma remota</string>
+      <string id="ExplainPreventRemoteQueries">Si se habilita, los clientes no podrán solicitar este índice del equipo de forma remota.  De esta forma, cuando busquen los recursos compartidos de red que se guardan en el equipo, no podrán encontrarlos usando el índice. Si se deshabilita, las solicitudes de búsqueda del cliente usarán el índice del equipo. Esta configuración de directiva no está establecida de forma predeterminada.</string>
+      <string id="DisableBackoff">Deshabilitar la interrupción del indizador</string>
+      <string id="ExplainDisableBackoff">Si se habilita, la función de interrupción del indizador de búsqueda se deshabilitará. La indización continuará a toda velocidad incluso cuando la actividad del sistema sea alta. Si se deshabilita, la lógica de la interrupción se usará para reducir la actividad de indización cuando la actividad del sistema sea alta. Esta configuración de directiva no está establecida de forma predeterminada.</string>
+      <string id="PreventIndexingOfflineFiles">Impedir la indización de archivos en la memoria caché de archivos sin conexión</string>
+      <string id="ExplainPreventIndexingOfflineFiles">Si se habilita, no se indizarán los archivos de los recursos compartidos de red que estén disponibles sin conexión. En caso contrario, se indizarán. Esta configuración de directiva no está definida de forma predeterminada.</string>
+      <string id="EnableIndexingUncachedExchangeFolders">Habilitar la indización de carpetas de Exchange no almacenadas en caché</string>
+      <string id="ExplainEnableIndexingUncachedExchangeFolders">La habilitación de esta directiva permite indizar elementos de correo en un servidor de Microsoft Exchange cuando Microsoft Outlook no se esté ejecutando en modo de intercambio en caché. El comportamiento predeterminado para la búsqueda es no indizar carpetas de Exchange no almacenadas en caché. Al deshabilitar esta directiva se bloqueará cualquier indización de carpetas de Exchange no almacenadas en caché. Los buzones de correo delegados se administran independientemente de los buzones de correo en línea. "Habilitar la indización de carpetas de Exchange no almacenadas en caché" no tiene efecto en los buzones delegados. Para detener la indización de buzones de correo en línea y delegados debe deshabilitar ambas directivas.</string>
+      <string id="EnableIndexingDelegateMailboxes">Habilitar la indización de buzones de correo delegados en línea</string>
+      <string id="ExplainEnableIndexingDelegateMailboxes">Al habilitar esta directiva se permite la indización de elementos para buzones de correo en línea en un servidor de Microsoft Exchange. Esta directiva solo afecta a los buzones de correo delegados que se encuentran en línea. Microsoft Outlook 2007 permite que los usuarios almacenen localmente en memoria caché parte de los buzones de correo delegados (por ejemplo, los contactos o un calendario). Sin embargo, la directiva en cuestión no afecta a las partes de un buzón de correo delegado que se encuentran almacenadas localmente en esta memoria. Para que esta directiva afecte a todas las partes de un buzón de correo delegado, asegúrese de que ninguna parte de este buzón de correo se encuentre almacenada localmente en la memoria caché para Microsoft Outlook 2007. El comportamiento predeterminado para la búsqueda no es el de indizar buzones de correo delegados. Al deshabilitar esta directiva, se bloqueará cualquier indización de buzones de correo delegados. Los buzones de correo delegados se administran independientemente de los buzones de correo en línea. La directiva "Habilitar la indización de carpetas de Exchange no almacenadas en caché" no afecta a los buzones de correo delegados en línea. Para detener la indización de buzones de correo en línea y delegados en línea, debe deshabilitar ambas directivas.</string>
+      <string id="EnableThrottlingOnlineMailboxes">Habilitar límites para la indización de correo en línea</string>
+      <string id="ExplainEnableThrottlingOnlineMailboxes">Al usar Microsoft Office Outlook en línea, puede habilitar esta directiva para controlar la velocidad de indización de los correos en línea en un servidor de Microsoft Exchange. Mientras más lentamente configure esta directiva, más lenta será la carga en el servidor de Microsoft Exchange correspondiente. El valor predeterminado para esta directiva es de 120 artículos por minuto. Para disminuir la carga en los servidores de Microsoft Exchange, disminuya la velocidad de los artículos indizados por minuto. Si deshabilita esta directiva, los artículos de correo en línea se indizarán a la velocidad que permita el servidor de Microsoft Exchange. Si define esta directiva como no configurada, los artículos de correo en línea se indizarán a una velocidad de 120 artículos por minuto. Esta directiva no afecta a los artículos de correo al utilizar Microsoft Office Outlook en modo de caché.</string>
+      <string id="LimitEnableThrottlingOnlineMailboxes">Número de artículos por minuto</string>
+      <string id="PreventIndexingOutlook">Impedir la indización de Microsoft Office Outlook</string>
+      <string id="ExplainPreventIndexingOutlook">Habilite esta configuración de directiva para impedir la indización de cualquier elemento de Microsoft Outlook. El comportamiento predeterminado es indizar automáticamente los elementos de Outlook. Si se habilita esta configuración de directiva, los elementos de Outlook del usuario no se agregarán al índice y el usuario no los verá en los resultados de la búsqueda.</string>
+      <string id="PreventIndexingEmailAttachments">Impedir la indización de datos adjuntos de correo electrónico</string>
+      <string id="ExplainPreventIndexingEmailAttachments">Habilite esta configuración de directiva para impedir la indización del contenido de los datos adjuntos del correo electrónico. Si se habilita, se espera que los componentes del servicio de indización (incluidos los de terceros) no indicen los datos adjuntos del correo electrónico. Considere la posibilidad de habilitar esta configuración de directiva si le preocupa el rendimiento de la indización o la seguridad de filtros de documentos de terceros (iFilters). Esta configuración de directiva está deshabilitada de manera predeterminada.</string>
+      <string id="PreventIndexingPublicFolders">Impedir la indización de las carpetas públicas</string>
+      <string id="ExplainPreventIndexingPublicFolders">Habilite esta configuración de directiva para impedir la indización de las carpetas públicas de Microsoft Office Outlook. Si se deshabilita esta configuración de directiva o no se establece, el usuario tiene la opción de indizar las carpetas públicas almacenadas en caché en Outlook. Las carpetas públicas solo se indizarán cuando se use Outlook 2003 o versiones posteriores. El usuario deberá estar ejecutando el modo de intercambio en caché y deberá activarse la opción Descargar carpeta pública Favoritos.</string>
+      <string id="PreventIndexingCertainPaths">Impedir la indización de algunas rutas</string>
+      <string id="PreventIndexingCertainPaths_Explain">Si habilita esta configuración de directiva, debe especificar una lista de rutas para excluir de la indización. El usuario no podrá tener acceso a ninguna ruta que comience por una de las rutas especificadas.
+
+Si habilita y posteriormente deshabilita esta configuración de directiva, los usuarios podrán indizar cualquier ruta que no haya sido restringida por otra directiva, pero no se restaurará su lista original de rutas para su indización.
+      
+      </string>
+      <string id="PreventIndexingCertainPaths_User_Explain">Si habilita esta configuración de directiva, debe especificar una lista de rutas para excluir de la indización. El usuario no podrá tener acceso a ninguna ruta que comience por una de las rutas especificadas. Por usuario, esta configuración de directiva funcionará solo si se especifica un controlador de protocolo que haga referencia a un ámbito de usuario basado en SID, como MAPI. Las rutas de acceso al sistema de archivos que no hagan referencia a un SID específico no se excluirán de la indización si se especifican solo en la directiva de grupo bajo "Configuración de usuario". Para excluir una ruta de acceso al sistema de archivos de la indización, bajo la directiva de grupo "Configuración del equipo", especifique la ruta de acceso al sistema de archivos que se debe indizar.
+
+Si habilita y posteriormente deshabilita esta configuración de directiva, los usuarios podrán indizar cualquier ruta que no haya sido restringida por otra directiva, pero no se restaurará su lista original de rutas para su indización.
+      
+      </string>
+      <string id="DefaultIndexedPaths">Rutas indizadas predeterminadas</string>
+      <string id="DefaultIndexedPaths_Explain">La habilitación de esta directiva le permite especificar una lista de rutas al índice de forma predeterminada. El usuario puede invalidar estas rutas y excluirlas de la indización.</string>
+      <string id="DefaultIndexedPaths_User_Explain">La habilitación de esta directiva le permite especificar una lista de rutas al índice de forma predeterminada. El usuario puede invalidar estas rutas y excluirlas de la indización. Por usuario, esta configuración de directiva funcionará solo si se especifica un controlador de protocolo que haga referencia a un ámbito de usuario basado en SID, como MAPI. Las rutas de acceso al sistema de archivos que no hagan referencia a un SID específico no se incluirán en la indización si se especifican solo en la directiva de grupo bajo "Configuración de usuario". Para incluir una ruta de acceso al sistema de archivos en la indización, bajo la directiva de grupo "Configuración del equipo", especifique la ruta de acceso al sistema de archivos que se debe indizar.</string>
+      <string id="DefaultExcludedPaths">Rutas excluidas predeterminadas</string>
+      <string id="DefaultExcludedPaths_Explain">La habilitación de esta directiva le permite especificar una lista de rutas para excluir de la indización de forma predeterminada. El usuario puede invalidar estas rutas e incluirlas en la indización.</string>
+      <string id="DefaultExcludedPaths_User_Explain">La habilitación de esta directiva le permite especificar una lista de rutas para excluir de la indización de forma predeterminada. El usuario puede invalidar estas rutas e incluirlas en la indización. Por usuario, esta configuración de directiva funcionará solo si se especifica un controlador de protocolo que haga referencia a un ámbito de usuario basado en SID, como MAPI. Las rutas de acceso al sistema de archivos que no hagan referencia a un SID específico no se excluirán de la indización si se especifican solo en la directiva de grupo bajo "Configuración de usuario". Para excluir una ruta de acceso al sistema de archivos de la indización, bajo la directiva de grupo "Configuración del equipo", especifique la ruta de acceso al sistema de archivos que se debe indizar.</string>
+      <string id="DataDirectory">Ubicación de los datos del indizador</string>
+      <string id="ExplainDataDirectory">Almacena la base de datos del indizador en este directorio. Este directorio debe encontrarse en una unidad de disco fija local.</string>
+      <string id="PartDataDirectory">Ruta (menos de 128 caracteres):</string>
+      <string id="AddPrimaryIntranetSearchScope">Agregar una ubicación de búsqueda primaria en la intranet</string>
+      <string id="AddPrimaryIntranetSearchScope_Explain">La habilitación de esta directiva le permite agregar una ubicación de búsqueda primaria en la intranet con Windows Search. El valor en este texto debe ser:
+
+nombre,url
+
+Por ejemplo:
+
+Intranet,http://intranetsearch.aspx?k=$w 
+
+Debe proporcionar lo siguiente:
+1) Un nombre de ámbito, p. ej. 'Intranet'.
+2) La dirección URL para el servicio de búsqueda. Use $w en lugar del término de consulta para la dirección URL del servicio de búsqueda.
+
+Si el servicio de búsqueda de su intranet es SharePoint Portal Server, su solicitud se parecerá a lo siguiente:
+http://sitename/Search.aspx?k=$w
+
+Si el servicio de búsqueda de su intranet es Windows SharePoint Services (WSS), la solicitud se parecerá a lo siguiente, donde XXXX es la Id. local de su servicio WSS Service. Por ejemplo, el identificador de configuración regional inglesa es 1033.
+http://sitename/_layouts/XXXX/searchresults.aspx?SearchString=$w
+
+Esto agrega la ubicación de búsqueda en la intranet a:
+1) La barra de escritorio de Windows
+2) Al cuadro de búsqueda de resultados de la barra de escritorio de Windows Search
+3) Al cuadro de búsqueda WDS en Search Companion
+
+</string>
+      <string id="PrimaryIntranetSearchScopeUrl">Dirección URL del ámbito de búsqueda en la intranet</string>
+      <string id="AddSecondaryIntranetSearchScope">Agregar ubicaciones de búsqueda secundarias en la intranet</string>
+      <string id="AddSecondaryIntranetSearchScope_Explain">La habilitación de esta directiva le permite agregar ubicaciones de búsqueda en la intranet además de una ubicación de búsqueda primaria en la intranet definida en la directiva Ubicación de búsqueda primaria en la intranet. El valor de este texto debe ser::
+
+nombre1,url1;nombre2,url2;...nombreN,urlN
+
+Por ejemplo:
+
+MySearch,http://mysearch.aspx?q=$w;MySearch2,http://mysearch2?q=$w.
+
+Para cada ámbito de búsqueda proporcione:
+1) Un nombre para el ámbito, como 'Web TI'.
+2) La dirección URL para el servicio de búsqueda. Use $w en lugar del término de consulta para la dirección URL de servicio de búsqueda.
+
+Si el servicio de búsqueda de su intranet es SharePoint Portal Server, su solicitud se parecerá a lo siguiente:
+http://nombredelsitio/Search.aspx?k=$w
+
+Si el servicio de búsqueda de su intranet es Windows SharePoint Services (WSS), la solicitud se parecerá a lo siguiente, donde XXXX es la Id. local de su servicio WSS Service. Por ejemplo, la Id. local inglesa es 1033.
+http://nombredelsitio/_layouts/XXXX/searchresults.aspx?SearchString=$w
+
+Estas ubicaciones de búsqueda en la intranet adicionales se agregan a los resultados de toda la lista de ubicaciones en Windows Search.</string>
+      <string id="SecondaryIntranetSearchScopeUrl">Dirección URL de ámbito de búsqueda en la intranet</string>
+      <string id="PreviewPaneLocation">Ubicación del panel de vista previa</string>
+      <string id="PreviewPaneLocation_Explain">La habilitación de esta directiva le permite establecer la ubicación del panel de vista previa en los resultados de Windows Search. También puede deshabilitar este panel. Las cuatro opciones son:
+
+- Auto
+- Derecho
+- Inferior
+- Desactivado
+
+Debe considerar habilitar esta directiva de desactivar el panel de vista previa si su entorno no es compatible con Office XP o posterior. La completa funcionalidad del panel de vista preliminar solo está disponible para documentos de Office en Office XP o posterior.
+
+Cuando esta directiva no está habilitada o configurada, el panel de vista previa muestra automáticamente los resultados de Windows Search a la derecha y los usuarios pueden elegir la ubicación del panel de vista previa</string>
+      <string id="PreviewPaneLocation_Auto">Auto</string>
+      <string id="PreviewPaneLocation_Right">Derecho</string>
+      <string id="PreviewPaneLocation_Bottom">Inferior</string>
+      <string id="PreviewPaneLocation_Off">Desactivado</string>
+      <string id="SearchResultIconSize">Establecer vista de iconos grandes o pequeños en los resultados de Windows Search</string>
+      <string id="SearchResultIconSize_Explain">La habilitación de esta directiva le permite especificar si desea la vista de iconos grandes o pequeños para los resultados de Windows Search. Las dos opciones son:
+
+- Icono grande
+- Icono pequeño.
+
+Si ha deshabilitado el panel de vista previa porque su organización no es compatible con Office XP o superior, debe exigir la vista de iconos grandes de manera que los usuarios puedan ver fragmentos relacionados con la solicitud de búsqueda en el escritorio.
+
+Cuando esta directiva no está habilitada o configurada, la vista de iconos pequeños es la predeterminada.</string>
+      <string id="SearchResultIconSize_Small">Icono pequeño</string>
+      <string id="SearchResultIconSize_Large">Icono grande</string>
+      <string id="DisableWebSearch">No permitir búsquedas en la Web</string>
+      <string id="DisableWebSearch_Explain">La habilitación de esta directiva elimina la opción de búsqueda de Windows Search en la Web.
+
+Cuando esta directiva no está habilitada o configurada, la opción web está disponible y los usuarios pueden buscar en Web a través del motor de búsqueda de su navegador predeterminado.</string>
+      <string id="StopIndexingOnLimitedHardDriveSpace">Detener la indización en el espacio limitado del disco duro</string>
+      <string id="StopIndexingOnLimitedHardDriveSpace_Explain">La habilitación de esta directiva impide continuar la indización después de que se haya dejado menos cantidad de espacio del disco duro de la especificada en la misma unidad de la ubicación del índice. Seleccione entre 0 y 2147483647 MB.
+
+Habilite esta directiva si los equipos en su entorno tienen un espacio de disco duro extremadamente limitado.
+
+Cuando esta directiva no está habilitada o configurada, Windows Search controla automáticamente el tamaño del índice.</string>
+      <string id="StopIndexingOnLimitedHardDriveSpace_MBLimit">Límite en MB</string>
+      <string id="RichAttachmentPreviews">Controlar vistas preliminares de texto enriquecido para los datos adjuntos</string>
+      <string id="RichAttachmentPreviews_Explain">La habilitación de esta directiva define una lista delimitada por punto y coma de extensiones de archivo a los que se les permitirá tener vistas previas de datos adjuntos con texto enriquecido.
+
+Cuando esta directiva no está habilitada o configurada, la configuración predeterminada se establecerá a .bmp;.emf;.gif;.jpg;.jpeg;.png;.wmf;.wrn;.txt;.err;.xml;.cpp;.c;.h;.cxx;.hxx;.idl;.cs;.vb;.idl;.xsd;.doc;.docx;.xls;.xlsx;.ppt;.pptx;.vsd;.xlsb;.xltx;.dot;.rtf</string>
+      <string id="PreventUnwantedAddins">Impedir iFilters no deseados y controladores de protocolo</string>
+      <string id="PreventUnwantedAddins_Explain">La habilitación de esta directiva previene a Windows Search del uso de iFilters y controladores de protocolo a menos que estén especificados en la lista de admitidos. Sin embargo, esta directiva no impide que estos iFilters o controladores de protocolo se instalen ni que sean usados por otras aplicaciones o servicios. 
+Además, puede especificar una lista de complementos admitidos si proporciona la cadena classID o ProgId. Por ejemplo, si piensa implementar iFilter, asegúrese de que este iFilter se encuentra en la lista de admitidos, ya sea un GUID como {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx} (incluya las llaves) o un ProgID como VisFilter.CFilter.1.
+
+Si mantiene el entorno de escritorio bloqueado, esta configuración será redundante, ya que los usuarios que no son administradores no tienen permiso para instalar componentes nuevos. Si los usuarios tienen los permisos del administrador o pueden instalar software, esta directiva les impide usar específicamente componentes de búsqueda relacionados con Windows Search.
+
+Nota: Debido a la limitación en el editor de la directiva de grupo, debe agregar al menos una entrada en la lista de admitidos, incluso si desea habilitar esta directiva sin una lista de admitidos. Cree una entrada en la lista colocando un espacio en el campo valor y, a continuación, guárdela. Esto creará una entrada de marcador de posición que el programa ignorará.</string>
+      <string id="PreventUnwantedAddins_AllowList">Lista de admitidos</string>
+      <string id="ExcludedExtensionsMultiline">Impedir la indización de algunos tipos de archivo</string>
+      <string id="ExcludedExtensionsMultiline_Explain">La habilitación de esta directiva permite editar la lista de tipos de archivos para excluir de la indización. El usuario final no puede modificar esta lista. Debe separar cada tipo de extensión con un punto y coma.
+
+Tenga en cuenta que las limitaciones del Editor de objetos de directiva de grupo requieren que esta lista se separe en varios valores. Windows Search los combina en una única lista de exclusión.
+
+Cuando esta directiva no está habilitada o configurada, el usuario puede editar la lista predeterminada o los tipos de archivo excluidos. Si habilita y, a continuación, deshabilita esta directiva, se restaurará la lista original del usuario.
+
+Si desea especificar una lista inicial de tipos de archivo excluidos predeterminada que los usuarios puedan modificar posteriormente, consulte la guía de administración para obtener información sobre cómo configurar las preferencias del equipo inicial.</string>
+      <string id="ExcludedExtensionsMultiline_0">Excluir</string>
+      <string id="ExcludedExtensionsMultiline_1">y</string>
+      <string id="ExcludedExtensionsMultiline_2">y</string>
+      <string id="ExcludedExtensionsMultiline_3">y</string>
+      <string id="DisableSearchHistory">Desactivar el almacenamiento y mostrar el historial de búsqueda</string>
+      <string id="ExplainDisableSearchHistory">Esta configuración de directiva impide que las consultas de búsquedas se almacenen en el Registro. Si habilita esta configuración de directiva, las sugerencias de búsqueda basadas en las búsquedas anteriores no aparecerán en el panel de búsqueda. Las sugerencias de búsqueda proporcionadas por las aplicaciones o por Windows en función del contenido local seguirán apareciendo.
+
+Si deshabilita o no establece la configuración de directiva, los usuarios obtendrán sugerencias de búsqueda basadas en búsquedas anteriores en el panel de búsqueda.</string>
+      <string id="AllowCortana">Permitir el uso de Cortana</string>
+      <string id="ExplainAllowCortana">Esta directiva especifica si se permite el uso de Cortana en el dispositivo. 
+ 
+Si habilitas o no estableces esta configuración, se permitirá el uso de Cortana en el dispositivo. Si deshabilitas esta opción, se desactivará Cortana. 
+ 
+Aunque Cortana esté desactivada, los usuarios podrán realizar búsquedas en el dispositivo.</string>
+      <string id="AllowCortanaAboveLock">Permitir usar Cortana sobre la pantalla de bloqueo</string>
+      <string id="ExplainAllowCortanaAboveLock">Esta configuración de directiva determina si el usuario puede o no puede interactuar con Cortana mediante la voz mientras el sistema está bloqueado.
+
+Si habilitas o no estableces esta configuración, el usuario puede interactuar con Cortana mediante la voz mientras el sistema está bloqueado.
+
+Si deshabilitas esta configuración, el sistema deberá estar desbloqueado para que el usuario interactúe con Cortana mediante la voz.</string>
+      <string id="AllowSearchToUseLocation">Permitir el uso de la ubicación para las búsquedas y Cortana</string>
+      <string id="ExplainAllowSearchToUseLocation">Esta configuración de directiva especifica si las búsquedas y Cortana pueden proporcionar resultados con reconocimiento de la ubicación.
+ 
+Si habilitas esta opción, las búsquedas y Cortana podrán acceder a la información de ubicación.</string>
+      <string id="AllowCloudSearch">Permitir búsqueda en la nube</string>
+      <string id="AllowCortanaInAADPathOOBE">Permitir la página de Cortana en OOBE en una cuenta de AAD</string>
+      <string id="ExplainAllowCloudSearch">Permitir que la búsqueda y Cortana realicen búsquedas en orígenes de la nube, como OneDrive y SharePoint</string>
+      <string id="ExplainCortanaAAD">Permitir la página de participación de Cortana durante la configuración rápida de Windows</string>
+      <string id="AllowCloudSearchDisabled">Deshabilitar la búsqueda en la nube</string>
+      <string id="AllowCortanainAADDisabled">Deshabilitar la página de Cortana en AAD</string>
+      <string id="AllowCortanainAADEnabled">Habilitar la página de Cortana en AAD</string>
+      <string id="AllowCloudSearchEnabled">Habilitar la búsqueda en la nube</string>
+      <string id="AllowCloudSearchControlledByUser">Seleccionado por el usuario</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="RichAttachmentPreviews">
+        <textBox refId="RichAttachmentPreviews">
+          <label>Vistas previas de texto enriquecido para datos adjuntos</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="DataDirectory">
+        <textBox refId="PartDataDirectory">
+          <label>Ruta (menos de 128 caracteres):</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="AddPrimaryIntranetSearchScope">
+        <textBox refId="PrimaryIntranetSearchScopeUrl">
+          <label>Dirección URL del ámbito de búsqueda en la intranet</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="AddSecondaryIntranetSearchScope">
+        <textBox refId="SecondaryIntranetSearchScopeUrl">
+          <label>Dirección URL del ámbito de búsqueda en la intranet</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="PreviewPaneLocation">
+        <dropdownList refId="PreviewPaneLocation" defaultItem="0">Ubicación del panel de vista previa</dropdownList>
+      </presentation>
+      <presentation id="SearchResultIconSize">
+        <dropdownList refId="SearchResultIconSize" defaultItem="0">Establecer vista de iconos grandes o pequeños en los resultados de Windows Search</dropdownList>
+      </presentation>
+      <presentation id="StopIndexingOnLimitedHardDriveSpace">
+        <decimalTextBox refId="StopIndexingOnLimitedHardDriveSpace_MBLimit">Límite en MB</decimalTextBox>
+      </presentation>      
+      <presentation id="EnableThrottlingOnlineMailboxes">
+        <decimalTextBox refId="LimitEnableThrottlingOnlineMailboxes" defaultValue="120">Número de artículos por minuto</decimalTextBox>
+      </presentation>
+      <presentation id="PreventUnwantedAddins">
+        <listBox refId="PreventUnwantedAddins_AllowList">Lista de admitidos</listBox>
+      </presentation>
+      <presentation id="PreventIndexingCertainPaths_1">
+        <listBox refId="PreventIndexingCertainPaths">Impedir indización de algunas rutas</listBox>
+      </presentation>
+      <presentation id="PreventIndexingCertainPaths_2">
+        <listBox refId="PreventIndexingCertainPaths">Impedir indización de algunas rutas</listBox>
+      </presentation>
+      <presentation id="DefaultIndexedPaths_1">
+        <listBox refId="DefaultIndexedPaths">Rutas indizadas predeterminadas</listBox>
+      </presentation>
+      <presentation id="DefaultIndexedPaths_2">
+        <listBox refId="DefaultIndexedPaths">Rutas indizadas predeterminadas</listBox>
+      </presentation>
+      <presentation id="DefaultExcludedPaths_1">
+        <listBox refId="DefaultExcludedPaths">Rutas excluidas predeterminadas</listBox>
+      </presentation>
+      <presentation id="DefaultExcludedPaths_2">
+        <listBox refId="DefaultExcludedPaths">Rutas excluidas predeterminadas</listBox>
+      </presentation>
+      <presentation id="ExcludedExtensionsMultiline">
+        <textBox refId="ExcludedExtensionsMultiline_0">
+          <label>Excluir</label>
+          <defaultValue>.386;.aps;.bin;.bk1;.bk2;.bkf;.blf;.bsc;.btr;.cat;.cfg;.cgm;.chk;.ci;.crwl;.cur;.dat;.dbg;.dct;.dir;.dl_;.el;.evt;.ex_;.exp;.eyb;.fnt;.fon;.ghi;.gthr;.hqx;.icm;.idb;.idx;.ilk;.imc;.in_;.inl;.inv</defaultValue>
+        </textBox>
+        <textBox refId="ExcludedExtensionsMultiline_1">
+          <label>y</label>
+          <defaultValue>.ipp;.jbf;.lib;.local;.log;.log1;.log2;.m14;.mac;.man;.manifest;.map;.MAPIMail;.mmf;.mui;.muimanifest;.mv;.ncb;.obj;.oc_;.ocx;.onecache;.onetoc;.onetoc2;.ost;.pch;.pdb;.pds;.pf;.pic;.pma;.pmc;.pml</defaultValue>
+        </textBox>
+        <textBox refId="ExcludedExtensionsMultiline_2">
+          <label>y</label>
+          <defaultValue>.pmr;.pst;.res;.rmp;.rpc;.rsp;.sbr;.sc2;.sit;.sr_;.sy_;.sym;.TMCONTAINER00000000000000000001;.tlb;.tlh;.tmf;.tmp;.ttc;.ttf;.ttx;.TMCONTAINER00000000000000000002;.ufm;.vbx;.vxd;.wll;.wlt;.xbm;.xix;.z96;.ZFSendToTarget</defaultValue>
+        </textBox>
+        <textBox refId="ExcludedExtensionsMultiline_3">
+          <label>y</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="SharePrivacy">
+        <dropdownList refId="SharePrivacy_Dropdown" noSort="true" defaultItem="0">Tipo de información</dropdownList>
+      </presentation>
+      <presentation id="SafeSearch">
+        <dropdownList refId="SafeSearch_Dropdown" noSort="true" defaultItem="1">Configuración de búsqueda segura predeterminada</dropdownList>
+      </presentation>
+      <presentation id="AllowCloudSearch">
+        <dropdownList refId="AllowCloudSearch_Dropdown" noSort="true" defaultItem="2">Configuración de búsqueda en la nube</dropdownList>
+      </presentation>
+      <presentation id="AllowCortanaAAD">
+        <dropdownList refId="AllowCortanaAAD_Dropdown" noSort="true" defaultItem="0">Cortana en la configuración de AAD</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

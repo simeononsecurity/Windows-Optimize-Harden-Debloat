@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Configuración de KDC</displayName>
+  <description>Valores de configuración del centro de distribución de claves de Kerberos.</description>
+  <resources>
+    <stringTable>
+      <string id="KDC">KDC</string>
+      <string id="forestsearch">Usar orden de búsqueda en bosques</string>
+      <string id="forestsearch_explain">Esta configuración de directiva define la lista de bosques de confianza en los que el centro de distribución de claves (KDC) busca al intentar resolver nombres de entidad de seguridad de servicio (SPN) de dos partes.
+
+Si habilita esta configuración de directiva, el KDC buscará en los bosques de esta lista si no puede resolver un SPN de dos partes en el bosque local. La búsqueda en el bosque se realiza mediante sugerencias de catálogos globales o de sufijos de nombre. Si se encuentra una coincidencia, el KDC devolverá al cliente un vale de referencia para el dominio apropiado.
+
+Si deshabilita o no establece esta configuración de directiva, el KDC no buscará en los bosques enumerados para resolver el SPN. Si el KDC no puede resolver el SPN porque no encuentra el nombre, se puede usar la autenticación NTLM.
+
+Para garantizar un comportamiento coherente, esta configuración de directiva debe ser compatible y establecerse de manera idéntica en todos los controladores de dominio del dominio.</string>
+      <string id="emitlili">Proporcionar información acerca de los inicios de sesión anteriores a los equipos cliente</string>
+      <string id="emitlili_explain">Esta configuración de directiva determina si el controlador de dominio debe proporcionar información acerca de los inicios de sesión anteriores a los equipos cliente.
+
+Si habilita esta configuración de directiva, el controlador de dominio proporcionará el mensaje de información acerca de los inicios de sesión anteriores.
+
+Para que el Inicio de sesión en Windows saque provecho de esta característica, es necesario habilitar la configuración de directiva "Mostrar información acerca de inicios de sesión anteriores durante inicio de sesión de usuario" ubicada en el nodo Opciones de inicio de sesión de Windows en Componentes de Windows.
+
+Si deshabilita o no establece esta configuración de directiva, el controlador de dominio no proporcionará información acerca de los inicios de sesión anteriores, a menos que la configuración de directiva "Mostrar información acerca de inicios de sesión previos durante inicio de sesión de usuario" esté habilitada.
+
+Nota: solo se proporcionará información acerca de los inicios de sesión anteriores si el nivel funcional del dominio es Windows Server 2008. En dominios con un nivel funcional de Windows Server 2003, Windows 2000 nativo o Windows 2000 mixto, los controladores de dominio no podrán proporcionar información acerca de los inicios de sesión anteriores y, al habilitar esta configuración de directiva, no ocurrirá nada.
+
+</string>
+      <string id="CbacAndArmor">KDC admite notificaciones, autenticación compuesta y protección de Kerberos</string>
+      <string id="CbacAndArmor_explain">Esta configuración de directiva le permite establecer un controlador de dominio que admita notificaciones y autenticación compuesta para el control de acceso dinámico y la protección de Kerberos mediante la autenticación Kerberos.
+
+Si habilita esta configuración de directiva, los equipos cliente que admiten notificaciones y autenticación compuesta para el control de acceso dinámico y que reconocen la protección de Kerberos usarán esta característica para los mensajes de autenticación Kerberos. Esta directiva debe aplicarse a todos los controladores de dominio para garantizar una aplicación coherente en el dominio. 
+
+Si deshabilita o no establece esta configuración de directiva, el controlador de dominio no admitirá notificaciones, autenticación compuesta ni protección.
+
+Si configura la opción "No compatible", el controlador de dominio no admitirá notificaciones, autenticación compuesta ni protección, que es el comportamiento predeterminado de los controladores de dominio que ejecutan Server 2008 R2 o sistemas operativos anteriores.
+
+Nota: para que las siguientes opciones de esta directiva KDC sean efectivas, la directiva de grupo Kerberos "El cliente Kerberos admite notificaciones, autenticación compuesta y protección de Kerberos" debe estar habilitada en los sistemas compatibles. Si la configuración de directiva Kerberos no está habilitada, los mensajes de autenticación Kerberos no usarán estas funciones.  
+
+Si establece la opción "Compatible", el controlador de dominio admitirá notificaciones, autenticación compuesta y protección de Kerberos. El controlador de dominio anunciará a los equipos cliente Kerberos que el dominio admite notificaciones y autenticación compuesta para el control de acceso dinámico y protección de Kerberos. 
+
+Requisitos del nivel funcional del dominio
+Para las opciones "Siempre proporcionar notificaciones" y "Generar error en solicitudes de autenticación sin blindar", cuando el nivel funcional del dominio se establece en Windows Server 2008 R2 o versiones anteriores, los controladores de dominio se comportarán como si se hubiera seleccionado la opción "Compatible". 
+
+Cuando el nivel funcional del dominio se establece en Windows Server 2012, el controlador de dominio anunciará a los equipos cliente Kerberos que el dominio admite notificaciones y autenticación compuesta para el control de acceso dinámico y protección de Kerberos, y:
+   - Si establece la opción "Siempre proporcionar notificaciones", siempre devolverá notificaciones para las cuentas y admitirá el comportamiento RFC para anunciar el túnel seguro de autenticación flexible (FAST).
+   - Si establece la opción "Generar error en solicitudes de autenticación sin blindar", rechazará los mensajes Kerberos sin blindar.
+
+Advertencia: cuando se establece "Generar error en solicitudes de autenticación sin blindar", los equipos cliente que no admiten la protección de Kerberos no se podrán autenticar con el controlador de dominio.
+
+Para garantizar la eficacia de esta característica, implemente suficientes controladores de dominio que admitan notificaciones y autenticación compuesta para el control de acceso dinámico y que reconozcan la protección de Kerberos para que atiendan las solicitudes de autenticación. Si no hay suficientes controladores de dominio para admitir esta directiva, se producirán errores de autenticación siempre que se requiera el control de acceso dinámico o la protección de Kerberos (es decir, que la opción "Compatible" esté habilitada).
+
+Impacto en el rendimiento del controlador de dominio cuando esta configuración de directiva está habilitada:
+   - Es necesaria la detección de la funcionalidad de dominio Kerberos seguro, lo que provoca intercambios de mensajes adicionales.
+   - Las notificaciones y la autenticación compuesta para el control de acceso dinámico aumentan el tamaño y la complejidad de los datos del mensaje, lo que provoca un tiempo de procesamiento más prolongado y un mayor tamaño de los vales de servicio Kerberos.
+   - La protección de Kerberos cifra completamente los mensajes Kerberos y firma los errores de Kerberos, lo que provoca un tiempo de procesamiento más prolongado, pero no cambia el tamaño de los valores de servicio.
+
+</string>
+      <string id="NoCbacAndArmor">No compatible</string>
+      <string id="MixModeCbacAndArmor">Compatible</string>
+      <string id="FullModeCbacAndArmor">Siempre proporcionar notificaciones</string>
+      <string id="FullModeCbacAndRequireArmor">Generar error en solicitudes de autenticación sin blindar</string>
+      <string id="TicketSizeThreshold">Advertencia para vales Kerberos de gran tamaño</string>
+      <string id="TicketSizeThreshold_explain">Esta configuración de directiva le permite configurar el tamaño de los vales de Kerberos en el cual se activará el evento de advertencia que se emite durante la autenticación Kerberos. Las advertencias de tamaño de vale se registran en el registro del sistema.
+
+Si habilita esta configuración de directiva, podrá establecer el límite del umbral en el cual se activarán los eventos de advertencia. Si establece un valor muy alto, se producirán errores de autenticación aunque no se estén registrando eventos de advertencia.  Si lo establece demasiado bajo, podría haber demasiadas advertencias de vales en el registro y esto no le servirá para el análisis. Este valor debe ser el mismo que el valor "Establecer el tamaño máximo del búfer de token de contexto SSPI de Kerberos" de la directiva Kerberos, o el menor valor de MaxTokenSize usado en su entorno si no está usando una directiva de grupo para realizar la configuración.
+      
+Si deshabilita o no establece esta configuración de directiva, se usará el valor de umbral predeterminado de 12.000 bytes, que es el MaxTokenSize predeterminado de Kerberos para Windows 7, Windows Server 2008 R2 y versiones anteriores.
+
+</string>
+      <string id="RequestCompoundId">Solicitar autenticación compuesta</string>
+      <string id="RequestCompoundId_explain">Esta configuración de directiva permite configurar un controlador de dominio para solicitar autenticación compuesta.
+
+Nota: para que un controlador de dominio solicite la autenticación compuesta, la directivas "KDC admite notificaciones, autenticación compuesta y protección de Kerberos" deben estar configurada y habilitada. 
+
+Si habilita esta configuración de directiva, los controladores de dominio solicitarán la autenticación compuesta. El vale de servicio devuelto solo contendrá autenticación compuesta cuando la cuenta esté configurada de forma explícita. Esta directiva debe aplicarse a todos los controladores de dominio para garantizar una aplicación coherente en el dominio. 
+
+Si deshabilita o no establece esta configuración de directiva, los controladores de dominio devolverán valores de servicio que contienen autenticación compuesta siempre que el cliente envíe una solicitud de autenticación compuesta, independientemente de la configuración de la cuenta.
+
+</string>
+      <string id="PKINITFreshness">Compatibilidad de KDC con la extensión de actualización PKInit</string>
+      <string id="PKINITFreshness_explain">La compatibilidad con la extensión de actualización PKInit requiere el nivel funcional del dominio (DFL) de Windows Server 2016. Si el dominio del controlador dominio no está en DFL o superior de Windows Server 2016, no se aplicará la directiva.
+
+Esta configuración de directiva permite configurar un controlador de dominio (DC) para que admita la extensión de actualización PKInit.
+
+Si habilitas esta configuración de directiva, se admitirán las siguientes opciones:
+
+Compatible: la extensión de actualización PKInit es compatible con la solicitud. Los cliente de Kerberos que se autentiquen correctamente con la extensión de actualización PKInit recibirán el nuevo identificador de seguridad (SID) de identidad de clave pública.
+
+Requerido: la extensión de actualización PKInit es necesaria para la autenticación correcta. Los clientes de Kerberos que no son compatibles con la extensión de actualización PKInit siempre producirán un error al usar credenciales de clave pública.
+
+Si deshabilitas o no estableces esta configuración de directiva, el controlador de dominio nunca ofrecerá la extensión de actualización PKInit y aceptará solicitudes de autenticación válidas sin comprobar su actualización. Los usuarios nunca recibirán un nuevo SID de identidad de clave pública.
+</string>
+      <string id="NoPKINITFreshness">Deshabilitado</string>
+      <string id="SupportPKINITFreshness">Compatible</string>
+      <string id="RequirePKINITFreshness">Requerido</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="emitlili">
+        <dropdownList refId="emitliliOp" oSort="true" defaultItem="0">Modo:</dropdownList>
+      </presentation>
+      <presentation id="ForestSearch">
+        <textBox refId="ForestSearchList">
+          <label>Bosques en los que buscar</label>
+        </textBox>
+        <text>Sintaxis:</text>
+        <text>Escriba la lista de bosques en los que buscar cuando esté habilitada esta directiva.</text>
+        <text>Use el formato de nombre de dominio completo (FQDN).</text>
+        <text>Separe varias entradas de búsqueda mediante punto y coma (";").</text>
+        <text>Detalles:</text>
+        <text>No hace falta incluir en la lista el bosque actual porque el orden de búsqueda en bosques usa primero el catálogo global y después busca en el orden de la lista.</text>
+        <text>No es necesario incluir en la lista por separado todos los dominios del bosque.</text>
+        <text>Si se incluye en la lista un bosque de confianza, se buscará en todos los dominios de ese bosque.</text>
+        <text>Para mejorar el rendimiento, ordene los bosques en la lista según la probabilidad de que la búsqueda tenga éxito.</text>
+      </presentation>
+      <presentation id="CbacAndArmor">
+        <dropdownList refId="CbacAndArmor_Levels" noSort="true" defaultItem="1">Opciones de notificaciones, autenticación compuesta para el control de acceso dinámico y protección de Kerberos:</dropdownList>
+      </presentation>
+      <presentation id="TicketSizeThreshold">
+              <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Umbral de tamaño de vale</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">Opciones de extensión de actualización PKInit:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

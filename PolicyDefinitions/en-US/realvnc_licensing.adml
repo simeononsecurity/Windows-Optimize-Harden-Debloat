@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Version 6.7.2 -->
+<policyDefinitionResources revision="501.0" schemaVersion="1.0">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="RealVNC_licensing_category">Licensing</string>
+      <string id="RealVNC_restrictions_category">Restrictions</string>
+      <string id="RealVNC_licensing_category_help">Apply one or more license keys to VNC Server.</string>
+      <string id="RealVNC_restrictions_category_help">Apply restrictions to the operation of VNC Server.</string>
+      <string id="RealVNC_vncserver_Machine_vncserverlicense">License Key Code</string>
+      <string id="RealVNC_vncserver_Machine_vncserverlicense_help">Apply a license key code to VNC Server.
+
+Enable this policy setting and specify a RealVNC license key code as the value (this is 25 alphanumeric characters divided by hyphens into 5 groups of 5 characters each).
+
+Disable or do not configure this policy setting in order to not apply a license. VNC Server must be licensed on each computer.</string>
+
+      <string id="RealVNC_vncserver_Machine_extensiblelicense_slot_01">License Key File: Slot 01</string>
+      <string id="RealVNC_vncserver_Machine_extensiblelicense_slot_02">License Key File: Slot 02</string>
+      <string id="RealVNC_vncserver_Machine_extensiblelicense_slot_03">License Key File: Slot 03</string>
+      <string id="RealVNC_vncserver_Machine_extensiblelicense_slot_04">License Key File: Slot 04</string>
+      <string id="RealVNC_vncserver_Machine_extensiblelicense_slot_05">License Key File: Slot 05</string>
+      <string id="RealVNC_vncserver_Machine_extensiblelicense_slot_06">License Key File: Slot 06</string>
+      <string id="RealVNC_vncserver_Machine_extensiblelicense_slot_07">License Key File: Slot 07</string>
+      <string id="RealVNC_vncserver_Machine_extensiblelicense_slot_08">License Key File: Slot 08</string>
+      <string id="RealVNC_vncserver_Machine_extensiblelicense_slot_09">License Key File: Slot 09</string>
+      <string id="RealVNC_vncserver_Machine_extensiblelicense_slot_10">License Key File: Slot 10</string>      
+         
+      <string id="RealVNC_vncserver_Machine_extensiblelicense_help">Apply a license key file to VNC Server.
+
+Enable this policy setting and specify the contents of a RealVNC license key file as the value.
+
+Disable or do not configure this policy setting in order to not apply a license. VNC Server must be licensed on each computer.</string>
+      
+      <string id="RealVNC_vncserver_Machine_blocknonpolicyservers">Disable VNC Server if the license key does not support group policy.</string>
+      <string id="RealVNC_vncserver_Machine_blocknonpolicyservers_help">Enable this policy setting to prevent connections to VNC Server if the license does not support group policy.
+      
+Disable or do not configure this policy setting in order to allow connections irrespective of license type.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="RealVNC_vncserver_Machine_vncserverlicense">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>         
+      <presentation id="RealVNC_vncserver_Machine_extensiblelicense">
+        <textBox refId="Value">
+          <label>Value</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="RealVNC_vncserver_Machine_blocknonpolicyservers">
+      </presentation>       
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="LLTD_Category">Detección de topologías de nivel de vínculo</string>
+      <string id="LLTD_Category_Help">Configura todos los componentes de Detección de topologías de nivel de vínculo.</string>
+      <string id="LLTD_EnableLLTDIO">Activar controlador de E/S de asignador (LLTDIO)</string>
+      <string id="LLTD_EnableLLTDIO_Help">Esta configuración de directiva cambia el comportamiento operativo del controlador de protocolo de red de E/S de asignador.
+
+LLTDIO permite a un equipo detectar la topología de una red a la que está conectado. También permite al equipo iniciar solicitudes de calidad de servicio, como el cálculo del ancho de banda y el análisis del mantenimiento de la red.
+
+Si habilita esta configuración de directiva, dispondrá de más opciones para ajustar la selección. Puede seleccionar la opción "Permitir funcionamiento mientras está en el dominio" para permitir que LLTDIO se use en una interfaz de red conectada a una red administrada. Por otra parte, si una interfaz de red está conectada a una red no administrada, en lugar de lo anterior, puede seleccionar las opciones "Permitir funcionamiento mientras está en la red pública" y "Prohibir funcionamiento mientras está en la red privada".
+
+Si deshabilita o no establece esta configuración de directiva, se aplicará el comportamiento predeterminado de LLTDIO.</string>
+      <string id="LLTD_EnableRspndr">Activar controlador de respuesta (RSPNDR)</string>
+      <string id="LLTD_EnableRspndr_Help">Esta configuración de directiva cambia el comportamiento operativo del controlador de protocolo de red de respuesta.
+
+Este controlador permite a un equipo participar en solicitudes de detección de topología de nivel de vínculo de modo que puede ser detectado y ubicado en la red. También permite al equipo participar en actividades de calidad de servicio, como el cálculo del ancho de banda y el análisis del mantenimiento de la red.
+
+Si habilita esta configuración de directiva, dispondrá de más opciones para ajustar la selección. Puede seleccionar la opción "Permitir funcionamiento mientras está en el dominio" para permitir que el respondedor se use en una interfaz de red conectada a una red administrada. Por otra parte, si una interfaz de red está conectada a una red no administrada, en lugar de lo anterior, puede seleccionar las opciones "Permitir funcionamiento mientras está en la red pública" y "Prohibir funcionamiento mientras está en la red privada".
+
+Si deshabilita o no establece esta configuración de directiva, se aplicará el comportamiento predeterminado del controlador de respuesta.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="LLTD_EnableLLTDIO">
+        <checkBox refId="LLTD_EnableLLTDIO_AllowOnDomain">Permitir funcionamiento mientras está en el dominio</checkBox>
+        <checkBox refId="LLTD_EnableLLTDIO_AllowOnPublicNet">Permitir funcionamiento mientras está en la red pública</checkBox>
+        <checkBox refId="LLTD_EnableLLTDIO_ProhibitOnPrivateNet">Prohibir funcionamiento mientras está en la red privada</checkBox>
+      </presentation>
+      <presentation id="LLTD_EnableRspndr">
+        <checkBox refId="LLTD_EnableRspndr_AllowOnDomain">Permitir funcionamiento mientras está en el dominio</checkBox>
+        <checkBox refId="LLTD_EnableRspndr_AllowOnPublicNet">Permitir funcionamiento mientras está en la red pública</checkBox>
+        <checkBox refId="LLTD_EnableRspndr_ProhibitOnPrivateNet">Prohibir funcionamiento mientras está en la red privada</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

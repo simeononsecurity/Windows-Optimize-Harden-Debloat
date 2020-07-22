@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Description: This template file will allow you to selectively disable most built-in Windows 10 notifications in the Action Center
+    Publish Date: 05/05/2017 
+	Windows 10 Versions Supported: 1607, 1702
+	Created by: Jeffrey Harness
+	Change Log: 
+	5/5/2017 - Added all notification entries that are supported in builds 1607 and 1702.-->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="0.9" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="example1_singlepolicysetting" namespace="Microsoft.Policies.Example1_singlepolicysetting" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <!--<supersededAdm fileName="example1_singlepolicysetting.adm" /> -->
+  <resources minRequiredRevision="1.0" fallbackCulture="uz-UZ-Cyrl"/>
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_ProductOnly" displayName="$(string.SUPPORTED_ProductOnly)"/>
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="custom" displayName="$(string.custom)" explainText="$(string.SAMPLEHELP)">  
+       <parentCategory ref="windows:WindowsComponents" />
+       <seeAlso> policy </seeAlso>
+       <keywords> Notifications Action Center Disable </keywords>
+    </category>
+  </categories>
+  <policies>
+    <policy name="custom_Disable_Security_and_Maintanance" class="User" displayName="$(string.custom_Disable_Security_and_Maintanance)" explainText="$(string.custom_Disable_Security_and_Maintanance_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_One_Drive" class="User" displayName="$(string.custom_Disable_One_Drive)" explainText="$(string.custom_Disable_One_Drive_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.SkyDrive.Desktop" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Photos" class="User" displayName="$(string.custom_Disable_Photos)" explainText="$(string.custom_Disable_Photos_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Windows.Photos_8wekyb3d8bbwe!App" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Store" class="User" displayName="$(string.custom_Disable_Store)" explainText="$(string.custom_Disable_Store_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.WindowsStore_8wekyb3d8bbwe!App" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Suggested" class="User" displayName="$(string.custom_Disable_Suggested)" explainText="$(string.custom_Disable_Suggested_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.Suggested" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Calendar" class="User" displayName="$(string.custom_Disable_Calendar)" explainText="$(string.custom_Disable_Calendar_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\microsoft.windowscommunicationsapps_8wekyb3d8bbwe!microsoft.windowslive.calendar" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Cortana" class="User" displayName="$(string.custom_Disable_Cortana)" explainText="$(string.custom_Disable_Cortana_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Windows.Cortana_cw5n1h2txyewy!CortanaUI" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Mail" class="User" displayName="$(string.custom_Disable_Mail)" explainText="$(string.custom_Disable_Mail_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\microsoft.windowscommunicationsapps_8wekyb3d8bbwe!microsoft.windowslive.mail" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Edge" class="User" displayName="$(string.custom_Disable_Edge)" explainText="$(string.custom_Disable_Edge_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Audio" class="User" displayName="$(string.custom_Disable_Audio)" explainText="$(string.custom_Disable_Audio_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.AudioTroubleshooter" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Autoplay" class="User" displayName="$(string.custom_Disable_Autoplay)" explainText="$(string.custom_Disable_Autoplay_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.AutoPlay" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_BatterySaver" class="User" displayName="$(string.custom_Disable_BatterySaver)" explainText="$(string.custom_Disable_BatterySaver_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.BackgroundAccess" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Bitlocker" class="User" displayName="$(string.custom_Disable_Bitlocker)" explainText="$(string.custom_Disable_Bitlocker_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.BdeUnlock" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_BingNews" class="User" displayName="$(string.custom_Disable_BingNews)" explainText="$(string.custom_Disable_BingNews_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.BingNews_8wekyb3d8bbwe!AppexNews" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Settings" class="User" displayName="$(string.custom_Disable_Settings)" explainText="$(string.custom_Disable_Settings_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\windows.immersivecontrolpanel_cw5n1h2txyewy!microsoft.windows.immersivecontrolpanel" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_TabletMode" class="User" displayName="$(string.custom_Disable_TabletMode)" explainText="$(string.custom_Disable_TabletMode_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.System.Continuum" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_VPN" class="User" displayName="$(string.custom_Disable_VPN)" explainText="$(string.custom_Disable_VPN_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.RasToastNotifier" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_WindowsHello" class="User" displayName="$(string.custom_Disable_WindowsHello)" explainText="$(string.custom_Disable_WindowsHello_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.HelloFace" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+	<policy name="custom_Disable_Wireless" class="User" displayName="$(string.custom_Disable_Wireless)" explainText="$(string.custom_Disable_Wireless_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.WiFiNetworkManager" valueName="Enabled">
+      <parentCategory ref="custom" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2011 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>enter display name here</displayName>
+  <description>enter description here</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_OpsMgr">System Center - Operations Manager</string>
+      <string id="Pol_LogonTypePolicy">Monitoring Action Account Logon Type</string>
+      <string id="Pol_LogonTypePolicy_Help">This policy controls the logon type of Action Accounts or Run As Accounts, used by worker processes (MonitoringHost.exe) launched by the System Center Management Service.
+
+In situations where the server being monitored has the “Interactive logon: Require smart card” security setting configured in its local security policy, the System Center Management Service running on that server will not be able to log on the worker processes using run as or action accounts (containing the credential of a domain account) because it does have access to the smart card. By switching to a logon type of Service, this problem can be avoided. However, some monitoring activities which access system resources requiring administrator or interactive logon privileges may not run successfully.
+
+The default logon type is Interactive.
+      </string>
+      <string id="Lbl_LogonTypePolicyCombo">Logon Type</string>
+      <string id="Lbl_LogonTypeInteractive">Interactive</string>
+      <string id="Lbl_LogonTypeBatch">Batch</string>
+      <string id="Lbl_LogonTypeService">Service</string>
+      <string id="Pol_RuntimeClrGarbageCollectorType">Worker Process .Net Garbage Collector Type</string>
+      <string id="Pol_RuntimeClrGarbageCollectorType_Help">This policy controls what mode the Microsoft .Net garbage collector runs in.
+ 
+ The workstation garbage collector will consume less memory but under high load may have higher CPU utilization.  The server garbage collector will consume more memory but under high load may have lower CPU utilization.
+ 
+ The default value is to use the workstation garbage collector for agents and the server garbage collector for management servers.</string>
+      <string id="Pol_RuntimeClrGarbageCollectorTypeChoice">Garbage Collector Mode</string>
+      <string id="Pol_RuntimeClrGarbageCollectorUseConcurrent">Worker Process .Net Garbage Collector Concurrency Mode</string>
+      <string id="Pol_RuntimeClrGarbageCollectorUseConcurrent_Help">
+        This policy controls what concurrency mode the Microsoft .Net garbage collector uses.
+
+        Concurrent garbage collection enables threads to run concurrently with a dedicated thread that performs the garbage collection for most of the duration of the collection. This option affects only garbage collections in generation 2; generations 0 and 1 are always non-concurrent because they finish very fast.
+
+        This is an advanced tuning option that should not normally be modified.
+
+        The default value is to use non-concurrent garbage collection.
+      </string>
+      <string id="Pol_RuntimeClrGarbageCollectorUseConcurrentChoice">Garbage Collection Concurrency Mode</string>
+      <string id="Pol_RuntimeClrVersion">Worker Process Microsoft .Net Framework Version</string>
+      <string id="Pol_RuntimeClrVersion_Help">This policy controls what version of the Microsoft .Net Framework is used for hosting managed code in worker processes launched by the System Center Management Service.
+      
+This policy only applies to agents and not management servers.  Management servers may not have the .Net Framework version setting modified.
+
+The default value if this policy is not specified is to use the Microsoft .Net Framework 2.0 if the agent is running on a Windows 7 or older operating system.  If a version of Windows newer than Windows 7 is used the Microsoft .Net Framework 4.0 is the default.</string>
+      <string id="Lbl_RuntimeClrVersionCombo">Framework Version</string>
+      <string id="Lbl_RuntimeClrVersion20">2.0</string>
+      <string id="Lbl_RuntimeClrVersion40">4.0</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_LogonTypePolicy">
+        <text>Specify the logon type, for Action Accounts or Run As Accounts, used by worker processes (MonitoringHost.exe) created by the System Center Management Service.</text>
+        <text> </text>
+        <text>Note: by using a logon type of Service or Batch, some monitoring activities which access system resources requiring administrator or interactive logon privileges may not run successfully.</text>
+        <text> </text>
+        <dropdownList refId="Lbl_LogonTypePolicyCombo" defaultItem="1">Logon Type: </dropdownList>
+        <text> </text>
+        <text>Batch = The logon is for a batch process.</text>
+        <text>Interactive = Use the interactive logon type.  This is the same as a normal user logon.</text>
+        <text>Service = The logon is for a service account.</text>
+      </presentation>
+      <presentation id="Pol_RuntimeClrGarbageCollectorType">
+        <text>Specify what mode the Microsoft .Net Framework garbage collector should operate in for worker processes created by the System Center Management Service.</text>
+        <checkBox refId="Pol_RuntimeClrGarbageCollectorTypeChoice" defaultChecked="true">Use workstation garbage collector.</checkBox>
+        <text>Checked = Use workstation garbage collector</text>
+        <text>Unchecked = Use server garbage collector</text>
+      </presentation>
+      <presentation id="Pol_RuntimeClrGarbageCollectorUseConcurrent">
+        <text>Specify what concurrency mode the Microsoft .Net Framework garbage collector should operate in for worker processes created by the System Center Management Service.</text>
+        <checkBox refId="Pol_RuntimeClrGarbageCollectorUseConcurrentChoice" defaultChecked="false">Use concurrent garbage collection.</checkBox>
+        <text>Checked = Use concurrent garbage collection</text>
+        <text>Unchecked = Use non-concurrent garbage collection</text>
+      </presentation>
+      <presentation id="Pol_RuntimeClrVersion">
+        <text>Specify what Microsoft .Net Framework version should be used by worker processes created by the System Center Management Service.</text>
+        <text> </text>
+        <dropdownList refId="Lbl_RuntimeClrVersionCombo" defaultItem="0">Framework Version: </dropdownList>
+        <text> </text>
+        <text>2.0 = Use the Microsoft .Net Framework 2.0 runtime.  This includes versions 3.0 or 3.5 if they are installed on the system.</text>
+        <text>4.0 = Use the Microsoft .Net Framework 4 runtime.</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

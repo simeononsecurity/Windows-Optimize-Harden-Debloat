@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_LanmanServer">Servidor Lanman</string>
+      <string id="Lbl_FollowShare">Permitir la publicación de hash solo para carpetas compartidas en las que BranchCache esté habilitado</string>
+      <string id="Lbl_DisableOnAllShares">No permitir la publicación de hash en ninguna carpeta compartida</string>
+      <string id="Lbl_EnableOnAllShares">Permitir la publicación de hash para todas las carpetas compartidas</string>
+      <string id="Pol_HashPublication">Publicación de hash para BranchCache</string>
+      <string id="Pol_HashPublication_Help">Esta configuración de directiva especifica si un servicio de generación de hash genera hash, también denominado información de contenido, para los datos almacenados en carpetas compartidas. Esta configuración de directiva debe aplicarse a los equipos servidor que tienen instalados el rol Servicios de archivo y los servicios de rol Servidor de archivos y BranchCache para archivos de red.
+
+Configuración de la directiva
+
+Seleccione una de las siguientes opciones:
+
+- No configurado. Si selecciona este valor, la configuración de publicación de hash no se aplica a los servidores de archivos. En el caso de que los servidores de archivos sean miembros del dominio, pero no desea habilitar BranchCache en todos ellos, puede especificar No configurado para esta configuración de directiva de grupo del dominio y, a continuación, configurar la directiva de equipo local para habilitar BranchCache en servidores de archivos individuales. Como la configuración de directiva de grupo del dominio no está establecida, esta no sobrescribirá la configuración habilitada que usa en servidores individuales en los que desea habilitar BranchCache.
+
+- Habilitado. Si selecciona este valor, la publicación de hash se activará para todos los servidores de archivos en los que se aplique la directiva de grupo. Por ejemplo, si Publicación de hash para BranchCache está habilitado en la directiva de grupo del dominio, la publicación de hash se activará para todos los servidores de archivos miembros del dominio en los que se aplique la directiva. De este modo, los servidores de archivos podrán crear información de contenido para todo el contenido almacenado en los recursos compartidos de archivos habilitados para BranchCache.
+
+- Deshabilitado. Si selecciona este valor, la publicación de hash se desactivará para todos los servidores de archivos en los que se aplique la directiva de grupo.
+
+En los casos en que se habilita esta configuración de directiva, también puede seleccionar las siguientes opciones de configuración:
+
+- Permitir la publicación de hash para todas las carpetas compartidas. Con esta opción, BranchCache genera información de contenido para todo el contenido de todos los recursos compartidos del servidor de archivos. 
+
+- Permitir la publicación de hash solo para carpetas compartidas en las que BranchCache esté habilitado. Con esta opción, solo se genera información de contenido para las carpetas compartidas en que BranchCache esté habilitado. Si usa este valor, debe habilitar BranchCache para los recursos compartidos individuales en Administración de almacenamiento y recursos compartidos en el servidor de archivos.
+
+- No permitir la publicación de hash en ninguna carpeta compartida. Con esta opción, BranchCache no genera información de contenido para ningún recurso compartido del equipo y no envía información de contenido a los equipos cliente que solicitan contenido.
+      
+      </string>
+      <string id="Lbl_SupportV1">Compatible solo con la versión de hash V1</string>
+      <string id="Lbl_SupportV2">Compatible solo con la versión de hash V2</string>
+      <string id="Lbl_SupportV1andV2">Compatible con las versiones V1 y V2</string>
+      <string id="Pol_HashSupportVersion">Compatibilidad de versión de hash para BranchCache</string>
+      <string id="Pol_HashSupportVersion_Help">Esta configuración de directiva especifica si el servicio de generación de hash de BranchCache admite hash de versión 1 (V1), de versión 2 (V2) o ambos. Los hash, también denominados información de contenido, se crean en función de los datos de las carpetas compartidas en que BranchCache está habilitado. 
+
+Si especifica que solo se admite una versión, el tipo de información de contenido para esa versión es el único que generará BranchCache y que podrán recuperar los equipos cliente. Por ejemplo, si habilita la compatibilidad con los hash V1, BranchCache solo generará hash V1 y los equipos cliente solo podrán recuperar hash V1.
+
+Configuración de la directiva
+
+Seleccione una de las siguientes opciones:
+
+- No configurado. Si selecciona este valor, esta configuración de directiva no aplicará la configuración de BranchCache a los equipos cliente. En este caso, que es el valor predeterminado, se admite la generación y recuperación de hash V1 y V2.
+
+- Habilitado. Si selecciona este valor, se aplica la configuración de directiva y se generan y recuperan las versiones de hash especificadas en "Versión de hash admitida".
+
+- Deshabilitado. Si selecciona este valor, se admite la generación y recuperación de hash V1 y V2.
+
+En los casos en que se habilita esta configuración, también puede seleccionar y configurar la siguiente opción:
+
+Versión de hash admitida:
+
+- Para admitir solo información de contenido V1, configure "Versión de hash admitida" con el valor 1.
+
+- Para admitir solo información de contenido V2, configure "Versión de hash admitida" con el valor 2.
+
+- Para admitir información de contenido V1 y V2, configure "Versión de hash admitida" con el valor 3.</string>
+      <string id="Pol_CipherSuiteOrder_Name">Orden de conjuntos de cifrado</string>
+      <string id="Pol_CipherSuiteOrder_Help">Esta configuración de directiva determina los conjuntos de cifrado usados por el servidor SMB.
+
+Si habilitas esta configuración de directiva, los conjuntos de cifrado se ordenarán por prioridad de la forma especificada.
+
+Si habilitas esta configuración de directiva y no especificas como mínimo un conjunto de cifrado compatible o si deshabilitas o no estableces esta configuración de directiva, se usará el orden de conjuntos de cifrado predeterminado.
+
+Conjuntos de cifrado de SMB 3.11:
+
+AES_128_GCM
+AES_128_CCM
+
+Conjuntos de cifrado de SMB 3.0 y 3.02:
+
+AES_128_CCM
+
+Cómo modificar esta configuración:
+
+Organiza los conjuntos de cifrado deseados en el cuadro de edición: un conjunto de cifrado por línea, en orden de preferencia, con el conjunto de cifrado de mayor preferencia en la parte superior. Elimina los conjuntos de cifrado que no quieras usar.
+
+Nota: Al establecer esta configuración de seguridad, no se aplicarán los cambios hasta que reinicies Windows.</string>
+      <string id="HonorCipherSuiteOrder_Name">Respetar el orden de conjuntos de cifrado</string>
+      <string id="HonorCipherSuiteOrder_Help">Esta configuración de directiva determina cómo el servidor SMB selecciona un conjunto de cifrado al negociar una nueva conexión con un cliente SMB.
+
+Si habilitas esta configuración de directiva, el servidor SMB seleccionará el conjunto de cifrado que prefiera de los conjuntos de cifrado del cliente SMB, omitiendo las preferencias del cliente sobre conjuntos de cifrado.
+
+Si deshabilitas o no estableces esta configuración de directiva, el servidor SMB seleccionará el conjunto de cifrado que prefiera el cliente SMB de los conjuntos de cifrado del servidor.
+
+Nota: Al establecer esta configuración de seguridad, no se aplicarán los cambios hasta que reinicies Windows.</string>
+       <string id="Pol_HonorCipherSuiteOrder_Name">Respetar el orden de conjuntos de cifrado</string>
+       <string id="Pol_HonorCipherSuiteOrder_Help">Esta configuración de directiva determina cómo el servidor SMB selecciona un conjunto de cifrado al negociar una nueva conexión con un cliente SMB.
+
+Si habilitas esta configuración de directiva, el servidor SMB seleccionará el conjunto de cifrado que prefiera de la lista de conjuntos de cifrado compatibles con el cliente, omitiendo las preferencias del cliente sobre conjuntos de cifrado.
+
+Si deshabilitas o no estableces esta configuración de directiva, el servidor SMB seleccionará el conjunto de cifrado que prefiera el cliente SMB de la lista de conjuntos de cifrado compatibles con el servidor.
+
+Nota: Al establecer esta configuración de seguridad, no se aplicarán los cambios hasta que reinicies Windows.</string>
+      </stringTable>
+    <presentationTable>
+      <presentation id="Pol_HashPublication">
+        <text>Valores:</text>
+        <text>0 = Permitir la publicación de hash solo para carpetas compartidas en las que BranchCache esté habilitado</text>
+        <text>1 = No permitir la publicación de hash en ninguna carpeta compartida</text>
+        <text>2 = Permitir la publicación de hash para todas las carpetas compartidas</text>
+        <dropdownList refId="Lbl_HashPublicationActionCombo" defaultItem="0">Acciones de publicación de hash:  </dropdownList>
+        <text> </text>
+      </presentation>
+      <presentation id="Pol_HashSupportVersion">
+        <text>Valores:</text>
+        <text>1 = Admitir hash V1</text>
+        <text>2 = Admitir hash V2</text>
+        <text>3 = Admitir hash V1 y V2</text>
+        <dropdownList refId="Lbl_HashVersionSupportActionCombo" defaultItem="0">Versión de hash admitida:  </dropdownList>
+        <text> </text>
+      </presentation>
+      <presentation id="Pol_CipherSuiteOrder">
+        <text>Conjuntos de cifrado:</text>
+        <multiTextBox refId="MultiText_CipherSuiteOrder"/>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

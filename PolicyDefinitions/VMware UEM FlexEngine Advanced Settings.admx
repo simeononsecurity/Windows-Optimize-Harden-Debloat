@@ -1,0 +1,156 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="VMwareUEMFlexEngineAdvanced" namespace="VMwareUEM.Policies.FlexEngine.Advanced.8.6" />
+    <using prefix="VMwareUEMFlexEngine" namespace="VMwareUEM.Policies.FlexEngine.8.6" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="PlatformSupport" displayName="$(string.PlatformSupport)" />
+      <definition name="PlatformSupport921" displayName="$(string.PlatformSupport921)" />
+      <definition name="PlatformSupportSpecialDriveMappping" displayName="$(string.PlatformSupportSpecialDriveMappping)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="Cat_FlexPlusAdvanced" displayName="$(string.Cat_FlexPlusAdvanced)" explainText="$(string.Cat_FlexPlusAdvanced_Help)">
+      <parentCategory ref="VMwareUEMFlexEngine:Cat_FlexPlus"/>
+    </category>
+  </categories>
+  <policies>
+    <policy name="DisableDirectFlex" class="User" displayName="$(string.DisableDirectFlex)" explainText="$(string.DisableDirectFlex_Help)" presentation="$(presentation.P_EnumNoSort)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <enum id="e" valueName="DisableDirectFlex">
+          <item displayName="$(string.DisableDirectFlex1)">
+            <value><decimal value="1"/></value>
+          </item>
+          <item displayName="$(string.DisableDirectFlex2)">
+            <value><decimal value="2"/></value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="DirectFlexExportFallback" class="User" displayName="$(string.DirectFlexExportFallback)" explainText="$(string.DirectFlexExportFallback_Help)" key="Software\Policies\Immidio\Flex Profiles" valueName="DirectFlexExportFallback">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="SpecialDriveMappingLogic" class="User" displayName="$(string.SpecialDriveMappingLogic)" explainText="$(string.SpecialDriveMappingLogic_Help)" key="Software\Policies\Immidio\Flex Profiles\Arguments" presentation="$(presentation.P_EnumNoSort)">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupportSpecialDriveMappping" />
+      <elements>
+        <enum id="e" valueName="SpecialDriveMappingLogic">
+          <item displayName="$(string.SpecialDriveMappingLogicUAC)"><value><decimal value="1"/></value></item>
+          <item displayName="$(string.SpecialDriveMappingLogicAlways)"><value><decimal value="2"/></value></item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="AllowAdmxInSession" class="User" displayName="$(string.AllowAdmxInSession)" explainText="$(string.AllowAdmxInSession_Help)" key="Software\Policies\Immidio\Flex Profiles\Arguments" valueName="AllowAdmxInSession">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="RemoveLocalProfileAtLogoff" class="User" displayName="$(string.RemoveLocalProfileAtLogoff)" explainText="$(string.RemoveLocalProfileAtLogoff_Help)" presentation="$(presentation.P_RemoveLocalProfileAtLogoff)" key="Software\Policies\Immidio\Flex Profiles\Arguments" valueName="RemoveLocalProfileAtLogoff">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <boolean id="Chk_SkipForAdministratorMembers" valueName="SkipRemoveLocalProfileAtLogoffForAdminGroup"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+      </elements>
+    </policy>
+    <policy name="AdmxLogging" class="User" displayName="$(string.AdmxLogging)" explainText="$(string.AdmxLogging_Help)" key="Software\Policies\Immidio\Flex Profiles\Arguments" valueName="AdmxLogging">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="UEMActions" class="User" displayName="$(string.UEMActions)" explainText="$(string.UEMActions_Help)" presentation="$(presentation.P_UEMActions)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <boolean id="Chk_UemActionAdmx" valueName="UemActionAdmx"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UemActionAppVolumes" valueName="UemActionAppVolumes"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionDriveMapping" valueName="UEMActionDriveMapping"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionDriveMappingDuringLogon" valueName="UEMActionDriveMappingDuringLogon"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionEnvVar" valueName="UEMActionEnvVar"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionFileTypeAssociation" valueName="UEMActionFileTypeAssociation"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionFileTypeAssociationDuringLogon" valueName="UEMActionFileTypeAssociationDuringLogon"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionImport" valueName="UEMActionImport"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionPrinterMapping" valueName="UEMActionPrinterMapping"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionPrinterMappingDuringLogon" valueName="UEMActionPrinterMappingDuringLogon"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionPrivilegeElevation" valueName="UEMActionPrivilegeElevation"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionShortcut" valueName="UEMActionShortcut"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionShortcutDuringLogon" valueName="UEMActionShortCutDuringLogon"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionTask" valueName="UEMActionTask"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UemActionHideDrive" valueName="UemActionHideDrive"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UemActionPolicy" valueName="UemActionPolicy"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UemActionTriggeredTask" valueName="UemActionTriggeredTask"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UemActionMigrate" valueName="UemActionMigrate"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionFolderRedirection" valueName="UEMActionFolderRedirection"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionHorizonPolicy" valueName="UEMActionHorizonPolicy"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_UEMActionApplicationBlocking" valueName="UEMActionApplicationBlocking"><trueValue><decimal value="0" /></trueValue><falseValue><delete/></falseValue></boolean>
+      </elements>
+    </policy>
+    <policy name="PrinterMapping" class="User" displayName="$(string.PrinterMapping)" explainText="$(string.PrinterMapping_Help)" presentation="$(presentation.P_PrinterMapping)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <decimal id="Dec_MapPrinterRetryCount" valueName="MapPrinterRetryCount" required="true" />
+        <decimal id="Dec_UnmapPrinterRetryCount" valueName="UnmapPrinterRetryCount" required="true" />
+        <decimal id="Dec_SpoolerRetryCount" valueName="SpoolerRetryCount" required="true" />
+        <decimal id="Dec_SpoolerRetryWait" valueName="SpoolerRetryWait" required="true" />
+      </elements>
+    </policy>
+    <policy name="PreExecutionCommand" class="User" displayName="$(string.PreExecutionCommand)" explainText="$(string.PreExecutionCommand_Help)" presentation="$(presentation.P_PreExecutionCommand)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <text id="Txt_PreExecutionCommand" valueName="PreExecutionCommand" required="true"/>
+      </elements>
+    </policy>
+    <policy name="RenewHook" class="User" displayName="$(string.RenewHook)" explainText="$(string.RenewHook_Help)" key="Software\Policies\Immidio\Flex Profiles" valueName="DirectFlexRenewHook">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+      <enabledValue>
+        <decimal value="0"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1"/>
+      </disabledValue>
+    </policy>
+    <policy name="DirectFlexFollowJMPHook" class="User" displayName="$(string.DirectFlexFollowJMPHook)" explainText="$(string.DirectFlexFollowJMPHook_Help)" key="Software\Policies\Immidio\Flex Profiles" valueName="DirectFlexFollowJMPHook">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport921" />
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="DirectFlexHookLoadLibrary" class="User" displayName="$(string.DirectFlexHookLoadLibrary)" explainText="$(string.DirectFlexHookLoadLibrary_Help)" key="Software\Policies\Immidio\Flex Profiles" valueName="DirectFlexHookLoadLibrary">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport921" />
+      <enabledValue>
+        <decimal value="0"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1"/>
+      </disabledValue>
+    </policy>
+    <policy name="ValidateRegFile" class="User" displayName="$(string.ValidateRegFile)" explainText="$(string.ValidateRegFile_Help)" key="Software\Policies\Immidio\Flex Profiles\Arguments" valueName="ValidateRegFile">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="EnvVarPrefix" class="User" displayName="$(string.EnvVarPrefix)" explainText="$(string.EnvVarPrefix_Help)" presentation="$(presentation.P_EnvVarPrefix)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <text id="Txt_EnvVarPrefix" valueName="EnvVarPrefix"/>
+      </elements>
+    </policy>
+    <policy name="GlobalExcludesConfigFile" class="User" displayName="$(string.GlobalExcludesConfigFile)" explainText="$(string.GlobalExcludesConfigFile_Help)" presentation="$(presentation.P_GlobalExcludesConfigFile)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlusAdvanced" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <text id="Txt_GlobalExcludesConfigFile" valueName="GlobalExcludesConfigFile"/>
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

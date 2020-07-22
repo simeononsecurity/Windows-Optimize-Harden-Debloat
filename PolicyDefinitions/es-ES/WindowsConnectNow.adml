@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="WCN_Category">Windows Connect Now</string>
+      <string id="WCN_DisableWcnUi">Prohibir el acceso a los asistentes de Windows Connect Now</string>
+      <string id="WCN_DisableWcnUi_Help">Esta configuración de directiva prohíbe el acceso a los asistentes de Windows Connect Now (WCN). 
+
+Si habilita esta configuración de directiva, se desactivan los asistentes y los usuarios no tienen acceso a ninguna de las tareas de los asistentes. Se deshabilitan todas las tareas relativas a la configuración, como "Configurar un enrutador o punto de acceso inalámbrico" y "Agregar un dispositivo inalámbrico". 
+
+Si deshabilita o no define esta configuración de directiva, los usuarios pueden tener acceso a las tareas de los asistentes, incluidas "Configurar un enrutador o punto de acceso inalámbrico" y "Agregar un dispositivo inalámbrico". De forma predeterminada, esta configuración de directiva permite el acceso de los usuarios a todos los asistentes de WCN.</string>
+      <string id="WCN_EnableRegistrar">Establecimiento de la configuración inalámbrica mediante Windows Connect Now</string>
+      <string id="WCN_EnableRegistrar_Help">Esta configuración de directiva permite establecer la configuración inalámbrica mediante Windows Connect Now (WCN). El Registrador de WCN permite detectar y configurar los dispositivos a través de Ethernet (UPnP), a través de WLAN802.11 dentro de banda, a través de la API de dispositivos portátiles de Windows (WPD) y de unidades flash USB.
+
+Hay opciones adicionales que permiten la detección y configuración a través de un medio específico. 
+
+Si habilita esta configuración de directiva, se presentan opciones adicionales para desactivar las operaciones a través de un medio específico. 
+
+Si deshabilita esta configuración de directiva, se deshabilitan las operaciones a través de todos los medios. 
+
+Si no define esta configuración de directiva, se habilitan las operaciones a través de todos los medios. 
+
+De manera predeterminada, esta configuración de directiva permite las operaciones a través de todos los medios.</string>
+      <string id="WCN_Higher_Precedence_Registrar_UPnP">WCN a través de Ethernet (UPnP)</string>
+      <string id="WCN_Higher_Precedence_Registrar_InBand802DOT11">WCN a través de WLAN 802.11 dentro de banda</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="WCN_EnableRegistrar">
+        <checkBox refId="WCN_EnableRegistrar_DisableUPnP">Desactivar capacidad de configuración mediante WCN a través de Ethernet (UPnP)</checkBox>
+        <checkBox refId="WCN_EnableRegistrar_DisableInBand802DOT11">Desactivar la capacidad de configuración mediante WCN a través de WLAN 802.11 dentro de banda</checkBox>
+        <checkBox refId="WCN_EnableRegistrar_DisableFlashConfig">Desactivar capacidad de configuración mediante una unidad flash USB</checkBox>
+        <checkBox refId="WCN_EnableRegistrar_DisableWPD">Desactivar capacidad de configuración de dispositivos portátiles de Windows (WPD)</checkBox>
+        <decimalTextBox refId="WCN_EnableRegistrar_MaxWCNDeviceNumber" defaultValue="500">Número máximo de dispositivos WCN permitidos:</decimalTextBox>
+        <dropdownList refId="WCN_Higher_Precedence_Registrar" noSort="true" defaultItem="0">Medio de mayor prioridad para dispositivos detectados por varios medios:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

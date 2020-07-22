@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="fullarmor" namespace="VMM.AdminConsole" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <supersededAdm fileName="" />
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="VMMAdminConsole" displayName="$(string.VMMAdminConsole)" explainText="$(string.VMMAdminConsole_HELP)" />
+  </categories>
+  <policies>
+    <policy name="VMMServer" class="User" displayName="$(string.VMMServer)" explainText="$(string.VMMServer_HELP)" presentation="$(presentation.VMMServer)" key="SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Administrator Console\Settings\Shared">
+      <parentCategory ref="VMMAdminConsole" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <text id="TXT_defaultVMMServerName" key="SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Administrator Console\Settings\Shared" valueName="defaultVMMServerName" required="true" />
+        <decimal id="DXT_vmmServerPort" key="SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Administrator Console\Settings\Shared" valueName="vmmServerPort" required="true" minValue="80" />
+      </elements>
+    </policy>
+    <policy name="autoConnect" class="User" displayName="$(string.autoConnect)" explainText="$(string.autoConnect_HELP)" key="SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Administrator Console\Settings\Shared" valueName="autoConnect">
+      <parentCategory ref="VMMAdminConsole" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <string>True</string>
+      </enabledValue>
+      <disabledValue>
+        <string>False</string>
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

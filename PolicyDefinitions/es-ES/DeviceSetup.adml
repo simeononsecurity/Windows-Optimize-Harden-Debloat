@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceInstall_BalloonTips">Desactivar los globos de "Nuevo hardware encontrado" durante la instalación de los dispositivos</string>
+      <string id="DeviceInstall_BalloonTips_Help">Esta configuración de directiva le permite desactivar globos de "Nuevo hardware encontrado" durante la instalación de dispositivos.
+
+Si habilita esta configuración de directiva, los globos de "Nuevo hardware encontrado" no aparecerán mientras se instale un dispositivo.
+
+Si deshabilita o no configura esta configuración de directiva, los globos de "Nuevo hardware encontrado" aparecerán mientras se esté instalando un dispositivo, a menos que el controlador del dispositivo suprima los globos.</string>
+      <string id="DeviceInstall_GenericDriverSendToWER">No enviar un informe de error de Windows cuando se instale un controlador genérico en un dispositivo</string>
+      <string id="DeviceInstall_GenericDriverSendToWER_Help">Windows dispone de una característica que envía informes de "controlador genérico instalado" a través de la infraestructura de Informe de errores de Windows. Esta directiva permite deshabilitar la característica.
+
+Si habilita esta configuración de directiva, no se enviará un informe de error cuando se instale un controlador genérico.
+
+Si deshabilita o no define esta configuración de directiva, se enviará un informe de error cuando se instale un controlador genérico.</string>
+      <string id="DeviceInstall_RequestAdditionalSoftwareSendToWER">Impedir que Windows envíe un informe de error cuando un controlador de dispositivo solicite software adicional durante su instalación</string>
+      <string id="DeviceInstall_RequestAdditionalSoftwareSendToWER_Help">Windows dispone de una característica que permite a un controlador de dispositivo solicitar software adicional a través de la infraestructura de Informe de errores de Windows. Esta directiva permite deshabilitar la característica.
+
+Si habilita esta configuración de directiva, Windows no enviará un informe de error para solicitar software adicional aunque el controlador de dispositivo así lo especifique.
+
+Si deshabilita o no define configuración de directiva, Windows enviará un informe de error cuando se esté instalando un controlador de dispositivo que solicite software adicional.</string>
+      <string id="DriverSearchPlaces">Configurar ubicaciones de búsqueda de controladores</string>
+      <string id="DriverSearchPlaces_Help">Esta opción configura la ubicación en la que Windows buscará controladores cuando se encuentre nuevo hardware.
+
+De forma predeterminada, Windows busca controladores en las siguientes ubicaciones: instalación local, unidades de disquete, unidades de CD-ROM, Windows Update.
+
+Con esta opción, puede quitar las unidades de disquete y CD-ROM del algoritmo de búsqueda.
+
+Si habilita esta opción, puede quitar las ubicaciones activando la casilla asociada junto al nombre de ubicación.
+
+Si deshabilita o no configura esta opción, Windows busca en la ubicación de instalación, las unidades de disquete y las unidades de CD-ROM.
+
+Nota: para impedir la búsqueda de controladores en Windows Update, consulte "Desactivar la búsqueda de controladores de dispositivo en Windows Update" en Plantillas administrativas/Sistema/Administración de comunicaciones de Internet/Configuración de comunicaciones de Internet.</string>
+      <string id="DriverSearchPlaces_DontPromptForWindowsUpdate">Desactivar la intervención del usuario en búsquedas de controladores de dispositivo en Windows Update</string>
+      <string id="DriverSearchPlaces_DontPromptForWindowsUpdate_Help">Especifica si se pedirá la intervención del administrador antes de buscar controladores de dispositivo en Windows Update por medio de Internet.
+
+Nota: esta opción solo surte efecto si se deshabilita o no se configura "Desactivar la búsqueda de controladores de dispositivo en Windows Update" en "Plantillas administrativas/Sistema/Administración de comunicaciones de Internet/Configuración de comunicaciones de Internet".
+
+Si habilita esta opción, no se solicitará a los administradores que busquen en Windows Update.
+
+Si deshabilita o no configura esta opción y "Desactivar la búsqueda de controladores de dispositivo en Windows Update" se deshabilita o no se configura, se solicitará el consentimiento del administrador antes de ir a Windows Update para buscar controladores de dispositivo.</string>
+      <string id="DriverSearchPlaces_SearchOrderConfiguration">Especificar el orden de búsqueda de controladores de dispositivos en ubicaciones de origen</string>
+      <string id="DriverSearchPlaces_SearchOrderConfiguration_Help">Esta configuración de directiva le permite especificar el orden en el que Windows realiza búsquedas de controladores de dispositivos en ubicaciones de origen. 
+
+Si habilita esta configuración de directiva, puede seleccionar si Windows realiza una búsqueda de controladores en Windows Update de forma incondicional, solo si es necesario o si no realiza la búsqueda.
+
+Tenga en cuenta que las búsquedas siempre implican que Windows intentará buscar en Windows Update exactamente una vez. Con esta configuración, Windows no buscará actualizaciones continuamente. Esta configuración se usa para asegurarse de que se encontrará el mejor software para el dispositivo, incluso si la red está disponible temporalmente.
+
+Si está especificada la configuración buscar solo si es necesario, Windows buscará un controlador solo si el controlador no está disponible en el sistema.
+
+Si deshabilita o no define esta configuración de directiva, los miembros del grupo Administradores podrán determinar el orden de prioridad en el que Windows realiza búsquedas de controladores de dispositivos en ubicaciones de origen.</string>
+      <string id="DriverSearchPlaces_SearchOrderConfiguration_AlwaysCheckWU">Buscar siempre en Windows Update</string>
+      <string id="DriverSearchPlaces_SearchOrderConfiguration_CheckWUIfNeeded">Buscar en Windows Update solo si es necesario</string>
+      <string id="DriverSearchPlaces_SearchOrderConfiguration_NeverCheckWu">No buscar en Windows Update</string>
+
+      <string id="DriverSearchPlaces_SearchServerConfiguration">Especificar el servidor de búsqueda para las actualizaciones de controladores de dispositivos</string>
+      <string id="DriverSearchPlaces_SearchServerConfiguration_Help">Esta configuración de directiva le permite especificar el servidor de búsqueda que usará Windows para buscar actualizaciones para los controladores de dispositivos.
+
+Si habilita esta configuración de directiva, podrá seleccionar si Windows busca primero en Windows Update (WU), busca en un servidor administrado o una combinación de ambos.
+
+Tenga en cuenta que si se especifican ambos, Windows buscará primero en el servidor administrado, como un servidor Windows Server Update Services (WSUS). Solo si no encuentra ninguna actualización, Windows también buscará en Windows Update.
+
+Si deshabilita o no define esta configuración de directiva, los miembros del grupo Administradores pueden determinar el servidor usado para la búsqueda de controladores.
+      
+      </string>
+      <string id="DriverSearchPlaces_SearchServerConfiguration_WU">Buscar en Windows Update</string>
+      <string id="DriverSearchPlaces_SearchServerConfiguration_WSUS">Buscar en servidor administrado</string>
+      <string id="DriverSearchPlaces_SearchServerConfiguration_Both">Buscar en servidor administrado y, después, en WU</string>
+      
+      <string id="DeviceMetadata_PreventDeviceMetadataFromNetwork">Impedir la recuperación de metadatos de dispositivo desde Internet</string>
+      <string id="DeviceMetadata_PreventDeviceMetadataFromNetwork_Help">Esta configuración de directiva le permite impedir que Windows recupere metadatos de dispositivo desde Internet.
+          
+Si habilita esta configuración de directiva, Windows no recuperará metadatos de dispositivos instalados desde Internet. Esta configuración de directiva invalida la configuración definida en el cuadro de diálogo Configuración de la instalación de dispositivos (Panel de control &gt; Sistema y seguridad &gt; Sistema &gt; Configuración avanzada del sistema &gt; pestaña Hardware).
+
+Si deshabilita o no define esta configuración de directiva, la configuración establecida en el cuadro de diálogo Configuración de la instalación de dispositivos controla si Windows recupera metadatos de dispositivo desde Internet.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DriverSearchPlaces">
+        <checkBox refId="DriverSearchPlaces_Floppies">No buscar en unidades de disquetes</checkBox>
+        <checkBox refId="DriverSearchPlaces_CD">No buscar en unidades de CD-ROM</checkBox>
+        <checkBox refId="DriverSearchPlaces_WindowsUpdate">No buscar en Windows Update</checkBox>
+      </presentation>
+      <presentation id="DriverSearchPlaces_SearchOrderConfiguration">
+        <dropdownList refId="DriverSearchPlaces_SearchOrderConfiguration_dropdown" noSort="true" defaultItem="1">Seleccione el orden de búsqueda:</dropdownList>
+      </presentation>
+      <presentation id="DriverSearchPlaces_SearchServerConfiguration">
+        <dropdownList refId="DriverSearchPlaces_SearchServerConfiguration_dropdown" noSort="true" defaultItem="0">Seleccione servidor de actualizaciones:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

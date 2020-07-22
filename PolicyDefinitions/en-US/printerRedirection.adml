@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="print_redir">VMware Integrated Printing</string>
+      <string id="SUPPORTED_NotSpecified">Not specified</string>
+      <string id="persistence_setting">Disable Printer Property Persistence</string>
+      <string id="persistence_setting_detail">This setting determines whether the printer property settings will be kept or not.
+
+When it is enabled, the printer property change on the agent side will not be kept after user disconnect or logoff the session, hence not persistent.
+E.g. If a user changes printer paper size from "Letter" to "A4" during the session, the next time when the user reconnects, the paper size will be reverted to "Letter", and the "A4" change is not persisted. 
+
+When it is not configured or disabled, the printer property change on the agent side will be kept after user disconnect or logoff the session, hence persistent.
+E.g. If a user changes printer paper size from "Letter" to "A4" during the session, the next time when the user reconnects, the paper size will still be "A4", as change is kept.
+
+This GPO is not configured by default.
+</string>
+      <string id="nondesktopclient_setting">Disable printer redirection for non-desktop client</string>
+      <string id="nondesktopclient_setting_detail">This setting determines whether VMware integrated printing is supported for non-desktop client endpoint.
+
+When it is enabled, VMware integrated printing is not supported for non-desktop client endpoint.
+When it is not configured or disabled, VMware integrated printing is supported for non-desktop client endpoint.
+
+This setting is not configured by default.
+</string>
+      <string id="lbp_setting">Disable LBP</string>
+      <string id="lbp_setting_detail">This policy setting allows you to manage whether use location-based printing (LBP) or not.
+
+If you enable this policy setting, location-based printing is unable to use.
+
+If you disable or do not configure this policy setting, location-based printing is able to use.</string>
+      <string id="printer_creation_setting">Printer Driver Selection</string>
+      <string id="printer_creation_setting_detail">Printer Driver Selection.
+
+Printer Creation Choices:
+Options about printer driver used, universal printer driver (UPD) or native printer driver (NPD).
+
+If you choose the first option "Always Use NPD", native printer driver will be always used for the redirected printer.
+
+If you choose the second option "Always Use UPD", universal printer driver will be always used for the redirected printer.
+
+If you choose the third option "Use NPD First, then UPD", native printer driver will be used first, if native printer driver does not exist, universal printer driver will be used.
+
+If you choose the fourth option "Use UPD First, then NPD", universal printer driver will be used first, if universal printer driver does not exist, native printer driver will be used.
+
+</string>
+      <string id="printer_creation_setting_npd">Always Use NPD</string>
+      <string id="printer_creation_setting_upd">Always Use UPD</string>
+      <string id="printer_creation_setting_npd_upd">Use NPD First, then UPD</string>
+      <string id="printer_creation_setting_upd_npd">Use UPD First, then NPD</string>
+      <string id="printer_filter">Specify a filter in redirecting client printers</string>
+      <string id="printer_filter_desc">A rule that filters out any client printer which matches it in the printer redirection. Supported attributes are printer names, printer driver names, and driver vendor names. Supported operators are AND, OR and NOT. Supported searching pattern is regular expression in JavaScript dialect (ECMAScript).
+By default, the rule is empty which means all client printers will be redirected.
+
+Example:
+(DriverName= "DrName1" OR VendorName="VeName1") AND NOT PrinterName= "PrNa.?e"</string>
+      <string id="print_preview_setting">Print Preview Setting</string>
+      <string id="print_preview_setting_detail">There are two settings for print preview.
+
+The first setting determines whether the print target is enabled or not. It is not configured by default.
+
+When this setting is checked, end user can not choose the print target.
+
+When this setting is unchecked or not configured, end user can choose the print target, print preview or print directly.
+
+
+The second setting determines the default print target option. It is not configured by default, meaning the option is to print directly.
+
+When the option "print directly" is selected, the default print option from print UI is "print directly".
+
+When the option "print preview" is selected, the default print option from print UI is "print preview".
+</string>
+
+      <string id="print_directly">Print directly</string>
+      <string id="print_to_preview">Print preview</string>
+      <string id="printer_name_schema">Printer Name for RDSH Agents</string>
+      <string id="printer_name_schema_desc">This setting determines the printer naming convention when you use VMware Integrated Printing in RDSH.
+When this policy is enabled, valid printer name schema should be started by "%P". And only following suffixes are supported.
+%S: session id
+%C: client machine name
+
+When this policy is not configured or disabled, the virtual printers in RDSH use session id as suffix.
+Example: PDFCreator (v2), here PDFCreator is client printer name, 2 is session id.
+When this policy is enabled, user can change printer name schema in RDSH to "%P (%C)", then client machine name will be used as suffix of printer name.
+Example: PDFCreator (client-pc), here PDFCreator is client printer name, client-pc is client machine name.
+
+This setting is not configured by default.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="PrinterCreationSetting">
+          <dropdownList refId="printer_creation_setting_list" defaultItem="2" noSort="true">Printer Creation Choices:</dropdownList>
+      </presentation>
+      <presentation id="PrintPreviewSetting">
+        <checkBox refId="disable_print_choice">Disable Print Choice</checkBox>
+        <dropdownList refId="default_choice_list" defaultItem="0" noSort="true">Print Target Default Choices:</dropdownList>
+      </presentation>
+      <presentation id="printer_filter">
+        <textBox refId="printer_filter_textbox">
+          <label>Printer Filter</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+       <presentation id="printer_name_schema">
+          <textBox refId="printer_name_schema_textbox">
+             <label>Printer Name Schema</label>
+             <defaultValue>%P (v%S)</defaultValue>
+          </textBox>
+       </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="EventViewer">Visor de eventos</string>
+      <string id="EventViewer_RedirectionProgram">Programa events.asp</string>
+      <string id="EventViewer_RedirectionProgram_Help">Éste es el programa que se invocará cuando el usuario haga clic en el vínculo events.asp.</string>
+      <string id="EventViewer_RedirectionProgramCommandLineParameters">Parámetros de la línea de comandos del programa events.asp</string>
+      <string id="EventViewer_RedirectionProgramCommandLineParameters_Help">Esto especifica los parámetros de la línea de comandos que se pasarán al programa events.asp</string>
+      <string id="EventViewer_RedirectionURL">Dirección URL de events.asp</string>
+      <string id="EventViewer_RedirectionURL_Help">Ésta es la dirección URL que se pasará al área Descripción del cuadro de diálogo Propiedades de evento. Cambie este valor si desea usar un servidor web diferente para administrar peticiones de información de eventos.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="EventViewer_RedirectionProgram">
+        <textBox refId="EventViewer_RedirectionProgram">
+          <label>Programa events.asp</label>
+          <defaultValue>%SystemRoot%\PCHealth\HelpCtr\Binaries\HelpCtr.exe</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="EventViewer_RedirectionProgramCommandLineParameters">
+        <textBox refId="EventViewer_RedirectionProgramCommandLineParameters">
+          <label>Parámetros de la línea de comandos del programa events.asp</label>
+          <defaultValue>-url hcp://services/centers/support?topic=%s</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="EventViewer_RedirectionURL">
+        <textBox refId="EventViewer_RedirectionURL">
+          <label>Dirección URL de events.asp</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

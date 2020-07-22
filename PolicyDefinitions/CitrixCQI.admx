@@ -1,0 +1,74 @@
+﻿<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="ctxcqi" namespace="supportability.Policies.CQI" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+    <using prefix="citrix" namespace="Citrix.Policies.Base" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_NotSpecified" displayName="$(string.SUPPORTED_NotSpecified)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="CAT_VirtualDesktopAgent" displayName="$(string.CAT_VirtualDesktopAgent)">
+      <parentCategory ref="citrix:CITRIX_COMPONENTS" />
+    </category>
+    <category name="CAT_CQI" displayName="$(string.CAT_CQI)">
+      <parentCategory ref="CAT_VirtualDesktopAgent" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="POL_EnableCQI" class="Both" displayName="$(string.POL_EnableCQI)" explainText="$(string.Explain_EnableCQI)" presentation="$(presentation.POL_CQI)" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="Enable_CQI">
+      <parentCategory ref="CAT_CQI" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <decimal id="DXT_CountersRefreshInterval" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="CountersRefreshInterval" minValue="5" maxValue="60" />
+      </elements>
+    </policy>
+    <policy name="POL_ThresholdSettings" class="Both" displayName="$(string.POL_ThresholdSettings)" explainText="$(string.POL_ThresholdSettings_Help)" presentation="$(presentation.POL_ThresholdSettings)" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI\Thresholds">
+      <parentCategory ref="CAT_CQI" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="DXT_HighLatencyLowerRange" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI\Thresholds" valueName="HighLatencyLowerRange" minValue="100" />
+        <decimal id="DXT_LowLatencyUpperRange" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI\Thresholds" valueName="LowLatencyUpperRange" maxValue="1000" />
+        <decimal id="DXT_HighIcaRttLowerRange" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI\Thresholds" valueName="HighIcaRttLowerRange" minValue="100" />
+        <decimal id="DXT_LowIcaRttUpperRange" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI\Thresholds" valueName="LowIcaRttUpperRange" maxValue="1000" />
+        <decimal id="DXT_HighBandwidthLowerRange" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI\Thresholds" valueName="HighBandwidthLowerRange" minValue="2" />
+        <decimal id="DXT_LowBandwidthUpperRange" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI\Thresholds" valueName="LowBandwidthUpperRange" maxValue="100" />
+      </elements>
+    </policy>
+    <policy name="POL_NotificationDisplaySettings" class="Both" displayName="$(string.POL_NotificationDisplaySettings)" explainText="$(string.POL_NotificationDisplaySettings_Help)" presentation="$(presentation.POL_NotificationDisplaySettings)" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI">
+      <parentCategory ref="CAT_CQI" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="DXT_FirstNotificationWaitTime" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="FirstNotificationWaitTime" minValue="30" />
+        <decimal id="DXT_HeatlthNoticiationInterval" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="HeatlthNoticiationInterval" minValue="30" />
+        <enum id="DDL_DesktopDefaultNotificationPosition" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="DesktopDefaultNotificationPosition" >
+            <item displayName="$(string.TXT_NotificationPosition1)"><value><decimal value="1" /></value></item>
+            <item displayName="$(string.TXT_NotificationPosition2)"><value><decimal value="2" /></value></item>
+            <item displayName="$(string.TXT_NotificationPosition3)"><value><decimal value="3" /></value></item>
+            <item displayName="$(string.TXT_NotificationPosition4)"><value><decimal value="4" /></value></item>
+        </enum>
+        <enum id="DDL_SeamlessDefaultNotificationPosition" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="SeamlessDefaultNotificationPosition" >
+            <item displayName="$(string.TXT_NotificationPosition1)"><value><decimal value="1" /></value></item>
+            <item displayName="$(string.TXT_NotificationPosition2)"><value><decimal value="2" /></value></item>
+            <item displayName="$(string.TXT_NotificationPosition3)"><value><decimal value="3" /></value></item>
+            <item displayName="$(string.TXT_NotificationPosition4)"><value><decimal value="4" /></value></item>
+        </enum>
+        <text id="TXT_StrongConnectionMessage" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="StrongConnectionMsg" />
+        <text id="TXT_WeakConnectionMessage" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="WeakConnectionMsg" />
+        <text id="TXT_PoorConnectionMessage" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="PoorConnectionMsg" />
+        <boolean id="CHK_DoNotShowFirstNotification" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="DoNotShowFirstNotification" />
+        <boolean id="CHK_DoNotShowNotifications" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="DoNotShowAllNotifications" />
+        <boolean id="CHK_DisableAudibleNotification" key="Software\Policies\Citrix\VirtualDesktopAgent\CQI" valueName="DisableAudibleNotification" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

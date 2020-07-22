@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Definiciones de directiva de grupo de la infraestructura de clasificación de archivos</displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="AdrCat">Asistencia de acceso denegado</string>
+      <string id="FciCat">Infraestructura de clasificación de archivos</string>
+      <string id="EnableManualUXDisplay">Infraestructura de clasificación de archivos: mostrar la pestaña Clasificación en el Explorador de archivos</string>
+      <string id="EnableShellExecuteFileStreamCheck">Permitir la asistencia de acceso denegado en el cliente para todos los tipos de archivos</string>
+      <string id="EnableShellExecuteFileStreamCheck_Descr">Esta configuración de la directiva de grupo debe establecerse en los clientes de Windows para permitir la asistencia de acceso denegado para todos los tipos de archivos.</string>
+      <string id="EnableManualUXExplain">Esta configuración de directiva controla si la pestaña Clasificación aparece en el cuadro de diálogo Propiedades del Explorador de archivos.
+
+La pestaña Clasificación permite a los usuarios clasificar manualmente los archivos al seleccionar propiedades en una lista. Los administradores pueden definir las propiedades para la organización mediante la directiva de grupo y complementarlas con propiedades definidas en servidores de archivos individuales mediante la infraestructura de clasificación de archivos, que forma parte del servicio de roles del Administrador de recursos del servidor de archivos.
+
+Si habilita esta configuración de directiva, se muestra la pestaña Clasificación.
+
+Si deshabilita o no establece esta configuración de directiva, se oculta la pestaña Clasificación.</string>
+      <string id="CentralClassificationListDisplay">Infraestructura de clasificación de archivos: especificar la lista de propiedades de clasificación</string>
+      <string id="CentralClassificationListExplain">Esta configuración de directiva controla qué conjunto de propiedades está disponible para clasificar los archivos en los equipos afectados.
+
+Los administradores pueden definir las propiedades para la organización mediante los Servicios de dominio de Active Directory (AD DS) y, luego, agrupar estas propiedades en listas. Los administradores pueden complementar estas propiedades en los servidores de archivos individuales mediante la infraestructura de clasificación de archivos, que forma parte del servicio de roles del Administrador de recursos del servidor de archivos.
+
+Si habilita esta configuración de directiva, puede seleccionar qué lista de propiedades está disponible para clasificación en los equipos afectados. 
+
+Si deshabilita o no establece esta configuración de directiva, la lista de propiedades de recursos globales de AD DS proporciona el conjunto de propiedades predeterminado.</string>
+      <string id="AccessDeniedConfigurationDisplay">Personalizar mensaje para errores de acceso denegado</string>
+      <string id="AccessDeniedConfigurationExplain">Esta configuración de directiva especifica el mensaje que ven los usuarios cuando se les deniega el acceso a un archivo o carpeta. Puede personalizar el mensaje de acceso denegado para incluir vínculos y texto adicional. También puede proporcionarles a los usuarios la capacidad de enviar un correo electrónico para solicitar acceso al archivo o la carpeta al que se le denegó el acceso.
+
+Si habilita esta configuración de directiva, los usuarios reciben un mensaje de acceso denegado personalizado de los servidores de archivos en los que se aplica esta configuración. 
+
+Si deshabilita esta configuración de directiva, los usuarios ven un mensaje estándar de acceso denegado que no proporciona ninguna funcionalidad controlada por esta configuración, sin importar la configuración del servidor de archivos.
+
+Si no establece esta configuración de directiva, los usuarios ven un mensaje estándar de acceso denegado a menos que el servidor de archivos esté configurado para mostrar el mensaje de acceso denegado personalizado. De forma predeterminada, los usuarios ven el mensaje de acceso denegado estándar.
+
+</string>
+      <string id="FileNotFoundConfigurationDisplay">Personalizar mensaje para los errores de archivo no encontrado</string>
+      <string id="FileNotFoundConfigurationExplain">Esta configuración de directiva especifica el mensaje que ven los usuarios cuando reciben un error de archivo no encontrado. Puede personalizar el mensaje de archivo no encontrado para incluir vínculos y texto adicional. También puede proporcionarles a los usuarios la capacidad de enviar un correo electrónico para solicitar ayuda. Esto permite que un administrador ofrezca ayuda con los errores de archivos no encontrados provocados por un usuario que no dispone de permisos de lectura para una carpeta con enumeración basada en acceso habilitada.
+
+Si habilita esta configuración de directiva, los usuarios reciben un mensaje de archivo no encontrado personalizado de los servidores de archivos en los que se aplica esta configuración.
+
+Si deshabilita esta configuración de directiva, los usuarios ven un mensaje estándar de archivo no encontrado que no proporciona ninguna funcionalidad controlada por esta configuración, sin importar la configuración del servidor de archivos.
+
+Si no establece esta configuración de directiva, los usuarios ven un mensaje estándar de archivo no encontrado a menos que el servidor de archivos esté configurado para mostrar el mensaje de archivo no encontrado personalizado. De forma predeterminada, los usuarios ven el mensaje estándar de archivo no encontrado.
+
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="CentralClassificationListPresentation">
+        <textBox refId="CentralClassificationListTextElement">
+          <label>Lista de propiedades de clasificación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="AccessDeniedConfigurationPresentation">
+        <text>Mostrar el mensaje siguiente a usuarios a los que se deniegue el acceso:</text>
+        <multiTextBox refId="ErrorMessageText"/>
+        <checkBox refId="AllowEmailRequestsCheck" defaultChecked="false">Permitir que los usuarios soliciten asistencia</checkBox>
+        <text>Agregar el texto siguiente al final del correo electrónico:</text>
+        <multiTextBox refId="EmailMessageText"/>
+        <text> </text>
+        <text>Destinatarios de correo electrónico:</text>
+        <checkBox refId="PutDataOwnerOnToCheck" defaultChecked="true">Propietario de carpeta</checkBox>
+        <checkBox refId="PutAdminOnToCheck" defaultChecked="true">Administrador del servidor de archivos</checkBox>
+        <textBox refId="AdditonalEmailToText">
+          <label>Destinatarios adicionales:</label>
+        </textBox>
+        <text> </text>
+        <text>Configuración de correo electrónico:</text>
+        <checkBox refId="IncludeDeviceClaimsCheck" defaultChecked="true">Incluir notificaciones del dispositivo</checkBox>
+        <checkBox refId="IncludeUserClaimsCheck" defaultChecked="true">Incluir notificaciones del usuario</checkBox>
+        <checkBox refId="GenerateLogCheck" defaultChecked="true">Registrar correos electrónicos en el registro de eventos de aplicación y servicios</checkBox>
+      </presentation>
+      <presentation id="FileNotFoundConfigurationPresentation">
+        <text>Configuración del mensaje de archivo no encontrado</text>
+        <text>Texto complementario del mensaje de archivo no encontrado:</text>
+        <multiTextBox refId="ErrorMessageText"/>
+        <checkBox refId="AllowEmailRequestsCheck" defaultChecked="false">Permitir que los usuarios soliciten asistencia</checkBox>
+        <text>Texto complementario del correo electrónico de archivo no encontrado:</text>
+        <multiTextBox refId="EmailMessageText"/>
+        <text> </text>
+        <text>Destinatarios de correo electrónico</text>
+        <checkBox refId="PutDataOwnerOnToCheck" defaultChecked="true">Propietario de carpeta</checkBox>
+        <checkBox refId="PutAdminOnToCheck" defaultChecked="true">Administrador del servidor de archivos</checkBox>
+        <textBox refId="AdditonalEmailToText">
+          <label>Destinatarios adicionales:</label>
+        </textBox>
+        <text> </text>
+        <text>Configuración de correo electrónico</text>
+        <checkBox refId="IncludeDeviceClaimsCheck" defaultChecked="true">Incluir notificaciones del dispositivo</checkBox>
+        <checkBox refId="IncludeUserClaimsCheck" defaultChecked="true">Incluir notificaciones del usuario</checkBox>
+        <checkBox refId="GenerateLogCheck" defaultChecked="true">Registrar correos electrónicos en los registros de aplicaciones y servicios</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

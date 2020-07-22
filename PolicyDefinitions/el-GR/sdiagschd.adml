@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Προγραμματισμένα διαγνωστικά</displayName>
+  <description>Προγραμματισμένα διαγνωστικά</description>
+  <resources>
+    <stringTable>
+      <string id="ScheduledDiagnosticsCategory">Προγραμματισμένη εργασία συντήρησης</string>
+      <string id="ScheduledDiagnosticsExecutionPolicy">Ρύθμιση παραμέτρων συμπεριφοράς προγραμματισμένης εργασίας συντήρησης</string>
+      <string id="ScheduledDiagnosticsExecutionPolicyExplain">Καθορίζει εάν τα προγραμματισμένα διαγνωστικά θα εκτελούνται προληπτικά για τον εντοπισμό και την επίλυση προβλημάτων του συστήματος.
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, πρέπει να επιλέξετε ένα επίπεδο εκτέλεσης.  Εάν επιλέξετε εντοπισμό και αντιμετώπιση προβλημάτων μόνο, τα Windows θα εντοπίζουν και θα αντιμετωπίζουν προβλήματα σε τακτά χρονικά διαστήματα.  Ο χρήστης θα ενημερώνεται σχετικά με το πρόβλημα για την αλληλεπιδραστική επίλυσή του. 
+
+Εάν επιλέξετε εντοπισμό, αντιμετώπιση προβλημάτων και επίλυση, τα Windows θα επιλύουν ορισμένα από τα προβλήματα στο παρασκήνιο χωρίς να απαιτείται παρέμβαση από το χρήστη.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, τα Windows δεν θα έχουν τη δυνατότητα να εντοπίζουν, να αντιμετωπίζουν και να επιλύουν προβλήματα σε τακτά χρονικά διαστήματα.
+
+Εάν δεν ρυθμίσετε τις παραμέτρους αυτής της ρύθμισης πολιτικής, οι τοπικές ρυθμίσεις αντιμετώπισης προβλημάτων θα υπερισχύουν, όπως έχει ρυθμιστεί στον Πίνακα Ελέγχου.  Εάν δεν έχουν ρυθμιστεί τοπικά οι παράμετροι της αντιμετώπισης προβλημάτων, τα προγραμματισμένα διαγνωστικά ενεργοποιούνται για τον εντοπισμό, την αντιμετώπιση και την επίλυση προβλημάτων, από προεπιλογή.
+
+Δεν απαιτείται επανεκκίνηση του υπολογιστή ή επανεκκίνηση υπηρεσιών για να εφαρμοστεί αυτή η πολιτική: οι αλλαγές ισχύουν άμεσα.
+
+Αυτή η ρύθμιση πολιτικής θα ισχύει μόνο όταν το "Χρονοδιάγραμμα εργασιών" βρίσκεται σε κατάσταση εκτέλεσης.  Όταν η υπηρεσία είναι σταματημένη ή απενεργοποιημένη, τα προγραμματισμένα διαγνωστικά δεν θα εκτελούνται.  Η υπηρεσία "Χρονοδιάγραμμα εργασιών" μπορεί να ρυθμιστεί από το συμπληρωματικό πρόγραμμα "Υπηρεσίες" στη Κονσόλα διαχείρισης της Microsoft.</string>
+      <string id="ScheduledDiagnosticsExecutionPolicyLevelResolution">Κανονική</string>
+      <string id="ScheduledDiagnosticsExecutionPolicyLevelTsOnly">Μόνο αντιμετώπιση προβλημάτων</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="ScheduledDiagnosticsExecutionPolicy">
+        <dropdownList refId="ScheduledDiagnosticsExecutionPolicyLevel" noSort="true" defaultItem="1">Επίπεδο εκτέλεσης</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

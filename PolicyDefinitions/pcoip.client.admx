@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+	<policyNamespaces >
+		<target prefix="pcoip.client" namespace="VMware.Policies.pcoip.client" />
+	</policyNamespaces>
+	<supersededAdm fileName="pcoip.client.adm" />
+	<resources minRequiredRevision="1.0" fallbackCulture="en-us" />
+	<supportedOn >
+		<definitions >
+			<definition name="SupportedOn_1" displayName="$(string.String_SupportedOn_Undefined_2)" />
+			<definition name="SupportedOn_3" displayName="$(string.String_SupportedOn_Undefined_4)" />
+			<definition name="SupportedOn_5" displayName="$(string.String_SupportedOn_Undefined_6)" />
+			<definition name="SupportedOn_7" displayName="$(string.String_SupportedOn_Undefined_8)" />
+			<definition name="SupportedOn_9" displayName="$(string.String_SupportedOn_Undefined_10)" />
+			<definition name="SupportedOn_11" displayName="$(string.String_SupportedOn_Undefined_12)" />
+			<definition name="SupportedOn_13" displayName="$(string.String_SupportedOn_Undefined_14)" />
+			<definition name="SupportedOn_14" displayName="$(string.String_SupportedOn_Undefined_15)" />
+			<definition name="SupportedOn_15" displayName="$(string.String_SupportedOn_Undefined_16)" />
+			<definition name="SupportedOn_17" displayName="$(string.String_SupportedOn_Undefined_18)" />
+			<definition name="SupportedOn_19" displayName="$(string.String_SupportedOn_Undefined_20)" />
+			<definition name="SupportedOn_21" displayName="$(string.String_SupportedOn_Undefined_22)" />
+			<definition name="SupportedOn_23" displayName="$(string.String_SupportedOn_Undefined_24)" />
+			<definition name="SupportedOn_25" displayName="$(string.String_SupportedOn_Undefined_26)" />
+			<definition name="SupportedOn_27" displayName="$(string.String_SupportedOn_Undefined_28)" />
+			<definition name="SupportedOn_29" displayName="$(string.String_SupportedOn_Undefined_30)" />
+			<definition name="SupportedOn_31" displayName="$(string.String_SupportedOn_Undefined_32)" />
+			<definition name="SupportedOn_33" displayName="$(string.String_SupportedOn_Undefined_34)" />
+			<definition name="SupportedOn_35" displayName="$(string.String_SupportedOn_Undefined_36)" />
+			<definition name="SupportedOn_37" displayName="$(string.String_SupportedOn_Undefined_38)" />
+			<definition name="SupportedOn_39" displayName="$(string.String_SupportedOn_Undefined_40)" />
+			<definition name="SupportedOn_41" displayName="$(string.String_SupportedOn_Undefined_42)" />
+			<definition name="SupportedOn_42" displayName="$(string.String_SupportedOn_Undefined_43)" />
+			<definition name="SupportedOn_43" displayName="$(string.String_SupportedOn_Undefined_44)" />
+			<definition name="SupportedOn_45" displayName="$(string.String_SupportedOn_Undefined_46)" />
+			<definition name="SupportedOn_47" displayName="$(string.String_SupportedOn_Undefined_48)" />
+			<definition name="SupportedOn_49" displayName="$(string.String_SupportedOn_Undefined_50)" />
+			<definition name="SupportedOn_51" displayName="$(string.String_SupportedOn_Undefined_52)" />
+			<definition name="SupportedOn_53" displayName="$(string.String_SupportedOn_Undefined_54)" />
+			<definition name="SupportedOn_55" displayName="$(string.String_SupportedOn_Undefined_56)" />
+		</definitions>
+	</supportedOn>
+	<categories ><!--Storage for Category Definitions-->
+
+		<category name="Cat_PCoIP_Client_Session_57" displayName="$(string.String_Cat_PCoIP_Client_Session_58)" key="Software\Policies\Teradici\PCoIP\pcoip_admin" />
+		<category name="Cat_Not_Overridable_59" displayName="$(string.String_Cat_Not_Overridable_60)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" >
+			<parentCategory ref="Cat_PCoIP_Client_Session_57" />
+		</category>
+		<category name="Cat_Overridable_Administrator_61" displayName="$(string.String_Cat_Overridable_Administrator_62)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" >
+			<parentCategory ref="Cat_PCoIP_Client_Session_57" />
+		</category>
+	</categories>
+	<policies ><!--Storage for Policy Definitions-->
+
+		<policy name="Policy_Configure_the_maximum_63" class="Machine" displayName="$(string.String_Policy_Configure_the_maximum_64)" explainText="$(string.String_Explain_Specifies_the_maximum_65)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_the_maximum_63)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_the_maximum_66" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.max_link_rate" required="true" maxValue="900000" minValue="104" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_the_PCoIP_67" class="Machine" displayName="$(string.String_Policy_Configure_the_PCoIP_68)" explainText="$(string.String_Explain_Specifies_the_Maximum_69)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_the_PCoIP_67)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_3" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_the_PCoIP_70" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.mtu_size" required="true" maxValue="1500" minValue="500" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_the_PCoIP_71" class="Machine" displayName="$(string.String_Policy_Configure_the_PCoIP_72)" explainText="$(string.String_Explain_Specifies_a_lower_73)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_the_PCoIP_71)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_5" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_the_PCoIP_74" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.device_bandwidth_floor" required="true" maxValue="100000" minValue="0" />
+			</elements>
+		</policy>
+		<policy name="Policy_Enable_disable_75" class="Machine" displayName="$(string.String_Policy_Enable_disable_76)" explainText="$(string.String_Explain_Determines_whether_77)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.enable_audio" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_7" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Configure_SSL_connections_78" class="Machine" displayName="$(string.String_Policy_Configure_SSL_connections_79)" explainText="$(string.String_Explain_Specifies_how_SSL_80)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_SSL_connections_78)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_9" />
+			<elements >
+				<text id="Policy_TextBox_Element_Configure_SSL_connections_81" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.cert_store_name" maxLength="255" />
+				<text id="Policy_TextBox_Element_Configure_SSL_connections_82" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.ca_cert_store_name" maxLength="255" />
+				<boolean id="Policy_CheckBox_Element_Configure_SSL_connections_83" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.ssl_disable_aes_128" >
+					<trueValue >
+						<decimal value="1" />
+					</trueValue>
+					<falseValue >
+						<decimal value="0" />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_84" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_85)" explainText="$(string.String_Explain_Controls_the_encryption_86)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_PCoIP_84)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_11" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Configure_PCoIP_87" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.enable_salsa20_256_round12" >
+					<trueValue >
+						<decimal value="0" />
+					</trueValue>
+					<falseValue >
+						<decimal value="1" />
+					</falseValue>
+				</boolean>
+				<boolean id="Policy_CheckBox_Element_Configure_PCoIP_88" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.enable_aes_128_gcm" >
+					<trueValue >
+						<decimal value="0" />
+					</trueValue>
+					<falseValue >
+						<decimal value="1" />
+					</falseValue>
+				</boolean>
+				<boolean id="Policy_CheckBox_Element_Configure_PCoIP_89" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.enable_aes_256_gcm" >
+					<trueValue >
+						<decimal value="0" />
+					</trueValue>
+					<falseValue >
+						<decimal value="1" />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_SSL_protocols_90" class="Machine" displayName="$(string.String_Policy_Configure_SSL_protocols_91)" explainText="$(string.String_Explain_Configures_openssl_92)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_SSL_protocols_90)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_13" />
+			<elements >
+				<text id="Policy_TextBox_Element_Configure_SSL_protocols_93" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.ssl_protocol" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_SSL_cipher_list_91" class="Machine" displayName="$(string.String_Policy_Configure_SSL_cipher_list_93)" explainText="$(string.String_Explain_Configures_SSL_cipher_list_94)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_SSL_cipher_list_91)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_14" />
+			<elements >
+				<text id="Policy_TextBox_Element_Configure_SSL_cipher_list_94" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.ssl_cipher_list" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_the_Client_94" class="Machine" displayName="$(string.String_Policy_Configure_the_Client_95)" explainText="$(string.String_Explain_Specifies_the_UDP_96)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_the_Client_94)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_15" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_the_Client_97" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.client_udpport" required="true" maxValue="65535" minValue="1025" />
+				<decimal id="Policy_Numeric_ElementConfigure_the_Client_98" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.client_udpport_range" required="true" maxValue="64511" minValue="0" />
+				<boolean id="Policy_CheckBox_Element_Configure_the_Client_99" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.client_use_os_udpport" >
+					<trueValue >
+						<decimal value="1" />
+					</trueValue>
+					<falseValue >
+						<decimal value="0" />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_100" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_101)" explainText="$(string.String_Explain_Specifies_the_virtual_102)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_PCoIP_100)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_17" />
+			<elements >
+				<enum id="Policy_DropList_Element_Configure_PCoIP_103" valueName="pcoip.enable_vchan" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" required="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_PCoIP_0_Disable_virtual_104)" >
+						<value >
+							<decimal value="0" />
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_PCoIP_2_Disable_all_105)" >
+						<value >
+							<decimal value="2" />
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_PCoIP_3_Enable_all_106)" >
+						<value >
+							<decimal value="3" />
+						</value>
+					</item>
+				</enum>
+				<text id="Policy_TextBox_Element_Configure_PCoIP_107" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.vchan_auth_list" maxLength="255" />
+				<text id="Policy_TextBox_Element_Configure_PCoIP_108" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.vchan_unauth_list" maxLength="255" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_109" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_110)" explainText="$(string.String_Explain_Controls_the_size_111)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_PCoIP_109)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_19" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_PCoIP_112" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.image_cache_size_mb" maxValue="1024" minValue="50" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_the_PCoIP_113" class="Machine" displayName="$(string.String_Policy_Configure_the_PCoIP_114)" explainText="$(string.String_Explain_Configures_the_115)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_the_PCoIP_113)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_21" />
+			<elements >
+				<enum id="Policy_DropList_Element_Configure_the_PCoIP_116" valueName="pcoip.transport_session_priority" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" >
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_the_PCoIP_High_Priority_117)" >
+						<value >
+							<decimal value="1" />
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_the_PCoIP_Medium_Priority_118)" >
+						<value >
+							<decimal value="2" />
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_the_PCoIP_Low_Priority_119)" >
+						<value >
+							<decimal value="3" />
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_the_PCoIP_Undefined_Priority_120)" >
+						<value >
+							<decimal value="4" />
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_121" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_122)" explainText="$(string.String_Explain_This_policy_enables_123)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_PCoIP_121)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_23" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_PCoIP_124" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.event_filter_mode" maxValue="3" minValue="0" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_125" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_126)" explainText="$(string.String_Explain_This_policy_enables_127)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_PCoIP_125)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_25" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_PCoIP_128" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.event_days_to_keep_log" maxValue="1000" minValue="0" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_129" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_130)" explainText="$(string.String_Explain_This_policy_enables_131)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" presentation="$(presentation.Policy_Configure_PCoIP_129)" >
+			<parentCategory ref="Cat_Overridable_Administrator_61" />
+			<supportedOn ref="SupportedOn_27" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_PCoIP_132" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin_defaults" valueName="pcoip.event_size_to_keep_log_mb" maxValue="1000" minValue="0" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_the_maximum_133" class="Machine" displayName="$(string.String_Policy_Configure_the_maximum_134)" explainText="$(string.String_Explain_Specifies_the_maximum_135)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_the_maximum_133)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_29" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_the_maximum_136" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.max_link_rate" required="true" maxValue="900000" minValue="104" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_the_PCoIP_137" class="Machine" displayName="$(string.String_Policy_Configure_the_PCoIP_138)" explainText="$(string.String_Explain_Specifies_the_Maximum_139)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_the_PCoIP_137)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_31" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_the_PCoIP_140" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.mtu_size" required="true" maxValue="1500" minValue="500" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_the_PCoIP_141" class="Machine" displayName="$(string.String_Policy_Configure_the_PCoIP_142)" explainText="$(string.String_Explain_Specifies_a_lower_143)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_the_PCoIP_141)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_33" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_the_PCoIP_144" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.device_bandwidth_floor" required="true" maxValue="100000" minValue="0" />
+			</elements>
+		</policy>
+		<policy name="Policy_Enable_disable_145" class="Machine" displayName="$(string.String_Policy_Enable_disable_146)" explainText="$(string.String_Explain_Determines_whether_147)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.enable_audio" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_35" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Configure_SSL_connections_148" class="Machine" displayName="$(string.String_Policy_Configure_SSL_connections_149)" explainText="$(string.String_Explain_Specifies_how_SSL_150)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_SSL_connections_148)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_37" />
+			<elements >
+				<text id="Policy_TextBox_Element_Configure_SSL_connections_151" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.cert_store_name" maxLength="255" />
+				<text id="Policy_TextBox_Element_Configure_SSL_connections_152" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.ca_cert_store_name" maxLength="255" />
+				<boolean id="Policy_CheckBox_Element_Configure_SSL_connections_153" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.ssl_disable_aes_128" >
+					<trueValue >
+						<decimal value="1" />
+					</trueValue>
+					<falseValue >
+						<decimal value="0" />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_154" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_155)" explainText="$(string.String_Explain_Controls_the_encryption_156)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_PCoIP_154)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_39" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Configure_PCoIP_157" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.enable_salsa20_256_round12" >
+					<trueValue >
+						<decimal value="0" />
+					</trueValue>
+					<falseValue >
+						<decimal value="1" />
+					</falseValue>
+				</boolean>
+				<boolean id="Policy_CheckBox_Element_Configure_PCoIP_158" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.enable_aes_128_gcm" >
+					<trueValue >
+						<decimal value="0" />
+					</trueValue>
+					<falseValue >
+						<decimal value="1" />
+					</falseValue>
+				</boolean>
+				<boolean id="Policy_CheckBox_Element_Configure_PCoIP_159" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.enable_aes_256_gcm" >
+					<trueValue >
+						<decimal value="0" />
+					</trueValue>
+					<falseValue >
+						<decimal value="1" />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_SSL_protocols_160" class="Machine" displayName="$(string.String_Policy_Configure_SSL_protocols_161)" explainText="$(string.String_Explain_Configures_openssl_162)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_SSL_protocols_160)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_41" />
+			<elements >
+				<text id="Policy_TextBox_Element_Configure_SSL_protocols_163" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.ssl_protocol" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_SSL_cipher_list_161" class="Machine" displayName="$(string.String_Policy_Configure_SSL_cipher_list_163)" explainText="$(string.String_Explain_Configures_SSL_cipher_list_164)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_SSL_cipher_list_161)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_42" />
+			<elements >
+				<text id="Policy_TextBox_Element_Configure_SSL_cipher_list_164" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.ssl_cipher_list" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_the_Client_164" class="Machine" displayName="$(string.String_Policy_Configure_the_Client_165)" explainText="$(string.String_Explain_Specifies_the_UDP_166)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_the_Client_164)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_43" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_the_Client_167" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.client_udpport" required="true" maxValue="65535" minValue="1025" />
+				<decimal id="Policy_Numeric_ElementConfigure_the_Client_168" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.client_udpport_range" required="true" maxValue="64511" minValue="0" />
+				<boolean id="Policy_CheckBox_Element_Configure_the_Client_169" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.client_use_os_udpport" >
+					<trueValue >
+						<decimal value="1" />
+					</trueValue>
+					<falseValue >
+						<decimal value="0" />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_170" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_171)" explainText="$(string.String_Explain_Specifies_the_virtual_172)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_PCoIP_170)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_45" />
+			<elements >
+				<enum id="Policy_DropList_Element_Configure_PCoIP_173" valueName="pcoip.enable_vchan" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" required="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_PCoIP_0_Disable_virtual_174)" >
+						<value >
+							<decimal value="0" />
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_PCoIP_2_Disable_all_175)" >
+						<value >
+							<decimal value="2" />
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_PCoIP_3_Enable_all_176)" >
+						<value >
+							<decimal value="3" />
+						</value>
+					</item>
+				</enum>
+				<text id="Policy_TextBox_Element_Configure_PCoIP_177" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.vchan_auth_list" maxLength="255" />
+				<text id="Policy_TextBox_Element_Configure_PCoIP_178" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.vchan_unauth_list" maxLength="255" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_179" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_180)" explainText="$(string.String_Explain_Controls_the_size_181)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_PCoIP_179)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_47" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_PCoIP_182" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.image_cache_size_mb" maxValue="1024" minValue="50" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_the_PCoIP_183" class="Machine" displayName="$(string.String_Policy_Configure_the_PCoIP_184)" explainText="$(string.String_Explain_Configures_the_185)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_the_PCoIP_183)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_49" />
+			<elements >
+				<enum id="Policy_DropList_Element_Configure_the_PCoIP_186" valueName="pcoip.transport_session_priority" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" required="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_the_PCoIP_High_Priority_187)" >
+						<value >
+							<decimal value="1" />
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_the_PCoIP_Medium_Priority_188)" >
+						<value >
+							<decimal value="2" />
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_the_PCoIP_Low_Priority_189)" >
+						<value >
+							<decimal value="3" />
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Configure_the_PCoIP_Undefined_Priority_190)" >
+						<value >
+							<decimal value="4" />
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_191" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_192)" explainText="$(string.String_Explain_This_policy_enables_193)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_PCoIP_191)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_51" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_PCoIP_194" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.event_filter_mode" maxValue="3" minValue="0" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_195" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_196)" explainText="$(string.String_Explain_This_policy_enables_197)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_PCoIP_195)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_53" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_PCoIP_198" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.event_days_to_keep_log" maxValue="1000" minValue="0" />
+			</elements>
+		</policy>
+		<policy name="Policy_Configure_PCoIP_199" class="Machine" displayName="$(string.String_Policy_Configure_PCoIP_200)" explainText="$(string.String_Explain_This_policy_enables_201)" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" presentation="$(presentation.Policy_Configure_PCoIP_199)" >
+			<parentCategory ref="Cat_Not_Overridable_59" />
+			<supportedOn ref="SupportedOn_55" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementConfigure_PCoIP_202" key="Software\Policies\Teradici\Client\PCoIP\pcoip_admin" valueName="pcoip.event_size_to_keep_log_mb" maxValue="1000" minValue="0" />
+			</elements>
+		</policy>
+	</policies>
+</policyDefinitions>
+

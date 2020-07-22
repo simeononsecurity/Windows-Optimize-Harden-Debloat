@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2007 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="snis" namespace="Microsoft.Policies.SNIS" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+    <using prefix="server" namespace="Microsoft.Policies.Server" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  
+  <categories>
+    <category name="Snis" displayName="$(string.Snis)">
+      <parentCategory ref="windows:WindowsComponents" />
+    </category>
+  </categories>
+  
+  <policies>
+    <policy name="Snis_LoggingLevel" class="Machine" displayName="$(string.Snis_LoggingLevel)" explainText="$(string.Snis_LoggingLevel_Help)" key="Software\Policies\Microsoft\Windows\Server for NIS" valueName="LoggingLevel">
+      <parentCategory ref="Snis" />
+      <supportedOn ref="server:SUPPORTED_WindowsServer2008" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="Snis_PushInterval" class="Machine" displayName="$(string.Snis_PushInterval)" explainText="$(string.Snis_PushInterval_Help)" presentation="$(presentation.Snis_PushInterval)" key="Software\Policies\Microsoft\Windows\Server for NIS" valueName="PushInterval_state">
+      <parentCategory ref="Snis" />
+      <supportedOn ref="server:SUPPORTED_WindowsServer2008" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <decimal id="Snis_PushInterval" valueName="PushInterval" required="true" minValue="1" maxValue="143999999" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

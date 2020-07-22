@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="DisplayLastLogonInfoDescription">Mostrar información acerca de inicios de sesión anteriores durante inicio de sesión de usuario</string>
+      <string id="DisplayLastLogonInfoDescription_Help">Esta configuración de directiva controla si el sistema muestra información al usuario acerca de inicios de sesión y errores de inicio de sesión anteriores.
+
+Para las cuentas de usuario locales y las cuentas de usuario de dominio en dominios de como mínimo un nivel funcional de Windows Server 2008, si habilita esta opción, aparecerá un mensaje después de que el usuario inicie una sesión que muestra la fecha y hora del último inicio de sesión correcto de dicho usuario, la fecha y hora del último intento de inicio de sesión incorrecto con ese nombre de usuario y el número de inicios de sesión incorrectos desde el último inicio de sesión correcto del usuario. El usuario debe leer este mensaje antes de que aparezca el escritorio de Microsoft Windows.
+
+Para las cuentas de usuario de dominio de dominios de nivel funcional de Windows Server 2003, Windows 2000 nativo o Windows 2000 mixto, si habilita esta opción, aparecerá un mensaje de advertencia donde se indique que Windows no pudo recuperar la información y el usuario no podrá iniciar sesión. Por lo tanto, no debe habilitar esta configuración de directiva si el dominio no se encuentra en el nivel funcional de dominio de Windows Server 2008.
+
+Si deshabilita o no establece esta configuración, no se mostrarán mensajes acerca del inicio de sesión o de los errores de inicio de sesión anteriores.</string>
+      <string id="Logon">Opciones de inicio de sesión de Windows</string>
+      <string id="LogonHoursAction_Disconnect">Desconectar</string>
+      <string id="LogonHoursAction_Lock">Bloquear</string>
+      <string id="LogonHoursAction_Logoff">Cerrar sesión</string>
+      <string id="LogonHoursNotificationPolicyDescription">Quitar advertencias de expiración de horas de inicio de sesión</string>
+      <string id="LogonHoursNotificationPolicyDescription_Help">Esta directiva controla si se debe notificar al usuario que ha iniciado la sesión cuando las horas de inicio de sesión estén a punto de expirar. De manera predeterminada, se notifica al usuario antes de que las horas de inicio de sesión expiren, si se han establecido acciones para el momento de expiración.
+
+Si habilita esta opción, no se mostrarán advertencias al usuario antes de que las horas de inicio de sesión expiren.
+
+Si deshabilita o no configura esta opción, el usuario recibirá advertencias antes de que las horas de inicio de sesión expiren, si se han establecido acciones para el momento de expiración.
+
+Nota: si configura esta opción, es recomendable que examine y configure correctamente la opción “Establecer acción para el momento de expiración de las horas de inicio de sesión”. Si deshabilita o no configura “Establecer acción para el momento de expiración de las horas de inicio de sesión”, la opción “Quitar advertencias de expiración de horas de inicio de sesión” no surtirá efecto y los usuarios no recibirán ninguna advertencia acerca de la expiración de las horas de inicio de sesión.</string>
+      <string id="LogonHoursPolicyDescription">Establecer acción para el momento de expiración de las horas de inicio de sesión</string>
+      <string id="LogonHoursPolicyDescription_Help">Esta directiva controla la acción que se realizará cuando expiren las horas de inicio de sesión del usuario actual. Las acciones pueden ser bloquear la estación de trabajo, desconectar al usuario o cerrar la sesión completamente.
+
+Si decide bloquear o desconectar una sesión, el usuario no puede desbloquear la sesión ni volverse a conectar excepto durante las horas de inicio de sesión permitidas.
+
+Si decide cerrar la sesión de un usuario, el usuario no puede volver a iniciarla excepto durante las horas de inicio de sesión permitidas. Si decide cerrar la sesión de un usuario, éste puede perder los datos no guardados.
+
+Si habilita esta opción, el sistema realizará la acción que especifique cuando las horas de inicio de sesión del usuario expiren.
+
+Si deshabilita o no configura esta opción, el sistema no realizará ninguna acción cuando las horas de inicio de sesión del usuario expiren. El usuario puede continuar con la sesión existente, pero no puede iniciar una nueva.
+
+Nota: si configura esta opción, es recomendable que examine y configure correctamente el valor “Quitar advertencias de expiración de horas de inicio de sesión”.</string>
+      <string id="ReportCachedLogonPolicyDescription">Informar cuando el servidor de inicio de sesión no está disponible durante el inicio de sesión del usuario</string>
+      <string id="ReportCachedLogonPolicyDescription_Help">Esta directiva controla si el usuario que ha iniciado la sesión debe recibir una notificación cuando no se pueda establecer contacto con el servidor de inicio de sesión durante el inicio de sesión y se haya iniciado la sesión con información de cuenta guardada anteriormente.
+
+Si se habilita, se mostrará al usuario una notificación emergente cuando se inicie una sesión con credenciales en la memoria caché.
+
+Si se deshabilita o no se configura, no se mostrará ninguna notificación al usuario.</string>
+
+      <string id="SoftwareSASGenerationDescription">Deshabilitar o habilitar la secuencia de aviso de seguridad de software</string>
+      <string id="SoftwareSASGenerationDescription_Help">Esta configuración de directiva controla si el software puede simular o no la secuencia de aviso de seguridad (SAS).
+
+Si habilita esta configuración de directiva, tiene una de estas cuatro opciones:
+
+Si establece esta configuración de directiva en "Ninguno", el software de modo de usuario no podrá simular el SAS.
+Si establece esta configuración de directiva en "Servicios", los servicios podrá simular el SAS.
+Si establece esta configuración de directiva en "Aplicaciones de accesibilidad", las aplicaciones de accesibilidad podrá simular el SAS.
+Si establece esta configuración de directiva en "Servicios y aplicaciones de accesibilidad ", tanto los servicios como las aplicaciones de accesibilidad podrá simular el SAS.
+
+Si deshabilita o no configura esta opción, solo las aplicaciones de accesibilidad que se ejecuten en el escritorio seguro podrán simular el SAS.</string>
+
+      <string id="SoftwareSASGeneration_None">Ninguno</string>
+      <string id="SoftwareSASGeneration_SYSTEM">Servicios</string>
+      <string id="SoftwareSASGeneration_UIAccess">Aplicaciones de accesibilidad</string>
+      <string id="SoftwareSASGeneration_Both">Servicios y aplicaciones de accesibilidad</string>
+
+      <string id="CustomShellPolicyDescription">Interfaz de usuario personalizada</string>
+      <string id="CustomShellPolicyDescription_Help">Especifica una interfaz de usuario alternativa.
+
+El programa del Explorador (%windir%\explorer.exe) crea la interfaz de Windows familiar, pero puede usar esta opción para especificar una interfaz alternativa. Si habilita esta opción, el sistema iniciará la interfaz que especifique en lugar de Explorer.exe.
+
+Para usar esta opción, copie su programa de interfaz en un recurso compartido de red o en la unidad del sistema. A continuación, habilite esta opción y escriba el nombre del programa de interfaz (incluida la extensión de archivo) en el cuadro de texto de Nombre del shell. Si el archivo del programa de interfaz no se encuentra en una carpeta especificada en la variable de entorno Path del sistema, escriba la ruta completa al archivo.
+
+Si deshabilita o no configura esta opción, se ignorará la opción y el sistema mostrará la interfaz del Explorador.
+
+Sugerencia: para buscar las carpetas que se indican en la variable de entorno Path, haga clic en Propiedades del sistema en el Panel de control, haga clic en la ficha Opciones avanzadas, haga clic en el botón Variables de entorno y, a continuación, en el cuadro Variables del sistema, haga clic en Path.</string>
+
+      <string id="AutomaticRestartSignOnDescription">Iniciar sesión y bloquear el último usuario interactivo automáticamente después de un reinicio</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Esta configuración de directiva controla si un dispositivo iniciará sesión y bloqueará el último usuario interactivo automáticamente después de que se reinicie el sistema o después de un apagado y arranque en frío.
+
+Esto solo ocurre si el último usuario interactivo no cerró la sesión antes del reinicio o el apagado.  
+
+Si el dispositivo está unido a Active Directory o Azure Active Directory, esta directiva solo se aplica a los reinicios de Windows Update. De lo contrario, se aplica tanto a los reinicios de Windows Update como a los reinicios y los apagados generados por el usuario.  
+
+Si no estableces esta configuración de directiva, se habilitará de forma predeterminada. Cuando la directiva está habilitada, el usuario inicia sesión automáticamente y la sesión se bloquea de forma automática con todas las aplicaciones de pantalla de bloqueo configuradas para dicho usuario tras el inicio del dispositivo.  
+
+Después de habilitar esta directiva, puedes establecer su configuración mediante la directiva ConfigAutomaticRestartSignOn, que configura el modo de iniciar sesión y bloquear el último usuario interactivo automáticamente luego de un reinicio o un arranque en frío.  
+
+Si deshabilitas esta configuración de directiva, el dispositivo no configura el inicio de sesión automático. Las aplicaciones de la pantalla de bloqueo del usuario no se reiniciarán tras el reinicio del sistema.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Configurar el modo de iniciar sesión y bloquear el último usuario interactivo automáticamente tras un reinicio o un arranque en frío</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Esta configuración de directiva controla la configuración que establece el reinicio automático con el posterior inicio de sesión y bloqueo tras un reinicio o un arranque en frío. Si eliges "Deshabilitado" en la directiva "Iniciar sesión y bloquear el último usuario interactivo automáticamente después de un reinicio", no se llevará a cabo el inicio de sesión automático y no es necesario configurar esta directiva.
+
+Si habilitas esta configuración de directiva, puedes elegir una de las dos opciones siguientes:
+
+1. "Habilitado si BitLocker está activado y no suspendido" especifica que el inicio de sesión y el bloqueo automáticos solo se producirán si BitLocker está activo y no suspendido durante el reinicio o el apagado. Se puede acceder a los datos personales en el disco duro del dispositivo en este momento si BitLocker no está activado o suspendido durante una actualización. La suspensión de BitLocker quita temporalmente la protección de componentes y datos del sistema, pero puede ser necesaria en ciertas circunstancias para actualizar correctamente los componentes críticos para el arranque.
+     BitLocker se suspende durante las actualizaciones si:
+        - El dispositivo no tiene el TPM 2.0 y PCR7 o
+        - El dispositivo no usa un protector solo de TPM
+2. "Habilitado siempre" especifica que el inicio de sesión automático se producirá aunque BitLocker esté desactivado o suspendido durante el reinicio o el apagado. Cuando BitLocker no está habilitado, se puede acceder a los datos personales en la unidad de disco duro. El reinicio y el inicio de sesión automáticos solo se deben ejecutar con esta condición si estás seguro de que el dispositivo configurado se encuentra en una ubicación física segura.
+
+Si deshabilitas o no estableces esta configuración, el inicio de sesión automático se establecerá de forma predeterminada en el comportamiento "Habilitado si BitLocker está activado y no suspendido".</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Habilitado si BitLocker está activado y no suspendido</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Siempre habilitado</string>
+
+    </stringTable>
+    <presentationTable>
+      <presentation id="LogonHoursPolicyDescription">
+        <dropdownList refId="LogonHoursPolicyDescription" noSort="true">Establecer acción para el momento de expiración de las horas de inicio de sesión</dropdownList>
+      </presentation>
+      <presentation id="SoftwareSASGenerationDescription">
+        <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Establecer el software que tiene permiso para generar la secuencia de aviso de seguridad</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Configurar el modo de iniciar sesión y bloquear el último usuario interactivo automáticamente tras un reinicio o un arranque en frío</dropdownList>
+      </presentation>
+      <presentation id="CustomShell">
+        <textBox refId="CustomShellInst">
+          <label>Nombre del archivo de interfaz (por ejemplo, Explorer.exe)</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

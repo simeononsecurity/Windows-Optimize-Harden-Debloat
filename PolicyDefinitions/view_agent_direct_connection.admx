@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+
+   <policyNamespaces>
+      <target prefix="view_agent_direct_connection" namespace="VMware.Policies.view_agent_direct_connection" />
+      <using prefix="vdm_agent_base" namespace="VMware.Policies.vdm_agent_base" />
+   </policyNamespaces>
+   <supersededAdm fileName="view_agent_direct_connection.adm" />
+   <resources minRequiredRevision="1.0" fallbackCulture="en-us" />
+
+   <categories>
+
+      <category name="Agent_Direct_Connect_Config" displayName="$(string.Agent_Direct_Connect_Config)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+   </categories>
+
+   <policies>
+
+      <policy
+         name="HTTPS_Port" class="Machine" displayName="$(string.HTTPS_Port)" explainText="$(string.HTTPS_Port_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.HTTPS_Port)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="HTTPS_Port_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="httpsPortNumber" required="true" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Session_Timeout" class="Machine" displayName="$(string.Session_Timeout)" explainText="$(string.Session_Timeout_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.Session_Timeout)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Session_Timeout_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="sessionTimeout" required="true" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Disclaimer_Enabled" class="Machine" displayName="$(string.Disclaimer_Enabled)" explainText="$(string.Disclaimer_Enabled_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="disclaimerEnabled">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+              <enabledValue>
+                 <string>true</string>
+              </enabledValue>
+              <disabledValue>
+                 <string>false</string>
+              </disabledValue>
+      </policy>
+
+      <policy
+         name="Disclaimer_Text" class="Machine" displayName="$(string.Disclaimer_Text)" explainText="$(string.Disclaimer_Text_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.Disclaimer_Text)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Disclaimer_Text_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="disclaimerText" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Applications_Enabled" class="Machine" displayName="$(string.Applications_Enabled)" explainText="$(string.Applications_Enabled_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="appsEnabled">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+              <enabledValue>
+                 <string>true</string>
+              </enabledValue>
+              <disabledValue>
+                 <string>false</string>
+              </disabledValue>
+      </policy>
+
+      <policy
+         name="Client_autoconnect_setting" class="Machine" displayName="$(string.Client_autoconnect_setting)" explainText="$(string.Client_autoconnect_setting_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="autoConnect">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+              <enabledValue>
+                 <string>true</string>
+              </enabledValue>
+              <disabledValue>
+                 <string>false</string>
+              </disabledValue>
+      </policy>
+
+      <policy
+         name="Client_alwaysconnect_setting" class="Machine" displayName="$(string.Client_alwaysconnect_setting)" explainText="$(string.Client_alwaysconnect_setting_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="alwaysConnect">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+              <enabledValue>
+                 <string>true</string>
+              </enabledValue>
+              <disabledValue>
+                 <string>false</string>
+              </disabledValue>
+      </policy>
+
+      <policy
+         name="Client_screensize_setting" class="Machine" displayName="$(string.Client_screensize_setting)" explainText="$(string.Client_screensize_setting_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.Client_screensize_setting)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Client_screensize_setting_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="screenSize" />
+               </elements>
+      </policy>
+
+      <policy
+         name="External_PCoIP_port" class="Machine" displayName="$(string.External_PCoIP_port)" explainText="$(string.External_PCoIP_port_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.External_PCoIP_port)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="External_PCoIP_port_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="externalPCoIPPort" />
+               </elements>
+      </policy>
+
+      <policy
+         name="External_RDP_Port" class="Machine" displayName="$(string.External_RDP_Port)" explainText="$(string.External_RDP_Port_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.External_RDP_Port)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="External_RDP_Port_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="externalRDPPort" />
+               </elements>
+      </policy>
+
+      <policy
+         name="External_Blast_port" class="Machine" displayName="$(string.External_Blast_port)" explainText="$(string.External_Blast_port_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.External_Blast_port)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="External_Blast_port_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="externalBlastPort" />
+               </elements>
+      </policy>
+
+      <policy
+         name="External_IP" class="Machine" displayName="$(string.External_IP)" explainText="$(string.External_IP_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.External_IP)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="External_IP_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="externalIPAddress" />
+               </elements>
+      </policy>
+
+      <policy
+         name="External_Framework_Channel_port" class="Machine" displayName="$(string.External_Framework_Channel_port)" explainText="$(string.External_Framework_Channel_port_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.External_Framework_Channel_port)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="External_Framework_Channel_port_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="externalFrameworkChannelPort" />
+               </elements>
+      </policy>
+
+      <policy
+         name="USB_Enabled" class="Machine" displayName="$(string.USB_Enabled)" explainText="$(string.USB_Enabled_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="usbEnabled">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+              <enabledValue>
+                 <string>true</string>
+              </enabledValue>
+              <disabledValue>
+                 <string>false</string>
+              </disabledValue>
+      </policy>
+
+      <policy
+         name="MMR_Enabled" class="Machine" displayName="$(string.MMR_Enabled)" explainText="$(string.MMR_Enabled_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="mmrEnabled">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+              <enabledValue>
+                 <string>true</string>
+              </enabledValue>
+              <disabledValue>
+                 <string>false</string>
+              </disabledValue>
+      </policy>
+
+      <policy
+         name="Reset_Enabled" class="Machine" displayName="$(string.Reset_Enabled)" explainText="$(string.Reset_Enabled_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="resetEnabled">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+              <enabledValue>
+                 <string>true</string>
+              </enabledValue>
+              <disabledValue>
+                 <string>false</string>
+              </disabledValue>
+      </policy>
+
+      <policy
+         name="USB_AutoConnect" class="Machine" displayName="$(string.USB_AutoConnect)" explainText="$(string.USB_AutoConnect_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="usbAutoConnect">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+              <enabledValue>
+                 <string>true</string>
+              </enabledValue>
+              <disabledValue>
+                 <string>false</string>
+              </disabledValue>
+      </policy>
+
+      <policy
+         name="Client_Cred_Cache_Timeout" class="Machine" displayName="$(string.Client_Cred_Cache_Timeout)" explainText="$(string.Client_Cred_Cache_Timeout_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.Client_Cred_Cache_Timeout)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Client_Cred_Cache_Timeout_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="clientCredentialCacheTimeout" required="true" />
+               </elements>
+      </policy>
+
+      <policy
+         name="User_Idle_Timeout" class="Machine" displayName="$(string.User_Idle_Timeout)" explainText="$(string.User_Idle_Timeout_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.User_Idle_Timeout)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="User_Idle_Timeout_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="userIdleTimeout" required="true" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Client_Session_Timeout" class="Machine" displayName="$(string.Client_Session_Timeout)" explainText="$(string.Client_Session_Timeout_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.Client_Session_Timeout)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Client_Session_Timeout_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="clientSessionTimeout" required="true" />
+               </elements>
+      </policy>
+
+      <policy
+         name="X509_Cert_Auth" class="Machine" displayName="$(string.X509_Cert_Auth)" explainText="$(string.X509_Cert_Auth_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.X509_Cert_Auth)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="X509_Cert_Auth_DDL" valueName="x509CertAuth" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI">
+                     <item displayName="$(string.Disabled)">
+                        <value>
+                           <string>0</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Allowed)">
+                        <value>
+                           <string>1</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Required)">
+                        <value>
+                           <string>2</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="X509_SSL_Cert_Auth_Enabled" class="Machine" displayName="$(string.X509_SSL_Cert_Auth_Enabled)" explainText="$(string.X509_SSL_Cert_Auth_Enabled_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="x509SSLCertAuth">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+              <enabledValue>
+                 <string>true</string>
+              </enabledValue>
+              <disabledValue>
+                 <string>false</string>
+              </disabledValue>
+      </policy>
+
+      <policy
+         name="Client_Config_NVP" class="Machine" displayName="$(string.Client_Config_NVP)" explainText="$(string.Client_Config_NVP_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI\ClientConfig" presentation="$(presentation.Client_Config_NVP)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <list id="Client_Config_NVP_list" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI\ClientConfig" valuePrefix="Name=Value" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Default_Protocol" class="Machine" displayName="$(string.Default_Protocol)" explainText="$(string.Default_Protocol_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" presentation="$(presentation.Default_Protocol)">
+            <parentCategory ref="Agent_Direct_Connect_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Default_Protocol_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\XMLAPI" valueName="defaultProtocol" required="true" />
+               </elements>
+      </policy>
+   </policies>
+</policyDefinitions>

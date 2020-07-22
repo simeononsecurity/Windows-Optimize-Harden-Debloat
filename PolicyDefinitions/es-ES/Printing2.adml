@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
+  <displayName>Imprimir directivas de grupo</displayName>
+  <description>Imprimir directivas de grupo válidas en todos los tipos de Windows salvo ARM</description>
+  <resources>
+    <stringTable>
+      <string id="RegisterSpoolerRemoteRpcEndPoint">Permitir que el administrador de trabajos de impresión acepte conexiones cliente</string>
+      <string id="RegisterSpoolerRemoteRpcEndPoint_Help">Esta directiva controla si el administrador de trabajos de impresión acepta conexiones de cliente.
+
+Cuando la directiva no está configurada o está habilitada, el administrador de trabajos de impresión siempre acepta conexiones de cliente.
+
+Cuando la directiva está deshabilitada, el administrador no acepta conexiones de cliente y no permite a los usuarios que compartan impresoras.  Todas las impresoras compartidas actualmente seguirán estándolo.
+
+Para que los cambios de esta directiva se hagan efectivos, debe reiniciarse el administrador de trabajos de impresión.</string>
+      <string id="AutoPublishing">Publicar automáticamente impresoras nuevas en Active Directory</string>
+      <string id="AutoPublishing_Help">Determina si el Asistente para agregar impresoras publica automáticamente las impresoras compartidas del equipo en Active Directory.
+
+      Si habilita esta opción o no la configura, el Asistente para agregar impresoras publica automáticamente todas las impresoras compartidas.
+
+      Si deshabilita esta opción, el Asistente para agregar impresoras no publica automáticamente las impresoras. Sin embargo, puede publicar manualmente impresoras compartidas.
+
+      El comportamiento predeterminado es publicar automáticamente las impresoras compartidas en Active Directory.
+
+      Nota: esta configuración se omite si la opción "Permitir que se publiquen impresoras" está deshabilitada.</string>
+      <string id="PruneDownlevel">Eliminar aquellas impresoras que no se vuelven a publicar automáticamente</string>
+      <string id="PruneDownlevel_Found">Solo si se encuentra el servidor de impresión</string>
+      <string id="PruneDownlevel_Help">Determina si el servicio de eliminación del controlador de dominio elimina objetos de impresoras que no se vuelven a publicar automáticamente siempre que el equipo host no responde, al igual que con las impresoras de Windows 2000. Esta configuración se aplica a impresoras que se ejecutan en sistemas operativos distintos de Windows 2000, así como a impresoras de Windows 2000 que se publican fuera de su bosque.
+
+            El servicio de eliminación de Windows elimina los objetos de impresora de Active Directory cuando el equipo que las publicó no responde a las peticiones de contacto. Los equipos que ejecutan Windows 2000 Professional detectan y vuelven a publicar objetos de impresora eliminados al unirse de nuevo a la red. Sin embargo, como los equipos distintos de Windows 2000 y los equipos de otros dominios no pueden volver a publicar impresoras automáticamente en Active Directory, el sistema, de forma predeterminada, no elimina nunca los objetos de impresora.
+
+            Puede habilitar esta opción para cambiar el comportamiento predeterminado. Para usar esta configuración, seleccione una de las siguientes opciones del cuadro "Eliminar impresoras que no se pueden volver a publicar":
+
+--  "Nunca" especifica que no se eliminen nunca los objetos de impresora que no se vuelven a publicar automáticamente. "Nunca" es la opción predeterminada.
+
+            --  "Solo si se encuentra el servidor de impresión" solo elimina los objetos de impresora que no se vuelven a publicar automáticamente cuando el servidor de impresión responde, pero la impresora no está disponible.
+
+            --  "Siempre que no se encuentre una impresora" elimina los objetos de impresora que no se vuelven a publicar automáticamente cuando el equipo host no responde, al igual que con las impresoras de Windows 2000.
+
+            Nota: esta opción se aplica a impresoras publicadas con Usuarios y equipos de Active Directory o Pubprn.vbs. No se aplica a las impresoras publicadas con el elemento Impresoras del Panel de control.
+
+            Sugerencia: si deshabilita la eliminación automática, recuerde que debe eliminar los objetos de impresora manualmente siempre que quite una impresora o un servidor de impresora.</string>
+      <string id="PruneDownlevel_Never">Nunca</string>
+      <string id="PruneDownlevel_NotFound">Siempre que no se encuentre una impresora</string>
+      <string id="Pruning10Minutes">10 minutos</string>
+      <string id="Pruning12Hours">12 horas</string>
+      <string id="Pruning1Day">1 día</string>
+      <string id="Pruning1Hour">1 hora</string>
+      <string id="Pruning1Week">1 semana</string>
+      <string id="Pruning2Days">2 días</string>
+      <string id="Pruning2Weeks">2 semanas</string>
+      <string id="Pruning30Minutes">30 minutos</string>
+      <string id="Pruning3Days">3 días</string>
+      <string id="Pruning3Weeks">3 semanas</string>
+      <string id="Pruning4Days">4 días</string>
+      <string id="Pruning4Hours">4 horas</string>
+      <string id="Pruning4Weeks">4 semanas</string>
+      <string id="Pruning5Days">5 días</string>
+      <string id="Pruning5Weeks">5 semanas</string>
+      <string id="Pruning6Days">6 días</string>
+      <string id="Pruning6Weeks">6 semanas</string>
+      <string id="Pruning7Weeks">7 semanas</string>
+      <string id="Pruning8Hours">8 horas</string>
+      <string id="PruningImmediately">Continuo</string>
+      <string id="PruningInterval">Intervalo de eliminación de directorios</string>
+      <string id="PruningInterval_Help">Especifica con qué frecuencia se pone en contacto el servicio de eliminación del controlador del dominio con los equipos para comprobar que las impresoras están funcionando.
+
+            El servicio de eliminación se pone periódicamente en contacto con los equipos que han publicado impresoras. Si un equipo no responde al mensaje de contacto (puede intentarlo varias veces), el servicio de eliminación elimina (de Active Directory) los objetos de impresora que el equipo ha publicado.
+
+            De manera predeterminada, el servicio de eliminación se pone en contacto con los equipos cada ocho horas y permite otros dos intentos para establecer contacto antes de eliminar las impresoras de Active Directory.
+
+            Si habilita esta opción, puede cambiar el intervalo entre intentos de contacto.
+
+            Si no la configura o la deshabilita, se usarán los valores predeterminados.
+
+            Nota: esta opción se usa solo en controladores de dominio.</string>
+      <string id="PruningNever">Infinito</string>
+      <string id="ThreadAboveNormal">Por encima de lo normal</string>
+      <string id="ThreadBelowNormal">Por debajo de lo normal</string>
+      <string id="ThreadHighest">Máxima</string>
+      <string id="ThreadLowest">Mínimo</string>
+      <string id="ThreadNormal">Normal</string>
+      <string id="PruningPriority">Prioridad de eliminación de directorios</string>
+      <string id="PruningPriority_Help">Establece la prioridad del subproceso de eliminación.
+
+            El subproceso de eliminación, que solo se ejecuta en los controladores de dominio, elimina los objetos de impresora de Active Directory si la impresora que publicó el objeto no responde a los intentos de contacto. Este proceso mantiene actualizada la información de Active Directory.
+
+            La prioridad de subprocesos influye en el orden en que el subproceso recibe la hora del procesador y determina la posibilidad de que lo adelanten otros subprocesos de prioridad mayor.
+
+            De manera predeterminada, el subproceso de eliminación se ejecuta con una prioridad normal. Sin embargo, puede ajustar la prioridad para mejorar el rendimiento de este servicio.
+
+            Nota: esta opción se usa solo en controladores de dominio.</string>
+      <string id="PruningRetries">Reintento de eliminación de directorios</string>
+      <string id="PruningRetries_Help">Especifica cuántas veces el servicio de eliminación del controlador de un dominio repite los intentos de ponerse contacto con un equipo antes de eliminar sus impresoras.
+
+            El servicio de eliminación se pone en contacto periódicamente con los equipos que han publicado impresoras para comprobar si todavía es posible usarlas. Si un equipo no responde al mensaje de contacto, éste se repetirá cuantas veces se haya especificado. Si el equipo no responde, el servicio de eliminación quita (de Active Directory) los objetos de impresora que el equipo ha publicado.
+
+            De forma predeterminada, el servicio de eliminación se pone en contacto con los equipos cada ocho horas y permite volver a intentarlo dos veces antes de proceder a la eliminación de los objetos de impresora de Active Directory. Puede usar esta opción para cambiar el número de reintentos.
+
+            Si habilita esta opción, puede cambiar el intervalo entre intentos.
+
+            Si no la configura o la deshabilita, se usan los valores predeterminados.
+
+            Nota: esta opción se usa solo en controladores de dominio.</string>
+      <string id="PruningRetries0">No reintentar</string>
+      <string id="PruningRetries1">1 reintento</string>
+      <string id="PruningRetries2">2 reintentos</string>
+      <string id="PruningRetries3">3 reintentos</string>
+      <string id="PruningRetries4">4 reintentos</string>
+      <string id="PruningRetries5">5 reintentos</string>
+      <string id="PruningRetries6">6 reintentos</string>
+      <string id="PruningRetryLog">Registrar eventos de reintento de eliminación de directorios</string>
+      <string id="PruningRetryLog_Help">Especifica si se van a registrar o no los eventos cuando el servicio de eliminación en un controlador de dominio intenta ponerse en contacto con un equipo antes de eliminar sus impresoras.
+
+          El servicio de eliminación se pone en contacto periódicamente con los equipos que han publicado impresoras para comprobar si todavía es posible usarlas. Si un equipo no responde al intento de contacto, se vuelve a intentar una cantidad de veces según el intervalo especificado. La configuración "Reintento de eliminación de directorios" determina la cantidad de veces que se produce el reintento; el valor predeterminado es de dos reintentos. La configuración "Intervalo de eliminación de directorios" determina el intervalo de horas entre reintentos; el valor predeterminado es de cada 8 horas. Si el equipo no ha respondido tras el último intento de contacto, sus impresoras se eliminan del directorio.
+
+          Si habilita esta configuración de directiva, los eventos de contacto se registran en el registro de eventos.
+
+          Si deshabilita o no establece esta configuración de directiva, los eventos de contacto no se registran en el registro de eventos.
+
+          Nota: esta opción no afecta al registro de eventos de eliminación; siempre se registra la eliminación real de una impresora.
+
+          Nota: esta opción se usa solo en controladores de dominio.</string>
+      <string id="PublishPrinters">Permitir que se publiquen impresoras</string>
+      <string id="PublishPrinters_Help">Determina si las impresoras compartidas del equipo pueden publicarse en Active Directory.
+
+            Si habilita esta opción o no la configura, los usuarios pueden usar la opción "Mostrar en directorio" de la ficha Compartir en Propiedades de impresora para publicar las impresoras compartidas en Active Directory.
+
+            Si deshabilita esta opción, las impresoras compartidas de este equipo no pueden publicarse en Active Directory y la opción "Mostrar en directorio" no está disponible.
+
+            Nota: esta opción tiene prioridad respecto a "Publicar automáticamente nuevas impresoras en Active Directory".</string>
+      <string id="VerifyPublishedState">Comprobar el estado publicado</string>
+      <string id="VerifyPublishedState_Help">Hace que el sistema compruebe periódicamente que las impresoras publicadas por este sistema siguen apareciendo en Active Directory.  Esta configuración también especifica la frecuencia con que el sistema repite la comprobación.
+
+            De forma predeterminada el sistema solo comprueba las impresoras publicadas al iniciarse. Esta configuración permite llevar a cabo una comprobación periódica mientras el sistema está activo.
+
+            Para habilitar esta comprobación adicional, active esta configuración y seleccione un intervalo de comprobación.
+
+            Para deshabilitar la comprobación, deshabilite esta configuración, o habilite esta configuración y seleccione "Nunca" para el intervalo de comprobación.</string>
+      <string id="VerifyPublishedState12Hours">12 horas</string>
+      <string id="VerifyPublishedState1Day">1 día</string>
+      <string id="VerifyPublishedState1Hour">1 hora</string>
+      <string id="VerifyPublishedState30Minutes">30 minutos</string>
+      <string id="VerifyPublishedState4Hours">4 horas</string>
+      <string id="VerifyPublishedState8Hours">8 horas</string>
+      <string id="VerifyPublishedStateNever">Nunca</string>
+      <string id="ImmortalPrintQueue">Permitir la eliminación de impresoras publicadas</string>
+      <string id="ImmortalPrintQueue_Help">Determina si el controlador de dominio puede eliminar (quitar de Active Directory) las impresoras que publica este equipo.
+
+            De manera predeterminada, el servicio de eliminación del controlador de dominio elimina objetos de impresoras de Active Directory si el equipo que las ha publicado no responde a las peticiones de contacto. Cuando el equipo que ha publicado las impresoras vuelve a iniciarse, se publicará de nuevo cualquier objeto de impresora eliminado.
+
+            Si habilita esta opción o no la configura, el controlador de dominio elimina las impresoras de este equipo cuando dicho equipo no responde.
+
+            Si deshabilita esta opción, el controlador de dominio no elimina las impresoras de este equipo. Esta opción se ha creado para impedir que las impresoras se eliminen cuando el equipo se desconecte temporalmente de la red.
+
+            Nota: puede usar las opciones "Intervalo de eliminación de directorios" y "Reintento de eliminación de directorios" para ajustar el intervalo de contactos y el número de intentos de contacto.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="PruneDownlevel">
+        <text>Seleccione el método que se va a seguir para eliminar las impresoras que no vuelven a publicarse.</text>
+        <dropdownList defaultItem="0" noSort="true" refId="PruneDownlevelTitle">Eliminar impresoras que no se pueden volver a publicar:</dropdownList>
+      </presentation>
+      <presentation id="PruningInterval">
+        <text>El intervalo de eliminación determina el período de tiempo que el eliminador</text>
+        <text>se suspende entre las búsquedas de colas de impresión abandonadas.</text>
+        <dropdownList defaultItem="5" noSort="true" refId="PruningIntervalTitle">Intervalo:</dropdownList>
+      </presentation>
+      <presentation id="PruningPriority">
+        <text>Use esta opción para cambiar la prioridad del subproceso de eliminación.</text>
+        <dropdownList defaultItem="2" noSort="true" refId="PriorityLevel">Nivel de prioridad:</dropdownList>
+      </presentation>
+      <presentation id="PruningRetries">
+        <dropdownList defaultItem="2" noSort="true" refId="PruningRetriesTitle">Reintentos:</dropdownList>
+      </presentation>
+      <presentation id="VerifyPublishedState">
+        <text>Compruebe que todas las impresoras publicadas estén en Active Directory.</text>
+        <dropdownList defaultItem="6" noSort="true" refId="VerifyPublishedStateTitle">Intervalo de comprobación del estado publicado:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

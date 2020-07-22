@@ -1,0 +1,1075 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <displayName>Configuración de directiva de Microsoft User Experience Virtualization</displayName>
+  <description>Configuración de directiva de grupos de Microsoft User Experience Virtualization</description>
+  <resources>
+    <stringTable>
+      <string id="supported_Windows7">Windows 7 o Windows Server 2008 R2 como mínimo</string>
+      <string id="UEV">Virtualización de la experiencia del usuario de Microsoft</string>
+      <string id="UEVHELP">Configuración de directiva de grupo de Microsoft User Experience Virtualization</string>
+      <string id="Applications">Aplicaciones</string>
+      <string id="ApplicationsHELP">Configuración de directiva de grupo de Microsoft User Experience Virtualization</string>
+      <string id="Windows8Apps">Aplicaciones de Windows</string>
+      <string id="RepositoryTimeout">Se agotó el tiempo de espera de sincronización</string>
+      <string id="RepositoryTimeout_Help">Este valor de configuración de directiva permite establecer el número de milisegundos que el equipo debe esperar al recuperar la configuración de usuario de la ubicación de almacenamiento de configuración. 
+Puede usarlo para reemplazar el valor predeterminado de 2000 milisegundos. 
+Si habilita este valor de configuración de directiva, establezca el número de milisegundos que el sistema debe esperar antes de recuperar la configuración. 
+Si deshabilita o no configura este valor de configuración de directiva, se usará el valor predeterminado de 2000 milisegundos.
+      </string>
+      <string id="SettingsStoragePath">Ruta de acceso de almacenamiento de configuración</string>
+      <string id="SettingsStoragePath_Help">Este valor de configuración de directiva permite configurar la ubicación de almacenamiento de los archivos de paquete de configuración. 
+Si habilita este valor de configuración de directiva, la configuración de usuario se almacenará en la ubicación especificada. 
+Si deshabilita o no configura este valor de configuración de directiva, la configuración de usuario se almacenará en el directorio principal del usuario, si está configurado para el entorno. 
+      </string>
+      <string id="MaxPackageSizeInBytes">Umbral de advertencia de tamaño de paquete de configuración</string>
+      <string id="MaxPackageSizeInBytes_Help">Este valor de configuración de directiva permite configurar UE-V Agent para que registre un evento de advertencia en el registro de eventos cuando el tamaño de un archivo de paquete de configuración alcance un umbral definido. De manera predeterminada, UE-V Agent no notifica el tamaño de los archivos de paquete. 
+Si habilita este valor de configuración de directiva, especifique el umbral de tamaño de archivo en bytes. Si un archivo de paquete de configuración supera este umbral, UE-V Agent registrará un evento de advertencia en el registro de eventos.
+Si deshabilita o no configura este valor de configuración de directiva, no se registrará en el registro de eventos ningún evento que notifique tamaños de archivos de paquete.
+      </string>
+      <string id="SettingsTemplateCatalogPath">Ruta de acceso de catálogo de plantillas de configuración</string>
+      <string id="SettingsTemplateCatalogPath_Help">Este valor de configuración de directiva permite configurar la ubicación de almacenamiento de las plantillas de ubicación de configuración y establecer si se va a usar el catálogo para reemplazar las plantillas de Microsoft predeterminadas instaladas con UE-V Agent.
+Si habilita este valor de configuración de directiva, UE-V Agent comprueba la ubicación especificada una vez al día y actualiza su comportamiento de sincronización en función de las plantillas presentes en esta ubicación. UE-V Agent registra las plantillas de ubicación de configuración agregadas o actualizadas desde la última comprobación. También anula el registro de las plantillas que se han quitado de esta ubicación. 
+Si especifica una ruta UNC y deja desactivada la opción de reemplazar las plantillas predeterminadas de Microsoft, UE-V Agent usará las plantillas de Microsoft predeterminadas instaladas por UE-V Agent y las plantillas personalizadas del catálogo de plantillas de configuración. Si hubiera en el catálogo de plantillas de configuración plantillas personalizadas con el mismo id. que el de las plantillas de Microsoft predeterminadas, se omitirán. 
+Si especifica una ruta UNC y activa la opción de reemplazar las plantillas de Microsoft predeterminadas, se eliminarán del equipo todas las plantillas de Microsoft predeterminadas instaladas por UE-V Agent y solo se usarán las plantillas del catálogo de plantillas de configuración. 
+Si deshabilita este valor de configuración de directiva, UE-V Agent no usará las plantillas de ubicación de configuración personalizadas. Si deshabilita este valor de configuración de directiva después de haberlo habilitado, UE-V Agent no restaurará las plantillas de Microsoft predeterminadas. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="InternetExplorerCommon">Configuración común de Internet Explorer</string>
+      <string id="InternetExplorerCommon_Help">Esta configuración de directiva establece la sincronización de las opciones de configuración de usuario que son comunes entre las distintas versiones de Internet Explorer.
+De manera predeterminada, se usa sincronización entre equipos para las opciones de configuración de usuario que son comunes entre las versiones de Internet Explorer. Use esta configuración de directiva para evitar el uso de sincronización entre equipos para la configuración de usuario de Internet Explorer. 
+Si habilita esta configuración de directiva, se seguirán sincronizando las opciones de configuración de usuario que son comunes entre versiones de Internet Explorer. 
+Si deshabilita esta configuración de directiva, las opciones de configuración de usuario que son comunes entre versiones de Internet Explorer se excluyen de la configuración de sincronización. Si alguna versión de la configuración de Internet Explorer usa sincronización, no se debe deshabilitar esta configuración de directiva. 
+Si no establece esta configuración de directiva, se eliminan todos los valores definidos.
+      </string>  
+      <string id="InternetExplorer8">Internet Explorer 8</string>
+      <string id="InternetExplorer8_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Internet Explorer 8.
+De manera predeterminada, la configuración de usuario de Internet Explorer 8 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Internet Explorer 8, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Internet Explorer 8. 
+Si lo deshabilita, la configuración de usuario de Internet Explorer 8 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="InternetExplorer9">Internet Explorer 9</string>
+      <string id="InternetExplorer9_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Internet Explorer 9.
+De manera predeterminada, la configuración de usuario de Internet Explorer 9 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Internet Explorer 9, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Internet Explorer 9. 
+Si lo deshabilita, la configuración de usuario de Internet Explorer 9 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="InternetExplorer10">Internet Explorer 10</string>
+      <string id="InternetExplorer10_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Internet Explorer 10.
+De manera predeterminada, la configuración de usuario de Internet Explorer 10 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Internet Explorer 10, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Internet Explorer 10. 
+Si lo deshabilita, la configuración de usuario de Internet Explorer 10 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="InternetExplorer11">Internet Explorer 11</string>
+      <string id="InternetExplorer11_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Internet Explorer 11.
+De manera predeterminada, la configuración de Internet Explorer 11 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de Internet Explorer 11, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Internet Explorer 11. 
+Si lo deshabilita, la configuración de usuario de Internet Explorer 11 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Calculator">Calculadora</string>
+      <string id="Calculator_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la Calculadora.
+De manera predeterminada, la configuración de usuario de la Calculadora se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de la Calculadora, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de la Calculadora. 
+Si lo deshabilita, la configuración de usuario de la Calculadora se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Notepad">Bloc de notas</string>
+      <string id="Notepad_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para el Bloc de notas.
+De manera predeterminada, la configuración de usuario del Bloc de notas se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario del Bloc de notas, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario del Bloc de notas. 
+Si lo deshabilita, la configuración de usuario del Bloc de notas se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Wordpad">WordPad</string>
+      <string id="Wordpad_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para WordPad.
+De manera predeterminada, la configuración de usuario de WordPad se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de WordPad, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de WordPad. 
+Si lo deshabilita, la configuración de usuario de WordPad se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2016Common">Opciones de configuración comunes de Microsoft Office 2016</string>
+      <string id="MicrosoftOffice2016Common_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común.
+De manera predeterminada, la configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común, se sincroniza entre equipos; sin embargo, puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común.
+Si habilitas esta configuración de directiva, la configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016Access">Microsoft Access 2016</string>
+      <string id="MicrosoftOffice2016Access_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Access 2016.
+De manera predeterminada, la configuración de usuario de Microsoft Access 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario de Microsoft Access 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Access 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Access 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016Excel">Microsoft Excel 2016</string>
+      <string id="MicrosoftOffice2016Excel_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Excel 2016.
+De manera predeterminada, la configuración de usuario de Microsoft Excel 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario de Microsoft Excel 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Excel 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Excel 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016Lync">Microsoft Lync 2016</string>
+      <string id="MicrosoftOffice2016Lync_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Lync 2016.
+De manera predeterminada, la configuración de usuario de Microsoft Lync 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario de Microsoft Lync 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Lync 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Lync 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016UploadCenter">Centro de carga de Microsoft Office 2016</string>
+      <string id="MicrosoftOffice2016UploadCenter_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario del Centro de carga de Microsoft Office 2016.
+De manera predeterminada, la configuración de usuario del Centro de carga de Microsoft Office 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario del Centro de carga de Microsoft Office 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario del Centro de carga de Microsoft Office 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario del Centro de carga de Microsoft Office 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016OneDriveForBusiness">Microsoft OneDrive para la Empresa 2016</string>
+      <string id="MicrosoftOffice2016OneDriveForBusiness_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de OneDrive para la Empresa 2016.
+De manera predeterminada, la configuración de usuario de OneDrive para la Empresa 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario de OneDrive para la Empresa 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario de OneDrive para la Empresa 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de OneDrive para la Empresa 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016OneNote">Microsoft OneNote 2016</string>
+      <string id="MicrosoftOffice2016OneNote_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft OneNote 2016.
+De manera predeterminada, la configuración de usuario de Microsoft OneNote 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario de Microsoft OneNote 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft OneNote 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft OneNote 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016Outlook">Microsoft Outlook 2016</string>
+      <string id="MicrosoftOffice2016Outlook_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Outlook 2016.
+De manera predeterminada, la configuración de usuario de Microsoft Outlook 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario de Microsoft Outlook 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Outlook 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Outlook 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016PowerPoint">Microsoft PowerPoint 2016</string>
+      <string id="MicrosoftOffice2016PowerPoint_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft PowerPoint 2016.
+De manera predeterminada, la configuración de usuario de Microsoft PowerPoint 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario de Microsoft PowerPoint 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft PowerPoint 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft PowerPoint 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016Project">Microsoft Project 2016</string>
+      <string id="MicrosoftOffice2016Project_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Project 2016.
+De manera predeterminada, la configuración de usuario de Microsoft Project 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario de Microsoft Project 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Project 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Project 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016Publisher">Microsoft Publisher 2016</string>
+      <string id="MicrosoftOffice2016Publisher_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Publisher 2016.
+De manera predeterminada, la configuración de usuario de Microsoft Publisher 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario de Microsoft Publisher 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Publisher 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Publisher 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016Visio">Microsoft Visio 2016</string>
+      <string id="MicrosoftOffice2016Visio_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Visio 2016.
+De manera predeterminada, la configuración de usuario de Microsoft Visio 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario de Microsoft Visio 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Visio 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Visio 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016Word">Microsoft Word 2016</string>
+      <string id="MicrosoftOffice2016Word_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Word 2016.
+De manera predeterminada, la configuración de usuario de Microsoft Word 2016 se sincroniza entre equipos, pero puedes usar esta configuración de directiva para evitar que se lleve a cabo esa sincronización de la configuración de usuario de Microsoft Word 2016.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Word 2016 seguirá sincronizándose.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Word 2016 no se sincronizará.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>  
+      <string id="MicrosoftOffice2016CommonBackup">Common 2016 (solo copia de seguridad)</string>
+      <string id="MicrosoftOffice2016CommonBackup_Help">
+Esta configuración de directiva establece la copia de seguridad de ciertas opciones de configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común.
+Microsoft Office Suite 2016 tiene una configuración de usuario común para sus aplicaciones y de la cual se realiza una copia de seguridad en lugar de sincronizarla entre equipos; sin embargo, puedes usar esta configuración de directiva para que no se realice la copia de seguridad de ciertas aplicaciones comunes de Microsoft Office Suite 2016.
+Si habilitas esta configuración de directiva, se seguirá realizando la copia de seguridad de ciertas opciones de configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común.
+Si deshabilitas esta configuración de directiva, se dejará de hacer la copia de seguridad de ciertas opciones de configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común. 
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016AccessBackup">Access 2016 (solo copia de seguridad)</string>
+      <string id="MicrosoftOffice2016AccessBackup_Help">
+Esta configuración de directiva establece la copia de seguridad de ciertas opciones de configuración de usuario de Microsoft Access 2016.
+Microsoft Access 2016 realiza una copia de seguridad de la configuración de usuario en lugar de sincronizarla entre equipos, pero puedes usar esta configuración de directiva para que no se realice la copia de seguridad de ciertas opciones de configuración de Microsoft Access 2016.
+Si habilitas esta configuración de directiva, se seguirá realizando la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Access 2016.
+Si deshabilitas esta configuración de directiva, se dejará de hacer la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Access 2016.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016ExcelBackup">Excel 2016 (solo copia de seguridad)</string>
+      <string id="MicrosoftOffice2016ExcelBackup_Help">
+Esta configuración de directiva establece la copia de seguridad de ciertas opciones de configuración de usuario de Microsoft Excel 2016.
+Microsoft Excel 2016 realiza una copia de seguridad de la configuración de usuario en lugar de sincronizarla entre equipos, pero puedes usar esta configuración de directiva para que no se realice la copia de seguridad de ciertas opciones de configuración de Microsoft Excel 2016.
+Si habilitas esta configuración de directiva, se seguirá realizando la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Excel 2016.
+Si deshabilitas esta configuración de directiva, se dejará de hacer la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Excel 2016.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016LyncBackup">Lync 2016 (solo copia de seguridad)</string>
+      <string id="MicrosoftOffice2016LyncBackup_Help">
+Esta configuración de directiva establece la copia de seguridad de ciertas opciones de configuración de usuario de Microsoft Lync 2016.
+Microsoft Lync 2016 realiza una copia de seguridad de la configuración de usuario en lugar de sincronizarla entre equipos, pero puedes usar esta configuración de directiva para que no se realice la copia de seguridad de ciertas opciones de configuración de Microsoft Lync 2016.
+Si habilitas esta configuración de directiva, se seguirá realizando la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Lync 2016.
+Si deshabilitas esta configuración de directiva, se dejará de hacer la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Lync 2016.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016OneNoteBackup">OneNote 2016 (solo copia de seguridad)</string>
+      <string id="MicrosoftOffice2016OneNoteBackup_Help">
+Esta configuración de directiva establece la copia de seguridad de ciertas opciones de configuración de usuario de Microsoft OneNote 2016.
+Microsoft OneNote 2016 realiza una copia de seguridad de la configuración de usuario en lugar de sincronizarla entre equipos, pero puedes usar esta configuración de directiva para que no se realice la copia de seguridad de ciertas opciones de configuración de Microsoft OneNote 2016.
+Si habilitas esta configuración de directiva, se seguirá realizando la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft OneNote 2016.
+Si deshabilitas esta configuración de directiva, se dejará de hacer la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft OneNote 2016.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016OutlookBackup">Outlook 2016 (solo copia de seguridad)</string>
+      <string id="MicrosoftOffice2016OutlookBackup_Help">
+Esta configuración de directiva establece la copia de seguridad de ciertas opciones de configuración de usuario de Microsoft Outlook 2016.
+Microsoft Outlook 2016 realiza una copia de seguridad de la configuración de usuario en lugar de sincronizarla entre equipos, pero puedes usar esta configuración de directiva para que no se realice la copia de seguridad de ciertas opciones de configuración de Microsoft Outlook 2016.
+Si habilitas esta configuración de directiva, se seguirá realizando la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Outlook 2016.
+Si deshabilitas esta configuración de directiva, se dejará de hacer la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Outlook 2016.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016PowerPointBackup">PowerPoint 2016 (solo copia de seguridad)</string>
+      <string id="MicrosoftOffice2016PowerPointBackup_Help">
+Esta configuración de directiva establece la copia de seguridad de ciertas opciones de configuración de usuario de Microsoft PowerPoint 2016.
+Microsoft PowerPoint 2016 realiza una copia de seguridad de la configuración de usuario en lugar de sincronizarla entre equipos, pero puedes usar esta configuración de directiva para que no se realice la copia de seguridad de ciertas opciones de configuración de Microsoft PowerPoint 2016.
+Si habilitas esta configuración de directiva, se seguirá realizando la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft PowerPoint 2016.
+Si deshabilitas esta configuración de directiva, se dejará de hacer la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft PowerPoint 2016.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016ProjectBackup">Project 2016 (solo copia de seguridad)</string>
+      <string id="MicrosoftOffice2016ProjectBackup_Help">
+Esta configuración de directiva establece la copia de seguridad de ciertas opciones de configuración de usuario de Microsoft Project 2016.
+Microsoft Project 2016 realiza una copia de seguridad de la configuración de usuario en lugar de sincronizarla entre equipos, pero puedes usar esta configuración de directiva para que no se realice la copia de seguridad de ciertas opciones de configuración de Microsoft Project 2016.
+Si habilitas esta configuración de directiva, se seguirá realizando la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Project 2016.
+Si deshabilitas esta configuración de directiva, se dejará de hacer la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Project 2016.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016PublisherBackup">Publisher 2016 (solo copia de seguridad)</string>
+      <string id="MicrosoftOffice2016PublisherBackup_Help">
+Esta configuración de directiva establece la copia de seguridad de ciertas opciones de configuración de usuario de Microsoft Publisher 2016.
+Microsoft Publisher 2016 realiza una copia de seguridad de la configuración de usuario en lugar de sincronizarla entre equipos, pero puedes usar esta configuración de directiva para que no se realice la copia de seguridad de ciertas opciones de configuración de Microsoft Publisher 2016.
+Si habilitas esta configuración de directiva, se seguirá realizando la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Publisher 2016.
+Si deshabilitas esta configuración de directiva, se dejará de hacer la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Publisher 2016.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016VisioBackup">Visio 2016 (solo copia de seguridad)</string>
+      <string id="MicrosoftOffice2016VisioBackup_Help">
+Esta configuración de directiva establece la copia de seguridad de ciertas opciones de configuración de usuario de Microsoft Visio 2016.
+Microsoft Visio 2016 realiza una copia de seguridad de la configuración de usuario en lugar de sincronizarla entre equipos, pero puedes usar esta configuración de directiva para que no se realice la copia de seguridad de ciertas opciones de configuración de Microsoft Visio 2016.
+Si habilitas esta configuración de directiva, se seguirá realizando la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Visio 2016.
+Si deshabilitas esta configuración de directiva, se dejará de hacer la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Visio 2016.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2016WordBackup">Word 2016 (solo copia de seguridad)</string>
+      <string id="MicrosoftOffice2016WordBackup_Help">
+Esta configuración de directiva establece la copia de seguridad de ciertas opciones de configuración de usuario de Microsoft Word 2016.
+Microsoft Word 2016 realiza una copia de seguridad de la configuración de usuario en lugar de sincronizarla entre equipos, pero puedes usar esta configuración de directiva para que no se realice la copia de seguridad de ciertas opciones de configuración de Microsoft Word 2016.
+Si habilitas esta configuración de directiva, se seguirá realizando la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Word 2016.
+Si deshabilitas esta configuración de directiva, se dejará de hacer la copia de seguridad de ciertas opciones de la configuración de usuario de Microsoft Word 2016.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>  
+      <string id="MicrosoftOffice365Common2016">Microsoft Office 365 Common 2016</string>
+      <string id="MicrosoftOffice365Common2016_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común.
+Microsoft Office 365 se encarga de sincronizar ciertas opciones de configuración de manera predeterminada y sin usar UE-V. Si se deshabilitan las capacidades de sincronización de Microsoft Office 365, la configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común se sincronizará de forma predeterminada entre los equipos de trabajo del usuario mediante UE-V. Puedes usar esta configuración de directiva para evitar que la configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común, se sincronice entre equipos mediante UE-V.
+Si habilitas esta configuración de directiva, la configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común seguirá sincronizándose mediante UE-V.
+Si deshabilitas esta configuración de directiva, la configuración de usuario que las aplicaciones de Microsoft Office Suite 2016 tienen en común no se sincronizará mediante UE-V.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice365Access2016">Microsoft Office 365 Access 2016</string>
+      <string id="MicrosoftOffice365Access2016_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Office 365 Access 2016.
+Microsoft Office 365 se encarga de sincronizar ciertas opciones de configuración de manera predeterminada y sin usar UE-V. Si se deshabilitan las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Access 2016 se sincronizará de forma predeterminada entre los equipos de trabajo del usuario mediante UE-V. Puedes usar esta configuración de directiva para evitar que la configuración de usuario de Microsoft Office 365 Access 2016 se sincronice entre equipos mediante UE-V.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Access 2016 seguirá sincronizándose mediante UE-V.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Access 2016 no se sincronizará mediante UE-V.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice365Excel2016">Microsoft Office 365 Excel 2016</string>
+      <string id="MicrosoftOffice365Excel2016_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Office 365 Excel 2016.
+Microsoft Office 365 se encarga de sincronizar ciertas opciones de configuración de manera predeterminada y sin usar UE-V. Si se deshabilitan las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Excel 2016 se sincronizará de forma predeterminada entre los equipos de trabajo del usuario mediante UE-V. Puedes usar esta configuración de directiva para evitar que la configuración de usuario de Microsoft Office 365 Excel 2016 se sincronice entre equipos mediante UE-V.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Excel 2016 seguirá sincronizándose mediante UE-V.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Excel 2016 no se sincronizará mediante UE-V.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice365Lync2016">Microsoft Office 365 Lync 2016</string>
+      <string id="MicrosoftOffice365Lync2016_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Office 365 Lync 2016.
+Microsoft Office 365 se encarga de sincronizar ciertas opciones de configuración de manera predeterminada y sin usar UE-V. Si se deshabilitan las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Lync 2016 se sincronizará de forma predeterminada entre los equipos de trabajo del usuario mediante UE-V. Puedes usar esta configuración de directiva para evitar que la configuración de usuario de Microsoft Office 365 Lync 2016 se sincronice entre equipos mediante UE-V.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Lync 2016 seguirá sincronizándose mediante UE-V.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Lync 2016 no se sincronizará mediante UE-V.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice365OneNote2016">Microsoft Office 365 OneNote 2016</string>
+      <string id="MicrosoftOffice365OneNote2016_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Office 365 OneNote 2016.
+Microsoft Office 365 se encarga de sincronizar ciertas opciones de configuración de manera predeterminada y sin usar UE-V. Si se deshabilitan las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 OneNote 2016 se sincronizará de forma predeterminada entre los equipos de trabajo del usuario mediante UE-V. Puedes usar esta configuración de directiva para evitar que la configuración de usuario de Microsoft Office 365 OneNote 2016 se sincronice entre equipos mediante UE-V.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 OneNote 2016 seguirá sincronizándose mediante UE-V.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 OneNote 2016 no se sincronizará mediante UE-V.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice365Outlook2016">Microsoft Office 365 Outlook 2016</string>
+      <string id="MicrosoftOffice365Outlook2016_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Office 365 Outlook 2016.
+Microsoft Office 365 se encarga de sincronizar ciertas opciones de configuración de manera predeterminada y sin usar UE-V. Si se deshabilitan las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Outlook 2016 se sincronizará de forma predeterminada entre los equipos de trabajo del usuario mediante UE-V. Puedes usar esta configuración de directiva para evitar que la configuración de usuario de Microsoft Office 365 Outlook 2016 se sincronice entre equipos mediante UE-V.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Outlook 2016 seguirá sincronizándose mediante UE-V.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Outlook 2016 no se sincronizará mediante UE-V.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice365PowerPoint2016">Microsoft Office 365 PowerPoint 2016</string>
+      <string id="MicrosoftOffice365PowerPoint2016_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Office 365 PowerPoint 2016.
+Microsoft Office 365 se encarga de sincronizar ciertas opciones de configuración de manera predeterminada y sin usar UE-V. Si se deshabilitan las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 PowerPoint 2016 se sincronizará de forma predeterminada entre los equipos de trabajo del usuario mediante UE-V. Puedes usar esta configuración de directiva para evitar que la configuración de usuario de Microsoft Office 365 PowerPoint 2016 se sincronice entre equipos mediante UE-V.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 PowerPoint 2016 seguirá sincronizándose mediante UE-V.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 PowerPoint 2016 no se sincronizará mediante UE-V.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice365Project2016">Microsoft Office 365 Project 2016</string>
+      <string id="MicrosoftOffice365Project2016_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Office 365 Project 2016.
+Microsoft Office 365 se encarga de sincronizar ciertas opciones de configuración de manera predeterminada y sin usar UE-V. Si se deshabilitan las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Project 2016 se sincronizará de forma predeterminada entre los equipos de trabajo del usuario mediante UE-V. Puedes usar esta configuración de directiva para evitar que la configuración de usuario de Microsoft Office 365 Project 2016 se sincronice entre equipos mediante UE-V.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Project 2016 seguirá sincronizándose mediante UE-V.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Project 2016 no se sincronizará mediante UE-V.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice365Publisher2016">Microsoft Office 365 Publisher 2016</string>
+      <string id="MicrosoftOffice365Publisher2016_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Office 365 Publisher 2016.
+Microsoft Office 365 se encarga de sincronizar ciertas opciones de configuración de manera predeterminada y sin usar UE-V. Si se deshabilitan las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Publisher 2016 se sincronizará de forma predeterminada entre los equipos de trabajo del usuario mediante UE-V. Puedes usar esta configuración de directiva para evitar que la configuración de usuario de Microsoft Office 365 Publisher 2016 se sincronice entre equipos mediante UE-V.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Publisher 2016 seguirá sincronizándose mediante UE-V.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Publisher 2016 no se sincronizará mediante UE-V.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice365Visio2016">Microsoft Office 365 Visio 2016</string>
+      <string id="MicrosoftOffice365Visio2016_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Office 365 Visio 2016.
+Microsoft Office 365 se encarga de sincronizar ciertas opciones de configuración de manera predeterminada y sin usar UE-V. Si se deshabilitan las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Visio 2016 se sincronizará de forma predeterminada entre los equipos de trabajo del usuario mediante UE-V. Puedes usar esta configuración de directiva para evitar que la configuración de usuario de Microsoft Office 365 Visio 2016 se sincronice entre equipos mediante UE-V.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Visio 2016 seguirá sincronizándose mediante UE-V.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Visio 2016 no se sincronizará mediante UE-V.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice365Word2016">Microsoft Office 365 Word 2016</string>
+      <string id="MicrosoftOffice365Word2016_Help">
+Esta configuración de directiva establece la sincronización de la configuración de usuario de Microsoft Office 365 Word 2016.
+Microsoft Office 365 se encarga de sincronizar ciertas opciones de configuración de manera predeterminada y sin usar UE-V. Si se deshabilitan las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Word 2016 se sincronizará de forma predeterminada entre los equipos de trabajo del usuario mediante UE-V. Puedes usar esta configuración de directiva para evitar que la configuración de usuario de Microsoft Office 365 Word 2016 se sincronice entre equipos mediante UE-V.
+Si habilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Word 2016 seguirá sincronizándose mediante UE-V.
+Si deshabilitas esta configuración de directiva, la configuración de usuario de Microsoft Office 365 Word 2016 no se sincronizará mediante UE-V.
+Si no estableces esta configuración de directiva, se eliminará cualquier valor que hayas definido.
+      </string>
+      <string id="MicrosoftOffice2013Common">Configuración común de Microsoft Office 2013</string>
+      <string id="MicrosoftOffice2013Common_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013.
+De manera predeterminada, la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013.
+Si lo deshabilita, la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013 se excluirá de la configuración de sincronización. Si alguna de las aplicaciones de Microsoft Office Suite 2013 está habilitada, no se debe deshabilitar este valor de configuración de directiva.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013Access">Microsoft Access 2013</string>
+      <string id="MicrosoftOffice2013Access_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Access 2013.
+De manera predeterminada, la configuración de usuario de Microsoft Access 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Access 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Access 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft Access 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013Excel">Microsoft Excel 2013</string>
+      <string id="MicrosoftOffice2013Excel_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Excel 2013.
+De manera predeterminada, la configuración de usuario de Microsoft Excel 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Excel 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Excel 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft Excel 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013InfoPath">Microsoft InfoPath 2013</string>
+      <string id="MicrosoftOffice2013InfoPath_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft InfoPath 2013.
+De manera predeterminada, la configuración de usuario de Microsoft InfoPath 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft InfoPath 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft InfoPath 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft InfoPath 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013Lync">Microsoft Lync 2013</string>
+      <string id="MicrosoftOffice2013Lync_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Lync 2013.
+De manera predeterminada, la configuración de usuario de Microsoft Lync 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Lync 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Lync 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft Lync 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013UploadCenter">Centro de carga de Microsoft Office 2013</string>
+      <string id="MicrosoftOffice2013UploadCenter_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Centro de carga de Microsoft Office 2013.
+De manera predeterminada, la configuración de usuario de Centro de carga de Microsoft Office 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Centro de carga de Microsoft Office 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá usando sincronización para la configuración de usuario de Centro de carga de Microsoft Office 2013.
+Si lo deshabilita, la configuración de usuario de Centro de carga de Microsoft Office 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013OneDriveForBusiness">Microsoft OneDrive para la Empresa 2013</string>
+      <string id="MicrosoftOffice2013OneDriveForBusiness_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para OneDrive para la Empresa 2013.
+De manera predeterminada, la configuración de usuario de OneDrive para la Empresa 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de OneDrive para la Empresa 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de OneDrive para la Empresa 2013.
+Si lo deshabilita, la configuración de usuario de OneDrive para la Empresa 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013OneNote">Microsoft OneNote 2013</string>
+      <string id="MicrosoftOffice2013OneNote_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft OneNote 2013.
+De manera predeterminada, la configuración de usuario de Microsoft OneNote 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft OneNote 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft OneNote 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft OneNote 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013Outlook">Microsoft Outlook 2013</string>
+      <string id="MicrosoftOffice2013Outlook_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Outlook 2013.
+De manera predeterminada, la configuración de usuario de Microsoft Outlook 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Outlook 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Outlook 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft Outlook 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013PowerPoint">Microsoft PowerPoint 2013</string>
+      <string id="MicrosoftOffice2013PowerPoint_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft PowerPoint 2013.
+De manera predeterminada, la configuración de usuario de Microsoft PowerPoint 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft PowerPoint 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft PowerPoint 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft PowerPoint 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013Project">Microsoft Project 2013</string>
+      <string id="MicrosoftOffice2013Project_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Project 2013.
+De manera predeterminada, la configuración de usuario de Microsoft Project 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Project 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Project 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft Project 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013Publisher">Microsoft Publisher 2013</string>
+      <string id="MicrosoftOffice2013Publisher_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Publisher 2013.
+De manera predeterminada, la configuración de usuario de Microsoft Publisher 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Publisher 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Publisher 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft Publisher 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013SharePointDesigner">Microsoft SharePoint Designer 2013</string>
+      <string id="MicrosoftOffice2013SharePointDesigner_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft SharePoint Designer 2013.
+De manera predeterminada, la configuración de usuario de Microsoft SharePoint Designer 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft SharePoint Designer 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft SharePoint Designer 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft SharePoint Designer 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013Visio">Microsoft Visio 2013</string>
+      <string id="MicrosoftOffice2013Visio_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Visio 2013.
+De manera predeterminada, la configuración de usuario de Microsoft Visio 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Visio 2013, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Visio 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft Visio 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013Word">Microsoft Word 2013</string>
+      <string id="MicrosoftOffice2013Word_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Word 2013.
+De manera predeterminada, la configuración de usuario de Microsoft Word 2013 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Word 2013, use este valor de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Word 2013.
+Si lo deshabilita, la configuración de usuario de Microsoft Word 2013 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>  
+      <string id="MicrosoftOffice2013CommonBackup">Copia de seguridad de configuración común de Suite 2013 solamente</string>
+      <string id="MicrosoftOffice2013CommonBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013.
+Se realiza una copia de seguridad de la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de aplicaciones comunes específicas de Microsoft Office Suite 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013AccessBackup">Copia de seguridad de Access 2013 solamente</string>
+      <string id="MicrosoftOffice2013AccessBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft Access 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft Access 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft Access 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft Access 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft Access 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013ExcelBackup">Copia de seguridad de Excel 2013 solamente</string>
+      <string id="MicrosoftOffice2013ExcelBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft Excel 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft Excel 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft Excel 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft Excel 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft Excel 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013InfoPathBackup">Copia de seguridad de InfoPath 2013 solamente</string>
+      <string id="MicrosoftOffice2013InfoPathBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft InfoPath 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft InfoPath 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft InfoPath 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft InfoPath 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft InfoPath 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013LyncBackup">Copia de seguridad de Lync 2013 solamente</string>
+      <string id="MicrosoftOffice2013LyncBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft Lync 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft Lync 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft Lync 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft Lync 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft Lync 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013OneNoteBackup">Copia de seguridad de OneNote 2013 solamente</string>
+      <string id="MicrosoftOffice2013OneNoteBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft OneNote 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft OneNote 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft OneNote 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft OneNote 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft OneNote 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013OutlookBackup">Copia de seguridad de Outlook 2013 solamente</string>
+      <string id="MicrosoftOffice2013OutlookBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft Outlook 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft Outlook 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft Outlook 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft Outlook 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft Outlook 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013PowerPointBackup">Copia de seguridad de PowerPoint 2013 solamente</string>
+      <string id="MicrosoftOffice2013PowerPointBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft PowerPoint 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft PowerPoint 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft PowerPoint 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft PowerPoint 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft PowerPoint 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013ProjectBackup">Copia de seguridad de Project 2013 solamente</string>
+      <string id="MicrosoftOffice2013ProjectBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft Project 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft Project 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft Project 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft Project 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft Project 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013PublisherBackup">Copia de seguridad de Publisher 2013 solamente</string>
+      <string id="MicrosoftOffice2013PublisherBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft Publisher 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft Publisher 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft Publisher 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft Publisher 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft Publisher 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013SharePointDesignerBackup">Copia de seguridad de SharePoint Designer 2013 solamente</string>
+      <string id="MicrosoftOffice2013SharePointDesignerBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft SharePoint Designer 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft SharePoint Designer 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft SharePoint Designer 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft SharePoint Designer 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft SharePoint Designer 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013VisioBackup">Copia de seguridad de Visio 2013 solamente</string>
+      <string id="MicrosoftOffice2013VisioBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft Visio 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft Visio 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft Visio 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft Visio 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft Visio 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2013WordBackup">Copia de seguridad de Word 2013 solamente</string>
+      <string id="MicrosoftOffice2013WordBackup_Help">
+Este valor de configuración de directiva permite configurar la realización de copias de seguridad de determinada configuración de usuario de Microsoft Word 2013.
+Se realiza una copia de seguridad de la configuración de usuario de Microsoft Word 2013 en lugar de sincronizarse entre equipos. Use este valor de configuración de directiva para suprimir la copia de seguridad de configuración específica de Microsoft Word 2013.
+Si lo habilita, se seguirá realizando una copia de seguridad de determinada configuración de usuario de Microsoft Word 2013.
+Si lo deshabilita, no se realizará una copia de seguridad de determinada configuración de usuario de Microsoft Word 2013.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>  
+      <string id="MicrosoftOffice365Common2013">Configuración común de Microsoft Office 365 2013</string>
+      <string id="MicrosoftOffice365Common2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración común entre aplicaciones de Microsoft Office Suite 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2013 se excluirá de la sincronización con UE-V.
+nSi no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365Access2013">Microsoft Office 365 Access 2013</string>
+      <string id="MicrosoftOffice365Access2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 Access 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Access 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 Access 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 Access 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 Access 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365Excel2013">Microsoft Office 365 Excel 2013</string>
+      <string id="MicrosoftOffice365Excel2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 Excel 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Excel 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 Excel 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 Excel 2013 se seguirá sincronizando con UE-V .
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 Excel 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365InfoPath2013">Microsoft Office 365 InfoPath 2013</string>
+      <string id="MicrosoftOffice365InfoPath2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 InfoPath 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 InfoPath 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 InfoPath 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 InfoPath 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 InfoPath 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365Lync2013">Microsoft Office 365 Lync 2013</string>
+      <string id="MicrosoftOffice365Lync2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 Lync 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Lync 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 Lync 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 Lync 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 Lync 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365OneNote2013">Microsoft Office 365 OneNote 2013</string>
+      <string id="MicrosoftOffice365OneNote2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 OneNote 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 OneNote 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 OneNote 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 OneNote 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 OneNote 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365Outlook2013">Microsoft Office 365 Outlook 2013</string>
+      <string id="MicrosoftOffice365Outlook2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 Outlook 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Outlook 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 Outlook 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 Outlook 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 Outlook 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365PowerPoint2013">Microsoft Office 365 PowerPoint 2013</string>
+      <string id="MicrosoftOffice365PowerPoint2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 PowerPoint 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 PowerPoint 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 PowerPoint 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 PowerPoint 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 PowerPoint 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365Project2013">Microsoft Office 365 Project 2013</string>
+      <string id="MicrosoftOffice365Project2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 Project 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Project 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 Project 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 Project 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 Project 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365Publisher2013">Microsoft Office 365 Publisher 2013</string>
+      <string id="MicrosoftOffice365Publisher2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 Publisher 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Publisher 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 Publisher 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 Publisher 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 Publisher 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365SharePointDesigner2013">Microsoft Office 365 SharePoint Designer 2013</string>
+      <string id="MicrosoftOffice365SharePointDesigner2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 SharePoint Designer 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 SharePoint Designer 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 SharePoint Designer 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 SharePoint Designer 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 SharePoint Designer 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365Visio2013">Microsoft Office 365 Visio 2013</string>
+      <string id="MicrosoftOffice365Visio2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 Visio 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Visio 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 Visio 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 Visio 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 Visio 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice365Word2013">Microsoft Office 365 Word 2013</string>
+      <string id="MicrosoftOffice365Word2013_Help">
+Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario para Microsoft Office 365 Word 2013.
+De manera predeterminada, Microsoft Office 365 sincroniza determinada configuración sin UE-V. Si están deshabilitadas las capacidades de sincronización de Microsoft Office 365, la configuración de usuario de Microsoft Office 365 Word 2013 se sincronizará entre equipos de trabajo de un usuario con UE-V de manera predeterminada. Si desea evitar la sincronización de la configuración de usuario de Microsoft Office 365 Word 2013 entre equipos con UE-V, use este valor de configuración de directiva.
+Si lo habilita, la configuración de usuario de Microsoft Office 365 Word 2013 se seguirá sincronizando con UE-V.
+Si lo deshabilita, la configuración de usuario de Microsoft Office 365 Word 2013 se excluirá de la sincronización con UE-V.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2010Common">Configuración común de Microsoft Office 2010</string>
+      <string id="MicrosoftOffice2010Common_Help">Este valor de configuración de directiva permite configurar la sincronización de configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2010.
+nDe manera predeterminada, la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2010.
+Si lo deshabilita, la configuración de usuario común entre las aplicaciones de Microsoft Office Suite 2010 se excluirá de la configuración de sincronización. Si alguna de las aplicaciones de Microsoft Office Suite 2010 está habilitada, no se debe deshabilitar este valor de configuración de directiva 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>  
+      <string id="MicrosoftOffice2010Access">Microsoft Access 2010</string>
+      <string id="MicrosoftOffice2010Access_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Access 2010.
+De manera predeterminada, la configuración de usuario de Microsoft Access 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Access 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Access 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft Access 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>  
+      <string id="MicrosoftOffice2010Excel">Microsoft Excel 2010</string>
+      <string id="MicrosoftOffice2010Excel_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Excel 2010.
+De manera predeterminada, la configuración de usuario de Microsoft Excel 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Excel 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Excel 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft Excel 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2010InfoPath">Microsoft InfoPath 2010</string>
+      <string id="MicrosoftOffice2010InfoPath_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft InfoPath 2010.
+De manera predeterminada, la configuración de usuario de Microsoft InfoPath 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft InfoPath 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft InfoPath 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft InfoPath 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2010OneNote">Microsoft OneNote 2010</string>   
+      <string id="MicrosoftOffice2010OneNote_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft OneNote 2010.
+De manera predeterminada, la configuración de usuario de Microsoft OneNote 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft OneNote 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft OneNote 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft OneNote 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2010Lync">Microsoft Lync 2010</string>
+      <string id="MicrosoftOffice2010Lync_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Lync 2010.
+De manera predeterminada, la configuración de usuario de Microsoft Lync 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Lync 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Lync 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft Lync 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string> 
+      <string id="MicrosoftOffice2010Outlook">Microsoft Outlook 2010</string>
+      <string id="MicrosoftOffice2010Outlook_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Outlook 2010.
+De manera predeterminada, la configuración de usuario de Microsoft Outlook 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Outlook 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Outlook 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft Outlook 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2010PowerPoint">Microsoft PowerPoint 2010</string>
+      <string id="MicrosoftOffice2010PowerPoint_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft PowerPoint 2010.
+De manera predeterminada, la configuración de usuario de Microsoft PowerPoint 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft PowerPoint 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft PowerPoint 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft PowerPoint 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2010Project">Microsoft Project 2010</string>
+      <string id="MicrosoftOffice2010Project_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Project 2010.
+De manera predeterminada, la configuración de usuario de Microsoft Project 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Project 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Project 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft Project 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2010Publisher">Microsoft Publisher 2010</string>
+      <string id="MicrosoftOffice2010Publisher_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Publisher 2010.
+De manera predeterminada, la configuración de usuario de Microsoft Publisher 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Publisher 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Publisher 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft Publisher 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2010SharePointDesigner">Microsoft SharePoint Designer 2010</string>
+      <string id="MicrosoftOffice2010SharePointDesigner_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario de Microsoft SharePoint Designer 2010.
+De manera predeterminada, la configuración de usuario de Microsoft SharePoint Designer 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft SharePoint Designer 2010, use este valor de configuración de directiva.
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft SharePoint Designer 2010.
+Si lo deshabilita, la configuración de usuario de Microsoft SharePoint Designer 2010 se excluirá de la configuración de sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2010SharePointWorkspace">Microsoft SharePoint Workspace 2010</string>
+      <string id="MicrosoftOffice2010SharePointWorkspace_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft SharePoint Workspace 2010.
+De manera predeterminada, la configuración de usuario de Microsoft SharePoint Workspace 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft SharePoint Workspace 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft SharePoint Workspace 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft SharePoint Workspace 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2010Word">Microsoft Word 2010</string>
+      <string id="MicrosoftOffice2010Word_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Word 2010.
+De manera predeterminada, la configuración de usuario de Microsoft Word 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Word 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Word 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft Word 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="MicrosoftOffice2010Visio">Microsoft Visio 2010</string>
+      <string id="MicrosoftOffice2010Visio_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft Visio 2010.
+De manera predeterminada, la configuración de usuario de Microsoft Visio 2010 se sincroniza entre equipos. Si desea evitar la sincronización entre equipos para la configuración de usuario de Microsoft Visio 2010, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft Visio 2010. 
+Si lo deshabilita, la configuración de usuario de Microsoft Visio 2010 se excluirá de la configuración de sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="PCSettings">Configuración de PC</string>
+      <string id="PCSettings_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la configuración de PC.
+De manera predeterminada, la configuración de usuario de la configuración de PC se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de la configuración de PC, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de configuración de PC.
+Si lo deshabilita, la configuración de usuario de la configuración de PC se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Store">Tienda</string>
+      <string id="Store_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación Store.
+De manera predeterminada, la configuración de usuario de Store se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Store, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Store.
+Si lo deshabilita, la configuración de usuario de Store se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Finance">Finanzas</string>
+      <string id="Finance_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación Finanzas.
+De manera predeterminada, la configuración de usuario de Finanzas se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Finanzas, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Finanzas.
+Si lo deshabilita, la configuración de usuario de Finanzas se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Maps">Mapas</string>
+      <string id="Maps_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación Mapas.
+De manera predeterminada, la configuración de usuario de Mapas se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Mapas, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Mapas.
+Si lo deshabilita, la configuración de usuario de Mapas se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="News">Noticias</string>
+      <string id="News_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación Noticias.
+De manera predeterminada, la configuración de usuario de Noticias se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Noticias, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Noticias.
+Si lo deshabilita, la configuración de usuario de Noticias se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Sports">Deportes</string>
+      <string id="Sports_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación Deportes.
+De manera predeterminada, la configuración de usuario de Deportes se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Deportes, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Deportes.
+Si lo deshabilita, la configuración de usuario de Deportes se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Travel">Viajes</string>
+      <string id="Travel_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación Viajes.
+De manera predeterminada, la configuración de usuario de Viajes se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Viajes, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Viajes.
+Si lo deshabilita, la configuración de usuario de Viajes se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Weather">El tiempo</string>
+      <string id="Weather_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación El tiempo.
+De manera predeterminada, la configuración de usuario de El tiempo se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de El tiempo, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de El tiempo.
+Si lo deshabilita, la configuración de usuario de El tiempo se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Bing">Bing</string>
+      <string id="Bing_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación Bing.
+De manera predeterminada, la configuración de usuario de Bing se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Bing, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Bing.
+Si lo deshabilita, la configuración de usuario de Bing se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Reader">Lector</string>
+      <string id="Reader_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación Lector.
+De manera predeterminada, la configuración de usuario de Lector se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Lector, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Lector.
+Si lo deshabilita, la configuración de usuario de Lector se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="WindowsCommunicationsApps">Correo, Calendario, Contactos y Mensajes</string>
+      <string id="WindowsCommunicationsApps_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Correo, Calendario, Contactos y Mensajes.
+De manera predeterminada, la configuración de usuario de Correo, Calendario, Contactos y Mensajes se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Correo, Calendario, Contactos y Mensajes, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Correo, Calendario, Contactos y Mensajes.
+Si lo deshabilita, la configuración de usuario de Correo, Calendario, Contactos y Mensajes se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Games">Juegos</string>
+      <string id="Games_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación Juegos.
+De manera predeterminada, la configuración de usuario de Juegos se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Juegos, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Juegos.
+Si lo deshabilita, la configuración de usuario de Juegos se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Music">Música</string>
+      <string id="Music_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación Música.
+De manera predeterminada, la configuración de usuario de Música se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Música, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Música.
+Si lo deshabilita, la configuración de usuario de Música se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="PlayReady">Microsoft PlayReady</string>
+      <string id="PlayReady_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para Microsoft PlayReady.
+De manera predeterminada, la configuración de usuario de Microsoft PlayReady se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Microsoft PlayReady, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Microsoft PlayReady.
+Si lo deshabilita, la configuración de usuario de Microsoft PlayReady se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="Video">Vídeo</string>
+      <string id="Video_Help">Este valor de configuración de directiva permite configurar la sincronización de la configuración de usuario para la aplicación Vídeo.
+De manera predeterminada, la configuración de usuario de Vídeo se sincroniza entre equipos. Si desea evitar la sincronización entre equipos de la configuración de usuario de Vídeo, use este valor de configuración de directiva. 
+Si lo habilita, se seguirá sincronizando la configuración de usuario de Vídeo.
+Si lo deshabilita, la configuración de usuario de Vídeo se excluirá de la sincronización. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="DisableWindowsOSSettings">Configuración de sincronización de Windows</string>
+      <string id="DisableWindowsOSSettings_Help">
+Este valor de configuración de directiva permite configurar la sincronización de la configuración de Windows entre equipos.
+De manera predeterminada, se sincronizará determinada configuración de Windows entre equipos. Esta configuración incluye temas de Windows, la configuración del escritorio de Windows, la configuración de accesibilidad y las impresoras de red. Use este valor de configuración de directiva para especificar las configuraciones de Windows que se sincronizarán entre equipos. También puede usar esta configuración para habilitar la sincronización de la información de inicio de sesión de los usuarios para determinadas aplicaciones, redes y certificados.
+Si habilita este valor de configuración de directiva, solo se sincronizarán las configuraciones de Windows seleccionadas. Las configuraciones de Windows no seleccionadas se excluyen de la sincronización.
+Si lo deshabilita, todas las configuraciones de Windows se excluirán de la sincronización.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="SyncEnabled">Usar User Experience Virtualization (UE-V)</string>
+      <string id="SyncEnabled_Help">Esta configuración de directiva te permite habilitar o deshabilitar la virtualización de la experiencia de usuario (UE-V). Solo se aplica a Windows 10 o a versiones anteriores.</string>
+      <string id="ConfigureSyncMethod">Configurar método de sincronización</string>
+      <string id="ConfigureSyncMethod_Help">Esta configuración de directiva permite configurar el proveedor de sincronización que utiliza la virtualización de la experiencia del usuario (UE-V) para sincronizar la configuración entre los equipos de los usuarios. Al definir el método de sincronización como ”SyncProvider”, el agente de UE-V utiliza un proveedor de sincronización integrado para mantener la configuración del usuario sincronizada con el equipo y la ubicación de almacenamiento de la configuración. Dicho valor es el valor predeterminado. El proveedor de sincronización se puede deshabilitar en los equipos que nunca funcionen sin conexión y que siempre estén conectados con la ubicación de almacenamiento de la configuración.
+Si el método de sincronización se define como “Ninguno”, el agente de UE-V no utilizará ningún proveedor de sincronización y la configuración se escribirá directamente en la ubicación de almacenamiento de la configuración, por lo que no se almacenará en la memoria caché para sincronizarla posteriormente. 
+En caso de que se vaya a implementar un motor de sincronización externo para sincronizar la configuración, defina el método de sincronización como “Externo”. Así se podrán utilizar carpetas de trabajo, OneDrive o SharePoint, o bien cualquier otro motor que utilice una carpeta local, para sincronizar los datos entre los equipos de los usuarios. De este modo, UE-V escribirá los datos de la configuración en la carpeta local especificada en la ruta de almacenamiento de la configuración. A continuación, un motor de sincronización externo sincronizará dicha configuración con la de otros equipos. UE-V no puede controlar la sincronización y solo lee y escribe los datos de la configuración cuando se ejecutan los desencadenadores habituales de UE-V.
+Si se habilitan las notificaciones, los usuarios de UE-V recibirán un mensaje en caso de que se retrase la sincronización de la configuración. La configuración de una directiva de retraso para las notificaciones define el retraso con el que éstas se mostrarán.
+Si se deshabilita la configuración de esta directiva, el proveedor de sincronización se usará para sincronizar la configuración de los equipos y la ubicación de almacenamiento de la configuración.
+Si no se configura dicha configuración de directiva, se eliminarán los valores que se hayan definido.
+
+      </string>
+      <string id="SyncProviderName">Ensamblado del proveedor de sincronización</string>
+      <string id="SyncProviderName_Help">Esta configuración de directiva permite establecer el ensamblado que usará User Experience Virtualization (UE-V) Agent para la funcionalidad del proveedor de sincronización.
+De manera predeterminada, UE-V Agent usa la DLL del proveedor de sincronización predeterminada. Use esta configuración de directiva para especificar que se cargue otro ensamblado del proveedor de sincronización.
+Si habilita esta configuración de directiva, UE-V Agent intentará cargar el ensamblado proporcionado y no usará el proveedor de sincronización predeterminado.
+Si deshabilita esta configuración de directiva, el proveedor de sincronización carga el ensamblado predeterminado .
+Si no establece esta configuración de directiva, se eliminan todos los valores definidos.
+      </string>
+      <string id="TrayIconEnabled">Icono de bandeja</string>
+      <string id="TrayIconEnabled_Help">Este valor de configuración de directiva habilita el icono de bandeja de User Experience Virtualization (UE-V). De manera predeterminada, aparece un icono en la bandeja del sistema que muestra notificaciones de UE-V. El icono también proporciona un vínculo a la aplicación Centro de configuración de empresa de UE-V Agent. Los usuarios pueden abrir el Centro de configuración de empresa haciendo clic con el botón secundario en el icono y seleccionando Abrir, o haciendo doble clic en el icono. Cuando se habilita este valor de configuración de directiva, el icono de bandeja de UE-V se visualiza, se muestran las notificaciones de UE-V y se puede acceder al Centro de configuración de empresa desde el icono de bandeja.
+Si este valor de configuración está deshabilitado, el icono de bandeja no aparece en la bandeja del sistema, no se muestran notificaciones de UE-V y el usuario no puede acceder al Centro de configuración de empresa desde la bandeja del sistema. Se podrá acceder al Centro de configuración de empresa mediante el Panel de control o el menú Inicio, o la pantalla Inicio.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="SyncProviderAssembly">Ensamblado del proveedor de sincronización</string>
+      <string id="SyncProviderAssembly_Help">Esta configuración de directiva permite establecer el ensamblado que usará User Experience Virtualization (UE-V) Agent para la funcionalidad del proveedor de sincronización.
+De manera predeterminada, UE-V Agent usa el proveedor de sincronización predeterminado. Esta configuración de directiva puede especificar otro proveedor de sincronización.
+Si habilita esta configuración de directiva, UE-V Agent intenta cargar la DLL proporcionada y no usará el proveedor de sincronización predeterminado.
+Con esta configuración de directiva deshabilitada, UE-V Agent carga el proveedor de sincronización predeterminado .
+Si no se establece esta configuración de directiva, se eliminan todos los valores definidos.
+      </string>
+      <string id="DisableWin8Sync">No sincronizar aplicaciones de Windows</string>
+      <string id="DisableWin8Sync_Help">Esta configuración de directiva define si User Experience Virtualization (UE-V) Agent sincroniza la configuración de las aplicaciones de Windows.
+De manera predeterminada, UE-V Agent sincroniza la configuración de las aplicaciones de Windows entre el equipo y la ubicación de almacenamiento de configuración.  
+Si habilita esta configuración de directiva, UE-V Agent no sincronizará la configuración de las aplicaciones de Windows.
+Si deshabilita esta configuración de directiva, UE-V Agent sincronizará la configuración de las aplicaciones de Windows. 
+Si no establece esta configuración de directiva, se eliminan todos los valores definidos.
+Nota: si el usuario conecta su cuenta de Microsoft para su equipo, UE-V Agent no sincronizará las aplicaciones de Windows. De manera predeterminada, las aplicaciones de Windows usarán la configuración establecida en las opciones de Sincronizar tu configuración en Windows.
+      </string>
+      <string id="Win8AppsList">Sincronización de aplicaciones de Windows</string>
+      <string id="Win8AppsList_Help">Este valor de configuración de directiva permite configurar si User Experience Virtualization (UE-V) sincroniza la configuración de aplicaciones de Windows especificadas. De manera predeterminada, UE-V Agent no sincroniza la configuración de aplicaciones de Windows. Esta configuración de directiva le permite enumerar las aplicaciones de Windows según su nombre de familia de paquete. UE-V sincroniza la configuración de las aplicaciones enumeradas entre los equipos de usuarios que ejecutan la misma aplicación para Windows. Si habilita este valor de configuración de directiva y enumera nombres de familia de paquete de aplicaciones de Windows, UE-V Agent sincronizará la configuración de las aplicaciones enumeradas.
+Si lo deshabilita, no se sincronizará la configuración de aplicaciones de Windows. 
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="FirstUseNotificationEnabled">Notificación de primer uso</string>
+      <string id="FirstUseNotificationEnabled_Help">Este valor de configuración de directiva permite habilitar la aparición de una notificación en la bandeja del sistema cuando User Experience Virtualization (UE-V) Agent se ejecuta por primera vez.
+De manera predeterminada, una notificación informa a los usuarios que el Centro de configuración de empresa (el nombre a nivel de usuario de UE-V Agent) contribuye a sincronizar la configuración entre sus equipos.
+Si habilita este valor de configuración de directiva, la notificación aparece la primera vez que se ejecuta UE-V Agent.
+Si lo deshabilita, no aparece ninguna notificación.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="SyncUnlistedWindows8Apps">Sincronizar aplicaciones de Windows que no aparecen en la lista</string>
+      <string id="SyncUnlistedWindows8Apps_Help">Este valor de configuración de directiva permite definir el comportamiento de sincronización de la configuración predeterminada de User Experience Virtualization (UE-V) Agent para aplicaciones de Windows que no aparecen explícitamente en la lista de aplicaciones de Windows.
+De forma predeterminada, UE-V Agent solo sincroniza la configuración de las aplicaciones de Windows incluidas en la lista de aplicaciones de Windows.
+Si habilita este valor de configuración de directiva, se sincroniza la configuración de todas las aplicaciones de Windows que no se hayan deshabilitado expresamente en la lista de aplicaciones de Windows.
+Si lo deshabilita, solo se sincroniza la configuración de las aplicaciones de Windows especificadas en la lista de aplicaciones de Windows.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="SyncSettingsOverMetered">Sincronizar configuración en conexiones de uso medido</string>
+      <string id="SyncSettingsOverMetered_Help">Este valor de configuración de directiva permite definir si User Experience Virtualization (UE-V) Agent sincroniza la configuración en conexiones de uso medido.
+De manera predeterminada, UE-V Agent no sincroniza la configuración en conexiones de uso medido.
+Si lo habilita, UE-V Agent sincronizará la configuración en conexiones de uso medido.
+Si lo deshabilita, UE-V Agent no sincronizará la configuración en conexiones de uso medido.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="SyncSettingsOverMeteredRoaming">Sincronizar configuración en conexiones de uso medido incluso si son móviles</string>
+      <string id="SyncSettingsOverMeteredRoaming_Help">Este valor de configuración de directiva permite definir si User Experience Virtualization (UE-V) Agent sincroniza la configuración en conexiones de uso medido fuera de la red del proveedor principal como, por ejemplo, a través de una conexión móvil.
+De manera predeterminada, UE-V Agent no sincroniza la configuración en conexiones móviles de uso medido.
+Si lo habilita, UE-V Agent sincronizará la configuración en conexiones móviles de uso medido.
+Si lo deshabilita, UE-V Agent no sincronizará la configuración en conexiones móviles de uso medido.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="ContactITDescription">Texto del vínculo Contactar con TI</string>
+      <string id="ContactITDescription_Help">Este valor de configuración de directiva especifica el texto del hipervínculo de la URL de Contactar con TI en el Centro de configuración de empresa.
+Si lo habilita, el Centro de configuración de empresa muestra el texto especificado en el vínculo de la URL de Contactar con TI.
+Si lo deshabilita, el Centro de configuración de empresa no muestra el vínculo Contactar con TI.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="ContactITURL">Dirección URL de Contactar con TI</string>
+      <string id="ContactITURL_Help">Este valor de configuración de directiva especifica la URL del vínculo Contactar con TI en el Centro de configuración de empresa.
+Si lo habilita, se vincula el texto Contactar con TI del Centro de configuración de empresa con la URL especificada. El protocolo del vínculo puede ser cualquier protocolo estándar como, por ejemplo, http o mailto.
+Si lo deshabilita, el Centro de configuración de empresa no muestra el vínculo Contactar con TI.
+Si no lo configura, se eliminarán los valores definidos.
+      </string>
+      <string id="SyncProviderPingEnabled">Hacer ping en la ubicación de almacenamiento de la configuración antes de sincronizar</string>
+      <string id="SyncProviderPingEnabled_Help">La configuración de esta directiva permite configurar el proveedor de sincronización de la virtualización de la experiencia del usuario (UE-V) para hacer ping en la ruta de almacenamiento de la configuración antes de intentar sincronizar la configuración. Si el ping es correcto, el proveedor de sincronización intentará sincronizar los paquetes de configuración. Si el ping no es correcto, el proveedor de sincronización no intentará la sincronización. 
+Si se habilita la configuración de esta directiva, el proveedor de sincronización hará ping en la ubicación de almacenamiento de la configuración antes de sincronizar los paquetes de configuración.
+Si se deshabilita la configuración de esta directiva, el proveedor de sincronización no hará ping en la ubicación de almacenamiento de la configuración antes de sincronizar los paquetes de configuración. 
+Si no se configura dicha directiva, se eliminarán los valores que se hayan definido.
+      </string>
+      <string id="ConfigureVdi">Configuración de VDI</string>
+      <string id="ConfigureVdi_Help">La configuración de esta directiva permite configurar la sincronización de la información de reversión de la virtualización de la experiencia del usuario (UE-V) de los equipos que se ejecuten en un entorno de VDI agrupada y no persistente. Los puntos de control y los datos de reversión de la configuración de UE-V normalmente solo se almacenan en el equipo local. Si se habilita la configuración de esta directiva, la información de reversión se copiará en la ubicación de almacenamiento de la configuración cuando el usuario cierre la sesión de VDI. Habilite esta configuración para registrar una plantilla de ubicación de la configuración específica de VDI y restaure datos en equipos con entornos de VDI agrupadas que se restablezcan y se limpien al cerrar sesión. Si se habilita esta directiva, se podrá revertir la configuración al estado en el que se instaló UE-V o a la configuración “válida más reciente”. Esta directiva solo debe habilitarse en equipos que se ejecuten en un entorno de VDI no persistente. El nombre de la colección de VDI define el nombre de la colección de escritorios virtuales que contenga equipos virtuales. 
+Si se habilita esta configuración de directiva, el estado de reversión de UE-V se copiará en la ubicación de almacenamiento de la configuración al cerrar sesión y se restaurará al iniciarla.
+Si se deshabilita esta configuración de directiva, no se copiará ningún estado de reversión de UE-V en la ubicación de almacenamiento de la configuración.
+Si no se configura esta directiva, no se copiará ningún estado de reversión de UE-V en la ubicación de almacenamiento de la configuración.
+      </string>
+      <string id="SyncMethodSyncProvider">SyncProvider</string>
+      <string id="SyncMethodNone">Ninguno</string>
+      <string id="SyncMethodExternal">Externo</string>
+      <string id="EnableUEV">Habilitar UEV</string>
+      <string id="EnableUEV_Help">Esta configuración de directiva te permite habilitar o deshabilitar la característica Virtualización de la experiencia de usuario (UE-V). Es necesario reiniciar para que la habilitación surta efecto. Con las plantillas de la bandeja de entrada de registro automático habilitadas, las plantillas de la bandeja de entrada de UE-V como Office 2016 se registrarán automáticamente cuando se habilite el servicio UE-V. Si se cambia esta opción, solo surtirá efecto cuando el servicio UE-V se vuelva a activar.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="RepositoryTimeout">
+        <decimalTextBox refId="RepositoryTimeout">Tiempo de espera de sincronización (en milisegundos):</decimalTextBox>
+      </presentation>
+      <presentation id="SettingsStoragePath">
+        <text>Escriba una ruta de acceso UNC (convención de nomenclatura universal) en el cuadro de texto, como por ejemplo \\nombredeservidor\nombrederecursocompartido.</text>
+        <textBox refId="SettingsStoragePath">
+          <label>Ruta de acceso de almacenamiento de configuración</label>
+        </textBox>
+      </presentation>
+      <presentation id="SettingsTemplateCatalogPath">
+        <text>Escriba una ruta de acceso UNC (convención de nomenclatura universal) en el cuadro de texto, como por ejemplo \\nombredeservidor\nombrederecursocompartido, o una ubicación de carpeta en el equipo.</text>
+        <textBox refId="SettingsTemplateCatalogPath">
+          <label>Ruta de acceso de catálogo de plantillas de configuración</label>
+        </textBox>
+        <checkBox refId="OverrideMSTemplates" defaultChecked="false">Sustituir las plantillas de Microsoft predeterminadas</checkBox>
+      </presentation>
+      <presentation id="MaxPackageSizeInBytes">
+        <decimalTextBox refId="MaxPackageSizeInBytes">Umbral de tamaño de paquete (en bytes):</decimalTextBox>
+      </presentation>
+      <presentation id="WindowsOSSettings">
+        <checkBox refId="DesktopSettings" defaultChecked="true">Configuración de escritorio</checkBox>
+        <checkBox refId="EaseOfAccessSettings" defaultChecked="true">Facilidad de acceso</checkBox>
+        <checkBox refId="ThemeSettings" defaultChecked="true">Temas</checkBox>
+        <checkBox refId="RoamingCredentialSettings" defaultChecked="false">Credenciales móviles</checkBox>
+        <checkBox refId="NetworkPrinters" defaultChecked="true">Impresoras de red</checkBox>
+     </presentation>
+      <presentation id="VdiConfiguration">
+          <textBox refId="VdiCollectionName">
+              <label>Nombre de la colección de VDI:</label>
+          </textBox>
+      </presentation>
+      <presentation id="SyncMethodConfiguration">
+          <dropdownList refId="SyncMethodConfiguration_list" defaultItem="0" noSort="true">Método de sincronización:</dropdownList>
+          <checkBox refId="SettingsImportNotification_Enable" defaultChecked="true">Habilitar notificación</checkBox>
+        <decimalTextBox refId="SettingsImportNotification_Delay" defaultValue="10" spinStep="1">Retraso de notificación (en segundos):</decimalTextBox>
+      </presentation>
+      <presentation id="Win8AppsList">
+        <text>Escriba los nombres de la familia de paquetes de aplicaciones de Windows sincronizada en el tipo de cuadro de texto.</text>
+        <multiTextBox refId="Win8AppsList"/>
+      </presentation>
+      <presentation id="SyncProviderName">
+        <text>En el cuadro de texto, escriba una ruta de acceso UNC (convención de nomenclatura universal), por ejemplo \\nombredeservidor\nombrederecursocompartido\proveedordesincronización.dll.</text>
+        <textBox refId="SyncProviderName">
+          <label>Nombre del proveedor de sincronización</label>
+        </textBox>
+      </presentation>
+      <presentation id="ContactITDescription">
+        <textBox refId="ContactITDescription">
+          <label>Texto del vínculo Contactar con TI</label>
+        </textBox>
+      </presentation>
+      <presentation id="ContactITURL">
+        <textBox refId="ContactITURL">
+          <label>Dirección URL de Contactar con TI</label>
+        </textBox>
+      </presentation>
+      <presentation id="EnableUEV">
+        <checkBox refId="RegisterInboxTemplates" defaultChecked="true">Plantillas de la bandeja de entrada de registro automático</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

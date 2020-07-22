@@ -1,0 +1,923 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>
+  </displayName>
+  <description>
+  </description>
+  <resources>
+    <stringTable>
+      <string id="Citrix">Citrix</string>
+      <string id="Supported_upm_1_0_0">At least User Profile Manager 1.0.0</string>
+      <string id="Supported_upm_2_0_0">At least User Profile Manager 2.0.0</string>
+      <string id="Supported_upm_2_1_0">At least Profile management 2.1.0</string>
+      <string id="Supported_upm_3_0_0">At least Profile management 3.0.0</string>
+      <string id="Supported_upm_3_1_0">At least Profile management 3.1.0</string>
+      <string id="Supported_upm_3_2_0">At least Profile management 3.2.0</string>
+      <string id="Supported_upm_4_0_0">At least Profile management 4.0.0</string>
+      <string id="Supported_upm_4_1_1">At least Profile management 4.1.1</string>
+      <string id="Supported_upm_5_0_0">At least Profile management 5.0.0</string>
+      <string id="Supported_upm_5_5_0">At least Profile management 5.5.0</string>
+      <string id="UserProfileManager">Profile Management</string>
+      <string id="ServiceActive">Enable Profile management</string>
+      <string id="ServiceActive_Help">By default, to facilitate deployment, Profile management does not process logons or logoffs.
+
+Turn on processing by enabling this setting.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, Profile management does not process Windows user profiles in any way.</string>
+      <string id="ProcessedGroups">Processed groups</string>
+      <string id="ProcessedGroups_Part">Processed groups:</string>
+      <string id="ProcessedGroups_Part_gpfx">Processed groups</string>
+      <string id="ProcessedGroups_Help">Both computer local groups and domain groups (local, global and universal) can be used. Domain groups should be specified in the format: &lt;DOMAIN NAME&gt;\&lt;GROUP NAME&gt;.
+
+If this setting is configured here, Profile management processes only members of these user groups.
+
+If this setting is disabled, Profile management processes all users.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, members of all user groups are processed.</string>
+      <string id="ExcludedGroups">Excluded groups</string>
+      <string id="ExcludedGroups_Help">You can use computer local groups and domain groups (local, global, and universal) to prevent particular user profiles from being processed. Specify domain groups in the form &lt;DOMAIN NAME&gt;\&lt;GROUP NAME&gt;. 
+
+If this setting is configured here, Profile management excludes members of these user groups. 
+
+If this setting is disabled, Profile management does not exclude any users. 
+
+If this setting is not configured here, the value from the .ini file is used. 
+
+If this setting is not configured here or in the .ini file, no members of any groups are excluded.</string>
+      <string id="ExcludedGroups_Part">Excluded groups:</string>
+      <string id="ExcludedGroups_Part_gpfx">Excluded groups</string>
+      <string id="ProcessAdmins">Process logons of local administrators</string>
+      <string id="ProcessAdmins_Help">Specifies whether logons of members of the local group "Administrators" are processed by Profile management.
+
+If this setting is disabled, logons by local administrators are not processed by Profile management.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, administrators will not be processed.</string>
+      <string id="DATPath">Path to user store</string>
+      <string id="DATPath_Part">Absolute path or path relative to the home directory:</string>
+      <string id="DATPath_Part_gpfx">Path to user store</string>
+      <string id="DATPath_Help">Sets the path to the directory in which the user settings (registry changes and synchronized files) are saved (user store).
+
+The path can be an absolute UNC path or a path relative to the home directory.
+
+In both cases the following types of variables can be used: system environment variables enclosed in percent signs and attributes of the Active Directory user object enclosed in hashes.
+
+Examples:
+The folder Windows\%ProfileVer% stores the user settings in the subfolder called Windows\W2k3 of the user store (if %ProfileVer% is a system environment variable resolving to W2k3).
+
+\\server\share\#SAMAccountName# stores the user settings to the UNC path \\server\share\JohnSmith (if #SAMAccountName# resolves to JohnSmith for the current user).
+
+User environment variables cannot be used, except for %username% and %userdomain%.
+
+If this setting is disabled, the user settings are saved in the Windows subdirectory of the home directory.
+
+If this setting is not configured here, the setting from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, the Windows directory on the home drive is used.</string>
+      <string id="ProfileHandling">Profile handling</string>
+      <string id="DeleteCachedProfilesOnLogoff">Delete locally cached profiles on logoff</string>
+      <string id="DeleteCachedProfilesOnLogoff_Help">Specifies whether locally cached profiles are deleted after logoff.
+
+If this setting is enabled, a user's local profile cache is deleted after they have logged off. This is recommended for terminal servers.
+
+If this setting is disabled cached profiles are not deleted.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, cached profiles are not deleted.</string>
+      <string id="ProfileDeleteDelay">Delay before deleting cached profiles</string>
+      <string id="ProfileDeleteDelay_Part">Delay (seconds):</string>
+      <string id="ProfileDeleteDelay_Part_gpfx">Delay before deleting cached profiles</string>
+      <string id="ProfileDeleteDelay_Help">Works only if 'Delete locally cached profiles on logoff' is enabled. Sets an optional extension to the delay before locally cached profiles are deleted at logoff. A value of 0 deletes the profiles immediately during logoff processing. Checks take place every minute, so a value of 60 ensures that profiles are deleted between one and two minutes after users have logged off (depending on when the last check took place). Extending the delay is useful if you know that a process keeps files or the user registry hive open during logoff. With large profiles, this can also speed up logoff.
+
+If this policy is not configured here, the value from the .ini file is used.
+
+If this policy is not configured here or in the .ini file, profiles are deleted immediately.</string>
+      <string id="MigrateWindowsProfilesToUserStore">Migration of existing profiles</string>
+      <string id="MigrateWindowsProfilesToUserStore_Help">Profile management can migrate existing profiles "on the fly" during logon if the user has no profile in the user store.
+
+The following event takes place during logon: if an existing Windows profile is found and the user does not yet have a Citrix user profile in the user store, the Windows profile is migrated (copied) to the user store on the fly. After this process, the user store profile is used by Profile management in the current and any other session configured with the path to the same user store.
+
+If this setting is enabled, profile migration can be activated for roaming and local profiles (the default), roaming profiles only, local profiles only, or profile migration can be disabled altogether.
+
+If profile migration is disabled and no Citrix user profile exists in the user store, the existing Windows mechanism for creating new profiles is used as in a setup without Profile management.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, all types of existing profiles are migrated.</string>
+      <string id="MigrateWindowsProfilesToUserStore_Part">Types of user profiles to be migrated if the user store is empty:</string>
+      <string id="MigrateWindowsProfilesToUserStore_Part_gpfx">Migration of existing profiles</string>
+      <string id="MigrateWindowsProfilesToUserStoreEnum_All">Local and Roaming</string>
+      <string id="MigrateWindowsProfilesToUserStoreEnum_Local">Local</string>
+      <string id="MigrateWindowsProfilesToUserStoreEnum_Roaming">Roaming</string>
+      <string id="MigrateWindowsProfilesToUserStoreEnum_None">None</string>
+      <string id="LocalProfileConflictHandling">Local profile conflict handling</string>
+      <string id="LocalProfileConflictHandling_Help">This setting configures what Profile management does if both a profile in the user store and a local Windows user profile (not a Citrix user profile) exist.
+
+If this setting is disabled or set to the default value of "Use local profile", Profile management uses the local profile, but does not change it in any way.
+
+If this setting is set to "Delete local profile", Profile management deletes the local Windows user profile, and then imports the Citrix user profile from the user store.
+
+If this setting is set to "Rename local profile", Profile management renames the local Windows user profile (in order to back it up) and then imports the profile from the user store.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, existing local profiles are used.</string>
+      <string id="LocalProfileConflictHandling_Part_1">If both a local Windows user profile and a</string>
+      <string id="LocalProfileConflictHandling_Part">Citrix user profile in the user store both exist:</string>
+      <string id="LocalProfileConflictHandling_Part_gpfx">Local profile conflict handling</string>
+      <string id="LocalProfileConflictHandlingEnum_Use">Use local profile</string>
+      <string id="LocalProfileConflictHandlingEnum_Delete">Delete local profile</string>
+      <string id="LocalProfileConflictHandlingEnum_Rename">Rename local profile</string>
+      <string id="TemplateProfile">Template profile</string>
+      <string id="TemplateProfile_Help">By default, new user profiles are created from the default user profile on the computer where a user first logs on. Profile management can alternatively use a centrally stored template when creating new user profiles. Template profiles are identical to normal profiles in that they reside in any file share on the network. Use UNC notation to specifying paths to templates. Users need read access to a template profile.
+
+If this setting is disabled, templates are not used.
+
+If this setting is enabled, Profile management uses the template instead of the local default profile when creating new user profiles.
+
+If a user has no Citrix user profile, but a  local Windows user profile exists, by default the local profile is used (and migrated to the user store, if this is not disabled). This can be changed by enabling the checkbox "Template profile overrides local profile".
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, no template is used.</string>
+      <string id="TemplateProfilePath">Path to the template profile:</string>
+      <string id="TemplateProfileOverridesLocalProfile">Template profile overrides local profile</string>
+      <string id="TemplateProfileOverridesRoamingProfile">Template profile overrides roaming profile</string>
+      <string id="TemplateProfileIsMandatory">Template profile used as a Citrix mandatory profile for all logons</string>
+      <string id="AdvancedSettings">Advanced settings</string>
+      <string id="LoadRetries">Number of retries when accessing locked files</string>
+      <string id="LoadRetries_Part">Number of retries:</string>
+      <string id="LoadRetries_Help">Sets the number of retries when accessing locked files.
+
+If this setting is disabled the default value of five retries is used.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, the default value of five retries is used.</string>
+      <string id="LoadRetries_Part_gpfx">Number of retries when accessing locked files</string>
+      <string id="ProcessCookieFiles">Process Internet cookie files on logoff</string>
+      <string id="ProcessCookieFiles_Help">Some deployments leave extra Internet cookies that are not referenced by the file index.dat. The extra cookies left in the file system after sustained browsing can lead to profile bloat. Enable this setting to force processing of index.dat and remove the extra cookies. The setting increases logoff times, so only enable it if you experience this issue.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, no processing of index.dat takes place.</string>
+      <string id="DisableDynamicConfig">Disable automatic configuration</string>
+      <string id="DisableDynamicConfig_Help">Profile management 5.x examines its environment and configures itself accordingly. To disable this for troubleshooting or to retain the settings you used in an earlier version, enable this setting.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, automatic configuration is turned on so Profile management settings might change if the environment changes.</string>
+      <string id="LogoffRatherThanTempProfile">Log off user if a problem is encountered</string>
+      <string id="LogoffRatherThanTempProfile_Help">If a problem is encountered when the user logs on (for example, if the user store is unavailable) a temporary profile is provided.
+
+Alternatively, enabling this setting displays an error message and logs the user off.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, a temporary profile is provided.</string>
+      <string id="LastKnownGoodRegistry">NTUSER.DAT backup</string>
+      <string id="LastKnownGoodRegistry_Help">Backup the last good load NTUSER.DAT and roll back to it if NTUSER.DAT is corrupt.
+
+If you do not configure this setting here, Profile Management uses the settings from the .ini file.
+
+If you do not configure this setting here or in the .ini file, Profile Management does not backup the NTUSER.DAT.</string>
+      <string id="LogSettings">Log settings</string>
+      <string id="DebugMode">Enable logging</string>
+      <string id="DebugMode_Help">Activation of this setting enables debug mode (verbose logging). In debug mode, extensive status information is logged in the log files in "%SystemRoot%\System32\Logfiles\UserProfileManager".
+
+If this setting is disabled only errors are logged.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, only errors are logged.</string>
+      <string id="LogLevel">Log settings</string>
+      <string id="LogLevel_Help">Detailed log settings.
+
+Define events or actions which Profile management logs in depth.
+
+If this setting is not configured here, Profile management uses the settings from the .ini file.
+
+If this setting is not configured here or in the .ini file, errors and general information are logged.</string>
+      <string id="LogLevel_Intro">Define events or actions which Profile management logs in depth:</string>
+      <string id="LogLevel_UserName">Personalized user information</string>
+      <string id="LogLevel_Warnings">Common warnings</string>
+      <string id="LogLevel_Information">Common information</string>
+      <string id="LogLevel_FileSystemNotification">File system notifications</string>
+      <string id="LogLevel_FileSystemActions">File system actions</string>
+      <string id="LogLevel_RegistryActions">Registry actions</string>
+      <string id="LogLevel_RegistryDifference">Registry differences at logoff</string>
+      <string id="LogLevel_PolicyUserLogon">Policy values at logon and logoff</string>
+      <string id="LogLevel_ActiveDirectoryActions">Active Directory actions</string>
+      <string id="LogLevel_Logon">Logon</string>
+      <string id="LogLevel_Logoff">Logoff</string>
+      <string id="MaxLogSize">Maximum size of the log file</string>
+      <string id="MaxLogSize_Part">Maximum size in bytes:</string>
+      <string id="MaxLogSize_Part_gpfx">Maximum size of the log file</string>
+      <string id="MaxLogSize_Help">Sets the maximum size of the log file in bytes. If the log file grows beyond this size an existing backup of the file (.bak) is deleted, the log file is renamed to .bak, and a new log file is created.
+
+The log file is created in "%SystemRoot%\System32\Logfiles\UserProfileManager".
+
+If this setting is disabled, the default value of 1 MB is used.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, the default of 1 MB is used.</string>
+      <string id="DebugFilePath">Path to log file</string>
+      <string id="DebugFilePath_Part">Path to log file</string>
+      <string id="DebugFilePath_Help">Sets an alternative path to which the log files are saved.
+
+The path can point to a local drive or a remote, network-based one (a UNC path). Remote paths can be useful in large, distributed environments but they can create significant network traffic, which may be inappropriate for log files. For provisioned, virtual machines with a persistent hard drive, set a local path to that drive. This ensures log files are preserved when the machine restarts. For virtual machines without a persistent hard drive, setting a UNC path allows you to retain the log files but the system account for the machines must have write access to the UNC share. Use a local path for any laptops managed by the offline profiles feature.
+
+Examples:
+D:\LogFiles\ProfileManagement.
+\\servername\LogFiles\ProfileManagement
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, the default location "%SystemRoot%\System32\Logfiles\UserProfileManager" is used.
+
+If a UNC path is used for log files then Citrix recommends that an appropriate access control list is applied to the log file folder to ensure that only authorized user or computer accounts can access the stored files.</string>
+      <string id="RegistrySettings">Registry</string>
+      <string id="ExclusionList">Exclusion list</string>
+      <string id="ExclusionList_Part">Exclusion list:</string>
+      <string id="ExclusionList_Part_gpfx">Exclusion list</string>
+      <string id="ExclusionList_Help">List of registry keys in the HKCU hive which are ignored during logoff.
+
+Example:
+Software\Policies.
+
+If this setting is disabled, no registry keys are excluded.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, no registry keys are excluded.</string>
+      <string id="DefaultExclusionList">Enable Default Exclusion list</string>
+      <string id="ExclusionDefaultReg01">Software\Microsoft\AppV\Client\Integration</string>
+      <string id="ExclusionDefaultReg02">Software\Microsoft\AppV\Client\Publishing</string>
+      <string id="ExclusionDefaultReg03">Software\Microsoft\Speech_OneCore</string>
+      <string id="DefaultExclusionList_Help">Default list of registry keys in the HKCU hive that are not synchronized to the user's profile.
+
+If you disable this setting, registry keys are not excluded by default.
+
+If you do not configure this setting here, the value from the .ini file is used.
+
+If you do not configure this setting here or in the .ini file, registry keys are not excluded by default.</string>
+      <string id="IncludeListRegistry">Inclusion list</string>
+      <string id="IncludeListRegistry_Part">Inclusion list:</string>
+      <string id="IncludeListRegistry_Part_gpfx">Inclusion list</string>
+      <string id="IncludeListRegistry_Help">List of registry keys in the HKCU hive that are processed during logoff. Example: Software\Adobe.
+
+If this setting is enabled, only keys on this list are processed.
+
+If this setting is disabled, the complete HKCU hive is processed.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, all of HKCU is processed.</string>
+      <string id="FileSystemSettings">File system</string>
+      <string id="ExclusionListSyncFiles">Exclusion list - files</string>
+      <string id="ExclusionListSyncFiles_Part">List of files to exclude:</string>
+      <string id="ExclusionListSyncFiles_Part_gpfx">Exclusion list - files</string>
+      <string id="ExclusionListSyncFiles_Help">List of files that are ignored during synchronization.
+
+File names should be specified as paths relative to the user profile. Wildcards are allowed. Wildcards are applied recursively.
+
+Examples:
+Desktop\Desktop.ini ignores the file Desktop.ini in the Desktop directory.
+
+AppData\*.tmp ignores all files with the extension .tmp in the directory AppData and its subfolders.
+
+If this setting is disabled, no files are excluded.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, no files are excluded.</string>
+      <string id="ExclusionListSyncDir">Exclusion list - directories</string>
+      <string id="ExclusionListSyncDir_Part">List of directories to exclude:</string>
+      <string id="ExclusionListSyncDir_Part_gpfx">Exclusion list - directories</string>
+      <string id="ExclusionListSyncDir_Help">List of directories that are ignored during synchronization.
+
+Folder names should be specified as paths relative to the user profile.
+
+Examples:
+Entering "Desktop" (without quotes) ignores the Desktop directory in the user profile.
+
+If this setting is disabled, no folders are excluded.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, no folders are excluded.</string>
+      <string id="DefaultExclusionListSyncDir">Enable Default Exclusion List - directories</string>
+      <string id="ExclusionDefaultDir01">!ctx_internetcache!</string>
+      <string id="ExclusionDefaultDir02">!ctx_localappdata!\Google\Chrome\User Data\Default\Cache</string>
+      <string id="ExclusionDefaultDir03">!ctx_localappdata!\Google\Chrome\User Data\Default\Cached Theme Images</string>
+      <string id="ExclusionDefaultDir04">!ctx_localappdata!\Google\Chrome\User Data\Default\JumpListIcons</string>
+      <string id="ExclusionDefaultDir05">!ctx_localappdata!\Google\Chrome\User Data\Default\JumpListIconsOld</string>
+      <string id="ExclusionDefaultDir06">!ctx_localappdata!\GroupPolicy</string>
+      <string id="ExclusionDefaultDir07">!ctx_localappdata!\Microsoft\AppV</string>
+      <string id="ExclusionDefaultDir08">!ctx_localappdata!\Microsoft\Messenger</string>
+      <string id="ExclusionDefaultDir09">!ctx_localappdata!\Microsoft\Office\15.0\Lync\Tracing</string>
+      <string id="ExclusionDefaultDir10">!ctx_localappdata!\Microsoft\OneNote</string>
+      <string id="ExclusionDefaultDir11">!ctx_localappdata!\Microsoft\Outlook</string>
+      <string id="ExclusionDefaultDir12">!ctx_localappdata!\Microsoft\Terminal Server Client</string>
+      <string id="ExclusionDefaultDir13">!ctx_localappdata!\Microsoft\UEV</string>
+      <string id="ExclusionDefaultDir14">!ctx_localappdata!\Microsoft\Windows Live</string>
+      <string id="ExclusionDefaultDir15">!ctx_localappdata!\Microsoft\Windows Live Contacts</string>
+      <string id="ExclusionDefaultDir16">!ctx_localappdata!\Microsoft\Windows\Application Shortcuts</string>
+      <string id="ExclusionDefaultDir17">!ctx_localappdata!\Microsoft\Windows\Burn</string>
+      <string id="ExclusionDefaultDir18">!ctx_localappdata!\Microsoft\Windows\CD Burning</string>
+      <string id="ExclusionDefaultDir19">!ctx_localappdata!\Microsoft\Windows
+otifications</string>
+      <string id="ExclusionDefaultDir20">!ctx_localappdata!\Packages</string>
+      <string id="ExclusionDefaultDir21">!ctx_localappdata!\Sun</string>
+      <string id="ExclusionDefaultDir22">!ctx_localappdata!\Windows Live</string>
+      <string id="ExclusionDefaultDir23">!ctx_localsettings!\Temp</string>
+      <string id="ExclusionDefaultDir24">!ctx_roamingappdata!\Microsoft\AppV\Client\Catalog</string>
+      <string id="ExclusionDefaultDir25">!ctx_roamingappdata!\Sun\Java\Deployment\cache</string>
+      <string id="ExclusionDefaultDir26">!ctx_roamingappdata!\Sun\Java\Deployment\log</string>
+      <string id="ExclusionDefaultDir27">!ctx_roamingappdata!\Sun\Java\Deployment\tmp</string>
+      <string id="ExclusionDefaultDir28">$Recycle.Bin</string>
+      <string id="ExclusionDefaultDir29">AppData\LocalLow</string>
+      <string id="ExclusionDefaultDir30">Tracing</string>
+      <string id="DefaultExclusionListSyncDir_Help">Default list of directories ignored during synchronization.
+
+If you disable this setting, folders are not excluded by default.
+
+If you do not configure this setting here, the value from the .ini file is used.
+
+If you do not configure this setting here or in the .ini file, folders are not excluded by default.</string>
+      <string id="FSSynchronization">Synchronization</string>
+      <string id="SyncDirList">Directories to synchronize</string>
+      <string id="SyncDirList_Part">List of directories to synchronize:</string>
+      <string id="SyncDirList_Part_gpfx">Directories to synchronize</string>
+      <string id="SyncDirList_Help">Profile management synchronizes each user's entire profile between the system it is installed on and the user store. It is not necessary to include subfolders of the user profile by adding them to this list.
+
+In addition, it allows for the inclusion of directories below excluded folders.
+
+Paths on this list should be relative to the user profile.
+
+Examples:
+Desktop\exclude\include specifies the subfolder include of the folder Desktop\exclude.
+
+Disabling this setting has the same effect as enabling it and configuring an empty list.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, only non-excluded folders in the user profile are synchronized.</string>
+      <string id="SyncFileList">Files to synchronize</string>
+      <string id="SyncFileList_Part">List of files to synchronize:</string>
+      <string id="SyncFileList_Part_gpfx">Files to synchronize</string>
+      <string id="SyncFileList_Help">Profile management synchronizes each user's entire profile between the system it is installed on and the user store. It is not necessary to include files in the user profile by adding them to this list.
+
+This setting allows for the inclusion of files below excluded folders.
+
+Paths on this list should be relative to the user profile. Wildcards can be used but are only allowed for file names. Wildcards cannot be nested and are applied recursively.
+
+Examples:
+AppData\Local\Microsoft\Office\Access.qat specifies a file below a folder excluded in the default configuration.
+
+AppData\Local\MyApp\*.cfg specifies all files with the extension .cfg in the profile folder AppData\Local\MyApp and its subfolders.
+
+Disabling this setting has the same effect as enabling it and configuring an empty list.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, only non-excluded files in the user profile are synchronized.</string>
+      <string id="MirrorFoldersList">Folders to mirror</string>
+      <string id="MirrorFoldersList_Part">List of folders to mirror:</string>
+      <string id="MirrorFoldersList_Part_gpfx">Folders to mirror</string>
+      <string id="MirrorFoldersList_Help">Profile management can mirror a folder relative to the profile's root folder. Use this setting for files whose contents index data and where separate instances of the data are likely to exist. For example, you can mirror the Internet Explorer cookies folder so that index.dat is synchronized with the cookies that it indexes. Be aware that, in these situations the "last write wins" so files in mirrored folders that have been modified in more than one session will be overwritten by the last update, resulting in loss of profile changes.</string>
+      <string id="PSSettings">Streamed user profiles</string>
+      <string id="PSEnabled">Profile streaming</string>
+      <string id="PSEnabled_Help">With profile streaming, users' profiles are synchronized on the local computer only when they are needed. Registry entries are cached immediately, but files and folders are only cached when accessed by users.</string>
+      <string id="PSAlwaysCache">Always cache</string>
+      <string id="PSAlwaysCache_Help">Optionally, to enhance the user experience, use this setting with the Profile streaming setting. This imposes a lower limit on the size of files that are streamed. Any files this size or larger are cached as soon as possible after logon. To use the cache entire profile feature, set this limit to zero (which caches all of the profile contents).</string>
+      <string id="PSAlwaysCache_Part">Cache files this size or larger (megabytes):</string>
+      <string id="PSAlwaysCache_Part_gpfx">Always cache size</string>
+      <string id="PSMidSessionWriteBack">Active write back</string>
+      <string id="PSMidSessionWriteBack_Help">With this setting, files and folders (but not Registry entries) that are modified can be synchronized to the user store in the middle of a session, before logoff.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, active write back is disabled.</string>
+      <string id="OfflineSupport">Offline profile support</string>
+      <string id="OfflineSupport_Help">Enables the offline profiles feature. This is intended for computers that are commonly removed from networks, typically laptops or mobile devices not servers or desktops.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, offline profile support is disabled.</string>
+      <string id="PSPendingLockTimeout">Timeout for pending area lock files (days)</string>
+      <string id="PSPendingLockTimeout_Help">You can set a timeout period that frees up users' files so they are written back to the user store from the pending area in the event that the user store remains locked when a server becomes unresponsive (for example, when it goes down). Use this setting to prevent bloat in the pending area and to ensure the user store always contains the most up-to-date files.</string>
+      <string id="PSUserGroups">Streamed user profile groups</string>
+      <string id="PSUserGroups_Help">Enter one or more Windows user groups.
+
+If this setting is enabled, only the profiles of those groups' members are streamed. If this setting is disabled, all user groups are processed.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, all users are processed.</string>
+      <string id="PSUserGroups_Part">List of user groups with streamed user profiles:</string>
+      <string id="PSUserGroups_Part_gpfx">Streamed user profile groups</string>
+      <string id="CPSettings">Cross-Platform settings</string>
+      <string id="CPEnable">Enable cross-platform settings</string>
+      <string id="CPEnable_Help">By default, to facilitate deployment, cross-platform settings is disabled.
+
+Turn on processing by enabling this setting.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, no cross-platform settings will be applied.</string>
+      <string id="CPUserGroups">Cross-platform settings user groups</string>
+      <string id="CPUserGroups_Help">Enter one or more Windows user groups.
+
+If this setting is configured, the cross-platform settings feature of Profile management processes only members of these user groups. If this setting is disabled, all user groups are processed.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, all user groups are processed.</string>
+      <string id="CPUserGroups_Part">List of user groups to be processed across platforms:</string>
+      <string id="CPUserGroups_Part_gpfx">Cross-platform settings user groups</string>
+      <string id="CPSchemaPath">Path to cross-platform definitions</string>
+      <string id="CPSchemaPath_Help">Specify a folder where the definition files are located.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, no cross-platform settings will be applied.
+
+Note:
+* The folder can be local or it can reside on an SMB file share.</string>
+      <string id="CPSchemaPathData">Path to cross-platform definitions:</string>
+      <string id="CPSchemaPathData_gpfx">Path to cross-platform definitions</string>
+      <string id="CPPath">Path to cross-platform settings store</string>
+      <string id="CPPath_Help">Sets the path to the directory in which users' cross-platform settings are saved (cross-platform settings store).
+
+The path can be an absolute UNC path or a path relative to the home directory.
+
+In both cases the following types of variables can be used: system environment variables enclosed in percent signs and attributes of the Active Directory user object enclosed in hashes.
+
+User environment variables cannot be used, except for %username% and %userdomain%.
+
+If this setting is disabled, the path Windows\PM_CP is used.
+
+If this setting is not configured here, the value from the .ini file is used.
+
+If this setting is not configured here or in the .ini file, the default value Windows\PM_CP is used.</string>
+      <string id="CPPathData">Path to cross-platform settings store:</string>
+      <string id="CPPathData_gpfx">Path to cross-platform settings store</string>
+      <string id="CPMigrationFromBaseProfileToCPStore">Source for creating cross-platform settings</string>
+      <string id="CPMigrationFromBaseProfileToCPStore_Help">Default: Disabled
+
+Definition files contain a set of definitions that configure an application. If the cross-platform settings store contains a definition with no data, or the cached data in the single-platform profile is newer than the definition's data in the store, Profile management only migrates the data from the single-platform profile to the store if you enable this setting.</string>
+      <string id="FolderRedirection">Folder Redirection</string>
+      <string id="FRAdminAccess">Grant administrator access</string>
+      <string id="FRAdminAccess_Help">By default, users are granted exclusive access to the contents of their redirected folders.
+
+Enabling this option allows administrator access to the contents of the users redirected folders.</string>
+      <string id="FRAdminAccess_Part">Grant administrator access:</string>
+      <string id="FRAdminAccess_Part_gpfx">Grant administrator access</string>
+      <string id="FRAppDataEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRDesktopEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRStartMenuEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRDocumentsEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRPicturesEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRMusicEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRVideosEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRFavoritesEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRContactsEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRDownloadsEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRLinksEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRSearchesEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRSavedGamesEnum_RedirectUncPath">Redirect to the following UNC path</string>
+      <string id="FRIncDomainName">Include domain name</string>
+      <string id="FRIncDomainName_Help">Enabling this option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRIncDomainName_Part">Include domain name in UNC path:</string>
+      <string id="FRIncDomainName_Part_gpfx">Include domain name</string>
+      <string id="FRDocumentsEnum_RedirectRelativeHome">Redirect to the user's home directory</string>
+      <string id="FRPicturesEnum_RedirectRelativeDocuments">Redirect relative to Documents folder</string>
+      <string id="FRMusicEnum_RedirectRelativeDocuments">Redirect relative to Documents folder</string>
+      <string id="FRVideosEnum_RedirectRelativeDocuments">Redirect relative to Documents folder</string>
+      <string id="FRAppData">AppData(Roaming)</string>
+      <string id="FRAppDataEnable">Redirect the AppData(Roaming) folder</string>
+      <string id="FRAppDataEnable_Help">Specify how to redirect the AppData(Roaming) folder</string>
+      <string id="FRAppData_Part">Redirection settings for AppData(Roaming)</string>
+      <string id="FRAppDataPath_Help">Specifies the redirected location of the AppData(Roaming) folder as a UNC path.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRAppDataPath_Part">Path:</string>
+      <string id="FRAppDataPath_Part_gpfx">AppData(Roaming) path</string>
+      <string id="FRDesktop">Desktop</string>
+      <string id="FRDesktopEnable">Redirect the Desktop folder</string>
+      <string id="FRDesktopEnable_Help">Specify how to redirect the Desktop folder</string>
+      <string id="FRDesktop_Part">Redirection settings for Desktop</string>
+      <string id="FRDesktopPath_Help">Specifies the redirected location of the Desktop folder as a UNC path.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRDesktopPath_Part">Path:</string>
+      <string id="FRDesktopPath_Part_gpfx">Desktop path</string>
+      <string id="FRStartMenu">Start Menu</string>
+      <string id="FRStartMenuEnable">Redirect the Start Menu folder</string>
+      <string id="FRStartMenuEnable_Help">Specify how to redirect the Start Menu folder</string>
+      <string id="FRStartMenu_Part">Redirection settings for Start Menu</string>
+      <string id="FRStartMenuPath_Help">Specifies the redirected location of the Start Menu folder as a UNC path.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRStartMenuPath_Part">Path:</string>
+      <string id="FRStartMenuPath_Part_gpfx">Start Menu path</string>
+      <string id="FRDocuments">Documents</string>
+      <string id="FRDocumentsEnable">Redirect the Documents folder</string>
+      <string id="FRDocumentsEnable_Help">Specify how to redirect the Documents folder</string>
+      <string id="FRDocuments_Part">Redirection settings for Documents</string>
+      <string id="FRDocumentsPath_Help">Specifies the redirected location of the Documents folder, either as a UNC path, or a path relative to the home directory.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRDocumentsPath_Part">Path:</string>
+      <string id="FRDocumentsPath_Part_gpfx">Documents path</string>
+      <string id="FRPictures">Pictures</string>
+      <string id="FRPicturesEnable">Redirect the Pictures folder</string>
+      <string id="FRPicturesEnable_Help">Specify how to redirect the Pictures folder</string>
+      <string id="FRPictures_Part">Redirection settings for Pictures</string>
+      <string id="FRPicturesPath_Help">Specifies the redirected location of the Pictures folder, either as a UNC path, or a path relative to the Documents folder.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRPicturesPath_Part">Path:</string>
+      <string id="FRPicturesPath_Part_gpfx">Pictures path</string>
+      <string id="FRMusic">Music</string>
+      <string id="FRMusicEnable">Redirect the Music folder</string>
+      <string id="FRMusicEnable_Help">Specify how to redirect the Music folder</string>
+      <string id="FRMusic_Part">Redirection settings for Music</string>
+      <string id="FRMusicPath_Help">Specifies the redirected location of the Music folder, either as a UNC path, or a path relative to the Documents folder.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRMusicPath_Part">Path:</string>
+      <string id="FRMusicPath_Part_gpfx">Music path</string>
+      <string id="FRVideos">Videos</string>
+      <string id="FRVideosEnable">Redirect the Videos folder</string>
+      <string id="FRVideosEnable_Help">Specify how to redirect the Videos folder</string>
+      <string id="FRVideos_Part">Redirection settings for Videos</string>
+      <string id="FRVideosPath_Help">Specifies the redirected location of the Videos folder, either as a UNC path, or a path relative to the Documents folder.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRVideosPath_Part">Path:</string>
+      <string id="FRVideosPath_Part_gpfx">Videos path</string>
+      <string id="FRFavorites">Favorites</string>
+      <string id="FRFavoritesEnable">Redirect the Favorites folder</string>
+      <string id="FRFavoritesEnable_Help">Specify how to redirect the Favorites folder</string>
+      <string id="FRFavorites_Part">Redirection settings for Favorites</string>
+      <string id="FRFavoritesPath_Help">Specifies the redirected location of the Favorites folder as a UNC path.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRFavoritesPath_Part">Path:</string>
+      <string id="FRFavoritesPath_Part_gpfx">Favorites path</string>
+      <string id="FRContacts">Contacts</string>
+      <string id="FRContactsEnable">Redirect the Contacts folder</string>
+      <string id="FRContactsEnable_Help">Specify how to redirect the Contacts folder</string>
+      <string id="FRContacts_Part">Redirection settings for Contacts</string>
+      <string id="FRContactsPath_Help">Specifies the redirected location of the Contacts folder as a UNC path.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRContactsPath_Part">Path:</string>
+      <string id="FRContactsPath_Part_gpfx">Contacts path</string>
+      <string id="FRDownloads">Downloads</string>
+      <string id="FRDownloadsEnable">Redirect the Downloads folder</string>
+      <string id="FRDownloadsEnable_Help">Specify how to redirect the Downloads folder</string>
+      <string id="FRDownloads_Part">Redirection settings for Downloads</string>
+      <string id="FRDownloadsPath_Help">Specifies the redirected location of the Downloads folder as a UNC path.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRDownloadsPath_Part">Path:</string>
+      <string id="FRDownloadsPath_Part_gpfx">Downloads path</string>
+      <string id="FRLinks">Links</string>
+      <string id="FRLinksEnable">Redirect the Links folder</string>
+      <string id="FRLinksEnable_Help">Specify how to redirect the Links folder</string>
+      <string id="FRLinks_Part">Redirection settings for Links</string>
+      <string id="FRLinksPath_Help">Specifies the redirected location of the Links folder as a UNC path.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRLinksPath_Part">Path:</string>
+      <string id="FRLinksPath_Part_gpfx">Links path</string>
+      <string id="FRSearches">Searches</string>
+      <string id="FRSearchesEnable">Redirect the Searches folder</string>
+      <string id="FRSearchesEnable_Help">Specify how to redirect the Searches folder</string>
+      <string id="FRSearches_Part">Redirection settings for Searches</string>
+      <string id="FRSearchesPath_Help">Specifies the redirected location of the Searches folder as a UNC path.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRSearchesPath_Part">Path:</string>
+      <string id="FRSearchesPath_Part_gpfx">Searches path</string>
+      <string id="FRSavedGames">Saved Games</string>
+      <string id="FRSavedGamesEnable">Redirect the Saved Games folder</string>
+      <string id="FRSavedGamesEnable_Help">Specify how to redirect the Saved Games folder</string>
+      <string id="FRSavedGames_Part">Redirection settings for Saved Games</string>
+      <string id="FRSavedGamesPath_Help">Specifies the redirected location of the Saved Games folder as a UNC path.
+
+Selecting the 'Include Domain Name' option will include the %userdomain% environment variable as part of the UNC path.</string>
+      <string id="FRSavedGamesPath_Part">Path:</string>
+      <string id="FRSavedGamesPath_Part_gpfx">Saved Games path</string>
+      <string id="GPFXDefaultUIEnabledString">This setting will be enabled.</string>
+      <string id="GPFXDefaultUIDisabledString">This setting will be disabled.</string>
+      <string id="GPFXDefaultDirPrefix">UPM - </string>
+      <string id="GPFXDefaultRegPrefix">UPM - </string>
+      <string id="GPFXCategory_BasicSettings">Basic settings</string>
+      <string id="GPFXCategory_FRCommonSettings">Common settings</string>
+      <string id="GPFXCategory_FSExclusions">Exclusions</string>
+      <string id="GPFXCategory_DefaultFSExclusions">Default Exclusions</string>
+      <string id="GPFXCategory_DefaultREGExclusions">Default Exclusions</string>
+      <string id="ProcessedGroups_exclude_gpfx">TRUE</string>
+      <string id="ExcludedGroups_exclude_gpfx">TRUE</string>
+      <string id="ExclusionList_exclude_gpfx">TRUE</string>
+      <string id="IncludeListRegistry_exclude_gpfx">TRUE</string>
+      <string id="ExclusionListSyncFiles_exclude_gpfx">TRUE</string>
+      <string id="ExclusionListSyncDir_exclude_gpfx">TRUE</string>
+      <string id="SyncDirList_exclude_gpfx">TRUE</string>
+      <string id="SyncFileList_exclude_gpfx">TRUE</string>
+      <string id="MirrorFoldersList_exclude_gpfx">TRUE</string>
+      <string id="PSUserGroups_exclude_gpfx">TRUE</string>
+      <string id="CPUserGroups_exclude_gpfx">TRUE</string>
+      <string id="ServiceActive_gpfx_category">BasicSettings</string>
+      <string id="ProcessedGroups_gpfx_category">BasicSettings</string>
+      <string id="ExcludedGroups_gpfx_category">BasicSettings</string>
+      <string id="ProcessAdmins_gpfx_category">BasicSettings</string>
+      <string id="DATPath_gpfx_category">BasicSettings</string>
+      <string id="PSMidSessionWriteBack_gpfx_category">BasicSettings</string>
+      <string id="OfflineSupport_gpfx_category">BasicSettings</string>
+      <string id="FRAdminAccess_gpfx_category">FRCommonSettings</string>
+      <string id="FRIncDomainName_gpfx_category">FRCommonSettings</string>
+      <string id="ExclusionListSyncFiles_gpfx_category">FSExclusions</string>
+      <string id="ExclusionListSyncDir_gpfx_category">FSExclusions</string>
+      <string id="DefaultExclusionList_gpfx_category">DefaultREGExclusions</string>
+      <string id="ExclusionDefaultReg01_gpfx_category">DefaultREGExclusions</string>
+      <string id="ExclusionDefaultReg02_gpfx_category">DefaultREGExclusions</string>
+      <string id="ExclusionDefaultReg03_gpfx_category">DefaultREGExclusions</string>
+      <string id="DefaultExclusionListSyncDir_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir01_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir02_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir03_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir04_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir05_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir06_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir07_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir08_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir09_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir10_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir11_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir12_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir13_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir14_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir15_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir16_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir17_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir18_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir19_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir20_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir21_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir22_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir23_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir24_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir25_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir26_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir27_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir28_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir29_gpfx_category">DefaultFSExclusions</string>
+      <string id="ExclusionDefaultDir30_gpfx_category">DefaultFSExclusions</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="ServiceActive" />
+      <presentation id="ProcessedGroups">
+        <listBox refId="ProcessedGroups_Part">Processed groups:</listBox>
+      </presentation>
+      <presentation id="ExcludedGroups">
+        <listBox refId="ExcludedGroups_Part">Excluded groups:</listBox>
+      </presentation>
+      <presentation id="ProcessAdmins" />
+      <presentation id="DATPath">
+        <textBox refId="DATPath_Part">
+          <label>Absolute path or path relative to the home directory:</label>
+        </textBox>
+      </presentation>
+      <presentation id="PSMidSessionWriteBack" />
+      <presentation id="OfflineSupport" />
+      <presentation id="DeleteCachedProfilesOnLogoff" />
+      <presentation id="ProfileDeleteDelay">
+        <decimalTextBox refId="ProfileDeleteDelay_Part" defaultValue="0" spinStep="10">Delay (seconds):</decimalTextBox>
+      </presentation>
+      <presentation id="MigrateWindowsProfilesToUserStore">
+        <dropdownList refId="MigrateWindowsProfilesToUserStore_Part">Types of user profiles to be migrated if the user store is empty:</dropdownList>
+      </presentation>
+      <presentation id="LocalProfileConflictHandling">
+        <text>If both a local Windows user profile and a</text>
+        <dropdownList refId="LocalProfileConflictHandling_Part">Citrix user profile in the user store both exist:</dropdownList>
+      </presentation>
+      <presentation id="TemplateProfile">
+        <textBox refId="TemplateProfilePath">
+          <label>Path to the template profile:</label>
+        </textBox>
+        <checkBox refId="TemplateProfileOverridesLocalProfile">Template profile overrides local profile</checkBox>
+        <checkBox refId="TemplateProfileOverridesRoamingProfile">Template profile overrides roaming profile</checkBox>
+        <checkBox refId="TemplateProfileIsMandatory">Template profile used as a Citrix mandatory profile for all logons</checkBox>
+      </presentation>
+      <presentation id="LoadRetries">
+        <decimalTextBox refId="LoadRetries_Part" defaultValue="5" spinStep="1">Number of retries:</decimalTextBox>
+      </presentation>
+      <presentation id="ProcessCookieFiles" />
+      <presentation id="DisableDynamicConfig" />
+      <presentation id="LogoffRatherThanTempProfile" />
+      <presentation id="DebugMode" />
+      <presentation id="LogLevel">
+        <text>Define events or actions which Profile management logs in depth:</text>
+        <checkBox refId="LogLevel_Warnings" defaultChecked="true">Common warnings</checkBox>
+        <checkBox refId="LogLevel_Information" defaultChecked="true">Common information</checkBox>
+        <checkBox refId="LogLevel_FileSystemNotification">File system notifications</checkBox>
+        <checkBox refId="LogLevel_FileSystemActions">File system actions</checkBox>
+        <checkBox refId="LogLevel_RegistryActions">Registry actions</checkBox>
+        <checkBox refId="LogLevel_RegistryDifference">Registry differences at logoff</checkBox>
+        <checkBox refId="LogLevel_ActiveDirectoryActions">Active Directory actions</checkBox>
+        <checkBox refId="LogLevel_PolicyUserLogon">Policy values at logon and logoff</checkBox>
+        <checkBox refId="LogLevel_Logon">Logon</checkBox>
+        <checkBox refId="LogLevel_Logoff">Logoff</checkBox>
+        <checkBox refId="LogLevel_UserName" defaultChecked="true">Personalized user information</checkBox>
+      </presentation>
+      <presentation id="MaxLogSize">
+        <decimalTextBox refId="MaxLogSize_Part" defaultValue="1048576" spinStep="1024">Maximum size in bytes:</decimalTextBox>
+      </presentation>
+      <presentation id="DebugFilePath">
+        <textBox refId="DebugFilePath_Part">
+          <label>Path to log file</label>
+        </textBox>
+      </presentation>
+      <presentation id="ExclusionList">
+        <listBox refId="ExclusionList_Part">Exclusion list:</listBox>
+      </presentation>
+      <presentation id="DefaultExclusionList">
+        <checkBox refId="ExclusionDefaultReg01" defaultChecked="true">Software\Microsoft\AppV\Client\Integration</checkBox>
+        <checkBox refId="ExclusionDefaultReg02" defaultChecked="true">Software\Microsoft\AppV\Client\Publishing</checkBox>
+        <checkBox refId="ExclusionDefaultReg03" defaultChecked="true">Software\Microsoft\Speech_OneCore</checkBox>
+      </presentation>
+      <presentation id="IncludeListRegistry">
+        <listBox refId="IncludeListRegistry_Part">Inclusion list:</listBox>
+      </presentation>
+      <presentation id="LastKnownGoodRegistry" />
+      <presentation id="ExclusionListSyncFiles">
+        <listBox refId="ExclusionListSyncFiles_Part">List of files to exclude:</listBox>
+      </presentation>
+      <presentation id="DefaultExclusionListSyncDir">
+        <checkBox refId="ExclusionDefaultDir01" defaultChecked="true">!ctx_internetcache!</checkBox>
+        <checkBox refId="ExclusionDefaultDir02" defaultChecked="true">!ctx_localappdata!\Google\Chrome\User Data\Default\Cache</checkBox>
+        <checkBox refId="ExclusionDefaultDir03" defaultChecked="true">!ctx_localappdata!\Google\Chrome\User Data\Default\Cached Theme Images</checkBox>
+        <checkBox refId="ExclusionDefaultDir04" defaultChecked="true">!ctx_localappdata!\Google\Chrome\User Data\Default\JumpListIcons</checkBox>
+        <checkBox refId="ExclusionDefaultDir05" defaultChecked="true">!ctx_localappdata!\Google\Chrome\User Data\Default\JumpListIconsOld</checkBox>
+        <checkBox refId="ExclusionDefaultDir06" defaultChecked="true">!ctx_localappdata!\GroupPolicy</checkBox>
+        <checkBox refId="ExclusionDefaultDir07" defaultChecked="true">!ctx_localappdata!\Microsoft\AppV</checkBox>
+        <checkBox refId="ExclusionDefaultDir08" defaultChecked="true">!ctx_localappdata!\Microsoft\Messenger</checkBox>
+        <checkBox refId="ExclusionDefaultDir09" defaultChecked="true">!ctx_localappdata!\Microsoft\Office\15.0\Lync\Tracing</checkBox>
+        <checkBox refId="ExclusionDefaultDir10" defaultChecked="true">!ctx_localappdata!\Microsoft\OneNote</checkBox>
+        <checkBox refId="ExclusionDefaultDir11" defaultChecked="true">!ctx_localappdata!\Microsoft\Outlook</checkBox>
+        <checkBox refId="ExclusionDefaultDir12" defaultChecked="true">!ctx_localappdata!\Microsoft\Terminal Server Client</checkBox>
+        <checkBox refId="ExclusionDefaultDir13" defaultChecked="true">!ctx_localappdata!\Microsoft\UEV</checkBox>
+        <checkBox refId="ExclusionDefaultDir14" defaultChecked="true">!ctx_localappdata!\Microsoft\Windows Live</checkBox>
+        <checkBox refId="ExclusionDefaultDir15" defaultChecked="true">!ctx_localappdata!\Microsoft\Windows Live Contacts</checkBox>
+        <checkBox refId="ExclusionDefaultDir16" defaultChecked="true">!ctx_localappdata!\Microsoft\Windows\Application Shortcuts</checkBox>
+        <checkBox refId="ExclusionDefaultDir17" defaultChecked="true">!ctx_localappdata!\Microsoft\Windows\Burn</checkBox>
+        <checkBox refId="ExclusionDefaultDir18" defaultChecked="true">!ctx_localappdata!\Microsoft\Windows\CD Burning</checkBox>
+        <checkBox refId="ExclusionDefaultDir19" defaultChecked="true">!ctx_localappdata!\Microsoft\Windows\Notifications</checkBox>
+        <checkBox refId="ExclusionDefaultDir20" defaultChecked="true">!ctx_localappdata!\Packages</checkBox>
+        <checkBox refId="ExclusionDefaultDir21" defaultChecked="true">!ctx_localappdata!\Sun</checkBox>
+        <checkBox refId="ExclusionDefaultDir22" defaultChecked="true">!ctx_localappdata!\Windows Live</checkBox>
+        <checkBox refId="ExclusionDefaultDir23" defaultChecked="true">!ctx_localsettings!\Temp</checkBox>
+        <checkBox refId="ExclusionDefaultDir24" defaultChecked="true">!ctx_roamingappdata!\Microsoft\AppV\Client\Catalog</checkBox>
+        <checkBox refId="ExclusionDefaultDir25" defaultChecked="true">!ctx_roamingappdata!\Sun\Java\Deployment\cache</checkBox>
+        <checkBox refId="ExclusionDefaultDir26" defaultChecked="true">!ctx_roamingappdata!\Sun\Java\Deployment\log</checkBox>
+        <checkBox refId="ExclusionDefaultDir27" defaultChecked="true">!ctx_roamingappdata!\Sun\Java\Deployment\tmp</checkBox>
+        <checkBox refId="ExclusionDefaultDir28" defaultChecked="true">$Recycle.Bin</checkBox>
+        <checkBox refId="ExclusionDefaultDir29" defaultChecked="true">AppData\LocalLow</checkBox>
+        <checkBox refId="ExclusionDefaultDir30" defaultChecked="true">Tracing</checkBox>
+      </presentation>
+      <presentation id="ExclusionListSyncDir">
+        <listBox refId="ExclusionListSyncDir_Part">List of directories to exclude:</listBox>
+      </presentation>
+      <presentation id="SyncDirList">
+        <listBox refId="SyncDirList_Part">List of directories to synchronize:</listBox>
+      </presentation>
+      <presentation id="SyncFileList">
+        <listBox refId="SyncFileList_Part">List of files to synchronize:</listBox>
+      </presentation>
+      <presentation id="MirrorFoldersList">
+        <listBox refId="MirrorFoldersList_Part">List of folders to mirror:</listBox>
+      </presentation>
+      <presentation id="PSEnabled" />
+      <presentation id="PSAlwaysCache">
+        <decimalTextBox refId="PSAlwaysCache_Part" defaultValue="0" spinStep="1">Cache files this size or larger (megabytes):</decimalTextBox>
+      </presentation>
+      <presentation id="PSPendingLockTimeout">
+        <decimalTextBox refId="PSPendingLockTimeout" defaultValue="1" spinStep="1">Timeout for pending area lock files (days)</decimalTextBox>
+      </presentation>
+      <presentation id="PSUserGroups">
+        <listBox refId="PSUserGroups_Part">List of user groups with streamed user profiles:</listBox>
+      </presentation>
+      <presentation id="CPEnable" />
+      <presentation id="CPUserGroups">
+        <listBox refId="CPUserGroups_Part">List of user groups to be processed across platforms:</listBox>
+      </presentation>
+      <presentation id="CPSchemaPath">
+        <textBox refId="CPSchemaPathData">
+          <label>Path to cross-platform definitions:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CPPath">
+        <textBox refId="CPPathData">
+          <label>Path to cross-platform settings store:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CPMigrationFromBaseProfileToCPStore" />
+      <presentation id="FRAdminAccess">
+        <checkBox refId="FRAdminAccess_Part">Grant administrator access:</checkBox>
+      </presentation>
+      <presentation id="FRIncDomainName">
+        <checkBox refId="FRIncDomainName_Part">Include domain name in UNC path:</checkBox>
+      </presentation>
+      <presentation id="FRAppDataEnable">
+        <dropdownList refId="FRAppData_Part">Redirection settings for AppData(Roaming)</dropdownList>
+        <textBox refId="FRAppDataPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRDesktopEnable">
+        <dropdownList refId="FRDesktop_Part">Redirection settings for Desktop</dropdownList>
+        <textBox refId="FRDesktopPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRStartMenuEnable">
+        <dropdownList refId="FRStartMenu_Part">Redirection settings for Start Menu</dropdownList>
+        <textBox refId="FRStartMenuPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRDocumentsEnable">
+        <dropdownList refId="FRDocuments_Part">Redirection settings for Documents</dropdownList>
+        <textBox refId="FRDocumentsPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRPicturesEnable">
+        <dropdownList refId="FRPictures_Part">Redirection settings for Pictures</dropdownList>
+        <textBox refId="FRPicturesPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRMusicEnable">
+        <dropdownList refId="FRMusic_Part">Redirection settings for Music</dropdownList>
+        <textBox refId="FRMusicPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRVideosEnable">
+        <dropdownList refId="FRVideos_Part">Redirection settings for Videos</dropdownList>
+        <textBox refId="FRVideosPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRFavoritesEnable">
+        <dropdownList refId="FRFavorites_Part">Redirection settings for Favorites</dropdownList>
+        <textBox refId="FRFavoritesPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRContactsEnable">
+        <dropdownList refId="FRContacts_Part">Redirection settings for Contacts</dropdownList>
+        <textBox refId="FRContactsPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRDownloadsEnable">
+        <dropdownList refId="FRDownloads_Part">Redirection settings for Downloads</dropdownList>
+        <textBox refId="FRDownloadsPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRLinksEnable">
+        <dropdownList refId="FRLinks_Part">Redirection settings for Links</dropdownList>
+        <textBox refId="FRLinksPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRSearchesEnable">
+        <dropdownList refId="FRSearches_Part">Redirection settings for Searches</dropdownList>
+        <textBox refId="FRSearchesPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="FRSavedGamesEnable">
+        <dropdownList refId="FRSavedGames_Part">Redirection settings for Saved Games</dropdownList>
+        <textBox refId="FRSavedGamesPath_Part">
+          <label>Path:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

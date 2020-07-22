@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+	<displayName >Introduzca el nombre para mostrar aquí</displayName>
+	<description >Ajustes de configuración de VMware Horizon View Server</description>
+	<resources >
+		<stringTable >
+
+			<string id="Undefined" >Sin definir</string>
+
+			<string id="View_Server_Config" >Configuración común de VMware View Server</string>
+
+			<string id="Pwd_Auth_Mode" >Modo de autenticación de contraseñas de Windows</string>
+
+			<string id="Pwd_Auth_Mode_Desc" >Seleccione el modo de autenticación de contraseñas de Windows.
+
+KerberosOnly: autenticar con Kerberos.
+KerberosWithFallbackToNTLM: autenticar con Kerberos pero, en caso de fallo, utilizar NTLM.
+Heredado: autenticar con NTLM pero, en caso de fallo, utilizar Kerberos. Se utiliza para admitir controladores de dominio NT heredados.
+
+KerberosOnly es el modo predeterminado.</string>
+
+			<string id="Kerberos_Only" >KerberosOnly</string>
+
+			<string id="Kerberos_With_NTLM_Fallback" >KerberosWithFallbackToNTLM</string>
+
+			<string id="Legacy" >Heredado</string>
+
+			<string id="Trusted_Domain_Enumeration" >Enumeración recursiva de dominios de confianza</string>
+
+			<string id="Trusted_Domain_Enumeration_Desc" >Determina si se enumeran todos los dominios de confianza del dominio en el que se encuentra el servidor. Para establecer una cadena completa de confianza, los dominios en los que confían cada dominio de confianza también se enumeran y el proceso continúa recursivamente hasta que se detectan todos los dominios de confianza. Esta información se envía al servidor de conexión de View para garantizar que todos los dominios de confianza estén disponibles cuando el cliente inicia sesión.
+
+Esta propiedad está habilitada de forma predeterminada. Cuando está deshabilitada, solo se enumeran los dominios de confianza directa y no se establece la conexión a controladores de dominios remotos.
+
+Nota: En entornos con relaciones de dominio complejas (como las que usan varias estructuras de bosques con confianza entre dominios), este proceso puede tardar varios minutos en completarse.</string>
+
+			<string id="Enumerate_Forest_Trust_Child_Domains" >Enumerar dominios secundarios de confianza de bosque</string>
+
+			<string id="Enumerate_Forest_Trust_Child_Domains_Desc" >Determina si se enumeran los dominios secundarios de una confianza de bosque.
+
+El valor predeterminado, si no está configurado, es true.</string>
+
+		</stringTable>
+
+		<presentationTable ><!--Storage for Presentation Definitions-->
+
+			<presentation id="Windows_Pwd_Auth_Mode" >
+				<dropdownList refId="Windows_Pwd_Auth_Mode_DropDown_1" defaultItem="0" >Modo de autenticación de contraseñas de Windows</dropdownList>
+			</presentation>
+
+		</presentationTable>
+
+	</resources>
+
+</policyDefinitionResources>

@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+	<displayName >Enter Display Name here</displayName>
+	<description >VMware Horizon View PCOIP client configuration settings</description>
+	<resources >
+		<stringTable ><!--Storage for String Definitions-->
+
+			<string id="String_SupportedOn_Undefined_2" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_4" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_6" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_8" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_10" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_12" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_14" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_15" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_16" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_18" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_20" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_22" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_24" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_26" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_28" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_30" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_32" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_34" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_36" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_38" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_40" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_42" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_43" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_44" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_46" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_48" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_50" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_52" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_54" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_56" >Undefined</string>
+			<string id="String_Cat_PCoIP_Client_Session_58" >PCoIP Client Session Variables</string>
+			<string id="String_Cat_Not_Overridable_60" >Not Overridable Administrator Settings</string>
+			<string id="String_Cat_Overridable_Administrator_62" >Overridable Administrator Defaults</string>
+			<string id="String_Policy_Configure_the_maximum_64" >Configure the maximum PCoIP session bandwidth</string>
+			<string id="String_Explain_Specifies_the_maximum_65" >Specifies the maximum bandwidth, in kilobits per second, in a PCoIP session. The bandwidth includes all imaging, audio, virtual channel, USB, and control PCoIP traffic.
+
+Set this value based on the overall capacity of the link to which your endpoint is connected, taking into consideration the number of expected concurrent PCoIP sessions. For example, with a single user VDI configuration (e.g. a single PCoIP session) that connects through a 4Mbit/s Internet connection, set this value to 4Mbit (or 10% less than this value to leave some allowance for other network traffic). When you expect multiple concurrent PCoIP sessions to share a link (e.g. multiple VDI users or a RDSH configuration), you may want to adjust the setting accordingly, however this will restrict the maximum bandwidth for each active session.
+
+Setting this value prevents the agent from attempting to transmit at a higher rate than the link capacity, which would cause excessive packet loss and a poorer user experience. This value is symmetric. It forces the client and agent to use the lower of the two values that are set on the client and agent side. For example, setting a 4Mbit/s maximum bandwidth forces the agent to transmit at a lower rate, even though the setting is configured on the client.
+
+When this setting is disabled or not configured on an endpoint, the endpoint imposes no bandwidth constraints. When this setting is configured, the setting is used as the endpoint's maximum bandwidth constraint in kilobits per second.
+
+The default value when this setting is not configured is 900000 kilobits per second.
+
+This setting applies to the agent and client. If the two endpoints have different settings, the lower value is used.</string>
+			<string id="String_Policy_Configure_the_PCoIP_68" >Configure the PCoIP session MTU</string>
+			<string id="String_Explain_Specifies_the_Maximum_69" >Specifies the Maximum Transmission Unit (MTU) size for UDP packets for a PCoIP session.
+
+The MTU size includes IP and UDP packet headers. TCP uses the standard MTU discovery mechanism to set MTU and is not affected by this setting. The maximum MTU size is 1500 bytes. The minimum MTU size is 500 bytes. The default value is 1200 bytes.
+
+Typically, you do not have to change the MTU size. Change this value if you have an unusual network setup that causes PCoIP packet fragmentation.
+
+This setting applies to the server and client. If the two endpoints have different MTU size settings, the lowest size is used.
+
+If this setting is disabled or not configured, the client uses the default value in the negotiation with the server.</string>
+			<string id="String_Policy_Configure_the_PCoIP_72" >Configure the PCoIP session bandwidth floor</string>
+			<string id="String_Explain_Specifies_a_lower_73" >Specifies a lower limit, in kilobits per second, for the bandwidth that is reserved by the PCoIP session.
+
+This setting configures the minimum expected bandwidth transmission rate for the endpoint. When you use this setting to reserve bandwidth for an endpoint, the session does not have to wait for bandwidth to become available, which improves session responsiveness.
+
+Make sure that you do not over-subscribe the total reserved bandwidth for all endpoints. Make sure that the sum of bandwidth floors for all connections in your configuration does not exceed the network capability.
+
+The default value is 0, which means that no minimum bandwidth is reserved. When this setting is disabled or not configured, no minimum bandwidth is reserved.
+
+This setting applies to the server and client, but the setting only affects the endpoint on which it is configured.
+
+When this setting is modified during an active PCoIP session, it will take effect immediately.</string>
+			<string id="String_Policy_Enable_disable_76" >Enable/disable audio in the PCoIP session</string>
+			<string id="String_Explain_Determines_whether_77" >Determines whether audio is enabled in PCoIP sessions. Both endpoints must have audio enabled. When this setting is enabled, PCoIP audio is allowed. When it is disabled, PCoIP audio is disabled. When this setting is not configured, audio is enabled by default.
+
+</string>
+			<string id="String_Policy_Configure_SSL_connections_79" >Configure SSL connections to satisfy Security Tools</string>
+			<string id="String_Explain_Specifies_how_SSL_80" >Specifies how SSL session negotiation connections are established.
+
+In order to satisfy port scanners, enable this 'Configure SSL connections' setting and do the following:
+
+1. Store the certificate for the Certificate Authority that signed any Server certificate to be used with PCoIP in the Trusted Root certificate store.
+2. Configure the agent to load certificates only from the Certificate Store. If the Personal store for the Local Machine is used, leave the CA Certificate store name unchanged with the value, “ROOT” (without the quotes), unless a different store location was used in step 1.
+
+The resulting PCoIP Client will satisfy Security Tools such as port scanners.
+
+If this 'Configure SSL connections' setting is disabled or not configured:
+
+1. The endpoint will use certificates Certification Authority certificates from the machine account's “MY” store and Certification Authority certificates from the “ROOT” store.
+2. The AES-128 cipher suite will be available.</string>
+			<string id="String_Policy_Configure_PCoIP_85" >Configure PCoIP session encryption algorithms</string>
+			<string id="String_Explain_Controls_the_encryption_86" >Controls the encryption algorithms advertised by the PCoIP endpoint during session negotiation.
+
+Checking one of the check boxes disables the associated encryption algorithm. You must enable at least one algorithm.
+
+This setting applies to both agent and client. The endpoints negotiate the actual session encryption algorithm that is used. If FIPS140-2 approved mode is enabled, the Disable AES-128-GCM encryption value will be overridden if both AES-128-GCM encryption and AES-256-GCM encryption are disabled.
+
+If the overall &quot;Configure SSL Connections&quot; is disabled or not configured, both the Salsa20-256round12 and AES-128-GCM algorithms are available for negotiation by this endpoint.
+
+Supported encryption algorithms, in order of preference, are SALSA20/12-256, AES-GCM-128, and AES-GCM-256. By default, all supported encryption algorithms are available for negotiation by this endpoint. 
+
+If both endpoints are configured to support all 3 algorithms and the connection does not use a Security Gateway (SG), the SALSA20 algorithm will be negotiated and used.  However if the connection uses a SG then SALSA20 is automatically disabled and AES128 will be negotiated and used. If either endpoint or the SG disables SALSA20 and either endpoint disables AES128, then AES256 will be negotiated and used.</string>
+			<string id="String_Policy_Configure_SSL_protocols_91" >Configure SSL protocols</string>
+			<string id="String_Explain_Configures_openssl_92" >Configures openssl protocol to restrict the use of certain protocols before establishing an encrypted SSL connection. The protocol list consists of one or more openssl protocol strings separated by colons. Note that all cipher strings are case insensitive.
+
+ The default value is: 
+   &quot;TLS1.0:TLS1.1:TLS1.2&quot;
+
+ That means: TLS v1.0, TLS v1.1 and TLS v1.2 are enabled(SSL v2.0 and SSLv3.0 are disabled). 
+
+This setting applies to both agent and client. 
+
+If it is set on both side, the OpenSSL protocol negotiation rule will be followed.</string>
+			<string id="String_Policy_Configure_SSL_cipher_list_93" >Configure SSL cipher list</string>
+			<string id="String_Explain_Configures_SSL_cipher_list_94" >Configures SSL cipher list to restrict the use of cipher suite before establishing an encrypted SSL connection. The list consists of one or more cipher suite strings separated by colons. Note that all cipher strings are case insensitive.
+
+The default value is:
+   &quot;ECDHE-RSA-AES256-GCM-SHA384:AES256-SHA256:AES256-SHA:ECDHE-RSA-AES128-GCM-SHA256:AES128-SHA256:AES128-SHA:@STRENGTH&quot;
+
+If this item is configured, the checkbox &quot;Enforce AES-256 or stronger ciphers for SSL connection negotiation&quot; in &quot;Configure SSL connections to satisfy Security Tools&quot; will be ignored.
+
+This setting need to be applied to PCoIP server and PCoIP client at the same time.</string>
+			<string id="String_Policy_Configure_the_Client_95" >Configure the Client PCoIP UDP port</string>
+			<string id="String_Explain_Specifies_the_UDP_96" >Specifies the UDP client port that is used by software PCoIP clients, this can be manually configured or automatically determined by the client Operating System (OS). This setting applies to the client only.
+
+To configure manually, enter both a UDP port and retry port range. The UDP port value specifies the base UDP port to use. The UDP port range value determines how many additional ports to try if the base port is not available. The range spans from the base port to the sum of the base port and port range. For example, if the base port is 50002 and the port range is 64, the range spans from 50002 to 50066. By default, the base port is 50002 and the port range is 64.
+
+Checking 'Allow OS to automatically determine UDP port' instructs the client OS to ignore the manually set values and automatically choose a UDP port not in use by other programs.</string>
+			<string id="String_Policy_Configure_PCoIP_101" >Configure PCoIP virtual channels</string>
+			<string id="String_Explain_Specifies_the_virtual_102" >Specifies the virtual channels that can and cannot operate over PCoIP sessions. This setting also determines whether to disable clipboard processing on the PCoIP host.
+
+Virtual channels that are used in PCoIP sessions must appear on the virtual channel authorization list. Virtual channels that appear in the unauthorized virtual channel list cannot be used in PCoIP sessions.
+
+You can specify a maximum of 15 virtual channels for use in PCoIP sessions.
+
+Separate multiple channel names with the vertical bar (|) character. Forexample, the virtual channel authorization string to allow the mksvchan and vdp_rdpvcbridge virtual channels is mksvchan|vdp_rdpvcbridge.
+
+If a channel name contains the vertical bar or backslash (\) character, insert a backslash character before it. For example, type the channel name awk|ward\channel as awk\|ward\\channel.
+
+When the authorized virtual channel list is empty, all virtual channels are disallowed. When the unauthorized virtual channel list is empty, all virtual channels are allowed.
+
+The virtual channels setting applies to both agent and client. Virtual channels must be enabled on both agent and client for virtual channels to be used.
+
+The virtual channels setting provides a separate check box that allows you to disable remote clipboard processing on the PCoIP host. This value applies to the agent only.
+
+By default, all virtual channels are enabled, including clipboard processing.</string>
+			<string id="String_Policy_DropList_Select_Configure_PCoIP_0_Disable_virtual_104" >0 - Disable virtual channels in PCoIP sessions</string>
+			<string id="String_Policy_DropList_Select_Configure_PCoIP_2_Disable_all_105" >2 - Disable all virtual channels other than</string>
+			<string id="String_Policy_DropList_Select_Configure_PCoIP_3_Enable_all_106" >3 - Enable all virtual channels other than</string>
+			<string id="String_Policy_Configure_PCoIP_110" >Configure PCoIP client image cache size policy</string>
+			<string id="String_Explain_Controls_the_size_111" >Controls the size of the PCoIP client image cache. The client uses image caching to store portions of the display that were previously transmitted. Image caching reduces the amount of data that is retransmitted.
+
+This setting applies only to Windows and Linux clients when View Client, View Agent, and View Connection Server are a View 5.0 or later release.
+
+When this setting is not configured or disabled, PCoIP uses a default client image cache size of 250MB.
+
+When you enable this setting, you can configure a client image cache size from a minimum of 50 MB to a maximum of 1024 MB. The default value is 250MB.</string>
+			<string id="String_Policy_Configure_the_PCoIP_114" >Configure the PCoIP transport header</string>
+			<string id="String_Explain_Configures_the_115" >Configures the PCoIP transport header. 
+
+PCoIP transport header is a 32-bit long header which is added to all PCoIP UDP packets (only if the transport header is enabled/supported by both sides). PCoIP transport header allows network devices to make better prioritization/Qos decisions when dealing with network congestions. The transport header is enabled by default.  
+
+The transport session priority determines the PCoIP session priority reported in the PCoIP Transport Header. Network devices make better prioritization/Qos decisions based on the specified transport session priority.  The transport session priority value is negotiated by the PCoIP agent and client.  If agent has specified a transport session priority value (high, medium, or low), then the session uses the agent specified session priority.  If only the client has specified a transport session priority (high, medium, or low), then the session uses the client specified session priority.  If neither agent nor client has specified a transport session priority (or specified 'undefined priority'), then the session uses/defaults to the medium session priority.</string>
+			<string id="String_Policy_DropList_Select_Configure_the_PCoIP_High_Priority_117" >High Priority</string>
+			<string id="String_Policy_DropList_Select_Configure_the_PCoIP_Medium_Priority_118" >Medium Priority (default)</string>
+			<string id="String_Policy_DropList_Select_Configure_the_PCoIP_Low_Priority_119" >Low Priority</string>
+			<string id="String_Policy_DropList_Select_Configure_the_PCoIP_Undefined_Priority_120" >Undefined Priority</string>
+			<string id="String_Policy_Configure_PCoIP_122" >Configure PCoIP event log verbosity</string>
+			<string id="String_Explain_This_policy_enables_123" >This policy enables the configuration of the PCoIP event log verbosity ranging from 0 (least verbose) to 3 (most verbose).
+
+When this policy is Disabled or Not Configured, the default event log verbosity setting is 2.  When this policy is Configured, the setting controls the verbosity level as described above.
+
+When this setting is modified during an active PCoIP session, it will take effect immediately.</string>
+			<string id="String_Policy_Configure_PCoIP_126" >Configure PCoIP event log cleanup by time in days</string>
+			<string id="String_Explain_This_policy_enables_127" >This policy enables the configuration of the PCoIP event log cleanup by time in days.
+
+When this policy is Configured, the setting controls the log file cleanup by time in days, i.e for a non-zero setting of n, log files older than n days will be automatically (and silently) deleted; a setting of 0 indicates no file cleanup by time. When this policy is Disabled or Not Configured, the default event log cleanup by time in days setting is 7.  
+
+The log file cleanup is performed once at session startup; any change to the setting will not be applied until the next session.</string>
+			<string id="String_Policy_Configure_PCoIP_130" >Configure PCoIP event log cleanup by size in MB</string>
+			<string id="String_Explain_This_policy_enables_131" >This policy enables the configuration of the PCoIP event log cleanup by size in MB.
+
+When this policy is Configured, the setting controls the log file cleanup by size in MB, i.e for a non-zero setting of m, log files larger than m MB will be automatically (and silently) deleted; a setting of 0 indicates no file cleanup by size. When this policy is Disabled or Not Configured, the default event log cleanup by size in MB setting is 100.  
+
+The log file cleanup is performed once at session startup; any change to the setting will not be applied until the next session.</string>
+			<string id="String_Policy_Configure_the_maximum_134" >Configure the maximum PCoIP session bandwidth</string>
+			<string id="String_Explain_Specifies_the_maximum_135" >Specifies the maximum bandwidth, in kilobits per second, in a PCoIP session. The bandwidth includes all imaging, audio, virtual channel, USB, and control PCoIP traffic.
+
+Set this value based on the overall capacity of the link to which your endpoint is connected, taking into consideration the number of expected concurrent PCoIP sessions. For example, with a single user VDI configuration (e.g. a single PCoIP session) that connects through a 4Mbit/s Internet connection, set this value to 4Mbit (or 10% less than this value to leave some allowance for other network traffic). When you expect multiple concurrent PCoIP sessions to share a link (e.g. multiple VDI users or a RDSH configuration), you may want to adjust the setting accordingly, however this will restrict the maximum bandwidth for each active session.
+
+Setting this value prevents the agent from attempting to transmit at a higher rate than the link capacity, which would cause excessive packet loss and a poorer user experience. This value is symmetric. It forces the client and agent to use the lower of the two values that are set on the client and agent side. For example, setting a 4Mbit/s maximum bandwidth forces the agent to transmit at a lower rate, even though the setting is configured on the client.
+
+When this setting is disabled or not configured on an endpoint, the endpoint imposes no bandwidth constraints. When this setting is configured, the setting is used as the endpoint's maximum bandwidth constraint in kilobits per second.
+
+The default value when this setting is not configured is 900000 kilobits per second.
+
+This setting applies to the agent and client. If the two endpoints have different settings, the lower value is used.</string>
+			<string id="String_Policy_Configure_the_PCoIP_138" >Configure the PCoIP session MTU</string>
+			<string id="String_Explain_Specifies_the_Maximum_139" >Specifies the Maximum Transmission Unit (MTU) size for UDP packets for a PCoIP session.
+
+The MTU size includes IP and UDP packet headers. TCP uses the standard MTU discovery mechanism to set MTU and is not affected by this setting. The maximum MTU size is 1500 bytes. The minimum MTU size is 500 bytes. The default value is 1200 bytes.
+
+Typically, you do not have to change the MTU size. Change this value if you have an unusual network setup that causes PCoIP packet fragmentation.
+
+This setting applies to the server and client. If the two endpoints have different MTU size settings, the lowest size is used.
+
+If this setting is disabled or not configured, the client uses the default value in the negotiation with the server.</string>
+			<string id="String_Policy_Configure_the_PCoIP_142" >Configure the PCoIP session bandwidth floor</string>
+			<string id="String_Explain_Specifies_a_lower_143" >Specifies a lower limit, in kilobits per second, for the bandwidth that is reserved by the PCoIP session.
+
+This setting configures the minimum expected bandwidth transmission rate for the endpoint. When you use this setting to reserve bandwidth for an endpoint, the session does not have to wait for bandwidth to become available, which improves session responsiveness.
+
+Make sure that you do not over-subscribe the total reserved bandwidth for all endpoints. Make sure that the sum of bandwidth floors for all connections in your configuration does not exceed the network capability.
+
+The default value is 0, which means that no minimum bandwidth is reserved. When this setting is disabled or not configured, no minimum bandwidth is reserved.
+
+This setting applies to the server and client, but the setting only affects the endpoint on which it is configured.
+
+When this setting is modified during an active PCoIP session, it will take effect immediately.</string>
+			<string id="String_Policy_Enable_disable_146" >Enable/disable audio in the PCoIP session</string>
+			<string id="String_Explain_Determines_whether_147" >Determines whether audio is enabled in PCoIP sessions. Both endpoints must have audio enabled. When this setting is enabled, PCoIP audio is allowed. When it is disabled, PCoIP audio is disabled. When this setting is not configured, audio is enabled by default.
+
+</string>
+			<string id="String_Policy_Configure_SSL_connections_149" >Configure SSL connections to satisfy Security Tools</string>
+			<string id="String_Explain_Specifies_how_SSL_150" >Specifies how SSL session negotiation connections are established.
+
+In order to satisfy port scanners, enable this 'Configure SSL connections' setting and do the following:
+
+1. Store the certificate for the Certificate Authority that signed any Server certificate to be used with PCoIP in the Trusted Root certificate store.
+2. Configure the agent to load certificates only from the Certificate Store. If the Personal store for the Local Machine is used, leave the CA Certificate store name unchanged with the value, “ROOT” (without the quotes), unless a different store location was used in step 1.
+
+The resulting PCoIP Client will satisfy Security Tools such as port scanners.
+
+If this 'Configure SSL connections' setting is disabled or not configured:
+
+1. The endpoint will use certificates Certification Authority certificates from the machine account's “MY” store and Certification Authority certificates from the “ROOT” store.
+2. The AES-128 cipher suite will be available.</string>
+			<string id="String_Policy_Configure_PCoIP_155" >Configure PCoIP session encryption algorithms</string>
+			<string id="String_Explain_Controls_the_encryption_156" >Controls the encryption algorithms advertised by the PCoIP endpoint during session negotiation.
+
+Checking one of the check boxes disables the associated encryption algorithm. You must enable at least one algorithm.
+
+This setting applies to both agent and client. The endpoints negotiate the actual session encryption algorithm that is used. If FIPS140-2 approved mode is enabled, the Disable AES-128-GCM encryption value will be overridden if both AES-128-GCM encryption and AES-256-GCM encryption are disabled.
+
+If the overall &quot;Configure SSL Connections&quot; is disabled or not configured, both the Salsa20-256round12 and AES-128-GCM algorithms are available for negotiation by this endpoint.
+
+Supported encryption algorithms, in order of preference, are SALSA20/12-256, AES-GCM-128, and AES-GCM-256. By default, all supported encryption algorithms are available for negotiation by this endpoint. 
+
+If both endpoints are configured to support all 3 algorithms and the connection does not use a Security Gateway (SG), the SALSA20 algorithm will be negotiated and used.  However if the connection uses a SG then SALSA20 is automatically disabled and AES128 will be negotiated and used. If either endpoint or the SG disables SALSA20 and either endpoint disables AES128, then AES256 will be negotiated and used.</string>
+			<string id="String_Policy_Configure_SSL_protocols_161" >Configure SSL protocols</string>
+			<string id="String_Explain_Configures_openssl_162" >Configures openssl protocol to restrict the use of certain protocols before establishing an encrypted SSL connection. The protocol list consists of one or more openssl protocol strings separated by colons. Note that all cipher strings are case insensitive.
+
+ The default value is: 
+   &quot;TLS1.0:TLS1.1:TLS1.2&quot;
+
+ That means: TLS v1.0, TLS v1.1 and TLS v1.2 are enabled(SSL v2.0 and SSLv3.0 are disabled). 
+
+This setting applies to both agent and client. 
+
+If it is set on both side, the OpenSSL protocol negotiation rule will be followed.</string>
+			<string id="String_Policy_Configure_SSL_cipher_list_163" >Configure SSL cipher list</string>
+			<string id="String_Explain_Configures_SSL_cipher_list_164" >Configures SSL cipher list to restrict the use of cipher suite before establishing an encrypted SSL connection. The list consists of one or more cipher suite strings separated by colons. Note that all cipher strings are case insensitive.
+
+The default value is:
+   &quot;ECDHE-RSA-AES256-GCM-SHA384:AES256-SHA256:AES256-SHA:ECDHE-RSA-AES128-GCM-SHA256:AES128-SHA256:AES128-SHA:@STRENGTH&quot;
+
+If this item is configured, the checkbox &quot;Enforce AES-256 or stronger ciphers for SSL connection negotiation&quot; in &quot;Configure SSL connections to satisfy Security Tools&quot; will be ignored.
+
+This setting need to be applied to PCoIP server and PCoIP client at the same time.</string>
+			<string id="String_Policy_Configure_the_Client_165" >Configure the Client PCoIP UDP port</string>
+			<string id="String_Explain_Specifies_the_UDP_166" >Specifies the UDP client port that is used by software PCoIP clients, this can be manually configured or automatically determined by the client Operating System (OS). This setting applies to the client only.
+
+To configure manually, enter both a UDP port and retry port range. The UDP port value specifies the base UDP port to use. The UDP port range value determines how many additional ports to try if the base port is not available. The range spans from the base port to the sum of the base port and port range. For example, if the base port is 50002 and the port range is 64, the range spans from 50002 to 50066. By default, the base port is 50002 and the port range is 64.
+
+Checking 'Allow OS to automatically determine UDP port' instructs the client OS to ignore the manually set values and automatically choose a UDP port not in use by other programs.</string>
+			<string id="String_Policy_Configure_PCoIP_171" >Configure PCoIP virtual channels</string>
+			<string id="String_Explain_Specifies_the_virtual_172" >Specifies the virtual channels that can and cannot operate over PCoIP sessions. This setting also determines whether to disable clipboard processing on the PCoIP host.
+
+Virtual channels that are used in PCoIP sessions must appear on the virtual channel authorization list. Virtual channels that appear in the unauthorized virtual channel list cannot be used in PCoIP sessions.
+
+You can specify a maximum of 15 virtual channels for use in PCoIP sessions.
+
+Separate multiple channel names with the vertical bar (|) character. Forexample, the virtual channel authorization string to allow the mksvchan and vdp_rdpvcbridge virtual channels is mksvchan|vdp_rdpvcbridge.
+
+If a channel name contains the vertical bar or backslash (\) character, insert a backslash character before it. For example, type the channel name awk|ward\channel as awk\|ward\\channel.
+
+When the authorized virtual channel list is empty, all virtual channels are disallowed. When the unauthorized virtual channel list is empty, all virtual channels are allowed.
+
+The virtual channels setting applies to both agent and client. Virtual channels must be enabled on both agent and client for virtual channels to be used.
+
+The virtual channels setting provides a separate check box that allows you to disable remote clipboard processing on the PCoIP host. This value applies to the agent only.
+
+By default, all virtual channels are enabled, including clipboard processing.</string>
+			<string id="String_Policy_DropList_Select_Configure_PCoIP_0_Disable_virtual_174" >0 - Disable virtual channels in PCoIP sessions</string>
+			<string id="String_Policy_DropList_Select_Configure_PCoIP_2_Disable_all_175" >2 - Disable all virtual channels other than</string>
+			<string id="String_Policy_DropList_Select_Configure_PCoIP_3_Enable_all_176" >3 - Enable all virtual channels other than</string>
+			<string id="String_Policy_Configure_PCoIP_180" >Configure PCoIP client image cache size policy</string>
+			<string id="String_Explain_Controls_the_size_181" >Controls the size of the PCoIP client image cache. The client uses image caching to store portions of the display that were previously transmitted. Image caching reduces the amount of data that is retransmitted.
+
+This setting applies only to Windows and Linux clients when View Client, View Agent, and View Connection Server are a View 5.0 or later release.
+
+When this setting is not configured or disabled, PCoIP uses a default client image cache size of 250MB.
+
+When you enable this setting, you can configure a client image cache size from a minimum of 50 MB to a maximum of 1024 MB. The default value is 250MB.</string>
+			<string id="String_Policy_Configure_the_PCoIP_184" >Configure the PCoIP transport header</string>
+			<string id="String_Explain_Configures_the_185" >Configures the PCoIP transport header. 
+
+PCoIP transport header is a 32-bit long header which is added to all PCoIP UDP packets (only if the transport header is enabled/supported by both sides). PCoIP transport header allows network devices to make better prioritization/Qos decisions when dealing with network congestions. The transport header is enabled by default.  
+
+The transport session priority determines the PCoIP session priority reported in the PCoIP Transport Header. Network devices make better prioritization/Qos decisions based on the specified transport session priority.  The transport session priority value is negotiated by the PCoIP agent and client.  If agent has specified a transport session priority value (high, medium, or low), then the session uses the agent specified session priority.  If only the client has specified a transport session priority (high, medium, or low), then the session uses the client specified session priority.  If neither agent nor client has specified a transport session priority (or specified 'undefined priority'), then the session uses/defaults to the medium session priority.</string>
+			<string id="String_Policy_DropList_Select_Configure_the_PCoIP_High_Priority_187" >High Priority</string>
+			<string id="String_Policy_DropList_Select_Configure_the_PCoIP_Medium_Priority_188" >Medium Priority (default)</string>
+			<string id="String_Policy_DropList_Select_Configure_the_PCoIP_Low_Priority_189" >Low Priority</string>
+			<string id="String_Policy_DropList_Select_Configure_the_PCoIP_Undefined_Priority_190" >Undefined Priority</string>
+			<string id="String_Policy_Configure_PCoIP_192" >Configure PCoIP event log verbosity</string>
+			<string id="String_Explain_This_policy_enables_193" >This policy enables the configuration of the PCoIP event log verbosity ranging from 0 (least verbose) to 3 (most verbose).
+
+When this policy is Disabled or Not Configured, the default event log verbosity setting is 2.  When this policy is Configured, the setting controls the verbosity level as described above.
+
+When this setting is modified during an active PCoIP session, it will take effect immediately.</string>
+			<string id="String_Policy_Configure_PCoIP_196" >Configure PCoIP event log cleanup by time in days</string>
+			<string id="String_Explain_This_policy_enables_197" >This policy enables the configuration of the PCoIP event log cleanup by time in days.
+
+When this policy is Configured, the setting controls the log file cleanup by time in days, i.e for a non-zero setting of n, log files older than n days will be automatically (and silently) deleted; a setting of 0 indicates no file cleanup by time. When this policy is Disabled or Not Configured, the default event log cleanup by time in days setting is 7.  
+
+The log file cleanup is performed once at session startup; any change to the setting will not be applied until the next session.</string>
+			<string id="String_Policy_Configure_PCoIP_200" >Configure PCoIP event log cleanup by size in MB</string>
+			<string id="String_Explain_This_policy_enables_201" >This policy enables the configuration of the PCoIP event log cleanup by size in MB.
+
+When this policy is Configured, the setting controls the log file cleanup by size in MB, i.e for a non-zero setting of m, log files larger than m MB will be automatically (and silently) deleted; a setting of 0 indicates no file cleanup by size. When this policy is Disabled or Not Configured, the default event log cleanup by size in MB setting is 100.  
+
+The log file cleanup is performed once at session startup; any change to the setting will not be applied until the next session.</string>
+		</stringTable>
+		<presentationTable ><!--Storage for Presentation Definitions-->
+
+			<presentation id="Policy_Configure_the_maximum_63" >
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_the_maximum_66" spinStep="100" spin="true" defaultValue="900000" >Set PCoIP session bandwidth in kilobits per second to:</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_the_PCoIP_67" >
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_the_PCoIP_70" spinStep="1" spin="true" defaultValue="1200" >Set PCoIP MTU size in bytes to:</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_the_PCoIP_71" >
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_the_PCoIP_74" spinStep="1" spin="true" defaultValue="0" >Set PCoIP session bandwidth floor in kilobits per second to:</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_SSL_connections_78" >
+				<textBox refId="Policy_TextBox_Element_Configure_SSL_connections_81" >
+					<label >Name of the Machine account's Certificate Store to search for a certificate:</label>
+					<defaultValue >MY</defaultValue>
+				</textBox>
+				<textBox refId="Policy_TextBox_Element_Configure_SSL_connections_82" >
+					<label >Name of the Machine account's Certificate Store to search for a Certificate Authority's certificate:</label>
+					<defaultValue >ROOT</defaultValue>
+				</textBox>
+				<checkBox refId="Policy_CheckBox_Element_Configure_SSL_connections_83" >Enforce AES-256 or stronger ciphers for SSL connection negotiation</checkBox>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_84" >
+				<text >At least one encryption algorithm must be enabled. (See Explain)</text>
+				<checkBox refId="Policy_CheckBox_Element_Configure_PCoIP_87" >Disable Salsa20-256-round12 encryption</checkBox>
+				<checkBox refId="Policy_CheckBox_Element_Configure_PCoIP_88" >Disable AES-128-GCM encryption</checkBox>
+				<checkBox refId="Policy_CheckBox_Element_Configure_PCoIP_89" >Disable AES-256-GCM encryption</checkBox>
+			</presentation>
+			<presentation id="Policy_Configure_SSL_protocols_90" >
+				<textBox refId="Policy_TextBox_Element_Configure_SSL_protocols_93" >
+					<label >Configure SSL protocols</label>
+					<defaultValue >TLS1.0:TLS1.1:TLS1.2</defaultValue>
+				</textBox>
+			</presentation>
+			<presentation id="Policy_Configure_SSL_cipher_list_91" >
+				<textBox refId="Policy_TextBox_Element_Configure_SSL_cipher_list_94" >
+					<label >Configure SSL cipher list</label>
+					<defaultValue >ECDHE-RSA-AES256-GCM-SHA384:AES256-SHA256:AES256-SHA:ECDHE-RSA-AES128-GCM-SHA256:AES128-SHA256:AES128-SHA:@STRENGTH</defaultValue>
+				</textBox>
+			</presentation>
+			<presentation id="Policy_Configure_the_Client_94" >
+				<text >Set a UDP port and the size of the retry range.</text>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_the_Client_97" spinStep="1" spin="true" defaultValue="50002" >Choose a UDP port:</decimalTextBox>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_the_Client_98" spinStep="1" spin="true" defaultValue="64" >Set the size of the retry port range:</decimalTextBox>
+				<checkBox refId="Policy_CheckBox_Element_Configure_the_Client_99" >Allow OS to automatically determine UDP port</checkBox>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_100" >
+				<dropdownList refId="Policy_DropList_Element_Configure_PCoIP_103" defaultItem="0" >Virtual channel setting:</dropdownList>
+				<text >The following setting is only required and applicable if 2 is selected.</text>
+				<text >See the Explain tab for string formats and examples.</text>
+				<textBox refId="Policy_TextBox_Element_Configure_PCoIP_107" >
+					<label >Enter the authorized virtual channel list:</label>
+				</textBox>
+				<text >The following setting is only required and applicable if 3 is selected.</text>
+				<text >See the Explain tab for string formats and examples.</text>
+				<textBox refId="Policy_TextBox_Element_Configure_PCoIP_108" >
+					<label >Enter the unauthorized virtual channel list:</label>
+				</textBox>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_109" >
+				<text >See the Explain tab for the explanation of image caching and values.</text>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_PCoIP_112" spinStep="50" spin="true" defaultValue="250" >Set the Image Cache Size in Megabytes (default 250 MB):</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_the_PCoIP_113" >
+				<dropdownList refId="Policy_DropList_Element_Configure_the_PCoIP_116" defaultItem="3" >Transport session priority</dropdownList>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_121" >
+				<text >See the Explain tab for example values.</text>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_PCoIP_124" spinStep="1" spin="true" defaultValue="2" >Set the event log verbosity value (2 for default):</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_125" >
+				<text >See the Explain tab for example values.</text>
+				<text >Set the event log cleanup by time value in days (7 default, 0 for no</text>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_PCoIP_128" spinStep="1" spin="true" defaultValue="7" >cleanup by time):</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_129" >
+				<text >See the Explain tab for example values.</text>
+				<text >Set the event log cleanup by size value in MB (100 default, 0 for no</text>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_PCoIP_132" spinStep="1" spin="true" defaultValue="100" >cleanup by size):</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_the_maximum_133" >
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_the_maximum_136" spinStep="100" spin="true" defaultValue="900000" >Set PCoIP session bandwidth in kilobits per second to:</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_the_PCoIP_137" >
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_the_PCoIP_140" spinStep="1" spin="true" defaultValue="1200" >Set PCoIP MTU size in bytes to:</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_the_PCoIP_141" >
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_the_PCoIP_144" spinStep="1" spin="true" defaultValue="0" >Set PCoIP session bandwidth floor in kilobits per second to:</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_SSL_connections_148" >
+				<textBox refId="Policy_TextBox_Element_Configure_SSL_connections_151" >
+					<label >Name of the Machine account's Certificate Store to search for a certificate:</label>
+					<defaultValue >MY</defaultValue>
+				</textBox>
+				<textBox refId="Policy_TextBox_Element_Configure_SSL_connections_152" >
+					<label >Name of the Machine account's Certificate Store to search for a Certificate Authority's certificate:</label>
+					<defaultValue >ROOT</defaultValue>
+				</textBox>
+				<checkBox refId="Policy_CheckBox_Element_Configure_SSL_connections_153" >Enforce AES-256 or stronger ciphers for SSL connection negotiation</checkBox>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_154" >
+				<text >At least one encryption algorithm must be enabled. (See Explain)</text>
+				<checkBox refId="Policy_CheckBox_Element_Configure_PCoIP_157" >Disable Salsa20-256-round12 encryption</checkBox>
+				<checkBox refId="Policy_CheckBox_Element_Configure_PCoIP_158" >Disable AES-128-GCM encryption</checkBox>
+				<checkBox refId="Policy_CheckBox_Element_Configure_PCoIP_159" >Disable AES-256-GCM encryption</checkBox>
+			</presentation>
+			<presentation id="Policy_Configure_SSL_protocols_160" >
+				<textBox refId="Policy_TextBox_Element_Configure_SSL_protocols_163" >
+					<label >Configure SSL protocols</label>
+					<defaultValue >TLS1.0:TLS1.1:TLS1.2</defaultValue>
+				</textBox>
+			</presentation>
+			<presentation id="Policy_Configure_SSL_cipher_list_161" >
+				<textBox refId="Policy_TextBox_Element_Configure_SSL_cipher_list_164" >
+					<label >Configure SSL cipher list</label>
+					<defaultValue >ECDHE-RSA-AES256-GCM-SHA384:AES256-SHA256:AES256-SHA:ECDHE-RSA-AES128-GCM-SHA256:AES128-SHA256:AES128-SHA:@STRENGTH</defaultValue>
+				</textBox>
+			</presentation>
+			<presentation id="Policy_Configure_the_Client_164" >
+				<text >Set a UDP port and the size of the retry range.</text>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_the_Client_167" spinStep="1" spin="true" defaultValue="50002" >Choose a UDP port:</decimalTextBox>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_the_Client_168" spinStep="1" spin="true" defaultValue="64" >Set the size of the retry port range:</decimalTextBox>
+				<checkBox refId="Policy_CheckBox_Element_Configure_the_Client_169" >Allow OS to automatically determine UDP port</checkBox>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_170" >
+				<dropdownList refId="Policy_DropList_Element_Configure_PCoIP_173" defaultItem="0" >Virtual channel setting:</dropdownList>
+				<text >The following setting is only required and applicable if 2 is selected.</text>
+				<text >See the Explain tab for string formats and examples.</text>
+				<textBox refId="Policy_TextBox_Element_Configure_PCoIP_177" >
+					<label >Enter the authorized virtual channel list:</label>
+				</textBox>
+				<text >The following setting is only required and applicable if 3 is selected.</text>
+				<text >See the Explain tab for string formats and examples.</text>
+				<textBox refId="Policy_TextBox_Element_Configure_PCoIP_178" >
+					<label >Enter the unauthorized virtual channel list:</label>
+				</textBox>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_179" >
+				<text >See the Explain tab for the explanation of image caching and values.</text>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_PCoIP_182" spinStep="50" spin="true" defaultValue="250" >Set the Image Cache Size in Megabytes (default 250 MB):</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_the_PCoIP_183" >
+				<dropdownList refId="Policy_DropList_Element_Configure_the_PCoIP_186" defaultItem="3" >Transport session priority</dropdownList>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_191" >
+				<text >See the Explain tab for example values.</text>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_PCoIP_194" spinStep="1" spin="true" defaultValue="2" >Set the event log verbosity value (2 for default):</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_195" >
+				<text >See the Explain tab for example values.</text>
+				<text >Set the event log cleanup by time value in days (7 default, 0 for no</text>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_PCoIP_198" spinStep="1" spin="true" defaultValue="7" >cleanup by time):</decimalTextBox>
+			</presentation>
+			<presentation id="Policy_Configure_PCoIP_199" >
+				<text >See the Explain tab for example values.</text>
+				<text >Set the event log cleanup by size value in MB (100 default, 0 for no</text>
+				<decimalTextBox refId="Policy_Numeric_ElementConfigure_PCoIP_202" spinStep="1" spin="true" defaultValue="100" >cleanup by size):</decimalTextBox>
+			</presentation>
+		</presentationTable>
+	</resources>
+</policyDefinitionResources>
+

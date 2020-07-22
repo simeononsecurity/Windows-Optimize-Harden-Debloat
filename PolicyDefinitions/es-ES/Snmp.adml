@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="SNMP_Communities">Especificar comunidades</string>
+      <string id="SNMP_PermittedManagers">Especificar administradores permitidos</string>
+      <string id="SNMP_PermittedManagers_Help">Esta configuración de directiva determina la lista de hosts permitidos que pueden enviar una consulta al agente del Protocolo simple de administración de redes (SNMP) que se está ejecutando en el equipo cliente.
+
+El Protocolo simple de administración de redes (SNMP) es un protocolo diseñado para dar al usuario la capacidad de administrar una red de equipos de forma remota sondeando y estableciendo valores de terminal y supervisando eventos de red.
+
+El administrador está ubicado en el equipo host en la red. El rol del administrador es sondear los agentes para obtener cierta información requerida.
+
+Si habilita esta configuración de directiva, el agente SNMP solo acepta solicitudes de la lista de administradores permitidos que ha configurado con esta opción.
+
+Si deshabilita o no establece esta configuración de directiva, el servicio SNMP toma los administradores permitidos que se han configurado en el equipo local en su lugar.
+
+Recomendación: por razones de seguridad, se recomienda restringir el control total de la clave HKLM\SOFTWARE\Policies\SNMP\Parameters\PermittedManagers solo al grupo de administradores locales.
+
+Nota: esta configuración de directiva no surte efecto si el agente SNMP no está instalado en el equipo cliente.
+
+Consulte también las otras dos configuraciones de directivas de SNMP: "Especificar configuración de la captura" y "Especificar nombre de la comunidad".</string>
+      <string id="SNMP_SNMP">SNMP</string>
+      <string id="SNMP_TrapDestinations_Help">Esta configuración de directiva permite la configuración de la captura para el agente del Protocolo simple de administración de redes (SNMP).
+
+El Protocolo simple de administración de redes (SNMP) es un protocolo diseñado para dar al usuario la capacidad de administrar una red de equipos de forma remota sondeando y estableciendo valores de terminal y supervisando eventos de red.
+
+Esta configuración de directiva le permite configurar el nombre de los hosts que reciben los mensajes de captura para la comunidad enviados por el servicio SNMP. Un mensaje de captura es una alerta o un evento significativo que permite al agente SNMP enviar notificaciones a los sistemas de administración de forma asincrónica.
+
+Si habilita esta configuración de directiva, el servicio SNMP envía mensajes de captura a los hosts dentro de la comunidad "public".
+
+Si deshabilita o no establece esta configuración de directiva, el servicio SNMP toma la configuración de la captura que se ha configurado en el equipo local en su lugar.
+
+Nota: esta opción de configuración no surte efecto si el agente SNMP no está instalado en el equipo cliente.
+
+Consulte también las otras dos opciones de configuración de SNMP: "Especificar administradores permitidos" y "Especificar nombre de la comunidad".</string>
+      <string id="SNMP_Traps_Public">Especificar capturas para comunidades públicas</string>
+      <string id="SNMP_ValidCommunities_Help">Esta configuración de directiva establece una lista de comunidades definidas para el servicio del Protocolo simple de administración de redes (SNMP).
+
+SNMP es un protocolo diseñado para dar al usuario la capacidad de administrar una red de equipos de forma remota sondeando y estableciendo valores de terminal y supervisando eventos de red.
+
+Una comunidad válida es aquella que es reconocida por el servicio SNMP, mientras una comunidad es un grupo de hosts (servidores, estaciones de trabajo, concentradores y enrutadores) administrados conjuntamente por SNMP. El servicio SNMP es un nodo de red administrado que recibe paquetes SNMP de la red.
+
+Si habilita esta configuración de directiva, el agente SNMP solo acepta solicitudes de los sistemas de administración dentro de las comunidades que reconoce, y solo las operaciones de lectura SNMP estarán permitidas para la comunidad.
+
+Si deshabilita o no establece esta configuración de directiva, el servicio SNMP toma las Comunidades válidas que se han configurado en el equipo local en su lugar.
+
+Recomendación: por razones de seguridad, se recomienda restringir el control total de la clave HKLM\SOFTWARE\Policies\SNMP\Parameters\ValidCommunities solo al grupo de administradores locales.
+
+Nota: se recomienda usar nombres de comunidad crípticos.
+
+Nota: esta configuración de directiva no surte efecto si el agente SNMP no está instalado en el equipo cliente.
+
+Consulte también las otras dos opciones de configuración de SNMP: "Especificar administradores permitidos" y "Especificar configuración de la captura".</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SNMP_Communities">
+        <listBox refId="SNMP_CommunitiesListbox">Comunidades</listBox>
+      </presentation>
+      <presentation id="SNMP_PermittedManagers">
+        <listBox refId="SNMP_PermittedManagersListbox">Administradores permitidos</listBox>
+      </presentation>
+      <presentation id="SNMP_Traps_Public">
+        <listBox refId="SNMP_Traps_PublicListbox">Configuración de la captura</listBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

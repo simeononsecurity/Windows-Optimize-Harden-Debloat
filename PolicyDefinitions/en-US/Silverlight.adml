@@ -1,0 +1,77 @@
+<policyDefinitionResources
+
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+    revision="1.1" schemaVersion="1.0"
+
+    xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+
+  <displayName>Silverlight Settings</displayName>
+
+  <description>Configuration settings for Microsoft Silverlight.</description>
+
+  <resources>
+
+    <stringTable>
+
+        <string id="SUPPORTED_WindowsXP_SP2_W2K_SP4_NETSERVER">At least Microsoft Windows 2000 Service Pack 4, Microsoft Windows XP Service Pack 2 or Microsoft Windows Server 2003 family</string>
+
+        <string id="SL_CAT">Silverlight</string>
+
+        <string id="SL_CAT_HELP">These are the settings to configure Silverlight.</string>
+
+        <string id="SET_AUPDATE">Disable Silverlight Control's Automatic Update</string>
+
+        <string id="AUPDATE_HELP">When this policy is enabled, it will prevent the Silverlight control from automatically checking for updates.  If the policy is set to not configured or disabled, it will not change the default behavior and the control will automatically check for new updates over the internet.  
+
+
+
+The Silverlight control's automatic update mechanism is independent of both the Windows Update and Microsoft Update mechanisms.  This option does not need to be used when Silverlight is deployed using a Microsoft Update method, such as WSUS, because this method automatically disables Silverlight's automatic update control.</string>
+
+      <string id="SET_DRM">Disable DRM content playback</string>
+
+      <string id="DRM_HELP">By default on a new install of Silverlight version 2 or later using any method, Silverlight will play content which is protected by digital rights management (DRM).   When this policy is enabled, it will enforce Silverlight to never play DRM protected content. When this policy is disabled or not configured, Silverlight will play DRM content.</string>
+
+      <string id="SET_ALLOW_WEBCAM">Allow access to webcam and microphone</string>
+
+      <string id="ALLOW_WEBCAM_HELP">By default, a website may access the webcam and microphone after showing a dialog asking if the user wishes to allow the site access to the webcam/microphone.  When this policy is disabled, websites may never use the webcam/microphone via Silverlight and no dialog will be shown.</string>
+
+      <string id="SET_ALLOW_INSTALL_TRUSTED_APPS">Allow user to install trusted apps written in Silverlight</string>
+
+      <string id="ALLOW_INSTALL_TRUSTED_APPS_HELP">By default, users are allowed to install Silverlight trusted apps. If this policy is disabled, users may not install trusted applications, and the trusted application install dialog is not shown. Sandboxed out of browser applications may still be installed.  
+
+      
+
+A Silverlight trusted app runs with elevated permissions and can access user data much like a .exe can, and should be installed only from web sites which are trusted.</string>
+
+      <string id="SET_ALLOW_LAUNCH_TRUSTED_APPS">Allow user to run trusted apps written in Silverlight</string>
+
+      <string id="ALLOW_LAUNCH_TRUSTED_APPS_HELP">By default, users are allowed to run Silverlight trusted apps that have been previously installed. If this policy is disabled, users may not run Silverlight trusted applications, even if they were previously installed.  Sandboxed out of browser applications are not affected.  Most people that disable this policy will also want to disable installation of Silverlight trusted apps.  
+
+
+
+A Silverlight trusted app runs with elevated permissions and can access user data much like a .exe can, and should be installed only from web sites which are trusted.</string>
+
+      <string id="SET_ALLOW_UDP_MULTICAST_API">Allow Silverlight applications to use UDP multicast</string>
+
+      <string id="ALLOW_UDP_MULTICAST_API_HELP">By default, a Silverlight application may use UDP multicast networking APIs.  If this policy is disabled, the application can't directly use multicast.  
+
+      
+
+This setting does not affect the Silverlight MediaElement, which can use multicast if the media server and network support it. Unlike the UDP multicast API, the MediaElement doesn't allow the application to see the multicast data that's being sent and received.</string>
+
+        
+
+      <string id="SET_ALLOW_MAXIMUM_ISOLATED_STORAGE">Allow Silverlight applications to be allocated the maxmimum amount of isolated storage</string>
+
+      <string id="ALLOW_MAXIMUM_ISOLATED_STORAGE_HELP">By default, a Silverlight application is allocated a predetermined amount of isolated storage based on if it is an in browser or out of browser application. If this policy is enabled the application will be allocated the maximum amount.</string>
+
+ 
+
+    </stringTable>
+
+  </resources>
+
+</policyDefinitionResources>

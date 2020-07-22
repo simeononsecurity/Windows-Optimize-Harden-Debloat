@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>
+  </displayName>
+  <description>This file contains the configuration for Desktop Validator
+  </description>
+  <resources>
+    <stringTable>
+      <string id="DesktopValidator">Desktop Validator</string>
+      <string id="Configuration">Configuration</string>
+      <string id="Settings">Settings</string>
+      <string id="ExplainSettings">Specify location of configuration file on a shared location, the ID of modification, refresh period (in seconds) and maximum refresh salt (in seconds)</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Settings">
+        <textBox refId="ModificationId">
+          <label>Modification Id</label>
+          <defaultValue>Tuesday,March 17 2020 19:12:25 G.M.T</defaultValue>
+        </textBox>
+        <textBox refId="Location">
+          <label>Location</label>
+          <defaultValue>C:\Users\smiller.ea\Desktop\dvconfig.txt</defaultValue>
+        </textBox>
+        <decimalTextBox refId="Type" defaultValue="0" spin="true">Type
+        </decimalTextBox>
+        <decimalTextBox refId="RefreshPeriod" defaultValue="0" spin="true">Refresh Period
+        </decimalTextBox>
+        <decimalTextBox refId="MaxRefreshSalt" defaultValue="0" spin="true">Max Refresh Salt
+        </decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

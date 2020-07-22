@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           revision="1.0"
+                           schemaVersion="1.0"
+                           xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+  <!-- Copyright 2005-2016 VMware, Inc.  All rights reserved. -->
+
+  <displayName >Persona Management</displayName>
+  <description >Persona Management Policy</description>
+  <resources >
+    <stringTable ><!--Storage for String Definitions-->
+      <string id="String_Category_Persona_Management" >Persona Management</string>
+      <string id="String_Category_Desktop_UI" >Desktop UI</string>
+      <string id="String_Category_Folder_Redirection" >Folder Redirection</string>
+      <string id="String_Category_Logging" >Logging</string>
+      <string id="String_Category_Roaming_Synchronization" >Roaming &amp; Synchronization</string>
+      <string id="String_Policy_Hide_local_offline" >Hide local offline file icon</string>
+      <string id="String_Explain_Hide_local_offline" >When enabled, the offline icon is hidden when locally viewing most offline persona files. This hides the offline icon in Windows File Explorer as well as most commmon dialog boxes. By default, the offline icon is hidden.</string>
+      <string id="String_Policy_Show_progress" >Show progress when downloading large files</string>
+      <string id="String_Explain_Show_progress" >When enabled, a progress window will be shown when downloading large files from the persona repository. The minimum file size required to show the progress window can be specified as well. By default, the progress window is not shown.</string>
+      <string id="String_Policy_Show_critical_errors" >Show critical errors to users via tray icon alerts</string>
+      <string id="String_Explain_Show_critical_errors" >When enabled, critical tray icon alerts pertaining to replication or network connectivity failure will be displayed to the user.  By default, these alerts are hidden.</string>
+      <string id="String_Policy_Add_the_administrators" >Add the administrators group to redirected folders</string>
+      <string id="String_Explain_Add_the_administrators" >When enabled, the administrators group will be added to each redirected folder.  By default, the user is given exclusive rights.</string>
+      <string id="String_Policy_Files_and_folders_excluded_from_redirection" >Files and folders excluded from Folder Redirection</string>
+      <string id="String_Explain_Files_and_folders_excluded_from_redirection" >When enabled, the selected file and folder paths will not be redirected. You may also specify exceptions within these paths in the 'Files and folders excluded from Folder Redirection (exceptions)' policy. Some usage scenarios require specific files and folders to remain in the profile. All file and folder paths should be relative to the root of the user's local profile.</string>
+      <string id="String_Policy_Files_and_folders_excluded_from_redirection_exception" >Files and folders excluded from Folder Redirection (exceptions)</string>
+      <string id="String_Explain_Files_and_folders_excluded_from_redirection_exception" >When enabled, the selected file and folder paths are exceptions to the paths specified in the 'Files and folders excluded from Folder Redirection' policy. All file and folder paths should be relative to the root of the user's local profile and exist within a folder specified in the 'Files and folders excluded from Folder Redirection' policy.</string>
+      <string id="String_Policy_Application_Data" >Application Data (Roaming)</string>
+      <string id="String_Explain_Application_Data" >When enabled, the user's roaming Application Data folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Contacts" >Contacts</string>
+      <string id="String_Explain_Contacts" >When enabled, the user's Contacts folder will be redirected to the UNC path configured.  This folder is only available in Vista and above.</string>
+      <string id="String_Policy_Cookies" >Cookies</string>
+      <string id="String_Explain_Cookies" >When enabled, the user's Cookies folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Desktop" >Desktop</string>
+      <string id="String_Explain_Desktop" >When enabled, the user's Desktop folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Downloads" >Downloads</string>
+      <string id="String_Explain_Downloads" >When enabled, the user's Downloads folder will be redirected to the UNC path configured.  This folder is only available in Vista and above.</string>
+      <string id="String_Policy_Favorites" >Favorites</string>
+      <string id="String_Explain_Favorites" >When enabled, the user's Favorites folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_History" >History</string>
+      <string id="String_Explain_History" >When enabled, the user's History folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Links" >Links</string>
+      <string id="String_Explain_Links" >When enabled, the user's Links folder will be redirected to the UNC path configured.  This folder is only available in Vista and above.</string>
+      <string id="String_Policy_My_Documents" >My Documents</string>
+      <string id="String_Explain_My_Documents" >When enabled, the user's My Documents folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_My_Music" >My Music</string>
+      <string id="String_Explain_My_Music" >When enabled, the user's My Music folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_My_Pictures" >My Pictures</string>
+      <string id="String_Explain_My_Pictures" >When enabled, the user's My Pictures folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_My_Videos" >My Videos</string>
+      <string id="String_Explain_My_Videos" >When enabled, the user's My Videos folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Network_Neighborhood" >Network Neighborhood</string>
+      <string id="String_Explain_Network_Neighborhood" >When enabled, the user's Network Neighborhood folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Printer_Neighborhood" >Printer Neighborhood</string>
+      <string id="String_Explain_Printer_Neighborhood" >When enabled, the user's Printer Neighborhood folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Recent_Items" >Recent Items</string>
+      <string id="String_Explain_Recent_Items" >When enabled, the user's Recent Items folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Saved_Games" >Saved Games</string>
+      <string id="String_Explain_Saved_Games" >When enabled, the user's Saved Games folder will be redirected to the UNC path configured.  This folder is only available in Vista and above.</string>
+      <string id="String_Policy_Searches" >Searches</string>
+      <string id="String_Explain_Searches" >When enabled, the user's Searches folder will be redirected to the UNC path configured.  This folder is only available in Vista and above.</string>
+      <string id="String_Policy_Send_To" >Send To</string>
+      <string id="String_Explain_Send_To" >When enabled, the user's Send To folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Start_Menu" >Start Menu</string>
+      <string id="String_Explain_Start_Menu" >When enabled, the user's Start Menu folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Startup_Items" >Startup Items</string>
+      <string id="String_Explain_Startup_Items" >When enabled, the user's Startup Items folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Templates" >Templates</string>
+      <string id="String_Explain_Templates" >When enabled, the user's Templates folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Temporary_Internet" >Temporary Internet Files</string>
+      <string id="String_Explain_Temporary_Internet" >When enabled, the user's Temporary Internet Cache folder will be redirected to the UNC path configured.</string>
+      <string id="String_Policy_Logging_filename" >Logging filename</string>
+      <string id="String_Explain_Logging_filename" >The full pathname of the local View Persona Management log file.  This path should include the file name, and cannot be a UNC path. By default, log messages are written to &lt;Common Application Data&gt;\VMware\VDM\logs\VMWVvp.txt.</string>
+      <string id="String_Policy_Logging_destination" >Logging destination</string>
+      <string id="String_Explain_Logging_destination" >Specifies where log message will be sent. Log message can be sent to a local log file and also the debug port. By default, log messages are sent to the log file.</string>
+      <string id="String_Policy_Logging_flags" >Logging flags</string>
+      <string id="String_Explain_Logging_flags" >Specifies the type of log messages that are generated. If this setting is disabled or not configured, log messages are set to information level.  By default, log messages are set to information level.</string>
+      <string id="String_Policy_DropList_Select_Logging_flags" >7 - Debug</string>
+      <string id="String_Policy_Log_History_Depth" >Log History Depth</string>
+      <string id="String_Explain_Log_History_Depth" >When enabled Persona maintains an archive of historical log files.  Default is 1, minimum is 1, and maximum is 10.  If disabled or not configured, one historical log is kept by default.</string>
+      <string id="String_Policy_Log_File_Size" >Log File Size</string>
+      <string id="String_Explain_Log_File_Size" >When enabled Persona maintains the size of log filles.  Default is 100MB, minimum is 10MB, and maximum is 1024MB.  If disabled or not configured, 100MB is used as default.</string>
+      <string id="String_Policy_Upload_log_to_network" >Upload log to network</string>
+      <string id="String_Explain_Upload_log_to_network" >Uploads the Persona log file to the specified network share on logoff.  Network share path must be a UNC path.  Persona does not create the network share.</string>
+      <string id="String_Policy_Manage_user_persona" >Manage user persona</string>
+      <string id="String_Explain_Manage_user_persona" >When enabled, the user's persona will be managed dynamically.  When disabled, the user's persona will be managed by Windows. The profile upload interval is used to determine how often to upload persona changes to the network.</string>
+      <string id="String_Policy_Persona_repository" >Persona repository location</string>
+      <string id="String_Explain_Persona_repository" >The UNC path to the repository where user personas will be stored. If this path is left blank, the user profile path in Active Directory will be used.</string>
+      <string id="String_Policy_Remove_local_persona" >Remove local persona at log off</string>
+      <string id="String_Explain_Remove_local_persona" >When enabled, each user's locally stored persona will be removed at log off. You may also choose to delete a user's local settings folders when the persona is removed. For Windows XP this setting refers to the 'Local Settings' folder. For Windows Vista and above this setting refers to the 'AppData\Local' folder. By default, the locally stored persona will not be deleted when a user logs off.</string>
+      <string id="String_Policy_Roam_local_settings" >Roam local settings folders</string>
+      <string id="String_Explain_Roam_local_settings" >When enabled, the local settings folders will be roamed along with the rest of the user's persona. For Windows XP this setting refers to the 'Local Settings' folder. For Windows Vista and above this setting refers to the 'AppData\Local' folder. By default, local settings folders are not roamed.</string>
+      <string id="String_Policy_Files_and_folders_preload" >Files and folders to preload</string>
+      <string id="String_Explain_Files_and_folders_preload" >When enabled, the selected file and folder paths will be downloaded at user logon and replicated when files are changed. You may also specify exceptions within these paths in the 'Files and folders to preload (exceptions)' policy. Some usage scenarios require specific files and folders to be preloaded into the user's locally stored persona. These files will be downloaded from the persona repository upon user login and changes will be replicated remotely as they occur. All folder paths should be relative to the root of the user's local profile.</string>
+      <string id="String_Policy_Files_and_folders_preload_exceptions" >Files and folders to preload (exceptions)</string>
+      <string id="String_Explain_Files_and_folders_preload_exceptions" >When enabled, the selected file and folder paths are exceptions to the paths specified in the 'Files and folders to preload' policy. All folder paths should be relative to the root of the user's local profile and exist within a folder specified in the 'Files and folders to preload' policy.</string>
+      <string id="String_Policy_Windows_roaming" >Windows roaming profiles synchronization</string>
+      <string id="String_Explain_Windows_roaming" >When enabled, the selected file and folder paths will be downloaded at user logon and replicated during logoff. You may also specify exceptions within these paths in the 'Windows roaming profiles synchronization' policy. Some usage scenarios require specific files and folders to be managed with traditional Windows Roaming Profile functionality. These items will be downloaded on user login but not synchronized with the repository until user logoff. All folder paths should be relative to the root of the user's local profile.</string>
+      <string id="String_Policy_Windows_roaming_exceptions" >Windows roaming profiles synchronization (exceptions)</string>
+      <string id="String_Explain_Windows_roaming_exceptions" >When enabled, the selected file and folder paths are exceptions to the paths specified in the 'Windows roaming profiles synchronization' policy. All folder paths should be relative to the root of the user's local profile and exist within a folder specified in the 'Windows roaming profiles synchronization' policy.</string>
+      <string id="String_Policy_Files_and_folders_excluded_from_roaming" >Files and folders excluded from roaming</string>
+      <string id="String_Explain_Files_and_folders_excluded_from_roaming" >When enabled, the selected file and folder paths will not be replicated with the rest of the user's persona. You may also specify exceptions within these paths in the 'Files and folders excluded from roaming' policy. Some usage scenarios require specific folders and files within a user's persona to only exist on the local machine. This is the case with most temporary or cached files which do not need to be replicated to the remote repository. All folder paths should be relative to the root of the user's local profile.</string>
+      <string id="String_Policy_Files_and_folders_excluded_from_roaming_exceptions" >Files and folders excluded from roaming (exceptions)</string>
+      <string id="String_Explain_Files_and_folders_excluded_from_roaming_exceptions" >When enabled, the selected file and folder paths are exceptions to the paths specified in the 'Files and folders excluded from roaming' policy. All folder paths should be relative to the root of the user's local profile and exist within a folder specified in the 'Files and folders excluded from roaming' policy.</string>
+      <string id="String_Policy_Enable_background_download" >Enable background download for laptops</string>
+      <string id="String_Explain_Enable_background_download" >When enabled, all files in the local profile will be downloaded after a user logs onto a laptop.</string>
+      <string id="String_Policy_Folders_to_background" >Folders to background download</string>
+      <string id="String_Explain_Folders_to_background" >When enabled, the selected folder paths will be downloaded in the background after a user logs on. You may also specify exceptions within these paths in the 'Folders to background download (exceptions)' policy. Some usage scenarios can be optimized by downloading the contents of specific folders in the background. This can help users avoid waiting for large downloads either during logon or when an application starts. For example, including the VMware ThinApp sandbox folders may improve application startup times by ensuring that all needed persona files have already been downloaded before starting. All folder paths should be relative to the root of the user's local profile.</string>
+      <string id="String_Policy_Folders_to_background_exceptions" >Folders to background download (exceptions)</string>
+      <string id="String_Explain_Folders_to_background_exceptions" >When enabled, the selected folder paths are exceptions to the paths specified in the 'Folders to background download' policy. All folder paths should be relative to the root of the user's local profile and exist within a folder specified in the 'Folders to background download' policy.</string>
+      <string id="String_Policy_Excluded_Processes" >Excluded Processes</string>
+      <string id="String_Explain_Excluded_processes" >Excluded processes are processes whose i/o is ignored by Persona.  Certain anti-virus applications might need to be added to prevent performance problems.  If an anti-virus application does not have a feature to disable offline file retrieval during its on-demand scans, this setting will prevent it from unnecessarily retrieving files.  However, changes to files/settings in the users' profiles made by excluded processes are still replicated.</string>
+      <string id="String_Policy_Cleanup_CLFS_Files" >Cleanup CLFS Files</string>
+      <string id="String_Explain_Cleanup_CLFS_Files" >Deletes the files generated by CLFS for ntuser.dat and usrclass.dat from the roaming profile on logon.  This setting should only be used to repair profiles that are experiencing a problem with these files and disabled otherwise.</string>
+
+      <string id="Enforce_AD_Wallpaper" >Enforces wallpaper setting from GPO</string>
+
+      <string id="Enforce_AD_Wallpaper_Desc" >When set, this policy enforces the desktop wallpaper to be updated based on the GPO setting definition. Please note that this policy is not applicable if the desktop wallpaper is NOT set through the GPO.</string>
+    </stringTable>
+    <presentationTable ><!--Storage for Presentation Definitions-->
+
+      <presentation id="Present_Hide_local_offline" >
+        <text >Hide the offline icon for locally stored persona files.</text>
+      </presentation>
+      <presentation id="Present_Show_progress" >
+        <text >Show progress when downloading large files from the persona repository.</text>
+        <decimalTextBox refId="Policy_Numeric_Show_progress" defaultValue="50" >Minimum file size to show progress window (MB):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Show_critical_errors" >
+        <text >Show critical errors to users via tray icon alerts</text>
+      </presentation>
+      <presentation id="Present_Add_the_administrators" >
+        <text >Add the administrators group to the redirected folders.</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_excluded_from_redirection" >
+        <text >Specify files and folders that will not be redirected.</text>
+        <text >All paths must be relative to the root of the local profile.</text>
+        <listBox refId="Present_ListBox_Files_and_folders_excluded_from_redirection" >Files and folders:</listBox>
+        <text >Example:  Desktop\New Folder</text>
+        <text >My Documents\New Folder</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_excluded_from_redirection_exception" >
+        <text >Specify files and folders that are exceptions to the list of files and folders included</text>
+        <text >in the 'Files and folders excluded from Folder Redirection' policy.</text>
+        <listBox refId="Present_ListBox_Policy_Files_and_folders_excluded_from_redirection_exception" >File and folder exceptions:</listBox>
+        <text >Example:  Desktop\New Folder</text>
+        <text >My Documents\New Folder</text>
+      </presentation>
+      <presentation id="Present_Application_Data" >
+        <textBox refId="Present_TextBox_Application_Data" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Contacts" >
+        <textBox refId="Present_TextBox_Policy_Contacts" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Cookies" >
+        <textBox refId="Present_TextBox_Cookies" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Desktop" >
+        <textBox refId="Present_TextBox_Desktop" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Downloads" >
+        <textBox refId="Present_TextBox_Downloads" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Favorites" >
+        <textBox refId="Present_TextBox_Favorites" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_History" >
+        <textBox refId="Present_TextBox_History" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Links" >
+        <textBox refId="Present_TextBox_Links" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_My_Documents" >
+        <textBox refId="Present_TextBox_My_Documents" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_My_Music" >
+        <textBox refId="Present_TextBox_My_Music" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_My_Pictures" >
+        <textBox refId="Present_TextBox_My_Pictures" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_My_Videos" >
+        <textBox refId="Present_TextBox_My_Videos" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Network_Neighborhood" >
+        <textBox refId="Present_TextBox_Network_Neighborhood" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Printer_Neighborhood" >
+        <textBox refId="Present_TextBox_Printer_Neighborhood" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Recent_Items" >
+        <textBox refId="Present_TextBox_Recent_Items" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Saved_Games" >
+        <textBox refId="Present_TextBox_Saved_Games" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Searches" >
+        <textBox refId="Present_TextBox_Searches" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Send_To" >
+        <textBox refId="Present_TextBox_Send_To" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Start_Menu" >
+        <textBox refId="Present_TextBox_Start_Menu" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Startup_Items" >
+        <textBox refId="Present_TextBox_Startup_Items" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Templates" >
+        <textBox refId="Present_TextBox_Templates" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Temporary_Internet" >
+        <textBox refId="Present_TextBox_Temporary_Internet" >
+          <label >Redirect to the following location:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Logging_filename" >
+        <textBox refId="Present_TextBox_Logging_filename" >
+          <label >Local log file pathname:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Logging_destination" >
+        <checkBox refId="Present_CheckBox_Logging_destination_file" defaultChecked="true" >Send log messages to the log file.</checkBox>
+        <checkBox refId="Present_CheckBox_Logging_destination_port" >Send log messages to the debug port.</checkBox>
+      </presentation>
+      <presentation id="Present_Logging_flags" >
+        <dropdownList refId="Present_DropList_Logging_flags" >Select log level:</dropdownList>
+      </presentation>
+      <presentation id="Present_Log_History_Depth" >
+        <decimalTextBox refId="Present_Numeric_Log_History_Depth" defaultValue="1" >Number of logs To keep:</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Log_File_Size" >
+        <decimalTextBox refId="Present_Numeric_Log_File_Size" defaultValue="100" >The size of log file to keep:</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Upload_log_to_network" >
+        <textBox refId="Present_TextBox_Upload_log_to_network" >
+          <label >Network share path:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Manage_user_persona" >
+        <decimalTextBox refId="Present_Numeric_Manage_user_persona" defaultValue="10" >Profile upload interval (in minutes):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Persona_repository" >
+        <textBox refId="Present_TextBox_Persona_repository" >
+          <label >Share path:</label>
+        </textBox>
+        <checkBox refId="Present_CheckBox_Persona_repository" >Override Active Directory user profile path if it is configured.</checkBox>
+      </presentation>
+      <presentation id="Present_Remove_local_persona" >
+        <text >Remove locally stored persona when users log off.</text>
+        <checkBox refId="Present_CheckBox_Remove_local_persona" defaultChecked="true" >Delete 'Local Settings' or 'AppData\Local' when persona is removed.</checkBox>
+      </presentation>
+      <presentation id="Present_Roam_local_settings" >
+        <text >Roam 'Local Settings' or 'AppData\Local' with the user's persona.</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_preload" >
+        <text >Specify files that will be downloaded from the persona repository</text>
+        <text >upon user login.</text>
+        <listBox refId="Present_ListBox_Files_and_folders_preload" >Files and folders to preload:</listBox>
+        <text >All paths must be relative to the root of the local profile.</text>
+        <text >Example:  Desktop\New Folder</text>
+        <text >My Documents\New Folder</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_preload_exceptions" >
+        <text >Specify folders that are exceptions to the list of folders included</text>
+        <text >in the 'Files and folders to preload' policy.</text>
+        <listBox refId="Present_ListBox_Files_and_folders_preload_exceptions" >File and folder exceptions:</listBox>
+        <text >All paths must be relative to the root of the local profile.</text>
+        <text >Example:  Desktop\New Folder</text>
+        <text >My Documents\New Folder</text>
+      </presentation>
+      <presentation id="Present_Windows_roaming" >
+        <text >Specify files that will be managed with traditional</text>
+        <text >Windows Roaming Profile functionality.</text>
+        <listBox refId="Present_ListBox_Windows_roaming" >Files and folders:</listBox>
+        <text >All paths must be relative to the root of the local profile.</text>
+        <text >Example:  Desktop\New Folder</text>
+        <text >My Documents\New Folder</text>
+      </presentation>
+      <presentation id="Present_Windows_roaming_exceptions" >
+        <text >Specify folders that are exceptions to the list of folders included</text>
+        <text >in the 'Windows roaming profiles synchronization' policy.</text>
+        <listBox refId="Present_ListBox_Windows_roaming_exceptions" >File and folder exceptions:</listBox>
+        <text >All paths must be relative to the root of the local profile.</text>
+        <text >Example:  Desktop\New Folder</text>
+        <text >My Documents\New Folder</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_excluded_from_roaming" >
+        <text >Specify folders that will not be roamed with the user's persona.</text>
+        <text >(These folders will only exist in the user's locally stored persona.)</text>
+        <listBox refId="Present_ListBox_Files_and_folders_excluded_from_roaming" >Files and folders:</listBox>
+        <text >All paths must be relative to the root of the local profile.</text>
+        <text >Example:  Desktop\New Folder</text>
+        <text >My Documents\New Folder</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_excluded_from_roaming_exceptions" >
+        <text >Specify folders that are exceptions to the list of folders included</text>
+        <text >in the 'Files and folders excluded from roaming' policy.</text>
+        <listBox refId="Present_ListBox_Files_and_folders_excluded_from_roaming_exceptions" >File and folder exceptions:</listBox>
+        <text >All paths must be relative to the root of the local profile.</text>
+        <text >Example:  Desktop\New Folder</text>
+        <text >My Documents\New Folder</text>
+      </presentation>
+      <presentation id="Present_Enable_background_download" >
+        <text >Enable background download for laptops.</text>
+      </presentation>
+      <presentation id="Present_Folders_to_background" >
+        <text >Specify folders that will be downloaded in the background</text>
+        <text >after user login.</text>
+        <listBox refId="Present_ListBox_Folders_to_background" >Folders to download:</listBox>
+        <text >All paths must be relative to the root of the local profile.</text>
+        <text >Example:  Application Data\Thinstall</text>
+        <text >Desktop\New Folder</text>
+      </presentation>
+      <presentation id="Present_Folders_to_background_exceptions" >
+        <text >Specify folders that are exceptions to the list of folders included</text>
+        <text >in the 'Folders to background download' policy.</text>
+        <listBox refId="Present_ListBox_Folders_to_background_exceptions" >Folder exceptions:</listBox>
+        <text >All paths must be relative to the root of the local profile.</text>
+        <text >Example:  Application Data\Thinstall</text>
+        <text >Desktop\New Folder</text>
+      </presentation>
+      <presentation id="Present_Excluded_Processes" >
+        <text >Specify process names that should be excluded by Persona.</text>
+        <text >Example:  process.exe</text>
+        <listBox refId="Present_ListBox_Element_Excluded_Processes" >Excluded Processes:</listBox>
+      </presentation>
+      <presentation id="Present_Cleanup_CLFS_Files" >
+        <text >Delete CLFS files from roaming profile on logon.</text>
+      </presentation>
+
+      <presentation id="Enforce_AD_Wallpaper" >
+        <text >Enforces wallpaper setting from GPO.</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,797 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>
+  </displayName>
+  <description>
+  </description>
+  <resources>
+    <stringTable>
+      <!--  BMS category string resources under [Windows Components]\BitLocker Management Solution  -->
+      <string id="BMSCategory">MDOP MBAM (Administración de BitLocker)</string>
+      <string id="OSDriveCategory">Unidad del sistema operativo</string>
+      <string id="FixedDriveCategory">Unidad fija</string>
+      <string id="RemovableDriveCategory">Unidad extraíble</string>
+      <string id="ClientCategory">Administración de cliente</string>
+      <!--  BMS policy string resources under [Windows Components]\BitLocker Management Solution  -->
+      <string id="NoOverwritePolicy">Impedir la sobrescritura de memoria al reiniciar</string>
+      <string id="NoOverwritePolicy_Help">Esta configuración de directiva controla el rendimiento del reinicio del equipo con el riesgo de revelar secretos de BitLocker. Esta configuración de directiva se aplica cuando se activa BitLocker. Los secretos de BitLocker incluyen material de claves usado para cifrar datos. Esta configuración de directiva se aplica únicamente cuando la protección de BitLocker está habilitada. 
+
+Si habilita esta configuración de directiva, la memoria no se sobrescribirá al reiniciarse el equipo. Al impedir la sobrescritura de la memoria se puede mejorar el rendimiento del reinicio, pero aumentará el riesgo de revelar secretos de BitLocker.
+
+Si deshabilita o no define esta configuración de directiva, los secretos de BitLocker se quitarán de la memoria al reiniciarse el equipo.</string>
+      <string id="ScCompliancePolicy">Validar cumplimiento de regla de uso de certificado de tarjeta inteligente</string>
+      <string id="ScCompliancePolicy_Help">Esta configuración de directiva le permite asociar un identificador de objeto de un certificado de tarjeta inteligente a una unidad protegida por BitLocker. Se aplica al activar BitLocker.
+
+El identificador de objeto se especifica en el uso mejorado de clave (EKU) de un certificado. BitLocker puede identificar los certificados que pueden usarse para autenticar un certificado de usuario en una unidad protegida por BitLocker, mediante la comprobación de si el identificador de objeto del certificado coincide con el identificador de objeto definido por esta configuración de directiva.
+
+El identificador de objeto predeterminado es 1.3.6.1.4.1.311.67.1.1
+
+Nota: BitLocker no requiere que un certificado tenga un atributo EKU pero, si se ha configurado uno para el certificado, debe establecerse en un identificador de objeto (OID) que coincida con el OID configurado para BitLocker.
+
+Si habilita esta configuración de directiva, el identificador de objeto especificado en el cuadro "Identificador de objeto" deberá coincidir con el identificador de objeto del certificado de tarjeta inteligente.
+
+Si deshabilita o no define esta configuración de directiva, se usará un identificador de objeto predeterminado.</string>
+      <string id="UidPolicy">Proporcionar los identificadores únicos de su organización</string>
+      <string id="UidPolicy_Help">Esta configuración de directiva le permite asociar identificadores organizativos únicos a una nueva unidad que se habilite con BitLocker. Estos identificadores se almacenan como el campo de identificación y el campo de identificación permitido. El campo de identificación le permite asociar un identificador organizativo único a unidades protegidas por BitLocker. El identificador se agrega automáticamente a las nuevas unidades protegidas por BitLocker y se puede actualizar en las unidades existentes protegidas por BitLocker mediante la herramienta de la línea de comandos Manage-BDE. Es necesario un campo de identificación para la administración de agentes de recuperación de datos basados en certificados en unidades protegidas por BitLocker y para posibles actualizaciones del Lector de BitLocker To Go. BitLocker administrará y actualizará agentes de recuperación de datos solo si el campo de identificación de la unidad coincide con el valor configurado en el campo de identificación. De forma similar, BitLocker actualizará el Lector de BitLocker To Go solo cuando el campo de identificación de la unidad coincida con el valor configurado para el campo de identificación.
+
+El campo de identificación permitido se usa en combinación con la configuración de directiva "Denegar el acceso de escritura a unidades extraíbles no protegidas por BitLocker" para ayudarle a controlar el uso de unidades extraíbles en su organización. Se trata de una lista separada por comas de campos de identificación de su organización o de otras organizaciones externas.
+
+Puede configurar los campos de identificación de unidades existentes mediante manage-BDE.exe.
+
+Si habilita esta configuración de directiva, podrá configurar el campo de identificación en unidades protegidas por BitLocker y cualquier campo de identificación permitido por su organización.
+
+Si se monta una unidad protegida por BitLocker en otro equipo habilitado para BitLocker, el campo de identificación y el campo de identificación permitido se usarán para determinar si la unidad pertenece a una organización externa.
+
+Si deshabilita o no establece esta configuración de directiva, el campo de identificación no será necesario.
+
+Nota: los campos de identificación son necesarios para la administración de agentes de recuperación de datos basados en certificados en unidades protegidas por BitLocker. BitLocker administrará y actualizará agentes de recuperación de datos basados en certificados solo si el campo de identificación está presente en una unidad y es idéntico al valor configurado en el equipo. El campo de identificación puede ser cualquier valor de 260 caracteres o menos.
+</string>
+
+      <string id="BLEncryptionMethodPolicy">Elegir método de cifrado e intensidad de cifrado de unidad</string>
+      <string id="BLEncryptionMethodPolicy_Help">Esta configuración de directiva le permite configurar la intensidad del algoritmo y el cifrado que usa Cifrado de unidad BitLocker. Esta configuración de directiva se aplica cuando se activa BitLocker. Cambiar el método de cifrado no tiene ningún efecto si la unidad ya está cifrada o si el cifrado está en curso. Consulte la Guía de implementación del Cifrado de unidad BitLocker en Microsoft TechNet para más información sobre los métodos de cifrado disponibles.
+        
+Si habilita esta configuración de directiva, podrá elegir el algoritmo de cifrado y la intensidad de cifrado de clave que deberá usar BitLocker para cifrar unidades.  Las opciones "con difusor" solo se aplican a Windows 7. En Windows 8 o máquinas posteriores, si se elige una opción "con difusor", BitLocker usará AES con la misma intensidad de bits (128 o 256 bits) como opción "con difusor".
+
+Si deshabilita o no configura esta configuración de directiva, BitLocker usará el método de cifrado predeterminado AES de 128 bits o el método de cifrado especificado en el script de instalación.</string>
+      <string id="BLEncryptionMethodNoDiffuser_Help">This policy setting allows you to configure the algorithm and cipher strength used by BitLocker Drive Encryption. This policy setting is applied when you turn on BitLocker. Changing the encryption method has no effect if the drive is already encrypted or if encryption is in progress. Consult the BitLocker Drive Encryption Deployment Guide on Microsoft TechNet for more information about the encryption methods available. This policy is only applicable to computers running %WINDOWS_CLIENT_VERSION_6_2% and later.
+
+If you enable this policy setting you will be able to choose an encryption algorithm and key cipher strength for BitLocker to use to encrypt drives.
+
+If you disable or do not configure this policy setting, BitLocker will use AES with the same bit strength (128-bit or 256-bit) as the "Choose drive encryption method and cipher strength (Windows Vista, Windows Server 2008, Windows 7)" policy setting, if it is set. If neither policy is set, BitLocker will use the default encryption method of AES 128-bit or the encryption method specified by the setup script.
+
+      </string>
+      <string id="BLEncryptionMethodWithXts_Help">Esta configuración de directiva te permite configurar el algoritmo y la intensidad de cifrado usados por Cifrado de unidad BitLocker. Esta configuración de directiva se aplica al activar BitLocker. El cambio de método de cifrado no surte efecto si la unidad ya está cifrada o si el proceso de cifrado está en curso.
+
+Si habilitas esta configuración de directiva, podrás seguir configurando el algoritmo de cifrado y el nivel de cifrado de claves para las unidades de datos fijas, las unidades del sistema operativo y las unidades de datos extraíbles por separado. Para las unidades fijas y del sistema operativo, te recomendamos que uses el algoritmo XTS-AES. Para las unidades extraíbles, debes usar AES-CBC de 128 bits o AES-CBC de 256 bits si la unidad se va a usar en otros dispositivos que no ejecutan Windows 10 (versión 1511).
+
+Si deshabilitas o no estableces esta configuración de directiva, BitLocker usará AES con la misma intensidad de bits (128 bits o 256 bits) que la configuración de directiva "Elegir método de cifrado e intensidad de cifrado de unidad (Windows Vista, Windows Server 2008, Windows 7)" y "Elegir método de cifrado e intensidad de cifrado de unidad" (en ese orden), si están establecidas. Si no se establece ninguna de las directivas, BitLocker usará el método de cifrado predeterminado XTS-AES de 128 bits o el método de cifrado especificado por el script de instalación.”
+
+      </string>
+      <string id="BLEncryptionMethodWithXts_Name">Elegir método de cifrado e intensidad de cifrado de unidad (Windows 10 [versión 1511] y posteriores)</string>
+      <string id="BLEncryptionMethodNoDiffuser_Name">Choose drive encryption method and cipher strength (Windows 8, Windows Server 2012, Windows 8.1, Windows Server 2012 R2, Windows 10 [Version 1507])</string>
+      <string id="BLEncryptionMethodDropDown_AES128Diffuser">AES de 128 bits con difusor</string>
+      <string id="BLEncryptionMethodDropDown_AES256Diffuser">AES 256 bits con difusor</string>
+      <string id="BLEncryptionMethodDropDown_AES128">AES de 128 bits (predeterminado)</string>
+      <string id="BLEncryptionMethodDropDown_AES256">AES 256 bits</string>
+      <string id="BLEncryptionMethodDropDown_AES256_Name2">AES-CBC 256-bit</string>
+      <string id="BLEncryptionMethodDropDown_AES128_Name2">AES-CBC 128-bit</string>
+      <string id="BLEncryptionMethodDropDown_AES128_Name3">AES-CBC 128-bit</string>
+      <string id="BLEncryptionMethodDropDown_XTS_AES128_Name">XTS-AES de 128 bits</string>
+      <string id="BLEncryptionMethodDropDown_XTS_AES256_Name">XTS-AES de 256 bits</string>
+ 
+      <!--  BMS policy string resources under [Windows Components]\BitLocker Management Solution\Operating System Drive  -->
+      <string id="OSDriveRecoveryPolicy">Elegir cómo se pueden recuperar unidades del sistema operativo protegidas por BitLocker</string>
+      <string id="OSDriveRecoveryPolicy_Help">Esta configuración de directiva le permite controlar el modo en que se recuperan las unidades de sistema operativo protegidas con BitLocker en ausencia de la información de la clave de inicio necesaria. Esta configuración de directiva se aplica cuando se activa BitLocker.
+
+La casilla "Permitir agente de recuperación de datos" se usa para especificar si se puede usar un agente de recuperación de datos con unidades de sistema operativo protegidas con BitLocker. Antes de que se pueda usar uno de estos agentes, sin embargo, debe agregarse a partir del elemento Directivas de clave pública de la Consola de administración de directivas de grupo o del Editor de directivas de grupo local. Consulte la Guía de implementación del cifrado de unidad BitLocker en Microsoft TechNet para obtener más información sobre cómo agregar agentes de recuperación de datos.
+
+Seleccione "Omitir opciones de recuperación en el asistente para la configuración de BitLocker" para impedir que los usuarios puedan especificar las opciones de recuperación cuando habiliten BitLocker en una unidad. Esto significa que no podrá determinar qué opción de recuperación se deberá usar al habilitar BitLocker, sino que las opciones de recuperación de BitLocker relativas a la unidad vendrán determinadas por la configuración de directiva.
+
+En "Guardar información de recuperación de BitLocker en los Servicios de dominio de Active Directory" elija qué tipo de información de recuperación de BitLocker quiere almacenar en AD DS para las unidades de sistema operativo. Si selecciona "Realizar copia de seguridad de contraseñas de recuperación y paquetes de claves", tanto la contraseña de recuperación como el paquete de claves de BitLocker se almacenarán en AD DS. Con el almacenamiento de paquetes de llaves se pueden recuperar datos de unidades que sufrieron daños físicos. Si selecciona "Realizar copia de seguridad solo de contraseñas de recuperación", en AD DS solo se almacenará la contraseña de recuperación.
+
+Active la casilla "No habilitar BitLocker hasta que la información de recuperación se almacene en AD DS para unidades de sistema operativo" si quiere que los usuarios no puedan habilitar BitLocker a menos que el equipo esté conectado al dominio y a menos que se realice correctamente la copia de seguridad de la información de recuperación de BitLocker a AD DS.
+
+Nota: Si la casilla "No habilitar BitLocker hasta que la información de recuperación se almacene en AD DS para unidades de sistema operativo" está activada, se genera automáticamente una contraseña de recuperación.
+
+Si habilita esta configuración de directiva, puede controlar los métodos de los que disponen los usuarios para recuperar datos de unidades de sistema operativo protegidas con BitLocker.
+
+Si esta configuración de directiva está deshabilitada o no está configurada, la recuperación de BitLocker usa las opciones de recuperación predeterminadas. Si no establece lo contrario, el agente de recuperación de datos está habilitado: los usuarios pueden determinar las opciones de recuperación, incluidas la contraseña de recuperación y la clave de recuperación, y no se hace ninguna copia de seguridad de la información a AD DS.
+
+Cuando usa BitLocker Management Solution, la información relativa a la recuperación de claves se guarda en la ubicación del servidor de recuperación de claves que se haya configurado mediante la directiva de ubicación del servidor en la categoría Recuperación de datos.
+      </string>
+      <string id="OSDRecoveryPwdUsageDropDown_Allow">Permitir contraseña de recuperación de 48 dígitos</string>
+      <string id="OSDRecoveryPwdUsageDropDown_Require">Requerir contraseña de recuperación de 48 dígitos</string>
+      <string id="OSDRecoveryKeyUsageDropDown_Allow">Permitir clave de recuperación de 256 bits</string>
+      <string id="OSDRecoveryKeyUsageDropDown_Require">Requerir clave de recuperación de 256 bits</string>
+      <string id="OSDADBackupDropDownItem1">Almacenar contraseñas de recuperación y paquetes de claves</string>
+      <string id="OSDADBackupDropDownItem2">Almacenar solo contraseñas de recuperación</string>
+      <!--  BMS policy string resources under [Windows Components]\BitLocker Management Solution\Fixed Drive  -->
+      <string id="FDVDenyWriteAccessPolicy">Denegar el acceso de escritura a unidades fijas no protegidas por BitLocker</string>
+      <string id="FDVDenyWriteAccessPolicy_Help">Esta configuración de directiva determina si es necesaria la protección de BitLocker para que se pueda escribir en las unidades de datos fijas de un equipo. Se aplica al activar BitLocker.
+
+Si habilita esta configuración de directiva, todas las unidades de datos fijas que no estén protegidas por BitLocker se montarán como de solo lectura. Si la unidad está protegida por BitLocker, se montará con acceso de lectura y escritura.
+
+Si deshabilita o no establece esta configuración de directiva, todas las unidades de datos fijas del equipo se montarán con acceso de lectura y escritura.
+</string>
+      <string id="FDVHybridAccessPolicy">Permitir el acceso a unidades de datos fijas protegidas por BitLocker desde versiones anteriores de Windows</string>
+      <string id="FDVHybridAccessPolicy_Help">Esta configuración de directiva configura si las unidades de datos fijas con el formato de sistema de archivos FAT pueden desbloquearse y verse en equipos que ejecutan los sistemas operativos Windows Server 2008, Windows Vista, Windows XP con Service Pack 3 (SP3) o Windows XP con Service Pack 2 (SP2).
+
+Si se habilita esta configuración de directiva o no se define, las unidades de datos fijas con el formato de sistema de archivos FAT podrán desbloquearse en equipos que ejecuten los sistemas operativos Windows Server 2008, Windows Vista, Windows XP con SP3 o Windows XP con SP2, y se podrá ver su contenido. Estos sistemas operativos tienen acceso de solo lectura a unidades protegidas por BitLocker.
+
+Si esta configuración de directiva está habilitada, seleccione la casilla "No instalar el Lector de BitLocker To Go en unidades fijas con formato de sistema de archivos FAT" para evitar que los usuarios ejecuten el Lector de BitLocker To Go desde sus unidades fijas. Si el Lector de BitLocker To Go (bitlockertogo.exe) está presente en una unidad para la que no se haya especificado un campo de identificación, o si la unidad tiene el mismo campo de identificación que se especificó en la configuración de directiva "Proporcionar los identificadores únicos de su organización", se pedirá al usuario que actualice BitLocker y se eliminará el Lector de BitLocker To Go de la unidad. En este caso, para que se desbloquee la unidad fija en equipos que ejecutan Windows Server 2008, Windows Vista, Windows XP con SP3 o Windows XP con SP2, deberá instalarse el Lector de BitLocker To Go en el equipo. Si no se selecciona esta casilla, el Lector de BitLocker To Go se instalará en la unidad fija para permitir que los usuarios desbloqueen la unidad en equipos que ejecutan Windows Server 2008, Windows Vista, Windows XP con SP3 o Windows XP con SP2 y que no tengan el Lector de BitLocker To Go instalado.
+
+Si se deshabilita esta configuración de directiva, las unidades de datos fijas con el formato de sistema de archivos FAT protegidas por BitLocker no podrán desbloquearse en equipos que ejecuten los sistemas operativos Windows Server 2008, Windows Vista, Windows XP con SP3 o Windows XP con SP2. Bitlockertogo.exe no se instalará.
+
+Nota: esta configuración de directiva no se aplica a unidades con el formato de sistema de archivos NTFS.</string>
+      <string id="FDVPassPhrasePolicy">Configurar el uso de contraseñas para unidades de datos fijas</string>
+      <string id="FDVPassPhrasePolicy_Help">Esta configuración de directiva especifica si se necesita una contraseña para desbloquear unidades de datos fijas protegidas por BitLocker. Si elige permitir el uso de una contraseña, además de exigir que se use y que se apliquen los requisitos de complejidad, puede configurar una longitud mínima para la misma. Para que los requisitos de complejidad surtan efecto, debe habilitarse también la configuración de directiva de grupo "La contraseña debe cumplir los requisitos de seguridad" ubicada en Configuración del equipo\Configuración de Windows\Configuración de seguridad\Directivas de cuenta\Directiva de contraseñas\.
+
+Nota: estas configuraciones se exigen al activar BitLocker, no al desbloquear un volumen. BitLocker permitirá desbloquear una unidad con cualquiera de estos protectores disponibles.
+
+Si habilita esta configuración de directiva, los usuarios pueden configurar una contraseña que cumpla los requisitos que usted defina. Para requerir el uso de una contraseña, seleccione "Requerir contraseña para unidad de datos fija". Para exigir los requisitos de complejidad de la contraseña, seleccione "Requerir complejidad de la contraseña".
+
+Si se establece "Requerir complejidad de la contraseña", será necesaria una conexión a un controlador de dominio cuando BitLocker esté habilitado con el fin de validar la complejidad de la contraseña. Si se establece "Permitir complejidad de la contraseña", se intentará una conexión a un controlador de dominio para validar si la complejidad cumple las reglas establecidas por la directiva pero, si no se encuentra ningún controlador de dominio, se aceptará la contraseña independientemente de su complejidad y se cifrará la unidad usando esa contraseña como protector. Si se establece "No permitir complejidad de la contraseña", no se validará la complejidad de la contraseña.
+
+Las contraseñas deben tener al menos 8 caracteres. Para configurar una longitud mínima mayor, escriba el número deseado de caracteres en el cuadro "Longitud mínima de la contraseña".
+
+Si deshabilita esta configuración de directiva, no se permitirá al usuario usar una contraseña.
+
+Si no define esta configuración de directiva, se admitirán las contraseñas con la configuración predeterminada, que no incluye requisitos de complejidad y requiere solo 8 caracteres.
+
+Nota: no se puede usar contraseña si está habilitada la compatibilidad con FIPS. La configuración de directiva "Criptografía del sistema: usar algoritmos que cumplan FIPS para cifrado, firma y operaciones hash" en Configuración del equipo\Configuración de Windows\Configuración de seguridad\Directivas locales\Opciones de seguridad especifica si está habilitada la compatibilidad con FIPS.
+      </string>
+      <string id="FDVPassphraseComplexityDropDown_Allow">Permitir complejidad de la contraseña</string>
+      <string id="FDVPassphraseComplexityDropDown_Disallow">No permitir complejidad de la contraseña</string>
+      <string id="FDVPassphraseComplexityDropDown_Require">Requerir complejidad de la contraseña</string>
+      <string id="FDVRecoveryUsagePolicy">Elegir cómo se pueden recuperar unidades fijas protegidas por BitLocker</string>
+      <string id="FDVRecoveryUsagePolicy_Help">Esta configuración de directiva le permite controlar el modo en que se recuperan las unidades de datos fijas protegidas con BitLocker en ausencia de las credenciales necesarias. Esta configuración de directiva se aplica cuando se activa BitLocker.
+        
+La casilla "Permitir agente de recuperación de datos" se utiliza para especificar si se puede usar un agente de recuperación de datos con unidades de datos fijas protegidas con BitLocker. Antes de que se pueda usar uno de estos agentes, sin embargo, debe agregarse a partir del elemento Directivas de clave pública de la Consola de administración de directivas de grupo o del Editor de directivas de grupo local. Consulte la Guía de implementación del cifrado de unidad BitLocker en Microsoft TechNet para obtener más información sobre cómo agregar agentes de recuperación de datos.
+
+Seleccione "Omitir opciones de recuperación en el asistente para la configuración de BitLocker" para impedir que los usuarios puedan especificar las opciones de recuperación cuando habiliten BitLocker en una unidad. Esto significa que no podrá determinar qué opción de recuperación se deberá usar al habilitar BitLocker, sino que las opciones de recuperación de BitLocker relativas a la unidad vienen determinadas por la configuración de directiva.
+
+En "Guardar información de recuperación de BitLocker en los Servicios de dominio de Active Directory" elija qué tipo de información de recuperación de BitLocker quiere almacenar en AD DS para las unidades de datos fijas. Si selecciona "Realizar copia de seguridad de contraseñas de recuperación y paquetes de claves", tanto la contraseña de recuperación como el paquete de claves de BitLocker se almacenarán en AD DS. Con el almacenamiento de paquetes de llaves se pueden recuperar datos de unidades que sufrieron daños físicos. Si selecciona "Realizar copia de seguridad solo de contraseñas de recuperación", en AD DS solo se almacenará la contraseña de recuperación.
+
+Active la casilla "No habilitar BitLocker hasta que la información de recuperación se almacene en AD DS para unidades de datos fijas" si quiere que los usuarios no puedan habilitar BitLocker a menos que el equipo esté conectado al dominio y a menos que se realice correctamente la copia de seguridad de la información de recuperación de BitLocker a AD DS.
+
+Nota: Si la casilla "No habilitar BitLocker hasta que la información de recuperación se almacene en AD DS para unidades de datos fijas" está activada, se genera automáticamente una contraseña de recuperación.
+
+Si habilita esta configuración de directiva, puede controlar los métodos de los que disponen los usuarios para recuperar datos de unidades de datos fijas protegidas con BitLocker.
+
+Si esta configuración de directiva está deshabilitada o no está configurada, la recuperación de BitLocker usa las opciones de recuperación predeterminadas. Si no establece lo contrario, el agente de recuperación de datos está habilitado: los usuarios pueden determinar las opciones de recuperación, incluidas la contraseña de recuperación y la clave de recuperación, y no se hace ninguna copia de seguridad de la información a AD DS.
+
+Cuando usa BitLocker Management Solution, la información relativa a la recuperación de claves se guarda en la ubicación del servidor de recuperación de claves que se haya configurado mediante la directiva de ubicación del servidor en la categoría Recuperación de datos.
+      </string>      
+      <string id="FDVADBackupDropDownItem1">Realizar copia de seguridad de contraseñas de recuperación y paquetes de claves</string>
+      <string id="FDVADBackupDropDownItem2">Realizar copia de seguridad solo de contraseñas de recuperación</string>
+      <string id="FDVRecoveryPasswordUsageDropDown_Allow">Permitir contraseña de recuperación de 48 dígitos</string>
+      <string id="FDVRecoveryPasswordUsageDropDown_Require">Requerir contraseña de recuperación de 48 dígitos</string>
+      <string id="FDVRecoveryKeyUsageDropDown_Allow">Permitir clave de recuperación de 256 bits</string>
+      <string id="FDVRecoveryKeyUsageDropDown_Require">Requerir clave de recuperación de 256 bits</string>
+      <string id="FDVRecoveryKeyUsageDropDown_Disallow">No permitir clave de recuperación de 256 bits</string>
+      <!--  BMS policy string resources under [Windows Components]\BitLocker Management Solution\Removable Drive  -->
+      <string id="RDVConfigureBDEPolicy">Controlar el uso de BitLocker en unidades extraíbles</string>
+      <string id="RDVConfigureBDEPolicy_Help">Esta configuración de directiva controla el uso de BitLocker en unidades de datos extraíbles. Esta configuración de directiva se aplica al activar BitLocker.
+
+Cuando esta configuración de directiva está habilitada, se pueden seleccionar configuraciones de propiedades que controlan cómo pueden configurar BitLocker los usuarios. Elija "Permitir que los usuarios apliquen la protección de BitLocker en unidades de datos extraíbles" para permitir que el usuario ejecute el asistente para la instalación de BitLocker en una unidad de datos extraíble. Elija "Permitir que los usuarios suspendan y descifren la protección de BitLocker en unidades de datos extraíbles" para permitir que el usuario quite el cifrado de BitLocker de la unidad o suspenda el cifrado mientras se realiza el mantenimiento. Consulte la Guía de implementación del Cifrado de unidad BitLocker en Microsoft TechNet para obtener más información sobre la suspensión de la protección de BitLocker.
+
+Al elegir "Permitir que los usuarios apliquen la protección de BitLocker en unidades de datos extraíbles", una vez cifrada la unidad de datos extraíble, podrá guardar la información de recuperación de BitLocker según la directiva ‘Configurar servicios de MBAM’.
+
+Si no establece esta configuración de directiva, los usuarios podrán usar BitLocker en unidades de datos extraíbles.
+
+Si deshabilita esta configuración de directiva, los usuarios no podrán usar BitLocker en unidades de datos extraíbles.
+
+Al habilitar BitLocker, se establecerán como deshabilitadas las directivas siguientes en Sistema/Acceso de almacenamiento extraíble:
+
+Cuando habilite la protección de BitLocker en la unidad extraíble, no deshabilite la directiva “Configurar el uso de contraseñas para unidades de datos extraíbles”. 
+Cuando habilite la protección de BitLocker en la unidad extraíble, puede deshabilitar las directivas siguientes en Sistema/Acceso de almacenamiento extraíble para mayor seguridad.
+Todas las clases de almacenamiento extraíble: denegar acceso a todo (usuario y equipo) 
+Discos extraíbles: denegar acceso de escritura (usuario y equipo)
+Discos extraíbles: denegar acceso de lectura (usuario y equipo).
+      </string>
+      <string id="RDVDenyWriteAccessPolicy">Denegar el acceso de escritura a unidades extraíbles no protegidas por BitLocker</string>
+      <string id="RDVDenyWriteAccessPolicy_Help">Esta configuración de directiva determina si es necesaria la protección de BitLocker para que se pueda escribir en las unidades de datos extraíbles de un equipo.
+
+Si habilita esta configuración de directiva, todas las unidades de datos extraíbles que no estén protegidas por BitLocker se montarán como de solo lectura. Si la unidad está protegida por BitLocker, se montará con acceso de lectura y escritura.
+
+Si se selecciona la opción "No permitir el acceso de escritura a dispositivos configurados en otra organización", solo se le dará acceso de escritura a las unidades cuyos campos de identificación coincidan con los campos de identificación del equipo. Cuando se tenga acceso a una unidad de datos extraíble, se comprobará si tiene un campo de identificación válido y campos de identificación permitidos. La configuración de directiva "Proporcionar los identificadores únicos de su organización" define estos campos.
+
+Si deshabilita o no define esta configuración de directiva, todas las unidades de datos extraíbles del equipo se montarán con acceso de lectura y escritura.
+
+Nota: la configuración de directiva que se encuentra bajo Configuración del usuario\Plantillas administrativas\Sistema\Acceso de almacenamiento extraíble puede invalidar esta configuración de directiva. Si está habilitada la configuración de directiva "Discos extraíbles: denegar acceso de escritura", esta configuración de directiva se omitirá.</string>
+      <string id="RDVHybridAccessPolicy">Permitir el acceso a unidades de datos extraíbles protegidas por BitLocker desde versiones anteriores de Windows</string>
+      <string id="RDVHybridAccessPolicy_Help">Esta configuración de directiva configura si las unidades de datos extraíbles con el formato de sistema de archivos FAT pueden desbloquearse y verse en equipos que ejecutan los sistemas operativos Windows Server 2008, Windows Vista, Windows XP con Service Pack 3 (SP3) o Windows XP con Service Pack 2 (SP2).
+
+Si se habilita esta configuración de directiva o no se define, las unidades de datos extraíbles con el formato de sistema de archivos FAT podrán desbloquearse en equipos que ejecuten los sistemas operativos Windows Server 2008, Windows Vista, Windows XP con SP3 o Windows XP con SP2, y se podrá ver su contenido. Estos sistemas operativos tienen acceso de solo lectura a unidades protegidas por BitLocker.
+
+Si esta configuración de directiva está habilitada, seleccione la casilla "No instalar el Lector de BitLocker To Go en unidades extraíbles con formato de sistema de archivos FAT" para evitar que los usuarios ejecuten el Lector de BitLocker To Go desde sus unidades extraíbles. Si el Lector de BitLocker To Go (bitlockertogo.exe) está presente en una unidad para la que no se haya especificado un campo de identificación, o si la unidad tiene el mismo campo de identificación que se especificó en la configuración de directiva "Proporcione los identificadores únicos de su organización", se pedirá al usuario que actualice BitLocker y se eliminará el Lector de BitLocker To Go de la unidad. En este caso, para que se desbloquee la unidad extraíble en equipos que ejecutan Windows Server 2008, Windows Vista, Windows XP con SP3 o Windows XP con SP2, deberá instalarse el Lector de BitLocker To Go en el equipo. Si no se selecciona esta casilla, el Lector de BitLocker To Go se instalará en la unidad extraíble para permitir que los usuarios desbloqueen la unidad en equipos que ejecutan Windows Server 2008, Windows Vista, Windows XP con SP3 o Windows XP con SP2 y que no tengan el Lector de BitLocker To Go instalado.
+
+Si se deshabilita esta configuración de directiva, las unidades de datos extraíbles con el formato de sistema de archivos FAT protegidas por BitLocker no podrán desbloquearse en equipos que ejecuten los sistemas operativos Windows Server 2008, Windows Vista, Windows XP con SP3 o Windows XP con SP2. Bitlockertogo.exe no se instalará.
+
+Nota: esta configuración de directiva no se aplica a unidades con el formato de sistema de archivos NTFS.</string>
+      <string id="RDVPassPhrasePolicy">Configurar el uso de contraseñas para unidades de datos extraíbles</string>
+      <string id="RDVPassPhrasePolicy_Help">Esta configuración de directiva especifica si se necesita una contraseña para desbloquear unidades de datos extraíbles protegidas por BitLocker. Si elige permitir el uso de una contraseña, además de exigir que se use y que se apliquen los requisitos de complejidad, puede configurar una longitud mínima para la misma. Para que los requisitos de complejidad surtan efecto, debe habilitarse también la configuración de directiva de grupo "La contraseña debe cumplir los requisitos de seguridad" ubicada en Configuración del equipo\Configuración de Windows\Configuración de seguridad\Directivas de cuenta\Directiva de contraseñas\.
+
+Nota: estas configuraciones se exigen al activar BitLocker, no al desbloquear un volumen. BitLocker permitirá desbloquear una unidad con cualquiera de estos protectores disponibles.
+
+Si habilita esta configuración de directiva, los usuarios pueden configurar una contraseña que cumpla los requisitos que usted defina. Para requerir el uso de una contraseña, seleccione "Requerir contraseña para unidad de datos extraíble". Para exigir los requisitos de complejidad de la contraseña, seleccione "Requerir complejidad de la contraseña".
+
+Si se establece "Requerir complejidad de la contraseña", será necesaria una conexión a un controlador de dominio cuando BitLocker esté habilitado con el fin de validar la complejidad de la contraseña. Si se establece "Permitir complejidad de la contraseña", se intentará una conexión a un controlador de dominio para validar si la complejidad cumple las reglas establecidas por la directiva pero, si no se encuentra ningún controlador de dominio, se aceptará la contraseña independientemente de su complejidad y se cifrará la unidad usando esa contraseña como protector. Si se establece "No permitir complejidad de la contraseña", no se validará la complejidad de la contraseña.
+
+Las contraseñas deben tener al menos 8 caracteres. Para configurar una longitud mínima mayor, escriba el número deseado de caracteres en el cuadro "Longitud mínima de la contraseña".
+
+Si deshabilita esta configuración de directiva, no se permitirá al usuario usar una contraseña.
+
+Si no establece esta configuración de directiva, se admitirán las contraseñas con la configuración predeterminada, que no incluye requisitos de complejidad y requiere solo 8 caracteres.
+
+Nota: no se puede usar contraseña si está habilitada la compatibilidad con FIPS. La configuración de directiva "Criptografía de sistema: usar algoritmos que cumplan FIPS para cifrado, firma y operaciones hash" en Configuración del equipo\Configuración de Windows\Configuración de seguridad\Directivas locales\Opciones de seguridad especifica si está habilitada la compatibilidad con FIPS.</string>
+      <string id="RDVPassphraseComplexityDropDown_Allow">Permitir complejidad de la contraseña</string>
+      <string id="RDVPassphraseComplexityDropDown_Disallow">No permitir complejidad de la contraseña</string>
+      <string id="RDVPassphraseComplexityDropDown_Require">Requerir complejidad de la contraseña</string>
+      <string id="RDVRecoveryUsagePolicy">Elegir cómo se pueden recuperar unidades extraíbles protegidas por BitLocker</string>
+      <string id="RDVRecoveryUsagePolicy_Help">
+          Esta configuración de directiva le permite controlar el modo en que se recuperan las unidades de datos extraíbles protegidas con BitLocker en ausencia de las credenciales necesarias. Esta configuración de directiva se aplica cuando se activa BitLocker.
+
+          La casilla "Permitir agente de recuperación de datos" se usa para especificar si se puede usar un agente de recuperación de datos con unidades de datos extraíbles protegidas con BitLocker. Antes de que se pueda usar uno de estos agentes, sin embargo, debe agregarse a partir del elemento Directivas de clave pública de la Consola de administración de directivas de grupo o del Editor de directivas de grupo local. Consulte la Guía de implementación del cifrado de unidad BitLocker en Microsoft TechNet para obtener más información sobre cómo agregar agentes de recuperación de datos.
+
+          En "Configurar almacenamiento de usuario de la información de recuperación de BitLocker" seleccione si los usuarios pueden, tienen que o no pueden generar una contraseña de recuperación de 48 dígitos o una clave de recuperación de 256.
+
+          Seleccione "Omitir opciones de recuperación en el asistente para la configuración de BitLocker" para impedir que los usuarios puedan especificar las opciones de recuperación cuando habiliten BitLocker en una unidad. Esto significa que no podrá determinar qué opción de recuperación se deberá usar al habilitar BitLocker, sino que las opciones de recuperación de BitLocker relativas a la unidad vienen determinadas por la configuración de directiva.
+
+          En "Guardar información de recuperación de BitLocker en los Servicios de dominio de Active Directory" elija qué tipo de información de recuperación de BitLocker quiere almacenar en AD DS para las unidades de datos extraíbles. Si selecciona "Realizar copia de seguridad de contraseñas de recuperación y paquetes de claves", tanto la contraseña de recuperación como el paquete de claves de BitLocker se almacenarán en AD DS. Si selecciona "Realizar copia de seguridad solo de contraseñas de recuperación", en AD DS solo se almacenará la contraseña de recuperación.
+
+          Active la casilla "No habilitar BitLocker hasta que la información de recuperación se almacene en AD DS para unidades de datos extraíbles" si quiere que los usuarios no puedan habilitar BitLocker a menos que el equipo esté conectado al dominio y a menos que se realice correctamente la copia de seguridad de la información de recuperación de BitLocker a AD DS.
+
+          Nota: Si la casilla "No habilitar BitLocker hasta que la información de recuperación se almacene en AD DS para unidades de datos extraíbles" está activada, se genera automáticamente una contraseña de recuperación.
+
+          Si habilita esta configuración de directiva, puede controlar los métodos de los que disponen los usuarios para recuperar datos de unidades de datos extraíbles protegidas con BitLocker.
+
+          Si esta configuración de directiva está deshabilitada o no está configurada, la recuperación de BitLocker usa las opciones de recuperación predeterminadas. Si no establece lo contrario, el agente de recuperación de datos está habilitado: los usuarios pueden determinar las opciones de recuperación, incluidas la contraseña de recuperación y la clave de recuperación, y no se hace ninguna copia de seguridad de la información a AD DS</string>
+      <string id="RDVADBackupDropDownItem1">Realizar copia de seguridad de contraseñas de recuperación y paquetes de claves</string>
+      <string id="RDVADBackupDropDownItem2">Realizar copia de seguridad solo de contraseñas de recuperación</string>
+      <string id="RDVRecoveryKeyUsageDropDown_Allow">Permitir clave de recuperación de 256 bits</string>
+      <string id="RDVRecoveryKeyUsageDropDown_Require">Requerir clave de recuperación de 256 bits</string>
+      <string id="RDVRecoveryKeyUsageDropDown_Disallow">No permitir clave de recuperación de 256 bits</string>
+      <string id="RDVRecoveryPwdDropDown_Allow">Permitir contraseña de recuperación de 48 dígitos</string>
+      <string id="RDVRecoveryPwdDropDown_Require">Requerir contraseña de recuperación de 48 dígitos</string>
+      <!--  BMS policy string resources under [Windows Components]\BitLocker Management Solution\Operating system drive -->
+      <string id="BMSOSDEncryptionPolicy">Configuración de cifrado de la unidad del sistema operativo</string>
+      <string id="BMSOSDEncryptionPolicy_Help">Esta configuración de directiva le permite controlar si la unidad de sistema operativo debe cifrarse o no.
+
+Para más seguridad, cuando está habilitado con una protección de TPM y PIN, puede decidir deshabilitar las siguientes directivas en Sistema/Administración de energía/Configuración de suspensión:
+  Permitir estados de espera (S1-S3) mientras el equipo está en suspensión (conectado)
+  Permitir estados de espera (S1-S3) mientras el equipo está en suspensión (con batería)
+
+Si quiere usar BitLocker en un equipo sin un TPM, active la casilla "Permitir BitLocker sin un TPM compatible" (compatible con Windows 8 o versiones posteriores). Con este modo se necesita una contraseña para iniciar el sistema. Si olvida la contraseña, deberá usar una de las opciones de recuperación de BitLocker para obtener acceso a la unidad.
+
+En los ordenadores con un TPM compatible pueden usarse dos métodos de autenticación al iniciar el sistema para ofrecer una protección adicional de los datos cifrados. Cuando se inicia el equipo, puede usar solo el TPM para realizar la autenticación, o bien puede pedir también al usuario que escriba un número de identificación personal (PIN) de entre 4 y 20 dígitos.
+
+Si habilita esta configuración de directiva, el usuario deberá poner la unidad de sistema operativo bajo la protección de BitLocker y la unidad se cifrará.
+
+Si deshabilita esta directiva, el usuario no podrá proteger la unidad de sistema operativo con BitLocker. Tenga en cuenta que, si aplica esta directiva una vez que la unidad de sistema operativo se cifre, esta se descifrará.
+
+Si no configura esta directiva, no es necesario poner la unidad de sistema operativo bajo la protección de BitLocker.
+      </string>
+
+      <string id="BMSOSDProtectorDropDown_TPMOnly">Solo TPM</string>
+      <string id="BMSOSDProtectorDropDown_TPMPin">TPM y PIN</string>
+      
+      <string id="OSPassphrase_Name">Configurar el uso de contraseñas para unidades del sistema operativo</string>
+      <string id="OSPassphrase_Help">Esta configuración de directiva especifica las restricciones de contraseña usadas para desbloquear unidades del sistema operativo protegidas con BitLocker. Si se permiten los protectores que no sean TPM en las unidades del sistema operativo, podrá aprovisionar una contraseña, exigir el cumplimiento de requisitos de complejidad y configurar una longitud mínima para la contraseña. Para que los requisitos de complejidad surtan efecto, debe habilitarse también la configuración de directiva de grupo "La contraseña debe cumplir los requisitos de seguridad" ubicada en Configuración del equipo\Configuración de Windows\Configuración de seguridad\Directivas de cuenta\Directiva de contraseñas\.
+
+Nota: estas configuraciones se exigen al activar BitLocker, no al desbloquear un volumen. BitLocker permitirá desbloquear una unidad con cualquiera de estos protectores disponibles.
+
+Si habilita esta configuración de directiva, los usuarios pueden configurar una contraseña que cumpla los requisitos que usted defina. Para exigir los requisitos de complejidad de la contraseña, seleccione "Requerir complejidad de la contraseña".
+
+Si se establece "Requerir complejidad de la contraseña", será necesaria una conexión a un controlador de dominio cuando BitLocker esté habilitado con el fin de validar la complejidad de la contraseña. Si se establece "Permitir complejidad de la contraseña", se intentará una conexión a un controlador de dominio para validar si la complejidad cumple las reglas establecidas por la directiva pero, si no se encuentra ningún controlador de dominio, se aceptará la contraseña independientemente de su complejidad y se cifrará la unidad usando esa contraseña como protector. Si se establece "No permitir complejidad de la contraseña", no se validará la complejidad de la contraseña.
+
+Las contraseñas deben tener al menos 8 caracteres. Para configurar una longitud mínima mayor, escriba el número deseado de caracteres en el cuadro "Longitud mínima de la contraseña".
+
+Si deshabilita o no establece esta configuración de directiva, se aplicará la restricción de longitud predeterminada de 8 caracteres a las contraseñas de unidades del sistema operativo y no se realizarán comprobaciones de complejidad.
+
+Nota: no se puede usar contraseña si está habilitada la compatibilidad con FIPS. La configuración de directiva "Criptografía de sistema: usar algoritmos que cumplan FIPS para cifrado, firma y operaciones hash" en Configuración del equipo\Configuración de Windows\Configuración de seguridad\Directivas locales\Opciones de seguridad especifica si está habilitada la compatibilidad con FIPS.
+
+</string>
+
+
+      <string id="PassphraseComplexityDropDown_2">Permitir complejidad de la contraseña</string>
+      <string id="PassphraseComplexityDropDown_0">No permitir complejidad de la contraseña</string>
+      <string id="PassphraseComplexityDropDown_1">Requerir complejidad de la contraseña</string>
+      
+      <!--  BMS policy string resources under [Windows Components]\BitLocker Management Solution\Fixed Drive  -->
+      <string id="BMSFDVEncryptionPolicy">Configuración de cifrado de la unidad de datos fija</string>
+      <string id="BMSFDVEncryptionPolicy_Help">Esta configuración de directiva permite administrar si las unidades de datos fijas deben cifrarse o no.
+	  
+Al habilitar esta directiva, no debe deshabilitar la directiva “Configurar el uso de contraseñas para unidades de datos fijas” a menos que se requiera o esté permitido el uso del desbloqueo automático para unidades de datos fijas.
+
+Al requerir el uso del desbloqueo automático para unidades de datos fijas, deberá configurar los volúmenes del sistema operativo para que se cifren.
+
+Si habilita esta configuración de directiva, el usuario deberá poner todas las unidades de datos fijas bajo la protección de BitLocker y la unidad se cifrará.
+
+Si deshabilita esta directiva, el usuario no podrá poner todas las unidades de datos fijas bajo la protección de BitLocker. Tenga en cuenta que si se aplica esta directiva tras cifrar las unidades de datos fijas, estas se descifrarán.
+
+Si no establece esta configuración de directiva, no será necesario poner las unidades de datos fijas bajo la protección de BitLocker.
+</string>
+
+      <string id="BMSFDVAutoUnlockUsageDropDown_Optional">Permitir desbloqueo automático</string>
+      <string id="BMSFDVAutoUnlockUsageDropDown_Require">Requerir desbloqueo automático</string>
+      <string id="BMSFDVAutoUnlockUsageDropDown_Disallow">No permitir desbloqueo automático</string>
+
+
+      <!--  BMS policy string resources under [Windows Components]\BitLocker Management Solution\Client Management  -->
+      <string id="RecoveryInfoUsageDropDownItem0">Solo contraseña de recuperación</string>
+      <string id="RecoveryInfoUsageDropDownItem1">Contraseña de recuperación y paquete de claves</string>
+      <string id="ConfigureStatusReportingDropDownItem0">Deshabilitado</string>
+      <string id="ConfigureStatusReportingDropDownItem1">Habilitado</string>
+      <string id="BMSClientConfigureCheckIntervalPolicy">Configurar servicios de MBAM</string>
+      <string id="BMSClientConfigureCheckIntervalPolicy_Help">Nota: Si MBAM se configura para ejecutarse con Microsoft Configuration Manager, deshabilite "Servicio de informes de estado de MBAM" y deje vacío el "Extremo de servicio de informes de estado de MBAM". Esta información se administra en Microsoft Configuration Manager.
+      
+Esta configuración de directiva le permite administrar la copia de seguridad del servicio de recuperación de claves de la información de recuperación de Cifrado de unidad de BitLocker. Esto ofrece un método administrativo para recuperar datos cifrados con BitLocker para impedir la pérdida de datos debido a la falta de información de clave.
+
+La dirección URL del extremo de servicio de recuperación de MBAM es
+http(s)://&lt;nombre de servidor&gt;:&lt;puerto&gt;/MBAMRecoveryAndHardwareService/CoreService.svc
+
+La dirección URL del extremo de servicio de informes de estado de MBAM es
+http(s)://&lt;nombre de servidor&gt;:&lt;puerto&gt;/MBAMComplianceStatusService/StatusReportingService.svc
+
+Reemplace el nombre del servidor y el número de puerto en la dirección URL anterior según la instalación del MBAM.
+
+La información de recuperación de BitLocker incluye la contraseña de recuperación y algunos datos de identificador únicos. También puede seleccionar incluir un paquete que contenga una clave de cifrado de unidad protegida de BitLocker. Este paquete de clave está protegido por una o varias contraseñas de recuperación y puede servir para llevar a cabo una recuperación especializada cuando el disco esté dañado.
+
+Esta configuración de directiva administra la frecuencia con la que el cliente comprobará el estado y las directivas de protección de BitLocker en la máquina cliente.
+
+Esta configuración de directiva le permite administrar la información de cumplimiento y estado que se va a guardar en la ubicación del servidor de informes. Ofrece un método administrativo para generar un informe de cumplimiento y estado.
+
+Esta configuración de directiva le permite administrar la frecuencia con que se enviará información de cumplimiento y estado al servicio de informes.
+
+La frecuencia de comprobación de estado para el cliente es cada 90 minutos y el valor predeterminado para la creación de informes de estado es cada 720 minutos. Los valores de frecuencia inferiores a los predeterminados aumentan la utilización de la red y el servidor, por lo que pueden limitar el número de clientes que MBAM puede procesar.
+
+Si habilita esta configuración de directiva, se hará una copia de seguridad de la información de recuperación de clave automáticamente y sin avisar en la ubicación configurada del servidor de recuperación de clave y se enviará un informe de estado a la ubicación configurada del servidor de informes también automáticamente y sin avisar.
+
+Si deshabilita o no define esta configuración de directiva, no se guardará la información de recuperación de clave y del informe de estado.</string>
+      <string id="BMSUserExemptionPolicy">Configurar directiva de exención de usuario</string>
+      <string id="BMSUserExemptionPolicy_Help">Esta directiva permite configurar una URL, una dirección de correo electrónico o un número de teléfono a través de los que se darán instrucciones al usuario para solicitar la exención de la protección de BitLocker.
+
+La URL y la dirección de correo electrónico tendrán el formato de un hipervínculo 
+
+Formato de la URL: "http://SitioWebExencion"
+
+Formato de la dirección de correo: "xyz@abc.com" 
+    • El hipervínculo tendrá este aspecto: "mailto: xyz@abc.com?subject=Solicitud de exención de la protección de BitLocker"
+
+Formato del número de teléfono: "xxx-xxx-xxx";
+    • El mensaje tendrá este aspecto: "Llame al xxx-xxx-xxx para solicitar la exención"
+
+Este campo de tiempo máximo de posposición sirve para configurar el periodo de tiempo durante el cual el usuario podrá posponer la protección de BitLocker, en caso de que el usuario tenga previsto solicitar la exención de la protección de BitLocker.
+
+Si habilita esta configuración de directiva y si facilita una URL una dirección de correo electrónico o un número de teléfono, el usuario podrá solicitar una exención de la protección de BitLocker y se le mostrará un diálogo con instrucciones sobre cómo solicitarla. Si, por el contrario, deja el campo en blanco, el usuario no podrá ver ningún mensaje con instrucciones para solicitar dicha exención ni tampoco podrá tener acceso al formulario de solicitud de exención.
+
+Si deshabilita esta configuración de directiva, el usuario no podrá ver ningún mensaje con instrucciones para solicitar una exención de la protección de BitLocker ni tampoco podrá tener acceso al formulario de solicitud de exención.
+
+Si no configura esta configuración de directiva, el usuario no podrá ver ningún mensaje con instrucciones para solicitar una exención de la protección de BitLocker ni tampoco podrá tener acceso al formulario de solicitud de exención.
+      </string>
+      <string id="ConfigureUserExemptionMsgType_Url">Proporcione una URL</string>
+      <string id="ConfigureUserExemptionMsgType_Email">Proporcione una dirección de correo electrónico</string>
+      <string id="ConfigureUserExemptionMsgType_Phone">Proporcione un número de teléfono o un mensaje</string>
+      <string id="PlatformValidation_Deprecated_Help">Esta configuración de directiva permite configurar el modo en que el hardware de seguridad del Módulo de plataforma segura (TPM) del equipo protege la clave de cifrado de BitLocker. Esta configuración de directiva no se aplica si el equipo no dispone de un TPM compatible o si BitLocker ya se ha activado con protección TPM.
+
+Si habilita esta configuración de directiva antes de activar BitLocker, puede configurar los componentes de arranque que el TPM validará antes de desbloquear el acceso a la unidad del sistema operativo cifrada mediante BitLocker. Si cualquiera de estos componentes cambia mientras la protección del BitLocker permanece activa, el TPM no liberará la clave de cifrado para desbloquear la unidad; en su lugar, el equipo mostrará la consola de recuperación de BitLocker y solicitará que se proporcione la contraseña de recuperación o la clave de recuperación para desbloquear la unidad.
+
+Si deshabilita o no establece esta configuración de directiva, el TPM usa el perfil de validación de plataforma predeterminado o el perfil de validación de plataforma especificado por el script de instalación. Un perfil de validación de plataforma consiste en un conjunto de índices de PCR (Registro de configuración de la plataforma) comprendidos entre 0 y 23. El perfil de validación de plataforma predeterminado protege la clave de cifrado de los cambios en CRTM (Core Root of Trust of Measurement), BIOS y extensiones de la plataforma (PCR 0), Código ROM de opción (PCR 2), Código de registro de arranque maestro (MBR) (PCR 4), Sector de arranque de NTFS (PCR 8), Bloque de arranque de NTFS (PCR 9), Administrador de arranque (PCR 10) y Control de acceso de BitLocker (PCR 11). Las descripciones de opciones de PCR para equipos que usan Extensible Firmware Interface (EFI) son distintas de las opciones de PCR descritas para equipos que usan BIOS estándar.
+
+Advertencia: el cambio del perfil predeterminado de validación de plataforma afecta a la seguridad y capacidad de administración del equipo. La sensibilidad de BitLocker a las modificaciones de plataforma (malintencionadas o no autorizadas) aumenta o disminuye en función de la inclusión o exclusión (respectivamente) de los PCR.
+      </string>
+	  <string id="CeipPolicy">Configurar el programa para la mejora de la experiencia del usuario</string>
+	  <string id="CeipPolicy_Help">Esta configuración de directiva permite configurar el modo en que los usuarios de Microsoft BitLocker Administration and Monitoring (MBAM) podrán unirse al Programa para la mejora de la experiencia del usuario.
+	  
+Este programa recopila información acerca del hardware del equipo y del modo en que los usuarios usan MBAM sin interrumpir su trabajo. Esta información ayuda a Microsoft a identificar qué características de MBAM pueden mejorarse. Microsoft no usará esta información para identificar a los usuarios de MBAM ni para ponerse en contacto con ellos.
+	  
+Si habilita esta configuración de directiva, los usuarios podrán unirse al Programa para la mejora de la experiencia del usuario.
+	  
+Si deshabilita esta configuración de directiva, los usuarios no podrán unirse al Programa para la mejora de la experiencia del usuario.
+	  
+Si no establece esta configuración de directiva, los usuarios podrán elegir si desean unirse al Programa para la mejora de la experiencia del usuario.
+	  
+Puede leer la declaración de privacidad de MBAM en línea: http://go.microsoft.com/fwlink/?LinkId=275618
+	  </string>
+	  <string id="TPMLockoutAutoResetPolicy">Configurar automáticamente el restablecimiento de bloqueos del TPM</string>
+	  <string id="TPMLockoutAutoResetPolicy_Help">Esta configuración de directiva permite a MBAM restablecer automáticamente los bloqueos de TPM.
+
+Durante los ciclos normales de establecimiento de directivas, MBAM comprueba el TPM para determinar si está en modo de bloqueo. MBAM se pone en contacto con los servicios de MBAM para recuperar el hash de la contraseña de TPM asociado a la máquina cliente. MBAM solo intenta restablecer el recuento de bloqueos de TPM si los servicios MBAM revelan la clave de recuperación de BitLocker correspondiente al volumen del sistema operativo. MBAM comprueba si hay protectores de TPM habilitados, como TPM o TPM y PIN, antes de restablecer el recuento de bloqueos de TPM.
+
+Si habilita esta configuración de directiva, MBAM intentará restablecer automáticamente el recuento de bloqueos de TPM en las máquinas cliente si el TPM está en modo de bloqueo.
+
+Si deshabilita o no define esta configuración de directiva, MBAM no intentará restablecer automáticamente el recuento de bloqueos de TPM.
+
+Nota: Esta configuración de directiva no tiene efecto en los equipos con la versión 2.0 o posterior de TPM.
+
+Nota: Para que esta configuración de directiva tenga efecto, el agente de servicio de MBAM en IIS se debe configurar para permitir la recuperación de hash de contraseñas de TPM.
+	  </string>
+      <string id="PlatformValidation_Deprecated_Name">Configurar perfil de validación de plataforma del TPM</string>
+      <string id="PlatformValidation_BIOS_Help">Esta configuración de directiva permite configurar el modo en que el hardware de seguridad del Módulo de plataforma segura (TPM) del equipo protege la clave de cifrado de BitLocker. Esta configuración de directiva no se aplica si el equipo no dispone de un TPM compatible o si BitLocker ya se ha activado con protección TPM.
+
+Importante: esta directiva de grupo solo se aplica a equipos con configuraciones de BIOS o firmware UEFI que tengan un módulo de servicio de compatibilidad (CSM) habilitado.  Los equipos que usan una configuración de firmware UEFI nativa almacenan valores distintos en los registros de configuración de plataforma (PCR).  Use la configuración de directiva de grupo "Configurar perfil de validación de plataforma TPM para configuraciones de firmware UEFI nativas" para configurar el perfil de PCR de TPM para equipos que usen firmware UEFI nativo.
+
+Si habilita esta configuración de directiva antes de activar BitLocker, puede configurar los componentes de arranque que el TPM validará antes de desbloquear el acceso a la unidad del sistema operativo cifrada mediante BitLocker. Si cualquiera de estos componentes cambia mientras la protección del BitLocker permanece activa, el TPM no liberará la clave de cifrado para desbloquear la unidad; en su lugar, el equipo mostrará la consola de recuperación de BitLocker y solicitará que se proporcione la contraseña de recuperación o la clave de recuperación para desbloquear la unidad.
+
+Si deshabilita o no establece esta configuración de directiva, el BitLocker usa el perfil de validación de plataforma predeterminado o el perfil de validación de plataforma especificado por el script de instalación. Un perfil de validación de plataforma consiste en un conjunto de índices de PCR (Registro de configuración de la plataforma) comprendidos entre 0 y 23. El perfil de validación de plataforma predeterminado protege la clave de cifrado de los cambios en CRTM (Core Root of Trust of Measurement), BIOS y extensiones de la plataforma (PCR 0), Código ROM de opción (PCR 2), Código de registro de arranque maestro (MBR) (PCR 4), Sector de arranque de NTFS (PCR 8), Bloque de arranque de NTFS (PCR 9), Administrador de arranque (PCR 10) y Control de acceso de BitLocker (PCR 11).
+
+Advertencia: el cambio del perfil predeterminado de validación de plataforma afecta a la seguridad y capacidad de administración del equipo. La sensibilidad de BitLocker a las modificaciones de plataforma (malintencionadas o no autorizadas) aumenta o disminuye en función de la inclusión o exclusión (respectivamente) de los PCR.
+      </string>
+
+      <string id="PlatformValidation_BIOS_Name">Configurar el perfil de validación de plataforma del TPM para configuraciones de firmware basadas en la BIOS</string>
+
+      <string id="PlatformValidation_UEFI_Help">Esta configuración de directiva permite configurar el modo en que el hardware de seguridad del Módulo de plataforma segura (TPM) del equipo protege la clave de cifrado de BitLocker. Esta configuración de directiva no se aplica si el equipo no dispone de un TPM compatible o si BitLocker ya se ha activado con protección TPM.
+
+Importante: esta directiva de grupo solo se aplica a equipos con configuración de firmware UEFI nativa. Los equipos que usan una BIOS o un firmware UEFI con un módulo de servicio de compatibilidad (CSM) habilitado almacenan valores distintos en los registros de configuración de plataforma (PCR).  Use la configuración de directiva de grupo "Configurar el perfil de validación de plataforma del TPM para configuraciones de firmware basadas en la BIOS" para configurar el perfil de PCR de TPM para equipos con configuraciones de BIOS o firmware UEFI con CSM habilitado.
+
+Si habilita esta configuración de directiva antes de activar BitLocker, puede configurar los componentes de arranque que el TPM validará antes de desbloquear el acceso a la unidad del sistema operativo cifrada mediante BitLocker. Si cualquiera de estos componentes cambia mientras la protección del BitLocker permanece activa, el TPM no liberará la clave de cifrado para desbloquear la unidad; en su lugar, el equipo mostrará la consola de recuperación de BitLocker y solicitará que se proporcione la contraseña de recuperación o la clave de recuperación para desbloquear la unidad.
+
+Si deshabilita o no establece esta configuración de directiva, el BitLocker usa el perfil de validación de plataforma predeterminado o el perfil de validación de plataforma especificado por el script de instalación. Un perfil de validación de plataforma consiste en un conjunto de índices de PCR (Registro de configuración de la plataforma) comprendidos entre 0 y 23. El perfil de validación de plataforma protege la clave de cifrado de los cambios en el código ejecutable del firmware del sistema principal (PCR 0), el código ejecutable extendido o conectable (PCR 2), el administrador de arranque (PCR 4) y el control de acceso de BitLocker (PCR 11).
+
+Advertencia: el cambio del perfil predeterminado de validación de plataforma afecta a la seguridad y capacidad de administración del equipo. La sensibilidad de BitLocker a las modificaciones de plataforma (malintencionadas o no autorizadas) aumenta o disminuye en función de la inclusión o exclusión (respectivamente) de los PCR. La configuración de esta directiva con el PCR 7 omitido anulará la directiva de grupo "Permitir arranque seguro para la validación de la integridad" e impedirá que BitLocker use el arranque seguro para validar la integridad de los datos de la configuración de arranque (BCD) o la plataforma.
+      </string>
+
+      <string id="PlatformValidation_UEFI_Name">Configurar perfil de validación de plataforma TPM para configuraciones de firmware UEFI nativas</string>
+
+      <string id="UseEnhancedBcdProfile_Name">Usar perfil de validación de datos de configuración de arranque mejorados</string>
+      <string id="UseEnhancedBcdProfile_Help">Esta configuración de directiva permite elegir configuraciones de datos de configuración de arranque (BCD) específicas para la comprobación durante la validación de la plataforma.
+
+Si habilita esta configuración de directiva, podrá agregar configuraciones adicionales, quitar las configuraciones predeterminadas o ambas opciones.
+
+Si deshabilita esta configuración de directiva, se restablecerá en el equipo un perfil de BCD similar al perfil de BCD predeterminado de Windows 7.
+
+Si no establece esta configuración de directiva, el equipo comprobará la configuración de BCD de Windows predeterminada. 
+
+Nota: cuando BitLocker use el arranque seguro para validar la integridad de los datos de configuración de arranque (BCD) o la plataforma, tal como se define en la directiva de grupo "Permitir arranque seguro para la validación de la integridad", se ignorará la directiva de grupo "Usar perfil de validación de datos de configuración de arranque mejorados".
+
+La opción que controla la depuración de arranque (0x16000010) siempre se validará y no surtirá ningún efecto si se incluye en los campos proporcionados.
+      </string>
+
+      <string id="TPMAutoReseal_Name">Restablecer los datos de validación de la plataforma tras la recuperación de BitLocker</string>
+      <string id="TPMAutoReseal_Help">Esta configuración de directiva permite controlar si los datos de validación de plataforma se actualizan cuando Windows se inicia después de la recuperación de BitLocker.
+
+Si habilita esta configuración de directiva, los datos de validación de la plataforma se actualizarán al iniciar Windows tras la recuperación de BitLocker.
+
+Si deshabilita esta configuración de directiva, los datos de validación de la plataforma no se actualizarán al iniciar Windows tras la recuperación de BitLocker.
+
+Si no establece esta configuración de directiva, los datos de validación de plataforma se actualizarán al iniciar Windows tras la recuperación de BitLocker.
+
+      </string>
+
+      <string id="EnhancedPIN_Name">Permitir los PIN mejorados para el inicio</string>
+      <string id="EnhancedPIN_Help">Esta configuración de directiva le permite configurar si se usan PIN de inicio mejorados con BitLocker.
+
+Los PIN de inicio mejorados permiten el uso de caracteres en mayúsculas y minúsculas, símbolos, números y espacios. Esta configuración de directiva se aplica al activar BitLocker.
+
+Si habilita esta configuración de directiva, se establecerá que todos los PIN de inicio de BitLocker sean PIN mejorados.
+
+Nota: no todos los equipos admiten los PIN mejorados en el entorno previo al arranque. Se recomienda que el administrador evalúe si los sistemas son compatibles con esta característica antes de habilitar su uso.
+
+Active la casilla “Requerir PIN que solo contengan caracteres ASCII” para que los PIN sean más compatibles con equipos que limitan el tipo o el número de caracteres que pueden especificarse en el entorno previo al arranque.
+
+Si deshabilita o no establece esta configuración de directiva, no se usarán los PIN mejorados.
+      </string>
+
+      <string id="UseOsEnforcePolicy_Name">Configuración de aplicación de directiva de cifrado</string>
+      <string id="UseOsEnforcePolicy_Help">Esta opción permite configurar el número de días que los usuarios pueden retrasar el cumplimiento de las directivas de MBAM para su unidad de sistema operativo. Una vez expire el periodo de gracia, los usuarios no podrán posponer la acción requerida o solicitar una exención.
+
+El periodo de gracia comienza cuando se detecta por primera vez que el sistema operativo no cumple las directivas. Este periodo de gracia es el mismo para todos los usuarios del mismo equipo, independientemente de cuándo inicie sesión cada usuario. Si se especifica un periodo de gracia de valor 0, se forzará el comienzo inmediato del proceso de cifrado en la unidad de sistema operativo.
+
+Si el periodo de gracia expira y la unidad de sistema operativo sigue sin cumplir las directivas, se ocultará a los usuarios la opción para posponer la acción requerida o solicitar una exención. Si el proceso de cifrado requiere una entrada del usuario, aparecerá un cuadro de diálogo que los usuarios no podrán cerrar hasta que se proporcione la información necesaria. El resto de notificaciones como, por ejemplo, los mensajes de error o el estado de cifrado, no estarán sujetas a la misma restricción.
+
+Si se especifica un periodo de gracia de valor 0, se aplicará la directiva de inmediato en la unidad del sistema operativo.
+      </string>
+
+      <string id="UseFddEnforcePolicy_Name">Configuración de aplicación de directiva de cifrado</string>
+      <string id="UseFddEnforcePolicy_Help">Esta opción permite configurar el número de días que las unidades fijas pueden permanecer en el estado de no conformidad hasta que las directivas de MBAM sean de obligado cumplimiento. Los usuarios no podrán posponer la acción requerida ni solicitar una exención cuando finalice el periodo de gracia. El periodo de gracia comienza cuando se determina que la unidad de datos fija no cumple las directivas. Sin embargo, no se aplicará la directiva a la unidad de datos fija hasta que la unidad del sistema operativo cumpla las directivas.
+
+Si el periodo de gracia expira y la unidad fija sigue sin cumplir las directivas, se ocultará a los usuarios la opción para posponer la acción o solicitar una exención. Si el proceso de cifrado requiere una entrada del usuario, se mostrará un cuadro de diálogo que no se podrá cerrar hasta que no se proporcione la información necesaria. El resto de notificaciones como, por ejemplo, los mensajes de error o el estado de cifrado, no estarán sujetas a la misma restricción.
+
+Si se especifica un periodo de gracia de valor 0, se aplicará la directiva de inmediato en cuanto la unidad del sistema operativo cumpla las directivas.
+      </string>
+
+      <string id="MoreInfoUrlPolicy">Proporcione la dirección URL para el vínculo de directiva de seguridad</string>
+      <string id="MoreInfoUrlPolicy_Help">Esta configuración directiva permite especificar una dirección de URL que se mostrará a los usuarios finales como un vínculo con el nombre “Directiva de seguridad”. Este vínculo apuntará a la directiva interna de su compañía y proporcionará a los usuarios finales información acerca de los requisitos de cifrado. Este vínculo se mostrará cuando MBAM solicite el cifrado de una unidad a los usuarios.
+
+Si habilita esta configuración de directiva, podrá configurar la dirección URL del vínculo Directiva de seguridad.
+
+Si deshabilita o no configura esta directiva, el vínculo Directiva de seguridad no se mostrará a los usuarios.
+      </string>
+
+      <string id="ConfigureContactInfoPolicyMsgType_Url">Proporcione una URL</string>
+      <string id="ConfigureContactInfoPolicyMsgType_Email">Proporcione una dirección de correo electrónico</string>
+      <string id="ConfigureContactInfoPolicyMsgType_Phone">Proporcione un número de teléfono o un mensaje</string>
+      <string id="SUPPORTED_Windows7">Al menos Windows 7</string>
+      <string id="SUPPORTED_Windows8NoARM">Al menos Windows 8</string>
+      <string id="PrebootRecoveryInfo_Name">Configurar la dirección URL y el mensaje de recuperación de prearranque</string>
+      <string id="PrebootRecoveryInfoEmpty"></string>
+      <string id="PrebootRecoveryInfoUseDefault">Usar la dirección URL y el mensaje de recuperación predeterminados</string>
+      <string id="PrebootRecoveryInfoUseMessage">Usar mensaje de recuperación personalizado</string>
+      <string id="PrebootRecoveryInfoUseUrl">Usar dirección URL de recuperación personalizada</string>
+      <string id="PrebootRecoveryInfo_Help">Esta configuración de directiva le permite configurar el mensaje de recuperación completo o reemplazar la dirección URL existente que se muestra en la pantalla de recuperación de clave previa al arranque cuando la unidad del sistema operativo está bloqueada.
+
+Si selecciona la opción "Usar la dirección URL y el mensaje de recuperación predeterminados", la dirección URL y el mensaje de recuperación predeterminados de BitLocker se mostrarán en la pantalla de recuperación de clave previa al arranque. Si anteriormente configuró una dirección URL o un mensaje de recuperación personalizados y quiere revertir al mensaje predeterminado, debe dejar la directiva habilitada y seleccionar la opción "Usar la dirección URL y el mensaje de recuperación predeterminados".
+
+Si selecciona la opción "Usar mensaje de recuperación personalizado", el mensaje que escriba en el cuadro de texto "Opción de mensaje de recuperación personalizado" se mostrará en la pantalla de recuperación de clave previa al arranque. Si hay disponible una dirección URL de recuperación, inclúyala en el mensaje.
+
+Si selecciona la opción "Usar dirección URL de recuperación personalizada", la dirección URL que escriba en el cuadro de texto "Opción de dirección URL de recuperación personalizada" reemplazará a la dirección URL predeterminada en el mensaje de recuperación predeterminado, que se mostrará en la pantalla de recuperación de clave previa al arranque.
+
+Nota: No todos los caracteres e idiomas se admiten en el prearranque. Le recomendamos que compruebe si los caracteres que usa para el mensaje o la dirección URL predeterminados aparecen correctamente en la pantalla de recuperación previa al arranque.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <!--  BMS policy presentation resources under [Windows Components]\BitLocker Management Solution  -->
+      <presentation id="ScCompliancePolicy">
+        <textBox refId="ScComplianceTextBox">
+          <label>Identificador de objeto:</label>
+          <defaultValue>1.3.6.1.4.1.311.67.1.1</defaultValue>
+        </textBox>    
+      </presentation>
+      <presentation id="UidPolicy">
+        <textBox refId="PrimaryUidTextBox">
+          <label>Campo de identificación de BitLocker:</label>         
+        </textBox>
+        <textBox refId="SecondaryUidTextBox">
+          <label>Campo de identificación de BitLocker permitido:</label>          
+        </textBox>
+      </presentation>
+      <presentation id="MoreInfoUrlPolicy">
+        <textBox refId="MoreInfoUrlTextBox">
+          <label>Dirección URL del vínculo Directiva de seguridad:</label>
+        </textBox>
+      </presentation>
+      <presentation id="BLEncryptionMethodPolicy">
+        <dropdownList refId="EncryptionMethodDropDown" noSort="true" defaultItem="2">Seleccione el método de cifrado:</dropdownList>        
+      </presentation>
+      <presentation id="BLEncryptionMethodNoDiffuser_Name">
+        <dropdownList refId="EncryptionMethodNoDiffDropDown_Name" noSort="true" defaultItem="0">Select the encryption method:</dropdownList>
+      </presentation>
+      <presentation id="BLEncryptionMethodWithXts_Name">
+        <dropdownList refId="EncryptionMethodWithXtsOsDropDown_Name" noSort="true" defaultItem="2">Selecciona el método de cifrado de las unidades del sistema operativo:</dropdownList>
+        <dropdownList refId="EncryptionMethodWithXtsFdvDropDown_Name" noSort="true" defaultItem="2">Selecciona el método de cifrado de las unidades de datos fijas:</dropdownList>
+        <dropdownList refId="EncryptionMethodWithXtsRdvDropDown_Name" noSort="true" defaultItem="0">Selecciona el método de cifrado de las unidades de datos extraíbles:</dropdownList>
+      </presentation>
+      <!--  BMS policy presentation resources under [Windows Components]\BitLocker Management Solution\Operating system drive  -->
+      <presentation id="BMSOSDEncryptionPolicy">
+        <checkBox refId="ConfigureNonTPMStartupKeyUsage_Name" defaultChecked="true">Permitir BitLocker sin un TPM compatible (requiere contraseña)</checkBox>
+        <dropdownList refId="BMSOSDProtectorDropDown" noSort="true" defaultItem="0">Seleccione el protector para la unidad del sistema operativo:</dropdownList>
+        <text>Opciones para equipos con un TPM:</text>
+        <decimalTextBox refId="BMSOSDConfigurePinLengthDecTextBox" defaultValue="4">Configurar longitud mínima de PIN para el inicio</decimalTextBox>
+        <text />
+      </presentation>
+      
+      <presentation id="OSDriveRecoveryPolicy">
+        <checkBox refId="OSDAllowRecoveryAgentCheckBox" defaultChecked="true">Permitir agente de recuperación de datos</checkBox>
+        <text>Al usar la ‘Solución de administración de BitLocker’, la opción “Guardar información de recuperación de BitLocker en AD DS para unidades de sistema operativo” no debe estar activada.</text>
+        <checkBox refId="OSDOmitRecoveryOptionsCheckBox" defaultChecked="false">Omitir opciones de recuperación en el asistente para la configuración de BitLocker</checkBox>
+        <checkBox refId="OSDADBackupCheckBox" defaultChecked="false">Guardar información de recuperación de BitLocker en AD DS para unidades de sistema operativo</checkBox>
+        <dropdownList refId="OSDADBackupDropDown" defaultItem="0">Configurar almacenamiento de la información de recuperación de BitLocker en AD DS:</dropdownList>
+        <checkBox refId="OSDRequireADBackupCheckBox">No habilitar BitLocker hasta que la información de recuperación se almacene en AD DS para unidades de sistema operativo</checkBox>
+      </presentation>
+      
+      <presentation id="EnhancedPIN">
+        <checkBox refId="OSEnhancedPINASCIIOnlyCheckBox" defaultChecked="true">Requerir PIN que solo contengan caracteres ASCII</checkBox>
+      </presentation>
+
+     <presentation id="OSPassphrase_Name">
+       <dropdownList refId="OSPassphraseComplexity_Name" noSort="true" defaultItem="0">Configure la complejidad de la contraseña para unidades del sistema operativo:</dropdownList>
+       <decimalTextBox refId="OSPassphraseLength_Name" defaultValue="8">Longitud mínima de la contraseña para la unidad del sistema operativo:</decimalTextBox>
+       <text>Nota: debe habilitar la configuración de directiva "La contraseña debe cumplir los requisitos de complejidad" para que surta efecto la configuración de complejidad de la contraseña.</text>
+       <checkBox refId="OSPassphraseASCIIOnly_Name">Requerir contraseñas que solo contengan caracteres ASCII para unidades del sistema operativo extraíbles</checkBox>
+     </presentation>
+
+      <!--  BMS policy presentation resources under [Windows Components]\BitLocker Management Solution\Fixed drive  -->
+        <presentation id="BMSFDVEncryptionPolicy">
+            <text>Esta configuración de directiva permite administrar si la unidad de datos fija debe estar cifrada o no.</text>
+            <dropdownList refId="BMSFDVAutoUnlockUsageDropDown_Name" noSort="true" defaultItem="0">Configurar el desbloqueo automático para la unidad de datos fija:</dropdownList>
+        </presentation>
+      <presentation id="FDVHybridAccessPolicy">
+        <checkBox refId="FDVNoBitLockerToGoReaderCheckBox" noSort="true" defaultChecked="false">No instalar el Lector de BitLocker To Go en unidades fijas con formato de sistema de archivos FAT</checkBox>
+      </presentation>
+      <presentation id="FDVPassPhrasePolicy">
+        <checkBox refId="FDVRequirePassPhraseCheckBox" defaultChecked="true">Requerir contraseña para unidad de datos fija</checkBox>
+        <dropdownList refId="FDVPassphraseComplexityDropDown" noSort="true" defaultItem="0">Configure la complejidad de la contraseña para unidades de datos fijas:</dropdownList>
+        <decimalTextBox refId="FDVMinPassPhraseLengthDecTextBox" defaultValue="8">Longitud mínima de la contraseña para unidades de datos fijas:</decimalTextBox>
+        <text>Nota: debe habilitar la configuración de directiva "La contraseña debe cumplir los requisitos de complejidad" para que surta efecto la configuración de complejidad de la contraseña.</text>        
+      </presentation>
+      <presentation id="FDVRecoveryUsagePolicy">
+        <checkBox refId="FDVAllowRecoveryAgentCheckBox" defaultChecked="true">Permitir agente de recuperación de datos</checkBox>
+        <text>Al usar la ‘BitLocker Management Solution’, la opción “Guardar información de recuperación de BitLocker en AD DS para unidades de datos fijas” no debe estar activada.</text>
+        <checkBox refId="FDVOmitRecoveryOptionsCheckBox" defaultChecked="false">Omitir opciones de recuperación en el asistente para la configuración de BitLocker</checkBox>
+        <checkBox refId="FDVADBackupCheckBox" defaultChecked="false">Guardar información de recuperación de BitLocker en AD DS para unidades de datos fijas</checkBox>
+        <dropdownList refId="FDVADBackupDropDown" noSort="true" defaultItem="0">Configurar almacenamiento de la información de recuperación de BitLocker en AD DS:</dropdownList>
+        <checkBox refId="FDVRequireADBackupCheckBox">No habilitar BitLocker hasta que la información de recuperación se almacene en AD DS para unidades de datos fijas</checkBox>
+      </presentation>
+      <!--  BMS policy presentation resources under [Windows Components]\BitLocker Management Solution\Removable drive  -->
+      <presentation id="RDVConfigureBDEPolicy">
+        <text>Al habilitar BitLocker en una unidad extraíble, vea la explicación para la configuración de directiva en Sistema/Acceso de almacenamiento extraíble</text>
+        <checkBox refId="RDVAllowBDECheckBox" noSort="true" defaultChecked="true">Permitir que los usuarios apliquen la protección de BitLocker en unidades de datos extraíbles</checkBox>
+        <checkBox refId="RDVDisallowBDECheckBox" noSort="true" defaultChecked="true">Permitir que los usuarios suspendan y descifren la protección de BitLocker en unidades de datos extraíbles</checkBox>
+      </presentation>
+      <presentation id="RDVDenyWriteAccessPolicy">
+        <checkBox refId="RDVDenyCrossOrgCheckBox" noSort="true" defaultChecked="true">Denegar el acceso de escritura a dispositivos configurados en otra organización</checkBox>
+      </presentation>
+      <presentation id="RDVHybridAccessPolicy">
+        <checkBox refId="RDVNoBLToGoReaderCheckBox" noSort="true" defaultChecked="false">No instalar el Lector de BitLocker To Go en unidades extraíbles con formato de sistema de archivos FAT</checkBox>
+      </presentation>
+      <presentation id="RDVPassPhrasePolicy">
+        <checkBox refId="RDVRequirePassphraseCheckBox" defaultChecked="true">Requerir contraseña para unidad de datos extraíble</checkBox>
+        <dropdownList refId="RDVPassphraseComplexityDropDown" noSort="true" defaultItem="0">Configure la complejidad de la contraseña para unidades de datos extraíbles:</dropdownList>
+        <decimalTextBox refId="RDVMinPassphraseLengthDecTextBox" defaultValue="8">Longitud mínima de la contraseña para unidades de datos extraíbles:</decimalTextBox>
+        <text>Nota: debe habilitar la configuración de directiva "La contraseña debe cumplir los requisitos de complejidad" para que surta efecto la configuración de complejidad de la contraseña.</text>
+      </presentation>
+      <presentation id="RDVRecoveryUsagePolicy">
+        <checkBox refId="RDVAllowRecoveryAgentCheckBox" defaultChecked="false">Permitir agente de recuperación de datos</checkBox>
+        <text>Configurar almacenamiento de usuario de la información de recuperación de BitLocker:</text>
+        <dropdownList refId="RDVRecoveryPwdDropDown" noSort="true" defaultItem="0"></dropdownList>
+        <dropdownList refId="RDVRecoveryKeyUsageDropDown" noSort="true" defaultItem="0"></dropdownList>
+        <checkBox refId="RDVOmitRecoveryOptionsCheckBox" defaultChecked="true">Omitir opciones de recuperación en el asistente para la configuración de BitLocker</checkBox>
+        <checkBox refId="RDVADBackupCheckBox" defaultChecked="false">Guardar información de recuperación de BitLocker en AD DS para unidades de datos extraíbles</checkBox>
+        <dropdownList refId="RDVADBackupDropDown" noSort="true" defaultItem="0">Configurar almacenamiento de la información de recuperación de BitLocker en AD DS:</dropdownList>
+        <checkBox refId="RDVRequireADBackupCheckBox" defaultChecked="false">No habilitar BitLocker hasta que la información de recuperación se almacene en AD DS para unidades de datos extraíbles</checkBox>
+      </presentation>
+      <!--  BMS policy presentation resources under [Windows Components]\BitLocker Management Solution  -->
+      <!--  BMS policy presentation resources under [Windows Components]\BitLocker Management Solution\Client Management  -->
+      <presentation id="BMSClientConfigureCheckIntervalPolicy">
+        <textBox refId="RecoveryServerLocationTextBox">
+          <label>Extremo de servicio de recuperación de MBAM:</label>
+          <defaultValue />
+        </textBox>
+        <dropdownList refId="RecoveryInfoUsageDropDown" defaultItem="0">Seleccione la información de recuperación de BitLocker que debe almacenarse:</dropdownList>
+        <decimalTextBox refId="ClientConfigureCheckIntervalDecTextBox" defaultValue="90">Especifique la frecuencia de comprobación del estado del cliente (minutos):</decimalTextBox>
+        <dropdownList refId="ConfigureStatusReportingDropDown" defaultItem="1">Configurar el servicio de informes de estado de MBAM:</dropdownList>
+        <textBox refId="ReportServerLocationTextBox">
+          <label>Extremo de servicio de informes de estado de MBAM:</label>
+          <defaultValue />
+        </textBox>
+        <decimalTextBox refId="ConfigureReportFrequencyDecTextBox" defaultValue="720">Especifique la frecuencia de informe de estado (minutos):</decimalTextBox> 
+      </presentation>
+      <presentation id="BMSUserExemptionPolicy">
+        <decimalTextBox refId="UserExemptionDecTextBox" defaultValue="7">Máximo de días que se puede posponer:</decimalTextBox>
+        <dropdownList refId="UserExemptionTypeDropDown" noSort="true" defaultItem="0">Seleccione el método para ponerse en contacto con los usuarios con instrucciones sobre cómo solicitar una exención de la protección de BitLocker:</dropdownList>
+        <textBox refId="UserExemptionMsgTextBox">
+          <label>Especifique la dirección URL, la dirección de correo electrónico o el número de teléfono que corresponda para ponerse en contacto con el usuario con instrucciones sobre cómo solicitar una exención de la protección de BitLocker:</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="PlatformValidation_Deprecated_Name">
+        <text>Un perfil de validación de plataforma consiste en un conjunto de índices de PCR (Registro de configuración de la plataforma). Cada índice de PCR se asocia a componentes que se ejecutan cuando se inicia Windows.</text>
+        <text>Use las casillas para elegir los índices de PCR que se deben incluir en el perfil.</text>
+        <text>Preste atención cuando cambie esta configuración.</text>
+        <text>Se recomienda el valor predeterminado de los PCR 0, 2, 4, 8, 9, 10 y 11.</text>
+        <text>Para que la protección de BitLocker surta efecto, debe incluir el PCR 11.</text>
+
+        <text>Consulte la documentación en línea para obtener más información acerca de las ventajas y los riesgos de cambiar el perfil predeterminado de validación de plataforma del TPM.</text>
+
+        <checkBox refId="PlatformValidation_Deprecated_Setting0" defaultChecked="true">PCR 0: CRTM (Core Root of Trust of Measurement), BIOS y extensiones de la plataforma</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting1">PCR 1: Configuración y datos de la placa base y la plataforma</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting2" defaultChecked="true">PCR 2: Código ROM de opción</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting3">PCR 3: Configuración y datos de ROM de opción</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting4" defaultChecked="true">PCR 4: Código de registro de arranque maestro (MBR)</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting5">PCR 5: Tabla de particiones de registro de arranque maestro (MBR)</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting6">PCR 6: Eventos de activación y transición de estado</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting7">PCR 7: Específico del fabricante del equipo</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting8" defaultChecked="true">PCR 8: Sector de arranque de NTFS</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting9" defaultChecked="true">PCR 9: Bloque de arranque de NTFS</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting10" defaultChecked="true">PCR 10: Administrador de arranque</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting11" defaultChecked="true">PCR 11: Control de acceso de BitLocker</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting12">PCR 12: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting13">PCR 13: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting14">PCR 14: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting15">PCR 15: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting16">PCR 16: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting17">PCR 17: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting18">PCR 18: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting19">PCR 19: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting20">PCR 20: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting21">PCR 21: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting22">PCR 22: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_Deprecated_Setting23">PCR 23: Reservado para uso futuro</checkBox>
+      </presentation>
+
+      <presentation id="PlatformValidation_BIOS_Name">
+        <text>Un perfil de validación de plataforma consiste en un conjunto de índices de PCR (Registro de configuración de la plataforma). Cada índice de PCR se asocia a componentes que se ejecutan cuando se inicia Windows.</text>
+        <text>Use las casillas para elegir los índices de PCR que se deben incluir en el perfil.</text>
+        <text>Preste atención cuando cambie esta configuración.</text>
+        <text>Se recomienda el valor predeterminado de los PCR 0, 2, 4, 8, 9, 10 y 11.</text>
+        <text>Para que la protección de BitLocker surta efecto, debe incluir el PCR 11.</text>
+
+        <text>Consulte la documentación en línea para obtener más información acerca de las ventajas y los riesgos de cambiar el perfil predeterminado de validación de plataforma del TPM.</text>
+
+        <checkBox refId="PlatformValidation_BIOS_Setting0" defaultChecked="true">PCR 0: CRTM (Core Root of Trust of Measurement), BIOS y extensiones de la plataforma</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting1">PCR 1: Configuración y datos de la placa base y la plataforma</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting2" defaultChecked="true">PCR 2: Código ROM de opción</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting3">PCR 3: Configuración y datos de ROM de opción</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting4" defaultChecked="true">PCR 4: Código de registro de arranque maestro (MBR)</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting5">PCR 5: Tabla de particiones de registro de arranque maestro (MBR)</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting6">PCR 6: Eventos de activación y transición de estado</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting7">PCR 7: Específico del fabricante del equipo</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting8" defaultChecked="true">PCR 8: Sector de arranque de NTFS</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting9" defaultChecked="true">PCR 9: Bloque de arranque de NTFS</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting10" defaultChecked="true">PCR 10: Administrador de arranque</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting11" defaultChecked="true">PCR 11: Control de acceso de BitLocker</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting12">PCR 12: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting13">PCR 13: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting14">PCR 14: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting15">PCR 15: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting16">PCR 16: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting17">PCR 17: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting18">PCR 18: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting19">PCR 19: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting20">PCR 20: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting21">PCR 21: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting22">PCR 22: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_BIOS_Setting23">PCR 23: Reservado para uso futuro</checkBox>
+      </presentation>
+
+      <presentation id="PlatformValidation_UEFI_Name">
+        <text>Un perfil de validación de plataforma consiste en un conjunto de índices de PCR (Registro de configuración de la plataforma). Cada índice de PCR se asocia a componentes que se ejecutan cuando se inicia Windows.</text>
+        <text>Use las casillas para elegir los índices de PCR que se deben incluir en el perfil.</text>
+        <text>Preste atención cuando cambie esta configuración.</text>
+        <text>Se recomienda el valor predeterminado de los PCR 0, 2, 4 y 11.</text>
+        <text>Para que la protección de BitLocker surta efecto, debe incluir el PCR 11.</text>
+
+        <text>Consulte la documentación en línea para obtener más información acerca de las ventajas y los riesgos de cambiar el perfil predeterminado de validación de plataforma del TPM.</text>
+
+        <checkBox refId="PlatformValidation_UEFI_Setting0" defaultChecked="true">PCR 0: Código ejecutable del firmware del sistema principal</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting1">PCR 1: Datos del firmware del sistema principal</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting2" defaultChecked="true">PCR 2: Código ejecutable extendido o conectable</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting3">PCR 3: Datos del firmware extendido o conectable</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting4" defaultChecked="true">PCR 4: Administrador de arranque</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting5">PCR 5: GPT/tabla de particiones</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting6">PCR 6: Reanudar desde los eventos de estado de energía S4 y S5</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting7">PCR 7: Estado de arranque seguro</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting8">PCR 8: Inicializado en 0 sin extensiones (reservado para uso futuro)</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting9">PCR 9: Inicializado en 0 sin extensiones (reservado para uso futuro)</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting10">PCR 10: Inicializado en 0 sin extensiones (reservado para uso futuro)</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting11" defaultChecked="true">PCR 11: Control de acceso de BitLocker</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting12">PCR 12: Eventos de datos y de volatilidad elevada</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting13">PCR 13: Detalles del módulo de arranque</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting14">PCR 14: Autoridades de arranque</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting15">PCR 15: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting16">PCR 16: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting17">PCR 17: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting18">PCR 18: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting19">PCR 19: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting20">PCR 20: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting21">PCR 21: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting22">PCR 22: Reservado para uso futuro</checkBox>
+        <checkBox refId="PlatformValidation_UEFI_Setting23">PCR 23: Reservado para uso futuro</checkBox>
+      </presentation>
+      <presentation id="TPMAutoReseal">
+      </presentation>
+      <presentation id="UseEnhancedBcdProfile">
+        <text>Compruebe la configuración de BCD adicional siguiente:</text>
+        <multiTextBox refId="EnhancedBcdProfile_AdditionalSecurityCriticalSettings" />
+        <text>Excluya la configuración de BCD adicional siguiente:</text>
+        <multiTextBox refId="EnhancedBcdProfile_AdditionalExcludedSettings" />
+      </presentation>
+      <presentation id="UseOsEnforcePolicy">
+        <decimalTextBox refId="OsNoncomplianceGracePeriod" defaultValue="0">Configure el número de días de periodo de gracia para unidades de sistema operativo:</decimalTextBox>
+      </presentation>
+      <presentation id="UseFddEnforcePolicy">
+        <decimalTextBox refId="FddNoncomplianceGracePeriod" defaultValue="0">Configure el número de días de periodo de gracia de no conformidad para las unidades fijas. Este periodo solo comenzará tras detectar el cumplimiento de la unidad del sistema operativo:</decimalTextBox>
+      </presentation>
+      <presentation id="EnforcePolicyContactInfoPolicy">
+        <dropdownList refId="ContactInfoTypeDropDown" noSort="true" defaultItem="0">Seleccione el método para contactar con los usuarios con información acerca de las razones por las que es necesario el cumplimiento de la directiva de cifrado:</dropdownList>
+        <textBox refId="ContactInfoPolicyMsgTextBox">
+          <label>Escriba la dirección URL, la dirección de correo electrónico o el número de teléfono:</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="PrebootRecoveryInfo">
+        <dropdownList refId="PrebootRecoveryInfoDropDown_Name" noSort="true" defaultItem="0">Seleccione una opción para el mensaje de recuperación de prearranque:</dropdownList>
+        <textBox refId="RecoveryMessage_Input">
+          <label>Opción de mensaje de recuperación personalizado:</label>
+          <defaultValue />
+        </textBox>
+        <textBox refId="RecoveryUrl_Input">
+          <label>Opción de dirección URL de recuperación personalizada:</label>
+          <defaultValue />
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

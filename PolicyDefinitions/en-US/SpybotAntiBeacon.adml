@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns=
+   "http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions"
+   revision="1.3" schemaVersion="1.0">
+  <displayName>Spybot Anti-Beacon policies file</displayName>
+  <description>This file contains the Spybot Anti-Beacon policies.</description>
+  <resources>
+    <stringTable>
+      <string id="SpybotAntiBeacon">Spybot Anti-Beacon</string>
+      <string id="SpybotAntiBeacon_Help">Contains Spybot Anti-Beacon software specific configuration settings.</string>
+      <string id="supported_spybotantibeacon_1b5">At least Spybot Anti-Beacon 1.5</string>
+      <string id="Update">Update</string>
+      <string id="Update_Help">Contains Spybot Anti-Becan software specific update configuration settings.</string>
+      <string id="Disable_SpybotAntiBeacon_UpdateCheck">Disable Update Check</string>
+      <string id="Disable_SpybotAntiBeacon_UpdateCheck_Help">When this is enabled, Spybot Anti-Beacon will not check for updates on program start.</string>
+      <string id="Hosts">Hosts file</string>
+      <string id="Hosts_Help">Contains Spybot Anti-Becan software specific settings regarding hosts file immunization.</string>
+      <string id="Enable_SpybotAntiBeacon_HostsFileReadOnlyFlag">Enable hosts file read-only flag</string>
+      <string id="Enable_SpybotAntiBeacon_HostsFileReadOnlyFlag_Help">If enabled, Spybot-Anti-Beacon will set the read-only flag to the hosts file after every Immunize or Undo action.</string>
+      <string id="SpybotAntiBeacon_HostsFileBlockIP">Block IP</string>
+      <string id="SpybotAntiBeacon_HostsFileBlockIP_Help">Defines the IP address tracking domains should be redirected to.</string>
+      <string id="SpybotAntiBeacon_HostsFileBlockIPAddress">Block IP</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SpybotAntiBeacon_HostsFileBlockIP">
+        <textBox refId="SpybotAntiBeacon_HostsFileBlockIPAddress">
+          <label>Destination IP to use for blocking</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

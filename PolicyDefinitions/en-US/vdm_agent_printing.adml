@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <!--Revision: 4.1-->
+  <!--Comment: Copyright (c) 2017 ThinPrint GmbH-->
+  <!--revision 11.0 build 26.2-->
+  <displayName>VMware Horizon Printer Redirection</displayName>
+  <description>Allows configuration of VMware Horizon Printer Redirection.</description>
+  <resources>
+    <stringTable>
+      <string id="THINPRINT">ThinPrint</string>
+      <string id="ID_ThinPrint_AutoConnect_VMware">VMware Horizon Printer Redirection</string>
+      <string id="SUPPORTED_ON">At least Windows Server 2008 / Windows 7</string>
+      <string id="ID_ThinPrint_AutoConnect_VMware_explainText">Allows configuration of VMware Horizon Printer Redirection.</string>
+      <string id="ID_Name_PrinterFilterString">Specify a filter in redirecting client printers</string>
+      <string id="ID_Name_PrinterFilterString_Help">A rule that filters out any printer which matches it in the printer redirection. Supported attributes are printer names, printer driver names, and vendor names. Supported operators are AND, OR and NOT. Supported searching pattern is regular expression, JavaScript dialect (ECMAScript).
+By default, the rule is empty which means all client printers will be redirected.
+
+Example:
+(DriverName= "DrName1" OR VendorName="VeName1") AND NOT PrinterName= "PrNa.?e"
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="ID_Name_PrinterFilterString">
+        <textBox refId="ID_ELE_PrinterFilterString">
+          <label>Registry value name: PrinterFilterString</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

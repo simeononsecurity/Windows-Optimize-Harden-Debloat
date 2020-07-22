@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2019 Michael Grafnetter  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions"  xsi:schemaLocation="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions ../Schema/PolicyDefinitionFiles.xsd">
+  <policyNamespaces>
+    <target prefix="ykmd" namespace="Yubico.YubiKey.Policies.Minidriver" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="YubiKeyMinidriver" displayName="$(string.YubiKeyMinidriver)" />
+  </categories>
+  <policies>
+    <policy name="YubiKeyMinidriver_DebugOn" class="Machine" displayName="$(string.YubiKeyMinidriver_DebugOn)" explainText="$(string.YubiKeyMinidriver_DebugOn_Help)" key="Software\Yubico\ykmd" valueName="DebugOn">
+      <parentCategory ref="YubiKeyMinidriver" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="YubiKeyMinidriver_NewKeyTouchPolicy" class="Machine" displayName="$(string.YubiKeyMinidriver_NewKeyTouchPolicy)" explainText="$(string.YubiKeyMinidriver_NewKeyTouchPolicy_Help)" presentation="$(presentation.YubiKeyMinidriver_NewKeyTouchPolicy)" key="Software\Yubico\ykmd" valueName="NewKeyTouchPolicy">
+      <parentCategory ref="YubiKeyMinidriver" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <enum id="NewKeyTouchPolicy_Options" key="Software\Yubico\ykmd" valueName="NewKeyTouchPolicy" required="true">
+          <item displayName="$(string.NewKeyTouchPolicy_Never)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.NewKeyTouchPolicy_Always)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.NewKeyTouchPolicy_Cached)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="YubiKeyMinidriver_EnableUnsafeKeygen" class="Machine" displayName="$(string.YubiKeyMinidriver_EnableUnsafeKeygen)" explainText="$(string.YubiKeyMinidriver_EnableUnsafeKeygen_Help)" key="Software\Yubico\yubikeypiv" valueName="Enable_Unsafe_Keygen_ROCA">
+      <parentCategory ref="YubiKeyMinidriver" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

@@ -1,0 +1,2351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Version 6.7.2 (r42646) -->
+<policyDefinitions revision="607.2" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="realvnc_vncserver" namespace="RealVNC.Policies.realvnc_vncserver" />
+    <using prefix="realvnc" namespace="RealVNC.Policies.realvnc" />
+  </policyNamespaces>
+  <resources minRequiredRevision="607.2" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_ProductOnly" displayName="$(string.SUPPORTED_ProductOnly)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="VNC_Server" displayName="$(string.VNC_Server_category)">
+      <parentCategory ref="realvnc:RealVNC" />
+    </category>
+    <category name="vncserver_Machine" displayName="$(string.vncserver_Machine_category)">
+      <parentCategory ref="VNC_Server" />
+    </category>
+    <category name="vncserverui_service_User" displayName="$(string.vncserverui_service_User_category)">
+      <parentCategory ref="vncserver_Machine" />
+    </category>
+    <category name="vncserver_User" displayName="$(string.vncserver_User_category)">
+      <parentCategory ref="VNC_Server" />
+    </category>
+    <category name="vncserverui_user_User" displayName="$(string.vncserverui_user_User_category)">
+      <parentCategory ref="vncserver_User" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="RealVNC_vncserver_Machine_AcceptCutText" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AcceptCutText)" explainText="$(string.RealVNC_vncserver_Machine_AcceptCutText_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AcceptCutText)" key="Software\Policies\RealVNC\vncserver" valueName="AcceptCutText">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AcceptKeyEvents" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AcceptKeyEvents)" explainText="$(string.RealVNC_vncserver_Machine_AcceptKeyEvents_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AcceptKeyEvents)" key="Software\Policies\RealVNC\vncserver" valueName="AcceptKeyEvents">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AcceptPointerEvents" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AcceptPointerEvents)" explainText="$(string.RealVNC_vncserver_Machine_AcceptPointerEvents_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AcceptPointerEvents)" key="Software\Policies\RealVNC\vncserver" valueName="AcceptPointerEvents">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AdminPassword" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AdminPassword)" explainText="$(string.RealVNC_vncserver_Machine_AdminPassword_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AdminPassword)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="AdminPassword" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AllowChangeDefaultPrinter" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AllowChangeDefaultPrinter)" explainText="$(string.RealVNC_vncserver_Machine_AllowChangeDefaultPrinter_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AllowChangeDefaultPrinter)" key="Software\Policies\RealVNC\vncserver" valueName="AllowChangeDefaultPrinter">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AllowCloudRelay" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AllowCloudRelay)" explainText="$(string.RealVNC_vncserver_Machine_AllowCloudRelay_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AllowCloudRelay)" key="Software\Policies\RealVNC\vncserver" valueName="AllowCloudRelay">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AllowCloudRfb" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AllowCloudRfb)" explainText="$(string.RealVNC_vncserver_Machine_AllowCloudRfb_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AllowCloudRfb)" key="Software\Policies\RealVNC\vncserver" valueName="AllowCloudRfb">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AllowHttp" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AllowHttp)" explainText="$(string.RealVNC_vncserver_Machine_AllowHttp_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AllowHttp)" key="Software\Policies\RealVNC\vncserver" valueName="AllowHttp">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AllowIpListenRfb" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AllowIpListenRfb)" explainText="$(string.RealVNC_vncserver_Machine_AllowIpListenRfb_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AllowIpListenRfb)" key="Software\Policies\RealVNC\vncserver" valueName="AllowIpListenRfb">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AllowTcpListenRfb" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AllowTcpListenRfb)" explainText="$(string.RealVNC_vncserver_Machine_AllowTcpListenRfb_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AllowTcpListenRfb)" key="Software\Policies\RealVNC\vncserver" valueName="AllowTcpListenRfb">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AlwaysShared" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AlwaysShared)" explainText="$(string.RealVNC_vncserver_Machine_AlwaysShared_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AlwaysShared)" key="Software\Policies\RealVNC\vncserver" valueName="AlwaysShared">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AudioEnable" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AudioEnable)" explainText="$(string.RealVNC_vncserver_Machine_AudioEnable_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AudioEnable)" key="Software\Policies\RealVNC\vncserver" valueName="AudioEnable">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_Authentication" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_Authentication)" explainText="$(string.RealVNC_vncserver_Machine_Authentication_help)" presentation="$(presentation.RealVNC_vncserver_Machine_Authentication)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Authentication" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AuthTimeout" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AuthTimeout)" explainText="$(string.RealVNC_vncserver_Machine_AuthTimeout_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AuthTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="AuthTimeout" minValue="0" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_AutoLogonOverride" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_AutoLogonOverride)" explainText="$(string.RealVNC_vncserver_Machine_AutoLogonOverride_help)" presentation="$(presentation.RealVNC_vncserver_Machine_AutoLogonOverride)" key="Software\Policies\RealVNC\vncserver" valueName="AutoLogonOverride">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_BlacklistThreshold" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_BlacklistThreshold)" explainText="$(string.RealVNC_vncserver_Machine_BlacklistThreshold_help)" presentation="$(presentation.RealVNC_vncserver_Machine_BlacklistThreshold)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="BlacklistThreshold" minValue="0" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_BlacklistTimeout" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_BlacklistTimeout)" explainText="$(string.RealVNC_vncserver_Machine_BlacklistTimeout_help)" presentation="$(presentation.RealVNC_vncserver_Machine_BlacklistTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="BlacklistTimeout" minValue="1" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_BlankScreen" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_BlankScreen)" explainText="$(string.RealVNC_vncserver_Machine_BlankScreen_help)" presentation="$(presentation.RealVNC_vncserver_Machine_BlankScreen)" key="Software\Policies\RealVNC\vncserver" valueName="BlankScreen">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_CaptureMethod" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_CaptureMethod)" explainText="$(string.RealVNC_vncserver_Machine_CaptureMethod_help)" presentation="$(presentation.RealVNC_vncserver_Machine_CaptureMethod)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="CaptureMethod" minValue="0" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ClipboardFT" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ClipboardFT)" explainText="$(string.RealVNC_vncserver_Machine_ClipboardFT_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ClipboardFT)" key="Software\Policies\RealVNC\vncserver" valueName="ClipboardFT">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_CompareFB" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_CompareFB)" explainText="$(string.RealVNC_vncserver_Machine_CompareFB_help)" presentation="$(presentation.RealVNC_vncserver_Machine_CompareFB)" key="Software\Policies\RealVNC\vncserver" valueName="CompareFB">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ConnNotifyAlways" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ConnNotifyAlways)" explainText="$(string.RealVNC_vncserver_Machine_ConnNotifyAlways_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ConnNotifyAlways)" key="Software\Policies\RealVNC\vncserver" valueName="ConnNotifyAlways">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ConnNotifyTimeout" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ConnNotifyTimeout)" explainText="$(string.RealVNC_vncserver_Machine_ConnNotifyTimeout_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ConnNotifyTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="ConnNotifyTimeout" minValue="0" maxValue="255" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ConnTimeout" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ConnTimeout)" explainText="$(string.RealVNC_vncserver_Machine_ConnTimeout_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ConnTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="ConnTimeout" minValue="0" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_Desktop" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_Desktop)" explainText="$(string.RealVNC_vncserver_Machine_Desktop_help)" presentation="$(presentation.RealVNC_vncserver_Machine_Desktop)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Desktop" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_DisableAddNewClient" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_DisableAddNewClient)" explainText="$(string.RealVNC_vncserver_Machine_DisableAddNewClient_help)" presentation="$(presentation.RealVNC_vncserver_Machine_DisableAddNewClient)" key="Software\Policies\RealVNC\vncserver" valueName="DisableAddNewClient">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_DisableAero" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_DisableAero)" explainText="$(string.RealVNC_vncserver_Machine_DisableAero_help)" presentation="$(presentation.RealVNC_vncserver_Machine_DisableAero)" key="Software\Policies\RealVNC\vncserver" valueName="DisableAero">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_DisableClose" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_DisableClose)" explainText="$(string.RealVNC_vncserver_Machine_DisableClose_help)" presentation="$(presentation.RealVNC_vncserver_Machine_DisableClose)" key="Software\Policies\RealVNC\vncserver" valueName="DisableClose">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_DisableEffects" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_DisableEffects)" explainText="$(string.RealVNC_vncserver_Machine_DisableEffects_help)" presentation="$(presentation.RealVNC_vncserver_Machine_DisableEffects)" key="Software\Policies\RealVNC\vncserver" valueName="DisableEffects">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_DisableLocalInputs" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_DisableLocalInputs)" explainText="$(string.RealVNC_vncserver_Machine_DisableLocalInputs_help)" presentation="$(presentation.RealVNC_vncserver_Machine_DisableLocalInputs)" key="Software\Policies\RealVNC\vncserver" valueName="DisableLocalInputs">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_DisableOptions" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_DisableOptions)" explainText="$(string.RealVNC_vncserver_Machine_DisableOptions_help)" presentation="$(presentation.RealVNC_vncserver_Machine_DisableOptions)" key="Software\Policies\RealVNC\vncserver" valueName="DisableOptions">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_DisableTrayIcon" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_DisableTrayIcon)" explainText="$(string.RealVNC_vncserver_Machine_DisableTrayIcon_help)" presentation="$(presentation.RealVNC_vncserver_Machine_DisableTrayIcon)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="DisableTrayIcon" minValue="0" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_DisconnectAction" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_DisconnectAction)" explainText="$(string.RealVNC_vncserver_Machine_DisconnectAction_help)" presentation="$(presentation.RealVNC_vncserver_Machine_DisconnectAction)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="DisconnectAction">
+          <item displayName="$(string.RealVNC_vncserver_Machine_DisconnectAction_Lock)">
+            <value>
+              <string>Lock</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_DisconnectAction_Logoff)">
+            <value>
+              <string>Logoff</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_DisconnectAction_None)">
+            <value>
+              <string>None</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_DisconnectClients" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_DisconnectClients)" explainText="$(string.RealVNC_vncserver_Machine_DisconnectClients_help)" presentation="$(presentation.RealVNC_vncserver_Machine_DisconnectClients)" key="Software\Policies\RealVNC\vncserver" valueName="DisconnectClients">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_DisplayDevice" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_DisplayDevice)" explainText="$(string.RealVNC_vncserver_Machine_DisplayDevice_help)" presentation="$(presentation.RealVNC_vncserver_Machine_DisplayDevice)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="DisplayDevice" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_EnableAnalytics" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_EnableAnalytics)" explainText="$(string.RealVNC_vncserver_Machine_EnableAnalytics_help)" presentation="$(presentation.RealVNC_vncserver_Machine_EnableAnalytics)" key="Software\Policies\RealVNC\vncserver" valueName="EnableAnalytics">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_EnableAutoUpdateChecks" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_EnableAutoUpdateChecks)" explainText="$(string.RealVNC_vncserver_Machine_EnableAutoUpdateChecks_help)" presentation="$(presentation.RealVNC_vncserver_Machine_EnableAutoUpdateChecks)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="EnableAutoUpdateChecks" minValue="0" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_EnableChat" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_EnableChat)" explainText="$(string.RealVNC_vncserver_Machine_EnableChat_help)" presentation="$(presentation.RealVNC_vncserver_Machine_EnableChat)" key="Software\Policies\RealVNC\vncserver" valueName="EnableChat">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_EnableManualUpdateChecks" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_EnableManualUpdateChecks)" explainText="$(string.RealVNC_vncserver_Machine_EnableManualUpdateChecks_help)" presentation="$(presentation.RealVNC_vncserver_Machine_EnableManualUpdateChecks)" key="Software\Policies\RealVNC\vncserver" valueName="EnableManualUpdateChecks">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_EnableRemotePrinting" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_EnableRemotePrinting)" explainText="$(string.RealVNC_vncserver_Machine_EnableRemotePrinting_help)" presentation="$(presentation.RealVNC_vncserver_Machine_EnableRemotePrinting)" key="Software\Policies\RealVNC\vncserver" valueName="EnableRemotePrinting">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_Encryption" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_Encryption)" explainText="$(string.RealVNC_vncserver_Machine_Encryption_help)" presentation="$(presentation.RealVNC_vncserver_Machine_Encryption)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Encryption" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_GuestPassword" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_GuestPassword)" explainText="$(string.RealVNC_vncserver_Machine_GuestPassword_help)" presentation="$(presentation.RealVNC_vncserver_Machine_GuestPassword)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="GuestPassword" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_GuestPermissions" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_GuestPermissions)" explainText="$(string.RealVNC_vncserver_Machine_GuestPermissions_help)" presentation="$(presentation.RealVNC_vncserver_Machine_GuestPermissions)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="GuestPermissions" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_Hosts" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_Hosts)" explainText="$(string.RealVNC_vncserver_Machine_Hosts_help)" presentation="$(presentation.RealVNC_vncserver_Machine_Hosts)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Hosts" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_httpd" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_httpd)" explainText="$(string.RealVNC_vncserver_Machine_httpd_help)" presentation="$(presentation.RealVNC_vncserver_Machine_httpd)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="httpd" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_HttpPort" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_HttpPort)" explainText="$(string.RealVNC_vncserver_Machine_HttpPort_help)" presentation="$(presentation.RealVNC_vncserver_Machine_HttpPort)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="HttpPort" minValue="0" maxValue="65535" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_IdleTimeout" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_IdleTimeout)" explainText="$(string.RealVNC_vncserver_Machine_IdleTimeout_help)" presentation="$(presentation.RealVNC_vncserver_Machine_IdleTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="IdleTimeout" minValue="0" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_InputOnlyPassword" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_InputOnlyPassword)" explainText="$(string.RealVNC_vncserver_Machine_InputOnlyPassword_help)" presentation="$(presentation.RealVNC_vncserver_Machine_InputOnlyPassword)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="InputOnlyPassword" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_InTransports" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_InTransports)" explainText="$(string.RealVNC_vncserver_Machine_InTransports_help)" presentation="$(presentation.RealVNC_vncserver_Machine_InTransports)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="InTransports" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_IpClientAddresses" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_IpClientAddresses)" explainText="$(string.RealVNC_vncserver_Machine_IpClientAddresses_help)" presentation="$(presentation.RealVNC_vncserver_Machine_IpClientAddresses)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="IpClientAddresses" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_IpListenAddresses" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_IpListenAddresses)" explainText="$(string.RealVNC_vncserver_Machine_IpListenAddresses_help)" presentation="$(presentation.RealVNC_vncserver_Machine_IpListenAddresses)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="IpListenAddresses" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_IpListenProtocols" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_IpListenProtocols)" explainText="$(string.RealVNC_vncserver_Machine_IpListenProtocols_help)" presentation="$(presentation.RealVNC_vncserver_Machine_IpListenProtocols)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="IpListenProtocols" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_LdapCertificateCrlLimit" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateCrlLimit)" explainText="$(string.RealVNC_vncserver_Machine_LdapCertificateCrlLimit_help)" presentation="$(presentation.RealVNC_vncserver_Machine_LdapCertificateCrlLimit)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="LdapCertificateCrlLimit" minValue="16384" maxValue="1073741824" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_LdapCertificateIntermediateStore" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateIntermediateStore)" explainText="$(string.RealVNC_vncserver_Machine_LdapCertificateIntermediateStore_help)" presentation="$(presentation.RealVNC_vncserver_Machine_LdapCertificateIntermediateStore)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LdapCertificateIntermediateStore" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_LdapCertificateNameMapping" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateNameMapping)" explainText="$(string.RealVNC_vncserver_Machine_LdapCertificateNameMapping_help)" presentation="$(presentation.RealVNC_vncserver_Machine_LdapCertificateNameMapping)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="LdapCertificateNameMapping">
+          <item displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateNameMapping_ActiveDirectory)">
+            <value>
+              <string>ActiveDirectory</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateNameMapping_RFC2307)">
+            <value>
+              <string>RFC2307</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_LdapCertificateRevocation" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateRevocation)" explainText="$(string.RealVNC_vncserver_Machine_LdapCertificateRevocation_help)" presentation="$(presentation.RealVNC_vncserver_Machine_LdapCertificateRevocation)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="LdapCertificateRevocation">
+          <item displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateRevocation_EnforceOcsp)">
+            <value>
+              <string>EnforceOcsp</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateRevocation_Enforce)">
+            <value>
+              <string>Enforce</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateRevocation_CheckIfAvailable)">
+            <value>
+              <string>CheckIfAvailable</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateRevocation_Ignore)">
+            <value>
+              <string>Ignore</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_LdapCertificateTrustStore" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateTrustStore)" explainText="$(string.RealVNC_vncserver_Machine_LdapCertificateTrustStore_help)" presentation="$(presentation.RealVNC_vncserver_Machine_LdapCertificateTrustStore)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LdapCertificateTrustStore" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_LdapCertificateUserStore" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_LdapCertificateUserStore)" explainText="$(string.RealVNC_vncserver_Machine_LdapCertificateUserStore_help)" presentation="$(presentation.RealVNC_vncserver_Machine_LdapCertificateUserStore)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LdapCertificateUserStore" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_LdapSecurity" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_LdapSecurity)" explainText="$(string.RealVNC_vncserver_Machine_LdapSecurity_help)" presentation="$(presentation.RealVNC_vncserver_Machine_LdapSecurity)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="LdapSecurity">
+          <item displayName="$(string.RealVNC_vncserver_Machine_LdapSecurity_Auto)">
+            <value>
+              <string>Auto</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_LdapSecurity_StartTLS)">
+            <value>
+              <string>StartTLS</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_LdapSecurity_None)">
+            <value>
+              <string>None</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_Locale" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_Locale)" explainText="$(string.RealVNC_vncserver_Machine_Locale_help)" presentation="$(presentation.RealVNC_vncserver_Machine_Locale)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Locale" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_localhost" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_localhost)" explainText="$(string.RealVNC_vncserver_Machine_localhost_help)" presentation="$(presentation.RealVNC_vncserver_Machine_localhost)" key="Software\Policies\RealVNC\vncserver" valueName="localhost">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_Log" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_Log)" explainText="$(string.RealVNC_vncserver_Machine_Log_help)" presentation="$(presentation.RealVNC_vncserver_Machine_Log)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Log" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_LogDir" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_LogDir)" explainText="$(string.RealVNC_vncserver_Machine_LogDir_help)" presentation="$(presentation.RealVNC_vncserver_Machine_LogDir)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LogDir" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_LogFile" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_LogFile)" explainText="$(string.RealVNC_vncserver_Machine_LogFile_help)" presentation="$(presentation.RealVNC_vncserver_Machine_LogFile)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LogFile" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_MaxHttpConns" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_MaxHttpConns)" explainText="$(string.RealVNC_vncserver_Machine_MaxHttpConns_help)" presentation="$(presentation.RealVNC_vncserver_Machine_MaxHttpConns)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="MaxHttpConns" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_MSLWorkaround" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_MSLWorkaround)" explainText="$(string.RealVNC_vncserver_Machine_MSLWorkaround_help)" presentation="$(presentation.RealVNC_vncserver_Machine_MSLWorkaround)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="MSLWorkaround" minValue="1" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_NeverShared" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_NeverShared)" explainText="$(string.RealVNC_vncserver_Machine_NeverShared_help)" presentation="$(presentation.RealVNC_vncserver_Machine_NeverShared)" key="Software\Policies\RealVNC\vncserver" valueName="NeverShared">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_NtLogonAsInteractive" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_NtLogonAsInteractive)" explainText="$(string.RealVNC_vncserver_Machine_NtLogonAsInteractive_help)" presentation="$(presentation.RealVNC_vncserver_Machine_NtLogonAsInteractive)" key="Software\Policies\RealVNC\vncserver" valueName="NtLogonAsInteractive">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_OcspNonce" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_OcspNonce)" explainText="$(string.RealVNC_vncserver_Machine_OcspNonce_help)" presentation="$(presentation.RealVNC_vncserver_Machine_OcspNonce)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="OcspNonce">
+          <item displayName="$(string.RealVNC_vncserver_Machine_OcspNonce_None)">
+            <value>
+              <string>None</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_OcspNonce_Request)">
+            <value>
+              <string>Request</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_OcspNonce_Require)">
+            <value>
+              <string>Require</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_Password" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_Password)" explainText="$(string.RealVNC_vncserver_Machine_Password_help)" presentation="$(presentation.RealVNC_vncserver_Machine_Password)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Password" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_Permissions" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_Permissions)" explainText="$(string.RealVNC_vncserver_Machine_Permissions_help)" presentation="$(presentation.RealVNC_vncserver_Machine_Permissions)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Permissions" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_PollCursorTime" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_PollCursorTime)" explainText="$(string.RealVNC_vncserver_Machine_PollCursorTime_help)" presentation="$(presentation.RealVNC_vncserver_Machine_PollCursorTime)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="PollCursorTime" minValue="0" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_PollInterval" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_PollInterval)" explainText="$(string.RealVNC_vncserver_Machine_PollInterval_help)" presentation="$(presentation.RealVNC_vncserver_Machine_PollInterval)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="PollInterval" minValue="1" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ProtocolVersion" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ProtocolVersion)" explainText="$(string.RealVNC_vncserver_Machine_ProtocolVersion_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ProtocolVersion)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="ProtocolVersion">
+          <item displayName="$(string.RealVNC_vncserver_Machine_ProtocolVersion_)">
+            <value>
+              <string></string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ProtocolVersion_33)">
+            <value>
+              <string>3.3</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ProtocolVersion_37)">
+            <value>
+              <string>3.7</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ProtocolVersion_38)">
+            <value>
+              <string>3.8</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ProtocolVersion_40)">
+            <value>
+              <string>4.0</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ProtocolVersion_41)">
+            <value>
+              <string>4.1</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ProtocolVersion_50)">
+            <value>
+              <string>5.0</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ProtocolVersion_60)">
+            <value>
+              <string>6.0</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ProxyPassword" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ProxyPassword)" explainText="$(string.RealVNC_vncserver_Machine_ProxyPassword_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ProxyPassword)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ProxyPassword" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ProxyServer" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ProxyServer)" explainText="$(string.RealVNC_vncserver_Machine_ProxyServer_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ProxyServer)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ProxyServer" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ProxyUserName" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ProxyUserName)" explainText="$(string.RealVNC_vncserver_Machine_ProxyUserName_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ProxyUserName)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ProxyUserName" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_QueryConnect" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_QueryConnect)" explainText="$(string.RealVNC_vncserver_Machine_QueryConnect_help)" presentation="$(presentation.RealVNC_vncserver_Machine_QueryConnect)" key="Software\Policies\RealVNC\vncserver" valueName="QueryConnect">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_QueryConnectMessage" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_QueryConnectMessage)" explainText="$(string.RealVNC_vncserver_Machine_QueryConnectMessage_help)" presentation="$(presentation.RealVNC_vncserver_Machine_QueryConnectMessage)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="QueryConnectMessage" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_QueryConnectTimeout" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_QueryConnectTimeout)" explainText="$(string.RealVNC_vncserver_Machine_QueryConnectTimeout_help)" presentation="$(presentation.RealVNC_vncserver_Machine_QueryConnectTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="QueryConnectTimeout" minValue="0" maxValue="65535" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_QueryOfferViewOnly" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_QueryOfferViewOnly)" explainText="$(string.RealVNC_vncserver_Machine_QueryOfferViewOnly_help)" presentation="$(presentation.RealVNC_vncserver_Machine_QueryOfferViewOnly)" key="Software\Policies\RealVNC\vncserver" valueName="QueryOfferViewOnly">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_QueryOnlyIfLoggedOn" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_QueryOnlyIfLoggedOn)" explainText="$(string.RealVNC_vncserver_Machine_QueryOnlyIfLoggedOn_help)" presentation="$(presentation.RealVNC_vncserver_Machine_QueryOnlyIfLoggedOn)" key="Software\Policies\RealVNC\vncserver" valueName="QueryOnlyIfLoggedOn">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_QueryTimeoutRights" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_QueryTimeoutRights)" explainText="$(string.RealVNC_vncserver_Machine_QueryTimeoutRights_help)" presentation="$(presentation.RealVNC_vncserver_Machine_QueryTimeoutRights)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="QueryTimeoutRights" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_QuitOnCloseStatusDialog" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_QuitOnCloseStatusDialog)" explainText="$(string.RealVNC_vncserver_Machine_QuitOnCloseStatusDialog_help)" presentation="$(presentation.RealVNC_vncserver_Machine_QuitOnCloseStatusDialog)" key="Software\Policies\RealVNC\vncserver" valueName="QuitOnCloseStatusDialog">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RadiusAddress" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RadiusAddress)" explainText="$(string.RealVNC_vncserver_Machine_RadiusAddress_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RadiusAddress)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RadiusAddress" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RadiusAuthenticationProtocol" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RadiusAuthenticationProtocol)" explainText="$(string.RealVNC_vncserver_Machine_RadiusAuthenticationProtocol_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RadiusAuthenticationProtocol)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="RadiusAuthenticationProtocol">
+          <item displayName="$(string.RealVNC_vncserver_Machine_RadiusAuthenticationProtocol_CHAP)">
+            <value>
+              <string>CHAP</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_RadiusAuthenticationProtocol_PAP)">
+            <value>
+              <string>PAP</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RadiusNasId" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RadiusNasId)" explainText="$(string.RealVNC_vncserver_Machine_RadiusNasId_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RadiusNasId)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RadiusNasId" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RadiusNormalizeUsername" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RadiusNormalizeUsername)" explainText="$(string.RealVNC_vncserver_Machine_RadiusNormalizeUsername_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RadiusNormalizeUsername)" key="Software\Policies\RealVNC\vncserver" valueName="RadiusNormalizeUsername">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RadiusPrompt" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RadiusPrompt)" explainText="$(string.RealVNC_vncserver_Machine_RadiusPrompt_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RadiusPrompt)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RadiusPrompt" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RadiusSecret" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RadiusSecret)" explainText="$(string.RealVNC_vncserver_Machine_RadiusSecret_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RadiusSecret)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RadiusSecret" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RadiusServer" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RadiusServer)" explainText="$(string.RealVNC_vncserver_Machine_RadiusServer_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RadiusServer)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RadiusServer" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RadiusTimeout" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RadiusTimeout)" explainText="$(string.RealVNC_vncserver_Machine_RadiusTimeout_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RadiusTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="RadiusTimeout" minValue="1" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RemapKeys" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RemapKeys)" explainText="$(string.RealVNC_vncserver_Machine_RemapKeys_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RemapKeys)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RemapKeys" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RemovePattern" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RemovePattern)" explainText="$(string.RealVNC_vncserver_Machine_RemovePattern_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RemovePattern)" key="Software\Policies\RealVNC\vncserver" valueName="RemovePattern">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RemoveWallpaper" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RemoveWallpaper)" explainText="$(string.RealVNC_vncserver_Machine_RemoveWallpaper_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RemoveWallpaper)" key="Software\Policies\RealVNC\vncserver" valueName="RemoveWallpaper">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ReverseSecurityTypes" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ReverseSecurityTypes)" explainText="$(string.RealVNC_vncserver_Machine_ReverseSecurityTypes_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ReverseSecurityTypes)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ReverseSecurityTypes" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_RfbPort" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_RfbPort)" explainText="$(string.RealVNC_vncserver_Machine_RfbPort_help)" presentation="$(presentation.RealVNC_vncserver_Machine_RfbPort)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="RfbPort" minValue="0" maxValue="65535" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_SecurityTypes" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_SecurityTypes)" explainText="$(string.RealVNC_vncserver_Machine_SecurityTypes_help)" presentation="$(presentation.RealVNC_vncserver_Machine_SecurityTypes)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="SecurityTypes" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_SendCutText" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_SendCutText)" explainText="$(string.RealVNC_vncserver_Machine_SendCutText_help)" presentation="$(presentation.RealVNC_vncserver_Machine_SendCutText)" key="Software\Policies\RealVNC\vncserver" valueName="SendCutText">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ServerPreferredEncoding" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ServerPreferredEncoding)" explainText="$(string.RealVNC_vncserver_Machine_ServerPreferredEncoding_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ServerPreferredEncoding)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="ServerPreferredEncoding">
+          <item displayName="$(string.RealVNC_vncserver_Machine_ServerPreferredEncoding_Viewer)">
+            <value>
+              <string>Viewer</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ServerPreferredEncoding_JPEG)">
+            <value>
+              <string>JPEG</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ServerPreferredEncoding_ZRLE)">
+            <value>
+              <string>ZRLE</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ServerPreferredEncoding_ZRLE2)">
+            <value>
+              <string>ZRLE2</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ServerPreferredEncoding_TRLE)">
+            <value>
+              <string>TRLE</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ServerPreferredEncoding_Hextile)">
+            <value>
+              <string>Hextile</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ServerPreferredEncoding_Raw)">
+            <value>
+              <string>Raw</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_ServerPreferredEncoding_JRLE)">
+            <value>
+              <string>JRLE</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ServiceDiscoveryEnabled" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ServiceDiscoveryEnabled)" explainText="$(string.RealVNC_vncserver_Machine_ServiceDiscoveryEnabled_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ServiceDiscoveryEnabled)" key="Software\Policies\RealVNC\vncserver" valueName="ServiceDiscoveryEnabled">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ShareFiles" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ShareFiles)" explainText="$(string.RealVNC_vncserver_Machine_ShareFiles_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ShareFiles)" key="Software\Policies\RealVNC\vncserver" valueName="ShareFiles">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ShowCloudHints" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ShowCloudHints)" explainText="$(string.RealVNC_vncserver_Machine_ShowCloudHints_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ShowCloudHints)" key="Software\Policies\RealVNC\vncserver" valueName="ShowCloudHints">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_SimulateSAS" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_SimulateSAS)" explainText="$(string.RealVNC_vncserver_Machine_SimulateSAS_help)" presentation="$(presentation.RealVNC_vncserver_Machine_SimulateSAS)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="SimulateSAS" minValue="0" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_TcpListenAddresses" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_TcpListenAddresses)" explainText="$(string.RealVNC_vncserver_Machine_TcpListenAddresses_help)" presentation="$(presentation.RealVNC_vncserver_Machine_TcpListenAddresses)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="TcpListenAddresses" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_TlsProfile" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_TlsProfile)" explainText="$(string.RealVNC_vncserver_Machine_TlsProfile_help)" presentation="$(presentation.RealVNC_vncserver_Machine_TlsProfile)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="TlsProfile">
+          <item displayName="$(string.RealVNC_vncserver_Machine_TlsProfile_Normal)">
+            <value>
+              <string>Normal</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_Machine_TlsProfile_High)">
+            <value>
+              <string>High</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_UpdateCheckFrequencyDays" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_UpdateCheckFrequencyDays)" explainText="$(string.RealVNC_vncserver_Machine_UpdateCheckFrequencyDays_help)" presentation="$(presentation.RealVNC_vncserver_Machine_UpdateCheckFrequencyDays)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="UpdateCheckFrequencyDays" minValue="1" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_UpdateMethod" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_UpdateMethod)" explainText="$(string.RealVNC_vncserver_Machine_UpdateMethod_help)" presentation="$(presentation.RealVNC_vncserver_Machine_UpdateMethod)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="UpdateMethod" minValue="0" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_UseCaptureBlt" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_UseCaptureBlt)" explainText="$(string.RealVNC_vncserver_Machine_UseCaptureBlt_help)" presentation="$(presentation.RealVNC_vncserver_Machine_UseCaptureBlt)" key="Software\Policies\RealVNC\vncserver" valueName="UseCaptureBlt">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_UserPasswdVerifier" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_UserPasswdVerifier)" explainText="$(string.RealVNC_vncserver_Machine_UserPasswdVerifier_help)" presentation="$(presentation.RealVNC_vncserver_Machine_UserPasswdVerifier)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="UserPasswdVerifier" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_ViewOnlyPassword" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_ViewOnlyPassword)" explainText="$(string.RealVNC_vncserver_Machine_ViewOnlyPassword_help)" presentation="$(presentation.RealVNC_vncserver_Machine_ViewOnlyPassword)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_Machine" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ViewOnlyPassword" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_service_User_ChatExpiryLimit" class="User" displayName="$(string.RealVNC_vncserverui_service_User_ChatExpiryLimit)" explainText="$(string.RealVNC_vncserverui_service_User_ChatExpiryLimit_help)" presentation="$(presentation.RealVNC_vncserverui_service_User_ChatExpiryLimit)" key="Software\Policies\RealVNC\vncserverui-service">
+      <parentCategory ref="vncserverui_service_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ChatExpiryLimit" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_service_User_ChatLogFile" class="User" displayName="$(string.RealVNC_vncserverui_service_User_ChatLogFile)" explainText="$(string.RealVNC_vncserverui_service_User_ChatLogFile_help)" presentation="$(presentation.RealVNC_vncserverui_service_User_ChatLogFile)" key="Software\Policies\RealVNC\vncserverui-service">
+      <parentCategory ref="vncserverui_service_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ChatLogFile" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_service_User_FetchDir" class="User" displayName="$(string.RealVNC_vncserverui_service_User_FetchDir)" explainText="$(string.RealVNC_vncserverui_service_User_FetchDir_help)" presentation="$(presentation.RealVNC_vncserverui_service_User_FetchDir)" key="Software\Policies\RealVNC\vncserverui-service">
+      <parentCategory ref="vncserverui_service_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="FetchDir" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_service_User_KeepChatHistory" class="User" displayName="$(string.RealVNC_vncserverui_service_User_KeepChatHistory)" explainText="$(string.RealVNC_vncserverui_service_User_KeepChatHistory_help)" presentation="$(presentation.RealVNC_vncserverui_service_User_KeepChatHistory)" key="Software\Policies\RealVNC\vncserverui-service" valueName="KeepChatHistory">
+      <parentCategory ref="vncserverui_service_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserverui_service_User_Locale" class="User" displayName="$(string.RealVNC_vncserverui_service_User_Locale)" explainText="$(string.RealVNC_vncserverui_service_User_Locale_help)" presentation="$(presentation.RealVNC_vncserverui_service_User_Locale)" key="Software\Policies\RealVNC\vncserverui-service">
+      <parentCategory ref="vncserverui_service_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Locale" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_service_User_Log" class="User" displayName="$(string.RealVNC_vncserverui_service_User_Log)" explainText="$(string.RealVNC_vncserverui_service_User_Log_help)" presentation="$(presentation.RealVNC_vncserverui_service_User_Log)" key="Software\Policies\RealVNC\vncserverui-service">
+      <parentCategory ref="vncserverui_service_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Log" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_service_User_LogDir" class="User" displayName="$(string.RealVNC_vncserverui_service_User_LogDir)" explainText="$(string.RealVNC_vncserverui_service_User_LogDir_help)" presentation="$(presentation.RealVNC_vncserverui_service_User_LogDir)" key="Software\Policies\RealVNC\vncserverui-service">
+      <parentCategory ref="vncserverui_service_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LogDir" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_service_User_LogFile" class="User" displayName="$(string.RealVNC_vncserverui_service_User_LogFile)" explainText="$(string.RealVNC_vncserverui_service_User_LogFile_help)" presentation="$(presentation.RealVNC_vncserverui_service_User_LogFile)" key="Software\Policies\RealVNC\vncserverui-service">
+      <parentCategory ref="vncserverui_service_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LogFile" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_service_User_TlsProfile" class="User" displayName="$(string.RealVNC_vncserverui_service_User_TlsProfile)" explainText="$(string.RealVNC_vncserverui_service_User_TlsProfile_help)" presentation="$(presentation.RealVNC_vncserverui_service_User_TlsProfile)" key="Software\Policies\RealVNC\vncserverui-service">
+      <parentCategory ref="vncserverui_service_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="TlsProfile">
+          <item displayName="$(string.RealVNC_vncserverui_service_User_TlsProfile_Normal)">
+            <value>
+              <string>Normal</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserverui_service_User_TlsProfile_High)">
+            <value>
+              <string>High</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AcceptCutText" class="User" displayName="$(string.RealVNC_vncserver_User_AcceptCutText)" explainText="$(string.RealVNC_vncserver_User_AcceptCutText_help)" presentation="$(presentation.RealVNC_vncserver_User_AcceptCutText)" key="Software\Policies\RealVNC\vncserver" valueName="AcceptCutText">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AcceptKeyEvents" class="User" displayName="$(string.RealVNC_vncserver_User_AcceptKeyEvents)" explainText="$(string.RealVNC_vncserver_User_AcceptKeyEvents_help)" presentation="$(presentation.RealVNC_vncserver_User_AcceptKeyEvents)" key="Software\Policies\RealVNC\vncserver" valueName="AcceptKeyEvents">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AcceptPointerEvents" class="User" displayName="$(string.RealVNC_vncserver_User_AcceptPointerEvents)" explainText="$(string.RealVNC_vncserver_User_AcceptPointerEvents_help)" presentation="$(presentation.RealVNC_vncserver_User_AcceptPointerEvents)" key="Software\Policies\RealVNC\vncserver" valueName="AcceptPointerEvents">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AdminPassword" class="User" displayName="$(string.RealVNC_vncserver_User_AdminPassword)" explainText="$(string.RealVNC_vncserver_User_AdminPassword_help)" presentation="$(presentation.RealVNC_vncserver_User_AdminPassword)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="AdminPassword" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AllowChangeDefaultPrinter" class="User" displayName="$(string.RealVNC_vncserver_User_AllowChangeDefaultPrinter)" explainText="$(string.RealVNC_vncserver_User_AllowChangeDefaultPrinter_help)" presentation="$(presentation.RealVNC_vncserver_User_AllowChangeDefaultPrinter)" key="Software\Policies\RealVNC\vncserver" valueName="AllowChangeDefaultPrinter">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AllowCloudRelay" class="User" displayName="$(string.RealVNC_vncserver_User_AllowCloudRelay)" explainText="$(string.RealVNC_vncserver_User_AllowCloudRelay_help)" presentation="$(presentation.RealVNC_vncserver_User_AllowCloudRelay)" key="Software\Policies\RealVNC\vncserver" valueName="AllowCloudRelay">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AllowCloudRfb" class="User" displayName="$(string.RealVNC_vncserver_User_AllowCloudRfb)" explainText="$(string.RealVNC_vncserver_User_AllowCloudRfb_help)" presentation="$(presentation.RealVNC_vncserver_User_AllowCloudRfb)" key="Software\Policies\RealVNC\vncserver" valueName="AllowCloudRfb">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AllowHttp" class="User" displayName="$(string.RealVNC_vncserver_User_AllowHttp)" explainText="$(string.RealVNC_vncserver_User_AllowHttp_help)" presentation="$(presentation.RealVNC_vncserver_User_AllowHttp)" key="Software\Policies\RealVNC\vncserver" valueName="AllowHttp">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AllowIpListenRfb" class="User" displayName="$(string.RealVNC_vncserver_User_AllowIpListenRfb)" explainText="$(string.RealVNC_vncserver_User_AllowIpListenRfb_help)" presentation="$(presentation.RealVNC_vncserver_User_AllowIpListenRfb)" key="Software\Policies\RealVNC\vncserver" valueName="AllowIpListenRfb">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AllowTcpListenRfb" class="User" displayName="$(string.RealVNC_vncserver_User_AllowTcpListenRfb)" explainText="$(string.RealVNC_vncserver_User_AllowTcpListenRfb_help)" presentation="$(presentation.RealVNC_vncserver_User_AllowTcpListenRfb)" key="Software\Policies\RealVNC\vncserver" valueName="AllowTcpListenRfb">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AlwaysShared" class="User" displayName="$(string.RealVNC_vncserver_User_AlwaysShared)" explainText="$(string.RealVNC_vncserver_User_AlwaysShared_help)" presentation="$(presentation.RealVNC_vncserver_User_AlwaysShared)" key="Software\Policies\RealVNC\vncserver" valueName="AlwaysShared">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AudioEnable" class="User" displayName="$(string.RealVNC_vncserver_User_AudioEnable)" explainText="$(string.RealVNC_vncserver_User_AudioEnable_help)" presentation="$(presentation.RealVNC_vncserver_User_AudioEnable)" key="Software\Policies\RealVNC\vncserver" valueName="AudioEnable">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_Authentication" class="User" displayName="$(string.RealVNC_vncserver_User_Authentication)" explainText="$(string.RealVNC_vncserver_User_Authentication_help)" presentation="$(presentation.RealVNC_vncserver_User_Authentication)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Authentication" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AuthTimeout" class="User" displayName="$(string.RealVNC_vncserver_User_AuthTimeout)" explainText="$(string.RealVNC_vncserver_User_AuthTimeout_help)" presentation="$(presentation.RealVNC_vncserver_User_AuthTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="AuthTimeout" minValue="0" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_AutoLogonOverride" class="User" displayName="$(string.RealVNC_vncserver_User_AutoLogonOverride)" explainText="$(string.RealVNC_vncserver_User_AutoLogonOverride_help)" presentation="$(presentation.RealVNC_vncserver_User_AutoLogonOverride)" key="Software\Policies\RealVNC\vncserver" valueName="AutoLogonOverride">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_BlacklistThreshold" class="User" displayName="$(string.RealVNC_vncserver_User_BlacklistThreshold)" explainText="$(string.RealVNC_vncserver_User_BlacklistThreshold_help)" presentation="$(presentation.RealVNC_vncserver_User_BlacklistThreshold)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="BlacklistThreshold" minValue="0" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_BlacklistTimeout" class="User" displayName="$(string.RealVNC_vncserver_User_BlacklistTimeout)" explainText="$(string.RealVNC_vncserver_User_BlacklistTimeout_help)" presentation="$(presentation.RealVNC_vncserver_User_BlacklistTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="BlacklistTimeout" minValue="1" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_BlankScreen" class="User" displayName="$(string.RealVNC_vncserver_User_BlankScreen)" explainText="$(string.RealVNC_vncserver_User_BlankScreen_help)" presentation="$(presentation.RealVNC_vncserver_User_BlankScreen)" key="Software\Policies\RealVNC\vncserver" valueName="BlankScreen">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_CaptureMethod" class="User" displayName="$(string.RealVNC_vncserver_User_CaptureMethod)" explainText="$(string.RealVNC_vncserver_User_CaptureMethod_help)" presentation="$(presentation.RealVNC_vncserver_User_CaptureMethod)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="CaptureMethod" minValue="0" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ClipboardFT" class="User" displayName="$(string.RealVNC_vncserver_User_ClipboardFT)" explainText="$(string.RealVNC_vncserver_User_ClipboardFT_help)" presentation="$(presentation.RealVNC_vncserver_User_ClipboardFT)" key="Software\Policies\RealVNC\vncserver" valueName="ClipboardFT">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_CompareFB" class="User" displayName="$(string.RealVNC_vncserver_User_CompareFB)" explainText="$(string.RealVNC_vncserver_User_CompareFB_help)" presentation="$(presentation.RealVNC_vncserver_User_CompareFB)" key="Software\Policies\RealVNC\vncserver" valueName="CompareFB">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ConnNotifyAlways" class="User" displayName="$(string.RealVNC_vncserver_User_ConnNotifyAlways)" explainText="$(string.RealVNC_vncserver_User_ConnNotifyAlways_help)" presentation="$(presentation.RealVNC_vncserver_User_ConnNotifyAlways)" key="Software\Policies\RealVNC\vncserver" valueName="ConnNotifyAlways">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ConnNotifyTimeout" class="User" displayName="$(string.RealVNC_vncserver_User_ConnNotifyTimeout)" explainText="$(string.RealVNC_vncserver_User_ConnNotifyTimeout_help)" presentation="$(presentation.RealVNC_vncserver_User_ConnNotifyTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="ConnNotifyTimeout" minValue="0" maxValue="255" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ConnTimeout" class="User" displayName="$(string.RealVNC_vncserver_User_ConnTimeout)" explainText="$(string.RealVNC_vncserver_User_ConnTimeout_help)" presentation="$(presentation.RealVNC_vncserver_User_ConnTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="ConnTimeout" minValue="0" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_Desktop" class="User" displayName="$(string.RealVNC_vncserver_User_Desktop)" explainText="$(string.RealVNC_vncserver_User_Desktop_help)" presentation="$(presentation.RealVNC_vncserver_User_Desktop)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Desktop" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_DisableAddNewClient" class="User" displayName="$(string.RealVNC_vncserver_User_DisableAddNewClient)" explainText="$(string.RealVNC_vncserver_User_DisableAddNewClient_help)" presentation="$(presentation.RealVNC_vncserver_User_DisableAddNewClient)" key="Software\Policies\RealVNC\vncserver" valueName="DisableAddNewClient">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_DisableAero" class="User" displayName="$(string.RealVNC_vncserver_User_DisableAero)" explainText="$(string.RealVNC_vncserver_User_DisableAero_help)" presentation="$(presentation.RealVNC_vncserver_User_DisableAero)" key="Software\Policies\RealVNC\vncserver" valueName="DisableAero">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_DisableClose" class="User" displayName="$(string.RealVNC_vncserver_User_DisableClose)" explainText="$(string.RealVNC_vncserver_User_DisableClose_help)" presentation="$(presentation.RealVNC_vncserver_User_DisableClose)" key="Software\Policies\RealVNC\vncserver" valueName="DisableClose">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_DisableEffects" class="User" displayName="$(string.RealVNC_vncserver_User_DisableEffects)" explainText="$(string.RealVNC_vncserver_User_DisableEffects_help)" presentation="$(presentation.RealVNC_vncserver_User_DisableEffects)" key="Software\Policies\RealVNC\vncserver" valueName="DisableEffects">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_DisableLocalInputs" class="User" displayName="$(string.RealVNC_vncserver_User_DisableLocalInputs)" explainText="$(string.RealVNC_vncserver_User_DisableLocalInputs_help)" presentation="$(presentation.RealVNC_vncserver_User_DisableLocalInputs)" key="Software\Policies\RealVNC\vncserver" valueName="DisableLocalInputs">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_DisableOptions" class="User" displayName="$(string.RealVNC_vncserver_User_DisableOptions)" explainText="$(string.RealVNC_vncserver_User_DisableOptions_help)" presentation="$(presentation.RealVNC_vncserver_User_DisableOptions)" key="Software\Policies\RealVNC\vncserver" valueName="DisableOptions">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_DisableTrayIcon" class="User" displayName="$(string.RealVNC_vncserver_User_DisableTrayIcon)" explainText="$(string.RealVNC_vncserver_User_DisableTrayIcon_help)" presentation="$(presentation.RealVNC_vncserver_User_DisableTrayIcon)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="DisableTrayIcon" minValue="0" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_DisconnectAction" class="User" displayName="$(string.RealVNC_vncserver_User_DisconnectAction)" explainText="$(string.RealVNC_vncserver_User_DisconnectAction_help)" presentation="$(presentation.RealVNC_vncserver_User_DisconnectAction)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="DisconnectAction">
+          <item displayName="$(string.RealVNC_vncserver_User_DisconnectAction_Lock)">
+            <value>
+              <string>Lock</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_DisconnectAction_Logoff)">
+            <value>
+              <string>Logoff</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_DisconnectAction_None)">
+            <value>
+              <string>None</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_DisconnectClients" class="User" displayName="$(string.RealVNC_vncserver_User_DisconnectClients)" explainText="$(string.RealVNC_vncserver_User_DisconnectClients_help)" presentation="$(presentation.RealVNC_vncserver_User_DisconnectClients)" key="Software\Policies\RealVNC\vncserver" valueName="DisconnectClients">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_DisplayDevice" class="User" displayName="$(string.RealVNC_vncserver_User_DisplayDevice)" explainText="$(string.RealVNC_vncserver_User_DisplayDevice_help)" presentation="$(presentation.RealVNC_vncserver_User_DisplayDevice)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="DisplayDevice" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_EnableAnalytics" class="User" displayName="$(string.RealVNC_vncserver_User_EnableAnalytics)" explainText="$(string.RealVNC_vncserver_User_EnableAnalytics_help)" presentation="$(presentation.RealVNC_vncserver_User_EnableAnalytics)" key="Software\Policies\RealVNC\vncserver" valueName="EnableAnalytics">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_EnableAutoUpdateChecks" class="User" displayName="$(string.RealVNC_vncserver_User_EnableAutoUpdateChecks)" explainText="$(string.RealVNC_vncserver_User_EnableAutoUpdateChecks_help)" presentation="$(presentation.RealVNC_vncserver_User_EnableAutoUpdateChecks)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="EnableAutoUpdateChecks" minValue="0" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_EnableChat" class="User" displayName="$(string.RealVNC_vncserver_User_EnableChat)" explainText="$(string.RealVNC_vncserver_User_EnableChat_help)" presentation="$(presentation.RealVNC_vncserver_User_EnableChat)" key="Software\Policies\RealVNC\vncserver" valueName="EnableChat">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_EnableManualUpdateChecks" class="User" displayName="$(string.RealVNC_vncserver_User_EnableManualUpdateChecks)" explainText="$(string.RealVNC_vncserver_User_EnableManualUpdateChecks_help)" presentation="$(presentation.RealVNC_vncserver_User_EnableManualUpdateChecks)" key="Software\Policies\RealVNC\vncserver" valueName="EnableManualUpdateChecks">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_EnableRemotePrinting" class="User" displayName="$(string.RealVNC_vncserver_User_EnableRemotePrinting)" explainText="$(string.RealVNC_vncserver_User_EnableRemotePrinting_help)" presentation="$(presentation.RealVNC_vncserver_User_EnableRemotePrinting)" key="Software\Policies\RealVNC\vncserver" valueName="EnableRemotePrinting">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_Encryption" class="User" displayName="$(string.RealVNC_vncserver_User_Encryption)" explainText="$(string.RealVNC_vncserver_User_Encryption_help)" presentation="$(presentation.RealVNC_vncserver_User_Encryption)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Encryption" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_GuestPassword" class="User" displayName="$(string.RealVNC_vncserver_User_GuestPassword)" explainText="$(string.RealVNC_vncserver_User_GuestPassword_help)" presentation="$(presentation.RealVNC_vncserver_User_GuestPassword)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="GuestPassword" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_GuestPermissions" class="User" displayName="$(string.RealVNC_vncserver_User_GuestPermissions)" explainText="$(string.RealVNC_vncserver_User_GuestPermissions_help)" presentation="$(presentation.RealVNC_vncserver_User_GuestPermissions)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="GuestPermissions" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_Hosts" class="User" displayName="$(string.RealVNC_vncserver_User_Hosts)" explainText="$(string.RealVNC_vncserver_User_Hosts_help)" presentation="$(presentation.RealVNC_vncserver_User_Hosts)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Hosts" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_httpd" class="User" displayName="$(string.RealVNC_vncserver_User_httpd)" explainText="$(string.RealVNC_vncserver_User_httpd_help)" presentation="$(presentation.RealVNC_vncserver_User_httpd)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="httpd" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_HttpPort" class="User" displayName="$(string.RealVNC_vncserver_User_HttpPort)" explainText="$(string.RealVNC_vncserver_User_HttpPort_help)" presentation="$(presentation.RealVNC_vncserver_User_HttpPort)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="HttpPort" minValue="0" maxValue="65535" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_IdleTimeout" class="User" displayName="$(string.RealVNC_vncserver_User_IdleTimeout)" explainText="$(string.RealVNC_vncserver_User_IdleTimeout_help)" presentation="$(presentation.RealVNC_vncserver_User_IdleTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="IdleTimeout" minValue="0" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_InputOnlyPassword" class="User" displayName="$(string.RealVNC_vncserver_User_InputOnlyPassword)" explainText="$(string.RealVNC_vncserver_User_InputOnlyPassword_help)" presentation="$(presentation.RealVNC_vncserver_User_InputOnlyPassword)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="InputOnlyPassword" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_InTransports" class="User" displayName="$(string.RealVNC_vncserver_User_InTransports)" explainText="$(string.RealVNC_vncserver_User_InTransports_help)" presentation="$(presentation.RealVNC_vncserver_User_InTransports)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="InTransports" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_IpClientAddresses" class="User" displayName="$(string.RealVNC_vncserver_User_IpClientAddresses)" explainText="$(string.RealVNC_vncserver_User_IpClientAddresses_help)" presentation="$(presentation.RealVNC_vncserver_User_IpClientAddresses)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="IpClientAddresses" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_IpListenAddresses" class="User" displayName="$(string.RealVNC_vncserver_User_IpListenAddresses)" explainText="$(string.RealVNC_vncserver_User_IpListenAddresses_help)" presentation="$(presentation.RealVNC_vncserver_User_IpListenAddresses)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="IpListenAddresses" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_IpListenProtocols" class="User" displayName="$(string.RealVNC_vncserver_User_IpListenProtocols)" explainText="$(string.RealVNC_vncserver_User_IpListenProtocols_help)" presentation="$(presentation.RealVNC_vncserver_User_IpListenProtocols)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="IpListenProtocols" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_LdapCertificateCrlLimit" class="User" displayName="$(string.RealVNC_vncserver_User_LdapCertificateCrlLimit)" explainText="$(string.RealVNC_vncserver_User_LdapCertificateCrlLimit_help)" presentation="$(presentation.RealVNC_vncserver_User_LdapCertificateCrlLimit)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="LdapCertificateCrlLimit" minValue="16384" maxValue="1073741824" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_LdapCertificateIntermediateStore" class="User" displayName="$(string.RealVNC_vncserver_User_LdapCertificateIntermediateStore)" explainText="$(string.RealVNC_vncserver_User_LdapCertificateIntermediateStore_help)" presentation="$(presentation.RealVNC_vncserver_User_LdapCertificateIntermediateStore)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LdapCertificateIntermediateStore" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_LdapCertificateNameMapping" class="User" displayName="$(string.RealVNC_vncserver_User_LdapCertificateNameMapping)" explainText="$(string.RealVNC_vncserver_User_LdapCertificateNameMapping_help)" presentation="$(presentation.RealVNC_vncserver_User_LdapCertificateNameMapping)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="LdapCertificateNameMapping">
+          <item displayName="$(string.RealVNC_vncserver_User_LdapCertificateNameMapping_ActiveDirectory)">
+            <value>
+              <string>ActiveDirectory</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_LdapCertificateNameMapping_RFC2307)">
+            <value>
+              <string>RFC2307</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_LdapCertificateRevocation" class="User" displayName="$(string.RealVNC_vncserver_User_LdapCertificateRevocation)" explainText="$(string.RealVNC_vncserver_User_LdapCertificateRevocation_help)" presentation="$(presentation.RealVNC_vncserver_User_LdapCertificateRevocation)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="LdapCertificateRevocation">
+          <item displayName="$(string.RealVNC_vncserver_User_LdapCertificateRevocation_EnforceOcsp)">
+            <value>
+              <string>EnforceOcsp</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_LdapCertificateRevocation_Enforce)">
+            <value>
+              <string>Enforce</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_LdapCertificateRevocation_CheckIfAvailable)">
+            <value>
+              <string>CheckIfAvailable</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_LdapCertificateRevocation_Ignore)">
+            <value>
+              <string>Ignore</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_LdapCertificateTrustStore" class="User" displayName="$(string.RealVNC_vncserver_User_LdapCertificateTrustStore)" explainText="$(string.RealVNC_vncserver_User_LdapCertificateTrustStore_help)" presentation="$(presentation.RealVNC_vncserver_User_LdapCertificateTrustStore)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LdapCertificateTrustStore" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_LdapCertificateUserStore" class="User" displayName="$(string.RealVNC_vncserver_User_LdapCertificateUserStore)" explainText="$(string.RealVNC_vncserver_User_LdapCertificateUserStore_help)" presentation="$(presentation.RealVNC_vncserver_User_LdapCertificateUserStore)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LdapCertificateUserStore" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_LdapSecurity" class="User" displayName="$(string.RealVNC_vncserver_User_LdapSecurity)" explainText="$(string.RealVNC_vncserver_User_LdapSecurity_help)" presentation="$(presentation.RealVNC_vncserver_User_LdapSecurity)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="LdapSecurity">
+          <item displayName="$(string.RealVNC_vncserver_User_LdapSecurity_Auto)">
+            <value>
+              <string>Auto</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_LdapSecurity_StartTLS)">
+            <value>
+              <string>StartTLS</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_LdapSecurity_None)">
+            <value>
+              <string>None</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_Locale" class="User" displayName="$(string.RealVNC_vncserver_User_Locale)" explainText="$(string.RealVNC_vncserver_User_Locale_help)" presentation="$(presentation.RealVNC_vncserver_User_Locale)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Locale" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_localhost" class="User" displayName="$(string.RealVNC_vncserver_User_localhost)" explainText="$(string.RealVNC_vncserver_User_localhost_help)" presentation="$(presentation.RealVNC_vncserver_User_localhost)" key="Software\Policies\RealVNC\vncserver" valueName="localhost">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_Log" class="User" displayName="$(string.RealVNC_vncserver_User_Log)" explainText="$(string.RealVNC_vncserver_User_Log_help)" presentation="$(presentation.RealVNC_vncserver_User_Log)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Log" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_LogDir" class="User" displayName="$(string.RealVNC_vncserver_User_LogDir)" explainText="$(string.RealVNC_vncserver_User_LogDir_help)" presentation="$(presentation.RealVNC_vncserver_User_LogDir)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LogDir" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_LogFile" class="User" displayName="$(string.RealVNC_vncserver_User_LogFile)" explainText="$(string.RealVNC_vncserver_User_LogFile_help)" presentation="$(presentation.RealVNC_vncserver_User_LogFile)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LogFile" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_MaxHttpConns" class="User" displayName="$(string.RealVNC_vncserver_User_MaxHttpConns)" explainText="$(string.RealVNC_vncserver_User_MaxHttpConns_help)" presentation="$(presentation.RealVNC_vncserver_User_MaxHttpConns)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="MaxHttpConns" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_MSLWorkaround" class="User" displayName="$(string.RealVNC_vncserver_User_MSLWorkaround)" explainText="$(string.RealVNC_vncserver_User_MSLWorkaround_help)" presentation="$(presentation.RealVNC_vncserver_User_MSLWorkaround)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="MSLWorkaround" minValue="1" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_NeverShared" class="User" displayName="$(string.RealVNC_vncserver_User_NeverShared)" explainText="$(string.RealVNC_vncserver_User_NeverShared_help)" presentation="$(presentation.RealVNC_vncserver_User_NeverShared)" key="Software\Policies\RealVNC\vncserver" valueName="NeverShared">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_NtLogonAsInteractive" class="User" displayName="$(string.RealVNC_vncserver_User_NtLogonAsInteractive)" explainText="$(string.RealVNC_vncserver_User_NtLogonAsInteractive_help)" presentation="$(presentation.RealVNC_vncserver_User_NtLogonAsInteractive)" key="Software\Policies\RealVNC\vncserver" valueName="NtLogonAsInteractive">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_OcspNonce" class="User" displayName="$(string.RealVNC_vncserver_User_OcspNonce)" explainText="$(string.RealVNC_vncserver_User_OcspNonce_help)" presentation="$(presentation.RealVNC_vncserver_User_OcspNonce)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="OcspNonce">
+          <item displayName="$(string.RealVNC_vncserver_User_OcspNonce_None)">
+            <value>
+              <string>None</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_OcspNonce_Request)">
+            <value>
+              <string>Request</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_OcspNonce_Require)">
+            <value>
+              <string>Require</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_Password" class="User" displayName="$(string.RealVNC_vncserver_User_Password)" explainText="$(string.RealVNC_vncserver_User_Password_help)" presentation="$(presentation.RealVNC_vncserver_User_Password)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Password" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_Permissions" class="User" displayName="$(string.RealVNC_vncserver_User_Permissions)" explainText="$(string.RealVNC_vncserver_User_Permissions_help)" presentation="$(presentation.RealVNC_vncserver_User_Permissions)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Permissions" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_PollCursorTime" class="User" displayName="$(string.RealVNC_vncserver_User_PollCursorTime)" explainText="$(string.RealVNC_vncserver_User_PollCursorTime_help)" presentation="$(presentation.RealVNC_vncserver_User_PollCursorTime)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="PollCursorTime" minValue="0" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_PollInterval" class="User" displayName="$(string.RealVNC_vncserver_User_PollInterval)" explainText="$(string.RealVNC_vncserver_User_PollInterval_help)" presentation="$(presentation.RealVNC_vncserver_User_PollInterval)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="PollInterval" minValue="1" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ProtocolVersion" class="User" displayName="$(string.RealVNC_vncserver_User_ProtocolVersion)" explainText="$(string.RealVNC_vncserver_User_ProtocolVersion_help)" presentation="$(presentation.RealVNC_vncserver_User_ProtocolVersion)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="ProtocolVersion">
+          <item displayName="$(string.RealVNC_vncserver_User_ProtocolVersion_)">
+            <value>
+              <string></string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ProtocolVersion_33)">
+            <value>
+              <string>3.3</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ProtocolVersion_37)">
+            <value>
+              <string>3.7</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ProtocolVersion_38)">
+            <value>
+              <string>3.8</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ProtocolVersion_40)">
+            <value>
+              <string>4.0</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ProtocolVersion_41)">
+            <value>
+              <string>4.1</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ProtocolVersion_50)">
+            <value>
+              <string>5.0</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ProtocolVersion_60)">
+            <value>
+              <string>6.0</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ProxyPassword" class="User" displayName="$(string.RealVNC_vncserver_User_ProxyPassword)" explainText="$(string.RealVNC_vncserver_User_ProxyPassword_help)" presentation="$(presentation.RealVNC_vncserver_User_ProxyPassword)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ProxyPassword" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ProxyServer" class="User" displayName="$(string.RealVNC_vncserver_User_ProxyServer)" explainText="$(string.RealVNC_vncserver_User_ProxyServer_help)" presentation="$(presentation.RealVNC_vncserver_User_ProxyServer)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ProxyServer" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ProxyUserName" class="User" displayName="$(string.RealVNC_vncserver_User_ProxyUserName)" explainText="$(string.RealVNC_vncserver_User_ProxyUserName_help)" presentation="$(presentation.RealVNC_vncserver_User_ProxyUserName)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ProxyUserName" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_QueryConnect" class="User" displayName="$(string.RealVNC_vncserver_User_QueryConnect)" explainText="$(string.RealVNC_vncserver_User_QueryConnect_help)" presentation="$(presentation.RealVNC_vncserver_User_QueryConnect)" key="Software\Policies\RealVNC\vncserver" valueName="QueryConnect">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_QueryConnectMessage" class="User" displayName="$(string.RealVNC_vncserver_User_QueryConnectMessage)" explainText="$(string.RealVNC_vncserver_User_QueryConnectMessage_help)" presentation="$(presentation.RealVNC_vncserver_User_QueryConnectMessage)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="QueryConnectMessage" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_QueryConnectTimeout" class="User" displayName="$(string.RealVNC_vncserver_User_QueryConnectTimeout)" explainText="$(string.RealVNC_vncserver_User_QueryConnectTimeout_help)" presentation="$(presentation.RealVNC_vncserver_User_QueryConnectTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="QueryConnectTimeout" minValue="0" maxValue="65535" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_QueryOfferViewOnly" class="User" displayName="$(string.RealVNC_vncserver_User_QueryOfferViewOnly)" explainText="$(string.RealVNC_vncserver_User_QueryOfferViewOnly_help)" presentation="$(presentation.RealVNC_vncserver_User_QueryOfferViewOnly)" key="Software\Policies\RealVNC\vncserver" valueName="QueryOfferViewOnly">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_QueryOnlyIfLoggedOn" class="User" displayName="$(string.RealVNC_vncserver_User_QueryOnlyIfLoggedOn)" explainText="$(string.RealVNC_vncserver_User_QueryOnlyIfLoggedOn_help)" presentation="$(presentation.RealVNC_vncserver_User_QueryOnlyIfLoggedOn)" key="Software\Policies\RealVNC\vncserver" valueName="QueryOnlyIfLoggedOn">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_QueryTimeoutRights" class="User" displayName="$(string.RealVNC_vncserver_User_QueryTimeoutRights)" explainText="$(string.RealVNC_vncserver_User_QueryTimeoutRights_help)" presentation="$(presentation.RealVNC_vncserver_User_QueryTimeoutRights)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="QueryTimeoutRights" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_QuitOnCloseStatusDialog" class="User" displayName="$(string.RealVNC_vncserver_User_QuitOnCloseStatusDialog)" explainText="$(string.RealVNC_vncserver_User_QuitOnCloseStatusDialog_help)" presentation="$(presentation.RealVNC_vncserver_User_QuitOnCloseStatusDialog)" key="Software\Policies\RealVNC\vncserver" valueName="QuitOnCloseStatusDialog">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RadiusAddress" class="User" displayName="$(string.RealVNC_vncserver_User_RadiusAddress)" explainText="$(string.RealVNC_vncserver_User_RadiusAddress_help)" presentation="$(presentation.RealVNC_vncserver_User_RadiusAddress)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RadiusAddress" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RadiusAuthenticationProtocol" class="User" displayName="$(string.RealVNC_vncserver_User_RadiusAuthenticationProtocol)" explainText="$(string.RealVNC_vncserver_User_RadiusAuthenticationProtocol_help)" presentation="$(presentation.RealVNC_vncserver_User_RadiusAuthenticationProtocol)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="RadiusAuthenticationProtocol">
+          <item displayName="$(string.RealVNC_vncserver_User_RadiusAuthenticationProtocol_CHAP)">
+            <value>
+              <string>CHAP</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_RadiusAuthenticationProtocol_PAP)">
+            <value>
+              <string>PAP</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RadiusNasId" class="User" displayName="$(string.RealVNC_vncserver_User_RadiusNasId)" explainText="$(string.RealVNC_vncserver_User_RadiusNasId_help)" presentation="$(presentation.RealVNC_vncserver_User_RadiusNasId)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RadiusNasId" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RadiusNormalizeUsername" class="User" displayName="$(string.RealVNC_vncserver_User_RadiusNormalizeUsername)" explainText="$(string.RealVNC_vncserver_User_RadiusNormalizeUsername_help)" presentation="$(presentation.RealVNC_vncserver_User_RadiusNormalizeUsername)" key="Software\Policies\RealVNC\vncserver" valueName="RadiusNormalizeUsername">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RadiusPrompt" class="User" displayName="$(string.RealVNC_vncserver_User_RadiusPrompt)" explainText="$(string.RealVNC_vncserver_User_RadiusPrompt_help)" presentation="$(presentation.RealVNC_vncserver_User_RadiusPrompt)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RadiusPrompt" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RadiusSecret" class="User" displayName="$(string.RealVNC_vncserver_User_RadiusSecret)" explainText="$(string.RealVNC_vncserver_User_RadiusSecret_help)" presentation="$(presentation.RealVNC_vncserver_User_RadiusSecret)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RadiusSecret" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RadiusServer" class="User" displayName="$(string.RealVNC_vncserver_User_RadiusServer)" explainText="$(string.RealVNC_vncserver_User_RadiusServer_help)" presentation="$(presentation.RealVNC_vncserver_User_RadiusServer)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RadiusServer" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RadiusTimeout" class="User" displayName="$(string.RealVNC_vncserver_User_RadiusTimeout)" explainText="$(string.RealVNC_vncserver_User_RadiusTimeout_help)" presentation="$(presentation.RealVNC_vncserver_User_RadiusTimeout)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="RadiusTimeout" minValue="1" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RemapKeys" class="User" displayName="$(string.RealVNC_vncserver_User_RemapKeys)" explainText="$(string.RealVNC_vncserver_User_RemapKeys_help)" presentation="$(presentation.RealVNC_vncserver_User_RemapKeys)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="RemapKeys" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RemovePattern" class="User" displayName="$(string.RealVNC_vncserver_User_RemovePattern)" explainText="$(string.RealVNC_vncserver_User_RemovePattern_help)" presentation="$(presentation.RealVNC_vncserver_User_RemovePattern)" key="Software\Policies\RealVNC\vncserver" valueName="RemovePattern">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RemoveWallpaper" class="User" displayName="$(string.RealVNC_vncserver_User_RemoveWallpaper)" explainText="$(string.RealVNC_vncserver_User_RemoveWallpaper_help)" presentation="$(presentation.RealVNC_vncserver_User_RemoveWallpaper)" key="Software\Policies\RealVNC\vncserver" valueName="RemoveWallpaper">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ReverseSecurityTypes" class="User" displayName="$(string.RealVNC_vncserver_User_ReverseSecurityTypes)" explainText="$(string.RealVNC_vncserver_User_ReverseSecurityTypes_help)" presentation="$(presentation.RealVNC_vncserver_User_ReverseSecurityTypes)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ReverseSecurityTypes" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_RfbPort" class="User" displayName="$(string.RealVNC_vncserver_User_RfbPort)" explainText="$(string.RealVNC_vncserver_User_RfbPort_help)" presentation="$(presentation.RealVNC_vncserver_User_RfbPort)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="RfbPort" minValue="0" maxValue="65535" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_SecurityTypes" class="User" displayName="$(string.RealVNC_vncserver_User_SecurityTypes)" explainText="$(string.RealVNC_vncserver_User_SecurityTypes_help)" presentation="$(presentation.RealVNC_vncserver_User_SecurityTypes)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="SecurityTypes" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_SendCutText" class="User" displayName="$(string.RealVNC_vncserver_User_SendCutText)" explainText="$(string.RealVNC_vncserver_User_SendCutText_help)" presentation="$(presentation.RealVNC_vncserver_User_SendCutText)" key="Software\Policies\RealVNC\vncserver" valueName="SendCutText">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ServerPreferredEncoding" class="User" displayName="$(string.RealVNC_vncserver_User_ServerPreferredEncoding)" explainText="$(string.RealVNC_vncserver_User_ServerPreferredEncoding_help)" presentation="$(presentation.RealVNC_vncserver_User_ServerPreferredEncoding)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="ServerPreferredEncoding">
+          <item displayName="$(string.RealVNC_vncserver_User_ServerPreferredEncoding_Viewer)">
+            <value>
+              <string>Viewer</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ServerPreferredEncoding_JPEG)">
+            <value>
+              <string>JPEG</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ServerPreferredEncoding_ZRLE)">
+            <value>
+              <string>ZRLE</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ServerPreferredEncoding_ZRLE2)">
+            <value>
+              <string>ZRLE2</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ServerPreferredEncoding_TRLE)">
+            <value>
+              <string>TRLE</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ServerPreferredEncoding_Hextile)">
+            <value>
+              <string>Hextile</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ServerPreferredEncoding_Raw)">
+            <value>
+              <string>Raw</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_ServerPreferredEncoding_JRLE)">
+            <value>
+              <string>JRLE</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ServiceDiscoveryEnabled" class="User" displayName="$(string.RealVNC_vncserver_User_ServiceDiscoveryEnabled)" explainText="$(string.RealVNC_vncserver_User_ServiceDiscoveryEnabled_help)" presentation="$(presentation.RealVNC_vncserver_User_ServiceDiscoveryEnabled)" key="Software\Policies\RealVNC\vncserver" valueName="ServiceDiscoveryEnabled">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ShareFiles" class="User" displayName="$(string.RealVNC_vncserver_User_ShareFiles)" explainText="$(string.RealVNC_vncserver_User_ShareFiles_help)" presentation="$(presentation.RealVNC_vncserver_User_ShareFiles)" key="Software\Policies\RealVNC\vncserver" valueName="ShareFiles">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_SimulateSAS" class="User" displayName="$(string.RealVNC_vncserver_User_SimulateSAS)" explainText="$(string.RealVNC_vncserver_User_SimulateSAS_help)" presentation="$(presentation.RealVNC_vncserver_User_SimulateSAS)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="SimulateSAS" minValue="0" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_TcpListenAddresses" class="User" displayName="$(string.RealVNC_vncserver_User_TcpListenAddresses)" explainText="$(string.RealVNC_vncserver_User_TcpListenAddresses_help)" presentation="$(presentation.RealVNC_vncserver_User_TcpListenAddresses)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="TcpListenAddresses" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_TlsProfile" class="User" displayName="$(string.RealVNC_vncserver_User_TlsProfile)" explainText="$(string.RealVNC_vncserver_User_TlsProfile_help)" presentation="$(presentation.RealVNC_vncserver_User_TlsProfile)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="TlsProfile">
+          <item displayName="$(string.RealVNC_vncserver_User_TlsProfile_Normal)">
+            <value>
+              <string>Normal</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserver_User_TlsProfile_High)">
+            <value>
+              <string>High</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_UpdateCheckFrequencyDays" class="User" displayName="$(string.RealVNC_vncserver_User_UpdateCheckFrequencyDays)" explainText="$(string.RealVNC_vncserver_User_UpdateCheckFrequencyDays_help)" presentation="$(presentation.RealVNC_vncserver_User_UpdateCheckFrequencyDays)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="UpdateCheckFrequencyDays" minValue="1" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_UpdateMethod" class="User" displayName="$(string.RealVNC_vncserver_User_UpdateMethod)" explainText="$(string.RealVNC_vncserver_User_UpdateMethod_help)" presentation="$(presentation.RealVNC_vncserver_User_UpdateMethod)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <decimal id="Value" valueName="UpdateMethod" minValue="0" maxValue="2" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_UseCaptureBlt" class="User" displayName="$(string.RealVNC_vncserver_User_UseCaptureBlt)" explainText="$(string.RealVNC_vncserver_User_UseCaptureBlt_help)" presentation="$(presentation.RealVNC_vncserver_User_UseCaptureBlt)" key="Software\Policies\RealVNC\vncserver" valueName="UseCaptureBlt">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserver_User_UserPasswdVerifier" class="User" displayName="$(string.RealVNC_vncserver_User_UserPasswdVerifier)" explainText="$(string.RealVNC_vncserver_User_UserPasswdVerifier_help)" presentation="$(presentation.RealVNC_vncserver_User_UserPasswdVerifier)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="UserPasswdVerifier" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_User_ViewOnlyPassword" class="User" displayName="$(string.RealVNC_vncserver_User_ViewOnlyPassword)" explainText="$(string.RealVNC_vncserver_User_ViewOnlyPassword_help)" presentation="$(presentation.RealVNC_vncserver_User_ViewOnlyPassword)" key="Software\Policies\RealVNC\vncserver">
+      <parentCategory ref="vncserver_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ViewOnlyPassword" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_user_User_ChatExpiryLimit" class="User" displayName="$(string.RealVNC_vncserverui_user_User_ChatExpiryLimit)" explainText="$(string.RealVNC_vncserverui_user_User_ChatExpiryLimit_help)" presentation="$(presentation.RealVNC_vncserverui_user_User_ChatExpiryLimit)" key="Software\Policies\RealVNC\vncserverui-user">
+      <parentCategory ref="vncserverui_user_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ChatExpiryLimit" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_user_User_ChatLogFile" class="User" displayName="$(string.RealVNC_vncserverui_user_User_ChatLogFile)" explainText="$(string.RealVNC_vncserverui_user_User_ChatLogFile_help)" presentation="$(presentation.RealVNC_vncserverui_user_User_ChatLogFile)" key="Software\Policies\RealVNC\vncserverui-user">
+      <parentCategory ref="vncserverui_user_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="ChatLogFile" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_user_User_FetchDir" class="User" displayName="$(string.RealVNC_vncserverui_user_User_FetchDir)" explainText="$(string.RealVNC_vncserverui_user_User_FetchDir_help)" presentation="$(presentation.RealVNC_vncserverui_user_User_FetchDir)" key="Software\Policies\RealVNC\vncserverui-user">
+      <parentCategory ref="vncserverui_user_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="FetchDir" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_user_User_KeepChatHistory" class="User" displayName="$(string.RealVNC_vncserverui_user_User_KeepChatHistory)" explainText="$(string.RealVNC_vncserverui_user_User_KeepChatHistory_help)" presentation="$(presentation.RealVNC_vncserverui_user_User_KeepChatHistory)" key="Software\Policies\RealVNC\vncserverui-user" valueName="KeepChatHistory">
+      <parentCategory ref="vncserverui_user_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="RealVNC_vncserverui_user_User_Locale" class="User" displayName="$(string.RealVNC_vncserverui_user_User_Locale)" explainText="$(string.RealVNC_vncserverui_user_User_Locale_help)" presentation="$(presentation.RealVNC_vncserverui_user_User_Locale)" key="Software\Policies\RealVNC\vncserverui-user">
+      <parentCategory ref="vncserverui_user_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Locale" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_user_User_Log" class="User" displayName="$(string.RealVNC_vncserverui_user_User_Log)" explainText="$(string.RealVNC_vncserverui_user_User_Log_help)" presentation="$(presentation.RealVNC_vncserverui_user_User_Log)" key="Software\Policies\RealVNC\vncserverui-user">
+      <parentCategory ref="vncserverui_user_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="Log" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_user_User_LogDir" class="User" displayName="$(string.RealVNC_vncserverui_user_User_LogDir)" explainText="$(string.RealVNC_vncserverui_user_User_LogDir_help)" presentation="$(presentation.RealVNC_vncserverui_user_User_LogDir)" key="Software\Policies\RealVNC\vncserverui-user">
+      <parentCategory ref="vncserverui_user_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LogDir" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_user_User_LogFile" class="User" displayName="$(string.RealVNC_vncserverui_user_User_LogFile)" explainText="$(string.RealVNC_vncserverui_user_User_LogFile_help)" presentation="$(presentation.RealVNC_vncserverui_user_User_LogFile)" key="Software\Policies\RealVNC\vncserverui-user">
+      <parentCategory ref="vncserverui_user_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="LogFile" maxLength="4096" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserverui_user_User_TlsProfile" class="User" displayName="$(string.RealVNC_vncserverui_user_User_TlsProfile)" explainText="$(string.RealVNC_vncserverui_user_User_TlsProfile_help)" presentation="$(presentation.RealVNC_vncserverui_user_User_TlsProfile)" key="Software\Policies\RealVNC\vncserverui-user">
+      <parentCategory ref="vncserverui_user_User" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <enum id="Value" valueName="TlsProfile">
+          <item displayName="$(string.RealVNC_vncserverui_user_User_TlsProfile_Normal)">
+            <value>
+              <string>Normal</string>
+            </value>
+          </item>
+          <item displayName="$(string.RealVNC_vncserverui_user_User_TlsProfile_High)">
+            <value>
+              <string>High</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Auditar creación de procesos</displayName>
+  <description>Opciones de configuración para auditar la creación de procesos.</description>
+  <resources>
+    <stringTable>
+      <string id="AuditSettings">Auditar creación de procesos</string>
+      <string id="IncludeCmdLine">Incluir línea de comandos en eventos de creación de procesos</string>
+      <string id="IncludeCmdLine_explain">Esta configuración de directiva determina la información que se registrará en los eventos de auditoría de seguridad cuando se cree un nuevo proceso.
+
+Esta opción solo se aplica si la directiva Auditar creación de procesos está habilitada. Si habilita esta configuración de directiva, la información de línea de comandos de cada proceso se registrará como texto sin formato en el registro de eventos de seguridad como parte del evento 4688 de Auditar creación de procesos, "Se creó un nuevo proceso", en las estaciones de trabajo y servidores donde se aplique esta configuración de directiva.
+
+Si deshabilita o no establece esta configuración de directiva, la información de la línea de comandos del proceso no se incluirá en los eventos de Auditar creación de procesos.
+
+Opción predeterminada: no configurado
+
+Nota: cuando esta configuración de directiva está habilitada, cualquier usuario con acceso de lectura a los eventos de seguridad podrá leer los argumentos de la línea de comandos de cualquier proceso creado correctamente. Los argumentos de la línea de comandos pueden contener información confidencial o privada como contraseñas o datos del usuario.
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="IncludeCmdLine">
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

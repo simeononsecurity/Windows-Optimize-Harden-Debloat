@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="CertMgr_DisableAutoRootUpdates">Desactivar la actualización automática de certificados raíz</string>
+      <string id="CertMgr_DisableAutoRootUpdates_Help">Esta configuración de directiva especifica si los certificados raíz se actualizan automáticamente por medio del sitio web de Windows Update. 
+
+Un certificado se usa, por lo general, cuando se usa un sitio web seguro o cuando se envía y recibe correo electrónico seguro. Cualquiera puede emitir certificados, pero para que las transacciones sean lo más seguras posible, los certificados deben emitirse por parte de una entidad de certificación (CA) de confianza. Microsoft incluyó en Windows XP y en otros productos una lista de compañías y organizaciones que considera entidades de confianza.
+
+Si habilita esta configuración de directiva, el equipo no se pondrá en contacto con el sitio web de Windows Update cuando se presente un certificado emitido por una entidad de certificación raíz que no sea de confianza para comprobar si Microsoft agregó la CA a la lista de entidades de confianza.
+
+Si deshabilita o no establece esta configuración de directiva, el equipo se pondrá en contacto con el sitio web de Windows Update.</string>
+      <string id="DisableHTTPPrinting">Desactivar impresión a través de HTTP</string>
+      <string id="DisableHTTPPrinting_Help">Esta configuración de directiva especifica si se permite la impresión a través de HTTP desde este cliente.
+
+La impresión a través de HTTP permite que un cliente imprima en impresoras tanto en la intranet como en Internet.
+
+Nota: esta configuración de directiva solo afecta al lado del cliente de la impresión en Internet. No impide que este equipo actúe como un servidor de impresión en Internet ni que sus impresoras compartidas estén disponibles a través de HTTP.
+
+Si habilita esta configuración de directiva, se impide que este cliente imprima en impresoras de Internet a través de HTTP.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios tendrán la opción de imprimir en impresoras de Internet a través de HTTP.
+
+Consulte también la configuración de directiva "Impresión desde Internet" en Configuración del equipo/Plantillas administrativas/Impresoras.</string>
+      <string id="DisableWebPnPDownload">Desactivar la descarga de controladores de impresión a través de HTTP</string>
+      <string id="DisableWebPnPDownload_Help">Esta configuración de directiva especifica si se permite que este cliente descargue paquetes de controladores de impresión a través de HTTP.
+
+Para configurar la impresión HTTP, los controladores que no vienen incluidos necesitan descargarse a través de HTTP.
+
+Nota: esta configuración de directiva no impide que el cliente imprima en impresoras en la intranet o Internet a través de HTTP.  Solo impide que se descarguen controladores no instalados localmente.
+
+Si habilita esta configuración de directiva, no se podrán descargar controladores de impresión a través de HTTP.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios podrán descargar controladores de impresión a través de HTTP.</string>
+      <string id="DriverSearchPlaces_DontSearchWindowsUpdate">Desactivar la búsqueda de controladores de dispositivo en Windows Update</string>
+      <string id="DriverSearchPlaces_DontSearchWindowsUpdate_Help">Esta configuración de directiva especifica si Windows debe buscar controladores de dispositivo en Windows Update cuando no existen controladores locales para un dispositivo.
+
+Si habilita esta configuración de directiva, no se realizarán búsquedas en Windows Update cuando se instale un nuevo dispositivo.
+
+Si deshabilita esta configuración de directiva, siempre se realizarán búsquedas de controladores en Windows Update cuando no exista ningún controlador local.
+
+Si no establece esta configuración de directiva, la búsqueda en Windows Update será opcional cuando se instale un dispositivo.
+
+Consulte también "Desactivar la intervención del usuario en búsquedas de controladores de dispositivo en Windows Update" en "Plantillas administrativas/Sistema", que controla si se pide la intervención de un administrador antes de realizar búsquedas de controladores de dispositivo en Windows Update, cuando no se encuentra un controlador localmente.
+
+Nota: esta configuración de directiva se reemplaza por "Especificar orden de búsqueda de orígenes de controladores" en "Plantillas administrativas/Sistema/Instalación de dispositivos" en versiones más recientes de Windows.</string>
+      <string id="EventViewer_DisableLinks">Desactivar los vínculos "Events.asp" del Visor de eventos</string>
+      <string id="EventViewer_DisableLinks_Help">Esta configuración de directiva especifica si los hipervínculos "Events.asp" están disponibles para los eventos dentro de la aplicación Visor de eventos.
+
+Normalmente, el Visor de eventos convierte todas las direcciones URL HTTP(S) en hipervínculos que activan el explorador de Internet cuando se hace clic en ellos. Además, se agrega el texto "Más información" al final del texto de descripción si un componente de Microsoft creó el evento. Este texto contiene un vínculo (dirección URL) que envía información acerca del evento a Microsoft si se hace clic en él, y permite que los usuarios obtengan más información sobre las causas del evento.
+
+Si habilita esta configuración de directiva, los hipervínculos de descripción de eventos no se activan, y el texto "Más información" no se muestra al final de la descripción.
+
+Si deshabilita o no establece esta configuración de directiva, el usuario puede hacer clic en el hipervínculo, lo que solicita su intervención y después envía a Microsoft información sobre el evento por medio de Internet.  Consulte también las opciones "Dirección URL events.asp", "Programa events.asp" y "Parámetros de la línea de comandos del programa events.asp" en "Plantillas administrativas/Componentes de Windows/Visor de eventos".</string>
+      <string id="HSS_HeadlinesPolicy">Desactivar el contenido "¿Sabía que...?" del Centro de ayuda y soporte técnico</string>
+      <string id="HSS_HeadlinesPolicy_Help">Esta configuración de directiva especifica si se muestra la sección "¿Sabía que...?" del Centro de ayuda y soporte técnico.
+
+Este contenido se actualiza dinámicamente cuando los usuarios conectados a Internet abren el Centro de ayuda y soporte técnico, y proporciona información actualizada acerca de Windows y del equipo.
+
+Si habilita esta configuración de directiva, el Centro de ayuda y soporte técnico ya no recuperará ni mostrará el contenido "¿Sabía que...?".
+
+Si deshabilita o no establece esta configuración de directiva, el Centro de ayuda y soporte técnico recuperará y mostrará el contenido "¿Sabía que...?".
+
+Puede ser conveniente habilitar esta configuración de directiva para los usuarios que no tienen acceso a Internet, porque el contenido de la sección "¿Sabía que...?" permanecerá estático indefinidamente si no hay conexión a Internet.</string>
+      <string id="HSS_KBSearchPolicy">Desactivar la búsqueda en Microsoft Knowledge Base del Centro de ayuda y soporte técnico</string>
+      <string id="HSS_KBSearchPolicy_Help">Esta configuración de directiva especifica si los usuarios pueden realizar una búsqueda en Microsoft Knowledge Base desde el Centro de ayuda y soporte técnico.
+
+Knowledge Base es una fuente en línea de información de soporte técnico y herramientas de autoayuda para productos de Microsoft, y se incluye al realizar una búsqueda en el Centro de ayuda y soporte técnico como parte de las opciones de búsqueda predeterminadas.
+
+Si habilita esta configuración de directiva, se quitará la sección de Knowledge Base de la página "Establecer opciones de búsqueda" en el Centro de ayuda y soporte técnico, y solo se realizarán búsquedas en el contenido de la Ayuda del equipo local. 
+
+Si deshabilita o no establece esta configuración de directiva, se realizarán búsquedas en Knowledge Base si el usuario está conectado a Internet y no ha deshabilitado la búsqueda en Knowledge Base en la página Opciones de búsqueda.</string>
+      <string id="InternetManagement_RestrictCommunication">Restringir comunicación de Internet</string>
+      <string id="InternetManagement_RestrictCommunication_Help">Esta configuración de directiva especifica si Windows puede tener acceso a Internet para completar tareas que requieren recursos de Internet.
+
+Si habilita esta configuración de directiva, todas las configuraciones de directiva que se muestran en la sección "Configuración de comunicaciones de Internet" se establecerán de modo que sus características respectivas no puedan obtener acceso a Internet.
+
+Si deshabilita esta configuración de directiva, todas las configuraciones de directiva que se muestran en la sección "Configuración de comunicaciones de Internet" se establecerán de modo que sus características respectivas puedan obtener acceso a Internet.
+
+Si no establece esta configuración de directiva, no se configurará ninguna de las configuraciones de directiva mostradas en la sección "Configuración de comunicaciones de Internet".</string>
+      <string id="NC_ExitOnISP">Desactivar al Asistente para la conexión a Internet si la conexión de direcciones URL hace referencia a Microsoft.com</string>
+      <string id="NC_ExitOnISP_Help">Esta configuración de directiva especifica si el Asistente para la conexión a Internet puede conectarse a Microsoft para descargar una lista de proveedores de acceso a Internet (ISP).
+
+Si habilita esta configuración de directiva, la ruta de acceso "Elegir una lista de Proveedores de acceso a Internet" en el Asistente para la conexión a Internet provocará que el asistente se cierre. Esto impide que los usuarios recuperen la lista de ISP, que reside en los servidores de Microsoft.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios podrán conectarse a Microsoft para descargar una lista de los ISP en su área.</string>
+      <string id="NC_NoRegistration">Desactivar el registro si la conexión de direcciones URL hace referencia a Microsoft.com</string>
+      <string id="NC_NoRegistration_Help">Esta configuración de directiva especifica si el Asistente para registro de Windows se conecta a Microsoft.com para registrarse en línea.
+
+Si habilita esta configuración de directiva, se bloqueará la conexión de los usuarios a Microsoft.com para registrarse en línea, por lo que estos no podrán registrar su copia de Windows en línea.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios podrán conectarse a Microsoft.com para finalizar el registro de Windows en línea.
+
+Tenga en cuenta que el registro es opcional e implica el envío de cierta información personal a Microsoft. Sin embargo, se requerirá la Activación de productos de Windows, que no implica el envío de ningún dato personal (excepto el país o la región en que reside el usuario).</string>
+      <string id="PCH_DoNotReport">Desactivar el informe de errores de Windows</string>
+      <string id="PCH_DoNotReport_Help">Esta configuración de directiva controla si se notifican los errores a Microsoft.
+
+El informe de errores se usa para notificar de un sistema o aplicación con errores o que dejó de responder, y para mejorar la calidad del producto.
+
+Si habilita esta configuración de directiva, los usuarios no tendrán la opción de notificar los errores.
+
+Si deshabilita o no establece esta configuración de directiva, se pueden notificar los errores a Microsoft a través de Internet o de un recurso compartido de archivos corporativos.
+
+Esta configuración de directiva invalida cualquier configuración de usuario para informes de errores establecida en el Panel de control.
+
+Consulte también las configuraciones de directiva "Configurar informe de errores", "Mostrar notificaciones de errores" y "Deshabilitar el informe de errores de Windows" en Configuración del equipo/Plantillas administrativas/Componentes de Windows/Informe de errores de Windows.</string>
+      <string id="RemoveWindowsUpdate_ICM">Desactivar el acceso a todas las características de Windows Update</string>
+      <string id="RemoveWindowsUpdate_ICM_Help">Esta configuración de directiva permite quitar el acceso a Windows Update.
+
+Si habilita esta configuración de directiva, se quitarán todas las características de Windows Update. En consecuencia, se bloqueará el acceso al sitio web de Windows Update (http://windowsupdate.microsoft.com) desde el hipervínculo de Windows Update en el menú Inicio y en el menú Herramientas de Internet Explorer. También se deshabilitará la actualización automática de Windows; no recibirá notificaciones ni actualizaciones críticas de Windows Update. Asimismo, esta configuración de directiva impide que el Administrador de dispositivos instale automáticamente actualizaciones de controladores del sitio web de Windows Update.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios tendrán acceso al sitio web de Windows Update y podrán habilitar la actualización automática para recibir notificaciones y actualizaciones críticas de Windows Update.</string>
+      <string id="SearchCompanion_DisableFileUpdates">Desactivar la actualización de archivos de contenido del Asistente para búsqueda</string>
+      <string id="SearchCompanion_DisableFileUpdates_Help">Esta configuración de directiva especifica si el Asistente para búsqueda debe descargar automáticamente actualizaciones de contenido durante las búsquedas locales y en Internet.
+
+Cuando los usuarios realizan una búsqueda en el equipo local o en Internet, el Asistente para búsqueda se conecta ocasionalmente con Microsoft para descargar una directiva de privacidad actualizada y archivos de contenido adicionales usados para aplicar formato a los resultados y mostrarlos.
+
+Si habilita esta configuración de directiva, el Asistente para búsqueda no descargará actualizaciones de contenido durante las búsquedas.
+
+Si deshabilita o no establece esta configuración de directiva, el Asistente para búsqueda descargará actualizaciones de contenido, a menos que el usuario use la búsqueda clásica.
+
+Nota: las búsquedas en Internet seguirán enviando el texto de búsqueda y la información sobre la búsqueda a Microsoft y al proveedor de búsquedas elegido. Si se elige la búsqueda clásica, la característica de Asistente para búsqueda se desactivará totalmente.</string>
+      <string id="ShellNoUseInternetOpenWith">Desactivar el servicio de asociaciones de archivo de Internet</string>
+      <string id="ShellNoUseInternetOpenWith_Help">Esta configuración de directiva especifica si se usa el servicio web de Microsoft para buscar una aplicación que abra un archivo sin ninguna asociación de archivos especificada.
+
+Cuando los usuarios abren un archivo con una extensión que no está asociada con ninguna aplicación del equipo, se les ofrece la opción de seleccionar una aplicación local o usar el servicio web para encontrar una aplicación.
+
+Si habilita esta configuración de directiva, se quitarán el vínculo y el diálogo para usar el servicio web para abrir una asociación de archivos sin especificar.
+
+Si deshabilita o no establece esta configuración de directiva, el usuario podrá usar el servicio web.</string>
+      <string id="ShellNoUseStoreOpenWith">Desactivar el acceso a Store</string>
+      <string id="ShellNoUseStoreOpenWith_Help">Esta configuración de directiva especifica si se usa el servicio de Store para buscar una aplicación que abra un archivo sin ninguna asociación de protocolo o tipo de archivo especificada.
+
+Cuando los usuarios abren un protocolo o tipo de archivo con una extensión que no está asociada con ninguna aplicación del equipo, se les ofrece la opción de seleccionar una aplicación local o usar el servicio de Store para encontrar una aplicación.
+
+Si habilita esta configuración de directiva, se quitará el elemento "Buscar una aplicación en Store" del diálogo Abrir con.
+
+Si deshabilita o no establece esta configuración de directiva, se permite al usuario usar el servicio de Store y el elemento Store estará disponible en el diálogo Abrir con.</string>
+      <string id="ShellPreventWPWDownload">Desactivar descargas de Internet de los asistentes para la publicación en Web y pedidos en línea</string>
+      <string id="ShellPreventWPWDownload_Help">Esta configuración de directiva especifica si Windows debe descargar una lista de proveedores para los asistentes de publicación en Web y pedidos en línea.
+
+Estos asistentes permiten que los usuarios seleccionen de una lista de compañías que proporcionan servicios, como almacenamiento en línea e impresión fotográfica. De manera predeterminada, Windows mostrará los proveedores descargados de un sitio web de Windows, además de los proveedores especificados en el Registro.
+
+Si habilita esta configuración de directiva, Windows no descargará ningún proveedor y solo se mostrarán los proveedores de servicios almacenados en la memoria caché en el Registro local.
+
+Si deshabilita o no establece esta configuración de directiva, se descargará una lista de proveedores cuando el usuario use los asistentes de publicación en Web y pedidos en línea.
+
+Consulte la documentación sobre los asistentes mencionados para obtener más información, incluidos detalles acerca de cómo especificar proveedores de servicios en el Registro.</string>
+      <string id="ShellRemoveOrderPrints">Desactivar la tarea de imágenes "Pedir copias fotográficas"</string>
+      <string id="ShellRemoveOrderPrints_Help">Esta configuración de directiva especifica si la tarea "Pedir copias fotográficas en línea" está disponible en las Tareas de imágenes en las carpetas de Windows.
+
+El Asistente para pedir copias fotográficas en línea se usa para descargar una lista de proveedores y permite que los usuarios pidan copias fotográficas en línea.
+
+Si habilita esta configuración de directiva, se quitará la tarea "Pedir copias fotográficas en línea" de las Tareas de imágenes en las carpetas del Explorador de archivos.
+
+Si deshabilita o no establece esta configuración de directiva, se mostrará la tarea.</string>
+      <string id="ShellRemovePublishToWeb">Desactivar la tarea "Publicar en Web" para archivos y carpetas</string>
+      <string id="ShellRemovePublishToWeb_Help">Esta configuración de directiva especifica si las tareas "Publicar este archivo en Web", "Publicar esta carpeta en Web" y "Publicar los elementos seleccionados en Web" están disponibles en las Tareas de archivo y carpeta en las carpetas de Windows.
+
+El Asistente para la publicación en Web se usa para descargar una lista de proveedores y permite que los usuarios publiquen contenido en la Web.
+
+Si habilita esta configuración de directiva, estas tareas se quitarán de las Tareas de archivo y carpeta en las carpetas de Windows.
+
+Si deshabilita o no establece esta configuración de directiva, se mostrarán las tareas.</string>
+      <string id="WinMSG_NoInstrumentation">Desactivar el Programa para la mejora de la experiencia del usuario de Windows Messenger</string>
+      <string id="WinMSG_NoInstrumentation_Help">Esta configuración de directiva especifica si Windows Messenger recopila información anónima sobre cómo se usa el servicio y el software de Windows Messenger.
+
+Con el Programa para la mejora de la experiencia del usuario, los usuarios pueden permitir que Microsoft recopile información anónima sobre la forma en que se usa el producto.  Esta información se usa para mejorar las versiones futuras del producto.
+
+Si habilita esta configuración de directiva, Windows Messenger no recopilará información de uso, y la configuración de usuario para habilitar la recopilación de información de uso no se mostrará.
+
+Si deshabilita esta configuración de directiva, Windows Messenger recopilará la información anónima de uso, y la opción de configuración no se mostrará.
+
+Si no establece esta configuración de directiva, los usuarios tendrán la opción de participar y permitir que se recopile información.</string>
+      <string id="CEIPEnable">Desactivar el Programa para la mejora de la experiencia del usuario de Windows</string>
+      <string id="CEIPEnableExp">Esta configuración de directiva desactiva el Programa para la mejora de la experiencia del usuario de Windows. El Programa para la mejora de la experiencia del usuario de Windows recopilará información acerca de su configuración de hardware y de cómo usa el software y los servicios para identificar tendencias y patrones de uso. Microsoft no recopilará su nombre, dirección ni ninguna otra información que le pueda identificar personalmente. No deberá completar encuestas, no recibirá llamadas del departamento de ventas y podrá continuar trabajando sin interrupciones. Es sencillo y fácil de usar.
+
+Si habilita esta configuración de directiva, ningún usuario participará en el Programa para la mejora de la experiencia del usuario de Windows.
+
+Si deshabilita esta configuración de directiva, todos los usuarios participarán en el Programa para la mejora de la experiencia del usuario de Windows.
+
+Si no establece esta configuración de directiva, el administrador puede usar el componente Informes de problemas y soluciones del Panel de control para habilitar el Programa para la mejora de la experiencia del usuario de Windows para todos los usuarios.</string>
+        <string id="NoActiveProbe">Desactivar pruebas activas del Indicador de estado de conectividad de red de Windows</string>
+        <string id="NoActiveProbeExp">Esta configuración de directiva desactiva las pruebas activas del Indicador de estado de conectividad de red (NCSI) de Windows para determinar si el equipo está conectado a Internet o a una red más limitada.
+
+Como parte del proceso para determinar el nivel de conectividad, NCSI realiza una de estas dos pruebas activas: descargar una página de un servidor web dedicado o realizar una solicitud de DNS para una dirección dedicada.
+
+Si habilita esta configuración de directiva, NCSI no ejecutará ninguna de las dos pruebas activas. Esto puede reducir la capacidad de NCSI, y de otros componentes que usan NCSI, para determinar si existe acceso a Internet. 
+
+Si deshabilita o no establece esta configuración de directiva, NCSI ejecutará una de las dos pruebas activas.</string>
+    </stringTable>
+</resources>
+</policyDefinitionResources>

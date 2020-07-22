@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="DCOM">COM distribuido</string>
+      <string id="DCOMActivationSecurityCheckAllowLocalList">Permitir excepciones de comprobación de seguridad de activación local</string>
+      <string id="DCOMActivationSecurityCheckAllowLocalList_Explain">Permite especificar que los administradores locales del equipo pueden complementar la lista "Definir excepciones de comprobación de seguridad de activación".
+
+Si habilita esta configuración de directiva y DCOM no encuentra una entrada específica para un id. de aplicación del servidor DCOM (appid) en la directiva "Definir excepciones de comprobación de seguridad de activación" (si estuviera habilitada), DCOM buscará una entrada en la lista configurada localmente.
+
+Si deshabilita esta configuración de directiva, DCOM no buscará en la lista de comprobación de seguridad de activación de DCOM configurada localmente.
+
+Si no establece esta configuración de directiva, DCOM solo buscará en la lista de excepciones configurada localmente si no está configurada la directiva "Definir excepciones de comprobación de seguridad de activación".
+</string>
+      <string id="DCOMActivationSecurityCheckExemptionList">Definir excepciones de comprobación de seguridad de activación</string>
+      <string id="DCOMActivationSecurityCheckExemptionList_Explain">Permite ver y cambiar una lista de identificadores de aplicación del servidor DCOM (appid) que están exentos de la comprobación de seguridad de activación de DCOM. DCOM usa dos listas de este tipo, una configurada a través de la directiva de grupo desde esta configuración de directiva y otra a través de las acciones de los administradores locales del equipo. DCOM omite la segunda lista cuando se establece esta configuración de directiva, a menos que se habilite la directiva "Permitir excepciones de comprobación de seguridad de activación local".
+
+Los appid del servidor DCOM agregados a esta directiva deben listarse en un formato de llaves. Por ejemplo: {b5dcb061-cefb-42e0-a1be-e6a6438133fe}. Si escribe un appid con un formato incorrecto o no existente, DCOM lo agregará a la lista sin comprobar si tiene errores.
+
+Si habilita esta configuración de directiva, puede ver y cambiar la lista de excepciones de comprobación de seguridad de activación de DCOM definida por la configuración de directiva de grupo. Si agrega un appid a la lista y establece su valor en 1, DCOM no aplicará la comprobación de seguridad de activación del servidor DCOM en cuestión. Si agrega un appid a la lista y establece su valor en 0, DCOM aplicará siempre la comprobación de seguridad de activación del servidor DCOM en cuestión, independientemente de la configuración local.
+
+Si deshabilita esta configuración de directiva, se elimina la lista de excepciones de appid definida por la directiva de grupo y se usa la definida por los administradores locales del equipo.
+
+Si no establece esta configuración de directiva, se usa la lista de excepciones de appid definida por los administradores locales del equipo.
+
+Notas:
+
+La comprobación de seguridad de activación de DCOM se lleva a cabo después de que comience el proceso del servidor DCOM, pero antes de se envíe una petición de activación de objetos al proceso del servidor. Esta comprobación de acceso se realiza con el descriptor de seguridad del permiso de inicio personalizado del servidor DCOM, si existe, o, si no existe, con los valores predeterminados configurados.
+
+Si el permiso de inicio personalizado del servidor DCOM contiene entradas DENY explícitas, una vez que el proceso del servidor DCOM estuviera en marcha se podrían producir errores en las activaciones de objetos que se hubieran realizado correctamente para los usuarios especificados. La acción adecuada en este caso es volver a configurar la configuración de permisos de inicio personalizado del servidor DCOM con la configuración de seguridad correcta, pero se puede usar esta configuración de directiva a corto plazo como una ayuda en la implementación de la compatibilidad entre aplicaciones.
+
+Los servidores DCOM agregados a esta lista de excepciones estarán exentos solo si sus permisos de inicio personalizado no contienen entradas específicas de concesión o denegación de LocalLaunch, RemoteLaunch, LocalActivate o RemoteActivate para usuarios o grupos. Tenga en cuenta también que las excepciones de appid del servidor DCOM agregadas a la lista solo se aplicarán a las versiones de 32 y 64 bits del servidor, si existen.</string>
+      <string id="DCOMAppCompatPolicies">Configuración de compatibilidad de aplicaciones</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DCOMActivationSecurityCheckExemptionList">
+        <text>Escribir appid del servidor DCOM con un valor de acción de la lista siguiente.</text>
+        <text>El appid debe incluir las llaves de apertura y cierre.</text>
+        <text> </text>
+        <listBox refId="DCOM_Lbl_ActSecCheckExemptionList">Agregar o quitar servidores DCOM en la lista de excepciones: </listBox>
+        <text> </text>
+        <text>Valores:</text>
+        <text>0 = El appid especificado no está exento de la comprobación de seguridad de activación</text>
+        <text>1 = El appid especificado está exento de la comprobación de seguridad de activación</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

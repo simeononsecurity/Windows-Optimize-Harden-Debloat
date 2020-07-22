@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" xsi:schemaLocation="" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" ><!--Created using ADM Template Editor V4.2.10-->
+<!--Created on 13 May 2015 15:13:32-->
+<!--ADM Template Editor is marketed by Syspro. Visit us at www.sysprosoft.com-->
+
+	<policyNamespaces >
+		<target prefix="90meterCACPIVMDPolicies" namespace="90meter CACPIVMD Policies" />
+	</policyNamespaces>
+	<supersededAdm fileName="90meter CACPIVMD Policies.adm" />
+	<resources minRequiredRevision="1.0" fallbackCulture="en-us" />
+	<supportedOn >
+		<definitions >
+			<definition name="SupportedOn_1" displayName="$(string.String_SupportedOn_Windows_Server_2)" />
+		</definitions>
+	</supportedOn>
+	<categories ><!--Storage for Category Definitions-->
+
+		<category name="Cat_90meter_CACPIV_3" displayName="$(string.String_Cat_90meter_CACPIV_4)" />
+	</categories>
+	<policies ><!--Storage for Policy Definitions-->
+
+		<policy name="Policy_Certificate_Certificate_5" class="Machine" displayName="$(string.String_Policy_Certificate_Certificate_6)" explainText="$(string.String_Explain_7)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Certificate_Certificate_5)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_Certificate_Certificate_8" valueName="DisableCRLChecking" key="Software\Litronic\CACPIVMD" noSort="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Certificate_Certificate_Enable_CRL_checking_9)" >
+						<value >
+							<string >0</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Certificate_Certificate_Disable_CRL_checking_10)" >
+						<value >
+							<string >1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Certificate_Expiration_11" class="Machine" displayName="$(string.String_Policy_Certificate_Expiration_12)" explainText="$(string.String_Explain_13)" key="SOFTWARE\Litronic\CACPIVMD" presentation="$(presentation.Policy_Certificate_Expiration_11)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementCertificate_Expiration_14" key="SOFTWARE\Litronic\CACPIVMD" valueName="ExpiringDays" maxValue="360" minValue="0" storeAsText="true" />
+			</elements>
+		</policy>
+		<policy name="Policy_Certificate_Network_15" class="Machine" displayName="$(string.String_Policy_Certificate_Network_16)" explainText="$(string.String_Explain_17)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Certificate_Network_15)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementCertificate_Network_18" key="Software\Litronic\CACPIVMD" valueName="networkTimeOut" maxValue="60" minValue="10" storeAsText="true" />
+			</elements>
+		</policy>
+		<policy name="Policy_Certificate_Revocation_19" class="Machine" displayName="$(string.String_Policy_Certificate_Revocation_20)" explainText="$(string.String_Explain_21)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Certificate_Revocation_19)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementCertificate_Revocation_22" key="Software\Litronic\CACPIVMD" valueName="revocationRetries" maxValue="6" minValue="1" storeAsText="true" />
+			</elements>
+		</policy>
+		<policy name="Policy_Certificate_Sipr_23" class="Machine" displayName="$(string.String_Policy_Certificate_Sipr_24)" explainText="$(string.String_Explain_25)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Certificate_Sipr_23)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Certificate_Sipr_26" key="Software\Litronic\CACPIVMD" valueName="EnableWhiteList" >
+					<trueValue >
+						<string >YES</string>
+					</trueValue>
+					<falseValue >
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Debugging_Enable_27" class="Machine" displayName="$(string.String_Policy_Debugging_Enable_28)" explainText="$(string.String_Explain_29)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Debugging_Enable_27)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_Debugging_Enable_30" valueName="setupTracelogging" key="Software\Litronic\CACPIVMD" noSort="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Debugging_Enable_Enable_Trace_Logging_31)" >
+						<value >
+							<string >1</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Debugging_Enable_Disable_Trace_Logging_32)" >
+						<value >
+							<string >0</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Debugging_Trace_33" class="Machine" displayName="$(string.String_Policy_Debugging_Trace_34)" explainText="$(string.String_Explain_35)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Debugging_Trace_33)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_Debugging_Trace_36" valueName="systemtracedir" key="Software\Litronic\CACPIVMD" noSort="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Debugging_Trace_Store_the_log_file_37)" >
+						<value >
+							<string >MYDOCUMENTS</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Debugging_Trace_Store_the_log_file_38)" >
+						<value >
+							<string >DESKTOP</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Debugging_Trace_Store_the_log_file_39)" >
+						<value >
+							<string >APPLICATION</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Debugging_Trace_Store_the_log_file_40)" >
+						<value >
+							<string >LOCALAPPLICATION</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Debugging_Trace_41" class="Machine" displayName="$(string.String_Policy_Debugging_Trace_42)" explainText="$(string.String_Explain_43)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Debugging_Trace_41)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_Debugging_Trace_44" valueName="debuglevel" key="Software\Litronic\CACPIVMD" noSort="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Debugging_Trace_0_All_Trace_Messages_45)" >
+						<value >
+							<string >0</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Debugging_Trace_1_Main_Messages_46)" >
+						<value >
+							<string >1</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Debugging_Trace_2_Main_Messages_47)" >
+						<value >
+							<string >2</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Docs_Installed_48" class="Machine" displayName="$(string.String_Policy_Docs_Installed_49)" explainText="$(string.String_Explain_50)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Docs_Installed_48)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Docs_Installed_51" key="Software\Litronic\CACPIVMD" valueName="installedDoc" >
+					<trueValue >
+						<string >1</string>
+					</trueValue>
+					<falseValue >
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Notify_Remove_52" class="Machine" displayName="$(string.String_Policy_Notify_Remove_53)" explainText="$(string.String_Explain_54)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Notify_Remove_52)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_Notify_Remove_55" valueName="LogOffWarning" key="Software\Litronic\CACPIVMD" required="true" noSort="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Notify_Remove_Turn_ON_remove_56)" >
+						<value >
+							<string >YES</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Notify_Remove_Turn_OFF_remove_57)" >
+						<value >
+							<string >NO</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Notify_Notification_58" class="Machine" displayName="$(string.String_Policy_Notify_Notification_59)" explainText="$(string.String_Explain_60)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Notify_Notification_58)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_Notify_Notification_61" valueName="notificationenable" key="Software\Litronic\CACPIVMD" noSort="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Notify_Notification_Enable_turn_ON_62)" >
+						<value >
+							<string >1</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Notify_Notification_Disable_turn_OFF_63)" >
+						<value >
+							<string >0</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Notify_Notification_64" class="Machine" displayName="$(string.String_Policy_Notify_Notification_65)" explainText="$(string.String_Explain_66)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Notify_Notification_64)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_Notify_Notification_67" valueName="notificationType" key="Software\Litronic\CACPIVMD" >
+					<item displayName="$(string.String_Policy_DropList_Select_Notify_Notification_Messagebox_Notifications_68)" >
+						<value >
+							<string >1</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Notify_Notification_Fading_Notifications_69)" >
+						<value >
+							<string >2</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_P2G_DN_Update_70" class="Machine" displayName="$(string.String_Policy_P2G_DN_Update_71)" explainText="$(string.String_Explain_72)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_P2G_DN_Update_70)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_P2G_DN_Update_73" key="Software\Litronic\CACPIVMD" valueName="DNUpdateActive" >
+					<trueValue >
+						<string >1</string>
+					</trueValue>
+					<falseValue >
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_P2G_DN_Update_74" class="Machine" displayName="$(string.String_Policy_P2G_DN_Update_75)" explainText="$(string.String_Explain_76)" key="SOFTWARE\Litronic\CACPIVMD" presentation="$(presentation.Policy_P2G_DN_Update_74)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<text id="Policy_TextBox_Element_P2G_DN_Update_77" key="SOFTWARE\Litronic\CACPIVMD" valueName="DNUpdateField" required="true" />
+			</elements>
+		</policy>
+		<policy name="Policy_P2G_Publish_Certificates_78" class="Machine" displayName="$(string.String_Policy_P2G_Publish_Certificates_79)" explainText="$(string.String_Explain_80)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_P2G_Publish_Certificates_78)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_P2G_Publish_Certificates_81" valueName="PublishCertificates" key="Software\Litronic\CACPIVMD" noSort="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_P2G_Publish_Certificates_Enable_automatic_82)" >
+						<value >
+							<string >1</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_P2G_Publish_Certificates_Disable_automatic_83)" >
+						<value >
+							<string >0</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_P2G_Verify_Email_84" class="Machine" displayName="$(string.String_Policy_P2G_Verify_Email_85)" explainText="$(string.String_Explain_86)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_P2G_Verify_Email_84)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_P2G_Verify_Email_87" valueName="P2G_EmailCheck" key="Software\Litronic\CACPIVMD" >
+					<item displayName="$(string.String_Policy_DropList_Select_P2G_Verify_Email_Verify_Email_Address_88)" >
+						<value >
+							<string >1</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_P2G_Verify_Email_Do_NOT_verify_email_89)" >
+						<value >
+							<string >0</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Tab_Control_Certificate_90" class="Machine" displayName="$(string.String_Policy_Tab_Control_Certificate_91)" explainText="$(string.String_Explain_92)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Tab_Control_Certificate_90)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Tab_Control_Certificate_93" key="Software\Litronic\CACPIVMD" valueName="disableCertBrowserTab" >
+					<trueValue >
+						<string >1</string>
+					</trueValue>
+					<falseValue >
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Tab_Control_Log_94" class="Machine" displayName="$(string.String_Policy_Tab_Control_Log_95)" explainText="$(string.String_Explain_96)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Tab_Control_Log_94)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Tab_Control_Log_97" key="Software\Litronic\CACPIVMD" valueName="disableDebugTab" >
+					<trueValue >
+						<string >1</string>
+					</trueValue>
+					<falseValue >
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Tab_Control_PIN_98" class="Machine" displayName="$(string.String_Policy_Tab_Control_PIN_99)" explainText="$(string.String_Explain_100)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Tab_Control_PIN_98)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Tab_Control_PIN_101" key="Software\Litronic\CACPIVMD" valueName="disablePinChangeTab" >
+					<trueValue >
+						<string >1</string>
+					</trueValue>
+					<falseValue >
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Tab_Control_Settings_102" class="Machine" displayName="$(string.String_Policy_Tab_Control_Settings_103)" explainText="$(string.String_Explain_104)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Tab_Control_Settings_102)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Tab_Control_Settings_105" key="Software\Litronic\CACPIVMD" valueName="DisableSettingsTab" >
+					<trueValue >
+						<string >1</string>
+					</trueValue>
+					<falseValue >
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Tab_Control_System_106" class="Machine" displayName="$(string.String_Policy_Tab_Control_System_107)" explainText="$(string.String_Explain_108)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Tab_Control_System_106)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Tab_Control_System_109" key="Software\Litronic\CACPIVMD" valueName="disableSystemInfoTab" >
+					<trueValue >
+						<string >1</string>
+					</trueValue>
+					<falseValue >
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Tab_Control_Welcome_110" class="Machine" displayName="$(string.String_Policy_Tab_Control_Welcome_111)" explainText="$(string.String_Explain_112)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Tab_Control_Welcome_110)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Tab_Control_Welcome_113" key="Software\Litronic\CACPIVMD" valueName="disableWelcomeTab" >
+					<trueValue >
+						<string >1</string>
+					</trueValue>
+					<falseValue >
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Updating_Software_114" class="Machine" displayName="$(string.String_Policy_Updating_Software_115)" explainText="$(string.String_Explain_116)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Updating_Software_114)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_Updating_Software_117" valueName="allowUpdates" key="Software\Litronic\CACPIVMD" noSort="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Updating_Software_Allow_software_118)" >
+						<value >
+							<string >1</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Updating_Software_Do_Not_allow_software_119)" >
+						<value >
+							<string >0</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Utility_ATR_Auto_120" class="Machine" displayName="$(string.String_Policy_Utility_ATR_Auto_121)" explainText="$(string.String_Explain_122)" key="SOFTWARE\Litronic\CACPIVMD" presentation="$(presentation.Policy_Utility_ATR_Auto_120)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Utility_ATR_Auto_123" key="SOFTWARE\Litronic\CACPIVMD" valueName="ATRAutoAdd" >
+					<trueValue >
+						<string >NO</string>
+					</trueValue>
+					<falseValue >
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Utility_Lock_On_124" class="Machine" displayName="$(string.String_Policy_Utility_Lock_On_125)" explainText="$(string.String_Explain_126)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Utility_Lock_On_124)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_Utility_Lock_On_127" valueName="LockOnCardRemoval" key="Software\Litronic\CACPIVMD" noSort="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Utility_Lock_On_Lock_the_workstation_128)" >
+						<value >
+							<string >1</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Utility_Lock_On_Do_NOT_lock_the_129)" >
+						<value >
+							<string >0</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Utility_Polling_130" class="Machine" displayName="$(string.String_Policy_Utility_Polling_131)" explainText="$(string.String_Explain_132)" key="Software\Litronic\CACPIVMD" presentation="$(presentation.Policy_Utility_Polling_130)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementUtility_Polling_133" key="Software\Litronic\CACPIVMD" valueName="TenthsOfSecs" maxValue="255" minValue="0" storeAsText="true" />
+			</elements>
+		</policy>
+		<policy name="Policy_Utility_Set_Exclusive_134" class="Machine" displayName="$(string.String_Policy_Utility_Set_Exclusive_135)" explainText="$(string.String_Explain_136)" key="SOFTWARE\Litronic\CACPIVMD" presentation="$(presentation.Policy_Utility_Set_Exclusive_134)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<enum id="Policy_DropList_Element_Utility_Set_Exclusive_137" valueName="MiniDriver" key="SOFTWARE\Litronic\CACPIVMD" noSort="true" >
+					<item displayName="$(string.String_Policy_DropList_Select_Utility_Set_Exclusive_DOD_Class_ONLY_138)" >
+						<value >
+							<string >sipr</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Utility_Set_Exclusive_State_Dept_Class_139)" >
+						<value >
+							<string >bladesc</string>
+						</value>
+					</item>
+					<item displayName="$(string.String_Policy_DropList_Select_Utility_Set_Exclusive_Both_DOD_and_State_140)" >
+						<value >
+							<string >sipr bladesc</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<policy name="Policy_Utility_SIPR_PIN_141" class="Machine" displayName="$(string.String_Policy_Utility_SIPR_PIN_142)" explainText="$(string.String_Explain_143)" key="Software\90meter\PinPolicies" presentation="$(presentation.Policy_Utility_SIPR_PIN_141)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementUtility_SIPR_PIN_144" key="Software\90meter\PinPolicies" valueName="SiprMinPinLen" maxValue="16" minValue="8" />
+				<decimal id="Policy_Numeric_ElementUtility_SIPR_PIN_145" key="Software\90meter\PinPolicies" valueName="SiprMaxPinLen" maxValue="16" minValue="8" />
+			</elements>
+		</policy>
+		<policy name="Policy_Utility_State_146" class="Machine" displayName="$(string.String_Policy_Utility_State_147)" explainText="$(string.String_Explain_148)" key="SOFTWARE\Litronic\CACPIVMD" presentation="$(presentation.Policy_Utility_State_146)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<boolean id="Policy_CheckBox_Element_Utility_State_149" key="SOFTWARE\Litronic\CACPIVMD" valueName="readonly" >
+					<trueValue >
+						<decimal value="0" />
+					</trueValue>
+					<falseValue >
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="Policy_Utility_State_150" class="Machine" displayName="$(string.String_Policy_Utility_State_151)" explainText="$(string.String_Explain_152)" key="Software\90meter\PinPolicies" presentation="$(presentation.Policy_Utility_State_150)" >
+			<parentCategory ref="Cat_90meter_CACPIV_3" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements >
+				<decimal id="Policy_Numeric_ElementUtility_State_153" key="Software\90meter\PinPolicies" valueName="StateMinPinLen" maxValue="20" minValue="8" />
+				<decimal id="Policy_Numeric_ElementUtility_State_154" key="Software\90meter\PinPolicies" valueName="StateMaxPinLen" maxValue="20" minValue="8" />
+			</elements>
+		</policy>
+	</policies>
+</policyDefinitions>

@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="msPassportForWork" namespace="Microsoft.Policies.MicrosoftPassportForWork" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="MSPassportForWorkCategory" displayName="$(string.MSPassportForWorkCategory)">
+        <parentCategory ref="windows:WindowsComponents" />
+    </category>
+    <!-- PIN Complexity moving to the System Node --> 
+    <category name="MSPassportForWorkPINComplexityCategory" displayName="$(string.MSPassportForWorkPINComplexityCategory)">
+        <parentCategory ref="windows:System" />
+    </category>
+  </categories>
+  <policies>
+    <!-- Enable Passport Policy -->
+    <policy name="MSPassport_UsePassportForWork" class="Both" displayName="$(string.MSPassport_UsePassportForWork)" presentation=
+    "$(presentation.MSPassport_UsePassportForWorkControl)" explainText="$(string.MSPassport_UsePassportForWorkExplain)" key="SOFTWARE\Policies\Microsoft\PassportForWork" valueName="Enabled">
+        <parentCategory ref="MSPassportForWorkCategory" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+        <enabledValue>
+          <decimal value="1" />
+        </enabledValue>
+        <disabledValue>
+          <decimal value="0" />
+        </disabledValue>
+        <elements>
+          <boolean id="MSPassport_DisablePostLogonProvisioning" key="SOFTWARE\Policies\Microsoft\PassportForWork" valueName="DisablePostLogonProvisioning">
+            <trueValue>
+              <decimal value="1" />
+            </trueValue>
+            <falseValue>
+              <decimal value="0" />
+            </falseValue>
+          </boolean>
+        </elements>
+    </policy>
+    <!-- Require hardware policy -->
+    <!-- RS2 Added exclusion list to require hardware -->
+    <policy name="MSPassport_RequireSecurityDevice" class="Machine" displayName="$(string.MSPassport_RequireSecurityDevice)" presentation=
+    "$(presentation.MSPassport_ExcludeSecurityDevicesControl)" explainText="$(string.MSPassport_RequireSecurityDeviceExplain)" key="SOFTWARE\Policies\Microsoft\PassportForWork" valueName="RequireSecurityDevice">
+        <parentCategory ref="MSPassportForWorkCategory" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+        <enabledValue>
+          <decimal value="1" />
+        </enabledValue>
+        <disabledValue>
+          <decimal value="0" />
+        </disabledValue>
+        <elements>
+          <boolean id="MSPassport_ExcludeTPM12DataType" key="SOFTWARE\Policies\Microsoft\PassportForWork\ExcludeSecurityDevices" valueName="TPM12">
+            <trueValue>
+              <decimal value="1" />
+            </trueValue>
+            <falseValue>
+              <decimal value="0" />
+            </falseValue>
+          </boolean>
+        </elements>
+    </policy>
+    <!-- use biometrics -->
+    <policy name="MSPassport_UseBiometrics" class="Machine" displayName="$(string.MSPassport_UseBiometrics)" explainText="$(string.MSPassport_UseBiometricsExplain)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\WinBio\Credential Provider" valueName="Domain Accounts">
+        <parentCategory ref="MSPassportForWorkCategory" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+        <enabledValue>
+          <decimal value="1" />
+        </enabledValue>
+        <disabledValue>
+          <decimal value="0" />
+        </disabledValue>
+    </policy>
+    <!-- Enable PIN recovery -->
+    <policy name="MSPassport_EnablePinRecovery" class="Machine" displayName="$(string.MSPassport_EnablePinRecovery)" explainText="$(string.MSPassport_EnablePinRecoveryExplain)" key="SOFTWARE\Policies\Microsoft\PassportForWork" valueName="EnablePinRecovery">
+        <parentCategory ref="MSPassportForWorkCategory" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+        <enabledValue>
+          <decimal value="1" />
+        </enabledValue>
+        <disabledValue>
+          <decimal value="0" />
+        </disabledValue>
+    </policy>
+    <!-- Pin Complexity Policy -->
+    <!--  Minimum PIN Length -->
+    <policy name="MSPassport_MinimumPINLength" class="Machine" displayName="$(string.MSPassport_MinimumPINLength)" explainText="$(string.MSPassport_MinimumPINLengthExplain)" presentation="$(presentation.MSPassport_MinimumPINLengthControl)" key="SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity">
+      <parentCategory ref="MSPassportForWorkPINComplexityCategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+      <elements>
+          <decimal id="MSPassport_MinimumPINLengthDataType" valueName="MinimumPINLength" minValue="4" maxValue="127" />
+      </elements>
+    </policy>
+    <!-- Maximum PIN Length -->
+    <policy name="MSPassport_MaximumPINLength" class="Machine" displayName="$(string.MSPassport_MaximumPINLength)" explainText="$(string.MSPassport_MaximumPINLengthExplain)" presentation="$(presentation.MSPassport_MaximumPINLengthControl)" key="SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity">
+      <parentCategory ref="MSPassportForWorkPINComplexityCategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+      <elements>
+          <decimal id="MSPassport_MaximumPINLengthDataType" valueName="MaximumPINLength" minValue="4" maxValue="127" />
+      </elements>
+    </policy>
+    <!-- Uppercase Letter  -->
+    <policy name="MSPassport_UppercaseLetters" class="Machine" displayName="$(string.MSPassport_UppercaseLetters)" explainText="$(string.MSPassport_UppercaseLettersExplain)" key="SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity" valueName="UppercaseLetters">
+      <parentCategory ref="MSPassportForWorkPINComplexityCategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="2" />
+      </disabledValue>
+    </policy>
+    <!-- Lowercase letters -->
+    <policy name="MSPassport_LowercaseLetters" class="Machine" displayName="$(string.MSPassport_LowercaseLetters)" explainText="$(string.MSPassport_LowercaseLettersExplain)" key="SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity" valueName="LowercaseLetters">
+      <parentCategory ref="MSPassportForWorkPINComplexityCategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="2" />
+      </disabledValue>
+    </policy>
+    <!-- Special Characters -->
+    <policy name="MSPassport_SpecialCharacters" class="Machine" displayName="$(string.MSPassport_SpecialCharacters)" explainText="$(string.MSPassport_SpecialCharactersExplain)" key="SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity" valueName="SpecialCharacters">
+      <parentCategory ref="MSPassportForWorkPINComplexityCategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="2" />
+      </disabledValue>
+    </policy>
+    <!-- Digits -->
+    <policy name="MSPassport_Digits" class="Machine" displayName="$(string.MSPassport_Digits)" explainText="$(string.MSPassport_DigitsExplain)" key="SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity" valueName="Digits">
+      <parentCategory ref="MSPassportForWorkPINComplexityCategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="2" />
+      </disabledValue>
+    </policy>
+    <!-- History -->
+    <policy name="MSPassport_PINHistory" class="Machine" displayName="$(string.MSPassport_PINHistory)" explainText="$(string.MSPassport_PINHistoryExplain)" presentation="$(presentation.MSPassport_PINHistoryControl)" key="SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity">
+      <parentCategory ref="MSPassportForWorkPINComplexityCategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+      <elements>
+        <decimal id="MSPassport_PINHistoryDataType" valueName="History" minValue="0" maxValue="50" />
+      </elements>
+    </policy>
+    <!-- Expiration -->
+    <policy name="MSPassport_PINExpiration" class="Machine" displayName="$(string.MSPassport_PINExpiration)" explainText="$(string.MSPassport_PINExpirationExplain)" presentation="$(presentation.MSPassport_PINExpirationControl)" key="SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity">
+      <parentCategory ref="MSPassportForWorkPINComplexityCategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+      <elements>
+        <decimal id="MSPassport_PINExpirationDataType" valueName="Expiration" minValue="0" maxValue="730" />
+      </elements>
+    </policy>
+    <!-- UseCertificateForOnPremAuth Policy -->
+    <policy name="WHFB_UseCertificateForOnPremAuth" class="Both" displayName="$(string.WHFB_UseCertificateForOnPremAuth)" explainText="$(string.WHFB_UseCertificateForOnPremAuthExplain)" key="SOFTWARE\Policies\Microsoft\PassportForWork" valueName="UseCertificateForOnPremAuth">
+        <parentCategory ref="MSPassportForWorkCategory" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+        <enabledValue>
+          <decimal value="1" />
+        </enabledValue>
+        <disabledValue>
+          <decimal value="0" />
+        </disabledValue>
+    </policy>
+    <!-- Device unlock policy -->
+    <policy name="MSPassport_UseDeviceUnlock" class="Machine" displayName="$(string.MSPassport_UseDeviceUnlock)" explainText="$(string.MSPassport_UseDeviceUnlock_Explain)"
+            presentation="$(presentation.MSPassport_UseDeviceUnlock_Control)"
+            key="SOFTWARE\Policies\Microsoft\PassportForWork\DeviceUnlock">
+        <parentCategory ref="MSPassportForWorkCategory" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+        <elements>
+            <text id="MSPassport_UseDeviceUnlock_GroupA" valueName="GroupA"/>
+            <text id="MSPassport_UseDeviceUnlock_GroupB" valueName="GroupB"/>
+            <text id="MSPassport_UseDeviceUnlock_Plugins" valueName="Plugins"/>
+        </elements>
+    </policy>
+    <!-- Dynamic lock policy -->
+    <policy name="MSPassport_UseDynamicLock" class="Machine" displayName="$(string.MSPassport_UseDynamicLock)" explainText="$(string.MSPassport_UseDynamicLock_Explain)"
+            presentation="$(presentation.MSPassport_UseDynamicLock_Control)"
+            key="SOFTWARE\Policies\Microsoft\PassportForWork\DynamicLock"
+            valueName="DynamicLock">
+        <parentCategory ref="MSPassportForWorkCategory" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+        <enabledValue>
+            <decimal value="1" />
+        </enabledValue>
+        <disabledValue>
+            <decimal value="0" />
+        </disabledValue>
+        <elements>
+            <text id="MSPassport_UseDynamicLock_Plugins" valueName="Plugins"/>
+        </elements>
+    </policy>
+    <!-- Smart card emulation policy -->
+    <policy name="MSPassport_DisableSmartCardNode" class="Machine" displayName="$(string.MSPassport_DisableSmartCardNode)" explainText="$(string.MSPassport_DisableSmartCardNodeExplain)" key="SOFTWARE\Policies\Microsoft\PassportForWork" valueName="DisableSmartCardNode">
+        <parentCategory ref="MSPassportForWorkCategory" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+        <enabledValue>
+          <decimal value="1" />
+        </enabledValue>
+        <disabledValue>
+          <decimal value="0" />
+        </disabledValue>
+    </policy>
+    <policy name="MSPassport_AllowAllUserAccessToSmartCardNode" class="Machine" displayName="$(string.MSPassport_AllowAllUserAccessToSmartCardNode)" explainText="$(string.MSPassport_AllowAllUserAccessToSmartCardNodeExplain)" key="SOFTWARE\Policies\Microsoft\PassportForWork" valueName="AllowAllUserAccessToSmartCardNode">
+        <parentCategory ref="MSPassportForWorkCategory" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+        <enabledValue>
+          <decimal value="1" />
+        </enabledValue>
+        <disabledValue>
+          <decimal value="0" />
+        </disabledValue>
+    </policy>
+    <!-- Certificate propagation policy -->
+    <policy name="MSPassport_UseHelloCertificatesAsSmartCardCertificates" class="Machine" displayName="$(string.MSPassport_UseHelloCertificatesAsSmartCardCertificates)" explainText="$(string.MSPassport_UseHelloCertificatesAsSmartCardCertificatesExplain)" key="SOFTWARE\Policies\Microsoft\PassportForWork" valueName="UseHelloCertificatesAsSmartCardCertificates">
+        <parentCategory ref="MSPassportForWorkCategory" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+        <enabledValue>
+          <decimal value="1" />
+        </enabledValue>
+        <disabledValue>
+          <decimal value="0" />
+        </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

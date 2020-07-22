@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="unknown_0">VMware Horizon URL Redirection</string>
+      <string id="unknown_2">IE policy: Prevent users from changing URL Redirection plugin loading behavior</string>
+      <string id="unknown_6">IE policy: Automatically enable URL Redirection plugin</string>
+      <string id="unknown_8">Url Redirection Enabled</string>
+      <string id="unknown_10">Url Redirection Protocol 'http'</string>
+      <string id="unknown_15">Url Redirection Protocol '...'</string>
+      <string id="unknown_3">Determines whether users can disable URL Content Redirection.</string>
+      <string id="unknown_7">Determines whether newly installed Internet Explorer plug-ins are automatically activated.</string>
+      <string id="unknown_9">Determines whether this feature is turned on. This setting is enabled by default. You can use this setting to disable the feature even if the component has been installed.</string>
+      <string id="HelpString">For all URLs that use this protocol, specifies the URLs that should be redirected.
+For example, if you set agentRules to .*.mycompany.com then all URLs that have "mycompany.com" in them are redirected to a remote desktop or remote application. You can further specify which connection server to use by setting brokerHostname, and you can specify which desktop or application pool to use by setting remoteItem to the display name of the pool, as shown in View Administrator.
+If you set clientRules to .*.mycompany.com then all URLs that have "mycompany.com" in them are redirected to the Windows-based client and opened in the default browser on the client.
+
+Note
+
+As a best practice, set the same rules for the HTTP protocol and the HTTPS protocol. That way, if a user types a partial URL, such as mycompany.com into Internet Explorer, if that site automatically redirects from HTTP to HTTPS, the URL Content Redirection feature will work as desired. In this case, if you set a rule for HTTPS but not HTTP, the partial URL that the user types would not be redirected.</string>
+      <string id="ADMXMigrator_UnresolvedString">ADMX Migrator encountered a string that is not present in the source ADM string table.</string>
+      <string id="ADMXMigrator_NoSupportedOn">ADMX Migrator encountered a policy that does not have a supportedOn value.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="IEpolicyPreventusersfromchangingURLRedirectionpluginloadingbehavior" />
+      <presentation id="IEpolicyAutomaticallyenableURLRedirectionplugin" />
+      <presentation id="UrlRedirectionEnabled" />
+      <presentation id="UrlRedirectionProtocol_http">
+        <textBox refId="brokerHostname">
+          <label>brokerHostname</label>
+        </textBox>
+        <textBox refId="remoteItem">
+          <label>remoteItem</label>
+        </textBox>
+        <textBox refId="clientRules">
+          <label>clientRules</label>
+        </textBox>
+        <textBox refId="agentRules">
+          <label>agentRules</label>
+        </textBox>
+      </presentation>
+      <presentation id="UrlRedirectionProtocol_">
+        <textBox refId="brokerHostname">
+          <label>brokerHostname</label>
+        </textBox>
+        <textBox refId="remoteItem">
+          <label>remoteItem</label>
+        </textBox>
+        <textBox refId="clientRules">
+          <label>clientRules</label>
+        </textBox>
+        <textBox refId="agentRules">
+          <label>agentRules</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

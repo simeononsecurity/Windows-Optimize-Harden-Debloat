@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+	<displayName >Introduzca el nombre para mostrar aquí</displayName>
+	<description >Ajustes de configuración comunes de VMware Horizon View para Client, Server y Agent</description>
+	<resources >
+		<stringTable ><!--Storage for String Definitions-->
+
+			<string id="Undefined" >Sin definir</string>
+
+			<string id="View_Common_Config" >Configuración común de VMware View Agent</string>
+
+			<string id="Log_Config" >Configuración de registro</string>
+
+			<string id="Perf_alarms" >Alarmas de rendimiento</string>
+
+			<string id="Security_Config" >Configuración de seguridad</string>
+
+			<string id="Enable_extended_logging" >Habilitar registro avanzado</string>
+
+			<string id="Enable_extended_logging_Desc" >Determina si los eventos de depuración y de seguimiento se incluyen en los archivos de registro</string>
+
+			<string id="Log_event_disk_threshhold" >Umbral de disco en megabytes para registro y eventos</string>
+
+			<string id="Log_event_disk_threshhold_Desc" >Especifica el umbral mínimo de espacio de disco restante para los registros y los eventos. Si no se especifica ningún valor, se aplica un valor predeterminado de 200. Cuando se alcanza este valor, se detiene el registro de eventos.</string>
+
+			<string id="Override_the_default_Windows_Event_Gen" >Anular la generación de eventos de Windows predeterminada de View</string>
+
+			<string id="Override_the_default_Windows_Event_Gen_Desc" >Son compatibles los siguientes valores:
+    0 = solo se generan entradas del registro de eventos para los eventos de View (no se generan entradas del registro de eventos para los mensajes de registro)
+    1 = se generan entradas del registro de eventos en el modo de compatibilidad 4.5 (y versiones anteriores). No se generan entradas del registro de eventos para los eventos de View estándar. Las entradas del registro de eventos se basan exclusivamente en el texto del archivo de registro.
+    2 = se generan entradas del registro de eventos en el modo de compatibilidad 4.5 (y versiones anteriores) con eventos de View incluidos.</string>
+
+			<string id="Production_Logs_Duration" >Días de mantenimiento de registros de producción</string>
+
+			<string id="Production_Logs_Duration_Desc" >Especifica el número de días durante los cuales los archivos de registro se mantienen en el sistema. Si no se establece ningún valor, se aplica el valor predeterminado y los archivos de registro se mantienen solo durante 7 días.</string>
+
+			<string id="Max_Debug_logs" >Número máximo de registros de depuración</string>
+
+			<string id="Max_Debug_logs_Desc" >Especifica el número máximo de archivos de registro de depuración que se mantienen en el sistema (el valor predeterminado es 10). Cuando un archivo de registro alcanza su tamaño máximo, no se agregan más entradas y se crea un nuevo archivo de registro. Cuando el número de archivos de registro previos alcanza este valor, se elimina el archivo más antiguo.</string>
+
+			<string id="Max_Debug_logs_size" >Tamaño máximo en megabytes del registro de depuración</string>
+
+			<string id="Max_Debug_logs_size_Desc" >Especifica el tamaño máximo en megabytes que puede alcanzar un registro de depuración antes de que se cierre el archivo de registro y se cree uno nuevo. (el valor predeterminado es 10 MB).</string>
+
+			<string id="Log_Dir" >Directorio de registro</string>
+
+			<string id="Log_Dir_Desc" >Ruta completa al directorio de los archivos de registro. Si no se puede escribir en esta ubicación, se usa la predeterminada. Tenga en cuenta que, en el caso los archivos de registro del cliente, se crea un directorio adicional con el nombre del cliente para los registros.</string>
+
+			<string id="Send_logs_to_Syslog_Svr" >Enviar registros a un servidor syslog</string>
+
+			<string id="Send_logs_to_Syslog_Svr_Desc" >Habilitar y establecer que se envíen registros de View Server a un servidor syslog como VMware LogInsight. No se recomienda el uso de esta función en redes no seguras.
+Formato: Nivel de registro|FQDN o IP del servidor [|Número de puerto (514 predeterminado)], ejemplo: Debug|192.0.2.2</string>
+
+			<string id="CPU_Mem_Sampling_Interval" >Intervalo de muestreo de memoria y CPU en segundos</string>
+
+			<string id="CPU_Mem_Sampling_Interval_Desc" >Especifica la frecuencia con la que se sondean la memoria y la CPU. Tenga en cuenta que un intervalo de sondeo bajo puede provocar que el nivel de escritura de resultados en el registro sea extremadamente alto.</string>
+
+			<string id="Overall_CPU_usage" >Porcentaje general de uso de CPU para emitir información de registro</string>
+
+			<string id="Overall_CPU_usage_Desc" >Especifica el umbral en el que se registra el uso general de la CPU del sistema. Tenga en cuenta que, si hay disponibles varios procesadores, este porcentaje representa el uso combinado.</string>
+
+			<string id="Overall_memory_usage" >Porcentaje general de uso de memoria para emitir información de registro</string>
+
+			<string id="Overall_memory_usage_Desc" >El umbral en el que se registra el uso general de la memoria asignada del sistema (memoria asignada por procesos y a la que el sistema operativo asigna memoria física o una ranura de página en el archivo de paginación).</string>
+
+			<string id="Process_CPU_usage" >Porcentaje de uso de CPU por proceso para emitir información de registro</string>
+
+			<string id="Process_CPU_usage_Desc" >Especifica el umbral en el que se registra el uso de CPU de cualquier proceso individual.</string>
+
+			<string id="Process_memory_usage" >Porcentaje de uso de memoria por proceso para emitir información de registro</string>
+
+			<string id="Process_memory_usage_Desc" >Especifica el umbral en el que se registra el uso de memoria de cualquier proceso individual.</string>
+
+			<string id="Processes_to_check" >Procesos que comprobar, lista de nombres separados por comas que permite comodines y exclusiones</string>
+
+			<string id="Processes_to_check_Desc" >Una lista de consultas separadas por comas que se corresponden con el nombre de uno o más procesos que se deben examinar. Para filtrar la lista, puede utilizar los siguientes comodines en cada consulta: un asterisco (*) que se corresponda con ninguno o con varios caracteres, un signo de interrogación (?) que se corresponda justo con un carácter y un signo de exclamación (!) que puede usarse como prefijo de una consulta para excluir posibles resultados obtenidos por dicha consulta. Por ejemplo: &quot;!*sys,ws*&quot;: seleccionar todos los procesos que comiencen con &quot;ws&quot; pero excluyendo todos los procesos que acaben con &quot;sys&quot;.</string>
+
+			<string id="Type_of_certificate_revocation" >Tipo de comprobación de revocación de certificados</string>
+
+			<string id="Type_of_certificate_revocation_Desc" >Seleccione el tipo de comprobación de revocación de certificados que debe realizarse: ninguna, EndCertificateOnly, WholeChain o WholeChainButRoot. El valor predeterminado es WholeChainButRoot.</string>
+
+			<string id="None" >Ninguno</string>
+
+			<string id="End_Cert_Only" >EndCertificateOnly</string>
+
+			<string id="Whole_Chain" >WholeChain</string>
+
+			<string id="Whole_Chain_But_Root" >WholeChainButRoot</string>
+
+			<string id="Only_use_cached_revocation_URL" >Utilizar solamente URL de revocación en caché</string>
+
+			<string id="Only_use_cached_revocation_URL_Desc" >La comprobación de revocación de certificados accederá únicamente a las URL en caché. El valor predeterminado, si no está configurado, es false.</string>
+
+			<string id="Revocation_URL_check_timeout" >Tiempo de espera de comprobación de direcciones URL de revocación en milisegundos</string>
+
+			<string id="Revocation_URL_check_timeout_Desc" >El tiempo de espera acumulado en todas las recuperaciones de filtrado de URL de revocación en milisegundos. Si el valor no está configurado o está establecido en 0, esto significa que se utiliza la manipulación predeterminada de Microsoft.</string>
+
+		</stringTable>
+
+		<presentationTable ><!--Storage for Presentation Definitions-->
+
+			<presentation id="Log_event_disk_threshhold" >
+				<decimalTextBox refId="Log_event_disk_threshhold_DecimalBox_1" defaultValue="200" >Umbral de disco en megabytes para registro y eventos</decimalTextBox>
+			</presentation>
+
+			<presentation id="Override_the_default_Windows_Event_Gen" >
+				<decimalTextBox refId="Override_the_default_Windows_Event_Gen_DecimalBox" defaultValue="0" >Anular la generación de eventos de Windows predeterminada de View</decimalTextBox>
+			</presentation>
+
+			<presentation id="Production_Logs_Duration" >
+				<decimalTextBox refId="Production_Logs_Duration_DecimalBox" defaultValue="7" >Días de mantenimiento de registros de producción</decimalTextBox>
+			</presentation>
+
+			<presentation id="Max_Debug_logs" >
+				<decimalTextBox refId="Max_Debug_logs_DecimalBox" defaultValue="10" >Número máximo de registros de depuración</decimalTextBox>
+			</presentation>
+
+			<presentation id="Max_Debug_logs_size" >
+				<decimalTextBox refId="Max_Debug_logs_size_DecimalBox" defaultValue="10" >Tamaño máximo en megabytes del registro de depuración</decimalTextBox>
+			</presentation>
+
+			<presentation id="Log_Dir" >
+				<textBox refId="Log_Dir_TextBox" >
+					<label >Directorio de registro</label>
+				</textBox>
+			</presentation>
+
+			<presentation id="Send_logs_to_Syslog_Svr" >
+				<textBox refId="Send_logs_to_Syslog_Svr_TextBox" >
+					<label >Enviar registros a un servidor syslog</label>
+				</textBox>
+			</presentation>
+
+			<presentation id="CPU_Mem_Sampling_Interval" >
+				<decimalTextBox refId="CPU_Mem_Sampling_Interval_DecimalBox" defaultValue="60" >Intervalo de muestreo de memoria y CPU en segundos</decimalTextBox>
+			</presentation>
+
+			<presentation id="Overall_CPU_usage" >
+				<decimalTextBox refId="Overall_CPU_usage_DecimalBox" defaultValue="90" >Porcentaje general de uso de CPU para emitir información de registro</decimalTextBox>
+			</presentation>
+
+			<presentation id="Overall_memory_usage" >
+				<decimalTextBox refId="Overall_memory_usage_DecimalBox" defaultValue="75" >Porcentaje general de uso de memoria para emitir información de registro</decimalTextBox>
+			</presentation>
+
+			<presentation id="Process_CPU_usage" >
+				<decimalTextBox refId="Process_CPU_usage_DecimalBox" defaultValue="90" >Porcentaje de uso de CPU por proceso para emitir información de registro</decimalTextBox>
+			</presentation>
+
+			<presentation id="Process_memory_usage" >
+				<decimalTextBox refId="Process_memory_usage_DecimalBox" defaultValue="75" >Porcentaje de uso de memoria por proceso para emitir información de registro</decimalTextBox>
+			</presentation>
+
+			<presentation id="Processes_to_check" >
+				<textBox refId="Processes_to_check_TextBox" >
+					<label >Procesos que comprobar, lista de nombres separados por comas que permite comodines y exclusiones</label>
+				</textBox>
+			</presentation>
+
+			<presentation id="Type_of_certificate_revocation" >
+				<dropdownList refId="Type_of_certificate_revocation_DropDown" defaultItem="3" >Tipo de comprobación de revocación de certificados</dropdownList>
+			</presentation>
+
+			<presentation id="Revocation_URL_check_timeout" >
+				<decimalTextBox refId="Revocation_URL_check_timeout_DecimalBox" defaultValue="0" >Tiempo de espera de comprobación de direcciones URL de revocación en milisegundos</decimalTextBox>
+			</presentation>
+
+		</presentationTable>
+
+	</resources>
+
+</policyDefinitionResources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="WdiScenarioCategory">Recuperación de archivos dañados</string>
+      <string id="WdiScenarioExecutionPolicy">Configurar el comportamiento de recuperación de archivos dañados</string>
+      <string id="WdiScenarioExecutionPolicyExplain">Esta configuración de directiva permite configurar el comportamiento de recuperación de archivos dañados en uno de tres estados posibles:
+
+Normal: la detección, reparación y recuperación de archivos dañados comenzará automáticamente con una visualización de UI mínima. Windows intentará mostrar un cuadro de diálogo cuando sea necesario reiniciar el sistema. Éste es el comportamiento de recuperación predeterminado para archivos dañados.
+
+Silencioso: la detección, reparación y recuperación de archivos dañados comenzará automáticamente sin UI. Windows registrará un evento de administrador cuando sea necesario reiniciar el sistema. Éste es el comportamiento recomendado para el funcionamiento desatendido.
+
+Solo reparación: la detección y reparación de archivos dañados comenzará automáticamente sin intervención del usuario. No se intentará recuperar los archivos automáticamente. Windows registrará un evento de administrador con instrucciones si la recuperación manual es posible.
+
+Si habilita esta opción, el comportamiento de recuperación para archivos dañados se establecerá en uno de tres estados: Normal (predeterminado), Silencioso o Solo reparación.
+
+Si deshabilita esta opción, el comportamiento de recuperación para archivos dañados se deshabilitará. No se llevará a cabo ninguna reparación ni resolución.
+
+Si no configura esta opción, el comportamiento de recuperación para archivos dañados se establecerá en normal.
+
+No es necesario reiniciar el sistema ni los servicios para que los cambios de esta directiva surtan efecto inmediato después de actualizar la directiva de grupo.
+
+Nota: esta configuración de directiva surtirá efecto solo cuando el Servicio de directivas de diagnóstico (DPS) esté en ejecución. Cuando el servicio se detenga o deshabilite, no se llevará a cabo la recuperación de archivos del sistema. El servicio DPS puede configurarse con el complemento Servicios en Microsoft Management Console.</string>
+      <string id="WdiScenarioExecutionPolicyLevelResolution">Normal</string>
+      <string id="WdiScenarioExecutionPolicyLevelSilent">Silencioso</string>
+      <string id="WdiScenarioExecutionPolicyLevelTsOnly">Solo reparación</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="WdiScenarioExecutionPolicy">
+        <dropdownList refId="WdiScenarioExecutionPolicyLevel" noSort="true" defaultItem="1">Nivel de ejecución de escenario</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

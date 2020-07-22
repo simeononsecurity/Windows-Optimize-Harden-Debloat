@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="P2P_Disabled">Desactivar los Servicios de redes de igual a igual de Microsoft</string>
+      <string id="P2P_Disabled_Explain">Esta opción desactiva los servicios de redes punto a punto de Microsoft en su totalidad y provoca que las aplicaciones dependientes dejen de funcionar.
+
+Los protocolos punto a punto permiten las aplicaciones en las áreas de RTC, colaboración, distribución de contenido y procesamiento distribuido.
+
+Si habilita esta opción, se desactivarán los protocolos punto a punto.
+
+Si deshabilita esta opción o no la configura, se habilitarán los protocolos punto a punto.</string>
+      <string id="P2P_Name">Servicios de redes de igual a igual de Microsoft</string>
+      <string id="PNRP_DisableMulticastBootstrap">Desactivar Bootstrap de multidifusión</string>
+      <string id="PNRP_DisableMulticastBootstrapGlobal_Explain">Esta opción deshabilita el protocolo PNRP para anunciar el equipo o para buscar otros equipos de la subred local en la nube global.
+
+El protocolo de resolución de nombres de mismo nivel (PNRP) permite la resolución distribuida de un nombre en una dirección IPV6 y número de puerto. La multidifusión en la misma subred es una de las formas en las que el PNRP ejecuta un bootstrap. Es decir, PNRP se publica en la subred local, de manera que los demás equipos pueden encontrarlo cuando lo necesitan.
+
+Si habilita esta opción, el PNRP no usará la multidifusión para el inicio. Si se especifica esta clave del registro, no funcionarán los escenarios donde no existe un servidor semilla para un inicio (como los escenarios de redes ad hoc).
+
+Si deshabilita esta opción, el PNRP usará la multidifusión para iniciarse en la misma subred.
+
+Si esta opción no se configura, el protocolo se revertirá para usar una clave de registro pública y determinar si publicará el equipo o usará la multidifusión para buscar otros equipos en la subred local.
+
+El protocolo de multidifusión usado para iniciarse es el protocolo simple de detección de servicios (SSDP). El servicio SSDP debe habilitarse para que esta directiva surta efecto (ya está habilitado de manera predeterminada).</string>
+      <string id="PNRP_Disabled">Desactivar creación de nubes PNRP</string> 
+      <string id="PNRP_SearchOnly">Establecer nube PNRP en resolver solo</string> 
+      <string id="PNRP_DisabledGlobal_Explain">Esta configuración de directiva habilita o deshabilita la creación de nubes PNRP.
+
+PNRP es un protocolo de resolución de nombres distribuido que permite a los hosts de Internet publicar nombres del mismo nivel con una dirección IPv6 (protocolo de Internet versión 6) correspondiente. Después, otros hosts podrán resolver el nombre, recuperar la dirección correspondiente y establecer conexiones punto a punto (P2P). La nube PNRP es un grupo de nodos PNRP conectados, con conexiones entre nodos del mismo nivel, de modo que un nodo de la nube PNRP puede resolver nombres publicados por otros nodos.
+
+PNRP crea una nube global si el equipo tiene una dirección IPv6 global, pero crea una nube local de sitio si el equipo tiene una dirección local de sitio.
+
+Si habilita esta configuración de directiva, PNRP no creará ninguna nube, y las aplicaciones no podrán usar esta nube para publicar o resolver nombres, independientemente de que el equipo tenga una dirección IPv6 que coincida con el ámbito de la nube.
+
+Si deshabilita o no establece esta configuración de directiva, todas las nubes PNRP se desactivarán de forma predeterminada, y PNRP creará una nube si el equipo tiene una dirección IPv6 compatible con el ámbito de la nube.
+</string>
+      <string id="PNRP_SearchOnlyGlobal_Explain">Esta configuración de directiva limita un nodo de modo que solo pueda resolver nombres de una nube PNRP (Protocolo de resolución de nombres de mismo nivel) determinada, pero no publicar nombres.
+
+Esta configuración de directiva fuerza a los equipos a actuar como clientes en escenarios punto a punto (P2P). Por ejemplo, un equipo cliente puede detectar otros equipos con los que iniciar sesiones de chat, pero otros equipos no pueden detectar dicho cliente e iniciar sesiones de chat con él.
+
+Si habilita esta configuración de directiva, este equipo no podrá registrar nombres PNRP y no podrá ayudar a otros equipos a realizar búsquedas PNRP.
+
+Si deshabilita o no establece esta configuración de directiva, este equipo podrá publicar nombres PNRP y ayudar a otros equipos a realizar búsquedas PNRP.
+</string> 
+      <string id="PNRP_DisableMulticastBootstrapLinkLocal_Explain">Esta opción deshabilita el protocolo PNRP para anunciar el equipo o para buscar otros equipos de la subred local en la nube local de vínculo.
+
+El protocolo de resolución de nombres de mismo nivel (PNRP) permite la resolución distribuida de un nombre en una dirección IPV6 y número de puerto. La multidifusión en la misma subred es una de las formas en las que el PNRP ejecuta un bootstrap. Es decir, PNRP se publica en la subred local, de manera que los demás equipos pueden encontrarlo cuando lo necesitan.
+
+Si habilita esta opción, el PNRP no usará la multidifusión para el inicio. Si se especifica esta clave del registro, no funcionarán los escenarios donde no existe un servidor semilla para un inicio (como los escenarios de redes ad hoc).
+
+Si deshabilita esta opción, el PNRP usará la multidifusión para iniciarse en la misma subred.
+
+Si esta opción no se configura, el protocolo se revertirá para usar una clave de registro pública y determinar si publicará el equipo o usará la multidifusión para buscar otros equipos en la subred local.
+
+El protocolo de multidifusión usado para iniciarse es el protocolo simple de detección de servicios (SSDP). El servicio SSDP debe habilitarse para que esta directiva surta efecto (ya está habilitado de manera predeterminada).</string>
+      <string id="PNRP_DisabledLinkLocal_Explain">Esta configuración de directiva habilita o deshabilita la creación de nubes PNRP.
+
+PNRP es un protocolo de resolución de nombres distribuido que permite a los hosts de Internet publicar nombres del mismo nivel con una dirección IPv6 (protocolo de Internet versión 6) correspondiente. Después, otros hosts podrán resolver el nombre, recuperar la dirección correspondiente y establecer conexiones punto a punto (P2P). La nube PNRP es un grupo de nodos PNRP conectados, con conexiones entre nodos del mismo nivel, de modo que un nodo de la nube PNRP puede resolver nombres publicados por otros nodos.
+
+PNRP crea una nube global si el equipo tiene una dirección IPv6 global, pero crea una nube local de sitio si el equipo tiene una dirección local de sitio.
+
+Si habilita esta configuración de directiva, PNRP no creará ninguna nube, y las aplicaciones no podrán usar esta nube para publicar o resolver nombres, independientemente de que el equipo tenga una dirección IPv6 que coincida con el ámbito de la nube.
+
+Si deshabilita o no establece esta configuración de directiva, todas las nubes PNRP se desactivarán de forma predeterminada, y PNRP creará una nube si el equipo tiene una dirección IPv6 compatible con el ámbito de la nube.
+</string>
+      <string id="PNRP_SearchOnlyLinkLocal_Explain">Esta configuración de directiva limita un nodo de modo que solo pueda resolver nombres de una nube PNRP (Protocolo de resolución de nombres de mismo nivel) determinada, pero no publicar nombres.
+
+Esta configuración de directiva fuerza a los equipos a actuar como clientes en escenarios punto a punto (P2P). Por ejemplo, un equipo cliente puede detectar otros equipos con los que iniciar sesiones de chat, pero otros equipos no pueden detectar dicho cliente e iniciar sesiones de chat con él.
+
+Si habilita esta configuración de directiva, este equipo no podrá registrar nombres PNRP y no podrá ayudar a otros equipos a realizar búsquedas PNRP.
+
+Si deshabilita o no establece esta configuración de directiva, este equipo podrá publicar nombres PNRP y ayudar a otros equipos a realizar búsquedas PNRP.
+</string> 
+      <string id="PNRP_DisableMulticastBootstrapSiteLocal_Explain">Esta opción deshabilita el protocolo PNRP para anunciar el equipo o para buscar otros equipos de la subred local en la nube local de sitio.
+
+El protocolo de resolución de nombres de mismo nivel (PNRP) permite la resolución distribuida de un nombre en una dirección IPV6 y número de puerto. La multidifusión en la misma subred es una de las formas en las que el PNRP ejecuta un bootstrap. Es decir, PNRP se publica en la subred local, de manera que los demás equipos pueden encontrarlo cuando lo necesitan.
+
+Si habilita esta opción, el PNRP no usará la multidifusión para el inicio. Si se especifica esta clave del registro, no funcionarán los escenarios donde no existe un servidor semilla para un inicio (como los escenarios de redes ad hoc).
+
+Si deshabilita esta opción, el PNRP usará la multidifusión para iniciarse en la misma subred.
+
+Si esta opción no se configura, el protocolo se revertirá para usar una clave de registro pública y determinar si publicará el equipo o usará la multidifusión para buscar otros equipos en la subred local.
+
+El protocolo de multidifusión usado para iniciarse es el protocolo simple de detección de servicios (SSDP). El servicio SSDP debe habilitarse para que esta directiva surta efecto (ya está habilitado de manera predeterminada).</string>
+      <string id="PNRP_DisabledSiteLocal_Explain">Esta configuración de directiva habilita o deshabilita la creación de nubes PNRP.
+
+PNRP es un protocolo de resolución de nombres distribuido que permite a los hosts de Internet publicar nombres del mismo nivel con una dirección IPv6 (protocolo de Internet versión 6) correspondiente. Después, otros hosts podrán resolver el nombre, recuperar la dirección correspondiente y establecer conexiones punto a punto (P2P). La nube PNRP es un grupo de nodos PNRP conectados, con conexiones entre nodos del mismo nivel, de modo que un nodo de la nube PNRP puede resolver nombres publicados por otros nodos.
+
+PNRP crea una nube global si el equipo tiene una dirección IPv6 global, pero crea una nube local de sitio si el equipo tiene una dirección local de sitio.
+
+Si habilita esta configuración de directiva, PNRP no creará ninguna nube, y las aplicaciones no podrán usar esta nube para publicar o resolver nombres, independientemente de que el equipo tenga una dirección IPv6 que coincida con el ámbito de la nube.
+
+Si deshabilita o no establece esta configuración de directiva, todas las nubes PNRP se desactivarán de forma predeterminada, y PNRP creará una nube si el equipo tiene una dirección IPv6 compatible con el ámbito de la nube.
+</string>
+      <string id="PNRP_SearchOnlySiteLocal_Explain">Esta configuración de directiva limita un nodo de modo que solo pueda resolver nombres de una nube PNRP (Protocolo de resolución de nombres de mismo nivel) determinada, pero no publicar nombres.
+
+Esta configuración de directiva fuerza a los equipos a actuar como clientes en escenarios punto a punto (P2P). Por ejemplo, un equipo cliente puede detectar otros equipos con los que iniciar sesiones de chat, pero otros equipos no pueden detectar dicho cliente e iniciar sesiones de chat con él.
+
+Si habilita esta configuración de directiva, este equipo no podrá registrar nombres PNRP y no podrá ayudar a otros equipos a realizar búsquedas PNRP.
+
+Si deshabilita o no establece esta configuración de directiva, este equipo podrá publicar nombres PNRP y ayudar a otros equipos a realizar búsquedas PNRP.
+</string> 
+      <string id="PNRP_Global">Nubes globales</string>
+      <string id="PNRP_LinkLocal">Nubes locales de vínculo</string>
+      <string id="PNRP_Name">Protocolo de resolución de nombres de mismo nivel</string>
+      <string id="PNRP_SeedServer">Establecer el servidor de inicialización</string>
+      <string id="PNRP_SeedServerGlobal_Explain">Esta opción establece el servidor semilla para la nube global en un nodo especificado de la empresa. El protocolo de resolución de nombres de mismo nivel (PNRP) permite la resolución distribuida de un nombre en una dirección IPV6 y número de puerto. En algunos casos, el protocolo requiere un servidor de inicialización desde el que pueda ejecutársele un bootstrap.
+
+Cualquier nodo que se ejecute de punto a punto puede usarse como servidor semilla. No se necesita ninguna configuración para el servidor semilla.
+
+Esta opción proporciona la flexibilidad agregada de permitir que los usuarios también usen las aplicaciones de punto a punto en casa. Éstas son cuatro maneras en las que puede usar esta opción para controlar el servidor semilla usado en su corporación.
+
+1. Para usar el servidor semilla global conocido solo en Internet: habilite la configuración, deje la lista de servidores semilla vacía y deje la casilla sin activar.
+
+2. Para usar solo un servidor semilla corporativo: habilite la configuración, agregue el nombre de dominio completo o dirección IPv6 del servidor semilla corporativo y active la casilla. Si solo se usa el servidor semilla corporativo, los usuarios móviles no podrán usar las aplicaciones punto a punto en casa.
+
+3. Para usar un servidor semilla corporativo y el servidor semilla global: habilite la configuración, agregue el nombre de dominio completo o dirección IPv6 del servidor semilla corporativo y deje la casilla sin activar. Esta opción permitirá que los usuarios móviles usen aplicaciones punto a punto tanto en la oficina como en casa sin problemas.
+
+4. Para no usar ningún servidor semilla: habilite la configuración, no inserte ningún nombre de servidor de inicialización y active la casilla.
+
+Si se deshabilita esta opción o no la configura, el protocolo se revertirá para usar una clave de registro pública y determinar desde qué servidor semilla se iniciará.</string>
+      <string id="PNRP_SeedServerLinkLocal_Explain">Esta opción establece el servidor semilla para la nube local de vínculo en un nodo especificado de la empresa.
+
+El protocolo de resolución de nombres de mismo nivel (PNRP) permite la resolución distribuida de un nombre en una dirección IPV6 y número de puerto. En algunos casos, el protocolo requiere un servidor de inicialización desde el que pueda ejecutársele un bootstrap. Esta opción permite establecer el servidor semilla en un nodo específico en una empresa.
+
+Para usar esta opción, haga clic en Habilitado y, después, escriba una lista de direcciones IPV6 delimitada por puntos y comas en el campo disponible. Si habilita esta opción y no escribe ninguna dirección, no se usará ningún servidor semilla.
+
+Si no establece esta opción, el protocolo se revertirá para usar una clave de registro pública y determinar desde qué servidor semilla se iniciará.</string>
+      <string id="PNRP_SeedServerSiteLocal_Explain">Esta opción establece el servidor semilla para la nube local de sitio en un nodo especificado de la empresa.
+
+El protocolo de resolución de nombres de mismo nivel (PNRP) permite la resolución distribuida de un nombre en una dirección IPV6 y número de puerto. En algunos casos, el protocolo requiere un servidor de inicialización desde el que pueda ejecutársele un bootstrap. Esta opción permite establecer el servidor semilla en un nodo específico en una empresa.
+
+Para usar esta opción, haga clic en Habilitado y, después, escriba una lista de nombres DNS o direcciones IPV6 delimitada por puntos y comas en el campo disponible. Si habilita esta opción y no escribe ninguna dirección, no se usará ningún servidor semilla.
+
+Si no establece esta opción, el protocolo se revertirá para usar una clave de registro pública y determinar desde qué servidor semilla se iniciará.</string>
+      <string id="PNRP_SiteLocal">Nubes locales de sitio</string>
+      <string id="GROUPING_DisablePasswordPolicyEnforcement">Deshabilitar la validación de seguridad de contraseña para agrupación del mismo nivel</string>
+      <string id="GROUPING_DisablePasswordPolicyEnforcement_Explain">De forma predeterminada, cuando se crea un grupo del mismo nivel que permite la autenticación de contraseñas (o se cambia la contraseña de dicho grupo), la agrupación del mismo nivel valida que la contraseña cumple los requisitos de complejidad de la contraseña del sistema local. De este modo, no se permitirá usar contraseñas para un grupo del mismo nivel que tengan menor seguridad que las contraseñas que se usarían para un inicio de sesión.
+
+Esta configuración controla este comportamiento de validación. Si se le asigna el valor 1, no se llevará a cabo la validación y se admitirá la contraseña. Si se le asigna el valor 0, se realizará la validación.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="PNRP_SeedServer_1">
+        <textBox refId="PNRP_SeedServer_Name">
+          <label>Servidor de inicialización</label>
+        </textBox>
+        <checkBox refId="PNRP_Dont_Include_Microsoft_SeedServer">No usar el servidor de inicialización de PNRP global de Microsoft</checkBox>
+      </presentation>
+      <presentation id="PNRP_SeedServer_2">
+        <textBox refId="PNRP_SeedServer_Name">
+          <label>Servidor de inicialización</label>
+        </textBox>
+      </presentation>
+      <presentation id="PNRP_SeedServer_3">
+        <textBox refId="PNRP_SeedServer_Name">
+          <label>Servidor de inicialización</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

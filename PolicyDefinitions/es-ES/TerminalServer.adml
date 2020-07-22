@@ -1,0 +1,1393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="TS_SUPPORTED_Windows10">Al menos Windows 10 o Windows Server 2016</string>
+      <string id="TS_SUPPORTED_Windows8_or_ARM">Al menos Windows 8 o Windows RT</string>
+      <string id="TS_SUPPORTED_Windows8_Server">Se requiere al menos Windows Server 2012</string>
+      <string id="TS_SUPPORTED_Windows8_Enterprise_AND_Server"> Se requiere al menos Windows 8 Enterprise o Windows Server 2012</string>
+      <string id="TS_SUPPORTED_ONLY_Windows7_OR_SERVER2K8R2">Solo Windows 7 o Windows Server 2008 R2 (y Service Packs subsiguientes)</string>
+      <string id="TS_SUPPORTED_ONLY_LEGACY">Windows Server 2008 R2, Windows Server 2008, Windows Server 2003, Windows 7, Windows Vista y Windows XP</string>
+      <string id="TS_SUPPORTED_Windows7_Server">Al menos Windows Server 2008 R2</string>
+      <string id="TS_SUPPORTED_Windows7">Al menos Windows 7</string>
+      <string id="TS_SUPPORTED_Windows8_Server_With_RDSH"> Se requiere al menos Windows Server 2012 con rol RDSH instalado</string>
+      <string id="TS_SUPPORTED_Windows7_OR_SERVER2K8R2_SP1">Al menos Windows 7 con Service Pack 1 o Windows Server 2008 R2 con Service Pack 1</string>
+      <string id="TS_SUPPORTED_Vista_SP1">Al menos Windows Vista con Service Pack 1</string>
+      <string id="TS_SUPPORTED_Win2k">Al menos Terminal Services de Windows 2000</string>
+      <string id="TS_SUPPORTED_Win2k3">Al menos Windows Server 2003</string>
+      <string id="TS_SUPPORTED_Win2k3_Sp1">Al menos Windows Server 2003 con Service Pack 1</string>
+      <string id="TS_SUPPORTED_Win2k3_Sp1_Only">  Solo Windows Server 2003 con Service Pack 1</string>
+      <string id="TS_SUPPORTED_Win2k3_Sp2">Al menos Windows Server 2003 con Service Pack 2</string>
+      <string id="TS_SUPPORTED_WindowsXP">Al menos Windows XP</string>
+      <string id="SUPPORTED_WindowsNET_Enterprise">Al menos Windows Server 2003, Enterprise Edition</string>
+      <string id="TS_SUPPORTED_WindowsXP_Win2K3_only">Al menos Windows XP y solo Windows Server 2003</string>
+      <string id="TS_SUPPORTED_WindowsServer2008OrWin7">Al menos Windows Server 2008 o Windows 7</string>
+      <string id="TS_SUPPORTED_WindowsServer2008R2_Only">  Solo Windows Server 2008 R2</string>
+      <string id="TS_TERMINAL_SERVER">Host de sesión de Escritorio remoto</string>
+      <string id="TS_TERMINAL_SERVER_Help">Controla la configuración de un servidor host de sesión de Escritorio remoto</string>
+      <string id="TS_LICENSE_SERVER">Licencia de Escritorio remoto</string>
+      <string id="TS_CONNECTIONS">Conexiones</string>
+      <string id="TS_CONNECTIONS_Help">Controla la configuración de conexión de un servidor host de sesión de Escritorio remoto</string>
+      <string id="TS_PRINT_REDIRECTION">Redirección de impresora</string>
+      <string id="TS_PRINT_REDIRECTION_Help">Controla la configuración de impresora en las sesiones de Servicios de Escritorio remoto</string>
+      <string id="TS_SESSION_TIME_LIMITS">Límites de tiempo de sesión</string>
+      <string id="TS_SESSION_TIME_LIMITS_Help">Controla los límites de tiempo en las sesiones de Servicios de Escritorio remoto</string>
+      <string id="TS_PROFILES">Perfiles</string>
+      <string id="TS_PROFILES_Help">Controla la configuración del perfil móvil y el directorio principal en las sesiones de Servicios de Escritorio remoto</string>
+      <string id="TS_15_bit">15 bits</string>
+      <string id="TS_16_bit">16 bits</string>
+      <string id="TS_24_bit">24 bits</string>
+      <string id="TS_8_bit">8 bits</string>
+      <string id="TS_32_bit">32 bits</string>
+
+      <string id="TS_AUDIOMAP_EXPLAIN">Esta configuración de directiva permite especificar si los usuarios pueden redirigir la salida de audio y vídeo del equipo remoto durante una sesión de Servicios de Escritorio remoto.
+Para especificar dónde reproducir la salida de audio del equipo remoto, los usuarios pueden configurar las opciones de audio remoto en la pestaña Recursos locales de Conexión a Escritorio remoto (RDC). Los usuarios pueden elegir si quieren reproducir el audio remoto en el equipo remoto o en el equipo local. También pueden elegir no reproducir el audio. La reproducción de vídeo se puede configurar mediante la opción de reproducción de vídeo en un archivo de Protocolo de escritorio remoto (.rdp). De forma predeterminada, la reproducción de vídeo está habilitada.
+
+También de forma predeterminada, no se permite el redireccionamiento de la reproducción de audio y vídeo cuando se conecta con un equipo que ejecuta Windows Server 2008 R2, Windows Server 2008 o Windows Server 2003. El redireccionamiento de la reproducción de audio y vídeo se permite de forma predeterminada al conectarse con un equipo que ejecuta Windows 8, Windows Server 2012, Windows 7, Windows Vista o Windows XP Professional.
+
+Si habilitas esta configuración de directiva, se permitirá el redireccionamiento de la reproducción de audio y vídeo.
+
+Si deshabilitas esta configuración de directiva, no se permitirá el redireccionamiento de la reproducción de audio y vídeo, aunque se especifique el redireccionamiento de la reproducción de audio en RDC o de vídeo en el archivo .rdp.
+
+Si no estableces esta configuración de directiva, el redireccionamiento de la reproducción de audio y vídeo no se especificará en el nivel de directiva de grupo. 
+</string>
+      <string id="TS_AUDIOCAPTUREMAP_EXPLAIN">Esta configuración de directiva le permite especificar si los usuarios pueden grabar audio en un equipo remoto durante una sesión de Servicios de Escritorio remoto.
+Para especificar si graban audio en el equipo remoto, los usuarios pueden configurar las opciones de audio remoto en la pestaña Recursos locales de Conexión a Escritorio remoto (RDC). Los usuarios pueden grabar audio mediante un dispositivo de entrada de audio en el equipo local, como un micrófono integrado.
+
+De forma predeterminada, no se permite la redirección de la grabación de audio cuando se conecta con un equipo que ejecuta Windows Server 2008 R2. La redirección de la grabación de audio se permite de forma predeterminada al conectarse con un equipo que ejecuta al menos Windows 7 o Windows Server 2008 R2. 
+
+Si habilita esta configuración de directiva, se permitirá la redirección de la grabación de audio.
+
+Si deshabilita esta configuración de directiva, no se permitirá la redirección de la grabación de audio, aunque se especifique la redirección de la grabación de audio en RDC.
+
+Si no establece esta configuración de directiva, la redirección de la grabación de audio no se especificará en el nivel de directiva de grupo.
+
+</string>
+      <string id="TS_CLIENT_AUDIO_QUALITY">Limitar la calidad de la reproducción de audio</string>
+      <string id="TS_AUDIO_QUALITY_EXPLAIN">Esta configuración de directiva le permite limitar la calidad de la reproducción de audio durante una sesión de Servicios de Escritorio remoto. Limitar la calidad de la reproducción de audio puede mejorar el rendimiento de la conexión, en particular con vínculos lentos.
+
+Si habilita esta configuración de directiva, debe seleccionar una de las siguientes opciones: Alta, Media o Dinámica. Si selecciona Alta, el audio se enviará sin compresión y con latencia mínima. Esto requiere una gran cantidad de ancho de banda. Si selecciona Media, el audio se enviará con algo de compresión y con latencia mínima según determine el códec que se esté usando. Si selecciona Dinámica, el audio se enviará con el nivel de compresión que determine el ancho de banda de la conexión remota.
+
+La calidad de reproducción de audio que especifique en el equipo remoto mediante esta configuración de directiva es la calidad máxima que se podrá usar en una sesión de Servicios de Escritorio remoto, independientemente de la calidad de reproducción de audio configurada en el equipo cliente.  Por ejemplo, si el nivel de calidad de reproducción de audio configurado en el equipo cliente es más alto que el configurado en el equipo remoto, se usará el nivel que sea más bajo.
+
+La calidad de reproducción de audio se puede configurar en el equipo cliente mediante la opción de modo de calidad de audio de un archivo de Protocolo de escritorio remoto (.rdp). De forma predeterminada, la calidad de reproducción de audio se establece en Dinámica.
+
+Si deshabilita o no define esta configuración de directiva, la calidad de reproducción de audio se establecerá en Dinámica.</string>
+      <string id="TS_AUDIO_QUALITY_DYNAMIC">Dinámica</string>
+      <string id="TS_AUDIO_QUALITY_MEDIUM">Media</string>
+      <string id="TS_AUDIO_QUALITY_HIGH">Alta</string>
+      <string id="TS_AUTO_RECONNECT">Reconexión automática</string>
+      <string id="TS_AUTO_RECONNECT_EXPLAIN">Especifica si se permite que los clientes de Conexión a Escritorio remoto se vuelvan a conectar automáticamente a sesiones de un servidor host de sesión de Escritorio remoto si pierden la conexión de red temporalmente. De manera predeterminada, se realiza un máximo de veinte intentos de reconexión en intervalos de cinco segundos.
+
+Si el estado se establece en Habilitado, se intenta la reconexión automática de todos los clientes que ejecutan Conexión a Escritorio remoto siempre que la conexión de red se pierde.
+
+Si el estado se establece en Deshabilitado, se prohíbe la reconexión automática de clientes.
+
+Si el estado se establece en No configurado, no se especifica la reconexión automática en el nivel de directiva de grupo. Sin embargo, los usuarios pueden configurar la reconexión automática mediante la casilla "Volver a conectar si se pierde la conexión" de la pestaña Rendimiento de Conexión a Escritorio remoto.
+
+</string>
+      <string id="TS_CLIENT">Cliente de conexión a Escritorio remoto</string>
+      <string id="TS_CLIENT_AUDIO">Permitir la redirección de la reproducción de audio y vídeo</string>
+      <string id="TS_CLIENT_AUDIO_CAPTURE">Permitir la redirección de la grabación de audio</string>
+      <string id="TS_CLIENT_CLIPBOARD">No permitir redirección del Portapapeles</string>
+      <string id="TS_CLIENT_COM">No permitir redirección de puertos COM</string>
+      <string id="TS_Client_Compatible">Compatible con el cliente</string>
+      <string id="TS_CLIENT_DEFAULT_M">No establecer impresora de cliente predeterminada como impresora predeterminada en una sesión</string>
+      <string id="TS_CLIENT_DEFAULT_EXPLAIN_M">Esta configuración de directiva le permite especificar si la impresora de cliente predeterminada se configura automáticamente como la impresora predeterminada en una sesión de un servidor host de sesión de Escritorio remoto.
+
+De manera predeterminada, Servicios de Escritorio remoto designa automáticamente la impresora de cliente predeterminada como la impresora predeterminada en una sesión de un servidor host de sesión de Escritorio remoto. Puede usar esta directiva para invalidar este comportamiento.
+
+Si habilita esta configuración de directiva, la impresora predeterminada será la impresora especificada en el equipo remoto.
+
+Si deshabilita esta configuración de directiva, el servidor host de sesión de Escritorio remoto asignará automáticamente la impresora de cliente predeterminada y la configurará como predeterminada al conectarse.
+
+Si no establece esta configuración de directiva, la impresora predeterminada no se especificará en el nivel de directiva de grupo.
+
+</string>
+
+      <string id="TS_EASY_PRINT">Usar primero el controlador de impresora Easy Print de Escritorio remoto</string>
+      <string id="TS_EASY_PRINT_EXPLAIN">Esta configuración de directiva le permite especificar si se usa primero el controlador de impresora Easy Print de Escritorio remoto para instalar todas las impresoras de cliente. 
+
+Si habilita o no define esta configuración de directiva, el servidor host de sesión de Escritorio remoto intentará usar primero el controlador de impresora Easy Print de Escritorio remoto para instalar todas las impresoras de cliente. Si por alguna razón no se pudiera usar el controlador de impresora Easy Print de Escritorio remoto, se usará un controlador de impresora del servidor host de sesión de Escritorio remoto que coincida con la impresora del cliente. Si el servidor host de sesión de Escritorio remoto no dispone de un controlador de impresora que coincida con la impresora del cliente, ésta no estará disponible para la sesión de Servicios de Escritorio remoto.
+
+Si deshabilita esta configuración de directiva, el servidor host de sesión de Escritorio remoto intentará encontrar un controlador de impresora para instalar la impresora del cliente. Si el servidor host de sesión de Escritorio remoto no dispone de un controlador de impresora que coincida con la impresora del cliente, el servidor intentará usar el controlador de impresora Easy Print de Escritorio remoto para instalar la impresora del cliente. Si por alguna razón no se pudiera usar el controlador de impresora Easy Print de Escritorio remoto, la impresora del cliente no estará disponible para la sesión de Servicios de Escritorio remoto.
+
+Nota: si está habilitada la configuración de directiva "No permitir la redirección de impresoras de cliente", se omitirá la configuración de directiva "Usar primero el controlador de impresora Easy Print de Escritorio remoto".</string>
+
+ <string id="TS_CLIENT_DISABLE_PASSWORD_SAVING">No permitir que se guarden las contraseñas</string>
+      <string id="TS_CLIENT_DISABLE_PASSWORD_SAVING_MACHINE_EXPLAIN">Controla si se pueden guardar contraseñas en este equipo desde Conexión a Escritorio remoto.
+
+Si habilita esta opción, se deshabilitará la casilla para guardar contraseñas en Conexión a Escritorio remoto y los usuarios ya no podrán guardar contraseñas. Cuando un usuario abre un archivo RDP por medio de Conexión a Escritorio remoto y guarda su configuración, se eliminarán todas las contraseñas que existían con anterioridad en el archivo RDP.
+
+Si deshabilita esta opción o no la configura, el usuario podrá guardar contraseñas por medio de Conexión a Escritorio remoto.</string>
+      <string id="TS_CLIENT_DISABLE_PASSWORD_SAVING_USER_EXPLAIN">Controla si un usuario puede guardar contraseñas por medio de Conexión a Escritorio remoto.
+
+Si habilita esta opción, se deshabilitará la casilla para guardar credenciales en Conexión a Escritorio remoto y los usuarios ya no podrán guardar contraseñas. Cuando un usuario abre un archivo RDP por medio de Conexión a Escritorio remoto y guarda su configuración, se eliminarán todas las contraseñas que existían con anterioridad en el archivo RDP.
+
+Si deshabilita esta opción o no la configura, el usuario podrá guardar contraseñas por medio de Conexión a Escritorio remoto.</string>
+      <string id="TS_CLIENT_DRIVE_EXPLAIN_M">Esta configuración de directiva especifica si impedir la asignación de unidades cliente en una sesión de Servicios de Escritorio remoto (redirección de unidad).
+
+De forma predeterminada, el servidor host de sesión de Escritorio remoto asigna unidades cliente automáticamente al conectarse. Las unidades asignadas aparecen en el árbol de carpetas de sesión en el Explorador de archivos o en Equipo con el formato &lt;letraDeUnidad&gt; en &lt;nombreDeEquipo&gt;. Puede usar esta directiva para invalidar este comportamiento.
+
+Si habilita esta configuración de directiva, no se permitirá la redirección de unidades cliente en sesiones de Servicios de Escritorio remoto ni se permitirá la redirección de copias de archivos del Portapapeles en equipos que ejecuten Windows Server 2003, Windows 8 y Windows XP.
+
+Si deshabilita esta configuración de directiva, se permitirá siempre la redirección de unidades cliente. Además, la redirección de copias de archivo del Portapapeles siempre se permite si se permite la redirección del Portapapeles.
+
+Si no establece esta configuración de directiva, la redirección de unidades cliente y la redirección de copias de archivo del Portapapeles no se especificarán en el nivel de directiva de grupo.
+
+</string>
+      <string id="TS_CLIENT_DRIVE_M">No permitir redirección de unidad</string>
+      <string id="TS_CLIENT_HELP">Controla la configuración del cliente de conexión a Escritorio remoto</string>
+      <string id="TS_CLIENT_LPT">No permitir redirección de puertos LPT</string>
+      <string id="TS_CLIENT_PNP">No permitir redirección de dispositivo Plug and Play compatible</string>
+      <string id="TS_CAMERA_REDIRECTION">No permitir el redireccionamiento de la captura de vídeo</string>
+      <string id="TS_CLIENT_PRINTER">No permitir la redirección de impresoras de cliente</string>
+      <string id="TS_CLIPBOARDMAP_EXPLAIN">Esta configuración de directiva especifica si impedir el uso compartido del contenido del Portapapeles (redirección del Portapapeles) entre un equipo remoto y un equipo cliente durante una sesión de Servicios de Escritorio remoto.
+
+Puede usar esta configuración para impedir que los usuarios redirijan datos del Portapapeles a, y desde, el equipo remoto y el equipo local. De forma predeterminada, Servicios de Escritorio remoto permite la redirección del Portapapeles.
+
+Si habilita esta configuración de directiva, los usuarios no podrán redirigir los datos del Portapapeles.
+
+Si deshabilita esta configuración de directiva, Servicios de Escritorio remoto permitirá siempre la redirección del Portapapeles.
+
+Si no establece esta configuración de directiva, la redirección del Portapapeles no se especificará en el nivel de directiva de grupo. 
+ 
+</string>
+      <string id="TS_COLOR_EXPLAIN">Esta configuración de directiva permite especificar la resolución de color máxima (profundidad de color) para las conexiones de Servicios de Escritorio remoto.
+
+Puedes usar esta configuración de directiva para establecer un límite en la profundidad de color de cualquier conexión que use RDP. La limitación de profundidad de color puede mejorar el rendimiento de la conexión, especialmente en vínculos de baja velocidad, y reducir la carga del servidor.
+
+Si habilitas esta configuración de directiva, la profundidad de color especificada será la profundidad de color máxima permitida para una conexión RDP del usuario. La profundidad de color real para la conexión viene determinada por la compatibilidad de color disponible en el PC cliente. Si seleccionas Compatible con el cliente, se usará la profundidad de color máxima compatible con el cliente.
+
+Si deshabilitas o no estableces esta configuración de directiva, la profundidad de color para las conexiones no se especificará en el nivel de directiva de grupo.
+
+Nota:
+1.	La configuración de la profundidad de color en 24 bits solo es compatible con Windows Server 2003 y Windows XP Professional.
+2.	El valor especificado en esta configuración de directiva no se aplica a conexiones de PC cliente que usen al menos la versión de Protocolo de escritorio remoto 8.0 (PC que ejecutan al menos Windows 8 o Windows Server 2012). Siempre se usa el formato de profundidad de color de 32 bits para estas conexiones.
+3.	Para conexiones de PC cliente que usan la versión de Protocolo de escritorio remoto 7.1 o versiones anteriores y que se conectan a PC que ejecutan al menos Windows 8 o Windows Server 2012, se usa el mínimo de los siguientes valores como formato de profundidad de color:
+a.	Valor especificado por esta configuración de directiva
+b.	Máxima profundidad de color compatible con el cliente
+c.	Valor solicitado por el cliente
+
+Si el cliente no admite 16 bits como mínimo, la conexión finalizará.
+      </string>
+      <string id="TS_COLORDEPTH">Limitar máxima profundidad de color</string>
+      <string id="TS_Comp_Help">Controla la configuración y las propiedades de los Servicios de Escritorio remoto de sesiones cliente para equipos individuales o grupos de equipos.</string>
+      <string id="TS_COMPORTMAP_EXPLAIN">Esta configuración de directiva especifica si se impide o no la redirección de datos a los puertos COM de cliente desde el equipo remoto en una sesión de Servicios de Escritorio remoto.
+
+Puede usar esta opción para impedir que los usuarios redirijan datos a periféricos de puertos COM o asignen puertos COM locales mientras mantienen una sesión de Servicios de Escritorio remoto. De forma predeterminada, Servicios de Escritorio remoto permite esta redirección de puertos COM.
+
+Si habilita esta configuración de directiva, los usuarios no podrán redirigir datos del servidor al puerto COM local.
+
+Si deshabilita esta configuración de directiva, Servicios de Escritorio remoto permitirá siempre la redirección al puerto COM.
+
+Si no establece esta configuración de directiva, la redirección al puerto COM no se especificará en el nivel de directiva de grupo. 
+
+ 
+
+</string>
+      <string id="TS_DEVMAP_EXPLAIN">Esta configuración de directiva permite controlar el redireccionamiento de los dispositivos Plug and Play y USB RemoteFX compatibles, como los dispositivos portátiles de Windows, al equipo remoto de una sesión de Servicios de Escritorio remoto.
+
+De forma predeterminada, Servicios de Escritorio remoto no permite el redireccionamiento de los dispositivos Plug and Play y USB RemoteFX compatibles.
+
+Si deshabilitas esta configuración de directiva, los usuarios podrán redireccionar sus dispositivos Plug and Play compatibles al equipo remoto. Los usuarios pueden usar la opción Más en la pestaña Recursos locales de Conexión a Escritorio remoto para elegir los dispositivos Plug and Play compatibles que se redireccionan al equipo remoto.
+
+Si habilitas esta configuración de directiva, los usuarios no podrán redireccionar sus dispositivos Plug and Play compatibles al equipo remoto. Si no estableces esta configuración de directiva, los usuarios podrán redireccionar sus dispositivos Plug and Play compatibles al equipo remoto únicamente si este ejecuta Windows Server 2012 R2 o una versión anterior.
+
+Nota: Se puede deshabilitar el redireccionamiento de tipos específicos de dispositivos Plug and Play compatibles mediante la configuración de directiva Configuración del equipo\Plantillas administrativas\Sistema\Instalación de dispositivos\Restricciones de instalación de dispositivo.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Esta configuración de directiva permite controlar el redireccionamiento de dispositivos de captura de vídeo al equipo remoto en una sesión de Servicios de Escritorio remoto. 
+
+De manera predeterminada, Servicios de Escritorio remoto admite el redireccionamiento de dispositivos de captura de vídeo.
+
+Si habilitas esta configuración de directiva, los usuarios no podrán redirigir sus dispositivos de captura de vídeo al equipo remoto. 
+
+Si deshabilitas esta configuración de directiva o no la configuras, los usuarios podrán redirigir sus dispositivos de captura de vídeo al equipo remoto. Los usuarios pueden usar la opción Más de la pestaña Recursos locales de Conexión a Escritorio remoto para elegir los dispositivos de captura de vídeo que se redirigirán al equipo remoto.
+
+</string>
+      <string id="TS_MAXMONITOR_EXPLAIN">Esta configuración de directiva le permite limitar el número máximo de monitores que un usuario puede usar para mostrar una sesión de Servicios de Escritorio remoto. La limitación del número de monitores para mostrar una sesión de Servicios de Escritorio remoto puede mejorar el rendimiento de la conexión, en particular con vínculos lentos, y reducir la carga del servidor.
+
+Si habilita esta configuración de directiva, podrá especificar el número de monitores que se pueden usar para mostrar una sesión de Servicios de Escritorio remoto. Puede especificar un número de 1 a 16.
+
+Si deshabilita o no establece esta configuración de directiva, el número de monitores que puede usarse para mostrar una sesión de Servicios de Escritorio remoto no se especificará en el nivel de directiva de grupo.
+
+</string>
+      <string id="TS_MAXMONITOR">Limitar el número de monitores</string>
+      <string id="TS_DISABLE_CONNECTIONS">Permitir que los usuarios se conecten de forma remota mediante Servicios de Escritorio remoto</string>
+      <string id="TS_DISABLE_CONNECTIONS_EXPLAIN">Esta configuración de directiva le permite configurar el acceso remoto a equipos mediante Servicios de Escritorio remoto.
+
+Si habilita esta configuración de directiva, los usuarios que sean miembros del grupo Usuarios de escritorio remoto en el equipo de destino podrán conectarse de forma remota al equipo de destino mediante Servicios de Escritorio remoto.
+
+Si deshabilita esta configuración de directiva, los usuarios no podrán conectarse de forma remota al equipo de destino mediante Servicios de Escritorio remoto. El equipo de destino mantendrá las conexiones actuales, pero no aceptará ninguna conexión entrante nueva.
+
+Si no establece esta configuración de directiva, Servicios de Escritorio remoto usa la configuración de Escritorio remoto en el equipo de destino para determinar si se permite la conexión remota. Esta configuración se encuentra en la pestaña Acceso remoto de Propiedades del sistema. De manera predeterminada, no se permiten las conexiones remotas. 
+
+Nota: se pueden limitar los clientes que podrán conectarse de forma remota mediante Servicios de Escritorio remoto estableciendo la configuración de directiva en Configuración del equipo\Plantillas administrativas\Componentes de Windows\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Seguridad\Requerir la autenticación del usuario para las conexiones remotas mediante Autenticación a nivel de red. 
+
+Se puede limitar el número de usuarios que pueden conectarse de forma simultánea mediante el establecimiento de la configuración de directiva en Configuración del equipo\Plantillas administrativas\Componentes de Windows\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Conexiones\Limitar el número de conexiones, o bien estableciendo la configuración de directiva Número máximo de conexiones mediante el uso del proveedor WMI del host de sesión de Escritorio remoto.
+
+</string>
+      <string id="TS_MAXDISPLAYRES">Limitar la resolución máxima de pantalla</string>
+      <string id="TS_MAXDISPLAYRES_EXPLAIN">Esta configuración de directiva le permite especificar la resolución máxima de pantalla que puede usar cada monitor que muestra una sesión de Servicios de Escritorio remoto. La limitación de la resolución usada para mostrar una sesión remota puede mejorar el rendimiento de la conexión, en particular con vínculos lentos, y reducir la carga del servidor.
+
+Si habilita esta configuración de directiva, deberá especificar un ancho y un alto de resolución. La resolución especificada será la máxima que podrá usar cada monitor que muestre una sesión de Servicios de Escritorio remoto.
+
+Si deshabilita o no define esta configuración de directiva, la resolución máxima de pantalla que puede usar cada monitor que muestra una sesión de Servicios de Escritorio remoto la determinan los valores especificados en la pestaña Configuración de pantalla de la herramienta de configuración de host de sesión de Escritorio remoto.
+
+</string>
+      <string id="TS_DISABLE_REMOTE_DESKTOP_WALLPAPER">Exigir eliminación de papel tapiz de escritorio remoto</string>
+      <string id="TS_DISABLE_REMOTE_DESKTOP_WALLPAPER_EXPLAIN">Especifica si el papel tapiz del escritorio se muestra a clientes remotos que se conecten a través de Servicios de Escritorio remoto.
+
+Puede usar esta opción para exigir la eliminación de papel tapiz durante una sesión de Servicios de Escritorio remoto. De manera predeterminada, Windows XP Professional muestra el papel tapiz a los clientes remotos que se conectan a través de Escritorio remoto, dependiendo de la configuración del cliente (consulte la pestaña Rendimiento en las opciones Conexión a Escritorio remoto para obtener más información). Los servidores que ejecutan Windows Server 2003 no muestran el papel tapiz de manera predeterminada en sesiones de Servicios de Escritorio remoto.
+
+Si el estado se establece en Habilitado, el papel tapiz nunca aparece en la sesión de Servicios de Escritorio remoto.
+
+Si el estado se establece en Deshabilitado, puede que aparezca el papel tapiz en la sesión de Servicios de Escritorio remoto, dependiendo de la configuración del cliente.
+
+Si el estado se establece en No configurado, se aplica el comportamiento predeterminado.</string>
+      <string id="TS_DRIVE_G">G:</string>
+      <string id="TS_DRIVE_H">H:</string>
+      <string id="TS_DRIVE_I">I:</string>
+      <string id="TS_DRIVE_J">J:</string>
+      <string id="TS_DRIVE_K">K:</string>
+      <string id="TS_DRIVE_L">L:</string>
+      <string id="TS_DRIVE_M">M:</string>
+      <string id="TS_DRIVE_N">N:</string>
+      <string id="TS_DRIVE_O">O:</string>
+      <string id="TS_DRIVE_P">P:</string>
+      <string id="TS_DRIVE_Q">Q:</string>
+      <string id="TS_DRIVE_R">R:</string>
+      <string id="TS_DRIVE_S">S:</string>
+      <string id="TS_DRIVE_T">T:</string>
+      <string id="TS_DRIVE_U">U:</string>
+      <string id="TS_DRIVE_V">V:</string>
+      <string id="TS_DRIVE_W">W:</string>
+      <string id="TS_DRIVE_X">X:</string>
+      <string id="TS_DRIVE_Y">Y:</string>
+      <string id="TS_DRIVE_Z">Z:</string>
+      <string id="TS_SECURITY">Seguridad</string>
+      <string id="TS_SECURITY_Help">Controla la configuración de seguridad de un servidor host de sesión de Escritorio remoto</string>
+      <string id="TS_ENCRYPTION_CLIENT_COMPATIBLE">Compatible con el cliente</string>
+      <string id="TS_ENCRYPTION_EXPLAIN">Especifica si es necesario usar un nivel de cifrado específico para proteger las comunicaciones entre equipos cliente y servidores host de sesión de Escritorio remoto durante las conexiones de Protocolo de escritorio remoto (RDP). Esta directiva solo se aplica si usas el cifrado RDP nativo. No obstante, no se recomienda usar el cifrado RDP nativo (al contrario que el cifrado SSL). Esta directiva no se aplica al cifrado SSL.
+
+Si habilitas esta configuración de directiva, todas las comunicaciones entre clientes y servidores host de sesión de Escritorio remoto realizadas durante las conexiones remotas deberán usar el método de cifrado especificado en esta configuración. De forma predeterminada, el nivel de cifrado se establece en Alto. Los métodos de cifrado disponibles son los siguientes:
+
+* Alto: el valor Alto cifra los datos enviados del cliente al servidor y del servidor al cliente mediante un cifrado de alta seguridad de 128 bits. Usa este nivel de cifrado en entornos que contengan únicamente clientes de 128 bits (por ejemplo, clientes que ejecuten Conexión a Escritorio remoto). Los clientes que no admitan este nivel de cifrado no podrán conectarse a los servidores host de sesión de Escritorio remoto.
+
+* Compatible con el cliente: la opción Compatible con el cliente cifra los datos enviados entre el cliente y el servidor con la seguridad de clave máxima compatible con el cliente. Usa este nivel de cifrado en entornos que contengan clientes no compatibles con el cifrado de 128 bits.
+
+* Bajo: el valor Bajo cifra únicamente los datos enviados del cliente al servidor mediante un cifrado de 56 bits.
+
+Si deshabilitas o no estableces esta configuración, el nivel de cifrado que se usará en las conexiones remotas a servidores host de sesión de Escritorio remoto no se aplicará mediante la directiva de grupo. 
+
+Importante
+
+Se puede configurar la compatibilidad con FIPS a través de la opción Criptografía del sistema. Usa algoritmos compatibles con FIPS para las configuraciones de cifrado, firma y operaciones hash en la directiva de grupo (en Configuración del equipo\Configuración de Windows\Configuración de seguridad\Directivas locales\Opciones de seguridad). La configuración de compatibilidad con FIPS cifra y descifra los datos enviados entre el cliente y el servidor con los algoritmos de cifrado del Estándar federal de procesamiento de información (FIPS) 140, mediante los módulos criptográficos de Microsoft. Usa este nivel de cifrado cuando las comunicaciones entre clientes y servidores host de sesión de Escritorio remoto requieran el máximo nivel de cifrado.
+</string>
+      <string id="TS_ENCRYPTION_HIGH_LEVEL">Nivel alto</string>
+      <string id="TS_ENCRYPTION_LOW_LEVEL">Nivel bajo</string>
+      <string id="TS_ENCRYPTION_POLICY">Establecer el nivel de cifrado de conexión de cliente</string>
+      <string id="TS_FALLBACK_DEFAULT">No hacer nada si ninguno se encuentra.</string>
+      <string id="TS_FALLBACK_PCL">Usar PCL si ninguno se encuentra.</string>
+      <string id="TS_FALLBACK_PCL_PS">Mostrar PCL y PS si ninguno se encuentra.</string>
+      <string id="TS_FALLBACK_PS">Usar PS si ninguno se encuentra.</string>
+      <string id="TS_FALLBACKPRINTDRIVERTYPE">Especificar el comportamiento del controlador de impresora de reserva de un servidor host de sesión de Escritorio remoto</string>
+      <string id="TS_FALLBACKPRINTER_EXPLAIN">Esta configuración de directiva permite especificar el comportamiento del controlador de impresora de reserva de un servidor host de sesión de Escritorio remoto.
+
+De manera predeterminada, el controlador de impresora de reserva de un servidor host de sesión de Escritorio remoto está deshabilitado. Si el servidor host de sesión de Escritorio remoto no tiene un controlador de impresora que coincida con la impresora del cliente, ninguna impresora estará disponible para la sesión de Servicios de Escritorio remoto.
+
+Si habilita esta configuración de directiva, el controlador de impresora de reserva también se habilita y el comportamiento predeterminado para el servidor host de sesión de Escritorio remoto consistirá en buscar un controlador de impresora adecuado. Si no puede encontrar ninguno, la impresora del cliente no estará disponible. Puede elegir cambiar este comportamiento predeterminado. Las opciones disponibles son:
+
+"No hacer nada si ninguno se encuentra": en caso de que ningún controlador de impresora coincida, el servidor intentará buscar un controlador adecuado. Si no puede encontrar ninguno, la impresora del cliente no estará disponible. Éste es el comportamiento predeterminado.
+
+"Usar PCL si ninguno se encuentra": si no se puede encontrar ningún controlador de impresora adecuado, se usará el controlador de impresora de reserva de Lenguaje de control de impresora (PCL) como valor predeterminado.
+
+"Usar PS si ninguno se encuentra": si no se puede encontrar ningún controlador de impresora adecuado, se usará el controlador de impresora de reserva de PostScript (PS) como valor predeterminado.
+
+"Mostrar PCL y PS si ninguno se encuentra": si no se puede encontrar ningún controlador adecuado, se mostrarán los controladores de impresora de reserva basados en PS y PCL.
+
+Si deshabilita esta configuración de directiva, el controlador de reserva de servidor host de sesión de Escritorio remoto también se deshabilita y el servidor host de sesión de Escritorio remoto no intentará usarlo.
+
+Si no se establece esta configuración de directiva, el comportamiento del controlador de impresora de reserva se desactiva de manera predeterminada.
+
+Nota: si la opción "No permitir redirección de impresoras de cliente" está habilitada, se omitirá esta configuración de directiva y el controlador de impresora de reserva se deshabilitará.</string>
+      <string id="TS_FORCIBLE_LOGOFF">Deniega el cierre de sesión de un administrador que ha iniciado sesión en la consola de sesión</string>
+      <string id="TS_FORCIBLE_LOGOFF_EXPLAIN">Esta configuración de directiva determina si un administrador que intenta conectarse de forma remota a la consola de un servidor puede cerrar la sesión de un administrador que tiene una sesión iniciada en la consola.
+
+Esta directiva es útil cuando el administrador que está conectado no desea que otro administrador le cierre la sesión. Si se cierra la sesión del administrador conectado, se perderán todos los datos que no se hayan guardado previamente.
+
+Si habilita esta configuración de directiva, no será posible cerrar la sesión del administrador conectado.
+
+Si deshabilita o no define esta configuración de directiva, será posible cerrar la sesión del administrador conectado.
+
+Nota: la sesión de la consola se conoce también como Sesión 0. Se puede obtener acceso a la consola mediante el modificador /console desde el campo de nombre del equipo en Conexión a Escritorio remoto o desde la línea e comandos.</string>
+      <string id="TS_GATEWAY">Puerta de enlace de Escritorio remoto</string>
+      <string id="TS_GATEWAY_Help">Controla la configuración de acceso al servidor de puerta de enlace de Escritorio remoto</string>
+      <string id="TS_GATEWAY_BASIC">Pedir credenciales, usar el protocolo Básico</string>
+      <string id="TS_GATEWAY_LOGGED_ON_CREDS">Usar credenciales de inicio de sesión local</string>
+      <string id="TS_GATEWAY_NTLM">Pedir credenciales, usar el protocolo NTLM</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Pedir credenciales, usar el protocolo Negotiate</string>
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Establecer el método de autenticación de la puerta de enlace de Escritorio remoto</string>
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Especifica el método de autenticación que los clientes deben usar cuando intenten conectarse a un servidor host de sesión de Escritorio remoto a través de un servidor de puerta de enlace de Escritorio remoto. Puedes aplicar esta configuración de directiva o permitir que los usuarios la sobrescriban. De forma predeterminada, cuando se habilita esta configuración de directiva, se aplica. Cuando se aplica esta configuración de directiva, los usuarios no la pueden invalidar, incluso si seleccionan la opción "Usar esta configuración de servidor de puerta de enlace de Escritorio remoto" en el cliente.
+
+Para permitir que los usuarios sobrescriban esta configuración de directiva, selecciona la casilla "Permitir que los usuarios cambien esta configuración". Si lo haces, los usuarios podrán especificar un método de autenticación alternativo estableciendo la configuración en el cliente o usando un archivo RDP o un script HTML. Si los usuarios no especifican un método de autenticación alternativo, se usará de forma predeterminada el que especifiques en esta configuración de directiva.
+
+Si deshabilitas o no estableces esta configuración de directiva, se usará el método de autenticación especificado por el usuario, en el caso de que se especifique uno. Si no se especifica un método de autenticación, se puede usar el protocolo Negotiate habilitado en el cliente o una tarjeta inteligente para la autenticación.</string>
+      <string id="TS_GATEWAY_POLICY_ENABLE">Habilitar conexión a través de puerta de enlace de Escritorio remoto</string>
+      <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Si habilita esta configuración de directiva, cuando Conexión a Escritorio remoto no pueda conectar directamente con un equipo remoto (un servidor host de sesión de Escritorio remoto o un equipo con Escritorio remoto habilitado), los clientes intentarán conectarse al equipo remoto a través de un servidor de puerta de enlace de Escritorio remoto. En este caso, los clientes intentarán conectarse al servidor de puerta de enlace de Escritorio remoto que se especifica en la configuración de directiva "Establecer la dirección del servidor de puerta de enlace de Escritorio remoto".
+
+Puede aplicar esta configuración de directiva o puede permitir que los usuarios la sobrescriban. De manera predeterminada, cuando se habilita esta configuración de directiva, se aplica. Cuando se aplica esta configuración de directiva, los usuarios no la pueden invalidar, incluso si seleccionan la opción "Usar esta configuración de servidor de Puerta de enlace de Escritorio remoto" en el cliente.
+
+Nota: para aplicar esta configuración de directiva, también debe especificar la dirección del servidor de puerta de enlace de Escritorio remoto mediante la configuración de directiva "Establecer la dirección del servidor de puerta de enlace de Escritorio remoto"; de lo contrario, se producirán errores en los intentos de conexión a cualquier equipo remoto por parte del cliente, si el cliente no se puede conectar directamente al equipo remoto. Para aumentar la seguridad, es muy recomendable que especifique el método de autenticación mediante la configuración de directiva "Establecer el método de autenticación de puerta de enlace de Escritorio remoto". Si no especifica un método de autenticación con esta configuración de directiva, se puede usar el protocolo NTLM habilitado en el cliente o una tarjeta inteligente.
+
+Para permitir a los usuarios sobrescribir esta configuración de directiva, seleccione la casilla "Permitir que los usuarios cambien esta configuración". Al hacerlo, los usuarios del cliente pueden elegir no conectarse a través del servidor de puerta de enlace Escritorio remoto si seleccionan la opción "No usar un servidor de Puerta de enlace de Escritorio remoto". Los usuarios pueden especificar un método de conexión estableciendo la configuración en el cliente o usando un archivo RDP o un script HTML. Si los usuarios no establecen un método de conexión, de manera predeterminada, se usa el método de conexión que usted especifique en esta configuración de directiva.
+
+Si deshabilita o no establece esta configuración de directiva, los clientes no usarán la dirección del servidor de puerta de enlace de Escritorio remoto especificada en la configuración de directiva "Establecer la dirección del servidor de puerta de enlace de Escritorio remoto". Si el usuario especifica un servidor de puerta de enlace de Escritorio remoto, el cliente intentará una conexión a través de ese servidor de puerta de enlace de Escritorio remoto.
+
+</string>
+      <string id="TS_GATEWAY_POLICY_SERVER">Establecer la dirección del servidor de puerta de enlace de Escritorio remoto</string>
+      <string id="TS_GATEWAY_POLICY_SERVER_HELP">Especifica la dirección del servidor de puerta de enlace de Escritorio remoto que los clientes deben usar cuando intenten conectarse a un servidor host de sesión de Escritorio remoto. Puede aplicar esta configuración de directiva o permitir que los usuarios la sobrescriban. De forma predeterminada, cuando se habilita esta configuración de directiva, se aplica. Cuando se aplica esta configuración de directiva, los usuarios no la pueden invalidar, incluso si seleccionan la opción "Usar esta configuración de servidor de Puerta de enlace de Escritorio remoto" en el cliente.
+
+Nota: es muy recomendable que también se especifique el método de autenticación mediante la configuración de la directiva "Establecer el método de autenticación de puerta de enlace de Escritorio remoto". Si no se especifica un método de autenticación mediante esta configuración, se puede usar el protocolo NTLM habilitado en el cliente o una tarjeta inteligente.
+
+Para permitir a los usuarios sobrescribir la configuración de directiva "Establecer la dirección del servidor de puerta de enlace de Escritorio remoto" y conectarse a otro servidor de puerta de enlace de Escritorio remoto, se debe seleccionar la casilla "Permitir que los usuarios cambien esta configuración" y los usuarios podrán especificar un servidor de puerta de enlace de Escritorio remoto alternativo. Los usuarios podrán especificar un servidor de puerta de enlace de Escritorio remoto alternativo estableciendo la configuración en el cliente o usando un archivo RDP o un script HTML. Si los usuarios no especifican un servidor de puerta de enlace de Escritorio remoto alternativo, se usará de manera predeterminada el que usted especifique en esta configuración de directiva.
+
+Nota: si deshabilita o no establece esta configuración de directiva, pero habilita "Habilitar conexión a través de la puerta de enlace de Escritorio remoto", se producirán errores en los intentos de conexión a cualquier equipo remoto por parte del cliente, si el cliente no se puede conectar directamente al equipo remoto. Si el usuario especifica un servidor de puerta de enlace de Escritorio remoto, el cliente intentará una conexión a través de ese servidor de puerta de enlace de Escritorio remoto.</string>
+      <string id="TS_GATEWAY_SMARTCARD">Usar tarjeta inteligente</string>
+      <string id="TS_GP_NODE">Servicios de Escritorio remoto</string>
+      <string id="TS_JOIN_SESSION_DIRECTORY">Unirse al Agente de conexión a Escritorio remoto</string>
+      <string id="TS_JOIN_SESSION_DIRECTORY_EXPLAIN">Esta configuración de directiva permite especificar si el servidor host de sesión de Escritorio remoto debe unirse a una granja del Agente de conexión a Escritorio remoto. El Agente de conexión a Escritorio remoto realiza un seguimiento de las sesiones del usuario y permite a éste volver a conectarse a su sesión existente en una granja de servidores de Escritorio remoto con carga equilibrada. Para participar en el Agente de conexión a Escritorio remoto, el servicio de rol de host de sesión de Escritorio remoto debe estar instalado en el servidor.
+
+Si la configuración de directiva está habilitada, el servidor host de sesión de Escritorio remoto se une a la granja que se especifica en la configuración de directiva de nombre de granja del Agente de conexión a Escritorio remoto. La granja existe en el servidor del Agente de conexión a Escritorio remoto que se especifica en la configuración de directiva de nombre de servidor de Agente de conexión a Escritorio remoto.
+
+Si deshabilita esta configuración de directiva, el servidor no se une a una granja del Agente de conexión a Escritorio remoto y no se realiza el seguimiento de las sesiones del usuario. Si se deshabilita la configuración de directiva, no podrá usar la herramienta de configuración de host de sesión de Escritorio remoto ni el proveedor WMI de Servicios de Escritorio remoto para unir el servidor al Agente de conexión a Escritorio remoto.
+
+Si no se establece la configuración de directiva, esta no se especifica en el nivel de la directiva de grupo. 
+
+Notas:
+
+    1. si habilita esta configuración de directiva, también deberá habilitar las configuraciones de directiva Configurar nombre de la granja del Agente de conexión a Escritorio remoto y Configurar nombre del servidor del Agente de conexión a Escritorio remoto.
+
+    2. Para Windows Server 2008, esta configuración de directiva es compatible con al menos Windows Server 2008 Standard.
+
+</string>
+      <string id="TS_KEEP_ALIVE">Configurar intervalo entre mensajes de mantenimiento de conexión</string>
+      <string id="TS_KEEP_ALIVE_EXPLAIN">Esta configuración de directiva permite especificar un intervalo entre mensajes de mantenimiento de conexión para garantizar que el estado de la sesión en el servidor host de sesión de Escritorio remoto sea coherente con el estado del cliente.
+
+Después de que un cliente del servidor host de sesión de Escritorio remoto pierda la conexión con un servidor host de sesión de Escritorio remoto, la sesión en dicho servidor puede permanecer activa en lugar de desconectarse, incluso si el cliente se desconecta físicamente del servidor. Si el cliente inicia sesión de nuevo en el mismo servidor host de sesión de Escritorio remoto, puede establecerse una nueva sesión (si la configuración del servidor host de sesión de Escritorio remoto permite varias sesiones) y la sesión original puede permanecer activa.
+
+Si habilita esta configuración de directiva, debe especificar un intervalo entre mensajes de mantenimiento de conexión. El intervalo entre mensajes de mantenimiento de conexión determina la frecuencia (en minutos) con la que el servidor comprueba el estado de la sesión. El intervalo de valores que se puede escribir es de 1 a 999.999.
+
+Si deshabilita o no establece esta configuración de directiva, no se establecerá ningún intervalo entre mensajes de mantenimiento de conexión y el servidor no comprobará el estado de la sesión.</string>
+      <string id="TS_LICENSING">Licencias</string>
+      <string id="TS_LICENSING_Help">Controla la configuración de la licencia de Escritorio remoto en un servidor host de sesión de Escritorio remoto</string>
+      <string id="TS_LICENSE_SECGROUP">Grupo de seguridad del servidor de licencias</string>
+      <string id="TS_LICENSE_SECGROUP_HELP">Esta configuración de directiva le permite especificar los servidores de host de sesión de Escritorio remoto a los que un servidor de licencias de Escritorio remoto ofrecerá licencias de acceso de cliente de Servicios de Escritorio remoto (CAL de RDS).
+
+Puede usar esta configuración de directiva para controlar los servidores de host de sesión de Escritorio remoto a los que el servidor de licencias de Escritorio remoto emitirá CAL de RDS. De manera predeterminada, un servidor de licencias emite una CAL de RDS a cualquier servidor host de sesión de Escritorio remoto que solicite una.
+
+Si habilita esta configuración de directiva y ésta se aplica a un servidor de licencias de Escritorio remoto, el servidor de licencias solo atenderá solicitudes de CAL de RDS de servidores de host de sesión de Escritorio remoto cuyas cuentas de equipo sean miembros del grupo Servidores de extremo RDS en el servidor de licencias.
+
+De manera predeterminada, el grupo Servidores de extremo RDS está vacío.
+
+Si deshabilita o no establece esta configuración de directiva, el servidor de licencias de Escritorio remoto emite una CAL de RDS a cualquier servidor host de sesión de Escritorio remoto que solicite una. El grupo Servidores de extremo RDS no se elimina ni se modifica de ningún modo si se deshabilita o no se establece esta configuración de directiva.
+
+Nota: solo debe habilitar esta configuración de directiva cuando el servidor de licencias es miembro de un dominio. Solo puede agregar cuentas de equipos para servidores de host de sesión de Escritorio remoto al grupo Servidores de extremo RDS cuando el servidor de licencias es miembro de un dominio.</string>
+      <string id="TS_LICENSE_SERVERS">Usar los servidores de licencias de Escritorio remoto especificados</string>
+      <string id="TS_LICENSE_SERVERS_Help">Controla la configuración de un servidor de licencias de Escritorio remoto</string>
+      <string id="TS_LICENSE_SERVERS_EXPLAIN">Esta configuración de directiva permite especificar el orden en el que un servidor host de sesión de Escritorio remoto busca servidores de licencias de Escritorio remoto.
+
+Si habilita esta configuración de directiva, un servidor host de sesión de Escritorio remoto intentará primero encontrar los servidores de licencias que se especifiquen. Si estos no se encuentran, el servidor host de sesión de Escritorio remoto intentará la detección automática de servidores de licencias. En el proceso de detección automática de servidores de licencias, un servidor host de sesión de Escritorio remoto de un dominio basado en Windows Server intenta establecer contacto con un servidor de licencias en el siguiente orden:
+1. Servidores de licencias de Escritorio remoto publicados en los Servicios de dominio de Active Directory
+
+    2. Servidores de licencias de Escritorio remoto instalados en controladores de dominio en el mismo dominio que el servidor host de sesión de Escritorio remoto.
+
+Si deshabilita o no establece esta configuración de directiva, el servidor host de sesión de Escritorio remoto no especifica un servidor de licencias en el nivel de directiva de grupo.
+
+</string>
+      <string id="TS_LICENSE_TOOLTIP">Ocultar notificaciones acerca de los problemas de licencia de Escritorio remoto que afecten al servidor host de sesión de Escritorio remoto</string>
+      <string id="TS_LICENSE_TOOLTIP_EXPLAIN">Esta configuración de directiva determina si se muestran notificaciones en un servidor host de sesión de Escritorio remoto cuando se dan problemas con la licencia de Escritorio remoto que afectan al servidor host de sesión de Escritorio remoto.
+
+De manera predeterminada, se muestran notificaciones en un servidor host de sesión de Escritorio remoto después de que inicie sesión como administrador local, si existen problemas con la licencia de Escritorio remoto que afectan al servidor host de sesión de Escritorio remoto. Si procede, también se mostrará una notificación con el número de días que quedan antes de que expire el período de gracia de la licencia para el servidor host de sesión de Escritorio remoto.
+
+Si habilita esta configuración de directiva, estas notificaciones no se mostrarán en el servidor host de sesión de Escritorio remoto.
+
+Si deshabilita o no define esta configuración de directiva, estas notificaciones se mostrarán en el servidor host de sesión de Escritorio remoto después de que inicie sesión como administrador local.</string>
+      <string id="TS_LICENSING_MODE">Establecer el modo de licencia de Escritorio remoto</string>
+      <string id="TS_LICENSING_MODE_EXPLAIN">
+        Esta configuración de directiva te permite especificar el tipo de licencia de acceso de cliente de los Servicios de Escritorio remoto (CAL de RDS) que necesitas para conectarte a este servidor host de sesión de Escritorio remoto.
+
+        Puedes usar esta configuración de directiva para seleccionar uno de los tres modos de licencia: por usuario, por dispositivo y AAD por usuario.
+
+        El modo de licencia por usuario requiere que cada cuenta de usuario que se conecte a este servidor host de sesión de Escritorio remoto tenga una CAL por usuario de RDS emitida desde un servidor de licencias de escritorio remoto.
+
+        El modo de licencia por dispositivo requiere que cada dispositivo que se conecte a este servidor host de sesión de Escritorio remoto tenga una CAL por dispositivo de RDS emitida desde un servidor de licencias de escritorio remoto.
+
+        El modo de licencia de AAD por usuario requiere que cada cuenta de usuario que se conecte a este servidor host de sesión de Escritorio remoto tenga un plan de servicio que admita licencias de RDS asignadas en AAD.
+        
+        Si habilitas esta configuración de Directiva, el servidor de licencias de Escritorio remoto podrá admitir el modo de licencia de Escritorio remoto que especifiques.
+
+        Si deshabilitas o no estableces esta configuración de directiva, el modo de licencia no se especificará en el nivel de directiva de grupo.
+      </string>
+      <string id="TS_LICENSING_MODE_PER_DEVICE">Por dispositivo</string>
+      <string id="TS_LICENSING_MODE_PER_USER">Por usuario</string>
+      <string id="TS_LICENSING_MODE_AAD_PER_USER">AAD por usuario</string>
+      <string id="TS_LPTPORTMAP_EXPLAIN">Esta configuración de directiva especifica si se impide la redirección de datos a puertos LPT de cliente durante una sesión de Servicios de Escritorio remoto.
+
+Puede usar esta opción para impedir a los usuarios asignar puertos LPT locales y redirigir datos desde el equipo remoto a periféricos de puertos locales LPT. De forma predeterminada, Servicios de Escritorio remoto permite la redirección de puertos LPT.
+
+Si habilita esta configuración de directiva, los usuarios de una sesión de Servicios de Escritorio remoto no pueden redirigir datos del servidor al puerto LPT local.
+
+Si deshabilita esta configuración de directiva, se permitirá siempre la redirección a puertos LPT.
+
+Si no establece esta configuración de directiva, la redirección de puertos LPT no se especificará en el nivel de directiva de grupo. 
+ 
+</string>
+      <string id="TS_MAX_CON_EXPLAIN">Especifica si Servicios de Escritorio remoto limita el número de conexiones simultáneas al servidor.
+
+Puede usar esta opción para restringir el número de sesiones remotas que pueden estar activas en un servidor. Si se excede este número, los demás usuarios que intenten conectarse recibirán un mensaje de error que indica que el servidor está ocupado para que lo vuelvan a intentar más tarde. La restricción del número de sesiones mejora el rendimiento porque hay menos sesiones que consumen recursos del sistema. De forma predeterminada, los servidores de host de sesión de Escritorio remoto permiten un número ilimitado de sesiones de Servicios de Escritorio remoto, y Escritorio remoto para administración permite dos sesiones de Servicios de Escritorio remoto.
+
+Para usar esta opción, escriba el número de conexiones que desea especificar como el número máximo para el servidor. Para especificar un número ilimitado de conexiones, escriba 999999.
+
+Si el estado se establece en Habilitado, el número máximo de conexiones está limitado al número especificado coherente con la versión de Windows y el modo de Servicios de Escritorio remoto que se está ejecutando en el servidor.
+
+Si el estado se establece en Deshabilitado o en No configurado, los límites en el número de conexiones no se aplican en el nivel de directiva de grupo.
+
+Nota: esta opción de configuración está diseñada para usarse en servidores de host de sesión de Escritorio remoto (es decir, en servidores que ejecutan Windows con el servicio de rol de host de sesión de Escritorio remoto instalado).</string>
+      <string id="TS_MAX_CON_POLICY">Limitar número de conexiones</string>
+      <string id="TS_NoDisconnectMenu">Quitar la opción "Desconectar" del cuadro de diálogo Cerrar Windows</string>
+      <string id="TS_NoDisconnectMenu_Help">Esta configuración de directiva permite quitar la opción "Desconectar" del cuadro de diálogo Cerrar Windows en las sesiones de Servicios de Escritorio remoto.
+
+Puede usar esta configuración de directiva para impedir que los usuarios usen este método habitual para desconectar clientes de un servidor host de sesión de Escritorio remoto.
+
+Si habilita esta configuración de directiva, "Desconectar" no aparecerá como una opción en la lista desplegable del cuadro de diálogo Cerrar Windows.
+
+Si deshabilita o no establece esta configuración de directiva, "Desconectar" seguirá apareciendo en la lista del cuadro de diálogo Cerrar Windows.
+
+Nota: esta configuración de directiva afecta solo al cuadro de diálogo Cerrar Windows. No impide que los usuarios usen otros métodos para desconectarse de una sesión de Servicios de Escritorio remoto. Además, esta configuración de directiva no impide las sesiones desconectadas en el servidor. Se puede controlar el período de tiempo que una sesión desconectada permanece activa en el servidor mediante la configuración de la directiva "Configuración del equipo\Plantillas administrativas\Componentes de Windows\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Límite de tiempo de sesión\Establecer el límite de tiempo para las sesiones desconectadas".</string>
+      <string id="TS_NoSecurityMenu">Quitar el elemento Seguridad de Windows del menú Inicio</string>
+      <string id="TS_NoSecurityMenu_Help">Especifica si se quita el elemento Seguridad de Windows del menú Configuración de los clientes de Escritorio remoto. Puede usar esta opción para impedir que usuarios inexpertos cierren una sesión de Servicios de Escritorio remoto inadvertidamente.
+
+Si el estado se establece en Habilitado, Seguridad de Windows no aparecerá en la Configuración del menú Inicio. Como resultado, los usuarios deben escribir una secuencia de aviso de seguridad, por ejemplo Ctrl+Alt+Fin, para abrir el cuadro de diálogo Seguridad de Windows en el equipo cliente.
+
+Si el estado se establece en Deshabilitado o No configurado, Seguridad de Windows permanecerá en el menú Configuración.</string>
+      <string id="TS_on_the_Local_machine">En el equipo local</string>
+      <string id="TS_On_the_Network">En la red</string>
+      <string id="TS_PASSWORD">Solicitar la contraseña siempre al conectar</string>
+      <string id="TS_PreventLicenseUpgrade">Impedir actualización de licencias</string>
+      <string id="TS_PreventLicenseUpgrade_Help">Esta configuración de directiva permite especificar la versión de licencia de acceso de cliente de Servicios de Escritorio remoto (CAL de RDS) que emitirá un servidor de licencias de Servicios de Escritorio remoto a los clientes que se conecten a servidores de host de sesión de Escritorio remoto que ejecuten otros sistemas operativos basados en Windows.
+
+Los servidores de licencias intentan proporcionar la CAL de RDS o TS más adecuada para cada conexión. Por ejemplo, un servidor de licencias con Windows Server 2008 intentará emitir una CAL de TS de Windows Server 2008 para los clientes que se conecten a un servidor de Terminal Server que ejecute Windows Server 2008, e intentará emitir una CAL de TS de Windows Server 2003 para los clientes que se conecten a un servidor de Terminal Server que ejecute Windows Server 2003.
+
+De manera predeterminada, si la CAL de RDS más adecuada no está disponible para una conexión, un servidor de licencias con Windows Server 2008 emitirá una CAL de TS de Windows Server 2008, si está disponible, a: 
+
+* Un cliente que se conecte a un servidor de Terminal Server con Windows Server 2003
+* Un cliente que se conecte a un servidor de Terminal Server con Windows 2000
+
+Si habilita esta configuración de directiva, el servidor de licencias solo emitirá una CAL de RDS temporal al cliente si no está disponible una CAL de RDS adecuada para el servidor host de sesión de Escritorio remoto. Si ya se emitió una CAL de RDS temporal al cliente y esta expiró, el cliente no podrá conectarse al servidor host de sesión de Escritorio remoto a menos que el período de gracia de la licencia de Escritorio remoto para el servidor host de sesión de Escritorio remoto no haya expirado.
+
+Si deshabilita o no establece esta configuración de directiva, el servidor de licencias adoptará el comportamiento predeterminado descrito anteriormente.</string>
+      <string id="TS_PRINTERMAP_EXPLAIN">Esta configuración de directiva permite especificar si se impide la asignación de impresoras de cliente en sesiones de Servicios de Escritorio remoto.
+
+Puede usar esta configuración de directiva para evitar que los usuarios redirijan trabajos de impresión del equipo remoto a una impresora conectada al equipo local (cliente). De manera predeterminada, Servicios de Escritorio remoto permite esta asignación de impresoras de cliente.
+
+Si habilita esta configuración de directiva, los usuarios no pueden redirigir trabajos de impresión del equipo remoto a una impresora de cliente local en sesiones de Servicios de Escritorio remoto.
+
+Si deshabilita esta configuración de directiva, los usuarios pueden redirigir trabajos de impresión con la asignación de impresoras de cliente.
+
+Si no establece esta configuración de directiva, la asignación de impresoras de cliente no se especificará en el nivel de directiva de grupo.
+
+</string>
+      <string id="TS_PROMPT_PASSWORD_EXPLAIN">Esta configuración de directiva especifica si Servicios de Escritorio remoto pide siempre al cliente una contraseña al conectarse.
+
+Puede usar esta opción para exigir la petición de una contraseña a los usuarios que se conecten a Servicios de Escritorio remoto, aunque ya hayan proporcionado la contraseña en el cliente de Conexión a Escritorio remoto.
+
+De forma predeterminada, Servicios de Escritorio remoto permite a los usuarios iniciar sesión de forma automática si especifican una contraseña en el cliente de Conexión a Escritorio remoto.
+
+Si habilita esta configuración de directiva, los usuarios no podrán iniciar sesión automáticamente en Servicios de Escritorio remoto mediante la especificación de su contraseña en el cliente de Conexión a Escritorio remoto. Se les pedirá una contraseña para iniciar sesión.
+
+Si deshabilita esta configuración de directiva, los usuarios podrán iniciar sesión siempre automáticamente en Servicios de Escritorio remoto mediante la especificación de su contraseña en el cliente de Conexión a Escritorio remoto.
+
+Si no establece esta configuración de directiva, el inicio de sesión automático no se especificará en el nivel de directiva de grupo.
+
+</string>
+      <string id="TS_REDIRECTION">Redirección de dispositivo o recurso</string>
+      <string id="TS_REDIRECTION_Help">Controla el acceso a dispositivos y recursos de un equipo cliente en sesiones de Servicios de Escritorio remoto</string>
+      <string id="TS_RemoteControl">Establecer reglas para el control remoto de sesiones de usuario de Servicios de Escritorio remoto</string>
+      <string id="TS_RemoteControl_0">Control remoto no permitido</string>
+      <string id="TS_RemoteControl_1">Control total con permisos del usuario</string>
+      <string id="TS_RemoteControl_2">Control total sin permisos del usuario</string>
+      <string id="TS_RemoteControl_3">Ver sesión con permisos del usuario</string>
+      <string id="TS_RemoteControl_4">Ver sesión sin permisos del usuario</string>
+      <string id="TS_RemoteControl_EXPLAIN">Si habilita esta configuración de directiva, los administradores pueden interactuar con una sesión de Servicios de Escritorio remoto de un usuario en función de la opción seleccionada. Seleccione el nivel de control y permiso que desee de la lista de opciones:
+
+1. Control remoto no permitido: no permite que un administrador use el control remoto o vea una sesión de usuario remoto.
+2. Control total con permiso del usuario: permite al administrador interactuar con la sesión, previo consentimiento del usuario.
+3. Control total sin permiso del usuario: permite al administrador interactuar con la sesión sin consentimiento del usuario.
+4. Ver sesión con permiso del usuario: permite al administrador ver la sesión de un usuario remoto, previo consentimiento del usuario. 
+5. Ver sesión sin permiso del usuario: permite al administrador ver la sesión de un usuario remoto sin consentimiento del usuario.
+
+Si deshabilita esta configuración de directiva, los administradores pueden interactuar con una sesión de Servicios de Escritorio remoto de un usuario, previo consentimiento del usuario.</string>
+      <string id="TS_RPC_ENCRYPTION">Requerir comunicación RPC segura</string>
+      <string id="TS_RPC_ENCRYPTION_EXPLAIN">Especifica si un servidor host de sesión de Escritorio remoto requiere comunicaciones RPC seguras con todos los clientes o permite comunicaciones no seguras.
+
+Puede usar esta opción para reforzar la seguridad de la comunicación RPC con los clientes al permitir solo peticiones autenticadas y cifradas.
+
+Si el estado se establece en Habilitado, Servicios de Escritorio remoto acepta peticiones de clientes RPC que admiten peticiones seguras y no permite la comunicación no segura con clientes que no sean de confianza.
+
+Si el estado se establece en Deshabilitado, Servicios de Escritorio remoto siempre solicita seguridad para todo el tráfico RPC. Sin embargo, se permite la comunicación no segura para los clientes RPC que no responden a la petición.
+
+Si el estado se establece en No configurado, se permite la comunicación no segura.
+
+Nota: la interfaz RPC se usa para administrar y configurar Servicios de Escritorio remoto.</string>
+      <string id="TS_SD_ClustName">Configurar nombre de la granja del Agente de conexión a Escritorio remoto</string>
+      <string id="TS_SD_ClustName_Explain">Esta configuración de directiva permite especificar el nombre de una granja a la que unirse del Agente de conexión a Escritorio remoto. El Agente de conexión a Escritorio remoto usa el nombre de granja para determinar qué servidores de host de sesión de Escritorio remoto se encuentran en la misma granja de servidores de host de sesión de Escritorio remoto. Por tanto, debe usar el mismo nombre de granja para todos los servidores de host de sesión de Escritorio remoto de la misma granja de carga equilibrada. El nombre de granja no tiene que corresponder a un nombre de los Servicios de dominio de Active Directory.
+
+Si especifica un nuevo nombre de granja, se creará una nueva granja en el Agente de conexión a Escritorio remoto. Si especifica un nombre de granja existente, el servidor se une a esta granja del Agente de conexión a Escritorio remoto.
+
+Si habilita esta configuración de directiva, debe especificar el nombre de una granja del Agente de conexión a Escritorio remoto.
+
+Si deshabilita o no establece esta configuración de directiva, el nombre de granja no se especificará en el nivel de directiva de grupo. 
+
+Notas:
+
+1. Esta configuración de directiva no se hace efectiva a menos que se habiliten y configuren mediante directivas de grupo las configuraciones de directiva Unirse al Agente de conexión a Escritorio remoto y Configurar nombre del servidor del Agente de conexión a Escritorio remoto.
+
+     2. Para Windows Server 2008, esta configuración de directiva es compatible con al menos Windows Server 2008 Standard.
+
+</string>
+      <string id="TS_SD_EXPOSE_ADDRESS">Usar redirección de direcciones IP</string>
+      <string id="TS_SD_EXPOSE_ADDRESS_Explain">Esta configuración de directiva le permite especificar el método de redirección que se usará cuando un dispositivo cliente se vuelva a conectar a una sesión de Servicios de Escritorio remoto existente en una granja de servidores de host de sesión de Escritorio remoto de carga equilibrada. Esta configuración no se aplica al servidor del Agente de conexión de Escritorio remoto sino a un servidor host de sesión de Escritorio remoto que está configurado para usar el Agente de conexión de Escritorio remoto.
+
+Si habilita esta configuración de directiva, el cliente de Servicios de Escritorio remoto consulta al servidor del Agente de conexión de Escritorio remoto y es redirigido a su sesión existente por medio de la dirección IP del servidor host de sesión de Escritorio remoto en el que se ubica la sesión. Para usar este método de redirección, los equipos cliente deben poder conectarse de manera directa mediante la dirección IP a los servidores de host de sesión de Escritorio remoto de la granja.
+
+Si deshabilita esta configuración de directiva, la dirección IP del servidor host de sesión de Escritorio remoto no se enviará al cliente. En lugar de ello, esa dirección IP se incrusta en un token. Cuando un cliente vuelve a conectarse al equilibrador de carga, se usa el token de enrutamiento para redirigir al cliente a su sesión existente en el servidor host de sesión de Escritorio remoto que corresponda en la granja. Deshabilite esta opción solo cuando la solución para equilibrar cargas de su red sea compatible con el uso de tokens de enrutamiento del Agente de conexión de Escritorio remoto y no desee que los clientes se conecten de forma directa por medio de la dirección IP a los servidores de host de sesión de Escritorio remoto de la granja de carga equilibrada.
+
+Si no establece esta configuración de directiva, la configuración de directiva Usar redirección de direcciones IP no se aplicará en el nivel de directiva de grupo y se usará la configuración predeterminada. Esta configuración está habilitada de manera predeterminada.
+
+Notas:
+
+      1. Para Windows Server 2008, esta configuración de directiva es compatible con al menos Windows Server 2008 Standard.
+
+</string>
+      <string id="TS_SD_Loc">Configurar nombre del servidor del Agente de conexión a Escritorio remoto</string>
+      <string id="TS_SD_Loc_Explain">Esta configuración de directiva permite especificar el servidor de Agente de conexión a Escritorio remoto que el servidor host de sesión de Escritorio remoto usa para realizar un seguimiento y redirigir las sesiones del usuario para una granja de servidores host de sesión de Escritorio remoto de carga equilibrada. El servidor especificado debe estar ejecutando el servicio Agente de conexión a Escritorio remoto. Todos los servidores host de sesión de Escritorio remoto de una granja de carga equilibrada deben usar el mismo servidor de Agente de conexión a Escritorio remoto.
+
+Si habilitas esta configuración de directiva, deberás especificar el servidor de Agente de conexión a Escritorio remoto mediante el nombre de dominio completo (FQDN). En Windows Server 2012, para lograr una instalación de alta disponibilidad con varios servidores de Agente de conexión a Escritorio remoto, debes proporcionar una lista separada por punto y coma de los FQDN de todos los servidores de Agente de conexión a Escritorio remoto.
+
+Si deshabilitas o no estableces esta configuración de directiva, esta no se especificará en el nivel de directiva de grupo.
+
+Notas:
+
+     1. Para Windows Server 2008, esta configuración de directiva es compatible con Windows Server 2008 Standard como mínimo.
+
+     	2. Esta configuración de directiva no entrará en vigor a menos que se habilite la configuración de directiva Unirse al Agente de conexión a Escritorio remoto.
+
+     	3. Para ser miembro activo de una granja de servidores host de sesión de Escritorio remoto, la cuenta de equipo de cada servidor host de sesión de Escritorio remoto de la granja debe ser miembro de uno de los siguientes grupos locales en el servidor de Agente de conexión a Escritorio remoto: Equipos de directorio de sesión, Equipos de agente de sesiones o Servidores de extremo RDS.
+
+</string>
+      <string id="TS_SD_Node">Agente de conexión a Escritorio remoto</string>
+      <string id="TS_SD_Node_Help">Controla la configuración de un servidor host de sesión de Escritorio remoto que es miembro de una granja de servidores de host de sesión de Escritorio remoto</string>
+      <string id="TS_SECURITY_LAYER_EXPLAIN">Esta configuración de directiva especifica si es necesario usar un nivel de seguridad específico para proteger las comunicaciones entre clientes y servidores host de sesión de Escritorio remoto durante las conexiones de Protocolo de escritorio remoto (RDP).
+
+Si habilitas esta configuración de directiva, todas las comunicaciones entre clientes y servidores host de sesión de Escritorio remoto realizadas durante las conexiones remotas deberán usar el método de seguridad especificado en esta configuración. Los métodos de seguridad disponibles son los siguientes:
+
+* Negotiate: el método Negotiate aplica el método más seguro compatible con el cliente. Si se admite la versión 1.0 de Seguridad de la capa de transporte (TLS), se usa para autenticar el servidor host de sesión de Escritorio remoto. Si no se admite TLS, se usa el cifrado de Protocolo de escritorio remoto (RDP) nativo para proteger las comunicaciones, pero no se autentica el servidor host de sesión de Escritorio remoto. No se recomienda usar el cifrado RDP nativo (al contrario que el cifrado SSL).
+
+* RDP: el método RDP usa el cifrado RDP nativo para proteger las comunicaciones entre el cliente y el servidor host de sesión de Escritorio remoto. Si seleccionas esta opción, el servidor host de sesión de Escritorio remoto no se autentica. No se recomienda usar el cifrado RDP nativo (al contrario que el cifrado SSL).
+
+* SSL (TLS 1.0): el método SSL requiere el uso de TLS 1.0 para autenticar el servidor host de sesión de Escritorio remoto. Si no se admite TLS, se producirá un error en la conexión. Esta es la configuración recomendada para esta directiva.
+
+Si deshabilitas o no estableces esta configuración de directiva, el método de seguridad que se usará en las conexiones remotas a servidores host de sesión de Escritorio remoto no se especificará en el nivel de directiva de grupo.
+</string>
+      <string id="TS_SECURITY_LAYER_NEGOTIATE">Negotiate</string>
+      <string id="TS_SECURITY_LAYER_POLICY">Requerir el uso de un nivel de seguridad específico para conexiones remotas (RDP)</string>
+      <string id="TS_SECURITY_LAYER_RDP">RDP</string>
+      <string id="TS_SECURITY_LAYER_SSL">SSL</string>
+      <string id="TS_Session_End_On_Limit">Finalizar sesión cuando se alcancen los límites de tiempo</string>
+      <string id="TS_SESSION_END_ON_LIMIT_EXPLAIN">Esta configuración de directiva especifica si se finaliza una sesión de Servicios de Escritorio remoto cuyo tiempo de espera se ha agotado en lugar de desconectarla.
+
+Puedes usar esta configuración para que Servicios de Escritorio remoto finalice una sesión (es decir, se cierra la sesión de usuario y se elimina la sesión del servidor) cuando se alcance el límite de tiempo de sesiones activas o inactivas. De forma predeterminada, Servicios de Escritorio remoto desconecta las sesiones que alcanzan sus límites de tiempo.
+
+Los límites de tiempo los establece localmente el administrador del servidor o se definen mediante la directiva de grupo. Consulta las configuraciones de directiva Establecer el límite de tiempo para las sesiones activas de Servicios de Escritorio remoto y Establecer el límite de tiempo para las sesiones vigentes, aunque inactivas, de Servicios de Escritorio remoto.
+
+Si habilitas esta configuración de directiva, Servicios de Escritorio remoto finalizará cualquier sesión que alcance el límite de tiempo de espera.
+
+Si deshabilitas esta configuración de directiva, Servicios de Escritorio remoto siempre desconectará una sesión que ha agotado el tiempo de espera, incluso si el administrador del servidor ha especificado otra acción.
+
+Si no estableces esta configuración de directiva, Servicios de Escritorio remoto desconectará una sesión que ha agotado el tiempo de espera, a no ser que la configuración local especifique otra acción.
+
+Nota: Esta configuración de directiva solo se aplica a los límites de tiempo de espera que el administrador haya especificado de manera explícita. Esta configuración de directiva no se aplica a los eventos de tiempo de espera que ocurran a causa de condiciones de conectividad o de la red. Esta configuración se encuentra en Configuración del equipo y en Configuración del usuario. Si se establecen ambas configuraciones, tiene prioridad la de Configuración del equipo.
+</string>
+      <string id="TS_SESSIONS">Entorno de sesión remota</string>
+      <string id="TS_SESSIONS_Comp_Help">Controla la configuración de la interfaz de usuario en las sesiones de Servicios de Escritorio remoto  </string>
+      <string id="TS_LEGACY_REMOTEFX">RemoteFX para Windows Server 2008 R2</string>
+      <string id="TS_LEGACY_REMOTEFX_Comp_Help">Configura todas las directivas que se aplican a RemoteFX para Windows Server 2008 R2 con Service Pack 1.</string>
+      <string id="TS_SESSIONS_Disconnected_Timeout">Establecer el límite de tiempo para las sesiones desconectadas</string>
+      <string id="TS_SESSIONS_DISCONNECTED_TIMEOUT_EXPLAIN">Esta configuración de directiva permite configurar un límite de tiempo para las sesiones de Servicios de Escritorio remoto desconectadas.
+
+Puede usar esta configuración de directiva para especificar la cantidad máxima de tiempo que una sesión desconectada permanecerá activa en el servidor. De forma predeterminada, Servicios de Escritorio remoto permite a los usuarios desconectarse de una sesión de Servicios de Escritorio remoto sin cerrar sesión.
+
+Cuando una sesión está desconectada, los programas en ejecución se mantienen activos aunque el usuario ya no esté conectado de forma activa. De forma predeterminada, estas sesiones desconectadas se mantienen durante un tiempo ilimitado en el servidor.
+
+Si habilita esta configuración de directiva, las sesiones desconectadas se eliminarán del servidor una vez transcurrido el tiempo especificado. Para aplicar el comportamiento predeterminado que mantiene las sesiones desconectadas por tiempo ilimitado, seleccione Nunca. En sesiones de la consola, los límites de tiempo de las sesiones desconectadas no se aplican.
+
+
+Si deshabilita o no establece esta configuración de directiva, ésta no se especificará en el nivel de directiva de grupo. De manera predeterminada, las sesiones desconectadas de Servicios de Escritorio remoto se mantienen por tiempo ilimitado. 
+
+Nota: esta configuración de directiva aparece tanto en Configuración del equipo como en Configuración de usuario. Si se establecen ambas configuraciones de directiva, tiene prioridad la de Configuración del equipo.
+
+</string>
+      <string id="TS_SESSIONS_Idle_Limit">Establecer el límite de tiempo para las sesiones activas, pero en inactividad, de Servicios de Escritorio remoto</string>
+      <string id="TS_SESSIONS_IDLE_LIMIT_EXPLAIN">Esta configuración de directiva permite especificar la cantidad máxima de tiempo durante el que una sesión activa de Servicios de Escritorio remoto puede estar inactiva (es decir, sin la intervención del usuario) antes de que se desconecte automáticamente.
+
+Si habilita esta configuración de directiva, debe seleccionar el límite de tiempo deseado en la lista Límite de la sesión inactiva. Servicios de Escritorio remoto desconectará automáticamente las sesiones activas que no se hayan usado en el tiempo límite especificado. El usuario recibe una advertencia dos minutos antes de que se desconecte la sesión, lo que le permite presionar una tecla o mover el mouse para mantener activa la sesión. En sesiones de la consola, los límites de tiempo de las sesiones inactivas no se aplican.
+
+Si deshabilita o no establece esta configuración de directiva, el límite de tiempo no se especificará en el nivel de directiva de grupo. De manera predeterminada, Servicios de Escritorio remoto permite que las sesiones permanezcan activas pero en inactividad por tiempo ilimitado. 
+
+Si desea que Servicios de Escritorio remoto finalice (en lugar de que desconecte) una sesión cuando se alcanza el límite de tiempo, puede establecer la configuración de directiva Configuración del equipo\Plantillas administrativas\Componentes de Windows\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Límites de tiempo de sesión\Finalizar sesión cuando se alcancen los límites de tiempo.
+
+Nota: esta configuración de directiva aparece tanto en Configuración del equipo como en Configuración de usuario. Si se establecen ambas configuraciones de directiva, tiene prioridad la de Configuración del equipo.
+
+</string>
+      <string id="TS_SESSIONS_Limits">Establecer el límite de tiempo para sesiones activas de Servicios de Escritorio remoto</string>
+      <string id="TS_SESSIONS_LIMITS_EXPLAIN">Esta configuración de directiva permite especificar la cantidad máxima de tiempo durante el que una sesión de Servicios de Escritorio remoto puede estar activa antes de que se desconecte automáticamente.
+
+Si habilita esta configuración de directiva, debe seleccionar el límite de tiempo deseado en la lista Límite de la sesión activa. Servicios de Escritorio remoto desconectará automáticamente las sesiones activas una vez transcurrido el tiempo límite especificado. El usuario recibe una advertencia dos minutos antes de que se desconecte la sesión de Servicios de Escritorio remoto, lo que le permite guardar los archivos abiertos y cerrar programas. En sesiones de la consola, los límites de tiempo de las sesiones activas no se aplican.
+
+Si deshabilita o no establece esta configuración de directiva, ésta no se especificará en el nivel de directiva de grupo. De manera predeterminada, Servicios de Escritorio remoto permite que las sesiones permanezcan activas por tiempo ilimitado. 
+
+Si desea que Servicios de Escritorio remoto finalice (en lugar de que desconecte) una sesión cuando se alcanza el límite de tiempo, puede establecer la configuración de directiva Configuración del equipo\Plantillas administrativas\Componentes de Windows\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Límites de tiempo de sesión\Finalizar sesión cuando se alcancen los límites de tiempo.
+
+Nota: esta configuración de directiva aparece tanto en Configuración del equipo como en Configuración de usuario. Si se establecen ambas configuraciones de directiva, tiene prioridad la de Configuración del equipo.
+
+</string>
+      <string id="TS_SESSIONS_Reconnect_Same">Permitir reconexiones solo desde el cliente original</string>
+      <string id="TS_SESSIONS_RECONNECT_SAME_EXPLAIN">Especifica si se permite a los usuarios volver a conectarse a una sesión de Servicios de Escritorio remoto desconectada mediante un equipo distinto del equipo cliente original.
+
+Puede usar esta configuración para impedir que los usuarios de Servicios de Escritorio remoto vuelvan a conectarse a la sesión desconectada mediante un equipo distinto del equipo cliente desde el cual se creó originalmente la sesión. De forma predeterminada, el host de sesión de Escritorio remoto permite que los usuarios vuelvan a conectarse a sesiones desconectadas desde cualquier equipo cliente.
+
+Si el estado se establece en Habilitado, los usuarios solo podrán volver a conectarse a una sesión desconectada desde el equipo cliente original. Si un usuario intenta conectarse a la sesión desconectada desde otro equipo, se crea una nueva sesión en su lugar.
+
+Si el estado se establece en Deshabilitado, los usuarios siempre podrán conectarse a una sesión desconectada desde cualquier equipo.
+
+Si el estado se establece en No configurado, la reconexión a sesión no se especifica en el nivel de directiva de grupo.
+
+Importante: esta opción solo se admite en clientes Citrix ICA que proporcionen un número de serie al conectar; la opción se omite si el usuario se conecta con un cliente Windows. Asimismo, tenga en cuenta que esta opción aparece tanto en Configuración del equipo como en Configuración de usuario. Si ambas opciones están configuradas, la opción de Configuración del equipo invalida la otra.</string>
+      <string id="TS_SESSIONS_User_Help">Controla los límites de tiempo en las sesiones de Servicios de Escritorio remoto de un servidor host de sesión de Escritorio remoto</string>
+      <string id="TS_SINGLE_SESSION">Limitar a los usuarios de Servicios de Escritorio remoto a una única sesión de Servicios de Escritorio remoto</string>
+      <string id="TS_SINGLE_SESSION_EXPLAIN">Esta configuración de directiva le permite restringir a los usuarios a una sola sesión de Servicios de Escritorio remoto.
+
+Si se habilita esta configuración de directiva, los usuarios que inician sesión de forma remota a través de Servicios de Escritorio remoto quedarán limitados a una sola sesión en ese servidor (activa o desconectada). Si el usuario abandona la sesión en estado de desconexión, se volverá a conectar automáticamente a esa sesión en el próximo inicio de sesión.
+
+Si deshabilita esta configuración de directiva, los usuarios podrán establecer un número ilimitado de conexiones remotas simultáneas mediante Servicios de Escritorio remoto.
+
+Si no establece esta configuración de directiva, ésta no se especificará en el nivel de directiva de grupo.
+
+</string>
+      <string id="TS_SMART_CARD">No permitir la redirección de dispositivos de tarjeta inteligente</string>
+      <string id="TS_SMART_CARD_EXPLAIN">Esta configuración de directiva permite controlar la redirección de los dispositivos de tarjeta inteligente en una sesión de Servicios de Escritorio remoto.
+
+Si habilita esta configuración de directiva, los usuarios de Servicios de Escritorio remoto no podrán usar una tarjeta inteligente para iniciar una sesión de Servicios de Escritorio remoto.
+
+Si deshabilita esta configuración de directiva o no la establece, se permitirá la redirección de dispositivos de tarjeta inteligente. De forma predeterminada, Servicios de Escritorio remoto redirige automáticamente los dispositivos de tarjeta inteligente durante la conexión.
+
+Nota: el equipo cliente debe ejecutar como mínimo Microsoft Windows 2000 Server o Microsoft Windows XP Professional, y el servidor de destino debe estar unido a un dominio.</string>
+      <string id="TS_START_PROGRAM">Iniciar un programa al conectarse</string>
+      <string id="TS_START_PROGRAM_EXPLAIN">Configura Servicios de Escritorio remoto para que ejecute automáticamente un programa especificado al conectarse.
+
+Puede usar esta opción para especificar que determinado programa se ejecute automáticamente cuando un usuario inicie sesión en un equipo remoto.
+
+De forma predeterminada, las sesiones de Servicios de Escritorio remoto proporcionan acceso al escritorio completo de Windows, a menos que el administrador del servidor o el usuario hayan especificado otra acción al configurar la conexión de cliente. Habilitar esta opción invalida la opción "Iniciar programa" establecida por el administrador del servidor o el usuario. El menú Inicio y el escritorio de Windows no se muestran y, cuando el usuario sale del programa, la sesión se cierra automáticamente.
+
+Para usar esta opción, en Nombre de archivo y ruta de acceso del programa, escriba el nombre de archivo completo y la ruta de acceso del archivo ejecutable que se va a ejecutar cuando el usuario inicie sesión. Si es necesario, en Directorio de trabajo, escriba la ruta de acceso completa del directorio de inicio del programa. Si deja Directorio de trabajo en blanco, el programa se ejecutará con su directorio de trabajo predeterminado. Si la ruta de acceso, nombre de archivo o directorio de trabajo del programa especificado no es un nombre de un directorio válido, se produce un error en la conexión del servidor host de sesión de Escritorio remoto y aparece un mensaje de error.
+
+Si el estado se establece en Habilitado, las sesiones de Servicios de Escritorio remoto ejecutan automáticamente el programa especificado y usan el directorio de trabajo especificado (o el directorio predeterminado del programa, si no se ha especificado el directorio de trabajo) como directorio de trabajo del programa.
+
+Si el estado se establece en Deshabilitado o No configurado, las sesiones de Servicios de Escritorio remoto se inician con el escritorio completo, a menos que el administrador del servidor o el usuario especifiquen lo contrario. Consulte la configuración "Configuración del equipo\Plantillas administrativas\Sistema\Inicio de sesión\Ejecutar estos programas al inicio de sesión de usuario".
+
+Nota: esta opción aparece tanto en Configuración del equipo como en Configuración de usuario. Si ambas opciones están configuradas, la opción de Configuración del equipo invalida la otra.</string>
+      <string id="TS_TEMP">Carpetas temporales</string>
+      <string id="TS_TEMP_DELETE">No eliminar carpetas temporales al salir</string>
+      <string id="TS_TEMP_DELETE_EXPLAIN">Esta configuración de directiva especifica si Servicios de Escritorio remoto conserva las carpetas temporales por sesión de los usuarios al cerrar sesión.
+
+Puede usar esta opción para conservar las carpetas temporales especificas de la sesión de un usuario en un equipo remoto, incluso si el usuario cierra sesión. De forma predeterminada, Servicios de Escritorio remoto elimina las carpetas temporales de un usuario cuando éste cierra sesión.
+
+Si habilita esta configuración de directiva, las carpetas temporales por sesión de los usuarios se conservan cuando éstos cierran sesión.
+
+Si deshabilita esta configuración de directiva, las carpetas temporales se eliminan cuando el usuario cierra una sesión, incluso si el administrador del servidor especifica otra acción.
+
+Si no establece esta configuración de directiva, Servicios de Escritorio remoto eliminará las carpetas temporales del equipo remoto al cerrar sesión, a no ser que el administrador del servidor haya especificado otra acción.
+
+Nota: esta opción de configuración solo surte efecto si las carpetas temporales por sesión están en uso en el servidor. Si habilita la configuración de directiva No usar las carpetas temporales por sesión, esta configuración de directiva no tendrá efecto.
+
+</string>
+      <string id="TS_TEMP_EXPLAIN">Esta configuración de directiva permite evitar que Servicios de Escritorio remoto cree carpetas temporales específicas de la sesión.
+
+Puede usar esta configuración de directiva para deshabilitar la creación de carpetas temporales separadas en un equipo remoto para cada sesión. De forma predeterminada, Servicios de Escritorio remoto crea una carpeta temporal separada para cada sesión activa que el usuario conserva en un equipo remoto. Estas carpetas temporales se crean en el equipo remoto, en una carpeta Temp en la carpeta de perfil del usuario, y se les asigna el nombre de sessionid.
+
+Si habilita esta configuración de directiva, no se crean carpetas temporales por sesión. En lugar de ello, los archivos temporales de todas las sesiones del usuario en el equipo remoto se almacenan en una carpeta Temp común en la carpeta de perfil del usuario del equipo remoto.
+
+Si deshabilita esta configuración de directiva, las carpetas temporales por sesión se crean siempre, incluso si el administrador del servidor especifica otra acción.
+
+Si no establece esta configuración de directiva, las carpetas temporales por sesión se crearán a menos que el administrador del servidor especifique otra acción.
+
+</string>
+      <string id="TS_TEMP_Help">Controla la creación y eliminación de carpetas temporales para las sesiones de Servicios de Escritorio remoto</string>
+      <string id="TS_TEMP_PER_SESSION">No usar las carpetas temporales por sesión</string>
+      <string id="TS_TIME_1MIN">1 minuto</string>
+      <string id="TS_TIME_5MIN">5 minutos</string>
+      <string id="TS_TIME_10MIN">10 minutos</string>
+      <string id="TS_TIME_15MIN">15 minutos</string>
+      <string id="TS_TIME_30MIN">30 minutos</string>
+      <string id="TS_TIME_1HR">1 hora</string>
+      <string id="TS_TIME_2HR">2 horas</string>
+      <string id="TS_TIME_3HR">3 horas</string>
+      <string id="TS_TIME_6HR">6 horas</string>
+      <string id="TS_TIME_8HR">8 horas</string>
+      <string id="TS_TIME_12HR">12 horas</string>
+      <string id="TS_TIME_16HR">16 horas</string>
+      <string id="TS_TIME_18HR">18 horas</string>
+      <string id="TS_TIME_1DAY">1 día</string>
+      <string id="TS_TIME_2DAY">2 días</string>
+      <string id="TS_TIME_3DAY">3 días</string>
+      <string id="TS_TIME_4DAY">4 días</string>
+      <string id="TS_TIME_5DAY">5 días</string>
+      <string id="TS_TIME_NEVER">Nunca</string>
+      <string id="TS_TIME_ZONE">Permitir redirección de zona horaria</string>
+      <string id="TS_TIME_ZONE_EXPLAIN">Esta configuración de directiva determina si el equipo cliente redirige su configuración de zona horaria a la sesión de Servicios de Escritorio remoto.
+
+Si habilita esta configuración de directiva, los clientes que puedan redirigir su zona horaria enviarán dicha información al servidor. La hora de base del servidor se usará para calcular la hora de la sesión actual (hora de sesión actual = hora de base del servidor + zona horaria del cliente).
+
+Si deshabilita o no establece esta configuración de directiva, el equipo cliente no redirige la información de su zona horaria y la zona horaria de la sesión coincidirá con la del servidor.
+
+Nota: la redirección de la zona horaria solo es posible cuando se conecta, como mínimo, a un servidor de Terminal Server de la familia de servidores de Windows Server 2003 con un cliente que use RDP 5.1 y posterior.</string>
+      <string id="TS_TSCC_EXPLAIN">Esta configuración de directiva especifica si se deshabilitan los derechos del administrador de personalizar permisos de seguridad para el servidor host de sesión de Escritorio remoto.  
+
+Se puede usar esta configuración para evitar que los administradores cambien los grupos de usuarios a los que se les permite conectarse en forma remota al servidor host de sesión de Escritorio remoto. De forma predeterminada, los administradores pueden realizar tales cambios.
+
+Si habilita esta configuración de directiva, no será posible modificar los descriptores de seguridad predeterminados para grupos existentes en el servidor host de sesión de Escritorio remoto. Todos los descriptores de seguridad son de solo lectura.
+
+Si deshabilita o no establece esta configuración de directiva, los administradores de servidor tendrán permiso total de lectura y escritura en los descriptores de seguridad del usuario mediante el proveedor WMI de sesión de Escritorio remoto.
+
+Nota: el método preferido para administrar el acceso de los usuarios es añadir un usuario al grupo Usuarios de escritorio remoto.
+
+</string>
+      <string id="TS_TSCC_PERMISSIONS_POLICY">No permitir a los administradores locales personalizar permisos</string>
+      <string id="TS_TURNOFF_SINGLEAPP">Mostrar siempre el escritorio al conectarse</string>
+      <string id="TS_TURNOFF_SINGLEAPP_EXPLAIN">Esta configuración de directiva determina si el escritorio se muestra siempre después de que un cliente se conecta a un equipo remoto o si un programa inicial se puede ejecutar. Se puede usar para requerir que el escritorio se muestre después de que un cliente se conecte a un equipo remoto, incluso si ya se ha especificado un programa inicial en el perfil de usuario predeterminado, en Conexión a escritorio remoto, en el cliente de Servicios de Escritorio remoto o a través de directivas de grupo.
+
+Si habilita esta configuración de directiva, el escritorio se mostrará siempre cuando el cliente se conecte a un equipo remoto. Esta configuración de directiva invalida cualquier configuración de directiva de programa inicial.
+
+Si deshabilita esta configuración de directiva o no la establece, se podrá especificar un programa inicial para ejecutarse en el equipo remoto después de que el cliente se conecte al equipo remoto. Si no se especifica ningún programa inicial, el escritorio se mostrará siempre en el equipo remoto después de que el cliente se conecte al mismo.
+
+Nota: si esta configuración de directiva se habilita, la configuración de directiva "Iniciar un programa al conectarse" se omitirá.</string>
+      <string id="TS_USER_AUTHENTICATION_EXPLAIN">Esta configuración de directiva le permite especificar si es necesaria la autenticación del usuario para conexiones remotas al servidor host de sesión de Escritorio remoto mediante Autenticación a nivel de red. Esta configuración de directiva mejora la seguridad al requerir que la autenticación del usuario tenga lugar en un momento más temprano del proceso de conexión remota.
+
+Si habilita esta configuración de directiva, solo podrán conectarse al servidor host de sesión de Escritorio remoto los equipos cliente que sean compatibles con Autenticación a nivel de red.
+
+Para determinar si un equipo cliente es compatible con Autenticación a nivel de red, inicie Conexión a Escritorio remoto en el equipo cliente, haga clic en el icono ubicado en el rincón superior izquierdo del cuadro de diálogo Conexión a Escritorio remoto y, a continuación, haga clic en Acerca de. En el cuadro de diálogo Acerca de Conexión a Escritorio remoto, busque la frase Compatible con Autenticación a nivel de red.
+
+Si deshabilita esta configuración de directiva, no se requerirá Autenticación a nivel de red para la autenticación de usuario antes de permitir conexiones remotas al servidor host de sesión de Escritorio remoto.
+
+Si no establece esta configuración de directiva, se aplicará la configuración local del equipo de destino. En Windows Server 2012 y Windows 8, la Autenticación a nivel de red se aplicará de forma predeterminada.
+
+Importante: deshabilitar esta configuración de directiva proporciona menos seguridad porque la autenticación de usuario tiene lugar en un momento más tardío del proceso de conexión remota.
+
+</string>
+      <string id="TS_USER_AUTHENTICATION_POLICY">Requerir la autenticación del usuario para las conexiones remotas mediante Autenticación a nivel de red</string>
+      <string id="TS_User_Help">Controla la configuración de las tecnologías de Servicios de Escritorio remoto que habilitan el acceso a un servidor que ejecuta programas basados en Windows o el Escritorio de Windows completo</string>
+      <string id="TS_USER_HOME">Establecer directorio principal de usuario de Servicios de Escritorio remoto</string>
+      <string id="TS_USER_HOME_EXPLAIN">Especifica si Servicios de Escritorio remoto usa el recurso compartido de red especificado o una ruta de directorio local como la raíz del directorio principal del usuario para una sesión de Servicios de Escritorio remoto.
+
+Para usar esta opción, seleccione la ubicación del directorio principal (de red o local) de la lista desplegable de ubicación. Si decide colocar el directorio en un recurso compartido de red, escriba la ruta de acceso raíz del directorio principal como \\NombreDelEquipo\NombreDelRecursoCompartido y, después, seleccione la letra de unidad a la cual desea asignar el recurso compartido de red.
+
+Si decide mantener el directorio principal en el equipo local, escriba la ruta de acceso raíz del directorio principal como "Unidad:\RutaDeAcceso" (sin comillas), sin variables de entorno ni puntos suspensivos. No especifique un marcador de posición para el alias de usuario, porque Servicios de Escritorio remoto lo anexa automáticamente durante el inicio de sesión.
+
+Nota: el campo Letra de unidad se omitirá si elige especificar una ruta de acceso local. Si decide especificar una ruta de acceso local pero luego escribe el nombre del recurso compartido de red como ruta de acceso raíz del directorio principal, Servicios de Escritorio remoto coloca los directorios principales del usuario en la ubicación de red.
+
+Si el estado se establece en Habilitado, Servicios de Escritorio remoto crea el directorio principal del usuario en la ubicación especificada en el equipo local o en la red. La ruta de acceso del directorio principal para cada usuario es la ruta de acceso raíz del directorio principal especificada y el alias del usuario.
+
+Si el estado se establece en Deshabilitado o No configurado, el directorio principal del usuario se especificará en el servidor.</string>
+      <string id="TS_USER_PROFILES_EXPLAIN">Esta configuración de directiva le permite especificar la ruta de acceso de red que usa Servicios de Escritorio remoto para perfiles de usuario móvil.
+
+De manera predeterminada, Servicios de Escritorio remoto almacena todos los perfiles de usuario de forma local en el servidor host de sesión de Escritorio remoto. Puede usar esta configuración de directiva para especificar un recurso compartido de red en que se puedan almacenar los perfiles de usuario de manera centralizada, lo que permitirá que un usuario obtenga acceso al mismo perfil para las sesiones en todos los servidores de host de sesión de Escritorio remoto que estén configurados para usar el recurso compartido de red para perfiles de usuario.
+
+Si habilita esta configuración de directiva, Servicios de Escritorio remoto usará la ruta de acceso especificada como directorio raíz para todos los perfiles de usuario. Los perfiles se guardan en subcarpetas que llevan el nombre de cuenta de cada usuario.
+
+Para establecer esta configuración de directiva, escriba la ruta de acceso al recurso compartido de red con el formato \\nombreDeEquipo\nombreDeRecursoCompartido. No especifique un marcador de posición para el nombre de cuenta de usuario, porque Servicios de Escritorio remoto lo agrega automáticamente cuando el usuario inicia sesión y se crea el perfil. Si el recurso compartido de red especificado no existe, Servicios de Escritorio remoto mostrará un mensaje de error en el servidor host de sesión de Escritorio remoto y almacenará los perfiles de usuario de forma local en el servidor host de sesión de Escritorio remoto.
+
+Si deshabilita o no establece esta configuración de directiva, los perfiles de usuario se almacenan de forma local en el servidor host de sesión de Escritorio remoto. Puede configurar la ruta de acceso de un perfil de usuario en la pestaña Perfil de Servicios de Escritorio remoto del cuadro de diálogo Propiedades de la cuenta de usuario.
+
+Notas:
+1. Los perfiles de usuario móvil habilitados por la configuración de directiva se aplican solo a conexiones de Servicios de Escritorio remoto. Es posible que un usuario también tenga un perfil de usuario móvil de Windows configurado. El perfil de usuario móvil de Servicios de Escritorio remoto siempre tiene prioridad en una sesión de Servicios de Escritorio remoto.
+2. Para configurar un perfil de usuario móvil de Servicios de Escritorio remoto obligatorio para todos los usuarios que se conectan remotamente al servidor host de sesión de Escritorio remoto, use esta configuración de directiva junto con la configuración de directiva "Usar perfiles obligatorios en el servidor host de sesión de Escritorio remoto" que se encuentra en Configuración del equipo\Plantillas administrativas\Componentes de Windows\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Perfiles. La ruta de acceso establecida en "Establecer ruta de acceso del perfil de usuario móvil de Servicios de Escritorio remoto" debe contener el perfil obligatorio.</string>
+
+      <string id="TS_USER_MANDATORY_PROFILES_EXPLAIN">Esta configuración de directiva le permite especificar si Servicios de Escritorio remoto usa un perfil obligatorio para todos los usuarios que se conectan de forma remota al servidor host de sesión de Escritorio remoto.
+
+Si habilita esta configuración de directiva, Servicios de Escritorio remoto usa la ruta de acceso especificada en la configuración de directiva "Establecer ruta de acceso del perfil de usuario móvil de Servicios de Escritorio remoto" como carpeta raíz para el perfil de usuario obligatorio. Todos los usuarios que se conectan remotamente al servidor host de sesión de Escritorio remoto usan el mismo perfil de usuario.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios que se conectan remotamente al servidor host de sesión de Escritorio remoto no usan los perfiles de usuario obligatorios.
+
+Nota: 
+
+Para que esta configuración de directiva surta efecto, también debe habilitar y establecer la configuración de directiva "Establecer ruta de acceso del perfil de usuario móvil de Servicios de Escritorio remoto".
+
+</string>
+
+      <string id="TS_USER_PROFILES">Establecer ruta de acceso del perfil de usuario móvil de Servicios de Escritorio remoto</string>
+      <string id="TS_USER_MANDATORY_PROFILES">Usar perfiles obligatorios en el servidor host de sesión de Escritorio remoto</string>
+      <string id="TS_DELETE_ROAMING_USER_PROFILES">Limitar el tamaño de toda la memoria caché del perfil de usuario móvil</string>
+      <string id="TS_DELETE_ROAMING_USER_PROFILES_EXPLAIN">Esta configuración de directiva le permite limitar el tamaño de toda la memoria caché de perfiles de usuarios móviles en la unidad local.  Se aplica solo a equipos en los que esté instalado el servicio de rol de de host de sesión de Escritorio remoto.
+
+Nota: si desea limitar el tamaño de un perfil de usuario individual, use la configuración de directiva "Limitar el tamaño del perfil" ubicada en Configuración de usuario\Directivas\Plantillas administrativas\Sistema\Perfiles de usuario.
+
+Si habilita esta configuración de directiva, deberá especificar un intervalo de supervisión (en minutos) y un tamaño máximo (en gigabytes) de toda la memoria caché de perfiles de usuarios móviles. El intervalo de supervisión determina la frecuencia con la que se comprueba el tamaño de toda la memoria caché de perfiles de usuarios móviles. Si el tamaño de toda la memoria caché de perfiles de usuarios móviles supera el valor que ha especificado, se eliminarán los perfiles de usuarios móviles más antiguos (los menos usados recientemente) hasta que el tamaño de toda la memoria caché de perfiles de usuarios móviles sea inferior al tamaño especificado.
+
+Si deshabilita o no define esta configuración de directiva, no se crea ninguna restricción al tamaño de toda la memoria caché de perfiles de usuarios móviles en la unidad local.
+
+Nota: esta configuración de directiva se omite si se habilita la configuración de directiva "Impedir que se propaguen al servidor los cambios de perfil móvil" ubicada en Configuración de usuario\Directivas\Plantillas administrativas\Sistema\Perfiles de usuario.
+
+</string>
+      <string id="TS_CERTIFICATE_TEMPLATE_POLICY">Plantilla de certificado de autenticación de servidor</string>
+      <string id="TS_CERTIFICATE_TEMPLATE_EXPLAIN">Esta configuración de directiva te permite especificar el nombre de la plantilla de certificado que determina qué certificado se selecciona de forma automática para autenticar un servidor host de sesión de Escritorio remoto.
+
+Se necesita un certificado para autenticar un servidor host de sesión de Escritorio remoto cuando se usa TLS 1.0, 1.1 o 1.2 para dar seguridad a la comunicación entre un cliente y un servidor host de sesión de Escritorio remoto durante las conexiones RDP.
+
+Si habilitas esta configuración de directiva, deberás especificar un nombre de plantilla de certificado. Cuando se selecciona automáticamente un certificado para autenticar un servidor host de sesión de Escritorio remoto, solo se considerarán los certificados creados mediante la plantilla de certificado especificada. Solo se selecciona el certificado automáticamente si no se ha seleccionado un certificado específico.
+
+Si no se encuentra ningún certificado que haya sido creado con la plantilla de certificado especificada, el servidor host de sesión de Escritorio remoto emitirá una solicitud de inscripción de certificado y usará el certificado actual hasta que se resuelva la solicitud. Si se encuentra más de un certificado creado con la plantilla de certificado especificada, se seleccionará el certificado con fecha de expiración posterior y que coincida con el nombre actual del servidor host de sesión de Escritorio remoto.
+
+Si deshabilitas o no estableces esta directiva, el nombre de la plantilla de certificado no se especificará en el nivel de directiva de grupo. De manera predeterminada, se usa un certificado autofirmado para autenticar el servidor host de sesión de Escritorio remoto.  
+
+Nota: Si seleccionas un certificado específico para autenticar el servidor host de sesión de Escritorio remoto, ese certificado tendrá prioridad sobre la configuración de directiva.
+</string>
+      <string id="TS_CLIENT_ALLOW_UNSIGNED_FILES">Permitir archivos .rdp de publicadores desconocidos</string>
+      <string id="TS_CLIENT_ALLOW_UNSIGNED_FILES_MACHINE_EXPLAIN">Esta configuración de directiva permite especificar si los usuarios pueden ejecutar archivos de Protocolo de escritorio remoto (.rdp) sin firmar y archivos .rdp de publicadores desconocidos en el equipo cliente.
+
+Si habilita o no establece esta configuración de directiva, los usuarios pueden ejecutar archivos .rdp y sin firmar y archivos .rdp de publicadores desconocidos en el equipo cliente. Antes de que un usuario inicie una sesión RDP, el usuario recibe un mensaje de advertencia y se le pide que confirme si desea conectarse.
+
+Si deshabilita esta configuración de directiva, los usuarios no pueden ejecutar archivos .rdp sin firmar y archivos .rdp de publicadores desconocidos en el equipo cliente. Si el usuario intenta iniciar una sesión RDP, el usuario recibe un mensaje que indica que el publicador se bloqueó.
+
+</string>
+      <string id="TS_CLIENT_ALLOW_UNSIGNED_FILES_USER_EXPLAIN">Esta configuración de directiva permite especificar si los usuarios pueden ejecutar archivos de Protocolo de escritorio remoto (.rdp) sin firmar y archivos .rdp de publicadores desconocidos en el equipo cliente.
+
+Si habilita o no establece esta configuración de directiva, los usuarios pueden ejecutar archivos .rdp y sin firmar y archivos .rdp de publicadores desconocidos en el equipo cliente. Antes de que un usuario inicie una sesión RDP, el usuario recibe un mensaje de advertencia y se le pide que confirme si desea conectarse.
+
+Si deshabilita esta configuración de directiva, los usuarios no pueden ejecutar archivos .rdp sin firmar y archivos .rdp de publicadores desconocidos en el equipo cliente. Si el usuario intenta iniciar una sesión RDP, el usuario recibe un mensaje que indica que el publicador se bloqueó.
+
+</string>
+      <string id="TS_CLIENT_ALLOW_SIGNED_FILES">Permitir archivos .rdp de publicadores válidos y la configuración .rdp predeterminada del usuario</string>
+      <string id="TS_CLIENT_ALLOW_SIGNED_FILES_MACHINE_EXPLAIN">Esta configuración de directiva permite especificar si los usuarios pueden ejecutar archivos de Protocolo de escritorio remoto (.rdp) de un publicador que firmó el archivo con un certificado válido. Un certificado válido es aquél que emite una entidad reconocida por el cliente, como los emisores del almacén de certificados Entidades de certificación raíz de terceros del cliente. Esta configuración de directiva también controla si el usuario puede iniciar una sesión RDP con la configuración .rdp predeterminada; por ejemplo, cuando un usuario abre directamente el cliente de Conexión a Escritorio remoto (RDC) sin especificar un archivo .rdp.
+
+Si habilita o no establece esta configuración de directiva, los usuarios pueden ejecutar archivos .rdp que están firmados con un certificado válido. Los usuarios también pueden iniciar una sesión RDP con la configuración .rdp predeterminada abriendo directamente el cliente RDC. Cuando un usuario inicia una sesión RDP, se pide al usuario que confirme si desea conectarse.
+
+Si deshabilita esta configuración de directiva, los usuarios no pueden ejecutar archivos .rdp que están firmados con un certificado válido. Asimismo, los usuarios no pueden iniciar una sesión RDP abriendo directamente el cliente RDC y especificando el nombre de equipo remoto. Cuando un usuario intenta iniciar una sesión RDP, el usuario recibe un mensaje que indica que se bloqueó el publicador.
+
+Nota: puede definir esta configuración de directiva en el nodo Configuración del equipo o en el nodo Configuración de usuario. Si establece esta configuración de directiva para el equipo, todos los usuarios del mismo se verán afectados.
+
+</string>
+      <string id="TS_CLIENT_ALLOW_SIGNED_FILES_USER_EXPLAIN">Esta configuración de directiva permite especificar si los usuarios pueden ejecutar archivos de Protocolo de escritorio remoto (.rdp) de un publicador que firmó el archivo con un certificado válido. Un certificado válido es aquél que emite una entidad reconocida por el cliente, como los emisores del almacén de certificados Entidades de certificación raíz de terceros del cliente. Esta configuración de directiva también controla si el usuario puede iniciar una sesión RDP con la configuración .rdp predeterminada; por ejemplo, cuando un usuario abre directamente el cliente de Conexión a Escritorio remoto (RDC) sin especificar un archivo .rdp.
+
+Si habilita o no establece esta configuración de directiva, los usuarios pueden ejecutar archivos .rdp que están firmados con un certificado válido. Los usuarios también pueden iniciar una sesión RDP con la configuración .rdp predeterminada abriendo directamente el cliente RDC. Cuando un usuario inicia una sesión RDP, se pide al usuario que confirme si desea conectarse.
+
+Si deshabilita esta configuración de directiva, los usuarios no pueden ejecutar archivos .rdp que están firmados con un certificado válido. Asimismo, los usuarios no pueden iniciar una sesión RDP abriendo directamente el cliente RDC y especificando el nombre de equipo remoto. Cuando un usuario intenta iniciar una sesión RDP, el usuario recibe un mensaje que indica que se bloqueó el publicador.
+
+Nota: puede definir esta configuración de directiva en el nodo Configuración del equipo o en el nodo Configuración de usuario. Si establece esta configuración de directiva para el equipo, todos los usuarios del mismo se verán afectados.
+
+</string>
+      <string id="TS_CLIENT_TRUSTED_CERTIFICATE_THUMBPRINTS">Especificar huellas digitales SHA1 de certificados que representan publicadores .rdp de confianza</string>
+      <string id="TS_CLIENT_TRUSTED_CERTIFICATE_THUMBPRINTS_MACHINE_EXPLAIN">Esta configuración de directiva permite especificar una lista de huellas digitales de certificados de algoritmo hash seguro 1 (SHA1) que representan publicadores de archivos de Protocolo de escritorio remoto (.rdp) de confianza.
+
+Si habilita esta configuración de directiva, cualquier certificado con una huella digital SHA1 que coincida con una huella digital de la lista se considera de confianza. Si un usuario intenta iniciar un archivo .rdp firmado por un certificado de confianza, el usuario no recibe ningún mensaje de advertencia al iniciar el archivo. Para obtener la huella digital, consulte los detalles del certificado y haga clic en el campo Huella digital.
+
+Si deshabilita o no establece esta configuración de directiva, ningún publicador se tratará como publicador .rdp de confianza.
+
+Notas:
+
+Puede definir esta configuración de directiva en el nodo Configuración del equipo o en el nodo Configuración de usuario. Si establece esta configuración de directiva para el equipo, la lista de huellas digitales de certificados de confianza para un usuario es una combinación de la lista definida para el equipo y la lista definida para el usuario.
+
+Esta configuración de directiva invalida el comportamiento de la configuración de directiva "Permitir archivos .rdp de publicadores válidos y la configuración .rdp predeterminada del usuario".
+
+Si la lista contiene una cadena que no es una huella digital de certificado, se pasa por alto.
+
+</string>
+      <string id="TS_CLIENT_TRUSTED_CERTIFICATE_THUMBPRINTS_USER_EXPLAIN">Esta configuración de directiva permite especificar una lista de huellas digitales de certificados de algoritmo hash seguro 1 (SHA1) que representan publicadores de archivos de Protocolo de escritorio remoto (.rdp) de confianza.
+
+Si habilita esta configuración de directiva, cualquier certificado con una huella digital SHA1 que coincida con una huella digital de la lista se considera de confianza. Si un usuario intenta iniciar un archivo .rdp firmado por un certificado de confianza, el usuario no recibe ningún mensaje de advertencia al iniciar el archivo. Para obtener la huella digital, consulte los detalles del certificado y haga clic en el campo Huella digital.
+
+Si deshabilita o no establece esta configuración de directiva, ningún publicador se tratará como publicador .rdp de confianza.
+
+Nota:
+
+Puede definir esta configuración de directiva en el nodo Configuración del equipo o en el nodo Configuración de usuario. Si establece esta configuración de directiva para el equipo, la lista de huellas digitales de certificados de confianza para un usuario es una combinación de la lista definida para el equipo y la lista definida para el usuario.
+
+Esta configuración de directiva invalida el comportamiento de la configuración de directiva "Permitir archivos .rdp de publicadores válidos y la configuración .rdp predeterminada del usuario".
+
+Si la lista contiene una cadena que no es una huella digital de certificado, se pasa por alto.
+
+</string>
+
+      <string id="TS_PROMT_CREDS_CLIENT_COMP">Pedir credenciales en el equipo cliente</string>
+      <string id="TS_PROMT_CREDS_CLIENT_COMP_EXPLAIN">Esta configuración de directiva determina si se pedirá al usuario que proporcione credenciales para una conexión remota a un servidor host de sesión de Escritorio remoto en el equipo cliente.
+
+Si habilita esta configuración de directiva, se pedirá al usuario que proporcione credenciales para una conexión remota al servidor host de sesión de Escritorio remoto en el equipo cliente, en lugar de que se le pida en el servidor host de sesión de Escritorio remoto. Si hay credenciales guardadas para el usuario disponibles en el equipo cliente, no se pedirá al usuario que proporcione credenciales.
+
+Nota: si habilita esta configuración de directiva en versiones de Windows Server 2008 R2 con SP1 o Windows Server 2008 R2, y se solicita a un usuario que proporcione credenciales tanto en el equipo cliente como en el servidor host de sesión de Escritorio remoto, desactive la casilla Siempre solicitar contraseña en la pestaña Configuración de inicio de sesión de Configuración de host de sesión de Escritorio remoto.
+
+Si deshabilita y no establece esta configuración de directiva, la versión del sistema operativo del servidor host de sesión de Escritorio remoto determinará cuándo se pide al usuario que proporcione credenciales para una conexión remota al servidor host de sesión de Escritorio remoto.  Para Windows Server 2003 y Windows 2000 Server, se pedirá al usuario que proporcione credenciales para una conexión remota en el servidor de Terminal Server. Para Windows Server 2008 y Windows Server 2008 R2, se pedirá al usuario que proporcione credenciales para una conexión remota en el equipo cliente.
+
+</string>
+
+      <string id="TS_SERVER_AUTH">Configurar la autenticación de servidor para el cliente</string>
+      <string id="TS_SERVER_AUTH_NONE">Conectarse siempre, incluso si hay errores de autenticación</string>
+      <string id="TS_SERVER_AUTH_REQUIRE">No conectarse si hay errores de autenticación</string>
+      <string id="TS_SERVER_AUTH_ATTEMPT">Avisarme si hay errores de autenticación</string>
+      <string id="TS_SERVER_AUTH_EXPLAIN">Esta configuración de directiva permite especificar si el cliente establecerá una conexión con el servidor host de sesión de Escritorio remoto cuando el cliente no pueda autenticar éste.
+
+Si habilita esta configuración de directiva, debe especificar una de las siguientes opciones:
+
+Conectarse siempre, incluso si hay errores de autenticación: el cliente se conecta al servidor host de sesión de Escritorio remoto incluso si el cliente no puede autenticar éste.
+
+Avisarme si hay errores de autenticación: el cliente intenta autenticar el servidor host de sesión de Escritorio remoto. Si se puede autenticar, el cliente establece una conexión con él. Si no se puede autenticar, se pedirá al usuario que elija si desea conectarse al servidor host de sesión de Escritorio remoto sin autenticarlo.
+
+No conectarse si hay errores de autenticación: el cliente establece una conexión con el servidor host de sesión de Escritorio remoto solo si éste se puede autenticar.
+
+Si deshabilita o no establece esta configuración de directiva, la configuración de autenticación que se especifica en Conexión a Escritorio remoto o en el archivo .rdp determina si el cliente establece una conexión con el servidor host de sesión de Escritorio remoto cuando el cliente no pueda autenticarlo.
+
+</string>
+
+    <string id="TS_SERVER_IMAGE_QUALITY">Configurar la calidad de imagen para gráficos adaptables de RemoteFX</string>
+    <string id="TS_SERVER_IMAGE_QUALITY_EXPLAIN">Esta configuración de directiva te permite especificar la calidad visual para los usuarios remotos que se conecten a este equipo mediante una Conexión a Escritorio remoto. Puedes usar esta configuración de directiva para equilibrar el uso del ancho de banda de red con el tipo de calidad visual que se ofrece.
+      Si habilitas esta configuración de directiva y estableces la calidad en Baja, los gráficos adaptables de RemoteFX usarán un mecanismo de codificación que produce imágenes con una calidad baja. Este modo consume la menor cantidad de ancho de banda de red de todos los modos de calidad.
+      Si habilitas esta configuración de directiva y estableces la calidad en Media, los gráficos adaptables de RemoteFX usarán un mecanismo de codificación que produce imágenes con una calidad media. Este modo ofrece mejor calidad de gráficos y usa menos ancho de banda que la calidad alta.
+      Si habilitas esta configuración de directiva y estableces la calidad en Alta, los gráficos adaptables de RemoteFX usarán un mecanismo de codificación que genere imágenes de calidad alta y que consuma una ancho de banda de red moderado.
+      Si habilitas esta configuración de directiva y estableces la calidad en Sin pérdida, los gráficos adaptables de RemoteFX usarán la codificación sin pérdida. En este modo, la integridad del color de los datos gráficos no se ve afectada. Sin embargo, esta configuración provoca un importante aumento del uso de ancho de banda de red. Es recomendable que esta configuración se establezca únicamente en casos muy específicos.
+      Si deshabilitas o no estableces esta configuración de directiva, los gráficos adaptables de RemoteFX usarán un mecanismo de codificación que produce imágenes con una calidad media.
+    </string>
+      
+    <string id="TS_SERVER_IMAGE_QUALITY_LOSSLESS">Sin pérdida</string>
+    <string id="TS_SERVER_IMAGE_QUALITY_HIGH">Alta</string>
+    <string id="TS_SERVER_IMAGE_QUALITY_MEDIUM">Media</string>
+    <string id="TS_SERVER_IMAGE_QUALITY_LOW">Bajo</string>      
+
+    <string id="TS_SERVER_PROFILE">Configurar gráficos adaptables de RemoteFX</string>
+    <string id="TS_SERVER_PROFILE_EXPLAIN">Esta configuración de directiva permite que el administrador configure la experiencia RemoteFX para el servidor host de sesión de Escritorio remoto o el servidor de host de Virtualización de Escritorio remoto. De manera predeterminada, el sistema elegirá la mejor experiencia en función del ancho de banda de red disponible.
+
+Si habilita esta configuración de directiva, la experiencia RemoteFX puede establecerse en una de las siguientes opciones:
+1. Permitir que el sistema elija la experiencia según la condición de la red
+2. Optimizar la escalabilidad de servidores
+3. Optimizar el uso mínimo de ancho de banda
+
+Si desactiva o no establece esta configuración de directiva, la experiencia RemoteFX cambiará de manera dinámica en función de la condición de la red."
+    
+    </string>
+    <string id="TS_SERVER_PROFILE_SCALE">Optimizar la escalabilidad de servidores
+</string>
+    <string id="TS_SERVER_PROFILE_EXPERIENCE">Permitir que el sistema elija la experiencia según la condición de la red</string>
+    <string id="TS_SERVER_PROFILE_BANDWIDTH">Optimizar el uso mínimo de ancho de banda</string>
+
+    <string id="TS_SERVER_COMPRESSOR">Configurar la compresión de datos de RemoteFX</string>
+    <string id="TS_SERVER_COMPRESSOR_EXPLAIN">Esta configuración de directiva le permite especificar el algoritmo de compresión de Protocolo de escritorio remoto (RDP) que se usará.
+
+De manera predeterminada, los servidores usan un algoritmo de compresión RDP que se basa en la configuración de hardware del servidor.
+
+Si habilita esta configuración de directiva, puede especificar el algoritmo de compresión RDP que se usará. Si selecciona el algoritmo optimizado para usar menos memoria, esta opción usa menos memoria pero usa más ancho de banda de red. Si selecciona el algoritmo optimizado para usar menos ancho de banda de red, esta opción usa menos ancho de banda de red pero usa más memoria. Asimismo, está disponible una tercera opción que equilibra el uso de memoria y de ancho de banda de red. En Windows 8 solo se usa el algoritmo de compresión que equilibra el uso de memoria y el ancho de banda.
+
+También puede elegir no usar un algoritmo de compresión de RDP. Si elige no usar un algoritmo de compresión de RDP, se usará más ancho de banda de red, lo que solo se recomienda si se usa un dispositivo de hardware diseñado para optimizar el tráfico de red. Aunque elija no usar un algoritmo de compresión de RDP, algunos datos gráficos de comprimirán.
+
+Si deshabilita o no establece esta configuración de directiva, se usará el algoritmo de compresión RDP predeterminado.
+    
+    </string>
+    <string id="TS_SERVER_COMPRESSOR_NCRUSH">Equilibra la memoria y el ancho de banda de red</string>
+    <string id="TS_SERVER_COMPRESSOR_XCRUSH">Optimizado para usar menos ancho de banda de red</string>
+    <string id="TS_SERVER_COMPRESSOR_MPPC">Optimizado para usar menos memoria</string>
+    <string id="TS_SERVER_NO_COMPRESSOR">No usar un algoritmo de compresión de RDP</string>
+
+    <string id="TS_SERVER_ADVANCED_REMOTEFX_REMOTEAPP">Usar gráficos RemoteFX avanzados en RemoteApp</string>
+    <string id="TS_SERVER_ADVANCED_REMOTEFX_REMOTEAPP_EXPLAIN">
+    Esta configuración de directiva permite que los programas RemoteApp usen gráficos avanzados, incluida la compatibilidad con transparencia, miniaturas dinámicas y movimientos de aplicación perfectos. Esta configuración de directiva es válida únicamente para programas RemoteApp y no se aplica a sesiones de Escritorio remoto.
+
+Si habilita o no establece esta configuración de directiva, los programas RemoteApp que se publiquen desde este servidor host de sesión de Escritorio remoto usarán estos gráficos avanzados.
+
+Si deshabilita esta configuración de directiva, los programas RemoteApp que se publiquen desde este servidor host de sesión de Escritorio remoto no usarán estos gráficos avanzados. Puede que esta opción sea conveniente si descubre que las aplicaciones publicadas como programas RemoteApp no admiten estos gráficos avanzados. 
+
+     
+
+    </string>
+
+    <!--WDDM Graphics Driver Mode; Introduced Win10+-->
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER">Usar el controlador de pantalla de gráficos WDDM para Conexión a Escritorio remoto</string>
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_OFF_EXPLAIN">Esta configuración de directiva permite habilitar el controlador de pantalla de gráficos WDDM para Conexión a Escritorio remoto.
+
+Si habilitas esta configuración de directiva, Conexión a Escritorio remoto usará el controlador de pantalla de gráficos WDDM.
+
+Si deshabilitas o no estableces esta configuración de directiva, Conexión a Escritorio remoto no usará el controlador de pantalla de gráficos WDDM. En este caso, usará el controlador de pantalla de gráficos XDDM.
+
+Para que este cambio surta efecto, debes reiniciar Windows.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_EXPLAIN">Esta configuración de directiva permite habilitar el controlador de pantalla de gráficos WDDM para Conexión a Escritorio remoto.
+
+Si habilitas o no estableces esta configuración de directiva, Conexión a Escritorio remoto usará el controlador de pantalla de gráficos WDDM.
+
+Si deshabilitas esta configuración de directiva, Conexión a Escritorio remoto no usará el controlador de pantalla de gráficos WDDM. En este caso, usarán el controlador de pantalla de gráficos XDDM.
+
+Para que este cambio surta efecto, debes reiniciar Windows.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_SINGLEUSER_EXPLAIN">Esta configuración de directiva permite habilitar el controlador de pantalla de gráficos WDDM para Conexión a Escritorio remoto.
+
+Si habilitas esta configuración de directiva, Conexión a Escritorio remoto usará el controlador de pantalla de gráficos WDDM.
+
+Si deshabilitas esta configuración de directiva, Conexión a Escritorio remoto no usará el controlador de pantalla de gráficos WDDM. En este caso, usará el controlador de pantalla de gráficos XDDM.
+
+Si no estableces esta configuración de directiva, Conexión a Escritorio remoto en el servidor host de sesión de escritorio remoto no usará el controlador de pantalla de gráficos WDDM. En todos los demás casos, usará el controlador de pantalla de gráficos WDDM.
+
+Para que este cambio surta efecto, debes reiniciar Windows.
+    </string>
+
+    <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Configurar codificación de hardware H.264/AVC para las Conexiones a Escritorio remoto</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Esta configuración de directiva te permite habilitar la compatibilidad con la codificación de hardware H.264/AVC para las conexiones a Escritorio remoto. Al habilitar la codificación de hardware, si se produce un error, intentaremos usar la codificación de software. Si deshabilitas o no configuras esta directiva, siempre usaremos la codificación de software.</string>
+        
+    <!--AVC444 Preferred Mode; Introduced Win10+-->
+    <string id="TS_SERVER_AVC444_MODE_PREFERRED">Establecer prioridades en el modo gráfico H.264/AVC 444 para las conexiones a Escritorio remoto</string>
+    <string id="TS_SERVER_AVC444_MODE_PREFERRED_EXPLAIN">Esta configuración de directiva establece prioridades en el modo gráfico H.264/AVC 444 para escenarios de vGPU que no son de RemoteFX. Cuando uses esta configuración en el servidor RDP, el servidor usará H.264/AVC 444 como códec en una conexión RDP 10 donde el cliente y el servidor pueden usar H.264/AVC 444.
+    </string>
+
+    <!--Disable Client Hardware Mode; Introduced Win10+-->
+    <string id="TS_CLIENT_DISABLE_HARDWARE_MODE">No permitir la descodificación de aceleración de hardware</string>
+    <string id="TS_CLIENT_DISABLE_HARDWARE_MODE_EXPLAIN">Esta configuración de directiva especifica si la Conexión a Escritorio remoto puede usar la aceleración de hardware si hay hardware compatible disponible. Si usas esta configuración, el cliente de Escritorio remoto solo usará la descodificación de software. Por ejemplo, si tienes un problema que crees que puede estar relacionado con la aceleración de hardware, usa esta configuración para deshabilitar la aceleración; a continuación, si el problema continua, sabrás que hay otros problemas que deberás investigar. Si deshabilitas esta configuración o no la configuras, el cliente de Escritorio remoto usará la descodificación de aceleración de hardware si hay hardware compatible disponible.
+    </string>
+
+    <!--Visual Experience Policy strings; deprecated Win8+-->
+    <string id="TS_SERVER_VISEXP">Optimizar la experiencia visual para sesiones de Servicios de Escritorio remoto</string>
+    <string id="TS_SERVER_VISEXP_EXPLAIN">Esta configuración de directiva le permite especificar la experiencia visual que reciben los usuarios remotos en sesiones de Servicios de Escritorio remoto. Las sesiones remotas del equipo se optimizan para admitir esta experiencia visual.
+
+De forma predeterminada, las sesiones de Servicios de Escritorio remoto se optimizan para multimedia enriquecida, como las aplicaciones que usan Silverlight o Windows Presentation Foundation.
+
+Si habilita esta configuración de directiva, deberá seleccionar la experiencia visual para la cual desea optimizar las sesiones de Servicios de Escritorio remoto. Puede seleccionar Multimedia enriquecida o Texto.
+
+Si deshabilita o no define esta configuración de directiva, las sesiones de Servicios de Escritorio remoto se optimizan para multimedia enriquecida.
+    
+    </string>
+    <string id="TS_SERVER_VISEXP_RICHMEDIA">Multimedia enriquecida</string>
+    <string id="TS_SERVER_VISEXP_TEXT">Texto</string>
+
+    <string id="TS_USB_REDIRECTION">Redirección de dispositivos USB RemoteFX</string>
+    <string id="TS_USB_REDIRECTION_DISABLE">Permitir la redirección RDP de otros dispositivos USB RemoteFX compatibles desde este equipo</string>
+    <string id="TS_USB_REDIRECTION_Help">Permitir la redirección RDP de otros dispositivos USB RemoteFX compatibles desde este equipo</string>
+    <string id="TS_USB_REDIRECTION_EXPLAIN">Esta configuración de directiva le da la posibilidad de permitir la redirección RDP de otros dispositivos USB RemoteFX compatibles desde este equipo. Los dispositivos USB RemoteFX redireccionados no estarán disponibles para uso local en este equipo.
+
+Si habilita esta configuración de directiva, puede elegir dar la capacidad de redirigir otros dispositivos USB RemoteFX compatibles sobre RDP a todos los usuarios o solo a los usuarios que están en el grupo de administradores del equipo.
+
+Si deshabilita o no establece esta configuración de directiva, otros dispositivos USB RemoteFX compatibles no estarán disponibles para la redirección RDP con ninguna cuenta de usuario.
+
+Para que este cambio sea efectivo, debe reiniciar Windows.
+
+    
+
+    </string>
+    <string id="UsbMode_AdminsOnly">Solo administradores</string>
+    <string id="UsbMode_AdminsAndUsers">Administradores y usuarios</string>
+    <string id="UsbModeAction">Configurar derechos de acceso a redirección de USB con RemoteFX</string>
+
+      <string id="TS_EnableVirtualGraphics">Configurar RemoteFX</string>
+      <string id="TS_EnableVirtualGraphics_Help">Esta configuración de directiva le permite controlar la disponibilidad de RemoteFX en un servidor de host de Virtualización de Escritorio remoto (host de Virtualización de RD) y en un servidor host de sesión de Escritorio remoto (host de sesión de RD).
+
+Cuando RemoteFX se implementa en un servidor de host de Virtualización de Escritorio remoto, proporciona una experiencia de usuario rica mediante la representación del contenido del servidor por medio de unidades de procesamiento de gráficos (GPU). En forma predeterminada, RemoteFX para host de virtualización de Escritorio remoto usa GPU del servidor para proporcionar una experiencia de usuario enriquecida a través de conexiones LAN y RDP 7.1.
+
+Cuando RemoteFX se implementa en un servidor host de sesión de Escritorio remoto, proporciona una experiencia de usuario rica mediante el uso de un esquema de compresión acelerado por hardware.
+
+Si habilita esta configuración de directiva, RemoteFX se usará para proporcionar una experiencia de usuario enriquecida a través de conexiones LAN y RDP 7.1.
+
+Si deshabilita esta configuración de directiva, RemoteFX se deshabilitará.
+
+Si no establece esta configuración de directiva, se usará el comportamiento predeterminado. En forma predeterminada, se habilita RemoteFX para host de virtualización de Escritorio remoto y se deshabilita RemoteFX para host de sesión de Escritorio remoto.
+      
+      </string>
+
+      <string id="TS_RemoteDesktopVirtualGraphics">Optimizar la experiencia visual al usar RemoteFX</string>
+      <string id="TS_RemoteDesktopVirtualGraphics_Explain">Esta configuración de directiva le permite especificar la experiencia visual que tendrán los usuarios remotos en conexiones de Conexión a Escritorio remoto (RDC) que usan RemoteFX. Puede usar esta directiva para equilibrar el uso del ancho de banda de red con el tipo de experiencia gráfica que se proporciona.
+
+En función de los requerimientos de los usuarios, puede reducir el uso del ancho de banda de red reduciendo de la velocidad de captura de pantalla. También puede reducir el uso del ancho de banda de red reduciendo la calidad de imagen (aumento de la cantidad de compresión de imagen que se ejecuta).
+
+Si cuenta con una red con ancho de banda superior al promedio, puede maximizar la utilización de ancho de banda seleccionando el valor más alto para velocidad de captura de pantalla y el valor más alto para calidad de imagen.
+
+De forma predeterminada, las sesiones de Conexión a Escritorio remoto que usan RemoteFX se optimizan para lograr una experiencia equilibrada en todas las condiciones de la LAN. Si deshabilita o no establece esta configuración de directiva, las sesiones de Conexión a Escritorio remoto que usan RemoteFX se desarrollarán como si estuviera seleccionados los valores de velocidad de captura de pantalla media y compresión de imagen media (comportamiento predeterminado). 
+ 
+</string>
+      <string id="TS_RemoteDesktopVirtualGraphics_ScreenCaptureRate_Highest">Máximo (calidad óptima)</string>
+      <string id="TS_RemoteDesktopVirtualGraphics_ScreenCaptureRate_Medium">Medio (predeterminado)</string>
+      <string id="TS_RemoteDesktopVirtualGraphics_ScreenCaptureRate_Lowest">Mínimo</string>
+      <string id="TS_RemoteDesktopVirtualGraphics_ScreenImageQuality_Highest">Máximo (calidad óptima)</string>
+      <string id="TS_RemoteDesktopVirtualGraphics_ScreenImageQuality_Medium">Medio (predeterminado)</string>
+      <string id="TS_RemoteDesktopVirtualGraphics_ScreenImageQuality_Lowest">Mínimo</string>
+
+      <string id="TS_SERVER_LEGACY_RFX">Habilitar codificación RemoteFX para clientes RemoteFX diseñados para Windows Server 2008 R2 SP1</string>
+      <string id="TS_SERVER_LEGACY_RFX_EXPLAIN">
+       Esta configuración de directiva le permite configurar la codificación de gráficos para que use el códec RemoteFX en el servidor host de sesión de Escritorio remoto de modo que las sesiones sean compatibles con dispositivos de cliente ligero que no ejecutan Windows diseñados para Windows Server 2008 R2 SP1. Estos clientes solo son compatibles con el códec RemoteFX de Windows Server 2008 R2 SP1. Si habilita esta configuración de directiva, las sesiones de los usuarios en este servidor solo usarán el códec RemoteFX de Windows Server 2008 R2 SP1 para codificar. Este modo es compatible con dispositivos de cliente ligero que solo admite el códec RemoteFX de Windows Server 2008 R2 SP1. Si deshabilita o no establece esta configuración de directiva, los clientes ligeros que no sean Windows y solo admitan el códec RemoteFX de Windows Server 2008 R2 SP1 no podrán conectarse a este servidor. Esta configuración de directiva se aplica solo a clientes que usan la versión de Protocolo de escritorio remoto (RDP) 7.1 y no afecta a los clientes que usan otras versiones de RDP.
+      
+      </string>
+      
+      <string id="TS_RADC">Conexión de RemoteApp y Escritorio</string>
+      <string id="TS_RADC_Help">Controla la configuración de Conexión de RemoteApp y Escritorio</string>
+      <string id="TS_RADC_DefaultDesktop">Especificar la dirección URL de conexión predeterminada</string>
+      <string id="TS_RADC_DefaultDesktop_Help">Esta configuración de directiva especifica la dirección URL de conexión predeterminada para Conexión de RemoteApp y Escritorio. La dirección URL de conexión predeterminada es una conexión específica que solo se puede configurar mediante directivas de grupo. Además de las funcionalidades que son comunes a todas las conexiones, la dirección URL de conexión predeterminada permite asociar tipos de archivos de documentos con programas RemoteApp.
+
+La dirección URL de conexión predeterminada se debe configurar con el formato http://contoso.com/rdweb/Feed/webfeed.aspx.
+      
+Si habilita esta configuración de directiva, la dirección URL especificada se configura como la dirección URL de conexión predeterminada para el usuario y reemplaza cualquier dirección URL de conexión existente. El usuario no puede cambiar la dirección URL de conexión predeterminada. Las credenciales de inicio de sesión predeterminadas del usuario se usan al configurar la dirección URL de conexión predeterminada.
+
+Si deshabilita o no establece esta configuración de directiva, el usuario no tendrá dirección URL de conexión predeterminada.
+
+Nota: los programas RemoteApp que se instalan a través de Conexión de RemoteApp y Escritorio desde un servidor que no sea de confianza pueden poner en riesgo la seguridad de la cuenta de un usuario.
+      
+      </string>
+
+	  <string id="TS_SELECT_TRANSPORT">Seleccionar protocolos de transporte RDP</string>
+	  <string id="TS_SELECT_TRANSPORT_EXPLAIN">Esta configuración de directiva permite especificar qué protocolos pueden usarse para acceder a este servidor con Protocolo de escritorio remoto (RDP).
+
+Si habilitas esta configuración de directiva, deberás especificar si deseas que RDP use UDP.
+
+Puedes seleccionar una de las siguientes opciones: "Usar UDP y TCP", "Usar solo TCP" o "Usar UDP o TCP (predeterminado)".
+
+Si seleccionas "Usar UDP o TCP" y se establece la conexión UDP, la mayor parte del tráfico RDP usará UDP.
+
+Si no se establece la conexión UDP o si seleccionas "Usar solo TCP", todo el tráfico RDP usará TCP.
+
+Si deshabilitas o no estableces esta configuración de directiva, RDP elegirá los protocolos óptimos para proporcionar al usuario la mejor experiencia posible.
+	  </string>
+	  <string id="TS_SELECT_TRANSPORT_UDP_AND_TCP">Usar UDP y TCP</string>
+	  <string id="TS_SELECT_TRANSPORT_TCP_ONLY">Usar solo TCP</string>
+	  <string id="TS_SELECT_TRANSPORT_UDP_OR_TCP">Usar UDP o TCP</string>
+
+      <string id="TS_SELECT_NETWORK_DETECT">Seleccionar detección de red en el servidor</string>
+      <string id="TS_SELECT_NETWORK_DETECT_EXPLAIN">Esta configuración de directiva le permite especificar el modo en que el Protocolo de escritorio remoto intentará detectar la calidad de la red (ancho de banda y latencia).
+
+Puede optar por deshabilitar Detección en el momento de la conexión, Detección continua de la red o ambos. 
+
+Si deshabilita Detección en el momento de la conexión, el Protocolo de escritorio remoto no determinará la calidad de la red en el momento de la conexión y dará por hecho que todo el tráfico a ese servidor proviene de una conexión de baja velocidad.
+
+Si deshabilita Detección continua de la red, el Protocolo de escritorio remoto no intentará adaptar la experiencia del usuario remoto a las diferentes calidades de la red. 
+
+Si deshabilita Detección en el momento de la conexión y Detección continua de la red, el Protocolo de escritorio remoto no intentará determinar la calidad de la red en el momento de establecer la conexión, sino que dará por hecho que todo el tráfico a este servidor proviene de una conexión de baja velocidad y no intentará adaptar la experiencia del usuario a las diferentes calidades de la red.
+
+Si deshabilita o no establece esta configuración de directiva, el Protocolo de escritorio remoto pasará algunos segundos tratando de determinar la calidad de la red antes de establecer la conexión y procurará continuamente adaptar la experiencia del usuario a calidades diferentes de la red.
+
+</string>
+	  <string id="TS_SELECT_NETWORK_DETECT_CONNECT_TIME_AND_STEADY_STATE_ON">Usar Detección en el momento de la conexión y Detección continua de la red</string>
+      <string id="TS_SELECT_NETWORK_DETECT_CONNECT_TIME_OFF">Desactivar Detección en el momento de la conexión</string>
+      <string id="TS_SELECT_NETWORK_DETECT_STEADY_STATE_OFF">Desactivar Detección continua de la red</string>
+      <string id="TS_SELECT_NETWORK_DETECT_CONNECT_TIME_AND_STEADY_STATE_OFF">Desactivar Detección en el momento de la conexión y Detección continua de la red</string>
+
+      <string id="TS_CLIENT_TURN_OFF_UDP">Desactivar UDP en el cliente</string>
+      <string id="TS_CLIENT_TURN_OFF_UDP_EXPLAIN">Esta configuración de directiva especifica si el protocolo UDP se usará para tener acceso a servidores a través del Protocolo de escritorio remoto. 
+
+Si habilita esta configuración de directiva, el tráfico de Protocolo de escritorio remoto solo usará el protocolo TCP.
+
+Si deshabilita o no establece esta configuración de directiva, el tráfico de Protocolo de escritorio remoto intentará usar los protocolos TCP y UDP.
+
+</string>
+
+      <string id="TS_RDSAppX_WaitForRegistration">Suspender el inicio de sesión de usuario para terminar el registro de aplicaciones</string>
+      <string id="TS_RDSAppX_WaitForRegistration_Help">Esta configuración de directiva le permite especificar si el registro de aplicaciones ha terminado antes de mostrar la pantalla Inicio al usuario. 
+
+De forma predeterminada, cuando un usuario nuevo inicia sesión en un equipo, aparece la pantalla Inicio y las aplicaciones se registran en segundo plano. Sin embargo, es posible que algunas aplicaciones no funcionen hasta que se complete el registro de aplicaciones.
+
+Si habilita esta configuración de directiva, se bloqueará el inicio de sesión del usuario hasta en 6 minutos para que se complete el registro de aplicaciones. Puede utilizar la configuración de directiva cuando personalice la pantalla Inicio de los servidores de host de sesión de Escritorio remoto. 
+
+Si deshabilita o no establece esta configuración de directiva, aparecerá la pantalla Inicio y las aplicaciones se registrarán en segundo plano.</string>
+
+      <string id="TS_DX_USE_FULL_HWGPU">Usar tarjetas gráficas de hardware para todas las sesiones de Servicios de Escritorio remoto</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Esta configuración de directiva permite a los administradores del sistema cambiar la representación de los gráficos para todas las sesiones de Servicios de Escritorio remoto.
+
+Si habilitas esta configuración de directiva, todas las sesiones de Servicios de Escritorio remoto usarán la tarjeta gráfica de hardware, en lugar del controlador de representación básica de Microsoft como adaptador predeterminado.
+
+Si deshabilitas esta opción de directiva, todas las sesiones de Servicios de Escritorio remoto usarán el controlador de representación básica de Microsoft como adaptador predeterminado.
+
+Si no configuras esta opción de directiva, las sesiones de Servicios de Escritorio remoto del servidor de host de sesión de Escritorio remoto usarán el controlador de representación básica de Microsoft como adaptador predeterminado. En todos los demás casos, las sesiones de Servicios de Escritorio remoto usarán la tarjeta gráfica de hardware de forma predeterminada.
+
+NOTA: La configuración de directiva habilita el equilibrio de carga de las unidades de procesamiento de gráficos (GPU) en un equipo que tenga más de una GPU instalada. Esta configuración de directiva no afecta a la configuración de la GPU de la sesión local.
+</string>
+      
+    </stringTable>
+    <presentationTable>
+      <presentation id="TS_COLORDEPTH">
+        <dropdownList refId="TS_Color_Depth" noSort="true" defaultItem="0">Profundidad de color</dropdownList>
+      </presentation>
+      <presentation id="TS_MAXMONITOR">
+        <decimalTextBox refId="TS_Max_Monitor" defaultValue="1" spinStep="1">Máximo de monitores</decimalTextBox>
+      </presentation>
+      <presentation id="TS_MAXDISPLAYRES">
+        <decimalTextBox refId="TS_DisplayRes_Width" spinStep="1">Ancho</decimalTextBox>
+        <decimalTextBox refId="TS_DisplayRes_Height" spinStep="1">Alto</decimalTextBox>
+      </presentation>
+      <presentation id="TS_ENCRYPTION_POLICY">
+        <dropdownList refId="TS_ENCRYPTION_LEVEL" defaultItem="1">Nivel de cifrado</dropdownList>
+        <text>Elegir el nivel de cifrado de la lista desplegable.</text>
+      </presentation>
+      <presentation id="TS_FALLBACKPRINTDRIVERTYPE">
+        <dropdownList refId="TS_FALLBACK_OPTIONS" noSort="true" defaultItem="0">Al intentar buscar un controlador adecuado:</dropdownList>
+      </presentation>
+      <presentation id="TS_GATEWAY_POLICY_AUTH_METHOD">
+        <checkBox refId="TS_GATEWAY_OVERRIDE">Permitir que los usuarios cambien esta configuración</checkBox>
+        <dropdownList refId="TS_GATEWAY_AUTH_MODE" noSort="true">Establecer el método de autenticación de la puerta de enlace de Escritorio remoto</dropdownList>
+      </presentation>
+      <presentation id="TS_GATEWAY_POLICY_ENABLE">
+        <checkBox refId="TS_GATEWAY_OVERRIDE">Permitir que los usuarios cambien esta configuración</checkBox>
+      </presentation>
+      <presentation id="TS_GATEWAY_POLICY_SERVER">
+        <checkBox refId="TS_GATEWAY_OVERRIDE">Permitir que los usuarios cambien esta configuración</checkBox>
+        <textBox refId="TS_GATEWAY_SERVER">
+          <label>Establecer la dirección del servidor de puerta de enlace de Escritorio remoto</label>
+        </textBox>
+      </presentation>
+      <presentation id="TS_KEEP_ALIVE">
+        <decimalTextBox refId="TS_KEEP_ALIVE_INTERVAL">Intervalo entre mensajes de mantenimiento de conexión:</decimalTextBox>
+      </presentation>
+      <presentation id="TS_LICENSE_SERVERS">
+        <textBox refId="TS_LICENSE_EDIT">
+          <label>Servidores de licencias para usar:</label>
+        </textBox>
+        <text>Separe los nombres de los servidores de licencias por medio de comas.</text>
+        <text>Ejemplo: Servidor1,Servidor2.ejemplo.com,192.168.1.1</text>
+      </presentation>
+      <presentation id="TS_LICENSING_MODE">
+        <dropdownList refId="TS_LICENSING_NAME" noSort="true" defaultItem="0">Especificar el modo de licencia para el servidor host de sesión de Escritorio remoto.</dropdownList>
+      </presentation>
+      <presentation id="TS_MAX_CON_POLICY">
+        <decimalTextBox refId="TS_Maximum_Connections_allowed">Número máximo de conexiones permitidas en Escritorio remoto</decimalTextBox>
+        <text>Escribir 999999 para conexiones ilimitadas.</text>
+      </presentation>
+      <presentation id="TS_RemoteControl_1">
+        <dropdownList refId="TS_RemoteControl_Levels" noSort="true" defaultItem="0">Opciones:</dropdownList>
+      </presentation>
+      <presentation id="TS_RemoteControl_2">
+        <dropdownList refId="TS_RemoteControl_Levels" noSort="true" defaultItem="0">Opciones:</dropdownList>
+      </presentation>
+      <presentation id="TS_SD_ClustName">
+        <textBox refId="TS_SD_ClustName">
+          <label>Configurar nombre de la granja del Agente de conexión a Escritorio remoto:</label>
+        </textBox>
+      </presentation>
+      <presentation id="TS_SD_Loc">
+        <textBox refId="TS_SD_Loc">
+          <label>Configurar nombre del servidor del Agente de conexión a Escritorio remoto:</label>
+        </textBox>
+      </presentation>
+      <presentation id="TS_SECURITY_LAYER_POLICY">
+        <dropdownList refId="TS_SECURITY_LAYER" defaultItem="1">Nivel de seguridad</dropdownList>
+        <text>Elegir el nivel de seguridad de la lista desplegable.</text>
+      </presentation>
+      <presentation id="TS_SESSIONS_Disconnected_Timeout_1">
+        <dropdownList refId="TS_SESSIONS_EndDisconnected" noSort="true" defaultItem="0">Finalizar una sesión desconectada</dropdownList>
+      </presentation>
+      <presentation id="TS_SESSIONS_Disconnected_Timeout_2">
+        <dropdownList refId="TS_SESSIONS_EndDisconnected" noSort="true" defaultItem="0">Finalizar una sesión desconectada</dropdownList>
+      </presentation>
+      <presentation id="TS_SESSIONS_Idle_Limit_1">
+        <dropdownList refId="TS_SESSIONS_IdleLimitText" noSort="true" defaultItem="0">Límite de sesión inactiva:</dropdownList>
+      </presentation>
+      <presentation id="TS_SESSIONS_Idle_Limit_2">
+        <dropdownList refId="TS_SESSIONS_IdleLimitText" noSort="true" defaultItem="0">Límite de sesión inactiva:</dropdownList>
+      </presentation>
+      <presentation id="TS_SESSIONS_Limits_1">
+        <dropdownList refId="TS_SESSIONS_ActiveLimit" noSort="true" defaultItem="0">Límite de sesión activa:</dropdownList>
+      </presentation>
+      <presentation id="TS_SESSIONS_Limits_2">
+        <dropdownList refId="TS_SESSIONS_ActiveLimit" noSort="true" defaultItem="0">Límite de sesión activa:</dropdownList>
+      </presentation>
+      <presentation id="TS_START_PROGRAM_1">
+        <textBox refId="TS_PROGRAM_NAME">
+          <label>Nombre de archivo y ruta de acceso del programa</label>
+        </textBox>
+        <textBox refId="TS_WORKDIR">
+          <label>Directorio de trabajo</label>
+        </textBox>
+      </presentation>
+      <presentation id="TS_START_PROGRAM_2">
+        <textBox refId="TS_PROGRAM_NAME">
+          <label>Nombre de archivo y ruta de acceso del programa</label>
+        </textBox>
+        <textBox refId="TS_WORKDIR">
+          <label>Directorio de trabajo</label>
+        </textBox>
+      </presentation>
+      <presentation id="TS_USER_HOME">
+        <dropdownList refId="TS_USER_HOME_LOCATION" noSort="true">Ubicación:</dropdownList>
+        <textBox refId="TS_HOME_DIR">
+          <label>Ruta de acceso raíz del directorio principal:</label>
+        </textBox>
+        <text>Si la ruta de acceso principal está en la red, especificar la letra de unidad para la unidad asignada.</text>
+        <dropdownList refId="TS_DRIVE_LETTER" defaultItem="19">Letra de unidad</dropdownList>
+      </presentation>
+      <presentation id="TS_USER_PROFILES">
+        <textBox refId="TS_PROFILE_PATH">
+          <label>Ruta de acceso al perfil</label>
+        </textBox>
+        <text>Especificar la ruta de acceso como \\NombreDeEquipo\NombreDeRecursoCompartido</text>
+      </presentation>
+      <presentation id="TS_DELETE_ROAMING_USER_PROFILES">
+        <decimalTextBox refId="TS_PROFILE_DIRECTORY_MONITORING_INTERVAL" defaultValue="900" spinStep="30">Intervalo de supervisión (minutos):</decimalTextBox>
+        <decimalTextBox refId="TS_PROFILE_DIRECTORY_QUOTA" defaultValue="600" spinStep="50">Tamaño máximo de memoria caché (GBs):</decimalTextBox>
+      </presentation>
+      <presentation id="TS_CERTIFICATE_TEMPLATE_POLICY">
+        <textBox refId="TS_CERTIFICATE_TEMPLATE_NAME">
+          <label>Nombre de plantilla de certificado</label>
+        </textBox>
+      </presentation>
+      <presentation id="TS_TRUSTED_CERTIFICATE_THUMBPRINTS_1">
+        <textBox refId="TRUSTED_CERTIFICATE_THUMBPRINTS">
+          <label>Lista separada por comas de huellas digitales de certificados de confianza SHA1:</label>
+        </textBox>
+       </presentation>
+      <presentation id="TS_TRUSTED_CERTIFICATE_THUMBPRINTS_2">
+        <textBox refId="TRUSTED_CERTIFICATE_THUMBPRINTS">
+          <label>Lista separada por comas de huellas digitales de certificados de confianza SHA1:</label>
+        </textBox>
+       </presentation>
+      <presentation id="TS_SERVER_AUTH">
+        <dropdownList refId="TS_SERVER_AUTH_LEVEL" defaultItem="0" noSort="true">Configuración de autenticación:</dropdownList>
+      </presentation>
+      <presentation id="TS_SERVER_IMAGE_QUALITY">
+        <dropdownList refId="TS_SERVER_IMAGE_QUALITY_LEVELS" noSort="true" defaultItem="0">Calidad de imagen:</dropdownList>
+      </presentation>
+      <presentation id="TS_SERVER_PROFILE">
+        <dropdownList refId="TS_SERVER_PROFILE_LEVELS" noSort="true" defaultItem="1">Experiencia RDP:</dropdownList>
+      </presentation>
+      <presentation id="TS_SERVER_COMPRESSOR">
+        <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">Algoritmo de compresión RDP:</dropdownList>
+      </presentation>
+      <presentation id="TS_SERVER_VISEXP">
+        <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Experiencia visual:</dropdownList>
+      </presentation>
+      <presentation id="TS_AUDIO_QUALITY">
+        <dropdownList refId="TS_AUDIO_QUALITY_LEVEL" noSort="true" defaultItem="0">Calidad de audio</dropdownList>
+      </presentation>
+      <presentation id="UsbAccessRight">
+        <dropdownList refId="UsbAccessRight" defaultItem="1">Derechos de acceso a redirección de USB con RemoteFX</dropdownList>
+      </presentation>
+      <presentation id="TS_RemoteDesktopVirtualGraphics">
+        <dropdownList refId="TS_RemoteDesktopVirtualGraphics_ScreenCaptureRate" noSort="true" defaultItem="1">Velocidad de captura de pantalla (cuadros por segundo):</dropdownList>
+        <dropdownList refId="TS_RemoteDesktopVirtualGraphics_ScreenImageQuality" noSort="true" defaultItem="1">Calidad de la imagen en pantalla:</dropdownList>
+      </presentation>
+      <presentation id="TS_RADC_DefaultConnection">
+        <textBox refId="TS_RADC_DefaultConnectionURL">
+          <label>URL de conexión predeterminada:</label>
+        </textBox>
+      </presentation>
+      <presentation id="TS_SELECT_NETWORK_DETECT">
+        <dropdownList refId="TS_SELECT_NETWORK_DETECT_LEVEL" noSort="true" defaultItem="0">Seleccionar nivel de detección de red</dropdownList>
+      </presentation>
+      <presentation id="TS_SELECT_TRANSPORT">
+        <dropdownList refId="TS_SELECT_TRANSPORT_TYPE" noSort="true" defaultItem="0">Seleccionar tipo de transporte</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

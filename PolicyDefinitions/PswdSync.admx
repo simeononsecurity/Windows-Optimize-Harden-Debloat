@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2007 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="pswdsync" namespace="Microsoft.Policies.PasswordSync" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+    <using prefix="server" namespace="Microsoft.Policies.Server" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+
+  <categories>
+    <category name="PswdSync" displayName="$(string.PswdSync)">
+      <parentCategory ref="windows:WindowsComponents" />
+    </category>
+  </categories>
+
+  <policies>
+    <policy name="Psync_LoggingLevel" class="Machine" displayName="$(string.Psync_LoggingLevel)" explainText="$(string.Psync_LoggingLevel_Help)" key="Software\Policies\Microsoft\Windows\PswdSync" valueName="LoggingLevel">
+      <parentCategory ref="PswdSync" />
+      <supportedOn ref="server:SUPPORTED_WindowsServer2008" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="Psync_MaxRetries" class="Machine" displayName="$(string.Psync_MaxRetries)" explainText="$(string.Psync_MaxRetries_Help)" presentation="$(presentation.Psync_MaxRetries)" key="Software\Policies\Microsoft\Windows\PswdSync" valueName="MaxRetries_state">
+      <parentCategory ref="PswdSync" />
+      <supportedOn ref="server:SUPPORTED_WindowsServer2008" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <decimal id="Psync_MaxRetries" valueName="MaxRetries" required="true" maxValue="9" />
+      </elements>
+    </policy>
+    <policy name="Psync_SNISPasswordSyncEnable" class="Machine" displayName="$(string.Psync_SNISPasswordSyncEnable)" explainText="$(string.Psync_SNISPasswordSyncEnable_Help)" key="Software\Policies\Microsoft\Windows\PswdSync" valueName="SNISPasswordSyncEnable">
+      <parentCategory ref="PswdSync" />
+      <supportedOn ref="server:SUPPORTED_WindowsServer2008" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="Psync_Update_Retry_Interval" class="Machine" displayName="$(string.Psync_Update_Retry_Interval)" explainText="$(string.Psync_Update_Retry_Interval_Help)" presentation="$(presentation.Psync_Update_Retry_Interval)" key="Software\Policies\Microsoft\Windows\PswdSync" valueName="UpdateRetryInterval_state">
+      <parentCategory ref="PswdSync" />
+      <supportedOn ref="server:SUPPORTED_WindowsServer2008" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <decimal id="Psync_Update_Retry_Interval" valueName="Update Retry Interval" required="true" minValue="1" maxValue="600" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

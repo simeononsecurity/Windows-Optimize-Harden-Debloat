@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="sideshow" namespace="Microsoft.Policies.SideShow" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="SideShow" displayName="$(string.SideShow)">
+      <parentCategory ref="windows:WindowsComponents" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="DeleteDataOnLogoff_1" class="User" displayName="$(string.DeleteDataOnLogoff)" explainText="$(string.DeleteDataOnLogoff_Explain)" key="Software\Policies\Microsoft\Windows\SideShow" valueName="DeleteDataOnLogoff">
+      <parentCategory ref="SideShow" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista"/>
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="DeleteDataOnLogoff_2" class="Machine" displayName="$(string.DeleteDataOnLogoff)" explainText="$(string.DeleteDataOnLogoff_Explain)" key="Software\Policies\Microsoft\Windows\SideShow" valueName="DeleteDataOnLogoff">
+      <parentCategory ref="SideShow" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista"/>
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="DisableWindowsSideShow_1" class="User" displayName="$(string.DisableWindowsSideShow)" explainText="$(string.DisableWindowsSideShow_Explain)" key="Software\Policies\Microsoft\Windows\SideShow" valueName="Disabled">
+      <parentCategory ref="SideShow" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista"/>
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="DisableWindowsSideShow_2" class="Machine" displayName="$(string.DisableWindowsSideShow)" explainText="$(string.DisableWindowsSideShow_Explain)" key="Software\Policies\Microsoft\Windows\SideShow" valueName="Disabled">
+      <parentCategory ref="SideShow" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista"/>
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="DisableAutoWake_1" class="User" displayName="$(string.DisableAutoWake)" explainText="$(string.DisableAutoWake_Explain)" key="Software\Policies\Microsoft\Windows\SideShow" valueName="AutoWakeDisabled">
+      <parentCategory ref="SideShow" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista"/>
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="DisableAutoWake_2" class="Machine" displayName="$(string.DisableAutoWake)" explainText="$(string.DisableAutoWake_Explain)" key="Software\Policies\Microsoft\Windows\SideShow" valueName="AutoWakeDisabled">
+      <parentCategory ref="SideShow" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista"/>
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="SetPIN_1" class="User" displayName="$(string.SetPIN)" explainText="$(string.SetPIN_Explain)" presentation="$(presentation.SetPIN_1)" key="Software\Policies\Microsoft\Windows\SideShow" valueName="SetPIN">
+      <parentCategory ref="SideShow" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista"/>
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <decimal id="PINNumber" valueName="PIN" />
+        <enum id="PINTimeout" valueName="PINTimeout" required="true">
+          <item displayName="$(string.PINTimeout_WhenScreenIsOff)">
+            <value>
+              <decimal value="65535" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_1Minute)">
+            <value>
+              <decimal value="60" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_2Minutes)">
+            <value>
+              <decimal value="120" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_5Minutes)">
+            <value>
+              <decimal value="300" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_10Minutes)">
+            <value>
+              <decimal value="600" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_30Minutes)">
+            <value>
+              <decimal value="1800" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_Never)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="SetPIN_2" class="Machine" displayName="$(string.SetPIN)" explainText="$(string.SetPIN_Explain)" presentation="$(presentation.SetPIN_2)" key="Software\Policies\Microsoft\Windows\SideShow" valueName="SetPIN">
+      <parentCategory ref="SideShow" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista"/>
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <decimal id="PINNumber" valueName="PIN" />
+        <enum id="PINTimeout" valueName="PINTimeout" required="true">
+          <item displayName="$(string.PINTimeout_WhenScreenIsOff)">
+            <value>
+              <decimal value="65535" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_1Minute)">
+            <value>
+              <decimal value="60" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_2Minutes)">
+            <value>
+              <decimal value="120" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_5Minutes)">
+            <value>
+              <decimal value="300" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_10Minutes)">
+            <value>
+              <decimal value="600" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_30Minutes)">
+            <value>
+              <decimal value="1800" />
+            </value>
+          </item>
+          <item displayName="$(string.PINTimeout_Never)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+	<displayName >Enter Display Name here</displayName>
+	<description >VMware Horizon View Server configuration settings</description>
+	<resources >
+		<stringTable >
+
+			<string id="Undefined" >Undefined</string>
+
+			<string id="View_Server_Config" >VMware View Server Configuration</string>
+
+			<string id="Pwd_Auth_Mode" >Windows Password Authentication Mode</string>
+
+			<string id="Pwd_Auth_Mode_Desc" >Select the windows password authentication mode.
+
+KerberosOnly: Authenticate using Kerberos.
+KerberosWithFallbackToNTLM: Authenticate using Kerberos, but fallback to using NTLM on failure.
+Legacy: Authenticate using NTLM, but fallback to using Kerberos on failure. Used to support legacy NT domain controllers.
+
+Default is KerberosOnly.</string>
+
+			<string id="Kerberos_Only" >KerberosOnly</string>
+
+			<string id="Kerberos_With_NTLM_Fallback" >KerberosWithFallbackToNTLM</string>
+
+			<string id="Legacy" >Legacy</string>
+
+			<string id="Trusted_Domain_Enumeration" >Recursive Enumeration of Trusted Domains</string>
+
+			<string id="Trusted_Domain_Enumeration_Desc" >Determines if every domain trusted by the domain in which the server resides is enumerated. In order to establish a complete chain of trust, the domains trusted by each trusted domain are also enumerated and the process continues recursively until all trusted domains are discovered. This information is passed to View Connection Server in order to ensure that all trusted domains are available to the client on login.
+
+This property is enabled by default. When disabled, only directly trusted domains are enumerated and connection to remote domain controllers does not take place.
+
+Note: In environments with complex domain relationships — such as those that use multiple forest structures with trust between domains in their forests — this process can take a few minutes to complete.</string>
+
+			<string id="Enumerate_Forest_Trust_Child_Domains" >Enumerate Forest Trust Child Domains</string>
+
+			<string id="Enumerate_Forest_Trust_Child_Domains_Desc" >Determines if child domains of a forest trust are enumerated.
+
+Default if not configured is true.</string>
+
+		</stringTable>
+
+		<presentationTable ><!--Storage for Presentation Definitions-->
+
+			<presentation id="Windows_Pwd_Auth_Mode" >
+				<dropdownList refId="Windows_Pwd_Auth_Mode_DropDown_1" defaultItem="0" >Windows Password Authentication Mode</dropdownList>
+			</presentation>
+
+		</presentationTable>
+
+	</resources>
+
+</policyDefinitionResources>

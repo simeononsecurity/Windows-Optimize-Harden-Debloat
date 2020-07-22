@@ -1,0 +1,34 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="ELAMCategory">Antimalware de inicio temprano</string>
+      <string id="POL_DriverLoadPolicy_Name">Directiva de inicialización de controlador de arranque</string>
+      <string id="POL_DriverLoadPolicy_Name_Help">Esta configuración de directiva le permite especificar qué controladores de arranque se inicializan de acuerdo con la clasificación determinada por un controlador de arranque de inicio temprano. El controlador de Antimalware de inicio temprano puede proporcionar las siguientes clasificaciones para cada controlador de arranque:
+- Bueno: el controlador se ha firmado y no se ha alterado.
+- Defectuoso: el controlador se ha identificado como malware. Se recomienda no permitir la inicialización de controladores defectuosos.
+- Defectuoso, pero necesario para el arranque: el controlador se ha identificado como malware, pero el equipo no puede arrancar con éxito sin cargar este controlador.
+- Desconocido: la aplicación de detección de malware no ha certificado este controlador y el controlador de arranque de Antimalware de inicio temprano no lo ha clasificado.
+
+Si habilita esta configuración de directiva podrá elegir los controladores de arranque que se inicializarán la próxima vez que se arranque el equipo.
+
+Si deshabilita o no establece esta configuración de directiva, los controladores de arranque clasificados como Buenos, Desconocidos, Defectuosos pero críticos se inicializarán y se omite la inicialización de controladores clasificados como Malos.
+
+Si la aplicación de detección de malware no incluye un controlador de arranque de Antimalware de inicio temprano o si dicho controlador se ha deshabilitado, esta configuración no tiene efecto y se inicializarán todos los controladores de arranque.
+      
+      </string>
+      <string id="SelectDriverLoadPolicy-GoodOnly">Solo buenos</string>
+      <string id="SelectDriverLoadPolicy-GoodPlusUnknown">Buenos y desconocidos</string>
+      <string id="SelectDriverLoadPolicy-GoodPlusUnknownPlusKnownBadCritical">Buenos, desconocidos y defectuosos pero críticos</string>
+      <string id="SelectDriverLoadPolicy-All">Todos</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="POL_DriverLoadPolicy_Name">        
+        <dropdownList refId="SelectDriverLoadPolicy" defaultItem="2" noSort="true">
+        Elija los controladores de arranque que se pueden inicializar:
+        </dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2017 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="smartscreen" namespace="Microsoft.Policies.SmartScreen" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+    <using prefix="edge" namespace="Microsoft.Policies.MicrosoftEdge" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="SmartScreen" displayName="$(string.SmartScreen)">
+      <parentCategory ref="windows:WindowsComponents" />
+    </category>
+    <category name="Shell" displayName="$(string.Shell)">
+      <parentCategory ref="SmartScreen" />
+    </category>
+    <category name="Edge" displayName="$(string.Edge)">
+      <parentCategory ref="SmartScreen" />
+    </category>
+  </categories>
+  <!-- Shell -->
+  <policies>
+    <policy name="ShellConfigureSmartScreen" class="Machine" displayName="$(string.ShellConfigureSmartScreen)" explainText="$(string.ShellConfigureSmartScreen_Help)" key="Software\Policies\Microsoft\Windows\System" valueName="EnableSmartScreen" presentation="$(presentation.ShellConfigureSmartScreen)">
+      <parentCategory ref="Shell" />
+      <supportedOn ref="windows:SUPPORTED_Windows8" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <enum id="ShellConfigureSmartScreen_Dropdown" key="Software\Policies\Microsoft\Windows\System" valueName="ShellSmartScreenLevel" required="true">
+          <item displayName="$(string.SmartScreen_PreventBypass)">
+            <value>
+              <string>Block</string>
+            </value>
+          </item>
+          <item displayName="$(string.SmartScreen_Warn)">
+            <value>
+              <string>Warn</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="ConfigureAppInstallControl" class="Machine" displayName="$(string.ConfigureAppInstallControl)" explainText="$(string.ConfigureAppInstallControl_Explain)" key="Software\Policies\Microsoft\Windows Defender\SmartScreen" valueName="ConfigureAppInstallControlEnabled" presentation="$(presentation.ConfigureAppInstallControl)">
+      <parentCategory ref="Shell" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS5" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <enum id="ConfigureAppInstallControl_Dropdown" key="Software\Policies\Microsoft\Windows Defender\SmartScreen" valueName="ConfigureAppInstallControl" required="true">
+          <item displayName="$(string.SmartScreen_Anywhere)">
+            <value>
+              <string>Anywhere</string>
+            </value>
+          </item>
+          <item displayName="$(string.SmartScreen_AppRecommendations)">
+            <value>
+              <string>Recommendations</string>
+            </value>
+          </item>
+          <item displayName="$(string.SmartScreen_PreferStore)">
+            <value>
+              <string>PreferStore</string>
+            </value>
+          </item>
+          <item displayName="$(string.SmartScreen_StoreOnly)">
+            <value>
+              <string>StoreOnly</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <!-- Edge -->
+    <policy name="EdgeConfigureSmartScreen" class="Both" displayName="$(string.EdgeConfigureSmartScreen)" explainText="$(string.EdgeConfigureSmartScreen_Help)" key="Software\Policies\Microsoft\MicrosoftEdge\PhishingFilter" valueName="EnabledV9">
+      <parentCategory ref="Edge" />
+      <supportedOn ref="edge:SUPPORTED_INTERNET_BROWSER_WIN10" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="EdgePreventOverrideForNav"
+            class="Both"
+            displayName="$(string.EdgePreventOverrideForNav)"
+            explainText="$(string.EdgePreventOverrideForNav_Help)"
+            key="Software\Policies\Microsoft\MicrosoftEdge\PhishingFilter"
+            valueName="PreventOverride">
+      <parentCategory ref="Edge" />
+      <supportedOn ref="edge:SUPPORTED_INTERNET_BROWSER_WIN10V1511" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

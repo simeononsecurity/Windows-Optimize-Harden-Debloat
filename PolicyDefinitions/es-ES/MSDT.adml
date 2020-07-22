@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="WdiScenarioCategory">Herramienta de diagnóstico para Soporte técnico de Microsoft</string>
+      <string id="WdiScenarioExecutionPolicy">Herramienta de diagnóstico para Soporte técnico de Microsoft: configurar nivel de ejecución</string>
+      <string id="WdiScenarioExecutionPolicyExplain">Esta configuración de directiva determina el nivel de ejecución para la Herramienta de diagnóstico para Soporte técnico de Microsoft.
+
+La Herramienta de diagnóstico para soporte técnico de Microsoft (MSDT) recopila datos de diagnóstico para su análisis por parte de los profesionales de soporte técnico.
+
+Si habilita esta configuración de directiva, los administradores podrán usar la herramienta MSDT para recopilar y enviar datos de diagnóstico a un profesional de soporte técnico para resolver un problema.
+
+Si deshabilita esta configuración de directiva, la herramienta MSDT no podrá recopilar datos de diagnóstico.
+
+Si no establece esta configuración de directiva, la herramienta MSDT estará activa de manera predeterminada.
+
+Esta configuración de directiva solo surte efecto si no se ha configurado la directiva de ejecución del escenario para todos los diagnósticos.
+
+Para que esta configuración de directiva surta efecto, no es necesario reiniciar el equipo ni el servicio. Los cambios tendrán lugar de forma inmediata.
+
+Esta configuración de directiva solo surtirá efecto cuando el Servicio de directivas de diagnóstico (DPS) esté en ejecución. Si el servicio se detiene o se deshabilita, los escenarios de diagnóstico no se ejecutan. El servicio DPS puede configurarse con el complemento Servicios en Microsoft Management Console.</string>
+
+      <string id="MsdtToolDownloadPolicy">Herramienta de diagnóstico para Soporte técnico de Microsoft: restringir descarga de herramientas</string>
+      <string id="MsdtToolDownloadPolicyExplain">Esta configuración de directiva restringe la directiva de descarga de herramientas para la Herramienta de diagnóstico para Soporte técnico de Microsoft.
+
+La Herramienta de diagnóstico para soporte técnico de Microsoft (MSDT) recopila datos de diagnóstico para su análisis por parte de los profesionales de soporte técnico.  En el caso de ciertos problemas, es posible que la herramienta MSDT pida confirmación al usuario para descargar herramientas adicionales para la solución de problemas.
+
+Estas herramientas son necesarias para solucionar el problema completamente.  Si la descarga de herramientas está restringida, es posible que no se pueda encontrar la causa principal del problema.
+
+Si habilita esta configuración de directiva para la solución de problemas remota, la herramienta MSDT pedirá confirmación al usuario para descargar herramientas adicionales para diagnosticar problemas solo en equipos remotos.  Si habilita esta configuración de directiva para la solución de problemas local y remota, la herramienta MSDT siempre pedirá confirmación para la descarga de herramientas adicionales.
+
+Si deshabilita esta configuración de directiva, la herramienta MSDT nunca descargará herramientas y no podrá diagnosticar problemas en equipos remotos.
+
+Si no establece esta configuración de directiva, la herramienta MSDT pedirá confirmación al usuario antes de descargar cualquier herramienta adicional.
+
+Para que esta configuración de directiva surta efecto, no es necesario reiniciar el equipo ni el servicio. Los cambios tendrán lugar de forma inmediata.
+
+Esta configuración de directiva solo surtirá efecto cuando la herramienta MSDT esté habilitada.
+
+Esta configuración de directiva solo surtirá efecto cuando el Servicio de directivas de diagnóstico (DPS) esté en ejecución.  Si el servicio se detiene o se deshabilita, los escenarios de diagnóstico no se ejecutan.  El servicio DPS puede configurarse con el complemento Servicios en Microsoft Management Console.</string>
+      <string id="MsdtToolDownloadPolicyLevelRemoteOnly">Solo solución de problemas remota</string>
+      <string id="MsdtToolDownloadPolicyLevelAllowAll">Solución de problemas local y remota</string>
+      <string id="MsdtSupportProvider">Herramienta de diagnóstico para Soporte técnico de Microsoft: activar la comunicación interactiva de la herramienta MSDT con el proveedor de soporte técnico</string>
+      <string id="MsdtSupportProviderExplain">Esta configuración de directiva configura la comunicación interactiva de la herramienta MSDT con el proveedor de soporte técnico. La herramienta MSDT recopila datos de diagnóstico para su análisis por parte de los profesionales de soporte técnico.
+
+Si habilita esta configuración de directiva, los usuarios podrán usar la herramienta MSDT para recopilar y enviar datos de diagnóstico a un profesional de soporte técnico para resolver un problema.
+
+De forma predeterminada, el proveedor de soporte técnico está establecido en Microsoft Corporation.
+
+Si deshabilita esta configuración de directiva, la herramienta MSDT no podrá ejecutarse en modo de soporte y no se podrán recopilar datos ni enviarlos al proveedor de soporte técnico.
+
+Si no establece esta configuración de directiva, se habilitará el modo de soporte de la herramienta MSDT de manera predeterminada.
+
+Para que esta configuración de directiva surta efecto, no es necesario reiniciar el equipo ni el servicio. Los cambios tendrán lugar de forma inmediata.
+
+
+
+</string>
+<string id="TroubleshootingAllowRecommendations">Solución de problemas: permitir a los usuarios obtener acceso a la solución recomendada para problemas conocidos</string>
+<string id="TroubleshootingAllowRecommendationsExplain">La configuración de esta directiva aplica la solución recomendada para problemas conocidos en el dispositivo y permite a los administradores configurar cómo se aplica a sus dominios y entornos de TI.
+Si no se establece esta configuración de directiva, se permitirá al usuario configurarla y cómo aplicar la solución de problemas recomendada.
+
+Habilitar esta directiva te permite configurar cómo se aplica la solución de problemas recomendada en el dispositivo del usuario. Puedes seleccionar uno de los siguientes valores:
+0 = desactiva esta característica.
+1 = desactiva esta característica, pero aplica una solución a los problemas críticos.
+2 = notifica a los usuarios cuando esté disponible la solución de problemas recomendada y permite que el usuario la ejecute o la omita.
+3 = ejecuta de forma automática la solución de problemas recomendada y notifica al usuario después de que se ha ejecutado correctamente.
+4 = ejecuta de forma automática la solución de problemas recomendada sin notificar al usuario.
+5 = permite que el usuario elija su propia configuración de solución de problemas recomendada.
+
+Después de establecer esta configuración nueva, para activar la solución de problemas recomendada para los dispositivos del dominio, sigue estas instrucciones:
+1. Crea un script bat con el siguiente contenido:
+rem El siguiente script por lotes activa Resolución de problemas recomendada
+C:\Windows\System32\mitigationscanner.exe
+
+2. Para crear una nueva tarea inmediata, navega hasta Editor de administración de directivas de grupo &gt; Configuración del equipo &gt; Preferencias y selecciona Configuración del Panel de control.
+3. En Configuración del Panel de control, haz clic con el botón derecho en Tareas programadas y selecciona Nuevo. Selecciona Tarea inmediata (como mínimo, Windows 7).
+4. Proporciona un nombre y una descripción, según corresponda, luego, en Opciones de seguridad, establece la cuenta de usuario en Sistema y selecciona la casilla ejecutar con los privilegios más altos.
+5. En la pestaña Acciones, crea una nueva acción, selecciona Iniciar un programa como tipo y, luego, escribe el archivo creado en el paso 1.
+6. Configura la tarea que quieres implementar en el dominio.</string>
+<string id="RecommendationsDropDown_DoNothing">Desactivar esta característica</string>
+<string id="RecommendationsDropDown_ApplyCoreSystemMitigationsOnly">Desactiva esta característica, pero aplica una solución a los problemas críticos.</string>
+<string id="RecommendationsDropDown_AskFirst">Notifica a los usuarios cuando esté disponible la solución de problemas recomendada y permite que el usuario la ejecute o la omita.</string>
+<string id="RecommendationsDropDown_ApplyThenNotify">Ejecuta de forma automática la solución de problemas recomendada y notifica al usuario después de que se ha ejecutado correctamente.</string>
+<string id="RecommendationsDropDown_ApplySilently">Ejecuta de forma automática la solución de problemas recomendada sin notificar al usuario.</string>
+<string id="RecommendationsDropDown_DeferToUser">Permite que el usuario elija su propia configuración de solución de problemas recomendada.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="MsdtToolDownloadPolicy">
+        <dropdownList refId="MsdtToolDownloadPolicyLevel" noSort="true" defaultItem="1">Descargas de herramientas permitidas</dropdownList>
+      </presentation>
+      <presentation id="TroubleshootingAllowRecommendations">
+        <dropdownList refId="TroubleshootingAllowRecommendations_Dropdown" noSort="true" defaultItem="0">Permitir la solución recomendada de Microsoft para problemas conocidos</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

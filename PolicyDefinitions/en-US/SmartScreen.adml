@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2017 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Windows Defender SmartScreen</displayName>
+  <description>Configuration for Windows Defender SmartScreen</description>
+  <resources>
+    <stringTable>
+      <!-- Titles -->
+      <string id="SmartScreen">Windows Defender SmartScreen</string>
+      <string id="Shell">Explorer</string>
+      <string id="Edge">Microsoft Edge</string>
+      <!-- Shell -->
+      <string id="ShellConfigureSmartScreen">Configure Windows Defender SmartScreen</string>
+      <string id="SmartScreen_PreventBypass">Warn and prevent bypass</string>
+      <string id="SmartScreen_Warn">Warn</string>
+      <!-- AIC -->
+      <string id="SmartScreen_Anywhere">Turn off app recommendations</string>
+      <string id="SmartScreen_StoreOnly">Allow apps from Store only</string>
+      <string id="SmartScreen_AppRecommendations">Show me app recommendations</string>
+      <string id="SmartScreen_PreferStore">Warn me before installing apps from outside the Store</string>
+
+      <string id="ShellConfigureSmartScreen_Help">This policy allows you to turn Windows Defender SmartScreen on or off.  SmartScreen helps protect PCs by warning users before running potentially malicious programs downloaded from the Internet.  This warning is presented as an interstitial dialog shown before running an app that has been downloaded from the Internet and is unrecognized or known to be malicious.  No dialog is shown for apps that do not appear to be suspicious.
+
+Some information is sent to Microsoft about files and programs run on PCs with this feature enabled.
+
+If you enable this policy, SmartScreen will be turned on for all users.  Its behavior can be controlled by the following options:
+
+• Warn and prevent bypass
+• Warn
+
+If you enable this policy with the "Warn and prevent bypass" option, SmartScreen's dialogs will not present the user with the option to disregard the warning and run the app.  SmartScreen will continue to show the warning on subsequent attempts to run the app.
+
+If you enable this policy with the "Warn" option, SmartScreen's dialogs will warn the user that the app appears suspicious, but will permit the user to disregard the warning and run the app anyway.  SmartScreen will not warn the user again for that app if the user tells SmartScreen to run the app.
+
+If you disable this policy, SmartScreen will be turned off for all users.  Users will not be warned if they try to run suspicious apps from the Internet.
+
+If you do not configure this policy, SmartScreen will be enabled by default, but users may change their settings.</string>
+      <string id="ConfigureAppInstallControl">Configure App Install Control</string>
+      <string id="ConfigureAppInstallControl_Explain">App Install Control is a feature of Windows Defender SmartScreen that helps protect PCs by allowing users to install apps only from the Store.  SmartScreen must be enabled for this feature to work properly.
+
+If you enable this setting, you must choose from the following behaviors:
+
+     - Turn off app recommendations
+
+     - Show me app recommendations
+
+     - Warn me before installing apps from outside the Store
+
+     - Allow apps from Store only
+
+If you disable or don't configure this setting, users will be able to install apps from anywhere, including files downloaded from the Internet.</string>
+      <!-- Edge -->
+      <string id="EdgeConfigureSmartScreen">Configure Windows Defender SmartScreen</string>
+      <string id="EdgeConfigureSmartScreen_Help">This policy setting lets you configure whether to turn on Windows Defender SmartScreen. Windows Defender SmartScreen provides warning messages to help protect your employees from potential phishing scams and malicious software. By default, Windows Defender SmartScreen is turned on.
+
+If you enable this setting, Windows Defender SmartScreen is turned on and employees can't turn it off.
+
+If you disable this setting, Windows Defender SmartScreen is turned off and employees can't turn it on.
+
+If you don't configure this setting, employees can choose whether to use Windows Defender SmartScreen.</string>
+    <string id="EdgePreventOverrideForNav">Prevent bypassing Windows Defender SmartScreen prompts for sites</string>
+    <string id="EdgePreventOverrideForNav_Help">This policy setting lets you decide whether employees can override the Windows Defender SmartScreen warnings about potentially malicious websites.
+
+If you enable this setting, employees can't ignore Windows Defender SmartScreen warnings and they are blocked from continuing to the site.
+
+If you disable or don't configure this setting, employees can ignore Windows Defender SmartScreen warnings and continue to the site.
+    </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="ShellConfigureSmartScreen">
+        <dropdownList refId="ShellConfigureSmartScreen_Dropdown" noSort="true" defaultItem="0">Pick one of the following settings:</dropdownList>
+      </presentation>
+      <presentation id="ConfigureAppInstallControl">
+        <dropdownList refId="ConfigureAppInstallControl_Dropdown" noSort="true" defaultItem="0">Pick one of the following settings:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

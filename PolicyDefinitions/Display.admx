@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="display" namespace="Microsoft.Policies.Display" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="DisplayCat" displayName="$(string.DisplayCat)">
+      <parentCategory ref="windows:System" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="DisplayTurnOnGdiDPIScaling" class="Machine" displayName="$(string.DisplayTurnOnGdiDPIScaling)" explainText="$(string.Display_TurnOnGdiDPIScaling_Help)" presentation="$(presentation.DisplayTurnOnGdiDPIScaling)" key="Software\Policies\Microsoft\Windows\Display">
+      <parentCategory ref="DisplayCat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS2" />
+      <elements>
+        <text id="DisplayTurnOnGdiDPIScalingPrompt" valueName="EnableGdiDPIScaling" required="true" />
+      </elements>
+    </policy>
+    <policy name="DisplayTurnOffGdiDPIScaling" class="Machine" displayName="$(string.DisplayTurnOffGdiDPIScaling)" explainText="$(string.Display_TurnOffGdiDPIScaling_Help)" presentation="$(presentation.DisplayTurnOffGdiDPIScaling)" key="Software\Policies\Microsoft\Windows\Display">
+      <parentCategory ref="DisplayCat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS2" />
+      <elements>
+        <text id="DisplayTurnOffGdiDPIScalingPrompt" valueName="DisableGdiDPIScaling" required="true" />
+      </elements>
+    </policy>
+    <policy name="DisplayPerProcessSystemDpiSettings" class="Both" displayName="$(string.DisplayPerProcessSystemDpiSettings)" explainText="$(string.DisplayPerProcessSystemDpiSettingsHelp)" presentation="$(presentation.DisplayPerProcessSystemDpiSettings)" key="Software\Policies\Microsoft\Windows\Display">
+      <parentCategory ref="DisplayCat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS4" />
+      <elements>
+        <enum id="DisplayGlobalPerProcessSystemDpiSettings" key="Software\Policies\Microsoft\Windows\Control Panel\Desktop" valueName="EnablePerProcessSystemDPI">
+          <item displayName="$(string.DisplayGlobalPerProcessSystemDpiEnable)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.DisplayGlobalPerProcessSystemDpiDisable)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+        </enum>
+        <text id="DisplayEnablePerProcessSystemDpiSettings" valueName="EnablePerProcessSystemDPIForProcesses"/>
+        <text id="DisplayDisablePerProcessSystemDpiSettings" valueName="DisablePerProcessSystemDPIForProcesses"/>
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

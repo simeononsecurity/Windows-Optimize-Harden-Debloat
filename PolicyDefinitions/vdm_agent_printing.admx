@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions revision="10.2" schemaVersion="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <!--Revision: 4.1-->
+  <!--Comment: Copyright (c) 2017 ThinPrint GmbH-->
+  <!--build 26.2-->
+  <policyNamespaces>
+    <target prefix="ThinPrint_AutoConnect_VMware" namespace="Cortado.ThinPrint.ThinPrint_AutoConnect_VMware" />
+    <using prefix="ThinPrint" namespace="ThinPrint.Policies.ThinPrint" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <supersededAdm fileName="" />
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_ON" displayName="$(string.SUPPORTED_ON)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="ID_ThinPrint_AutoConnect_VMware" displayName="$(string.ID_ThinPrint_AutoConnect_VMware)" explainText="$(string.ID_ThinPrint_AutoConnect_VMware_explainText)">
+      <parentCategory ref="windows:ThinPrintCompany" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="ID_Name_PrinterFilterString" class="Machine" key="SOFTWARE\Policies\ThinPrint\TPAutoConnect" explainText="$(string.ID_Name_PrinterFilterString_Help)" displayName="$(string.ID_Name_PrinterFilterString)" presentation="$(presentation.ID_Name_PrinterFilterString)">
+      <parentCategory ref="ID_ThinPrint_AutoConnect_VMware" />
+      <supportedOn ref="SUPPORTED_ON" />
+      <elements>
+        <text valueName="PrinterFilterString" id="ID_ELE_PrinterFilterString" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

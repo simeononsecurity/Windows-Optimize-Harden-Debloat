@@ -1,0 +1,961 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="serialcom" namespace="Vmware.Policies.SerialCOM" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+    <using prefix="vdm_agent_base" namespace="VMware.Policies.vdm_agent_base" />
+  </policyNamespaces>
+  <supersededAdm fileName="serialcom.adm" />
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_NotSpecified" displayName="$(string.ADMXMigrator_NoSupportedOn)" />
+      <definition name="SUPPORTED_WindowsXP" displayName="$(string.SUPPORTED_WindowsXP)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="Product_CatName" displayName="$(string.Product_CatName)">
+      <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+    </category>
+    <category name="PortSettings_CatName" displayName="$(string.PortSettings_CatName)">
+      <parentCategory ref="Product_CatName" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="LocalSettingsPriority_PolicyName" class="Machine" displayName="$(string.LocalSettingsPriority_PolicyName)" explainText="$(string.LocalSettingsPriority_PolicyExplain)" presentation="$(presentation.LocalSettingsPriority_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings" valueName="LocalSettingsPriority">
+      <parentCategory ref="Product_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="DisableFunctionality_PolicyName" class="Machine" displayName="$(string.DisableFunctionality_PolicyName)" explainText="$(string.DisableFunctionality_PolicyExplain)" presentation="$(presentation.DisableFunctionality_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings" valueName="Disabled">
+      <parentCategory ref="Product_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="PortIsolationMode_PolicyName" class="Machine" displayName="$(string.PortIsolationMode_PolicyName)" explainText="$(string.PortIsolationMode_PolicyExplain)" presentation="$(presentation.PortIsolationMode_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings">
+      <parentCategory ref="Product_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <enum id="PortIsolationMode_Enum" valueName="IsolatePorts">
+          <item displayName="$(string.PortIsolationMode_Full_Isolation_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.PortIsolationMode_Isolation_Disabled_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="LockConfig_PolicyName" class="Machine" displayName="$(string.LockConfig_PolicyName)" explainText="$(string.LockConfig_PolicyExplain)" presentation="$(presentation.LockConfig_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings" valueName="LockConfig">
+      <parentCategory ref="Product_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="BandwidthLimit_PolicyName" class="Machine" displayName="$(string.BandwidthLimit_PolicyName)" explainText="$(string.BandwidthLimit_PolicyExplain)" presentation="$(presentation.BandwidthLimit_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings">
+      <parentCategory ref="Product_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="BandwidthLimit_PartName" valueName="BandwidthLimit" required="true" minValue="0" maxValue="2097152" />
+      </elements>
+    </policy>
+    <policy name="PortSettings1_PolicyName" class="Machine" displayName="$(string.PortSettings1_PolicyName)" explainText="$(string.PortSettings_PolicyExplain)" presentation="$(presentation.PortSettings1_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings\PortSettings\PortSettings1">
+      <parentCategory ref="PortSettings_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="SrcPort_PartName" valueName="SrcPortNum" required="true" minValue="1" maxValue="255" />
+        <text id="SrcPort_PartName2" valueName="SrcPortDevice" />
+        <decimal id="DstVirtPort_PartName" valueName="DstVirtPortNum" required="true" minValue="1" maxValue="255" />
+        <boolean id="Autoconnect_PartName" valueName="Autoconnect" />
+        <boolean id="IgnoreDsr_PartName" valueName="IgnoreDsr" />
+        <decimal id="PauseBeforeClosePort_PartName" valueName="PauseBeforeClosePort" minValue="0" maxValue="3000" />
+        <boolean id="UsePauseBeforeSendData_PartName" valueName="UsePauseBeforeSendData" />
+        <decimal id="PauseBeforeSendData_PartName" valueName="PauseBeforeSendData" minValue="0" maxValue="5000" />
+        <boolean id="Serial2USBModeChangeEnabled_PartName" valueName="Serial2USBModeChangeEnabled" />
+        <boolean id="DisableErrorsInWaitMask_PartName" valueName="DisableErrorsInWaitMask" />
+        <boolean id="HandleBtDisappear_PartName" valueName="HandleBtDisappear" />
+        <boolean id="UsbToComTroubleShooting_PartName" valueName="UsbToComTroubleShooting" />
+        <boolean id="UseMultiplicator_PartName" valueName="UseTimeoutsMultiplicator" />
+        <decimal id="MultiplicatorValue_PartName" valueName="TimeoutsMultiplicator" minValue="1" maxValue="10" />
+        <boolean id="UseFixedBaudRate_PartName" valueName="UseFixedBaudRate" />
+        <decimal id="FixedBaudRate_PartName" valueName="FixedBaudRate" minValue="110" maxValue="115200" />
+        <boolean id="UseFixedLineControl_PartName" valueName="UseFixedLineControl" />
+        <decimal id="FixedDataBits_PartName" valueName="FixedLineControlDataBits" minValue="5" maxValue="8" />
+        <enum id="FixedParity_Enum" valueName="FixedLineControlParity">
+          <item displayName="$(string.Parity_No_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Odd_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Even_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Mark_combo_txt)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Space_combo_txt)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+        <enum id="FixedStopBits_Enum" valueName="FixedLineControlStopBits">
+          <item displayName="$(string.StopBits_1bit_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_15bit_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_2bits_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <boolean id="UseFixedFlowControl_PartName" valueName="UseFixedFlowControl" />
+        <enum id="FixedFlowControl_Enum" valueName="FixedFlowControl">
+          <item displayName="$(string.Flow_Hardware_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_XonXoff_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_None_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="PortSettings2_PolicyName" class="Machine" displayName="$(string.PortSettings2_PolicyName)" explainText="$(string.PortSettings_PolicyExplain)" presentation="$(presentation.PortSettings2_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings\PortSettings\PortSettings2">
+      <parentCategory ref="PortSettings_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="SrcPort_PartName" valueName="SrcPortNum" required="true" minValue="1" maxValue="255" />
+        <text id="SrcPort_PartName2" valueName="SrcPortDevice" />
+        <decimal id="DstVirtPort_PartName" valueName="DstVirtPortNum" required="true" minValue="1" maxValue="255" />
+        <boolean id="Autoconnect_PartName" valueName="Autoconnect" />
+        <boolean id="IgnoreDsr_PartName" valueName="IgnoreDsr" />
+        <decimal id="PauseBeforeClosePort_PartName" valueName="PauseBeforeClosePort" minValue="0" maxValue="3000" />
+        <boolean id="UsePauseBeforeSendData_PartName" valueName="UsePauseBeforeSendData" />
+        <decimal id="PauseBeforeSendData_PartName" valueName="PauseBeforeSendData" minValue="0" maxValue="5000" />
+        <boolean id="Serial2USBModeChangeEnabled_PartName" valueName="Serial2USBModeChangeEnabled" />
+        <boolean id="DisableErrorsInWaitMask_PartName" valueName="DisableErrorsInWaitMask" />
+        <boolean id="HandleBtDisappear_PartName" valueName="HandleBtDisappear" />
+        <boolean id="UsbToComTroubleShooting_PartName" valueName="UsbToComTroubleShooting" />
+        <boolean id="UseMultiplicator_PartName" valueName="UseTimeoutsMultiplicator" />
+        <decimal id="MultiplicatorValue_PartName" valueName="TimeoutsMultiplicator" minValue="1" maxValue="10" />
+        <boolean id="UseFixedBaudRate_PartName" valueName="UseFixedBaudRate" />
+        <decimal id="FixedBaudRate_PartName" valueName="FixedBaudRate" minValue="110" maxValue="115200" />
+        <boolean id="UseFixedLineControl_PartName" valueName="UseFixedLineControl" />
+        <decimal id="FixedDataBits_PartName" valueName="FixedLineControlDataBits" minValue="5" maxValue="8" />
+        <enum id="FixedParity_Enum" valueName="FixedLineControlParity">
+          <item displayName="$(string.Parity_No_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Odd_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Even_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Mark_combo_txt)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Space_combo_txt)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+        <enum id="FixedStopBits_Enum" valueName="FixedLineControlStopBits">
+          <item displayName="$(string.StopBits_1bit_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_15bit_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_2bits_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <boolean id="UseFixedFlowControl_PartName" valueName="UseFixedFlowControl" />
+        <enum id="FixedFlowControl_Enum" valueName="FixedFlowControl">
+          <item displayName="$(string.Flow_Hardware_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_XonXoff_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_None_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="PortSettings3_PolicyName" class="Machine" displayName="$(string.PortSettings3_PolicyName)" explainText="$(string.PortSettings_PolicyExplain)" presentation="$(presentation.PortSettings3_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings\PortSettings\PortSettings3">
+      <parentCategory ref="PortSettings_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="SrcPort_PartName" valueName="SrcPortNum" required="true" minValue="1" maxValue="255" />
+        <text id="SrcPort_PartName2" valueName="SrcPortDevice" />
+        <decimal id="DstVirtPort_PartName" valueName="DstVirtPortNum" required="true" minValue="1" maxValue="255" />
+        <boolean id="Autoconnect_PartName" valueName="Autoconnect" />
+        <boolean id="IgnoreDsr_PartName" valueName="IgnoreDsr" />
+        <decimal id="PauseBeforeClosePort_PartName" valueName="PauseBeforeClosePort" minValue="0" maxValue="3000" />
+        <boolean id="UsePauseBeforeSendData_PartName" valueName="UsePauseBeforeSendData" />
+        <decimal id="PauseBeforeSendData_PartName" valueName="PauseBeforeSendData" minValue="0" maxValue="5000" />
+        <boolean id="Serial2USBModeChangeEnabled_PartName" valueName="Serial2USBModeChangeEnabled" />
+        <boolean id="DisableErrorsInWaitMask_PartName" valueName="DisableErrorsInWaitMask" />
+        <boolean id="HandleBtDisappear_PartName" valueName="HandleBtDisappear" />
+        <boolean id="UsbToComTroubleShooting_PartName" valueName="UsbToComTroubleShooting" />
+        <boolean id="UseMultiplicator_PartName" valueName="UseTimeoutsMultiplicator" />
+        <decimal id="MultiplicatorValue_PartName" valueName="TimeoutsMultiplicator" minValue="1" maxValue="10" />
+        <boolean id="UseFixedBaudRate_PartName" valueName="UseFixedBaudRate" />
+        <decimal id="FixedBaudRate_PartName" valueName="FixedBaudRate" minValue="110" maxValue="115200" />
+        <boolean id="UseFixedLineControl_PartName" valueName="UseFixedLineControl" />
+        <decimal id="FixedDataBits_PartName" valueName="FixedLineControlDataBits" minValue="5" maxValue="8" />
+        <enum id="FixedParity_Enum" valueName="FixedLineControlParity">
+          <item displayName="$(string.Parity_No_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Odd_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Even_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Mark_combo_txt)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Space_combo_txt)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+        <enum id="FixedStopBits_Enum" valueName="FixedLineControlStopBits">
+          <item displayName="$(string.StopBits_1bit_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_15bit_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_2bits_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <boolean id="UseFixedFlowControl_PartName" valueName="UseFixedFlowControl" />
+        <enum id="FixedFlowControl_Enum" valueName="FixedFlowControl">
+          <item displayName="$(string.Flow_Hardware_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_XonXoff_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_None_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="PortSettings4_PolicyName" class="Machine" displayName="$(string.PortSettings4_PolicyName)" explainText="$(string.PortSettings_PolicyExplain)" presentation="$(presentation.PortSettings4_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings\PortSettings\PortSettings4">
+      <parentCategory ref="PortSettings_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="SrcPort_PartName" valueName="SrcPortNum" required="true" minValue="1" maxValue="255" />
+        <text id="SrcPort_PartName2" valueName="SrcPortDevice" />
+        <decimal id="DstVirtPort_PartName" valueName="DstVirtPortNum" required="true" minValue="1" maxValue="255" />
+        <boolean id="Autoconnect_PartName" valueName="Autoconnect" />
+        <boolean id="IgnoreDsr_PartName" valueName="IgnoreDsr" />
+        <decimal id="PauseBeforeClosePort_PartName" valueName="PauseBeforeClosePort" minValue="0" maxValue="3000" />
+        <boolean id="UsePauseBeforeSendData_PartName" valueName="UsePauseBeforeSendData" />
+        <decimal id="PauseBeforeSendData_PartName" valueName="PauseBeforeSendData" minValue="0" maxValue="5000" />
+        <boolean id="Serial2USBModeChangeEnabled_PartName" valueName="Serial2USBModeChangeEnabled" />
+        <boolean id="DisableErrorsInWaitMask_PartName" valueName="DisableErrorsInWaitMask" />
+        <boolean id="HandleBtDisappear_PartName" valueName="HandleBtDisappear" />
+        <boolean id="UsbToComTroubleShooting_PartName" valueName="UsbToComTroubleShooting" />
+        <boolean id="UseMultiplicator_PartName" valueName="UseTimeoutsMultiplicator" />
+        <decimal id="MultiplicatorValue_PartName" valueName="TimeoutsMultiplicator" minValue="1" maxValue="10" />
+        <boolean id="UseFixedBaudRate_PartName" valueName="UseFixedBaudRate" />
+        <decimal id="FixedBaudRate_PartName" valueName="FixedBaudRate" minValue="110" maxValue="115200" />
+        <boolean id="UseFixedLineControl_PartName" valueName="UseFixedLineControl" />
+        <decimal id="FixedDataBits_PartName" valueName="FixedLineControlDataBits" minValue="5" maxValue="8" />
+        <enum id="FixedParity_Enum" valueName="FixedLineControlParity">
+          <item displayName="$(string.Parity_No_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Odd_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Even_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Mark_combo_txt)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Space_combo_txt)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+        <enum id="FixedStopBits_Enum" valueName="FixedLineControlStopBits">
+          <item displayName="$(string.StopBits_1bit_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_15bit_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_2bits_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <boolean id="UseFixedFlowControl_PartName" valueName="UseFixedFlowControl" />
+        <enum id="FixedFlowControl_Enum" valueName="FixedFlowControl">
+          <item displayName="$(string.Flow_Hardware_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_XonXoff_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_None_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="PortSettings5_PolicyName" class="Machine" displayName="$(string.PortSettings5_PolicyName)" explainText="$(string.PortSettings_PolicyExplain)" presentation="$(presentation.PortSettings5_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings\PortSettings\PortSettings5">
+      <parentCategory ref="PortSettings_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="SrcPort_PartName" valueName="SrcPortNum" required="true" minValue="1" maxValue="255" />
+        <text id="SrcPort_PartName2" valueName="SrcPortDevice" />
+        <decimal id="DstVirtPort_PartName" valueName="DstVirtPortNum" required="true" minValue="1" maxValue="255" />
+        <boolean id="Autoconnect_PartName" valueName="Autoconnect" />
+        <boolean id="IgnoreDsr_PartName" valueName="IgnoreDsr" />
+        <decimal id="PauseBeforeClosePort_PartName" valueName="PauseBeforeClosePort" minValue="0" maxValue="3000" />
+        <boolean id="UsePauseBeforeSendData_PartName" valueName="UsePauseBeforeSendData" />
+        <decimal id="PauseBeforeSendData_PartName" valueName="PauseBeforeSendData" minValue="0" maxValue="5000" />
+        <boolean id="Serial2USBModeChangeEnabled_PartName" valueName="Serial2USBModeChangeEnabled" />
+        <boolean id="DisableErrorsInWaitMask_PartName" valueName="DisableErrorsInWaitMask" />
+        <boolean id="HandleBtDisappear_PartName" valueName="HandleBtDisappear" />
+        <boolean id="UsbToComTroubleShooting_PartName" valueName="UsbToComTroubleShooting" />
+        <boolean id="UseMultiplicator_PartName" valueName="UseTimeoutsMultiplicator" />
+        <decimal id="MultiplicatorValue_PartName" valueName="TimeoutsMultiplicator" minValue="1" maxValue="10" />
+        <boolean id="UseFixedBaudRate_PartName" valueName="UseFixedBaudRate" />
+        <decimal id="FixedBaudRate_PartName" valueName="FixedBaudRate" minValue="110" maxValue="115200" />
+        <boolean id="UseFixedLineControl_PartName" valueName="UseFixedLineControl" />
+        <decimal id="FixedDataBits_PartName" valueName="FixedLineControlDataBits" minValue="5" maxValue="8" />
+        <enum id="FixedParity_Enum" valueName="FixedLineControlParity">
+          <item displayName="$(string.Parity_No_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Odd_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Even_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Mark_combo_txt)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Space_combo_txt)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+        <enum id="FixedStopBits_Enum" valueName="FixedLineControlStopBits">
+          <item displayName="$(string.StopBits_1bit_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_15bit_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_2bits_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <boolean id="UseFixedFlowControl_PartName" valueName="UseFixedFlowControl" />
+        <enum id="FixedFlowControl_Enum" valueName="FixedFlowControl">
+          <item displayName="$(string.Flow_Hardware_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_XonXoff_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_None_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="LocalSettingsPriority_PolicyName_1" class="User" displayName="$(string.LocalSettingsPriority_PolicyName)" explainText="$(string.LocalSettingsPriority_PolicyExplain)" presentation="$(presentation.LocalSettingsPriority_PolicyName_1)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings" valueName="LocalSettingsPriority">
+      <parentCategory ref="Product_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="LockConfig_PolicyName_1" class="User" displayName="$(string.LockConfig_PolicyName)" explainText="$(string.LockConfig_PolicyExplain)" presentation="$(presentation.LockConfig_PolicyName_1)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings" valueName="LockConfig">
+      <parentCategory ref="Product_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="PortSettings1_PolicyName_1" class="User" displayName="$(string.PortSettings1_PolicyName)" explainText="$(string.PortSettings_PolicyExplain)" presentation="$(presentation.PortSettings1_PolicyName_1)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings\PortSettings\PortSettings1">
+      <parentCategory ref="PortSettings_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="SrcPort_PartName" valueName="SrcPortNum" required="true" minValue="1" maxValue="255" />
+        <text id="SrcPort_PartName2" valueName="SrcPortDevice" />
+        <decimal id="DstVirtPort_PartName" valueName="DstVirtPortNum" required="true" minValue="1" maxValue="255" />
+        <boolean id="Autoconnect_PartName" valueName="Autoconnect" />
+        <boolean id="IgnoreDsr_PartName" valueName="IgnoreDsr" />
+        <decimal id="PauseBeforeClosePort_PartName" valueName="PauseBeforeClosePort" minValue="0" maxValue="3000" />
+        <boolean id="UsePauseBeforeSendData_PartName" valueName="UsePauseBeforeSendData" />
+        <decimal id="PauseBeforeSendData_PartName" valueName="PauseBeforeSendData" minValue="0" maxValue="5000" />
+        <boolean id="Serial2USBModeChangeEnabled_PartName" valueName="Serial2USBModeChangeEnabled" />
+        <boolean id="DisableErrorsInWaitMask_PartName" valueName="DisableErrorsInWaitMask" />
+        <boolean id="HandleBtDisappear_PartName" valueName="HandleBtDisappear" />
+        <boolean id="UsbToComTroubleShooting_PartName" valueName="UsbToComTroubleShooting" />
+        <boolean id="UseMultiplicator_PartName" valueName="UseTimeoutsMultiplicator" />
+        <decimal id="MultiplicatorValue_PartName" valueName="TimeoutsMultiplicator" minValue="1" maxValue="10" />
+        <boolean id="UseFixedBaudRate_PartName" valueName="UseFixedBaudRate" />
+        <decimal id="FixedBaudRate_PartName" valueName="FixedBaudRate" minValue="110" maxValue="115200" />
+        <boolean id="UseFixedLineControl_PartName" valueName="UseFixedLineControl" />
+        <decimal id="FixedDataBits_PartName" valueName="FixedLineControlDataBits" minValue="5" maxValue="8" />
+        <enum id="FixedParity_Enum" valueName="FixedLineControlParity">
+          <item displayName="$(string.Parity_No_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Odd_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Even_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Mark_combo_txt)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Space_combo_txt)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+        <enum id="FixedStopBits_Enum" valueName="FixedLineControlStopBits">
+          <item displayName="$(string.StopBits_1bit_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_15bit_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_2bits_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <boolean id="UseFixedFlowControl_PartName" valueName="UseFixedFlowControl" />
+        <enum id="FixedFlowControl_Enum" valueName="FixedFlowControl">
+          <item displayName="$(string.Flow_Hardware_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_XonXoff_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_None_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="PortSettings2_PolicyName_1" class="User" displayName="$(string.PortSettings2_PolicyName)" explainText="$(string.PortSettings_PolicyExplain)" presentation="$(presentation.PortSettings2_PolicyName_1)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings\PortSettings\PortSettings2">
+      <parentCategory ref="PortSettings_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="SrcPort_PartName" valueName="SrcPortNum" required="true" minValue="1" maxValue="255" />
+        <text id="SrcPort_PartName2" valueName="SrcPortDevice" />
+        <decimal id="DstVirtPort_PartName" valueName="DstVirtPortNum" required="true" minValue="1" maxValue="255" />
+        <boolean id="Autoconnect_PartName" valueName="Autoconnect" />
+        <boolean id="IgnoreDsr_PartName" valueName="IgnoreDsr" />
+        <decimal id="PauseBeforeClosePort_PartName" valueName="PauseBeforeClosePort" minValue="0" maxValue="3000" />
+        <boolean id="UsePauseBeforeSendData_PartName" valueName="UsePauseBeforeSendData" />
+        <decimal id="PauseBeforeSendData_PartName" valueName="PauseBeforeSendData" minValue="0" maxValue="5000" />
+        <boolean id="Serial2USBModeChangeEnabled_PartName" valueName="Serial2USBModeChangeEnabled" />
+        <boolean id="DisableErrorsInWaitMask_PartName" valueName="DisableErrorsInWaitMask" />
+        <boolean id="HandleBtDisappear_PartName" valueName="HandleBtDisappear" />
+        <boolean id="UsbToComTroubleShooting_PartName" valueName="UsbToComTroubleShooting" />
+        <boolean id="UseMultiplicator_PartName" valueName="UseTimeoutsMultiplicator" />
+        <decimal id="MultiplicatorValue_PartName" valueName="TimeoutsMultiplicator" minValue="1" maxValue="10" />
+        <boolean id="UseFixedBaudRate_PartName" valueName="UseFixedBaudRate" />
+        <decimal id="FixedBaudRate_PartName" valueName="FixedBaudRate" minValue="110" maxValue="115200" />
+        <boolean id="UseFixedLineControl_PartName" valueName="UseFixedLineControl" />
+        <decimal id="FixedDataBits_PartName" valueName="FixedLineControlDataBits" minValue="5" maxValue="8" />
+        <enum id="FixedParity_Enum" valueName="FixedLineControlParity">
+          <item displayName="$(string.Parity_No_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Odd_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Even_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Mark_combo_txt)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Space_combo_txt)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+        <enum id="FixedStopBits_Enum" valueName="FixedLineControlStopBits">
+          <item displayName="$(string.StopBits_1bit_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_15bit_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_2bits_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <boolean id="UseFixedFlowControl_PartName" valueName="UseFixedFlowControl" />
+        <enum id="FixedFlowControl_Enum" valueName="FixedFlowControl">
+          <item displayName="$(string.Flow_Hardware_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_XonXoff_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_None_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="PortSettings3_PolicyName_1" class="User" displayName="$(string.PortSettings3_PolicyName)" explainText="$(string.PortSettings_PolicyExplain)" presentation="$(presentation.PortSettings3_PolicyName_1)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings\PortSettings\PortSettings3">
+      <parentCategory ref="PortSettings_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="SrcPort_PartName" valueName="SrcPortNum" required="true" minValue="1" maxValue="255" />
+        <text id="SrcPort_PartName2" valueName="SrcPortDevice" />
+        <decimal id="DstVirtPort_PartName" valueName="DstVirtPortNum" required="true" minValue="1" maxValue="255" />
+        <boolean id="Autoconnect_PartName" valueName="Autoconnect" />
+        <boolean id="IgnoreDsr_PartName" valueName="IgnoreDsr" />
+        <decimal id="PauseBeforeClosePort_PartName" valueName="PauseBeforeClosePort" minValue="0" maxValue="3000" />
+        <boolean id="UsePauseBeforeSendData_PartName" valueName="UsePauseBeforeSendData" />
+        <decimal id="PauseBeforeSendData_PartName" valueName="PauseBeforeSendData" minValue="0" maxValue="5000" />
+        <boolean id="Serial2USBModeChangeEnabled_PartName" valueName="Serial2USBModeChangeEnabled" />
+        <boolean id="DisableErrorsInWaitMask_PartName" valueName="DisableErrorsInWaitMask" />
+        <boolean id="HandleBtDisappear_PartName" valueName="HandleBtDisappear" />
+        <boolean id="UsbToComTroubleShooting_PartName" valueName="UsbToComTroubleShooting" />
+        <boolean id="UseMultiplicator_PartName" valueName="UseTimeoutsMultiplicator" />
+        <decimal id="MultiplicatorValue_PartName" valueName="TimeoutsMultiplicator" minValue="1" maxValue="10" />
+        <boolean id="UseFixedBaudRate_PartName" valueName="UseFixedBaudRate" />
+        <decimal id="FixedBaudRate_PartName" valueName="FixedBaudRate" minValue="110" maxValue="115200" />
+        <boolean id="UseFixedLineControl_PartName" valueName="UseFixedLineControl" />
+        <decimal id="FixedDataBits_PartName" valueName="FixedLineControlDataBits" minValue="5" maxValue="8" />
+        <enum id="FixedParity_Enum" valueName="FixedLineControlParity">
+          <item displayName="$(string.Parity_No_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Odd_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Even_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Mark_combo_txt)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Space_combo_txt)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+        <enum id="FixedStopBits_Enum" valueName="FixedLineControlStopBits">
+          <item displayName="$(string.StopBits_1bit_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_15bit_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_2bits_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <boolean id="UseFixedFlowControl_PartName" valueName="UseFixedFlowControl" />
+        <enum id="FixedFlowControl_Enum" valueName="FixedFlowControl">
+          <item displayName="$(string.Flow_Hardware_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_XonXoff_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_None_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="PortSettings4_PolicyName_1" class="User" displayName="$(string.PortSettings4_PolicyName)" explainText="$(string.PortSettings_PolicyExplain)" presentation="$(presentation.PortSettings4_PolicyName_1)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings\PortSettings\PortSettings4">
+      <parentCategory ref="PortSettings_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="SrcPort_PartName" valueName="SrcPortNum" required="true" minValue="1" maxValue="255" />
+        <text id="SrcPort_PartName2" valueName="SrcPortDevice" />
+        <decimal id="DstVirtPort_PartName" valueName="DstVirtPortNum" required="true" minValue="1" maxValue="255" />
+        <boolean id="Autoconnect_PartName" valueName="Autoconnect" />
+        <boolean id="IgnoreDsr_PartName" valueName="IgnoreDsr" />
+        <decimal id="PauseBeforeClosePort_PartName" valueName="PauseBeforeClosePort" minValue="0" maxValue="3000" />
+        <boolean id="UsePauseBeforeSendData_PartName" valueName="UsePauseBeforeSendData" />
+        <decimal id="PauseBeforeSendData_PartName" valueName="PauseBeforeSendData" minValue="0" maxValue="5000" />
+        <boolean id="Serial2USBModeChangeEnabled_PartName" valueName="Serial2USBModeChangeEnabled" />
+        <boolean id="DisableErrorsInWaitMask_PartName" valueName="DisableErrorsInWaitMask" />
+        <boolean id="HandleBtDisappear_PartName" valueName="HandleBtDisappear" />
+        <boolean id="UsbToComTroubleShooting_PartName" valueName="UsbToComTroubleShooting" />
+        <boolean id="UseMultiplicator_PartName" valueName="UseTimeoutsMultiplicator" />
+        <decimal id="MultiplicatorValue_PartName" valueName="TimeoutsMultiplicator" minValue="1" maxValue="10" />
+        <boolean id="UseFixedBaudRate_PartName" valueName="UseFixedBaudRate" />
+        <decimal id="FixedBaudRate_PartName" valueName="FixedBaudRate" minValue="110" maxValue="115200" />
+        <boolean id="UseFixedLineControl_PartName" valueName="UseFixedLineControl" />
+        <decimal id="FixedDataBits_PartName" valueName="FixedLineControlDataBits" minValue="5" maxValue="8" />
+        <enum id="FixedParity_Enum" valueName="FixedLineControlParity">
+          <item displayName="$(string.Parity_No_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Odd_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Even_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Mark_combo_txt)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Space_combo_txt)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+        <enum id="FixedStopBits_Enum" valueName="FixedLineControlStopBits">
+          <item displayName="$(string.StopBits_1bit_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_15bit_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_2bits_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <boolean id="UseFixedFlowControl_PartName" valueName="UseFixedFlowControl" />
+        <enum id="FixedFlowControl_Enum" valueName="FixedFlowControl">
+          <item displayName="$(string.Flow_Hardware_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_XonXoff_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_None_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="PortSettings5_PolicyName_1" class="User" displayName="$(string.PortSettings5_PolicyName)" explainText="$(string.PortSettings_PolicyExplain)" presentation="$(presentation.PortSettings5_PolicyName_1)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\SerialCOM\Agent\Settings\PortSettings\PortSettings5">
+      <parentCategory ref="PortSettings_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="SrcPort_PartName" valueName="SrcPortNum" required="true" minValue="1" maxValue="255" />
+        <text id="SrcPort_PartName2" valueName="SrcPortDevice" />
+        <decimal id="DstVirtPort_PartName" valueName="DstVirtPortNum" required="true" minValue="1" maxValue="255" />
+        <boolean id="Autoconnect_PartName" valueName="Autoconnect" />
+        <boolean id="IgnoreDsr_PartName" valueName="IgnoreDsr" />
+        <decimal id="PauseBeforeClosePort_PartName" valueName="PauseBeforeClosePort" minValue="0" maxValue="3000" />
+        <boolean id="UsePauseBeforeSendData_PartName" valueName="UsePauseBeforeSendData" />
+        <decimal id="PauseBeforeSendData_PartName" valueName="PauseBeforeSendData" minValue="0" maxValue="5000" />
+        <boolean id="Serial2USBModeChangeEnabled_PartName" valueName="Serial2USBModeChangeEnabled" />
+        <boolean id="DisableErrorsInWaitMask_PartName" valueName="DisableErrorsInWaitMask" />
+        <boolean id="HandleBtDisappear_PartName" valueName="HandleBtDisappear" />
+        <boolean id="UsbToComTroubleShooting_PartName" valueName="UsbToComTroubleShooting" />
+        <boolean id="UseMultiplicator_PartName" valueName="UseTimeoutsMultiplicator" />
+        <decimal id="MultiplicatorValue_PartName" valueName="TimeoutsMultiplicator" minValue="1" maxValue="10" />
+        <boolean id="UseFixedBaudRate_PartName" valueName="UseFixedBaudRate" />
+        <decimal id="FixedBaudRate_PartName" valueName="FixedBaudRate" minValue="110" maxValue="115200" />
+        <boolean id="UseFixedLineControl_PartName" valueName="UseFixedLineControl" />
+        <decimal id="FixedDataBits_PartName" valueName="FixedLineControlDataBits" minValue="5" maxValue="8" />
+        <enum id="FixedParity_Enum" valueName="FixedLineControlParity">
+          <item displayName="$(string.Parity_No_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Odd_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Even_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Mark_combo_txt)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.Parity_Space_combo_txt)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+        <enum id="FixedStopBits_Enum" valueName="FixedLineControlStopBits">
+          <item displayName="$(string.StopBits_1bit_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_15bit_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.StopBits_2bits_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <boolean id="UseFixedFlowControl_PartName" valueName="UseFixedFlowControl" />
+        <enum id="FixedFlowControl_Enum" valueName="FixedFlowControl">
+          <item displayName="$(string.Flow_Hardware_combo_txt)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_XonXoff_combo_txt)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Flow_None_combo_txt)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

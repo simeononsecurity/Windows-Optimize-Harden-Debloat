@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="VMwareViewCDR">VMware Horizon Client Drive Redirection</string>
+      <string id="IsDriveLetterNeeded">Display redirected device with drive letter</string>
+      <string id="IsDriveLetterNeededExplain">This setting determines whether the drive letter for CDR (Client Drive Redirection) is enabled or not. It is enabled by default.</string>
+      <string id="InitDriveLetterTimeout">Timeout for drive letter initialization</string>
+      <string id="InitDriveLetterTimeoutExplain">This setting determines the timeout value for waiting for Windows Explorer to finish processing the correct drive letter. When this setting is disabled or not configured, it is configured to 5s by default.</string>
+      <string id="VMwareViewCDRDeviceFiltering">Device Filtering</string>
+	  <string id="ExcludeVidPid">Exclude Vid/Pid Device</string>
+      <string id="ExcludeVidPidExplain">Exclude a device with a specified Vendor ID and Product ID from being forwarded.
+
+Syntax: &lt;vid-&lt;xxxx&gt;_pid-&lt;xxxx | *&gt;&gt;[;...]
+
+For example: vid-0781_pid-554c;vid-0781_pid-9999</string>
+      <string id="IncludeVidPid">Include Vid/Pid Device</string>
+      <string id="IncludeVidPidExplain">Include a device with a specified Vendor ID and Product ID that can be forwarded.
+
+Syntax: &lt;vid-&lt;xxxx&gt;_pid-&lt;xxxx | *&gt;&gt;[;...]
+
+For example: vid-0781_pid-554c;vid-0781_pid-9999</string>
+      <string id="DriveLetterMapping">Configure drive letter mapping mode</string>
+      <string id="DriveLetterMappingExplain">This GPO is to configure the drive letter mapping mode, currently there are two modes supported.
+- one to one mapping : map the same client drive letter to agent.
+- defined mapping : map the client drive letter to agent according to defined mapping table.
+
+
+Notes :
+- This GPO is valid when GPO "Display redirected device with drive letter" is not disabled.
+- For both supported modes, when there is conflict on the drive letter, e.g. the to be mapped drive letter is already used in agent, it will instead use the first available letter from 'Z' to 'A' backward. If no drive letter is available, then no drive letter will be assigned.
+      </string>
+      <string id="DriveLetterMappingTable">Define drive letter mapping table</string>
+      <string id="DriveLetterMappingTableExplain">Define drive letter mapping table
+- Client drive letter(value name) : drive letter used at client.
+- Agent drive letter(value) : drive letter to be used at agent.
+</string>
+      <string id="OneToOneMapping">One to one mapping</string>
+      <string id="PredefinedMapping">Defined mapping</string>
+    </stringTable>
+    <presentationTable>
+       <presentation id="IsDriveLetterNeeded"/>
+       <presentation id="InitDriveLetterTimeout">
+         <decimalTextBox refId="InitDriveLetterTimeout" defaultValue="5000">Timeout in milliseconds:</decimalTextBox>
+       </presentation>
+	   <presentation id="ExcludeVidPid">
+         <textBox refId="ExcludeVidPid">
+           <label>Exclude Vid/Pid Device</label>
+         </textBox>
+       </presentation>
+       <presentation id="IncludeVidPid">
+         <textBox refId="IncludeVidPid">
+           <label>Include Vid/Pid Device</label>
+         </textBox>
+       </presentation>
+       <presentation id="DriveLetterMapping">
+         <dropdownList refId="DriveLetterMappingDropdown" defaultItem="0" noSort="true">Configure drive letter mapping mode:</dropdownList>
+       </presentation>
+       <presentation id="DriveLetterMappingTable">
+         <listBox refId="DriveLetterMappingTable">Define drive letter mapping table:</listBox>
+       </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

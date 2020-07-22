@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="UseOEMBackground">Usar siempre un fondo personalizado de inicio de sesión</string> 
+      <string id="UseOEMBackground_Help">Esta configuración de directiva omite el fondo de inicio de sesión de Windows.
+
+Esta configuración de directiva puede usarse para hacer que Windows dé preferencia a un fondo personalizado de inicio de sesión. 
+
+Si habilita esta configuración de directiva, la pantalla de inicio de sesión siempre intentará cargar un fondo personalizado en vez del fondo de inicio de sesión con la marca de Windows. 
+
+Si deshabilita o no establece esta configuración de directiva, Windows usará el fondo de inicio de sesión predeterminado de Windows o el fondo personalizado.</string> 
+      <string id="DisableExplorerRunLegacy">No procesar la lista de ejecución heredada</string>
+      <string id="DisableExplorerRunLegacy_Help">Esta configuración de directiva omite la lista de ejecución personalizada.
+
+Puede crear una lista personalizada de programas y documentos adicionales que el sistema iniciará automáticamente cuando se esté ejecutando en Windows Vista, Windows XP Professional y Windows 2000 Professional. Estos programas se agregan a la lista de ejecución estándar de programas y servicios que se inician con el sistema.
+
+Si habilita esta configuración de directiva, el sistema omitirá la lista de ejecución para Windows Vista, Windows XP Professional y Windows 2000 Professional.
+
+Si deshabilita o no establece esta configuración de directiva, Windows Vista agregará todas las listas de ejecución personalizadas configuradas a su lista de ejecución.
+
+Esta configuración de directiva aparece en las carpetas Configuración del equipo y Configuración de usuario. Si se establecen las dos configuraciones de directiva, la configuración de directiva de Configuración del equipo tiene prioridad sobre la de Configuración de usuario.
+
+Nota: para crear una lista de ejecución personalizada con una configuración de directiva, use la configuración de directiva "Ejecutar estas aplicaciones al iniciar".
+
+Consulte también la configuración de directiva "No procesar la lista de una sola ejecución".</string>
+
+        <string id="DontDisplayNetworkSelectionUI">No mostrar la interfaz de usuario de selección de red</string>
+        <string id="DontDisplayNetworkSelectionUI_Help">Esta configuración de directiva permite definir si cualquiera puede interactuar con la interfaz de usuario de redes disponibles en la pantalla de inicio de sesión.
+
+Si habilita esta configuración de directiva, el estado de conectividad de la red del equipo no se puede cambiar sin iniciar sesión en Windows.
+
+Si deshabilita o no establece esta configuración de directiva, cualquier usuario puede desconectar el equipo de la red o conectarlo a otras redes disponibles sin iniciar sesión en Windows.</string>
+
+        <string id="DisableExplorerRunOnceLegacy">No procesar la lista de una sola ejecución</string>
+      <string id="DisableExplorerRunOnceLegacy_Help">Esta configuración de directiva omite las listas de una sola ejecución personalizadas.
+
+Puede crear una lista personalizada de programas y documentos adicionales que se inicien automáticamente la próxima vez que se inicie el sistema (pero no después). Estos programas se agregan a la lista estándar de programas y servicios que se inician con el sistema.
+
+Si habilita esta configuración de directiva, el sistema omitirá la lista de una sola ejecución.
+
+Si deshabilita o no establece esta configuración de directiva, el sistema ejecutará los programas de la lista de una sola ejecución.
+
+Esta configuración de directiva aparece en las carpetas Configuración del equipo y Configuración de usuario. Si se establecen las dos configuraciones de directiva, la configuración de directiva de Configuración del equipo tiene prioridad sobre la de Configuración de usuario.
+
+Nota: las listas personalizadas de una sola ejecución se almacenan en el Registro en HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce.
+
+Consulte también la configuración de directiva "No procesar la lista de ejecución heredada".</string>
+      <string id="DisableStatusMessages">Quitar mensajes de estado de Inicio/Apagado/Inicio de sesión/Cierre de sesión</string>
+      <string id="DisableStatusMessages_Help">Esta configuración de directiva suprime los mensajes de estado del sistema.
+
+Si habilita esta opción, el sistema no mostrará un mensaje que recuerde a los usuarios que deben esperar mientras el sistema se inicia o se cierra, o mientras los usuarios inician o cierran sesión.
+
+Si deshabilita o no establece esta configuración de directiva, el sistema mostrará el mensaje que recuerda a los usuarios que deben esperar mientras el sistema se inicia o se cierra, o mientras los usuarios inician o cierran sesión.</string>
+      <string id="Logon">Inicio de sesión</string>
+      <string id="LogonType">Usar siempre inicio de sesión clásico</string>
+      <string id="LogonType_Help">Esta directiva no está disponible para esta versión de Windows.</string>
+      <string id="NoWelcomeTips">No mostrar la pantalla de inicio de sesión Introducción al iniciar sesión</string>
+      <string id="NoWelcomeTips_Help">Esta configuración de directiva oculta la pantalla de inicio de sesión que se muestra en Windows 2000 Professional cada vez que el usuario inicia sesión.
+
+Si habilita esta configuración de directiva, se ocultará la pantalla de inicio de sesión en el inicio de sesión del usuario en los equipos en que se ha aplicado esta directiva.
+
+Los usuarios aún podrán ver la pantalla de inicio de sesión si la seleccionan en el menú Inicio o si escriben "Welcome" en el cuadro de diálogo Ejecutar.
+
+Si deshabilita o no establece esta configuración de directiva, se mostrará la pantalla de inicio de sesión cada vez que un usuario inicie sesión en el equipo.
+
+Esta opción solo se aplica a Windows 2000 Professional. No afecta a la pantalla "Configurar su servidor en Windows 2000 Server" de Windows 2000 Server.
+
+Nota: esta opción aparece en las carpetas Configuración del equipo y Configuración de usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.
+
+Sugerencia: para mostrar la pantalla de inicio de sesión, haga clic en Inicio, elija Programas, Accesorios, Herramientas del sistema y, a continuación, haga clic en "Introducción". Para suprimir la pantalla de inicio de sesión sin especificar una opción, desactive la casilla "Mostrar esta pantalla al iniciar" de la pantalla de inicio de sesión.</string>
+      <string id="Run">Ejecutar estos programas cuando el usuario inicie la sesión</string>
+      <string id="Run_Help">Esta configuración de directiva especifica programas o documentos adicionales que Windows iniciará automáticamente cuando un usuario inicie sesión en el sistema.
+
+Si habilita esta configuración de directiva, podrá especificar qué programas podrán ejecutarse en el momento en que el usuario inicia sesión en un equipo en que se ha aplicado esta directiva.
+
+Para especificar los valores de esta configuración de directiva, haga clic en Mostrar. En el cuadro de diálogo Mostrar contenido, en la columna Valor, escriba el nombre del archivo del programa ejecutable (.exe) o del documento. Para especificar otro nombre, presione ENTRAR y escriba el nombre. Si el archivo no está ubicado en el directorio %Systemroot%, debe especificar la ruta de acceso completa al archivo.
+
+Si deshabilita o no establece esta configuración de directiva, el usuario tendrá que iniciar los programas correspondientes después de iniciar sesión.
+
+Nota: esta opción aparece en las carpetas Configuración del equipo y Configuración de usuario. Si las dos configuraciones están establecidas, el sistema inicia los programas especificados en Configuración del equipo justo antes de iniciar los especificados en Configuración de usuario.
+
+Consulte también las configuraciones "No procesar la lista de ejecución heredada" y "No procesar la lista de una sola ejecución".</string>
+      <string id="SyncForegroundPolicy">Esperar siempre a que se inicialice la red en el inicio del equipo y el inicio de sesión</string>
+      <string id="SyncForegroundPolicy_Help">Esta configuración de directiva determina si el procesamiento de directivas de grupo es sincrónico (es decir, si los equipos esperan a que la red se inicialice por completo durante el inicio del equipo y el inicio de sesión del usuario). De manera predeterminada, el procesamiento de directivas de grupo no es sincrónico; los equipos cliente no suelen esperar a que la red se inicialice por completo en el inicio del equipo y el inicio de sesión. Los usuarios existentes inician sesión con credenciales almacenadas en caché, lo que ayuda a reducir el tiempo que se tarda en iniciar sesión. La directiva de grupo se aplica en segundo plano una vez que la red está disponible. 
+
+Tenga en cuenta que, como se trata de una actualización en segundo plano, son necesarios dos inicios de sesión para que extensiones como Instalación de software y Redirección de carpetas apliquen los cambios. Para poder funcionar de manera segura, estas extensiones requieren que no haya ningún usuario conectado. Por lo tanto, deben procesarse en primer plano antes de que los usuarios usen el equipo de manera activa. Además, los cambios realizados en el objeto de usuario, como la adición de una ruta de perfil móvil, un directorio particular o un script de inicio de sesión de objeto de usuario, pueden necesitar hasta dos inicios de sesión para detectarse.
+
+Si un usuario con un perfil móvil, un directorio particular o un script de inicio de sesión de objeto de usuario inicia sesión en un equipo, este último siempre esperará a que la red se inicialice antes de iniciar la sesión del usuario. Si un usuario nunca antes ha iniciado sesión en un equipo, este último siempre esperará a que la red se inicialice.
+
+Si habilita esta configuración de directiva, los equipos esperarán a que la red se inicialice por completo antes de iniciar la sesión del usuario. La directiva de grupo se aplica en primer plano, de manera sincrónica. 
+
+En servidores que ejecutan Windows Server 2008 o versiones posteriores, esta configuración de directiva se omite durante el procesamiento de directivas de grupo en el inicio del equipo, y este procesamiento será sincrónico (estos servidores esperarán a que la red se inicialice durante el inicio del equipo). 
+
+Si el servidor está configurado de la siguiente manera, esta configuración de directiva surtirá efecto durante el procesamiento de directivas de grupo en el inicio de sesión del usuario:
+•  El servidor está configurado como un servidor de Terminal Server (es decir, el servicio de rol Terminal Server está instalado y configurado en el servidor); y
+•  Está habilitada la configuración de directiva “Permitir el procesamiento asincrónico de directivas de grupo del usuario al iniciar sesión a través de Terminal Services". Esta configuración de directiva se encuentra bajo Configuración del equipo\Directivas\Plantillas administrativas\Sistema\Directiva de grupo\.
+
+Si no se implementa esta configuración en el servidor, esta configuración de directiva se omite. En este caso, el procesamiento de directivas de grupo en el inicio de sesión del usuario es sincrónico (los servidores esperan a que la red se inicialice durante el inicio de sesión del usuario).
+
+Si deshabilita o no establece esta configuración de directiva, y los usuarios inician sesión en un equipo cliente o en un servidor que ejecuta Windows Server 2008 o versiones posteriores configurado como se describió anteriormente, el equipo normalmente no esperará a que la red se inicialice por completo. En este caso, los usuarios inician sesión con las credenciales almacenadas en caché. La directiva de grupo se aplica de forma asincrónica en segundo plano.
+
+Notas: 
+-Si desea garantizar la aplicación de Redirección de carpetas, Instalación de software o la configuración del perfil de usuario móvil en un solo inicio de sesión, habilite esta configuración de directiva para asegurarse de que Windows espere a que la red esté disponible antes de aplicar la directiva. 
+-Si se aplicará la directiva Redirección de carpetas durante el siguiente inicio de sesión, las directivas de seguridad se aplicarán asincrónicamente durante el siguiente ciclo de actualización, si la conectividad de red está disponible.</string>
+      <string id="VerboseStatus">Mostrar mensajes de estado muy detallados</string>
+      <string id="VerboseStatus_Help">Esta configuración de directiva indica al sistema que debe mostrar mensajes de estado muy detallados.
+
+Esta configuración de directiva se ha creado para usuarios avanzados que necesitan este tipo de información.
+
+Si habilita esta configuración de directiva, el sistema mostrará mensajes de estado que reflejan cada paso del proceso de inicio, apagado, inicio o cierre de sesión en el sistema.
+
+Si deshabilita o no establece esta configuración de directiva, solo se mostrarán al usuario los mensajes de estado predeterminados durante estos procesos.
+
+Nota: esta configuración de directiva se omite si la configuración de directiva "Quitar mensajes de estado de Inicio/Apagado/Inicio de sesión/Cierre de sesión" está habilitada.</string>
+      <string id="HideFastUserSwitching">Ocultar puntos de entrada para el Cambio rápido de usuario</string>
+      <string id="HideFastUserSwitching_Help">Esta configuración de directiva le permite ocultar la interfaz Cambiar usuario en la interfaz de usuario de inicio de sesión, en el menú Inicio y en el Administrador de tareas.
+
+Si habilita esta configuración de directiva, se ocultará la interfaz Cambiar usuario para el usuario que intenta iniciar sesión o que ha iniciado sesión en el equipo en que se ha aplicado esta directiva. 
+
+La interfaz Cambiar usuario aparece en la interfaz de usuario de inicio de sesión, en el menú Inicio y en el Administrador de tareas.
+
+Si deshabilita o no establece esta configuración de directiva, el usuario podrá obtener acceso a la interfaz Cambiar usuario desde las tres ubicaciones.</string>
+      <string id="DisableStartupSound">Desactivar el sonido de inicio de Windows</string>
+      <string id="DisableStartupSound_Help">Esta directiva no está disponible para esta versión de Windows.</string>
+      <string id="EnableFirstLogonAnimation">Mostrar animación de primer inicio de sesión  </string>
+      <string id="EnableFirstLogonAnimation_Help">Esta configuración de directiva le permite controlar si los usuarios verán la animación de primer inicio de sesión cuando inicien sesión en el equipo por primera vez.  Esto se aplica tanto al primer usuario del equipo que complete la configuración inicial como a los usuarios que se agreguen al equipo más tarde.  También controla si se ofrece a los usuarios de cuentas Microsoft la solicitud de participación en los servicios durante el primer inicio de sesión.
+
+Si habilita esta configuración de directiva, los usuarios de cuentas Microsoft verán la solicitud de participación en los servicios, mientras que los usuarios que tengan otras cuentas verán la animación de primer inicio de sesión.
+
+Si deshabilita esta configuración de directiva, los usuarios no verán la animación y los usuarios de cuentas Microsoft no verán la solicitud de participación en los servicios
+
+Si no configura esta configuración de directiva, el usuario que complete la configuración inicial de Windows verá la animación durante el primer inicio de sesión. Si el primer usuario ya había completado la configuración inicial y esta configuración de directiva no está configurada, los usuarios nuevos de este equipo no verán la animación.
+
+        Nota: la animación de primer inicio de sesión no se mostrará en la versión Server, por lo que esta directiva no tendrá efecto.
+      
+      </string>
+      <string id="DontEnumerateConnectedUsers">No enumerar usuarios conectados en equipos unidos al dominio</string>
+      <string id="DontEnumerateConnectedUsers_Help">Esta configuración de directiva impide que los usuarios conectados se enumeren en los equipos unidos al dominio. 
+
+Si habilita esta configuración de directiva, la interfaz de usuario de inicio de sesión no enumerará ningún usuario conectado en los equipos unidos al dominio.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios conectados se enumerarán en los equipos unidos al dominio.</string>
+      <string id="EnumerateLocalUsers">Enumerar usuarios locales en equipos unidos al dominio</string>
+      <string id="EnumerateLocalUsers_Help">Esta configuración de directiva permite que los usuarios locales se enumeren en los equipos unidos al dominio.  
+
+Si habilita esta configuración de directiva, la interfaz de usuario de inicio de sesión enumerará todos los usuarios locales en los equipos unidos al dominio.
+
+Si deshabilita o no establece esta configuración de directiva, la interfaz de usuario de inicio de sesión no enumerará los usuarios locales en los equipos unidos al dominio.</string>
+      <string id="BlockUserFromShowingAccountDetailsOnSignin">Evitar que el usuario muestre detalles de la cuenta al iniciar sesión</string>
+      <string id="BlockUserFromShowingAccountDetailsOnSignin_Help">Esta directiva impide que el usuario muestre detalles de la cuenta (la dirección de correo electrónico o el nombre de usuario) en la pantalla de inicio de sesión.
+
+Si habilitas esta configuración de directiva, el usuario no puede elegir mostrar los detalles de la cuenta en la pantalla de inicio de sesión.
+
+Si deshabilitas o no estableces esta configuración de directiva, el usuario puede elegir mostrar los detalles de la cuenta en la pantalla de inicio de sesión.</string>
+      <string id="DisableLockScreenAppNotifications">Desactivar las notificaciones de aplicaciones en la pantalla de bloqueo</string>
+      <string id="DisableLockScreenAppNotifications_Help">Esta configuración de directiva le permite impedir que aparezcan notificaciones de aplicaciones en la pantalla de bloqueo.
+
+Si habilita esta configuración de directiva, no se mostrará ninguna notificación de aplicación en la pantalla de bloqueo.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios podrán elegir qué notificaciones de aplicaciones se mostrarán en la pantalla de bloqueo.</string>
+      <string id="DisableAcrylicBackgroundOnLogon">Mostrar fondo transparente de inicio de sesión</string>
+      <string id="DisableAcrylicBackgroundOnLogon_Help">Esta configuración de directivas deshabilita el efecto de desenfoque acrílico en la imagen de fondo de inicio de sesión.
+
+        Si habilitas esta directiva, la imagen de fondo de inicio de sesión se mostrará sin desenfoque.
+        Si deshabilitas o no configuras esta directiva, la imagen de fondo de inicio de sesión adopta el efecto de desenfoque acrílico.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Run_1">
+        <listBox refId="RunListBox1">Elementos que se ejecutan al iniciar la sesión</listBox>
+      </presentation>
+      <presentation id="Run_2">
+        <listBox refId="RunListBox2">Elementos que se ejecutan al iniciar la sesión</listBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

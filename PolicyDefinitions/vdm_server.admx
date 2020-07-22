@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+	<policyNamespaces >
+		<target prefix="vdm_server" namespace="VMware.Policies.vdm_server" />
+	</policyNamespaces>
+
+	<supersededAdm fileName="vdm_server.adm" />
+
+	<resources minRequiredRevision="1.0" fallbackCulture="en-us" />
+	<supportedOn >
+
+		<definitions >
+
+			<definition name="SupportedOn" displayName="$(string.Undefined)" />
+
+		</definitions>
+
+	</supportedOn>
+
+	<categories >
+
+		<category name="VMware_View_Server_Config" displayName="$(string.View_Server_Config)" key="Software\Policies\VMware, Inc.\VMware VDM" />
+
+	</categories>
+
+	<policies > <!--Storage for Policy Definitions-->
+
+		<policy name="Windows_Pwd_Auth_Mode" class="Machine" displayName="$(string.Pwd_Auth_Mode)" explainText="$(string.Pwd_Auth_Mode_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM" presentation="$(presentation.Windows_Pwd_Auth_Mode)" >
+				<parentCategory ref="VMware_View_Server_Config" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<enum id="Windows_Pwd_Auth_Mode_DropDown_1" valueName="PasswordAuthMode" key="Software\Policies\VMware, Inc.\VMware VDM" required="true" >
+						<item displayName="$(string.Kerberos_Only)" >
+							<value >
+								<string >1</string>
+							</value>
+						</item>
+						<item displayName="$(string.Kerberos_With_NTLM_Fallback)" >
+							<value >
+								<string >2</string>
+							</value>
+						</item>
+						<item displayName="$(string.Legacy)" >
+							<value >
+								<string >0</string>
+							</value>
+						</item>
+					</enum>
+			</elements>
+
+		</policy>
+
+		<policy name="Trusted_Domain_Enumeration" class="Machine" displayName="$(string.Trusted_Domain_Enumeration)" explainText="$(string.Trusted_Domain_Enumeration_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM" valueName="RecursiveDomainEnum" >
+				<parentCategory ref="VMware_View_Server_Config" />
+				<supportedOn ref="SupportedOn" />
+				<enabledValue >
+					<string >true</string>
+				</enabledValue>
+				<disabledValue >
+					<string >false</string>
+				</disabledValue>
+
+		</policy>
+
+		<policy name="Enumerate_Forest_Trust_Child_Domains" class="Machine" displayName="$(string.Enumerate_Forest_Trust_Child_Domains)" explainText="$(string.Enumerate_Forest_Trust_Child_Domains_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM" valueName="IncludeForestTrustChildDomains" >
+				<parentCategory ref="VMware_View_Server_Config" />
+				<supportedOn ref="SupportedOn" />
+				<enabledValue >
+					<string >true</string>
+				</enabledValue>
+				<disabledValue >
+					<string >false</string>
+				</disabledValue>
+
+		</policy>
+	</policies>
+</policyDefinitions>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="ExplorerFramePanePolicies">Panel de marcos del Explorador</string>
+      <string id="PreviewPane">Activar o desactivar el panel de detalles</string>
+      <string id="PreviewPane_DropDownList_Show">Mostrar siempre</string>
+      <string id="PreviewPane_DropDownList_Hide">Ocultar siempre</string>
+      <string id="PreviewPane_help">Esta configuración de directiva oculta o muestra el Panel de detalles en el Explorador de archivos.
+
+Si habilita esta configuración de directiva y la configura para ocultar el panel, el panel de detalles del Explorador de archivos estará oculto y los usuarios no podrán activarlo.
+
+Si habilita esta configuración de directiva y la configura para mostrar el panel, el panel de detalles estará siempre visible y el usuario no podrán ocultarlo. Nota: esto genera un efecto secundario porque no se puede alternar con el Panel de vista previa dado que no se puede mostrarse los dos al mismo tiempo.
+
+Si deshabilita o no establece esta configuración de directiva, el panel de detalles se ocultará de forma predeterminada y los usuarios podrán activar su visualización. Esta es la configuración de directiva predeterminada.
+
+</string>
+      <string id="NoReadingPane">Desactivar el panel de vista previa</string>
+      <string id="NoReadingPane_help">Oculta el panel de vista previa en el Explorador de archivos.
+
+Si habilita esta configuración de directiva, el panel de vista previa del Explorador de archivos estará oculto y los usuarios no podrán activarlo.
+
+Si deshabilita o no establece esta configuración, el panel de vista previa se ocultará de forma predeterminada y los usuarios podrán mostrarlo.
+
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="PreviewPane_DropDownList">
+        <dropdownList refId="PreviewPane_Dropdownlist_Box" defaultItem="0">Configurar panel de detalles</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

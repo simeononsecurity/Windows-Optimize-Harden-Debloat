@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="BLAST_CAT_LABEL">VMware Blast</string>
+      <string id="BLAST_CAT_EXPLAIN">Policies for configuring the Blast protocol.</string>
+      <string id="BLAST_MAX_SESSION_BW_LABEL">Max Session Bandwidth</string>
+      <string id="BLAST_MAX_SESSION_BW_EXPLAIN">Specifies the maximum bandwidth, in kilobits per second, that may be used by the Blast protocol for a remote session. The bandwidth includes all imaging, audio, virtual channel, USB and Blast control traffic.</string>
+      <string id="BLAST_MIN_SESSION_BW_LABEL">Min Session Bandwidth</string>
+      <string id="BLAST_MIN_SESSION_BW_EXPLAIN">Specifies the minimum bandwidth, in kilobits per second, that is reserved for the Blast protocol when remoting a session.</string>
+      <string id="BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_LABEL">Max Session Bandwidth kbit/s Megapixel Slope</string>
+      <string id="BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_EXPLAIN">Specifies the slope of the kbps per megapixel of remote screen's resolution that may be used by the Blast protocol for a remote session. kbit/s = TotalScreenMegaPixels * Slope</string>
+      <string id="BLAST_MAX_FPS_LABEL">Max Frame Rate</string>
+      <string id="BLAST_MAX_FPS_EXPLAIN">Maximum Frame Rate value to manage the average bandwidth consumed per user by limiting the number of screen updates per second.</string>
+      <string id="BLAST_UDP_LABEL">UDP Protocol</string>
+      <string id="BLAST_UDP_EXPLAIN">When this setting is enabled or not configured, UDP protocol is used. If the setting is disabled, TCP protocol is used.</string>
+      <!--
+        NOTE FOR TRANSLATORS: the collection of BLAST_DSCP_..._EXPLAIN strings that follow
+	BLAST_DSP_ACTIVATE_LABEL all cite this "DSCP Marking" string in their second paragraph.
+	Whatever translation you apply to this string needs to be applied to those _EXPLAIN
+	strings too.
+      -->
+      <string id="BLAST_DSCP_ACTIVATE_LABEL">DSCP Marking</string>
+      <string id="BLAST_DSCP_ACTIVATE_EXPLAIN">When enabled or not configured, allows Differentiated Services Code Point values to be specified in network traffic sent by the Blast Agent, Client and Secure Gateway.  When disabled, no DSCP marking is performed.</string>
+      <string id="BLAST_DSCP_AGENT_OUT_TCP4_LABEL">DSCP from Agent, TCP/IPv4</string>
+      <string id="BLAST_DSCP_AGENT_OUT_TCP4_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Agent through TCP over IPv4.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_AGENT_OUT_UDP4_LABEL">DSCP from Agent, UDP/IPv4</string>
+      <string id="BLAST_DSCP_AGENT_OUT_UDP4_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Agent through UDP over IPv4.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_AGENT_OUT_TCP6_LABEL">DSCP from Agent, TCP/IPv6</string>
+      <string id="BLAST_DSCP_AGENT_OUT_TCP6_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Agent through TCP over IPv6.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_AGENT_OUT_UDP6_LABEL">DSCP from Agent, UDP/IPv6</string>
+      <string id="BLAST_DSCP_AGENT_OUT_UDP6_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Agent through UDP over IPv6.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_TCP4_LABEL">DSCP from Client, TCP/IPv4</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_TCP4_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Client through TCP over IPv4.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_UDP4_LABEL">DSCP from Client, UDP/IPv4</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_UDP4_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Client through UDP over IPv4.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_TCP6_LABEL">DSCP from Client, TCP/IPv6</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_TCP6_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Client through TCP over IPv6.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_UDP6_LABEL">DSCP from Client, UDP/IPv6</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_UDP6_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Client through UDP over IPv6.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_BSG_DOWN_TCP4_LABEL">DSCP from BSG to Client, TCP/IPv4</string>
+      <string id="BLAST_DSCP_BSG_DOWN_TCP4_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Secure Gateway to the Blast Client through TCP over IPv4.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_BSG_DOWN_UDP4_LABEL">DSCP from BSG to Client, UDP/IPv4</string>
+      <string id="BLAST_DSCP_BSG_DOWN_UDP4_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Secure Gateway to the Blast Client through UDP over IPv4.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_BSG_DOWN_TCP6_LABEL">DSCP from BSG to Client, TCP/IPv6</string>
+      <string id="BLAST_DSCP_BSG_DOWN_TCP6_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Secure Gateway to the Blast Client through TCP over IPv6.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_BSG_DOWN_UDP6_LABEL">DSCP from BSG to Client, UDP/IPv6</string>
+      <string id="BLAST_DSCP_BSG_DOWN_UDP6_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Secure Gateway to the Blast Client through UDP over IPv6.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_BSG_UP_TCP4_LABEL">DSCP from BSG to Agent, TCP/IPv4</string>
+      <string id="BLAST_DSCP_BSG_UP_TCP4_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Secure Gateway to the Blast Agent through TCP over IPv4.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_BSG_UP_UDP4_LABEL">DSCP from BSG to Agent, UDP/IPv4</string>
+      <string id="BLAST_DSCP_BSG_UP_UDP4_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Secure Gateway to the Blast Agent through UDP over IPv4.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_BSG_UP_TCP6_LABEL">DSCP from BSG to Agent, TCP/IPv6</string>
+      <string id="BLAST_DSCP_BSG_UP_TCP6_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Secure Gateway to the Blast Agent through TCP over IPv6.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_DSCP_BSG_UP_UDP6_LABEL">DSCP from BSG to Agent, UDP/IPv6</string>
+      <string id="BLAST_DSCP_BSG_UP_UDP6_EXPLAIN">The Differentiated Services Code Point value to be placed in network traffic sent by the Blast Secure Gateway to the Blast Agent through UDP over IPv6.
+
+This setting is effective only if the DSCP Marking setting allows it.</string>
+      <string id="BLAST_H264_ENCODE_LABEL">H.264</string>
+      <string id="BLAST_H264_ENCODE_EXPLAIN">If you enable or do not configure this policy setting, H.264 encoding will be used for remoting the desktop. If you disable this policy setting, JPEG/PNG will be used for encoding.</string>
+      <string id="BLAST_HEVC_ENCODE_LABEL">HEVC</string>
+      <string id="BLAST_HEVC_ENCODE_EXPLAIN">If you enable or do not configure this policy setting, HEVC encoding will be allowed for remoting the desktop. If you disable this policy setting, H.264 or JPEG/PNG will be used for encoding.</string>
+      <string id="BLAST_PNG_ENCODE_LABEL">PNG</string>
+      <string id="BLAST_PNG_ENCODE_EXPLAIN">If you enable or do not configure this policy setting, PNG encoding will be available for remote sessions. If you disable this policy setting, only JPEG will be used for encoding in JPEG/PNG mode. This policy does not apply when the H.264 encoder is active.</string>
+      <string id="BLAST_SCREEN_BLANK_LABEL">Screen Blanking</string>
+      <string id="BLAST_SCREEN_BLANK_EXPLAIN">If you enable or do not configure this policy setting, the desktop virtual machine's console will show a blank screen when there is an active session to the desktop. If you disable this policy setting, the virtual machine's console will show the desktop that the user sees.</string>
+      <string id="BLAST_COOKIE_CLEANUP_LABEL">Cookie Cleanup Interval</string>
+      <string id="BLAST_COOKIE_CLEANUP_EXPLAIN">The interval controls how often inactive sessions will be cleaned up. This is done by deleting the cookie associated with the session.</string>
+      <string id="BLAST_COOKIE_CLEANUP_INTERVAL_LABEL">Interval (ms)</string>
+      <string id="BLAST_DISPLAY_QUALITY_LABEL">Image Quality</string>
+      <string id="BLAST_DISPLAY_QUALITY_EXPLAIN">These settings control the image quality of the remoted display.
+There are two quality profiles, low and high.  The low profile is used when areas of the screen are changing often, for example when scrolling.  The high quality profile is used to refine regions of the screen that change less, resulting in a better final image.
+The higher the quality the more bandwidth used and potentially higher latency when regions of the screen are changing often, when scrolling on the screen for example.</string>
+      <string id="BLAST_DISPLAY_QUALITY_JPEG_QUAL_LOW">Low JPEG Quality</string>
+      <string id="BLAST_DISPLAY_QUALITY_JPEG_QUAL_MID">Mid JPEG Quality</string>
+      <string id="BLAST_DISPLAY_QUALITY_JPEG_QUAL_HIGH">High JPEG Quality</string>
+      <string id="BLAST_H264_QUALITY_LABEL">H.264 Quality</string>
+      <string id="BLAST_H264_QUALITY_EXPLAIN">These settings control the image quality of the remoted display when using H.264 compression. The Quantization Parameter (QP) controls how much the resulting image is quantized, i.e. lossily compressed:
+- the minimum QP sets the lower bound for quantization, i.e. the best quality.
+- the maximum QP sets the upper bound for quantization, i.e. the lowest quality.
+We advise keeping these values within +/- 5 of the defaults, as more significant changes can have drastic effects.</string>
+      <string id="BLAST_H264_QUALITY_MAX_QP">H.264 Maximum QP</string>
+      <string id="BLAST_H264_QUALITY_MIN_QP">H.264 Minimum QP</string>
+      <string id="BLAST_H264_COLOR_ACCURACY_LABEL">H.264 High Color Accuracy</string>
+      <string id="BLAST_H264_COLOR_ACCURACY_EXPLAIN">If you enable this policy setting, increased color accuracy will be requested when using H.264 encoding, by using the YUV 4:4:4 colorspace instead of 4:2:0.
+This may result in degraded performance at very high resolutions or with multiple monitors.</string>
+
+      <string id="BLAST_HEVC_COLOR_ACCURACY_LABEL">HEVC High Color Accuracy</string>
+      <string id="BLAST_HEVC_COLOR_ACCURACY_EXPLAIN">If you enable this policy setting, increased color accuracy will be requested when using HEVC encoding, by using the YUV 4:4:4 colorspace instead of 4:2:0.
+Client-side hardware acceleration of HEVC 4:4:4 is required for this policy to take effect.</string>
+      <string id="BLAST_HTTP_LABEL">HTTP Service</string>
+      <string id="BLAST_HTTP_EXPLAIN">These settings control the Blast HTTP service. The port number being used should match the firewall setup</string>
+      <string id="BLAST_HTTP_PORTS_SECURE_LABEL">Secured (HTTPS) port</string>
+      <string id="BLAST_AUDIO_LABEL">Audio playback</string>
+      <string id="BLAST_AUDIO_EXPLAIN">This setting controls whether audio playback should be allowed for the remote desktop. Audio playback is enabled by default.</string>
+      <string id="SERVER_CLIPBOARD_STATE">Configure clipboard redirection</string>
+      <string id="SERVER_CLIPBOARD_AUDIT">Configure clipboard audit</string>
+      <string id="SERVER_CLIPBOARD_AUDIT_BLOCK_CLIPBOARD">Whether block clipboard redirection to client side when client doesn't support audit</string>
+      <string id="SERVER_CLIPBOARD_AUDIT_EXPLAIN">Determines the direction in which clipboard audit is allowed. You can select one of these values:
+
+-Disabled in both directions
+-Enabled client to server only (That is, information of clipboard data copied from client side to agent side will be recorded.)
+-Enabled server to client only (That is, information of clipboard data copied from agent side to client side will be recorded.)
+-Enabled in both directions
+
+This setting applies to the server (View desktop) only.
+
+When this setting is disabled or not configured, the default value is 'Disabled in both directions'.</string>
+      <string id="SERVER_CLIPBOARD_AUDIT_BLOCK_CLIPBOARD_EXPLAIN">Determines whether block clipboard redirection to client if the Horizon client doesn't support audit feature.
+
+You can select the behavior of the clipboard redirection:
+
+-Let agent to client clipboard redirection pass through if audit is enabled in the Horizon agent but not in the Horizon client
+-Block agent to client clipboard redirection if audit is enabled in the Horizon agent but not in the Horizon client
+
+This setting can only take effect after enable audit.</string>
+      <string id="String_Policy_DropList_Select_Configure_clipboard_Audit_Pass_Through">Pass Through</string>
+      <string id="String_Policy_DropList_Select_Configure_clipboard_Audit_Block">Block</string>
+      <string id="CLIPBOARD_STATE_DISABLE_BOTH">Disabled in both directions</string>
+      <string id="CLIPBOARD_STATE_ENABLE_BOTH">Enabled in both directions</string>
+      <string id="CLIPBOARD_STATE_ENABLE_CLIENT_2_SERVER">Enabled client to server only</string>
+      <string id="CLIPBOARD_STATE_ENABLE_SERVER_2_CLIENT">Enabled server to client only</string>
+      <string id="String_Policy_DropList_Select_clipboard_size_unit_kilobytes" >kilobytes</string>
+      <string id="String_Policy_DropList_Select_clipboard_size_unit_bytes" >bytes</string>
+      <string id="SERVER_CLIPBOARD_STATE_EXPLAIN">Determines the direction in which clipboard redirection is allowed. You can select one of these values:
+
+-Disabled in both directions
+-Enabled in both directions
+-Enabled client to server only (That is, allow copy and paste only from the client system to the View desktop.)
+-Enabled server to client only (That is, allow copy and paste only from the View desktop to the client system.)
+
+This setting applies to the server (View desktop) only.
+
+When this setting is disabled or not configured, the default value is 'Enabled client to server only'.</string>
+      <string id="SERVER_CLIPBOARD_SIZE">Clipboard memory size on server</string>
+      <string id="SERVER_CLIPBOARD_SIZE_EXPLAIN">These settings indicate the server's clipboard memory size value.
+
+The clipboard memory size on server is in bytes or kilobytes as selected. The memory size is in kilobytes if it is not configured.
+
+The client also has a value for clipboard memory size, but it would always be in kilobytes.
+
+After the session is setup:
+-The clipboard memory size value from the server is sent to the client.
+-Then at the client, the effective clipboard memory size value is determined by finding the minimum of the client and server values.</string>
+      <string id="CLIPBOARD_FINE_GRAIN_LABEL">Clipboard fine grain configuration</string>
+      <string id="CLIPBOARD_FINE_GRAIN_EXPLAIN">Determines whether the fine grain clipboard setting is enabled. When this settings is enabled, the clipboard memory size on server is in bytes. When this settings is disabled, the clipboard memory size on server is in kilobytes.
+
+This setting applies to the agent only.</string>
+      <string id="KEYBOARD_LOCALE_SYNC_LABEL">Keyboard locale synchronization</string>
+      <string id="KEYBOARD_LOCALE_SYNC_EXPLAIN">Determines whether the keyboard locale list and the default keyboard locale for the user in the session is synchronized with the data of the client endpoint. When this setting is enabled, synchronization is allowed. When this setting is disabled or not configured, synchronization is disallowed.
+
+This setting applies to the agent only.</string>
+      <string id="SERVER_FILE_TRANSFER_STATE">Configure file transfer</string>
+      <string id="FILE_TRANSFER_STATE_DISABLE_BOTH">Disabled both upload and download</string>
+      <string id="FILE_TRANSFER_STATE_ENABLE_BOTH">Enabled both upload and download</string>
+      <string id="FILE_TRANSFER_STATE_ENABLE_UPLOAD">Enabled file upload only</string>
+      <string id="FILE_TRANSFER_STATE_ENABLE_DOWNLOAD">Enabled file download only</string>
+      <string id="SERVER_FILE_TRANSFER_STATE_EXPLAIN">Determines the file transfer between agent and HTML Access. You can select one of these values:
+
+-Disabled both upload and download
+-Enabled both upload and download
+-Enabled file upload only (That is, allow upload files from the client system to the View desktop.)
+-Enabled file download only (That is, allow download files from the View desktop to the client system.)
+
+This setting applies to the server (View desktop) only.
+
+When this setting is disabled or not configured, the default value is 'Enabled client to server only'.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_TEXT_IN">Filter text out of the incoming clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_TEXT_IN_EXPLAIN">Determines whether the textual data is filtered out of the clipboard data coming from the client to the agent. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_RTF_IN">Filter Rich Text Format data out of the incoming clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_RTF_IN_EXPLAIN">Determines whether the Rich Text Format data is filtered out of the clipboard data coming from the client to the agent. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_IMAGE_IN">Filter images out of the incoming clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_IMAGE_IN_EXPLAIN">Determines whether the image data is filtered out of the clipboard data coming from the client to the agent. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_IN">Filter Microsoft Office text data out of the incoming clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_IN_EXPLAIN">Determines whether the Microsoft Office text format data (BIFF12 format) is filtered out of the clipboard data coming from the client to the agent. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_IN">Filter Microsoft Chart and Smart Art data out of the incoming clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_IN_EXPLAIN">Determines whether the Microsoft Office Chart and Smart Art data (Art::GVML ClipFormat) is filtered out of the clipboard data coming from the client to the agent. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_IN">Filter Microsoft Text Effects data out of the incoming clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_IN_EXPLAIN">Determines whether the Microsoft Office text effects data (HTML Format) is filtered out of the clipboard data coming from the client to the agent. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_TEXT_OUT">Filter text out of the outgoing clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_TEXT_OUT_EXPLAIN">Determines whether the textual data is filtered out of the clipboard data sent from the agent to the client. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_RTF_OUT">Filter Rich Text Format data out of the outgoing clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_RTF_OUT_EXPLAIN">Determines whether the Rich Text Format data is filtered out of the clipboard data sent from the agent to the client. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_IMAGE_OUT">Filter images out of the outgoing clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_IMAGE_OUT_EXPLAIN">Determines whether the image data is filtered out of the clipboard data sent from the agent to the client. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_OUT">Filter Microsoft Office text data out of the outgoing clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_OUT_EXPLAIN">Determines whether the Microsoft Office text format data (BIFF12 format) is filtered out of the clipboard data sent from the agent to the client. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_OUT">Filter Microsoft Chart and Smart Art data out of the outgoing clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_OUT_EXPLAIN">Determines whether the Microsoft Office Chart and Smart Art data (Art::GVML ClipFormat) is filtered out of the clipboard data sent from the agent to the client. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_OUT">Filter Microsoft Text Effects data out of the outgoing clipboard data</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_OUT_EXPLAIN">Determines whether the Microsoft Office text effects data (HTML Format) is filtered out of the clipboard data sent from the agent to the client. When this checkbox is checked then the data would be filtered out, otherwise it would be allowed.</string>
+      <string id="BLAST_SUPPORTEDON_EMPTY"></string>
+      <string id="CLIPBOARD_AUDIT_DISABLE_BOTH">Disabled in both directions</string>
+      <string id="CLIPBOARD_AUDIT_ENABLE_ONLY_CLIENT_TO_SERVER">Enabled client to server only</string>
+      <string id="CLIPBOARD_AUDIT_ENABLE_ONLY_SERVER_TO_CLIENT">Enabled server to client only</string>
+      <string id="CLIPBOARD_AUDIT_ENABLE_BOTH">Enabled in both directions</string>
+      <string id="SERVER_DND_STATE">Configure drag and drop direction</string>
+      <string id="DND_STATE_DISABLE_BOTH">Disabled in both directions</string>
+      <string id="DND_STATE_ENABLE_CLIENT_2_SERVER">Enabled client to agent only</string>
+      <string id="DND_STATE_ENABLE_SERVER_2_CLIENT">Enabled agent to client only</string>
+      <string id="DND_STATE_ENABLE_BOTH">Enabled in both directions</string>
+      <string id="SERVER_DND_STATE_EXPLAIN">Determines the direction in which drag and drop is allowed. You can select one of these values:
+
+-Disabled in both directions
+-Enabled agent to client only (That is, allow drag and drop only from the agent to the client system.)
+-Enabled client to agent only (That is, allow drag and drop only from the client system to the agent.)
+-Enabled in both directions
+
+This setting applies to the agent only.
+
+When this setting is disabled or not configured, the default value is 'Enabled client to agent only'.</string>
+      <string id="SERVER_DND_FORMAT_STATE">Configure drag and drop formats</string>
+      <string id="SERVER_DND_FORMAT_STATE_EXPLAIN">This setting determines what option of "Drag and Drop" is allowed for each format(File/Text/Rich Text/Image/HTML format/File Content). The values for the options are:
+
+-Disabled in both directions
+-Enabled agent to client only
+-Enabled client to agent only
+-Enabled in both directions
+
+This setting applies to the agent only, it is not configured by default.
+
+When the setting is not configured or disabled, the option for "drag and drop" is 'Enabled in both directions' for all formats.</string>
+      <string id="String_Policy_DropList_Select_DnD_size_unit_bytes" >Bytes</string>
+      <string id="String_Policy_DropList_Select_DnD_size_unit_kilobytes" >Kilobytes</string>
+      <string id="String_Policy_DropList_Select_DnD_size_unit_megabytes" >Megabytes</string>
+      <string id="SERVER_DND_SIZE">Configure drag and drop size threshold</string>
+      <string id="SERVER_DND_SIZE_EXPLAIN">Drag and drop supports dragging various types of data including plain text, rich text, image, files, folders etc. This setting determines the size limit for dragging common data types other than files and folders.
+
+The unit of the drag data size can be configured in Bytes, Kilobytes and Megabytes.
+
+The desired size value is configured in "Drag and drop size threshold". The effective data ranges for different size unit are:
+  - Bytes: 1 ~ 1023
+  - Kilobytes: 1 ~ 1023
+  - Megabytes: 1 ~ 16 (The maximum data size to drag and drop is 16 Megabytes)
+
+This setting applies to the agent only.
+
+When the setting is not configured or disabled, a default threshold 1 megabytes is set.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="BLAST_MAX_SESSION_BW_LABEL">
+        <decimalTextBox refId="BLAST_MAX_SESSION_BW_LABEL" defaultValue="2147483647">Max Session Bandwidth</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_MIN_SESSION_BW_LABEL">
+        <decimalTextBox refId="BLAST_MIN_SESSION_BW_LABEL" defaultValue="256">Min Session Bandwidth</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_LABEL">
+        <decimalTextBox refId="BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_LABEL" defaultValue="6200">Max Session Bandwidth kbit/s Megapixel Slope</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_MAX_FPS_LABEL">
+        <decimalTextBox refId="BLAST_MAX_FPS_LABEL" defaultValue="30">Max Frame Rate</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_UDP_LABEL" />
+      <presentation id="BLAST_DSCP_ACTIVATE_LABEL" />
+      <presentation id="BLAST_DSCP_AGENT_OUT_TCP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_AGENT_OUT_TCP4_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_AGENT_OUT_UDP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_AGENT_OUT_UDP4_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_AGENT_OUT_TCP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_AGENT_OUT_TCP6_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_AGENT_OUT_UDP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_AGENT_OUT_UDP6_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_CLIENT_OUT_TCP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_CLIENT_OUT_TCP4_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_CLIENT_OUT_UDP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_CLIENT_OUT_UDP4_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_CLIENT_OUT_TCP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_CLIENT_OUT_TCP6_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_CLIENT_OUT_UDP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_CLIENT_OUT_UDP6_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_DOWN_TCP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_DOWN_TCP4_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_DOWN_UDP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_DOWN_UDP4_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_DOWN_TCP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_DOWN_TCP6_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_DOWN_UDP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_DOWN_UDP6_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_UP_TCP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_UP_TCP4_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_UP_UDP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_UP_UDP4_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_UP_TCP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_UP_TCP6_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_UP_UDP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_UP_UDP6_LABEL" defaultValue="">DSCP Value</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_H264_ENCODE_LABEL" />
+      <presentation id="BLAST_HEVC_ENCODE_LABEL" />
+      <presentation id="BLAST_PNG_ENCODE_LABEL" />
+      <presentation id="BLAST_SCREEN_BLANK_LABEL" />
+      <presentation id="BLAST_COOKIE_CLEANUP_LABEL">
+        <decimalTextBox refId="BLAST_COOKIE_CLEANUP_INTERVAL_LABEL" defaultValue="1000">Interval (ms)</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DISPLAY_QUALITY_LABEL">
+        <decimalTextBox refId="BLAST_DISPLAY_QUALITY_JPEG_QUAL_LOW" defaultValue="25">Low JPEG Quality</decimalTextBox>
+        <decimalTextBox refId="BLAST_DISPLAY_QUALITY_JPEG_QUAL_MID" defaultValue="35">Mid JPEG Quality</decimalTextBox>
+        <decimalTextBox refId="BLAST_DISPLAY_QUALITY_JPEG_QUAL_HIGH" defaultValue="90">High JPEG Quality</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_H264_QUALITY_LABEL">
+        <decimalTextBox refId="BLAST_H264_QUALITY_MAX_QP" defaultValue="36">H.264 Maximum QP</decimalTextBox>
+        <decimalTextBox refId="BLAST_H264_QUALITY_MIN_QP" defaultValue="10">H.264 Minimum QP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_H264_COLOR_ACCURACY_LABEL" />
+      <presentation id="BLAST_HEVC_COLOR_ACCURACY_LABEL" />
+      <presentation id="BLAST_HTTP_LABEL">
+        <decimalTextBox refId="BLAST_HTTP_PORTS_SECURE_LABEL" defaultValue="22443">Secured (HTTPS) port</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_AUDIO_LABEL" />
+      <presentation id="SERVER_CLIPBOARD_STATE">
+        <dropdownList refId="SERVER_CLIPBOARD_STATE" defaultItem="2">Configure clipboard redirection</dropdownList>
+      </presentation>
+      <presentation id="SERVER_CLIPBOARD_SIZE">
+        <dropdownList refId="Policy_DropList_Clipboard_Fine_Grained" defaultItem="1" >Choose the unit of the clipboard memory size</dropdownList>
+        <decimalTextBox refId="SERVER_CLIPBOARD_SIZE" defaultValue="1024" spinStep="100">Clipboard memory size on server</decimalTextBox>
+      </presentation>
+      <presentation id="SERVER_CLIPBOARD_AUDIT">
+        <dropdownList refId="SERVER_CLIPBOARD_AUDIT" defaultItem="0">Configure clipboard audit</dropdownList>
+      </presentation>
+      <presentation id="SERVER_CLIPBOARD_AUDIT_BLOCK_CLIPBOARD">
+        <dropdownList refId="Policy_DropList_Element_Configure_clipboard" defaultItem="0">Configure clipboard behavior if client doesn't support audit</dropdownList>
+      </presentation>
+      <presentation id="CLIPBOARD_FINE_GRAIN_LABEL" />
+      <presentation id="KEYBOARD_LOCALE_SYNC_LABEL" />
+      <presentation id="SERVER_FILE_TRANSFER_STATE">
+        <dropdownList refId="SERVER_FILE_TRANSFER_STATE" defaultItem="1">Configure file transfer</dropdownList>
+      </presentation>
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_TEXT_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_RTF_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_IMAGE_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_TEXT_OUT" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_RTF_OUT" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_IMAGE_OUT" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_OUT" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_OUT" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_OUT" />
+      <presentation id="SERVER_DND_STATE">
+        <dropdownList refId="SERVER_DND_STATE" defaultItem="1">Configure drag and drop</dropdownList>
+      </presentation>
+      <presentation id="SERVER_DND_FORMAT_STATE">
+        <dropdownList refId="SERVER_DND_FILE_STATE" defaultItem="3">Option for File format:</dropdownList>
+        <dropdownList refId="SERVER_DND_TEXT_STATE" defaultItem="3">Option for Text format:</dropdownList>
+        <dropdownList refId="SERVER_DND_RTF_STATE" defaultItem="3">Option for Rich Text format:</dropdownList>
+        <dropdownList refId="SERVER_DND_IMAGE_STATE" defaultItem="3">Option for Image format:</dropdownList>
+        <dropdownList refId="SERVER_DND_HTML_STATE" defaultItem="3">Option for HTML format:</dropdownList>
+        <dropdownList refId="SERVER_DND_FILE_CONTENT_STATE" defaultItem="3">Option for File Content format:</dropdownList>
+      </presentation>
+      <presentation id="SERVER_DND_SIZE">
+        <dropdownList refId="Policy_DropList_DnD_Size_Unit" defaultItem="2" >Choose the unit of the drag and drop size</dropdownList>
+        <decimalTextBox refId="SERVER_DND_SIZE" defaultValue="1">Drag and drop size threshold</decimalTextBox>
+      </presentation>
+      <presentation id="SERVER_HTMLACCESS_PRINT_STATE" />
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

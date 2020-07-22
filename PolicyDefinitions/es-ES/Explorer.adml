@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="AlwaysShowClassicMenu">Mostrar la barra de menús en el Explorador de archivos  </string>
+      <string id="AlwaysShowClassicMenu_Help">Esta configuración de directiva configura el Explorador de archivos para que muestre siempre la barra de menús.
+
+Nota: de forma predeterminada, la barra de menús no se muestra en el Explorador de archivos.
+
+Si habilita esta configuración de directiva, la barra de menús se mostrará en el Explorador de archivos.
+
+Si deshabilita o no establece esta configuración de directiva, la barra de menús no se mostrará en el Explorador de archivos.
+
+Nota: cuando la barra de menús no se muestre, los usuarios podrán acceder a la barra si presionan la tecla "ALT".</string>
+      <string id="PreventItemCreationInUsersFilesFolder">Impedir a los usuarios agregar archivos a la raíz de su carpeta de archivos de usuario.</string>
+      <string id="PreventItemCreationInUsersFilesFolder_Help">Esta configuración de directiva permite a los administradores impedir que los usuarios agreguen elementos nuevos, como archivos o carpetas, a la raíz de sus carpetas de archivos de usuario en el Explorador de archivos.
+
+Si habilita esta configuración de directiva, los usuarios no podrán agregar elementos nuevos, como archivos o carpetas, a la raíz de sus carpetas de archivos de usuario en el Explorador de archivos.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios podrán agregar elementos nuevos, como archivos o carpetas, a la raíz de su carpeta de archivos de usuario en el Explorador de archivos.
+
+
+Nota: habilitar esta configuración de directiva no impide que los usuarios puedan agregar nuevos elementos, como archivos y carpetas, a sus carpetas reales de perfil de sistema de archivos en %userprofile%.</string>
+      <string id="TurnOffSPIAnimations">Desactivar animaciones de ventana y control comunes</string>
+      <string id="TurnOffSPIAnimations_Help">Esta directiva es similar a la configuración que está disponible directamente para los usuarios del equipo.  Deshabilitar las animaciones puede mejorar la facilidad de uso para los usuarios con discapacidades visuales, además de mejorar el rendimiento y la duración de la batería en determinadas circunstancias.</string>
+      <string id="NoDataExecutionPrevention">Desactivar la prevención de ejecución de datos para el Explorador</string>
+      <string id="NoDataExecutionPrevention_Help">Al deshabilitar la prevención de ejecución de datos se permite que determinadas aplicaciones de complemento heredadas funcionen sin finalizar el Explorador.</string>
+      <string id="NoHeapTerminationOnCorruption">Desactivar terminación del montón al resultar dañado</string>
+      <string id="NoHeapTerminationOnCorruption_Help">Si deshabilita la terminación del montón al resultar dañado, es posible que algunas aplicaciones de complemento heredadas funcionen sin terminar el Explorador inmediatamente, si bien éste aún podría terminar de forma inesperada más adelante.</string>
+      <string id="AdminInfoUrl">Establecer un vínculo de página web de soporte</string>
+      <string id="AdminInfoUrl_Help">Establece el destino el vínculo Más información que se mostrará cuando el usuario intente ejecutar un programa bloqueado por esta directiva.</string>
+      <string id="AdminInfoUrl_TextBox">Dirección URL de información</string>
+      <string id="DisableRoamedProfileInit">No reinicializar un perfil de usuario movido preexistente cuando se cargue en un equipo por primera vez</string>
+      <string id="DisableRoamedProfileInit_Help">Esta configuración de directiva permite a los administradores que hayan configurado un perfil móvil junto con la configuración de directiva Eliminar grupo de perfiles móviles en caché para asegurarse de que el explorador no reinicializará las asociaciones de los valores predeterminados de los programas predeterminados y otras configuraciones. 
+
+Si habilitas esta configuración de directiva en un equipo que no contenga todos los programas instalados del mismo modo que en el equipo en el que el usuario haya iniciado sesión por última vez, puede producirse un comportamiento inesperado. </string>
+    </stringTable>
+    <presentationTable>
+	<presentation id="AdminInfoUrl">
+            <textBox refId="AdminInfoUrl_TextBox">
+              <label>Dirección URL de la página web de soporte</label>
+	      <defaultValue>http://msdn.microsoft.com</defaultValue>
+            </textBox>	    
+	</presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

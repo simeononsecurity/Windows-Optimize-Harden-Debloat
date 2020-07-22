@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>πληκτρολογήστε εδώ το εμφανιζόμενο όνομα</displayName>
+  <description>πληκτρολογήστε εδώ την περιγραφή</description>
+  <resources>
+    <stringTable>
+      <string id="AllowOCR">Να επιτρέπεται η δημιουργία ευρετηρίου εγγράφων TIFF με την εκτέλεση OCR</string>
+      <string id="ExplainAllowOCR">Αυτή η ρύθμιση πολιτικής ενεργοποιεί ή απενεργοποιεί την επεξεργασία OCR (οπτική αναγνώριση χαρακτήρων ) για αρχεία TIFF. Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, θα δημιουργείται ευρετήριο του περιεχομένου κειμένου των αρχείων TIFF με την εκτέλεση OCR. Εάν απενεργοποιήσετε αυτήν την πολιτική ή δεν ρυθμίσετε τις παραμέτρους της, θα δημιουργείται ευρετήριο μόνο για τις ιδιότητες των αρχείων TIFF.
+
+        Αυτή η ρύθμιση πολιτικής επηρεάζει επίσης τη ρύθμιση του Πίνακα Ελέγχου "Πώς πρέπει να δημιουργηθεί το ευρετήριο αυτού του αρχείου;" που βρίσκεται στον Πίνακα Ελέγχου\Επιλογές ευρετηρίου\Επιλογές για προχωρημένους\Τύποι αρχείων. Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, η ρύθμιση του Πίνακα Ελέγχου ορίζεται ως "Δημιουργία ευρετηρίου για τις ιδιότητες και τα περιεχόμενα αρχείου". Εάν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή δεν ρυθμίσετε τις παραμέτρους της, η ρύθμιση του Πίνακα Ελέγχου ορίζεται ως "Δημιουργία ευρετηρίου για τις ιδιότητες μόνο".
+      
+      </string>
+      <string id="SelectOCRLangs">Επιλογή γλώσσας OCR</string>
+      <string id="ExplainSelectOCRLangs">Αυτή η ρύθμιση πολιτικής επιτρέπει την επιλογή της γλώσσας OCR (οπτική αναγνώριση χαρακτήρων). Αν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, η επιλεγμένη γλώσσα OCR χρησιμοποιείται στην επεξεργασία OCR κατά τη διάρκεια της δημιουργίας ευρετηρίου για τα αρχεία TIFF. Αν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή δεν ρυθμίσετε τις παραμέτρους της, χρησιμοποιείται η προεπιλεγμένη γλώσσα συστήματος.
+
+Η δημιουργία ευρετηρίου δεν επαναλαμβάνεται όταν ενεργοποιείτε αυτήν την πολιτική και επιλέγετε τη γλώσσα OCR. Αυτή η ρύθμιση πολιτικής ισχύει μόνο για τη δημιουργία ευρετηρίου νέων αρχείων, εκτός και αν η επανάληψη δημιουργίας ευρετηρίου εκκινηθεί με μη αυτόματο τρόπο.
+      </string>
+      <string id="SelectOCRLangsCodePage">Επιλογή γλώσσας OCR από κωδικοσελίδα</string>
+      <string id="ExplainSelectOCRLangsCodePage">Αυτή η ρύθμιση πολιτικής επιτρέπει την επιλογή γλωσσών OCR (οπτικής αναγνώρισης χαρακτήρων) που ανήκουν σε μία από τις υποστηριζόμενες κωδικοσελίδες. Αν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, οι επιλεγμένες γλώσσες OCR χρησιμοποιούνται στην επεξεργασία OCR κατά τη δημιουργία ευρετηρίου αρχείων TIFF. Η προεπιλεγμένη γλώσσα συστήματος παραβλέπεται, εκτός αν είναι ανάμεσα στις επιλεγμένες γλώσσες OCR. Αν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή δεν ρυθμίσετε τις παραμέτρους της, χρησιμοποιείται μόνο η προεπιλεγμένη γλώσσα συστήματος.
+
+Όλες οι επιλεγμένες γλώσσες OCR πρέπει να ανήκουν στην ίδια κωδικοσελίδα. Αν επιλέξετε γλώσσες από περισσότερες από μία κωδικοσελίδες, ολόκληρη η επιλογή γλωσσών OCR παραβλέπεται και χρησιμοποιείται μόνο η προεπιλεγμένη γλώσσα συστήματος.
+
+Η επανάληψη δημιουργίας ευρετηρίου δεν εκκινείται, όταν ενεργοποιείτε αυτήν την πολιτική και επιλέγετε γλώσσες OCR. Αυτή η ρύθμιση πολιτικής ισχύει μόνο για τη δημιουργία ευρετηρίου νέων αρχείων, εκτός αν η δημιουργία ευρετηρίου εκκινηθεί με μη αυτόματο τρόπο.
+      </string>
+      <string id="OCR">OCR</string>
+      <string id="OCREveryPage">Υποχρεωτική εκτέλεση OCR από το TIFF IFilter για κάθε σελίδα εγγράφων TIFF</string>
+      <string id="ExplainOCREveryPage">
+        
+        Αυτή η ρύθμιση πολιτικής ομάδας επιτρέπει στους χρήστες να απενεργοποιούν τη βελτιστοποίηση επιδόσεων έτσι ώστε το TIFF IFilter να εκτελεί OCR σε κάθε σελίδα ενός εγγράφου TIFF, επιτρέποντας τη δημιουργία ευρετηρίου για όλο το κείμενο που αναγνωρίζετε. Από προεπιλογή, το TIFF IFilter βελτιστοποιεί τις επιδόσεις του παραλείποντας το OCR (οπτική αναγνώριση χαρακτήρων) για σελίδες εγγράφων που δεν έχουν περιεχόμενο κειμένου (για παράδειγμα, εικόνες). Σε ορισμένες περιπτώσεις, οι σελίδες που περιέχουν κείμενο ενδέχεται να ταξινομηθούν κατά λάθος ως σελίδες που δεν περιέχουν κείμενο. Εάν συμβεί αυτό, δεν θα δημιουργηθεί ευρετήριο για το κείμενο σε αυτές τις σελίδες.
+
+        Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, το TIFF IFilter θα εκτελέσει OCR για κάθε σελίδα σε έγγραφα TIFF για να δημιουργήσει ευρετήριο για το κείμενο που θα αναγνωριστεί. Επομένως, η διαδικασία OCR θα είναι πιο αργή. Αυτή η μείωση σε επιδόσεις μπορεί να είναι σημαντική αν υπάρχουν πολλές σελίδες που δεν περιέχουν κείμενο (εικόνες) σε έγγραφα TIFF στο σύστημα.
+
+        Εάν απενεργοποιήσετε αυτήν τη ρύθμιση ή δεν ρυθμίσετε τις παραμέτρους της, το TIFF IFilter θα βελτιστοποιήσει τις επιδόσεις του, παραλείποντας περιεχόμενο που δεν είναι κείμενο κατά τη διάρκεια της διαδικασίας OCR.
+      
+      </string>
+      <string id="LangArabic">Αραβικά</string>
+      <string id="LangBulgarian">Βουλγαρικά</string>
+      <string id="LangBosnianLatin">Βοσνιακά (Λατινικά)</string>
+      <string id="LangChineseSimplified">Κινέζικα (Απλοποιημένα)</string>
+      <string id="LangChineseTraditional">Κινέζικα (Παραδοσιακά)</string>
+      <string id="LangCroatian">Κροατικά</string>
+      <string id="LangCzech">Τσεχικά</string>
+      <string id="LangDanish">Δανικά</string>
+      <string id="LangDutch">Ολλανδικά</string>
+      <string id="LangEnglish">Αγγλικά</string>
+      <string id="LangFinnish">Φινλανδικά</string>
+      <string id="LangFrench">Γαλλικά</string>
+      <string id="LangGerman">Γερμανικά</string>
+      <string id="LangGreek">Ελληνικά</string>
+      <string id="LangHungarian">Ουγγρικά</string>
+      <string id="LangItalian">Ιταλικά</string>
+      <string id="LangJapanese">Ιαπωνικά</string>
+      <string id="LangKorean">Κορεατικά</string>
+      <string id="LangNorwegian">Νορβηγικά</string>
+      <string id="LangPolish">Πολωνικά</string>
+      <string id="LangPortuguese">Πορτογαλικά</string>
+      <string id="LangRomanian">Ρουμανικά</string>
+      <string id="LangRussian">Ρωσικά</string>
+      <string id="LangSerbianCyrillic">Σερβικά (Κυριλλικά)</string>
+      <string id="LangSerbianLatin">Σερβικά (Λατινικά)</string>
+      <string id="LangSlovak">Σλοβακικά</string>
+      <string id="LangSlovenian">Σλοβενικά</string>
+      <string id="LangSpanish">Ισπανικά</string>
+      <string id="LangSwedish">Σουηδικά</string>
+      <string id="LangTurkish">Τουρκικά</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SelectOCRLangs">
+        <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Επιλέξτε μία από τις παρακάτω γλώσσες OCR:</dropdownList>
+      </presentation>
+      <presentation id="SelectOCRLangsCodePage">
+        <text>Κωδικοσελίδα Βαλτικών χωρών (1257)</text>
+          <checkBox refId="Estonian" defaultChecked="false">Εσθονικά</checkBox>
+          <checkBox refId="Latvian" defaultChecked="false">Λετονικά</checkBox>
+          <checkBox refId="Lithuanian" defaultChecked="false">Λιθουανικά</checkBox>
+        <text/>
+        <text>Κωδικοσελίδα Κεντρικής Ευρώπης (1250, Λατινικά 2)</text>
+          <checkBox refId="Albanian" defaultChecked="false">Αλβανικά</checkBox>
+          <checkBox refId="Croatian" defaultChecked="false">Κροατικά</checkBox>
+          <checkBox refId="Czech" defaultChecked="false">Τσεχικά</checkBox>
+          <checkBox refId="Hungarian" defaultChecked="false">Ουγγρικά</checkBox>
+          <checkBox refId="Polish" defaultChecked="false">Πολωνικά</checkBox>
+          <checkBox refId="Romanian" defaultChecked="false">Ρουμανικά</checkBox>
+          <checkBox refId="SerbianLatin" defaultChecked="false">Σερβικά Λατινικά</checkBox>
+          <checkBox refId="Slovak" defaultChecked="false">Σλοβακικά</checkBox>
+          <checkBox refId="Slovenian" defaultChecked="false">Σλοβενικά</checkBox>
+        <text/>
+        <text>Κωδικοσελίδα Κυριλλικών (1251)</text>
+          <checkBox refId="Bulgarian" defaultChecked="false">Βουλγαρικά</checkBox>
+          <checkBox refId="Byelorussian" defaultChecked="false">Λευκορωσικά</checkBox>
+          <checkBox refId="MacedoniaFYRO" defaultChecked="false">Μακεδονικά (Βόρεια Μακεδονία)</checkBox>
+          <checkBox refId="Russian" defaultChecked="false">Ρωσικά</checkBox>
+          <checkBox refId="Serbian" defaultChecked="false">Σερβικά</checkBox>
+          <checkBox refId="Ukrainian" defaultChecked="false">Ουκρανικά</checkBox>
+        <text/>
+        <text>Κωδικοσελίδα Δυτικής Ευρώπης (1252, Λατινικά 1)</text>
+          <checkBox refId="Catalan" defaultChecked="false">Καταλανικά</checkBox>
+          <checkBox refId="Danish" defaultChecked="false">Δανικά</checkBox> 
+          <checkBox refId="Dutch" defaultChecked="false">Ολλανδικά</checkBox> 
+          <checkBox refId="English" defaultChecked="false">Αγγλικά</checkBox> 
+          <checkBox refId="Faroese" defaultChecked="false">Νησιών Φερόε</checkBox> 
+          <checkBox refId="Finnish" defaultChecked="false">Φινλανδικά</checkBox> 
+          <checkBox refId="French" defaultChecked="false">Γαλλικά</checkBox> 
+          <checkBox refId="German" defaultChecked="false">Γερμανικά</checkBox> 
+          <checkBox refId="Icelandic" defaultChecked="false">Ισλανδικά</checkBox> 
+          <checkBox refId="Indonesian" defaultChecked="false">Ινδονησιακά</checkBox> 
+          <checkBox refId="Italian" defaultChecked="false">Ιταλικά</checkBox> 
+          <checkBox refId="Malaysian" defaultChecked="false">Μαλαϊκά</checkBox> 
+          <checkBox refId="Norwegian" defaultChecked="false">Νορβηγικά</checkBox>
+          <checkBox refId="Portuguese" defaultChecked="false">Πορτογαλικά</checkBox>
+          <checkBox refId="Spanish" defaultChecked="false">Ισπανικά</checkBox> 
+          <checkBox refId="Swedish" defaultChecked="false">Σουηδικά</checkBox>
+        <text/>
+        <text>Κωδικοσελίδα Ελληνικών (1253)</text>
+          <checkBox refId="Greek" defaultChecked="false">Ελληνικά</checkBox>
+        <text/>
+        <text>Κωδικοσελίδα Τουρκικών (1254)</text>
+          <checkBox refId="Turkish" defaultChecked="false">Τουρκικά</checkBox>
+        <text/>
+        <text>Κωδικοσελίδα απλοποιημένων Κινεζικών (936, GB2312)</text>
+          <checkBox refId="ChineseSimplified" defaultChecked="false">Κινεζικά (απλοποιημένα)</checkBox>
+        <text/>
+        <text>Κωδικοσελίδα παραδοσιακών Κινεζικών (950, Big5)</text>
+          <checkBox refId="ChineseTraditional" defaultChecked="false">Κινεζικά (παραδοσιακά)</checkBox>
+        <text/>
+        <text>Κωδικοσελίδα Ιαπωνικών (932, Shift-JIS)</text>
+          <checkBox refId="Japanese" defaultChecked="false">Ιαπωνικά</checkBox>
+        <text/>
+        <text>Κωδικοσελίδα Κορεατικών (949)</text>
+          <checkBox refId="Korean" defaultChecked="false">Κορεατικά</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

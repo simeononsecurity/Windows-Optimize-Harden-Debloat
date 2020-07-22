@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="L_IME">IME</string>
+      <string id="L_TurnOnMisconversionLoggingForMisconversionReport">Activar el registro de conversión incorrecta para el informe de conversión incorrecta</string>
+      <string id="L_TurnOnMisconversionLoggingForMisconversionReportExplain">Esta configuración de directiva permite activar el registro de conversión incorrecta para el informe de conversiones incorrectas.
+
+Si habilitas esta configuración de directiva, se activa el registro de conversión incorrecta.
+
+Si deshabilitas o no configuras esta configuración de directiva, se desactiva el registro de conversión incorrecta.
+
+Esta configuración de directiva se aplica a Microsoft IME en japonés.</string>
+      <string id="L_TurnOffSavingAutoTuningDataToFile">Desactivar el guardado de datos de ajuste automático en el archivo</string>
+      <string id="L_TurnOffSavingAutoTuningDataToFileExplain">Esta configuración de directiva te permite desactivar la opción de guardar el resultado del ajuste automático en el archivo.
+
+Si habilitas esta configuración de directiva, los datos de ajuste automático no se guardarán en el archivo.
+
+Si deshabilitas o no estableces esta configuración de directiva, los datos de ajuste automático se guardan en el archivo de manera predeterminada.
+
+Esta configuración de directiva se aplica solo a Microsoft IME en japonés.</string>
+      <string id="L_TurnOffHistorybasedPredictiveInput">Desactivar las entradas predictivas basadas en historial</string>
+      <string id="L_TurnOffHistorybasedPredictiveInputExplain">Esta configuración de directiva te permite desactivar las entradas predictivas basadas en el historial.
+
+Si habilitas esta configuración de directiva, se desactivan las entradas predictivas basadas en el historial.
+
+Si deshabilitas o no estableces esta configuración de directiva, se activan las entradas predictivas basadas en el historial de manera predeterminada.
+
+Esta configuración de directiva se aplica solo a Microsoft IME en japonés.
+
+Nota: Los cambios realizados en esta opción de configuración no se aplicarán hasta que el usuario cierre sesión.</string>
+      <string id="L_TurnOffOpenExtendedDictionary">Desactivar el diccionario extendido abierto</string>
+      <string id="L_TurnOffOpenExtendedDictionaryExplain">Esta configuración de directiva te permite desactivar el diccionario extendido abierto.
+
+Si habilitas esta configuración de directiva, se desactiva el diccionario extendido abierto. No puedes agregar un nuevo diccionario extendido abierto.
+
+Para Microsoft IME en japonés, un diccionario extendido abierto que se agrega antes de habilitar esta configuración de directiva no se utiliza para la conversión.
+
+Si deshabilitas o no configuras esta configuración de directiva, se puede agregar y utilizar el diccionario extendido abierto de manera predeterminada.
+
+Esta configuración de directiva se aplica a Microsoft IME en japonés.</string>
+      <string id="L_TurnOffInternetSearchIntegration">Desactivar la integración de búsqueda en Internet</string>
+      <string id="L_TurnOffInternetSearchIntegrationExplain">Esta configuración de directiva te permite desactivar la integración de búsqueda en Internet.
+
+La integración de búsqueda incluye tanto el uso del proveedor de búsquedas (Microsoft IME en japonés) como la realización de búsquedas de Bing a partir de la entrada predictiva para Microsoft IME en japonés.
+
+Si habilitas esta configuración de directiva, no podrás utilizar la integración de búsqueda.
+
+Si deshabilitas o no configuras esta configuración de directiva, la función de integración de búsqueda se puede utilizar de manera predeterminada.
+
+Esta configuración de directiva se aplica a Microsoft IME en japonés.
+
+Nota: Los cambios en esta configuración no tendrán efecto hasta que el usuario cierre la sesión.</string>
+      <string id="L_TurnOffCustomDictionary">Desactivar el diccionario personalizado</string>
+      <string id="L_TurnOffCustomDictionaryExplain">Esta configuración de directiva te permite desactivar la posibilidad de usar un diccionario personalizado.
+
+Si habilitas esta configuración de directiva, no podrás agregar, editar ni eliminar palabras en el diccionario personalizado con las herramientas de la interfaz gráfica de usuario o las API. Si se registra una palabra en el diccionario personalizado antes de habilitar esta configuración de directiva, se podrá seguir usando para la conversión.
+
+Si deshabilitas o no estableces esta configuración de directiva, el diccionario personalizado puede usarse de manera predeterminada.
+
+En el caso de Microsoft IME en japonés, la opción [Borrar información de ajuste automático] funciona, aunque esta configuración de directiva esté habilitada, y borra palabras de ajuste automático del diccionario personalizado.
+
+Esta configuración de directiva se aplica a Microsoft IME en japonés.
+
+Nota: Los cambios en esta configuración no tendrán efecto hasta que el usuario cierre la sesión.</string>
+      <string id="L_RestrictCharacterCodeRangeOfConversion">Restringir el intervalo de códigos de carácter de conversión</string>
+      <string id="L_RestrictCharacterCodeRangeOfConversionExplain">Esta configuración de directiva permite restringir el intervalo de códigos de carácter de conversión al establecer un filtro de caracteres.
+
+Si habilita esta configuración de directiva, solo se usarán los intervalos de códigos de carácter especificados en esta configuración de directiva para la conversión de IME.  Puede especificar varios intervalos si configura un valor combinado con un operador OR bit a bit de los siguientes valores:
+
+0x0001 // área JIS208 
+0x0002 // código de caracteres especiales NEC
+0x0004 // NEC código extendido IBM seleccionado
+0x0008 // código extendido IBM
+0x0010 // código katakana de ancho medio
+0x0100 // EUDC(GAIJI)
+0x0200 // área no asignada S-JIS
+0x0400 // carácter Unicode
+0x0800 // carácter suplente
+0x1000 // carácter IVS
+0xFFFF // sin definición.
+
+Si deshabilita o no establece esta configuración de directiva, no se filtrará ningún intervalo de caracteres de manera predeterminada.
+
+Esta configuración de directiva se aplica solo a Microsoft IME en japonés.
+
+Nota: los cambios realizados en esta opción de configuración no surtirán efecto hasta que el usuario cierre sesión.</string>
+      <string id="L_DoNotIncludeNonPublishingStandardGlyphInTheCandidateList">No incluir glifo estándar de no publicación en la lista de candidatos</string>
+      <string id="L_DoNotIncludeNonPublishingStandardGlyphInTheCandidateListExplain">Esta configuración de directiva permite incluir el glifo estándar de no publicación en la lista de candidatos cuando existe el glifo estándar de publicación para la palabra.
+
+Si habilita esta configuración de directiva, no se incluirá el glifo estándar de no publicación en la lista de candidatos cuando exista el glifo estándar de publicación para la palabra.
+
+Si deshabilita o no establece esta configuración de directiva, se incluirán tanto el glifo estándar de publicación como el de no publicación en la lista de candidatos.
+
+Esta configuración de directiva se aplica solo a Microsoft IME en japonés.
+
+Nota: los cambios realizados en esta opción de configuración no surtirán efecto hasta que el usuario cierre sesión.</string>
+      <string id="L_TurnOnCloudCandidate">Activar el candidato en la nube</string>
+      <string id="L_TurnOnCloudCandidateExplain">Esta configuración de directiva controla la característica de candidatos a la nube, que utiliza un servicio en línea para proporcionar sugerencias de entrada que no existen en el diccionario local de un PC.
+
+Si habilitas esta configuración de directiva, la funcionalidad asociada con esta característica está activada, la entrada del teclado del usuario se envía a Microsoft para generar las sugerencias y el usuario no podrá desactivarla.
+
+Si deshabilitas esta configuración de directiva, la funcionalidad asociada con esta característica se desactiva y el usuario no podrá activarla.
+
+Si no configuras esta configuración de directiva, estará desactivada de forma predeterminada y el usuario podrá activar y desactivar la función de candidatos a la nube.
+
+Esta configuración de directiva solo se aplica a Microsoft CHS pinyin IME y JPN IME.</string>
+      <string id="L_TurnOnCloudCandidateCHS">Activar el candidato en la nube para CHS</string>
+      <string id="L_TurnOnCloudCandidateCHSExplain">Esta configuración de directiva controla la característica de candidatos a la nube, que utiliza un servicio en línea para proporcionar sugerencias de entrada que no existen en el diccionario local de un PC.
+
+Si habilitas esta configuración de directiva, la funcionalidad asociada con esta característica está activada, la entrada del teclado del usuario se envía a Microsoft para generar sugerencias y el usuario no podrá desactivarla.
+
+Si deshabilitas esta configuración de directiva, la funcionalidad asociada con esta característica se desactivará y el usuario no podrá activarla.
+
+Si no configuras esta configuración de directiva, estará desactivada de forma predeterminada y el usuario podrá activar y desactivar la característica de candidatos a la nube.
+
+Esta configuración de directiva solo se aplica a Microsoft CHS pinyin IME.</string>
+      <string id="L_TurnOnLiveSticker">Activar la característica de adhesivos dinámicos</string>
+      <string id="L_TurnOnLiveStickerExplain">Esta configuración de directiva controla la característica de adhesivos dinámicos, que usa un servicio en línea para proporcionar adhesivos en línea.
+
+Si habilitas esta configuración de directiva, ten en cuenta que la funcionalidad asociada con ella también se activa para enviar las entradas de teclado del usuario a Microsoft y así poder crear los adhesivos dinámicos. El usuario no podrá desactivar esta funcionalidad. 
+
+Si deshabilitas esta configuración de directiva, la funcionalidad asociada con ella también se deshabilita y el usuario no podrá activarla. 
+
+Si no configuras esta configuración de directiva, se desactivará de forma predeterminada y el usuario podrá activar y desactivar la característica de adhesivos dinámicos.
+
+Esta configuración de directiva solo se aplica a Microsoft CHS Pinyin IME.</string>
+      <string id="L_TurnOnLexiconUpdate">Activar la actualización del lexicón</string>
+      <string id="L_TurnOnLexiconUpdateExplain">Esta configuración de directiva controla la característica de actualización del lexicón, que descarga un diccionario de palabras más usadas en el equipo local.
+
+Si habilitas esta configuración de directiva, se activará la funcionalidad asociada con esta característica, se podrá descargar el diccionario de palabras más usadas en el equipo local y el usuario podrá activar o desactivar esta configuración.
+
+Si deshabilitas esta configuración de directiva, se desactivará la funcionalidad asociada con esta característica y el usuario no podrá activarla.
+
+Si no estableces esta configuración de directiva, estará desactivada de forma predeterminada y el usuario podrá activar y desactivar la característica de actualización del lexicón.
+
+Esta configuración de directiva se aplica solo a Microsoft CHS Pinyin IME.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="L_RestrictCharacterCodeRangeOfConversion">
+        <textBox refId="L_RestrictCharacterCodeRangeOfConversionID">
+          <label>Intervalo de códigos de carácter:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

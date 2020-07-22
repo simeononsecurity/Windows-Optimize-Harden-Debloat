@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  ActivIdentity  -->
+<policyDefinitions	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					revision="702.1" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+	<policyNamespaces>
+		<target prefix="ai" namespace="ActivIdentity.Policies.ActivIdentity" />
+		<using prefix="windows" namespace="Microsoft.Policies.Windows" />
+	</policyNamespaces>
+	<resources minRequiredRevision="702.1" />
+	<categories>
+		<!--  Root category  -->
+		<category name="ActivIdentity" displayName="$(string.category_displayName_ActivIdentity)" />	<!-- explainText="$(string.category_explainText_ActivIdentity)" -->
+		<!--  Sub-categories  -->
+		<category name="Logging" displayName="$(string.category_displayName_Logging)" > <!-- explainText="$(string.category_explainText_Logging)" -->
+			<parentCategory ref="ActivIdentity" />
+		</category>
+		<category name="AdvancedDiagnostics" displayName="$(string.category_displayName_AdvancedDiagnostics)"> <!-- explainText="$(string.category_explainText_AdvancedDiagnostics)" -->
+			<parentCategory ref="ActivIdentity" />
+		</category>
+	</categories>
+</policyDefinitions>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="WdiDpsScenarioDataSizeLimitPolicy">Diagnósticos: configurar retención de escenario</string>
+      <string id="WdiDpsScenarioDataSizeLimitPolicyExplain">Esta configuración de directiva determina el límite de retención de datos correspondiente a los datos de escenario del Servicio de directivas de diagnóstico (DPS).
+
+Si habilita esta configuración de directiva, debe escribir el tamaño máximo de datos de escenario que debe conservarse (en megabytes). Los datos detallados de solución de problemas relacionados con los escenarios se conservarán hasta que se alcance este límite.
+
+Si deshabilita o no establece esta configuración de directiva, el servicio DPS elimina los datos de escenario una vez que superan los 128 megabytes de tamaño.
+
+Para que esta configuración de directiva surta efecto, no es necesario reiniciar el equipo ni el servicio: los cambios tienen un efecto inmediato.
+
+Esta configuración de directiva solo surte efecto si se está ejecutando el Servicio de directivas de diagnóstico.  Si el servicio se detiene o deshabilita, no se eliminarán los datos de escenario de diagnóstico.  El servicio DPS puede configurarse con el complemento Servicios en Microsoft Management Console.</string>
+      <string id="WdiDpsScenarioExecutionLevelResolution">Detección, solución de problemas y resolución</string>
+      <string id="WdiDpsScenarioExecutionLevelTsOnly">Solo detección y solución de problemas</string>
+      <string id="WdiDpsScenarioExecutionPolicy">Diagnósticos: configurar nivel de ejecución de escenario</string>
+      <string id="WdiDpsScenarioExecutionPolicyExplain">Esta configuración de directiva determina el nivel de ejecución de los escenarios del Servicio de directivas de diagnóstico (DPS).
+
+Si habilita esta configuración de directiva, debe seleccionar un nivel de ejecución en el menú desplegable. Si selecciona Solo detección y solución de problemas, el servicio DPS detectará los problemas e intentará determinar sus causas principales. Estas causas principales se registrarán en el registro de eventos cuando se detecten, pero no se tomará ninguna medida correctora.  Si selecciona Detección, solución de problemas y resolución, el servicio DPS intentará corregir los problemas automáticamente o indicará al usuario que hay una resolución asistida disponible.
+
+Si deshabilita esta configuración de directiva, Windows no puede detectar, solucionar ni resolver ningún problema relativo al servicio DPS.
+
+Si no establece esta configuración de directiva, el servicio DPS habilita de forma predeterminada todos los escenarios para su resolución, a menos que establezca configuraciones de directiva independientes, específicas de cada escenario.
+
+Esta configuración de directiva tiene prioridad sobre cualquier configuración de directiva específica de escenarios cuando está habilitada o deshabilitada.  Las configuraciones de directiva específicas de escenarios solo surten efecto cuando no se define esta configuración directiva.
+
+Para que esta configuración de directiva surta efecto, no es necesario reiniciar el equipo ni el servicio: los cambios tienen un efecto inmediato.</string>
+    </stringTable>
+
+    <presentationTable>
+      <presentation id="WdiDpsScenarioDataSizeLimitPolicy">
+        <decimalTextBox refId="WdiDpsScenarioDataSizeLimitPolicyValue" defaultValue="128">Límite de tamaño de datos de escenario (en MB)</decimalTextBox>
+      </presentation>
+      <presentation id="WdiDpsScenarioExecutionPolicy">
+        <dropdownList refId="WdiDpsScenarioExecutionPolicyLevel" noSort="true">Nivel de ejecución de escenario</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="perf_tracker">VMware Horizon Performance Tracker</string>
+      <string id="ShowUI">Show Performance Tracker overview UI</string>
+      <string id="HideUI">Hide Performance Tracker overview UI</string>
+      <string id="SUPPORTED_NotSpecified">Not specified</string>
+      <string id="perf_tracker_basic_settings">Performance Tracker basic setting</string>
+      <string id="perf_tracker_VDI_auto_start">Enable Performance Tracker auto start in remote desktop connection</string>
+      <string id="perf_tracker_remote_app_auto_start">Enable Performance Tracker auto start in remote application connection</string>
+      <string id="perf_tracker_blast_settings">Blast threshold setting</string>
+      <string id="perf_tracker_PCoIP_settings">PCoIP threshold setting</string>
+      <string id="perf_tracker_notification_settings_detail"> This policy setting is used to adjust notification settings.
+
+Enable Notification:
+When enabled, shows pop up notifications to warn the user.
+
+Notifications Auto Hide Time:
+The interval(in seconds) that a pop up notification will be shown before auto hide.
+
+Minimum Interval between Notifications:
+The amount of polls an alarm state will be held down to avoid notification flapping. This value * poll interval = seconds.</string>
+      <string id="perf_tracker_basic_settings_detail"> Performance Tracker basic setting.
+
+Data Refresh Rate:
+The frequency (in seconds) we pull performance data. </string>
+      <string id="perf_tracker_VDI_auto_start_detail">Auto start in remote desktop connection.
+
+If enabled, perfTracker will automatically start when user logon to a remote desktop connection.</string>
+      <string id="perf_tracker_remote_app_auto_start_detail">Auto start in remote application connection.
+
+If enabled, perfTracker will automatically start when user logon to a remote application connection.</string>
+      <string id="perf_tracker_blast_settings_detail">Blast threshold setting.
+
+Warning Blast Latency Value:
+The value(in ms) at which a warning will be shown for the Blast Latency Metric.
+
+Error Blast Latency Value:
+The Value(in ms) at which an error will be shown for the Blast Latency Metric.
+
+Warning Blast Loss Value:
+The value(in %) at which a warning will be shown when the % of loss for Blast exceeds this value.
+
+Error Blast Loss Value:
+The value(in %) at which an error will be shown when the % of loss for Blast exceeds this value.
+
+Error Blast Bandwidth Value:
+If available bandwidth is below this value (in kbps), an error will be displayed.
+
+Warning Blast Bandwidth Value:
+If available bandwidth is below this value (in kbps), an warning will be displayed.</string>
+      <string id="perf_tracker_PCoIP_settings_detail">PCoIP threshold setting.
+
+Warning PCoIP Latency Value:
+The value(in ms) at which a warning will be shown for the PCoIP Latency Metric.
+
+Error PCoIP Latency Value:
+The Value(in ms) at which an error will be shown for the PCoIP Latency Metric.
+
+Warning PCoIP Loss Value:
+The value(in %) at which a warning will be shown when the % of loss for PCoIP exceeds this value.
+
+Error PCoIP Loss Value:
+The value(in %) at which an error will be shown when the % of loss for PCoIP exceeds this value.
+
+Error PCoIP Bandwidth Value:
+If available bandwidth is below this value (in kbps), an error will be displayed.
+
+Warning PCoIP Bandwidth Value:
+If available bandwidth is below this value (in kbps), an warning will be displayed.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="perf_tracker_basic_settings">
+        <decimalTextBox refId="DataCollectionFrequency" defaultValue="5">Data refresh rate</decimalTextBox>
+      </presentation>
+      <presentation id="perf_tracker_auto_start_mode">
+         <dropdownList refId="HideUI" defaultItem="0">Whether hide overview UI</dropdownList>
+      </presentation>
+      <presentation id="perf_tracker_blast_settings">
+        <decimalTextBox refId="WarningBlastLatencyValue" defaultValue="100">Warning Blast Latency Value</decimalTextBox>
+        <decimalTextBox refId="ErrorBlastLatencyValue" defaultValue="300">Error Blast Latency Value</decimalTextBox>
+        <textBox refId="WarningBlastLossValue">
+          <label>Warning Blast Loss Value</label>
+          <defaultValue>2</defaultValue>
+        </textBox>
+        <textBox refId="ErrorBlastLossValue" defaultValue="10">
+          <label>Error Blast Loss Value</label>
+          <defaultValue>10</defaultValue>
+        </textBox>
+        <decimalTextBox refId="ErrorBlastBandwidthKbValue" defaultValue="512">Error Blast Bandwidth Value</decimalTextBox>
+        <decimalTextBox refId="WarningBlastBandwidthKbValue" defaultValue="1500">Warning Blast Bandwidth Value</decimalTextBox>
+      </presentation>
+      <presentation id="perf_tracker_PCoIP_settings">
+        <decimalTextBox refId="WarningPCoIPLatencyValue" defaultValue="100">Warning PCoIP Latency Value</decimalTextBox>
+        <decimalTextBox refId="ErrorPCoIPLatencyValue" defaultValue="250">Error PCoIP Latency Value</decimalTextBox>
+        <textBox refId="WarningPCoIPLossValue">
+          <label>Warning PCoIP Loss Value</label>
+          <defaultValue>0.5</defaultValue>
+        </textBox>
+        <textBox refId="ErrorPCoIPLossValue">
+          <label>Error PCoIP Loss Value</label>
+          <defaultValue>2</defaultValue>
+        </textBox>
+        <decimalTextBox refId="ErrorPCoIPBandwidthKbValue" defaultValue="512">Error PCoIP Bandwidth Value</decimalTextBox>
+        <decimalTextBox refId="WarningPCoIPBandwidthKbValue" defaultValue="1500">Warning PCoIP Bandwidth Value</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

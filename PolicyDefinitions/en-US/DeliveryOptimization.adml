@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
+  <displayName>Delivery Optimization GP</displayName>
+  <description>This file describes the Delivery Optimization GP settings</description>
+  <resources>
+    <stringTable>
+      <string id="DeliveryOptimizationCat">Delivery Optimization</string>
+      <string id="DownloadMode">Download Mode</string>
+      <string id="DownloadMode_Help">Specifies the download method that Delivery Optimization can use in downloads of Windows Updates, Apps and App updates.
+
+The following list shows the supported values:
+
+0 = HTTP only, no peering.
+
+1 = HTTP blended with peering behind the same NAT.
+
+2 = HTTP blended with peering across a private group. Peering occurs on devices in the same Active Directory Site (if exist) or the same domain by default. When this option is selected, peering will cross NATs. To create a custom group use Group ID in combination with Mode 2.
+
+3 = HTTP blended with Internet Peering.
+
+99 = Simple download mode with no peering. Delivery Optimization downloads using HTTP only and does not attempt to contact the Delivery Optimization cloud services.
+
+100 = Bypass mode. Do not use Delivery Optimization and use BITS instead.</string>
+      <string id="DownloadMode_CdnOnly">HTTP only (0)</string>
+      <string id="DownloadMode_Lan">LAN (1)</string>
+      <string id="DownloadMode_Group">Group (2)</string>
+      <string id="DownloadMode_Internet">Internet (3)</string>
+      <string id="DownloadMode_Simple">Simple (99)</string>
+      <string id="DownloadMode_Bypass">Bypass (100)</string>
+      <string id="GroupId">Group ID</string>
+      <string id="GroupId_Help">Group ID must be set as a GUID. This Policy specifies an arbitrary group ID that the device belongs to.
+
+Use this if you need to create a single group for Local Network Peering for branches that are on different domains or are not on the same LAN.
+
+Note: this is a best effort optimization and should not be relied on for an authentication of identity.</string>
+      <string id="MaxCacheSize">Max Cache Size (percentage)</string>
+      <string id="MaxCacheSize_Help">Specifies the maximum cache size that Delivery Optimization uses as a percentage of available disk size (1-100).</string>
+      <string id="AbsoluteMaxCacheSize">Absolute Max Cache Size (in GB)</string>
+      <string id="AbsoluteMaxCacheSize_Help">Specifies the maximum size in GB of Delivery Optimization cache.
+
+This policy overrides the DOMaxCacheSize policy.
+
+The value 0 (zero) means "unlimited" cache; Delivery Optimization will clear the cache when the device runs low on disk space.</string>
+      <string id="MaxCacheAge">Max Cache Age (in seconds)</string>
+      <string id="MaxCacheAge_Help">Specifies the maximum time in seconds that each file is held in the Delivery Optimization cache after downloading successfully.
+
+The value 0 (zero) means "unlimited"; Delivery Optimization will hold the files in the cache longer and make the files available for uploads to other devices, as long as the cache size has not exceeded.</string>
+      <string id="MonthlyUploadDataCap">Monthly Upload Data Cap (in GB)</string>
+      <string id="MonthlyUploadDataCap_Help">Specifies the maximum total bytes in GB that Delivery Optimization is allowed to upload to Internet peers in each calendar month.
+
+The value 0 (zero) means "unlimited"; No monthly upload limit is applied if 0 is set.</string>
+      <string id="MinBackgroundQos">Minimum Background QoS (in KB/s)</string>
+      <string id="MinBackgroundQos_Help">Specifies the minimum download QoS (Quality of Service or speed) for background downloads in KiloBytes/second.
+
+This policy affects the blending of peer and HTTP sources. Delivery Optimization complements the download from HTTP source to achieve the specified minimum QoS value.</string>
+      <string id="ModifyCacheDrive">Modify Cache Drive</string>
+      <string id="ModifyCacheDrive_Help">Specifies the drive Delivery Optimization shall use for its cache.
+
+By default, %SystemDrive% is used to store the cache. The drive location can be specified using environment variables, drive letter or using a full path.</string>
+      <string id="MaxBackgroundDownloadBandwidth">Maximum Background Download Bandwidth (in KB/s)</string>
+      <string id="MaxBackgroundDownloadBandwidth_Help">Specifies the maximum background download bandwidth in KiloBytes/second that the device can use across all concurrent download activities using Delivery Optimization.
+
+The default value 0 (zero) means that Delivery Optimization dynamically adjusts to use the available bandwidth for downloads.
+      </string>
+      <string id="MaxForegroundDownloadBandwidth">Maximum Foreground Download Bandwidth (in KB/s)</string>
+      <string id="MaxForegroundDownloadBandwidth_Help">Specifies the maximum foreground download bandwidth in KiloBytes/second that the device can use across all concurrent download activities using Delivery Optimization.
+
+The default value 0 (zero) means that Delivery Optimization dynamically adjusts to use the available bandwidth for downloads.
+      </string>
+      <string id="PercentageMaxBackgroundBandwidth">Maximum Background Download Bandwidth (percentage)</string>
+      <string id="PercentageMaxBackgroundBandwidth_Help">Specifies the maximum background download bandwidth that Delivery Optimization uses across all concurrent download activities as a percentage of available download bandwidth.
+
+The default value 0 (zero) means that Delivery Optimization dynamically adjusts to use the available bandwidth for background downloads.</string>
+      <string id="PercentageMaxForegroundBandwidth">Maximum Foreground Download Bandwidth (percentage)</string>
+      <string id="PercentageMaxForegroundBandwidth_Help">Specifies the maximum foreground download bandwidth that Delivery Optimization uses across all concurrent download activities as a percentage of available download bandwidth.
+
+The default value 0 (zero) means that Delivery Optimization dynamically adjusts to use the available bandwidth for foreground downloads.</string>
+      <string id="MinFileSizeToCache">Minimum Peer Caching Content File Size (in MB)</string>
+      <string id="MinFileSizeToCache_Help">Specifies the minimum content file size in MB enabled to use Peer Caching.
+
+Recommended values: 1 MB to 100000 MB.</string>
+      <string id="AllowVPNPeerCaching">Enable Peer Caching while the device connects via VPN</string>
+      <string id="AllowVPNPeerCaching_Help">Specify "true" to allow the device to participate in Peer Caching while connected via VPN to the domain network.
+
+This means the device can download from or upload to other domain network devices, either on VPN or on the corporate domain network.</string>
+      <string id="MinRAMAllowedToPeer">Minimum RAM capacity (inclusive) required to enable use of Peer Caching (in GB)</string>
+      <string id="MinRAMAllowedToPeer_Help">Specifies the minimum RAM size in GB required to use Peer Caching.
+
+For example if the minimum set is 1 GB, then devices with 1 GB or higher available RAM will be allowed to use Peer caching.
+
+Recommended values: 1 GB to 4 GB.</string>
+      <string id="MinDiskSizeAllowedToPeer">Minimum disk size allowed to use Peer Caching (in GB)</string>
+      <string id="MinDiskSizeAllowedToPeer_Help">Specifies the required minimum disk size (capacity in GB) for the device to use Peer Caching. The cloud service set default value will be used.
+
+Recommended values: 64 GB to 256 GB.
+
+Note: If the DOModifyCacheDrive policy is set, the disk size check will apply to the new working directory specified by this policy.</string>
+      <string id="MinBatteryPercentageAllowedToUpload">Allow uploads while the device is on battery while under set Battery level (percentage)</string>
+      <string id="MinBatteryPercentageAllowedToUpload_Help">Specify any value between 1 and 100 (in percentage) to allow the device to upload data to LAN and Group peers while on DC power (Battery).
+
+The recommended value to set if you allow uploads on battery is 40 (for 40%). The device can download from peers while on battery regardless of this policy.
+
+The value 0 means "not-limited"; The cloud service set default value will be used.</string>
+      <string id="CacheHost">Cache Server Hostname</string>
+      <string id="CacheHost_Help">This policy allows you to set one or more Delivery Optimization in Network Cache servers that will be used by your client(s).
+
+One or more values can be added as either fully qualified domain names (FQDN) or IP addresses. To add multiple values, separate each FQDN or IP address by commas.
+      </string>
+      <string id="CacheHostSource">Cache Server Hostname Source</string>
+      <string id="CacheHostSource_Help">This policy allows you to specify how your client(s) can discover Delivery Optimization in Network Cache servers dynamically.
+
+Options available are:
+
+1 = DHCP Option 235.
+
+2 = DHCP Option 235 Force.
+
+For both options, the client will query DHCP Option ID 235 and use the returned value as the Cache Server Hostname. Option 2 overrides the Cache Server Hostname policy, if configured.</string>
+      <string id="CacheHostSource_DHCP">DHCP Option 235</string>
+      <string id="CacheHostSource_DHCP_Force">DHCP Option 235 Force</string>
+      <string id="GroupIdSource">Select the source of Group IDs</string>
+      <string id="GroupIdSource_Help">Set this policy to restrict peer selection to a specific source.
+
+Options available are:
+
+1 = AD Site.
+
+2 = Authenticated domain SID.
+
+3 = DHCP Option ID.
+
+4 = DNS Suffix.
+
+5 = AAD Tenant ID.
+
+When set, the Group ID will be assigned automatically from the selected source. If you set this policy, the GroupID policy will be ignored.
+
+The options set in this policy only apply to Group (2) download mode. If Group (2) isn't set as Download mode, this policy will be ignored.
+
+For option 3 - DHCP Option ID, the client will query DHCP Option ID 234 and use the returned GUID value as the Group ID.</string>
+      <string id="GroupIdSource_Unset">Unset (0)</string>
+      <string id="GroupIdSource_AD">AD Site (1)</string>
+      <string id="GroupIdSource_SID">Authenticated domain SID (2)</string>
+      <string id="GroupIdSource_DHCP">DHCP Option ID (3)</string>
+      <string id="GroupIdSource_DNS">DNS Suffix (4)</string>
+      <string id="GroupIdSource_AAD">AAD Tenant ID (5)</string>
+      <string id="DelayBackgroundDownloadFromHttp">Delay background download from http (in secs)</string>
+      <string id="DelayBackgroundDownloadFromHttp_Help">This policy allows you to delay the use of an HTTP source in a background download that is allowed to use P2P.
+
+After the max delay has reached, the download will resume using HTTP, either downloading the entire payload or complementing the bytes that could not be downloaded from Peers.
+
+Note that a download that is waiting for peer sources, will appear to be stuck for the end user.
+
+The recommended value is 1 hour (3600).</string>
+      <string id="DelayForegroundDownloadFromHttp">Delay Foreground download from http (in secs)</string>
+      <string id="DelayForegroundDownloadFromHttp_Help">This policy allows you to delay the use of an HTTP source in a foreground (interactive) download that is allowed to use P2P.
+
+After the max delay has reached, the download will resume using HTTP, either downloading the entire payload or complementing the bytes that could not be downloaded from Peers.
+
+Note that a download that is waiting for peer sources, will appear to be stuck for the end user.
+
+The recommended value is 1 minute (60).</string>
+      <string id="DelayCacheServerFallbackBackground">Delay Background download Cache Server fallback (in seconds)</string>
+      <string id="DelayCacheServerFallbackBackground_Help">Set this policy to delay the fallback from Cache Server to the HTTP source for a background content download by X seconds.
+
+Note: if you set the policy to delay background download from http, it will apply first (to allow downloads from peers first).</string>
+      <string id="DelayCacheServerFallbackForeground">Delay Foreground download Cache Server fallback (in seconds)</string>
+      <string id="DelayCacheServerFallbackForeground_Help">Set this policy to delay the fallback from Cache Server to the HTTP source for a foreground content download by X seconds.
+
+Note: if you set the policy to delay foreground download from http, it will apply first (to allow downloads from peers first).</string>
+      <string id="RestrictPeerSelectionBy">Select a method to restrict Peer Selection</string>
+      <string id="RestrictPeerSelectionBy_Help">Set this policy to restrict peer selection via selected option.
+
+Options available are:
+1 = Subnet mask (more options will be added in a future release).
+
+Option 1 (Subnet mask) applies to both Download Mode LAN (1) and Group (2).</string>
+      <string id="RestrictPeerSelectionBy_None">None</string>
+      <string id="RestrictPeerSelectionBy_Subnet">Subnet</string>
+      <string id="SetHoursToLimitBackgroundDownloadBandwidth">Set Business Hours to Limit Background Download Bandwidth</string>
+      <string id="SetHoursToLimitBackgroundDownloadBandwidth_Help">Specifies the maximum background download bandwidth that Delivery Optimization uses during and outside business hours across all concurrent download activities as a percentage of available download bandwidth.</string>
+      <string id="SetHoursToLimitForegroundDownloadBandwidth">Set Business Hours to Limit Foreground Download Bandwidth</string>
+      <string id="SetHoursToLimitForegroundDownloadBandwidth_Help">Specifies the maximum foreground download bandwidth that Delivery Optimization uses during and outside business hours across all concurrent download activities as a percentage of available download bandwidth.</string>
+      <string id="Time1AM">1 AM</string>
+      <string id="Time1PM">1 PM</string>
+      <string id="Time2AM">2 AM</string>
+      <string id="Time2PM">2 PM</string>
+      <string id="Time3AM">3 AM</string>
+      <string id="Time3PM">3 PM</string>
+      <string id="Time4AM">4 AM</string>
+      <string id="Time4PM">4 PM</string>
+      <string id="Time5AM">5 AM</string>
+      <string id="Time5PM">5 PM</string>
+      <string id="Time6AM">6 AM</string>
+      <string id="Time6PM">6 PM</string>
+      <string id="Time7AM">7 AM</string>
+      <string id="Time7PM">7 PM</string>
+      <string id="Time8AM">8 AM</string>
+      <string id="Time8PM">8 PM</string>
+      <string id="Time9AM">9 AM</string>
+      <string id="Time9PM">9 PM</string>
+      <string id="Time10AM">10 AM</string>
+      <string id="Time10PM">10 PM</string>
+      <string id="Time11AM">11 AM</string>
+      <string id="Time11PM">11 PM</string>
+      <string id="Time12AM">12 AM</string>
+      <string id="Time12PM">12 PM</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DownloadMode">
+        <dropdownList defaultItem="1" noSort="true" refId="DownloadMode">Download Mode:</dropdownList>
+      </presentation>
+      <presentation id="GroupId">
+        <textBox refId="GroupId">
+          <label>Group ID:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxCacheSize">
+        <decimalTextBox defaultValue="20" refId="MaxCacheSize">Max Cache Size (Percentage):</decimalTextBox>
+        <text>The default value is 20%</text>
+      </presentation>
+      <presentation id="AbsoluteMaxCacheSize">
+        <decimalTextBox defaultValue="10" refId="AbsoluteMaxCacheSize">Absolute Max Cache Size (in GB):</decimalTextBox>
+        <text>The default value is 10GB</text>
+      </presentation>
+      <presentation id="MaxCacheAge">
+        <decimalTextBox defaultValue="259200" refId="MaxCacheAge">Max Cache Age (in seconds):</decimalTextBox>
+        <text>The default value is 3 days</text>
+      </presentation>
+      <presentation id="MonthlyUploadDataCap">
+        <decimalTextBox defaultValue="20" refId="MonthlyUploadDataCap">Monthly Upload Data Cap (in GB):</decimalTextBox>
+        <text>The default value is 20GB</text>
+      </presentation>
+      <presentation id="MinBackgroundQos">
+        <decimalTextBox defaultValue="500" refId="MinBackgroundQos">Minimum Background QoS (in KB/s):</decimalTextBox>
+        <text>The default value is 500KB/s</text>
+      </presentation>
+      <presentation id="ModifyCacheDrive">
+        <textBox refId="ModifyCacheDrive">
+          <label>Modify Cache Drive:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxBackgroundDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxBackgroundDownloadBandwidth">Maximum Background Download Bandwidth (in KB/s):</decimalTextBox>
+        <text>The default value is 0 (unlimited)</text>
+      </presentation>
+      <presentation id="MaxForegroundDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxForegroundDownloadBandwidth">Maximum Foreground Download Bandwidth (in KB/s):</decimalTextBox>
+        <text>The default value is 0 (unlimited)</text>
+      </presentation>
+      <presentation id="PercentageMaxBackgroundBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxBackgroundBandwidth">Maximum Background Download Bandwidth (Percentage):</decimalTextBox>
+        <text>The default value is 0 (unlimited)</text>
+      </presentation>
+      <presentation id="PercentageMaxForegroundBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxForegroundBandwidth">Maximum Foreground Download Bandwidth (Percentage):</decimalTextBox>
+        <text>The default value is 0 (unlimited)</text>
+      </presentation>
+      <presentation id="MinFileSizeToCache">
+        <decimalTextBox defaultValue="100" refId="MinFileSizeToCache">Minimum Peer Caching Content File Size (in MB):</decimalTextBox>
+        <text>The default value is 100MB</text>
+      </presentation>
+      <presentation id="AllowVPNPeerCaching">
+        <checkBox defaultChecked="false" refId="AllowVPNPeerCaching">Enable Peer Caching while the device connects via VPN</checkBox>
+      </presentation>
+      <presentation id="MinRAMAllowedToPeer">
+        <decimalTextBox defaultValue="4" refId="MinRAMAllowedToPeer">Minimum RAM capacity (inclusive) required to enable use of Peer Caching (in GB):</decimalTextBox>
+        <text>The default value is 4GB</text>
+      </presentation>
+      <presentation id="MinDiskSizeAllowedToPeer">
+        <decimalTextBox defaultValue="32" refId="MinDiskSizeAllowedToPeer">Minimum disk size allowed to use Peer Caching (in GB):</decimalTextBox>
+        <text>The default value is 32GB</text>
+      </presentation>
+      <presentation id="MinBatteryPercentageAllowedToUpload">
+        <decimalTextBox defaultValue="0" refId="MinBatteryPercentageAllowedToUpload">Minimum battery level (Percentage):</decimalTextBox>
+        <text>The default value is 0 (unlimited)</text>
+      </presentation>
+      <presentation id="CacheHost">
+        <textBox refId="CacheHost">
+          <label>Cache Server:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CacheHostSource">
+        <dropdownList defaultItem="0" noSort="true" refId="CacheHostSource">Cache Server Hostname Source:</dropdownList>
+      </presentation>
+      <presentation id="GroupIdSource">
+        <dropdownList defaultItem="0" noSort="true" refId="GroupIdSource">Source of Group IDs:</dropdownList>
+      </presentation>
+      <presentation id="DelayBackgroundDownloadFromHttp">
+        <decimalTextBox defaultValue="0" refId="DelayBackgroundDownloadFromHttp">Delay background download from http (in secs):</decimalTextBox>
+        <text>The default value is 0 (no delay)</text>
+      </presentation>
+      <presentation id="DelayForegroundDownloadFromHttp">
+        <decimalTextBox defaultValue="0" refId="DelayForegroundDownloadFromHttp">Delay Foreground download from http (in secs):</decimalTextBox>
+        <text>The default value is 0 (no delay)</text>
+      </presentation>
+      <presentation id="DelayCacheServerFallbackBackground">
+        <decimalTextBox defaultValue="0" refId="DelayCacheServerFallbackBackground">Delay Background download Cache Server fallback (in secs):</decimalTextBox>
+        <text>The default value is 0 (no delay)</text>
+      </presentation>
+      <presentation id="DelayCacheServerFallbackForeground">
+        <decimalTextBox defaultValue="0" refId="DelayCacheServerFallbackForeground">Delay Foreground download Cache Server fallback (in secs):</decimalTextBox>
+        <text>The default value is 0 (no delay)</text>
+      </presentation>
+      <presentation id="RestrictPeerSelectionBy">
+        <dropdownList defaultItem="0" noSort="true" refId="RestrictPeerSelectionBy">Restrict Peer Selection By:</dropdownList>
+      </presentation>
+      <presentation id="SetHoursToLimitBackgroundDownloadBandwidth">
+        <text/>
+        <text>Set Business Hours to Limit Background Download Bandwidth:</text>
+        <dropdownList defaultItem="8" noSort="true" refId="SetHoursToLimitBackgroundDownloadBandwidthFrom">From:</dropdownList>
+        <dropdownList defaultItem="17" noSort="true" refId="SetHoursToLimitBackgroundDownloadBandwidthTo">To:</dropdownList>
+        <text/>
+        <text>Maximum Background Download Bandwidth (percentage) during Business Hours:</text>
+        <decimalTextBox defaultValue="0" refId="SetHoursToLimitBackgroundDownloadBandwidthIn"/>
+        <text>The default value is 0 (unlimited)</text>
+        <text/>
+        <text>Maximum Background Download Bandwidth (percentage) outside of Business Hours:</text>
+        <decimalTextBox defaultValue="0" refId="SetHoursToLimitBackgroundDownloadBandwidthOut"/>
+        <text>The default value is 0 (unlimited)</text>
+      </presentation>
+      <presentation id="SetHoursToLimitForegroundDownloadBandwidth">
+        <text/>
+        <text>Set Business Hours to Limit Foreground Download Bandwidth:</text>
+        <dropdownList defaultItem="8" noSort="true" refId="SetHoursToLimitForegroundDownloadBandwidthFrom">From:</dropdownList>
+        <dropdownList defaultItem="17" noSort="true" refId="SetHoursToLimitForegroundDownloadBandwidthTo">To:</dropdownList>
+        <text/>
+        <text>Maximum Foreground Download Bandwidth (percentage) during Business Hours:</text>
+        <decimalTextBox defaultValue="0" refId="SetHoursToLimitForegroundDownloadBandwidthIn"/>
+        <text>The default value is 0 (unlimited)</text>
+        <text/>
+        <text>Maximum Foreground Download Bandwidth (percentage) outside of Business Hours:</text>
+        <decimalTextBox defaultValue="0" refId="SetHoursToLimitForegroundDownloadBandwidthOut"/>
+        <text>The default value is 0 (unlimited)</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

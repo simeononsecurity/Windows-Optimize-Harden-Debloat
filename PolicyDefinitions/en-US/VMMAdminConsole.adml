@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>Virtual Machine Manager Admin Console</displayName>
+  <description>Microsoft System Center Virtual Machine Manager Administrator Console Connection Settings</description>
+  <resources>
+    <stringTable>
+      <string id="VMMAdminConsole">Virtual Machine Manager Admin Console</string>
+      <string id="VMMAdminConsole_HELP">Virtual Machine Manager Admin Console Connection Settings</string>
+      <string id="VMMServer">Default VMM Server Name</string>
+      <string id="VMMServer_HELP">This Policy configures the Values [defaultVMMServerName] and [vmmServerPort] located under the [HKCU:\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Administrator Console\Settings\Shared] Registry Key.
+</string>
+      <string id="autoConnect">Automatically connect with these settings</string>
+      <string id="autoConnect_HELP">VMM Console has an ability to auto logon to the selected VMM server with predefined credentials. It works like a charm and is a really useful feature.
+But if you have more than 1 role in VMM (for instance, you are assigned to 2 different roles/tenants and don't have a global administrator rights) auto-connect can cause some inconveniences during connection.
+
+This Policy configures the Value [autoConnect] located under the [HKCU:\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Administrator Console\Settings\Shared] Registry Key.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VMMServer">
+        <textBox refId="TXT_defaultVMMServerName">
+          <label>VMM Server Name</label>
+          <defaultValue>SERVERNAME</defaultValue>
+        </textBox>
+        <decimalTextBox refId="DXT_vmmServerPort" defaultValue="8100">VMM Server Port</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

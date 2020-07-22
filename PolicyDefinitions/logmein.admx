@@ -1,0 +1,250 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="fullarmor" namespace="FullArmor.Policies.724749F1_3AB1_4456_BEF3_A9A6AB0C7CC5" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <supersededAdm fileName="C:\_vista\adm\logmein.adm" />
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_LMI120" displayName="$(string.SUPPORTED_LMI120)" />
+      <definition name="SUPPORTED_LMI220" displayName="$(string.SUPPORTED_LMI220)" />
+      <definition name="SUPPORTED_NotSpecified" displayName="$(string.ADMXMigrator_NoSupportedOn)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="LogMeIn" displayName="$(string.LogMeIn)" />
+  </categories>
+  <policies>
+    <policy name="AllowLogon" class="User" displayName="$(string.AllowLogon)" explainText="$(string.AllowLogon_Explain)" presentation="$(presentation.AllowLogon)" key="Software\Policies\LogMeIn" valueName="AllowLogon">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="AllowFileShare" class="User" displayName="$(string.AllowFileShare)" explainText="$(string.AllowFileShare_Explain)" presentation="$(presentation.AllowFileShare)" key="Software\Policies\LogMeIn" valueName="AllowFileShare">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="AllowToolkit" class="User" displayName="$(string.AllowToolkit)" explainText="$(string.AllowToolkit_Explain)" presentation="$(presentation.AllowToolkit)" key="Software\Policies\LogMeIn" valueName="AllowToolkit">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="AllowReboot" class="User" displayName="$(string.AllowReboot)" explainText="$(string.AllowReboot_Explain)" presentation="$(presentation.AllowReboot)" key="Software\Policies\LogMeIn" valueName="AllowReboot">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="RemoteControlPol" class="User" displayName="$(string.RemoteControlPol)" explainText="$(string.RemoteControlPol_Explain)" presentation="$(presentation.RemoteControlPol)" key="Software\Policies\LogMeIn">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <elements>
+        <boolean id="AllowRemoteControl" valueName="AllowRemoteControl">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="AllowRemotePrinting" valueName="AllowRemotePrinting">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="AllowClipboardTransfer" valueName="AllowClipboardTransfer">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="FileTransferPol" class="User" displayName="$(string.FileTransferPol)" explainText="$(string.FileTransferPol_Explain)" presentation="$(presentation.FileTransferPol)" key="Software\Policies\LogMeIn">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <elements>
+        <boolean id="AllowFileTransfer" valueName="AllowFileTransfer">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="AllowFileTransferRead" valueName="AllowFileTransferRead">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="AllowFileTransferWrite" valueName="AllowFileTransferWrite">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="AllowInvite" class="User" displayName="$(string.AllowInvite)" explainText="$(string.AllowInvite_Explain)" presentation="$(presentation.AllowInvite)" key="Software\Policies\LogMeIn" valueName="AllowInvite">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI220" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="MachinePolicyPreference" class="Machine" displayName="$(string.MachinePolicyPreference)" explainText="$(string.MachinePolicyPreference_Explain)" presentation="$(presentation.MachinePolicyPreference)" key="Software\Policies\LogMeIn" valueName="MachinePolicyPreference">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="AllowInstall" class="Machine" displayName="$(string.AllowInstall)" explainText="$(string.AllowInstall_Machine_Explain)" presentation="$(presentation.AllowInstall)" key="Software\Policies\LogMeIn" valueName="AllowInstall">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="AllowFileShare_1" class="Machine" displayName="$(string.AllowFileShare)" explainText="$(string.AllowFileShare_Machine_Explain)" presentation="$(presentation.AllowFileShare_1)" key="Software\Policies\LogMeIn" valueName="AllowFileShare">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="AllowToolkit_1" class="Machine" displayName="$(string.AllowToolkit)" explainText="$(string.AllowToolkit_Machine_Explain)" presentation="$(presentation.AllowToolkit_1)" key="Software\Policies\LogMeIn" valueName="AllowToolkit">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="AllowReboot_1" class="Machine" displayName="$(string.AllowReboot)" explainText="$(string.AllowReboot_Machine_Explain)" presentation="$(presentation.AllowReboot_1)" key="Software\Policies\LogMeIn" valueName="AllowReboot">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="RemoteControlPol_1" class="Machine" displayName="$(string.RemoteControlPol)" explainText="$(string.RemoteControlPol_Machine_Explain)" presentation="$(presentation.RemoteControlPol_1)" key="Software\Policies\LogMeIn">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <elements>
+        <boolean id="AllowRemoteControl" valueName="AllowRemoteControl">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="AllowRemotePrinting" valueName="AllowRemotePrinting">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="AllowClipboardTransfer" valueName="AllowClipboardTransfer">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="FileTransferPol_1" class="Machine" displayName="$(string.FileTransferPol)" explainText="$(string.FileTransferPol_Machine_Explain)" presentation="$(presentation.FileTransferPol_1)" key="Software\Policies\LogMeIn">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI120" />
+      <elements>
+        <boolean id="AllowFileTransfer" valueName="AllowFileTransfer">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="AllowFileTransferRead" valueName="AllowFileTransferRead">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="AllowFileTransferWrite" valueName="AllowFileTransferWrite">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="AllowInvite_1" class="Machine" displayName="$(string.AllowInvite)" explainText="$(string.AllowInvite_Explain)" presentation="$(presentation.AllowInvite_1)" key="Software\Policies\LogMeIn" valueName="AllowInvite">
+      <parentCategory ref="LogMeIn" />
+      <supportedOn ref="SUPPORTED_LMI220" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

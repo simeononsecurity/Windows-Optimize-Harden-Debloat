@@ -1,0 +1,231 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="VMwareUEMSyncTool" namespace="VMwareUEM.Policies.SyncTool.Machine.8.7" />
+    <using prefix="VMwareUEM" namespace="VMwareUEM.Policies.Root" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="PlatformSupport" displayName="$(string.PlatformSupport)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="Cat_ImmidioFlexPlusSyncTool" displayName="$(string.Cat_ImmidioFlexPlusSyncTool)" explainText="$(string.Cat_ImmidioFlexPlusSyncTool_Help)">
+      <parentCategory ref="VMwareUEM:Cat_Immidio"/>
+    </category>
+    <category name="Cat_ImmidioFlexPlusSyncToolNetworkDetection" displayName="$(string.Cat_ImmidioFlexPlusSyncToolNetworkDetection)">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="LocalSyncPath" class="Machine" displayName="$(string.LocalSyncPath)" explainText="$(string.LocalSyncPath_Help)" presentation="$(presentation.LocalSyncPath)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <text id="LocalPath" valueName="LocalSyncPath" required="true" expandable="true" />
+      </elements>
+    </policy>
+    <policy name="LocalFileChangeNotifications" class="Machine" displayName="$(string.LocalFileChangeNotifications)" explainText="$(string.LocalFileChangeNotifications_Help)" key="Software\Policies\Immidio\Flex Profiles\Sync" valueName="EnableLocalNotifications">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="SyncIntervals" class="Machine" displayName="$(string.SyncIntervals)" explainText="$(string.SyncIntervals_Help)" presentation="$(presentation.SyncIntervals)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <decimal id="Dec_SyncFlexConfig" valueName="FlexConfigSyncInterval" required="true" minValue="60" maxValue="100000" />
+        <decimal id="Dec_SyncFlexRepository" valueName="FlexRepoSyncInterval" required="true" minValue="60" maxValue="100000" />
+        <decimal id="Dec_SyncProfilearchives" valueName="ProfileArchiveSyncInterval" required="true" minValue="60" maxValue="100000" />
+      </elements>
+    </policy>
+    <policy name="RetryIntervals" class="Machine" displayName="$(string.RetryIntervals)" explainText="$(string.RetryIntervals_Help)" presentation="$(presentation.RetryIntervals)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <decimal id="Dec_RetryFlexConfig" valueName="FlexConfigRetryInterval" required="true" minValue="5" maxValue="100000" />
+        <decimal id="Dec_RetryFlexRepository" valueName="FlexRepoRetryInterval" required="true" minValue="5" maxValue="100000" />
+        <decimal id="Dec_RetryProfilearchives" valueName="ProfileArchiveRetryInterval" required="true" minValue="5" maxValue="100000" />
+      </elements>
+    </policy>
+    <policy name="FlexSyncLogging" class="Machine" displayName="$(string.FlexSyncLogging)" explainText="$(string.FlexSyncLogging_Help)" presentation="$(presentation.FlexSyncLogging)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <boolean id="Chk_SaveLog" valueName="SaveLog">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <enum id="List_Loglevel" valueName="LogLevel" required="true">
+          <item displayName="$(string.Item_LogLevelError)"><value><decimal value="3" /></value></item>
+          <item displayName="$(string.Item_LogLevelWarn)"><value><decimal value="2" /></value></item>
+          <item displayName="$(string.Item_LogLevelInfo)"><value><decimal value="1" /></value></item>
+          <item displayName="$(string.Item_LogLevelDebug)"><value><decimal value="0" /></value></item>
+        </enum>
+        <decimal id="Dec_MaxLogFileSize" valueName="MaximumLogFileSize" />
+        <boolean id="Chk_UploadStatusLog" valueName="WriteStatusLog">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <decimal id="Dec_MaxUploadStatusLogFileSize" valueName="StatusLogMaxSize" />
+        <decimal id="Dec_TruncateStatusLogFileSize" valueName="StatusLogLeaveSize" />
+        <decimal id="Dec_UILogEntries" valueName="LogLines" minValue="50" />
+      </elements>
+    </policy>
+    <policy name="SyncOnlyPolicy" class="Machine" displayName="$(string.SyncOnlyPolicy)" explainText="$(string.SyncOnlyPolicy_Help)" presentation="$(presentation.SyncOnlyPolicy)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <enum id="List_SyncOnlyPolicy" valueName="SyncOnlyPolicy" required="true">
+          <item displayName="$(string.Item_SyncOnlyConfig)"><value><decimal value="1" /></value></item>
+          <item displayName="$(string.Item_SyncOnlyArchive)"><value><decimal value="2" /></value></item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="BackupSync" class="Machine" displayName="$(string.BackupSync)" explainText="$(string.BackupSync_Help)" presentation="$(presentation.BackupSync)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <enum id="List_BackupSync" valueName="SyncBackup" required="true">
+          <item displayName="$(string.Item_SyncAtLogoff)"><value><decimal value="3" /></value></item>
+          <item displayName="$(string.Item_SyncBoth)"><value><decimal value="2" /></value></item>
+          <item displayName="$(string.Item_SyncDuringSession)"><value><decimal value="1" /></value></item>
+        </enum>
+        <boolean id="Chk_BackupSyncOnce" valueName="SyncBackupOnStartOnly">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="SyncFlexEngineLog" class="Machine" displayName="$(string.SyncFlexEngineLog)" explainText="$(string.SyncFlexEngineLog_Help)" key="Software\Policies\Immidio\Flex Profiles\Sync" valueName="SyncFlexEngineLog">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="ConflictResolution" class="Machine" displayName="$(string.ConflictResolution)" explainText="$(string.ConflictResolution_Help)" key="Software\Policies\Immidio\Flex Profiles\Sync" valueName="ConflictResolution">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="HideSyncButton" class="Machine" displayName="$(string.HideSyncButton)" explainText="$(string.HideSyncButton_Help)" key="Software\Policies\Immidio\Flex Profiles\Sync" valueName="HideSyncButton">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="DisableIconSync" class="Machine" displayName="$(string.DisableIconSync)" explainText="$(string.DisableIconSync_Help)" key="Software\Policies\Immidio\Flex Profiles\Sync" valueName="DisableIconSync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="TriggerRefresh" class="Machine" displayName="$(string.TriggerRefresh)" explainText="$(string.TriggerRefresh_Help)" presentation="$(presentation.P_TriggerRefresh)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncTool" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <boolean id="Chk_DirectFlex" valueName="DirectFlexRefreshAfterSync"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_Admx" valueName="UEMRefreshAdmXAfterSync"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_ApplicationBlocking" valueName="UEMRefreshApplicationBlockingAfterSync"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_DriveMapping" valueName="UEMRefreshDriveMappingAfterSync"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_EnvVar" valueName="UEMRefreshEnvVarAfterSync"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_Fta" valueName="UEMRefreshFtaAfterSync"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_Horizon" valueName="UEMRefreshHorizonAfterSync"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_PrinterMapping" valueName="UEMRefreshPrinterMappingAfterSync"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_PrivilegeElevation" valueName="UEMRefreshPrivilegeElevationAfterSync"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_Shortcut" valueName="UEMRefreshShortcutAfterSync"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+        <boolean id="Chk_TriggeredTask" valueName="UEMRefreshTriggeredTaskAfterSync"><trueValue><decimal value="1" /></trueValue><falseValue><delete/></falseValue></boolean>
+      </elements>
+    </policy>
+    <policy name="PreferIPv6Addresses" class="Machine" displayName="$(string.PreferIPv6Addresses)" explainText="$(string.PreferIPv6Addresses_Help)" key="Software\Policies\Immidio\Flex Profiles\Sync" valueName="PreferIPv6Addresses">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncToolNetworkDetection" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="ResolveAsDfs" class="Machine" displayName="$(string.ResolveAsDfs)" explainText="$(string.ResolveAsDfs_Help)" key="Software\Policies\Immidio\Flex Profiles\Sync" valueName="ResolveAsDfs">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncToolNetworkDetection" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="BandwidthPing" class="Machine" displayName="$(string.BandwidthPing)" explainText="$(string.BandwidthPing_Help)" presentation="$(presentation.BandwidthPing)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncToolNetworkDetection" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <decimal id="Dec_PingSize" valueName="PingSize" required="true" minValue="512" maxValue="16384" />
+        <decimal id="Dec_PingCount" valueName="PingCount" required="true" minValue="3" maxValue="15" />
+        <decimal id="Dec_PingTimeout" valueName="PingTimeout" required="true" minValue="1" maxValue="60" />
+        <decimal id="Dec_PingCache" valueName="PingCache" required="true" minValue="5" maxValue="300" />
+      </elements>
+    </policy>
+    <policy name="MinimumBandwidth" class="Machine" displayName="$(string.MinimumBandwidth)" explainText="$(string.MinimumBandwidth_Help)" presentation="$(presentation.MinimumBandwidth)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncToolNetworkDetection" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <decimal id="Dec_MinimumBandwidth" valueName="MinimumBandwidth" required="true" minValue="32" maxValue="16384" />
+      </elements>
+    </policy>
+    <policy name="MaximumLatency" class="Machine" displayName="$(string.MaximumLatency)" explainText="$(string.MaximumLatency_Help)" presentation="$(presentation.MaximumLatency)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncToolNetworkDetection" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <decimal id="Dec_MaximumLatency" valueName="MaximumLatency" required="true" minValue="1" maxValue="16384" />
+      </elements>
+    </policy>
+    <policy name="ForceLogonSync" class="Machine" displayName="$(string.ForceLogonSync)" explainText="$(string.ForceLogonSync_Help)" presentation="$(presentation.ForceLogonSync)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncToolNetworkDetection" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <boolean id="Chk_ForceSyncAtGpeRun" valueName="ForceSyncAtGpeRun">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_ForceSyncAtGpeRunIni" valueName="ForceSyncAtGpeRunIni">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_ForceSyncAtGpeRunRepo" valueName="ForceSyncAtGpeRunRepo">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_ForceSyncAtGpeRunZip" valueName="ForceSyncAtGpeRunZip">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="ForceResidentSync" class="Machine" displayName="$(string.ForceResidentSync)" explainText="$(string.ForceResidentSync_Help)" presentation="$(presentation.ForceResidentSync)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncToolNetworkDetection" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <boolean id="Chk_ForceSyncDuringSession" valueName="ForceSyncDuringSession">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_ForceSyncDuringSessionIni" valueName="ForceSyncDuringSessionIni">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_ForceSyncDuringSessionRepo" valueName="ForceSyncDuringSessionRepo">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_ForceSyncDuringSessionZip" valueName="ForceSyncDuringSessionZip">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="ForceLogoffSync" class="Machine" displayName="$(string.ForceLogoffSync)" explainText="$(string.ForceLogoffSync_Help)" presentation="$(presentation.ForceLogoffSync)" key="Software\Policies\Immidio\Flex Profiles\Sync">
+      <parentCategory ref="Cat_ImmidioFlexPlusSyncToolNetworkDetection" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <boolean id="Chk_ForceSyncAtLogOff" valueName="ForceSyncAtLogOff">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_ForceSyncAtLogoffIni" valueName="ForceSyncAtLogoffIni">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_ForceSyncAtLogoffRepo" valueName="ForceSyncAtLogoffRepo">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_ForceSyncAtLogoffZip" valueName="ForceSyncAtLogoffZip">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

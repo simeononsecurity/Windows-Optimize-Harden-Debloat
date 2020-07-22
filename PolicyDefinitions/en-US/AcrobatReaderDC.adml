@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xsi:schemaLocation="" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+
+	<displayName >Adobe Acrobat Reader DC ADMX File</displayName>
+	<description >ADMX File for Adobe Acrobat Reader DC</description>
+	<resources >
+		<stringTable ><!--Storage for String Definitions-->
+
+			<string id="String_SupportedOn_Undefined_2" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_4" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_6" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_8" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_10" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_12" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_14" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_16" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_18" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_20" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_22" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_24" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_26" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_28" >Undefined</string>
+			<string id="String_Cat_Adobe_Reader_DC_32" >Adobe Acrobat Reader DC</string>
+			<string id="String_Cat_Preferences_34" >Preferences</string>
+			<string id="String_Cat_General_36" >General</string>
+			<string id="String_Cat_Security_38" >Security</string>
+			<string id="String_Cat_DigitalSignature_40" >DigitalSignature</string>
+			<string id="String_Cat_TrustManager_42" >TrustManager</string>
+			<string id="String_Cat_Startup_44" >Startup</string>
+			<string id="String_Policy_Disable_PDF_handler_46" >Disable PDF handler switching</string>
+			<string id="String_Explain_Disables_the_ability_47" >Disables the ability to change the specified default handler (PDF viewer). 
+
+The UI configuration does not set any key in HKCU. Instead, changing the setting via the UI invokes the installer which sets the key in HKLM. The default application behavior varies depending on what is installed. A value of 1 disables the user's ability to change the default handler. Possible values include:
+0 (or null): Allow the user to change the default viewer. 
+1: Don't allow the user to change the default viewer. 
+
+GUI mapping - Edit &gt; Preferences &gt; General &gt; Select Default PDF Handler</string>
+			<string id="String_Policy_Disable_automatic_49" >Disable automatic updates</string>
+			<string id="String_Explain_Disables_automatic_50" >Disables automatic updates and removes associated user interface items. 
+			
+This setting interacts with bDeclined.
+0: Disables and locks the Updater. Overrides any bDeclined value.
+1: No effect. 
+
+Setting bUpdater to 0 disables the user interface items Preferences > Updater and Help > Check for updates.</string>
+			<string id="String_Policy_Turn_off_user_participati_52" >Turn off user participation in the feedback program</string>
+			<string id="String_Explain_Turns_off_and_locks_53" >Turns off and locks user participation in the feedback program and disables the UI that controls the feature. 
+
+Possible values include: 
+0: Disable and lock feedback program participation. 
+1: Enable feedback program participation. 
+ 
+
+</string>
+			<string id="String_Policy_Don_t_show_messages_55" >Don't show messages while viewing a document</string>
+			<string id="String_Explain_Specifies_whether_56" >Specifies whether to show messages from Adobe when a document opens. 
+
+This preference also controls messages in the right-hand pane for DC products. Possible values include: 
+0: Don't show messages from Adobe when a document opens. 
+1: Show messages from Adobe when a document opens. 
+
+GUI mapping: Preferences > General > Don't show messages while viewing a document
+			</string>
+			<string id="String_Policy_Show_messages_when_58" >Show messages when I launch Reader</string>
+			<string id="String_Explain_Specifies_whether_59" >Specifies whether to show messages from Adobe when the product launches.  
+
+Possible values include: 
+0: Don't show messages from Adobe when the product launches. 
+1: Show messages from Adobe when the product launches. 
+ 
+GUI mapping: Preferences &gt; General &gt; Show me messages when I launch Reader. 
+</string>
+			<string id="String_Policy_Display_PDFs_in_61" >Display PDFs in browser</string>
+			<string id="String_Explain_Controls_whether_62" >Controls whether PDF files can be displayed in a browser.  
+
+Details: If false, PDF files can only be displayed in the standalone application. Possible values include: 
+0: Clicking a link to a web-based PDF opens the PDF in the standalone application. 
+1: Clicking a link to a web-based PDF opens the PDF in the browser. 
+
+Behavior differences between versions: Possible values include: 
+
+9.x: The application checks all the possible bBrowserIntegration preferences for all versions and products, including Acrobat and Reader 7, 8, and 9. If any are 0, the application uses 0. 
+
+10.0 and later: The application checks the key corresponding to the &quot;blessed&quot; application that is named in the hard-coded key name at HKCR\Software\Adobe\Acrobat\Exe. For example, if the value is &quot;C:\Program Files\Acrobat 9\Adobe Acrobat.exe, then Acrobat 10 will only check HKCU\Software\Adobe\Adobe Acrobat\9.0\Originals\bBrowserIntegration 
+ 
+GUI mapping: Preferences &gt; Internet &gt; Display PDFs in browser 
+</string>
+			<string id="String_Policy_Auto_Complete_64" >Auto Complete</string>
+			<string id="String_Explain_Locks_the_auto_fill_65" >Locks the auto-fill functionality on or off and disables the corresponding user interface item.  
+
+Possible values include: 
+0: Lock auto-fill. 
+1: Don't lock auto-fill. 
+ 
+GUI mapping: Preferences &gt; Forms &gt; Auto Complete drop down list. 
+</string>
+			<string id="String_Policy_Enable_Protected_67" >Enable Protected Mode at startup</string>
+			<string id="String_Explain_Summary_Enables_68" >Enables Protected Mode and thereby sandboxes Reader processes. 
+			
+Protected Mode is one of the application's most advanced security features and should be enabled to protect user systems and data. Possible values include:
+0: Don't enable protected mode.
+1: Do enable protected mode.
+
+Edit > Preferences > General > Enable Protected Mode at startup
+			</string>
+			<string id="String_Policy_Accept_EULA_70" >Accept EULA</string>
+			<string id="String_Explain_For_Reader_indicates_71" >For Reader, indicates whether the end user license agreement has been accepted by the end user (Reader only).  
+Acrobat uses the key EULAAcceptedForBrowser. If the EULA is not accepted, the application cannot be used and the Updater is also prevented from running. Possible values include: 
+0: Show the EULA because it has not been accepted. 
+1: Don't show the EULA because it has been accepted. 
+
+GUI mapping: The EULA acceptance UI that appears on application launch if the EULA value is 0
+
+</string>
+			<string id="String_Policy_Display_splash_73" >Display splash screen at launch</string>
+			<string id="String_Explain_Summary_By_default_74" >Specifies whether or not to display the startup splash screen at every launch.
+			
+Possible values include: 
+0: Don't display the startup splash screen. 
+1: Display the startup splash screen at every launch.
+
+GUI mapping: Splash screen
+</string>
+			<string id="String_Policy_Enable_Acrobat_76" >Enable Acrobat JavaScript</string>
+			<string id="String_Explain_Toggles_JavaScript_77" >Toggles JavaScript execution on and off globally; when off, the PDF cannot execute JavaScript.
+			
+When the user's ability to create privileged locations is not disabled and locked, end users can bypass disabled JS by choosing Trust once or Trust Always via the Options button on the Yellow Message Bar. Admins can disable and lock JS execution by setting bDisableJavaScript to 0 in HKLM.
+
+GUI mapping: Preferences > JavaScript > JavaScript panel > Enable Acrobat JavaScript
+			</string>
+			<string id="String_Policy_Ask_before_installing_79" >Ask before installing checkbox</string>
+			<string id="String_Explain_Specifies_whether_80" >Specifies whether trust anchors should be imported silently or Acrobat should ask permission from the user.
+			
+0: Enable and Ask before installing.
+1: Enable and Install silently.
+
+GUI mapping: Preferences > Security > Security Settings panel > Ask before installing checkbox</string>
+			<string id="String_Policy_Load_security_settings_82" >Load security settings from a server</string>
+			<string id="String_Explain_Specifies_whether_83" >Specifies whether or not trust anchors should be periodically downloaded from Adobe.
+			
+Possible values include:
+0: Don't load settings from an URL.
+1: Do load settings from an URL.
+
+Preferences > Security > Security Settings panel > Load security settings from a server
+			</string>
+			<string id="String_Policy_Automatically_trust_85" >Automatically trust sites for Win OS security zones</string>
+			<string id="String_Explain_Elevates_the_trusted_86" >Elevates locations that Internet Explorer trusts to privileged locations so that they may bypass security restrictions.
+			
+Prior to 10.1.1 and 9.4.7, trust was granted to Trusted Sites. With 10.1.2 and 9.5 and later, trust also includes Local Intranet zones. This setting essentially makes IE trust operate as if they were privileged locations. The feature can be disabled with bDisableOSTrustedSites.
+
+0: Don't automatically trust Windows OS zones.
+1: Do automatically trust Windows OS zones.
+
+GUI mapping: Edit > Preferences > Security (Enhanced) > Automatically trust sites for my Win OS security zones</string>
+		</stringTable>
+	</resources>
+</policyDefinitionResources>

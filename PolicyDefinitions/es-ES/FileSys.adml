@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="Filesystem">Sistema de archivos</string>
+      <string id="NTFS">NTFS</string>
+      <string id="SymlinkEvalExplain">Los vínculos simbólicos pueden introducir vulnerabilidades en determinadas aplicaciones. Para mitigar este problema, puede habilitar o deshabilitar de forma selectiva la evaluación de estos tipos de vínculos simbólicos:
+
+Vínculo local a destino local
+Vínculo local a destino remoto
+Vínculo remoto a destino remoto
+Vínculo remoto a destino local
+
+Para obtener más información, consulte la Ayuda de Windows
+
+NOTA: si esta directiva está deshabilitada o no se ha configurado, los administradores locales pueden seleccionar los tipos de vínculos simbólicos que se evaluarán.</string>
+      <string id="SymlinkEvaluation">Permitir de forma selectiva la evaluación de un vínculo simbólico</string>
+      <string id="DisableCompression">No permitir la compresión en todos los volúmenes NTFS</string>
+      <string id="DisableCompressionText">La compresión puede agregar sobrecarga de procesamiento a las operaciones del sistema de archivos.  Si habilita esta configuración, impedirá la creación de archivos comprimidos y el acceso a los mismos.  </string>
+      <string id="DisableEncryption">No permitir el cifrado en todos los volúmenes NTFS</string>
+      <string id="DisableEncryptionText">El cifrado puede agregar sobrecarga de procesamiento a las operaciones del sistema de archivos.  Si habilita esta configuración, impedirá la creación de archivos cifrados y el acceso a los mismos.</string>
+      <string id="EnablePagefileEncryption">Habilitar el cifrado del archivo de paginación NTFS</string>
+      <string id="EnablePagefileEncryptionText">El cifrado del archivo de paginación impide que usuarios malintencionados lean datos que se han paginado en el disco, pero también agrega sobrecarga de procesamiento a las operaciones del sistema de archivos.  Si habilita esta configuración, los archivos de paginación se cifrarán.</string>
+      <string id="LongPathsEnabled">Habilitar rutas de acceso Win32 largas</string>
+      <string id="LongPathsEnabledText">Habilitar rutas de acceso Win32 largas permitirá que las aplicaciones win32 manifestadas y las aplicaciones de la Tienda Windows accedan a rutas de acceso más allá del límite normal de 260 caracteres por nodo en los sistemas de archivos que lo admitan. Si habilita esta configuración, hará que se pueda acceder a las rutas de acceso largas dentro del proceso.</string>
+      <string id="ShortNameCreationSettings">Opciones de creación de nombre corto</string>
+      <string id="ShortNameCreationSettingsText">Estas configuraciones proporcionan control sobre si se generan nombres cortos al crear archivos.  Algunas aplicaciones requieren nombres cortos por motivos de compatibilidad, pero los nombres cortos tienen un impacto negativo en el rendimiento del sistema.
+
+Si habilita los nombres cortos en todos los volúmenes, siempre se generarán nombres cortos.  Si los deshabilita en todos los volúmenes, no se generarán nunca.  Si establece que se pueda configurar la creación de nombres cortos según el volumen, una marca en el disco determinará si se crean nombres cortos en un volumen dado.  Si deshabilita la creación de nombres cortos en todos los volúmenes de datos, solo se generarán nombres cortos para archivos creados en el volumen del sistema.</string>
+      <string id="ShortNameCreationSetting_0">Habilitar en todos los volúmenes</string>
+      <string id="ShortNameCreationSetting_1">Deshabilitar en todos los volúmenes</string>
+      <string id="ShortNameCreationSetting_2">Habilitar o deshabilitar por volumen</string>
+      <string id="ShortNameCreationSetting_3">Deshabilitar en todos los volúmenes de datos</string>
+      <string id="DisableDeleteNotification">Deshabilitar las notificaciones de eliminación en todos los volúmenes</string>
+      <string id="DisableDeleteNotificationText">La notificación de eliminación es una característica que notifica al dispositivo de almacenamiento subyacente que hay clústeres liberados debido a una operación de eliminación de archivo.
+
+Un valor de 0, el predeterminado, habilitará las notificaciones de eliminación en todos los volúmenes. 
+Un valor de 1 deshabilitará las notificaciones de eliminación en todos los volúmenes.</string>
+      <string id="TxfDeprecatedFunctionality">Habilitar o deshabilitar las características desusadas de TXF</string>
+      <string id="TxfDeprecatedFunctionalityText">Las características desusadas de TXF incluían puntos de retorno, RM secundaria, miniversión y puestas al día. Debe habilitar estas características si desea usar las API.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SymlinkEvaluation">
+        <checkBox refId="SymLinkClassL2L">Vínculo local a destino local</checkBox>
+        <checkBox refId="SymLinkClassL2R">Vínculo local a destino remoto</checkBox>
+        <checkBox refId="SymLinkClassR2R">Vínculo remoto a destino remoto</checkBox>
+        <checkBox refId="SymLinkClassR2L">Vínculo remoto a destino local</checkBox>
+      </presentation>
+      <presentation id="CompressionOptions"/>
+      <presentation id="EncryptionOptions"/>
+      <presentation id="LongPathsEnabledOptions"/>
+      <presentation id="PagefileEncryptionOptions"/>
+      <presentation id="ShortNameCreationSettings">
+          <dropdownList refId="ShortNameCreationSetting_Levels" noSort="true" defaultItem="2">Opciones de creación de nombre corto</dropdownList>
+      </presentation>
+      <presentation id="DeleteNotificationOptions"/>
+      <presentation id="TxfDeprecatedFunctionalityOptions"/>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

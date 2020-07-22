@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="print_redir">VMware Integrated Printing</string>
+      <string id="SUPPORTED_NotSpecified">Sin especificar</string>
+      <string id="persistence_setting">Deshabilitar la persistencia de la propiedad de impresora</string>
+      <string id="persistence_setting_detail">Este ajuste determina si se conservará o no la configuración de la propiedad de impresora.
+
+Si se habilita, no se conservará el cambio de propiedad de la impresora en el lado del agente después de que el usuario se desconecte o cierre la sesión, por lo que el cambio no será persistente.
+Por ejemplo, si un usuario cambia el tamaño de papel de la impresora de &quot;Carta&quot; a &quot;A4&quot; durante una sesión, la próxima vez que se conecte, el cambio a &quot;A4&quot; no se conservará y el tamaño del papel volverá a ser &quot;Carta&quot;. 
+
+Si no se configura o se deshabilita, se conservará el cambio de propiedad de la impresora en el lado del agente después de que el usuario se desconecte o cierre la sesión, por lo que el cambio será persistente.
+Por ejemplo, si un usuario cambia el tamaño de papel de la impresora de &quot;Carta&quot; a &quot;A4&quot; durante una sesión, la próxima vez que se conecte, el cambio se conservará y el tamaño del papel seguirá siendo &quot;Carta&quot;.
+
+Este GPO no está configurado de forma predeterminada.
+</string>
+      <string id="nondesktopclient_setting">Deshabilitar el redireccionamiento de impresoras para cliente que no sea escritorio</string>
+      <string id="nondesktopclient_setting_detail">Este ajuste determina si se admite VMware Integrated Printing para el endpoints de cliente que no son escritorio.
+
+Si está habilitada, no se admitirá VMware Integrated Printing para endpoints de cliente que no son escritorio.
+Si no está configurada o está deshabilitada, se admitirá VMware Integrated Printing para endpoints de cliente que no son escritorio.
+
+Este ajuste no está configurado de forma predeterminada.
+</string>
+      <string id="lbp_setting">Deshabilitar LBP</string>
+      <string id="lbp_setting_detail">Este ajuste de directiva le permite administrar si desea usar la impresión basada en ubicación (LBP).
+
+Si habilita este ajuste de directiva, no se puede usar la impresión basada en ubicación.
+
+Si deshabilita o no configura este ajuste de directiva, se puede usar la impresión basada en ubicación.</string>
+      <string id="printer_creation_setting">Selección del controlador de impresora</string>
+      <string id="printer_creation_setting_detail">Selección del controlador de impresora.
+
+Opciones para crear impresoras:
+Opciones sobre el controlador de impresora que se usa, el controlador de impresión universal (UPD) o el controlador de impresión nativo (NPD).
+
+Si elige la primera opción, &quot;Usar siempre NPD&quot;, el controlador de impresión nativo se usará siempre para la impresora redireccionada.
+
+Si elige la segunda opción, &quot;Usar siempre UPD&quot;, el controlador de impresión universal se usará siempre para la impresora redireccionada.
+
+Si elige la tercera opción, &quot;Usar primero NPD, luego UPD&quot;, el controlador de impresión nativo se usará primero. Si este no existe, se usará el controlador de impresión universal.
+
+Si elige la cuarta opción, &quot;Usar primero UPD, luego NPD&quot;, el controlador de impresión universal se usará primero. Si este no existe, se usará el controlador de impresión nativo.
+
+</string>
+      <string id="printer_creation_setting_npd">Usar siempre NPD</string>
+      <string id="printer_creation_setting_upd">Usar siempre UPD</string>
+      <string id="printer_creation_setting_npd_upd">Usar primero NPD, luego UPD</string>
+      <string id="printer_creation_setting_upd_npd">Usar primero UPD, luego NPD</string>
+      <string id="printer_filter">Especificar un filtro en el redireccionamiento de impresoras cliente</string>
+      <string id="printer_filter_desc">Una regla que filtra todas las impresoras cliente que coincidan en el redireccionamiento de impresora. Los atributos admitidos son: nombres de impresoras, nombres de controladores de impresoras y nombres de proveedores de controladores. Los operadores admitidos son: AND, OR y NOT. Como patrones de búsqueda, se admiten expresiones regulares que usen ECMAScript (una versión de JavaScript).
+De manera predeterminada, la regla está vacía, lo que implica que las impresoras cliente se redireccionarán.
+
+Ejemplo:
+(DriverName= &quot;DrName1&quot; OR VendorName=&quot;VeName1&quot;) AND NOT PrinterName= &quot;PrNa.?e&quot;</string>
+      <string id="print_preview_setting">Configuración de vista previa de impresión</string>
+      <string id="print_preview_setting_detail">Existen dos ajustes para la vista previa de impresión.
+
+El primer ajuste determina si el destino de impresión está habilitado o no. De forma predeterminada no está configurada.
+
+Cuando este ajuste está activado, el usuario final no puede elegir el destino de impresión.
+
+Cuando este ajuste está desactivado o no está configurado, el usuario final puede elegir el destino de impresión, imprimir la vista previa o imprimir directamente.
+
+
+El segundo ajuste determina la opción predeterminada de destino de impresión. No está configurada de forma predeterminada, lo que significa que la opción es imprimir directamente.
+Cuando la opción &quot;imprimir directamente&quot; está seleccionada, la opción de impresión predeterminada en la interfaz de usuario de impresión es &quot;imprimir directamente&quot;.
+
+Cuando se selecciona la opción &quot;imprimir vista previa&quot;, la opción predeterminada de impresión de la interfaz de usuario de impresión es &quot;imprimir vista previa&quot;.
+</string>
+
+      <string id="print_directly">Imprimir directamente</string>
+      <string id="print_to_preview">Imprimir vista previa</string>
+      <string id="printer_name_schema">Nombre de la impresora para los agentes RDSH</string>
+      <string id="printer_name_schema_desc">Este ajuste determina la convención de nomenclatura de la impresora cuando se utiliza VMware Integrated Printing en RDSH.
+Si esta directiva está habilitada, &quot;%P&quot; debería iniciar un esquema de nombre de impresora válido. Solo se admiten los siguientes sufijos.
+%S: identificador de sesión
+%C: nombre de la máquina cliente
+
+Si esta directiva no está configurada o está deshabilitada, las impresoras virtuales de RDSH utilizarán el identificador de sesión como sufijo.
+Ejemplo: PDFCreator (v2). Aquí, PDFCreator es el nombre de la impresora cliente y 2 es el identificador de la sesión.
+Si esta directiva está habilitada, el usuario podrá cambiar el esquema de nombre de la impresora en RDSH a &quot;%P (%C)&quot;, tras lo que el nombre de la máquina cliente se utilizará como sufijo del nombre de la impresora.
+Ejemplo: PDFCreator (client-pc). Aquí, PDFCreator sería el nombre de la impresora cliente y client-pc el nombre de la máquina cliente.
+
+Este ajuste no está configurado de forma predeterminada.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="PrinterCreationSetting">
+          <dropdownList refId="printer_creation_setting_list" defaultItem="2" noSort="true">Opciones para crear impresoras:</dropdownList>
+      </presentation>
+      <presentation id="PrintPreviewSetting">
+        <checkBox refId="disable_print_choice">Deshabilitar la opción de impresión</checkBox>
+        <dropdownList refId="default_choice_list" defaultItem="0" noSort="true">Opciones predeterminadas de destino de impresión:</dropdownList>
+      </presentation>
+      <presentation id="printer_filter">
+        <textBox refId="printer_filter_textbox">
+          <label>Filtro de impresora</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+       <presentation id="printer_name_schema">
+          <textBox refId="printer_name_schema_textbox">
+             <label>Esquema de nombre de la impresora</label>
+             <defaultValue>%P (v%S)</defaultValue>
+          </textBox>
+       </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

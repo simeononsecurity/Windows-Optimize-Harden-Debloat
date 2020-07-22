@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+	<policyNamespaces >
+		<target prefix="vdm_common" namespace="VMware.Policies.vdm_common" />
+	</policyNamespaces>
+
+	<supersededAdm fileName="vdm_common.adm" />
+
+	<resources minRequiredRevision="1.0" fallbackCulture="en-us" />
+	<supportedOn >
+		<definitions >
+			<definition name="SupportedOn" displayName="$(string.Undefined)" />
+
+		</definitions>
+	</supportedOn>
+
+	<categories ><!--Storage for Category Definitions-->
+
+		<category name="View_Common_Config" displayName="$(string.View_Common_Config)" key="Software\Policies\VMware, Inc.\VMware VDM" />
+
+		<category name="Log_Config" displayName="$(string.Log_Config)" key="Software\Policies\VMware, Inc.\VMware VDM\Log" >
+			<parentCategory ref="View_Common_Config" />
+		</category>
+
+		<category name="Perf_alarms" displayName="$(string.Perf_alarms)" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" >
+			<parentCategory ref="View_Common_Config" />
+		</category>
+
+		<category name="Security_Config" displayName="$(string.Security_Config)" key="Software\Policies\VMware, Inc.\VMware VDM\Security" >
+			<parentCategory ref="View_Common_Config" />
+
+		</category>
+	</categories>
+
+	<policies ><!--Storage for Policy Definitions-->
+
+		<policy name="Enable_extended_logging" class="Machine" displayName="$(string.Enable_extended_logging)" explainText="$(string.Enable_extended_logging_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM" valueName="traceEnabled" >
+				<parentCategory ref="View_Common_Config" />
+				<supportedOn ref="SupportedOn" />
+				<enabledValue >
+					<string >true</string>
+				</enabledValue>
+				<disabledValue >
+					<string >false</string>
+				</disabledValue>
+
+		</policy>
+
+		<policy name="Log_event_disk_threshhold" class="Machine" displayName="$(string.Log_event_disk_threshhold)" explainText="$(string.Log_event_disk_threshhold_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM" presentation="$(presentation.Log_event_disk_threshhold)" >
+				<parentCategory ref="View_Common_Config" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<decimal id="Log_event_disk_threshhold_DecimalBox_1" key="Software\Policies\VMware, Inc.\VMware VDM" valueName="DiskThresholdForLogAndEventsMB" required="true" maxValue="1024" minValue="1" />
+				</elements>
+
+		</policy>
+
+		<policy name="Override_the_default_Windows_Event_Gen" class="Machine" displayName="$(string.Override_the_default_Windows_Event_Gen)" explainText="$(string.Override_the_default_Windows_Event_Gen_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM" presentation="$(presentation.Override_the_default_Windows_Event_Gen)" >
+				<parentCategory ref="View_Common_Config" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<decimal id="Override_the_default_Windows_Event_Gen_DecimalBox" key="Software\Policies\VMware, Inc.\VMware VDM" valueName="eventOverride" required="true" maxValue="2" minValue="0" />
+				</elements>
+
+		</policy>
+
+		<policy name="Production_Logs_Duration" class="Machine" displayName="$(string.Production_Logs_Duration)" explainText="$(string.Production_Logs_Duration_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Log" presentation="$(presentation.Production_Logs_Duration)" >
+				<parentCategory ref="Log_Config" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<decimal id="Production_Logs_Duration_DecimalBox" key="Software\Policies\VMware, Inc.\VMware VDM\Log" valueName="MaxDaysKept" required="true" maxValue="365" minValue="1" />
+				</elements>
+
+		</policy>
+
+		<policy name="Max_Debug_logs" class="Machine" displayName="$(string.Max_Debug_logs)" explainText="$(string.Max_Debug_logs_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Log" presentation="$(presentation.Max_Debug_logs)" >
+				<parentCategory ref="Log_Config" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<decimal id="Max_Debug_logs_DecimalBox" key="Software\Policies\VMware, Inc.\VMware VDM\Log" valueName="MaxDebugLogs" required="true" maxValue="999" minValue="2" />
+				</elements>
+
+		</policy>
+
+		<policy name="Max_Debug_logs_size" class="Machine" displayName="$(string.Max_Debug_logs_size)" explainText="$(string.Max_Debug_logs_size_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Log" presentation="$(presentation.Max_Debug_logs_size)" >
+				<parentCategory ref="Log_Config" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<decimal id="Max_Debug_logs_size_DecimalBox" key="Software\Policies\VMware, Inc.\VMware VDM\Log" valueName="MaxDebugLogSizeMB" required="true" maxValue="1024" minValue="1" />
+				</elements>
+
+		</policy>
+
+		<policy name="Log_Dir" class="Machine" displayName="$(string.Log_Dir)" explainText="$(string.Log_Dir_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Log" presentation="$(presentation.Log_Dir)" >
+				<parentCategory ref="Log_Config" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<text id="Log_Dir_TextBox" key="Software\Policies\VMware, Inc.\VMware VDM\Log" valueName="LogFileDirectory" />
+				</elements>
+
+		</policy>
+
+		<policy name="Send_logs_to_Syslog_Svr" class="Machine" displayName="$(string.Send_logs_to_Syslog_Svr)" explainText="$(string.Send_logs_to_Syslog_Svr_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Log" presentation="$(presentation.Send_logs_to_Syslog_Svr)" >
+				<parentCategory ref="Log_Config" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<text id="Send_logs_to_Syslog_Svr_TextBox" key="Software\Policies\VMware, Inc.\VMware VDM\Log" valueName="SyslogSendSpec" />
+				</elements>
+
+		</policy>
+
+		<policy name="CPU_Mem_Sampling_Interval" class="Machine" displayName="$(string.CPU_Mem_Sampling_Interval)" explainText="$(string.CPU_Mem_Sampling_Interval_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" presentation="$(presentation.CPU_Mem_Sampling_Interval)" >
+				<parentCategory ref="Perf_alarms" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<decimal id="CPU_Mem_Sampling_Interval_DecimalBox" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" valueName="SamplingIntervalSeconds" required="true" />
+				</elements>
+
+		</policy>
+
+		<policy name="Overall_CPU_usage" class="Machine" displayName="$(string.Overall_CPU_usage)" explainText="$(string.Overall_CPU_usage_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" presentation="$(presentation.Overall_CPU_usage)" >
+				<parentCategory ref="Perf_alarms" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<decimal id="Overall_CPU_usage_DecimalBox" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" valueName="OverallCpuPercentage" required="true" maxValue="100" minValue="0" />
+				</elements>
+
+		</policy>
+
+		<policy name="Overall_memory_usage" class="Machine" displayName="$(string.Overall_memory_usage)" explainText="$(string.Overall_memory_usage_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" presentation="$(presentation.Overall_memory_usage)" >
+				<parentCategory ref="Perf_alarms" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<decimal id="Overall_memory_usage_DecimalBox" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" valueName="OverallMemoryPercentage" required="true" maxValue="100" minValue="0" />
+				</elements>
+
+		</policy>
+
+		<policy name="Process_CPU_usage" class="Machine" displayName="$(string.Process_CPU_usage)" explainText="$(string.Process_CPU_usage_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" presentation="$(presentation.Process_CPU_usage)" >
+				<parentCategory ref="Perf_alarms" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<decimal id="Process_CPU_usage_DecimalBox" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" valueName="ProcessCpuPercentage" required="true" maxValue="100" minValue="0" />
+				</elements>
+
+		</policy>
+
+		<policy name="Process_memory_usage" class="Machine" displayName="$(string.Process_memory_usage)" explainText="$(string.Process_memory_usage_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" presentation="$(presentation.Process_memory_usage)" >
+				<parentCategory ref="Perf_alarms" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<decimal id="Process_memory_usage_DecimalBox" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" valueName="ProcessMemoryPercentage" required="true" maxValue="100" minValue="0" />
+				</elements>
+
+		</policy>
+
+		<policy name="Processes_to_check" class="Machine" displayName="$(string.Processes_to_check)" explainText="$(string.Processes_to_check_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" presentation="$(presentation.Processes_to_check)" >
+				<parentCategory ref="Perf_alarms" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<text id="Processes_to_check_TextBox" key="Software\Policies\VMware, Inc.\VMware VDM\Performance Alarms" valueName="ProcessNameList" />
+				</elements>
+
+		</policy>
+
+		<policy name="Type_of_certificate_revocation" class="Machine" displayName="$(string.Type_of_certificate_revocation)" explainText="$(string.Type_of_certificate_revocation_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Security" presentation="$(presentation.Type_of_certificate_revocation)" >
+				<parentCategory ref="Security_Config" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<enum id="Type_of_certificate_revocation_DropDown" valueName="CertificateRevocationCheckType" key="Software\Policies\VMware, Inc.\VMware VDM\Security" required="true" >
+						<item displayName="$(string.None)" >
+							<value >
+								<string >1</string>
+							</value>
+						</item>
+						<item displayName="$(string.End_Cert_Only)" >
+							<value >
+								<string >2</string>
+							</value>
+						</item>
+						<item displayName="$(string.Whole_Chain)" >
+							<value >
+								<string >3</string>
+							</value>
+						</item>
+						<item displayName="$(string.Whole_Chain_But_Root)" >
+							<value >
+								<string >4</string>
+							</value>
+						</item>
+					</enum>
+				</elements>
+
+		</policy>
+
+		<policy name="Only_use_cached_revocation_URL" class="Machine" displayName="$(string.Only_use_cached_revocation_URL)" explainText="$(string.Only_use_cached_revocation_URL_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Security" valueName="CertificateRevocationCheckCacheOnly" >
+				<parentCategory ref="Security_Config" />
+				<supportedOn ref="SupportedOn" />
+				<enabledValue >
+					<string >true</string>
+				</enabledValue>
+				<disabledValue >
+					<string >false</string>
+				</disabledValue>
+
+		</policy>
+
+		<policy name="Revocation_URL_check_timeout" class="Machine" displayName="$(string.Revocation_URL_check_timeout)" explainText="$(string.Revocation_URL_check_timeout_Desc)" key="Software\Policies\VMware, Inc.\VMware VDM\Security" presentation="$(presentation.Revocation_URL_check_timeout)" >
+				<parentCategory ref="Security_Config" />
+				<supportedOn ref="SupportedOn" />
+				<elements >
+					<decimal id="Revocation_URL_check_timeout_DecimalBox" key="Software\Policies\VMware, Inc.\VMware VDM\Security" valueName="CertificateRevocationCheckTimeout" minValue="0" />
+				</elements>
+
+		</policy>
+	</policies>
+</policyDefinitions>

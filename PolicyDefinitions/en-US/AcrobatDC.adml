@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xsi:schemaLocation="" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+
+	<displayName >Adobe Acrobat DC ADMX File</displayName>
+	<description >ADMX File for Adobe Acrobat DC</description>
+	<resources >
+		<stringTable ><!--Storage for String Definitions-->
+
+			<string id="String_SupportedOn_Undefined_2" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_4" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_6" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_8" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_10" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_12" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_14" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_16" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_18" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_20" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_22" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_24" >Undefined</string>
+			<string id="String_SupportedOn_Undefined_26" >Undefined</string>
+			<string id="String_Cat_Adobe_Acrobat_DC_30" >Adobe Acrobat DC</string>
+			<string id="String_Cat_Preferences_32" >Preferences</string>
+			<string id="String_Cat_General_34" >General</string>
+			<string id="String_Cat_Security_36" >Security</string>
+			<string id="String_Cat_DigitalSignature_38" >DigitalSignature</string>
+			<string id="String_Cat_TrustManager_40" >TrustManager</string>
+			<string id="String_Cat_Startup_42" >Startup</string>
+			<string id="String_Policy_Disable_PDF_handler_44" >Disable PDF handler switching</string>
+			<string id="String_Explain_Disables_the_ability_45" >Disables the ability to change the specified default handler (PDF viewer). 
+
+The UI configuration does not set any key in HKCU. Instead, changing the setting via the UI invokes the installer which sets the key in HKLM. The default application behavior varies depending on what is installed. A value of 1 disables the user's ability to change the default handler. Possible values include:
+0 (or null): Allow the user to change the default viewer. 
+1: Don't allow the user to change the default viewer. 
+
+GUI mapping - Edit &gt; Preferences &gt; General &gt; Select Default PDF Handler</string>
+			<string id="String_Policy_Disable_automatic_47" >Disable automatic updates</string>
+			<string id="String_Explain_Disables_automatic_48" >Disables automatic updates and removes associated user interface items. 
+			
+This setting interacts with bDeclined.
+0: Disables and locks the Updater. Overrides any bDeclined value.
+1: No effect. 
+
+Setting bUpdater to 0 disables the user interface items Preferences > Updater and Help > Check for updates.</string>
+			<string id="String_Policy_Turn_off_user_participati_50" >Turn off user participation in the feedback program</string>
+			<string id="String_Explain_Turns_off_and_locks_51" >Turns off and locks user participation in the feedback program and disables the UI that controls the feature. 
+
+Possible values include: 
+0: Disable and lock feedback program participation. 
+1: Enable feedback program participation. 
+ 
+
+</string>
+			<string id="String_Policy_Show_messages_when_53" >Show messages when I launch Acrobat</string>
+			<string id="String_Explain_Specifies_whether_54" >Specifies whether to show messages from Adobe when the product launches.  
+
+Details: Possible values include: 
+0: Don't show messages from Adobe when the product launches. 
+1: Show messages from Adobe when the product launches. 
+ 
+GUI mapping: Preferences &gt; General &gt; Show me messages when I launch Acrobat. 
+</string>
+			<string id="String_Policy_Display_PDFs_in_56" >Display PDFs in browser</string>
+			<string id="String_Explain_Controls_whether_57" >Controls whether PDF files can be displayed in a browser.  
+
+Details: If false, PDF files can only be displayed in the standalone application. Possible values include: 
+0: Clicking a link to a web-based PDF opens the PDF in the standalone application. 
+1: Clicking a link to a web-based PDF opens the PDF in the browser. 
+
+Behavior differences between versions: Possible values include: 
+
+9.x: The application checks all the possible bBrowserIntegration preferences for all versions and products, including Acrobat and Reader 7, 8, and 9. If any are 0, the application uses 0. 
+
+10.0 and later: The application checks the key corresponding to the &quot;blessed&quot; application that is named in the hard-coded key name at HKCR\Software\Adobe\Acrobat\Exe. For example, if the value is &quot;C:\Program Files\Acrobat 9\Adobe Acrobat.exe, then Acrobat 10 will only check HKCU\Software\Adobe\Adobe Acrobat\9.0\Originals\bBrowserIntegration 
+ 
+GUI mapping: Preferences &gt; Internet &gt; Display PDFs in browser 
+</string>
+			<string id="String_Policy_Auto_Complete_59" >Auto Complete</string>
+			<string id="String_Explain_Locks_the_auto_fill_60" >Locks the auto-fill functionality on or off and disables the corresponding user interface item.  
+
+Possible values include: 
+0: Lock auto-fill. 
+1: Don't lock auto-fill. 
+ 
+GUI mapping: Preferences &gt; Forms &gt; Auto Complete drop down list. 
+</string>
+			<string id="String_Policy_Protected_View_62" >Protected View (Acrobat)</string>
+			<string id="String_Explain_Specifies_whether_63" >Specifies whether to use Protected View never (default), for files from an untrusted location (recommended), or always.
+			
+The PV preferences were implemented in Acrobat 10.1 and are supported in Reader with 11.0. 
+Possible values include:
+0: (default) Disable Protected View.
+1: (recommended) Enable Protected View for unsafe locations only
+2: Enable Protected View for all files.
+
+Note that the Customization Wizard 11 created the preference in an incorrect location at HKLM\SOFTWARE\Policies\Adobe\(product name)\(version)\TrustManager. This bug is fixed in the Wizard DC.
+
+GUI Mapping: Preferences > Security (Enhanced) > Protected View radio buttons.
+			</string>
+			<string id="String_Policy_DropList_Select_Protected_View_Disable_Protected_65" >Disable Protected View</string>
+			<string id="String_Policy_DropList_Select_Protected_View_Enable_Protected_66" >Enable Protected View for unsafe locations</string>
+			<string id="String_Policy_DropList_Select_Protected_View_Enable_Protected_67" >Enable Protected View for all files</string>
+			<string id="String_Policy_Accept_EULA_69" >Accept EULA</string>
+			<string id="String_Explain_Summary_For_Acrobat_70" >Summary: For Acrobat, caches whether the user has accepted the end user license agreement for the browser-based EULA (Acrobat only).  
+
+Details: If the EULA is not accepted, the application cannot be used and the Updater is also prevented from running. Possible values include: 
+
+0: Show the EULA because it has not been accepted. 
+1: Don't show the EULA because it has been accepted. 
+ 
+</string>
+			<string id="String_Policy_Display_splash_72" >Display splash screen at launch</string>
+			<string id="String_Explain_Summary_By_default_73" >
+Specifies whether or not to display the startup splash screen at every launch.
+
+Possible values include: 
+0: Don't display the startup splash screen. 
+1: Display the startup splash screen at every launch.
+
+GUI mapping: Splash screen
+</string>
+			<string id="String_Policy_Enable_Acrobat_75" >Enable Acrobat JavaScript</string>
+			<string id="String_Explain_Toggles_JavaScript_76" >
+Toggles JavaScript execution on and off globally; when off, the PDF cannot execute JavaScript.
+
+When the user's ability to create privileged locations is not disabled and locked, end users can bypass disabled JS by choosing Trust once or Trust Always via the Options button on the Yellow Message Bar. Admins can disable and lock JS execution by setting bDisableJavaScript to 0 in HKLM.
+
+GUI mapping: Preferences > JavaScript > JavaScript panel > Enable Acrobat JavaScript
+			</string>
+			<string id="String_Policy_Ask_before_installing_78" >Ask before installing checkbox</string>
+			<string id="String_Explain_Specifies_whether_79" >
+Specifies whether trust anchors should be imported silently or Acrobat should ask permission from the user.
+
+0: Enable and Ask before installing.
+1: Enable and Install silently.
+
+GUI mapping: Preferences > Security > Security Settings panel > Ask before installing checkbox
+			</string>
+			<string id="String_Policy_Load_security_settings_81" >Load security settings from a server</string>
+			<string id="String_Explain_Specifies_whether_82" >
+Specifies whether or not trust anchors should be periodically downloaded from Adobe.
+
+Possible values include:
+0: Don't load settings from an URL.
+1: Do load settings from an URL.
+
+Preferences > Security > Security Settings panel > Load security settings from a server
+			</string>
+			<string id="String_Policy_Automatically_trust_84" >Automatically trust sites for Win OS security zones</string>
+			<string id="String_Explain_Elevates_the_trusted_85" >
+Elevates locations that Internet Explorer trusts to privileged locations so that they may bypass security restrictions.
+
+Prior to 10.1.1 and 9.4.7, trust was granted to Trusted Sites. With 10.1.2 and 9.5 and later, trust also includes Local Intranet zones. This setting essentially makes IE trust operate as if they were privileged locations. The feature can be disabled with bDisableOSTrustedSites.
+0: Don't automatically trust Windows OS zones.
+1: Do automatically trust Windows OS zones.
+
+GUI mapping: Edit > Preferences > Security (Enhanced) > Automatically trust sites for my Win OS security zones
+
+			</string>
+		</stringTable>
+		<presentationTable ><!--Storage for Presentation Definitions-->
+
+			<presentation id="Policy_Protected_View_61" >
+				<dropdownList refId="Policy_DropList_Element_Protected_View_64" >ProtectedView</dropdownList>
+			</presentation>
+		</presentationTable>
+	</resources>
+</policyDefinitionResources>

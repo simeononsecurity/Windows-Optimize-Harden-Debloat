@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           revision="1.0"
+                           schemaVersion="1.0"
+                           xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+  <!-- Copyright 2005-2016 VMware, Inc.  All rights reserved. -->
+
+  <displayName >Administración de identidades</displayName>
+  <description >Directiva de Administración de identidades</description>
+  <resources >
+    <stringTable ><!--Storage for String Definitions-->
+      <string id="String_Category_Persona_Management" >Administración de identidades</string>
+      <string id="String_Category_Desktop_UI" >Interfaz del escritorio</string>
+      <string id="String_Category_Folder_Redirection" >Redireccionamiento de carpetas</string>
+      <string id="String_Category_Logging" >Registro</string>
+      <string id="String_Category_Roaming_Synchronization" >Itinerancia y sincronización</string>
+      <string id="String_Policy_Hide_local_offline" >Ocultar icono de archivo sin conexión local</string>
+      <string id="String_Explain_Hide_local_offline" >Cuando se habilita, se oculta el icono de sin conexión al ver de forma local la mayoría de archivos de identidades sin conexión. Se ocultan el icono de sin conexión en el Explorador de archivos de Windows y la mayoría de cuadros de diálogo comunes. El icono de sin conexión está oculto de forma predeterminada.</string>
+      <string id="String_Policy_Show_progress" >Mostrar progreso al descargar archivos grandes</string>
+      <string id="String_Explain_Show_progress" >Cuando se habilita, se muestra una ventana de progreso al descargar archivos grandes del repositorio de identidades. También se puede especificar el tamaño mínimo de archivo necesario para que se muestre la ventana de progreso. Por defecto, la ventana de progreso no se muestra.</string>
+      <string id="String_Policy_Show_critical_errors" >Mostrar al usuario errores críticos mediante alertas en el icono de la bandeja</string>
+      <string id="String_Explain_Show_critical_errors" >Cuando se habilita, se le muestran al usuario alertas relacionadas con errores de fallo de conectividad de red o replicación en el icono de la bandeja.  Estas alertas están ocultas de forma predeterminada.</string>
+      <string id="String_Policy_Add_the_administrators" >Añadir el grupo de administradores a las carpetas redireccionadas</string>
+      <string id="String_Explain_Add_the_administrators" >Cuando se habilita, se añade el grupo de administradores a cada carpeta redireccionada.  Por defecto, el usuario posee derechos exclusivos.</string>
+      <string id="String_Policy_Files_and_folders_excluded_from_redirection" >Archivos y carpetas excluidos del redireccionamiento de carpetas</string>
+      <string id="String_Explain_Files_and_folders_excluded_from_redirection" >Cuando se habilita, no se redireccionan las rutas de carpetas y archivos seleccionadas. También puede indicar excepciones dentro de estas rutas en la directiva &quot;Archivos y carpetas excluidos del redireccionamiento de carpetas (excepciones)&quot;. Algunos escenarios de uso precisan que ciertos archivos y carpetas permanezcan en el perfil. Todas las rutas de carpetas y archivos deben referirse a la raíz del perfil local del usuario.</string>
+      <string id="String_Policy_Files_and_folders_excluded_from_redirection_exception" >Archivos y carpetas excluidos del redireccionamiento de carpetas (excepciones)</string>
+      <string id="String_Explain_Files_and_folders_excluded_from_redirection_exception" >Cuando se habilita, las rutas de carpetas y archivos seleccionadas son excepciones a las rutas especificadas en la directiva &quot;Archivos y carpetas excluidos del redireccionamiento de carpetas&quot;. Todas las rutas de carpetas y archivos deben referirse a la raíz del perfil local del usuario y existir dentro de una carpeta especificada en la directiva &quot;Archivos y carpetas excluidos del redireccionamiento de carpetas&quot;.</string>
+      <string id="String_Policy_Application_Data" >Datos de programa (itinerancia)</string>
+      <string id="String_Explain_Application_Data" >Cuando se habilita, la carpeta de datos de programa de itinerancia del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Contacts" >Contactos</string>
+      <string id="String_Explain_Contacts" >Cuando se habilita, la carpeta Contactos del usuario se redirecciona a la ruta UNC configurada.  Esta carpeta solo está disponible en Vista y versiones posteriores.</string>
+      <string id="String_Policy_Cookies" >Cookies</string>
+      <string id="String_Explain_Cookies" >Cuando se habilita, la carpeta Cookies del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Desktop" >Escritorio</string>
+      <string id="String_Explain_Desktop" >Cuando se habilita, la carpeta Escritorio del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Downloads" >Descargas</string>
+      <string id="String_Explain_Downloads" >Cuando se habilita, la carpeta Descargas del usuario se redirecciona a la ruta UNC configurada.  Esta carpeta solo está disponible en Vista y versiones posteriores.</string>
+      <string id="String_Policy_Favorites" >Favoritos</string>
+      <string id="String_Explain_Favorites" >Cuando se habilita, la carpeta Favoritos del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_History" >Historial</string>
+      <string id="String_Explain_History" >Cuando se habilita, la carpeta Historial del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Links" >Vínculos</string>
+      <string id="String_Explain_Links" >Cuando se habilita, la carpeta Vínculos del usuario se redirecciona a la ruta UNC configurada.  Esta carpeta solo está disponible en Vista y versiones posteriores.</string>
+      <string id="String_Policy_My_Documents" >Documentos</string>
+      <string id="String_Explain_My_Documents" >Cuando se habilita, la carpeta Documentos del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_My_Music" >Música</string>
+      <string id="String_Explain_My_Music" >Cuando se habilita, la carpeta Música del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_My_Pictures" >Imágenes</string>
+      <string id="String_Explain_My_Pictures" >Cuando se habilita, la carpeta Imágenes del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_My_Videos" >Vídeos</string>
+      <string id="String_Explain_My_Videos" >Cuando se habilita, la carpeta Vídeos del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Network_Neighborhood" >Entorno de red</string>
+      <string id="String_Explain_Network_Neighborhood" >Cuando se habilita, la carpeta Entorno de red del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Printer_Neighborhood" >Entorno de impresoras</string>
+      <string id="String_Explain_Printer_Neighborhood" >Cuando se habilita, la carpeta Entorno de impresoras del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Recent_Items" >Elementos recientes</string>
+      <string id="String_Explain_Recent_Items" >Cuando se habilita, la carpeta Elementos recientes del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Saved_Games" >Juegos guardados</string>
+      <string id="String_Explain_Saved_Games" >Cuando se habilita, la carpeta Juegos guardados del usuario se redirecciona a la ruta UNC configurada.  Esta carpeta solo está disponible en Vista y versiones posteriores.</string>
+      <string id="String_Policy_Searches" >Búsquedas</string>
+      <string id="String_Explain_Searches" >Cuando se habilita, la carpeta Búsquedas del usuario se redirecciona a la ruta UNC configurada.  Esta carpeta solo está disponible en Vista y versiones posteriores.</string>
+      <string id="String_Policy_Send_To" >SendTo</string>
+      <string id="String_Explain_Send_To" >Cuando se habilita, la carpeta SendTo del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Start_Menu" >Menú Inicio</string>
+      <string id="String_Explain_Start_Menu" >Cuando se habilita, la carpeta Menú Inicio del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Startup_Items" >Elementos de inicio</string>
+      <string id="String_Explain_Startup_Items" >Cuando se habilita, la carpeta Elementos de inicio del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Templates" >Plantillas</string>
+      <string id="String_Explain_Templates" >Cuando se habilita, la carpeta Plantillas del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Temporary_Internet" >Archivos temporales de Internet</string>
+      <string id="String_Explain_Temporary_Internet" >Cuando se habilita, la carpeta Archivos temporales de Internet del usuario se redirecciona a la ruta UNC configurada.</string>
+      <string id="String_Policy_Logging_filename" >Nombre de archivo de registro</string>
+      <string id="String_Explain_Logging_filename" >Nombre completo de ruta de acceso al archivo de registro de View Persona Management.  Esta ruta debe incluir el nombre de archivo y no puede ser una ruta UNC. Por defecto, los mensajes de registro se escriben en &lt;Datos de programa comunes&gt;\VMware\VDM\logs\VMWVvp.txt.</string>
+      <string id="String_Policy_Logging_destination" >Destino del registro</string>
+      <string id="String_Explain_Logging_destination" >Especifica el lugar al que se envían los mensajes de registro. Los mensajes de registro pueden enviarse a un archivo de registro local y también al puerto de depuración. Por defecto, los mensajes de registro se envían al archivo de registro.</string>
+      <string id="String_Policy_Logging_flags" >Marcadores de registro</string>
+      <string id="String_Explain_Logging_flags" >Especifica el tipo de mensajes de registro que se generan. Si se deshabilita o no se configura esta configuración, los mensajes de registro se establecen al nivel informativo.  Por defecto, los mensajes de registro se establecen al nivel informativo.</string>
+      <string id="String_Policy_DropList_Select_Logging_flags" >7 - Depuración</string>
+      <string id="String_Policy_Log_History_Depth" >Profundidad del historial de registro</string>
+      <string id="String_Explain_Log_History_Depth" >Cuando se habilita, las identidades mantienen un archivo de archivos de registro históricos. El valor predeterminado es 1, el mínimo es 1 y el máximo es 10.  Si se deshabilita o no se configura, se mantiene un registro histórico de forma predeterminada.</string>
+      <string id="String_Policy_Log_File_Size" >Tamaño de archivos de registro</string>
+      <string id="String_Explain_Log_File_Size" >Cuando se habilita, las identidades ajustan el tamaño de los archivos de registro.  El valor predeterminado es 100 MB, el mínimo es 10 MB y el máximo es 1.024 MB.  Si se deshabilita o no se configura, se usa el valor predeterminado de 100 MB.</string>
+      <string id="String_Policy_Upload_log_to_network" >Cargar registro a la red</string>
+      <string id="String_Explain_Upload_log_to_network" >Carga el archivo de registro de identidades al recurso compartido de red especificado cuando se cierra la sesión.  La ruta del recurso compartido de red debe ser una ruta UNC.  La identidad no crea el recurso compartido de red.</string>
+      <string id="String_Policy_Manage_user_persona" >Gestionar identidades de usuarios</string>
+      <string id="String_Explain_Manage_user_persona" >Cuando se habilita, se gestiona la identidad del usuario de forma dinámica.  Cuando se deshabilita, Windows gestiona la identidad del usuario. El intervalo de carga de perfil sirve para determinar la frecuencia con la que se cargan en la red los cambios realizados en las identidades.</string>
+      <string id="String_Policy_Persona_repository" >Ubicación del repositorio de identidades</string>
+      <string id="String_Explain_Persona_repository" >La ruta UNC al repositorio en el que se almacenan las identidades de usuario. Si se deja la ruta en blanco, se utiliza la ruta del perfil de usuario de Active Directory.</string>
+      <string id="String_Policy_Remove_local_persona" >Eliminar identidades locales al cerrar sesión</string>
+      <string id="String_Explain_Remove_local_persona" >Cuando se habilita, al cerrar sesión se eliminan las identidades de usuario almacenadas localmente. También puede seleccionar que se eliminen las carpetas de configuración local de un usuario cuando se elimine la identidad. En Windows XP, esta configuración se refiere a la carpeta &quot;Configuración Local&quot;. En Windows Vista y posteriores, esta configuración se refiere a la carpeta &quot;AppData\Local&quot;. Por defecto, no se elimina la identidad almacenada localmente cuando un usuario cierra sesión.</string>
+      <string id="String_Policy_Roam_local_settings" >Realizar itinerancia de carpetas de configuración locales</string>
+      <string id="String_Explain_Roam_local_settings" >Cuando se habilita, se realiza la itinerancia de las carpetas de configuración locales junto con el resto de la identidad del usuario. En Windows XP, esta configuración se refiere a la carpeta &quot;Configuración Local&quot;. En Windows Vista y posteriores, esta configuración se refiere a la carpeta &quot;AppData\Local&quot;. Por defecto, no se realiza la itinerancia de las carpetas de configuración locales.</string>
+      <string id="String_Policy_Files_and_folders_preload" >Archivos y carpetas para precarga</string>
+      <string id="String_Explain_Files_and_folders_preload" >Cuando se habilita, las rutas de carpetas y archivos seleccionadas se descargan cuando el usuario inicia sesión y se replican cuando se realizan modificaciones en los archivos. También puede indicar excepciones dentro de estas rutas en la directiva &quot;Archivos y carpetas para precarga (excepciones)&quot;. Algunos escenarios de uso precisan que se precarguen ciertos archivos y carpetas en la identidad de usuario almacenada localmente. Después, estos archivos se descargan del repositorio de identidades cuando un usuario inicia sesión y las modificaciones se replican de forma remota mientras tienen lugar. Todas las rutas de carpetas deben referirse a la raíz del perfil local del usuario.</string>
+      <string id="String_Policy_Files_and_folders_preload_exceptions" >Archivos y carpetas para precarga (excepciones)</string>
+      <string id="String_Explain_Files_and_folders_preload_exceptions" >Cuando se habilita, las rutas de carpetas y archivos seleccionadas son excepciones a las rutas especificadas en la directiva &quot;Archivos y carpetas para precarga&quot;. Todas las rutas de carpetas deben referirse a la raíz del perfil local del usuario y existir dentro de una carpeta especificada en la directiva &quot;Archivos y carpetas para precarga&quot;.</string>
+      <string id="String_Policy_Windows_roaming" >Sincronización de perfiles de itinerancia de Windows</string>
+      <string id="String_Explain_Windows_roaming" >Cuando se habilita, las rutas de carpetas y archivos seleccionadas se descargan cuando el usuario inicia sesión y se replican al cerrar sesión. También puede indicar excepciones dentro de estas rutas en la directiva &quot;Sincronización de perfiles de itinerancia de Windows&quot;. Algunos escenarios de uso precisan gestionar ciertos archivos y carpetas con la función de perfil de itinerancia de Windows tradicional. Estos elementos se descargan cuando el usuario inicia sesión pero no se sincronizan con el repositorio hasta que el usuario cierra sesión. Todas las rutas de carpetas deben referirse a la raíz del perfil local del usuario.</string>
+      <string id="String_Policy_Windows_roaming_exceptions" >Sincronización de perfiles de itinerancia de Windows (excepciones)</string>
+      <string id="String_Explain_Windows_roaming_exceptions" >Cuando se habilita, las rutas de carpetas y archivos seleccionadas son excepciones a las rutas especificadas en la directiva &quot;Sincronización de perfiles de itinerancia de Windows&quot;. Todas las rutas de carpetas deben referirse a la raíz del perfil local del usuario y existir dentro de una carpeta especificada en la directiva &quot;Sincronización de perfiles de itinerancia de Windows&quot;.</string>
+      <string id="String_Policy_Files_and_folders_excluded_from_roaming" >Archivos y carpetas excluidos de la itinerancia</string>
+      <string id="String_Explain_Files_and_folders_excluded_from_roaming" >Cuando se habilita, no se replican las rutas de carpetas y archivos seleccionadas junto con el resto de la identidad del usuario. También puede indicar excepciones dentro de estas rutas en la directiva &quot;Archivos y carpetas excluidos de la itinerancia&quot;. Algunos escenarios de uso precisan que ciertos archivos y carpetas de una identidad de usuario solo existan en la máquina local. Este es el caso de la mayoría de archivos temporales o almacenados en caché, que no es necesario que se repliquen al repositorio remoto. Todas las rutas de carpetas deben referirse a la raíz del perfil local del usuario.</string>
+      <string id="String_Policy_Files_and_folders_excluded_from_roaming_exceptions" >Archivos y carpetas excluidos de la itinerancia (excepciones)</string>
+      <string id="String_Explain_Files_and_folders_excluded_from_roaming_exceptions" >Cuando se habilita, las rutas de carpetas y archivos seleccionadas son excepciones a las rutas especificadas en la directiva &quot;Archivos y carpetas excluidos de la itinerancia&quot;. Todas las rutas de carpetas deben referirse a la raíz del perfil local del usuario y existir dentro de una carpeta especificada en la directiva &quot;Archivos y carpetas excluidos de la itinerancia&quot;.</string>
+      <string id="String_Policy_Enable_background_download" >Habilitar la descarga en segundo plano para portátiles</string>
+      <string id="String_Explain_Enable_background_download" >Cuando se habilita, se descargan todos los archivos del perfil local cuando un usuario inicia sesión en un portátil.</string>
+      <string id="String_Policy_Folders_to_background" >Carpetas de descarga en segundo plano</string>
+      <string id="String_Explain_Folders_to_background" >Cuando se habilita, se descargan en segundo plano las rutas de carpetas seleccionadas cuando un usuario inicia sesión. También puede indicar excepciones dentro de estas rutas en la directiva &quot;Carpetas de descarga en segundo plano (excepciones)&quot;. Se pueden optimizar ciertos escenarios de uso descargando en segundo plano el contenido de carpetas específicas. Esto puede evitar que los usuarios tengan que esperar durante descargas grandes durante el inicio de sesión o cuando se inicia la aplicación. Por ejemplo, incluir las carpetas del entorno de pruebas de VMware ThinApp puede mejorar el tiempo de inicio de la aplicación, ya que garantiza que todos los archivos de identidades necesarios ya se hayan descargado antes del inicio. Todas las rutas de carpetas deben referirse a la raíz del perfil local del usuario.</string>
+      <string id="String_Policy_Folders_to_background_exceptions" >Carpetas de descarga en segundo plano (excepciones)</string>
+      <string id="String_Explain_Folders_to_background_exceptions" >Cuando se habilita, las rutas de carpetas seleccionadas son excepciones a las rutas especificadas en la directiva &quot;Carpetas de descarga en segundo plano&quot;. Todas las rutas de carpetas deben referirse a la raíz del perfil local del usuario y existir dentro de una carpeta especificada en la directiva &quot;Carpetas de descarga en segundo plano&quot;.</string>
+      <string id="String_Policy_Excluded_Processes" >Procesos excluidos</string>
+      <string id="String_Explain_Excluded_processes" >Los procesos excluidos son procesos cuya E/S ignoran las identidades.  Puede que sea necesario añadir ciertas aplicaciones antivirus para evitar problemas de rendimiento.  Si la aplicación antivirus no cuenta con una función para deshabilitar la recuperación de archivos sin conexión durante los análisis a petición, está función evitará que recupere archivos de forma innecesaria.  No obstante, se siguen replicando las modificaciones que los procesos excluidos realizan en archivos/configuraciones de los perfiles de usuario.</string>
+      <string id="String_Policy_Cleanup_CLFS_Files" >Limpieza de archivos de CLFS</string>
+      <string id="String_Explain_Cleanup_CLFS_Files" >Elimina del perfil de itinerancia los archivos generados por CLFS para ntuser.dat y usrclass.dat al iniciar sesión.  Esta configuración solo debe utilizarse para reparar perfiles que estén experimentando problemas con estos archivos; de lo contrario, debe deshabilitarse.</string>
+
+      <string id="Enforce_AD_Wallpaper" >Aplica la configuración de papel tapiz del GPO</string>
+
+      <string id="Enforce_AD_Wallpaper_Desc" >Cuando se habilita, esta directiva obliga a que se actualice el tapiz del escritorio según la definición de la configuración del GPO. Tenga en cuenta que esta directiva no se aplica si el tapiz del escritorio NO se establece mediante el GPO.</string>
+    </stringTable>
+    <presentationTable ><!--Storage for Presentation Definitions-->
+
+      <presentation id="Present_Hide_local_offline" >
+        <text >Ocultar el icono de sin conexión para archivos de identidades almacenados localmente.</text>
+      </presentation>
+      <presentation id="Present_Show_progress" >
+        <text >Mostrar progreso al descargar archivos grandes del repositorio de identidades.</text>
+        <decimalTextBox refId="Policy_Numeric_Show_progress" defaultValue="50" >Tamaño mínimo de archivo para mostrar la ventana de progreso (MB):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Show_critical_errors" >
+        <text >Mostrar al usuario errores críticos mediante alertas en el icono de la bandeja</text>
+      </presentation>
+      <presentation id="Present_Add_the_administrators" >
+        <text >Añadir el grupo de administradores a las carpetas redireccionadas.</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_excluded_from_redirection" >
+        <text >Especificar archivos y carpetas que no deben redireccionarse.</text>
+        <text >Todas las rutas deben referirse a la raíz del perfil local.</text>
+        <listBox refId="Present_ListBox_Files_and_folders_excluded_from_redirection" >Archivos y carpetas:</listBox>
+        <text >Ejemplo: Escritorio\Nueva carpeta</text>
+        <text >Documentos\Nueva carpeta</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_excluded_from_redirection_exception" >
+        <text >Especificar archivos y carpetas que son excepciones a la lista de archivos y carpetas incluidos</text>
+        <text >en la directiva &quot;Archivos y carpetas excluidos del redireccionamiento de carpetas&quot;.</text>
+        <listBox refId="Present_ListBox_Policy_Files_and_folders_excluded_from_redirection_exception" >Excepciones de archivos y carpetas:</listBox>
+        <text >Ejemplo: Escritorio\Nueva carpeta</text>
+        <text >Documentos\Nueva carpeta</text>
+      </presentation>
+      <presentation id="Present_Application_Data" >
+        <textBox refId="Present_TextBox_Application_Data" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Contacts" >
+        <textBox refId="Present_TextBox_Policy_Contacts" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Cookies" >
+        <textBox refId="Present_TextBox_Cookies" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Desktop" >
+        <textBox refId="Present_TextBox_Desktop" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Downloads" >
+        <textBox refId="Present_TextBox_Downloads" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Favorites" >
+        <textBox refId="Present_TextBox_Favorites" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_History" >
+        <textBox refId="Present_TextBox_History" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Links" >
+        <textBox refId="Present_TextBox_Links" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_My_Documents" >
+        <textBox refId="Present_TextBox_My_Documents" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_My_Music" >
+        <textBox refId="Present_TextBox_My_Music" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_My_Pictures" >
+        <textBox refId="Present_TextBox_My_Pictures" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_My_Videos" >
+        <textBox refId="Present_TextBox_My_Videos" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Network_Neighborhood" >
+        <textBox refId="Present_TextBox_Network_Neighborhood" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Printer_Neighborhood" >
+        <textBox refId="Present_TextBox_Printer_Neighborhood" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Recent_Items" >
+        <textBox refId="Present_TextBox_Recent_Items" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Saved_Games" >
+        <textBox refId="Present_TextBox_Saved_Games" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Searches" >
+        <textBox refId="Present_TextBox_Searches" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Send_To" >
+        <textBox refId="Present_TextBox_Send_To" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Start_Menu" >
+        <textBox refId="Present_TextBox_Start_Menu" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Startup_Items" >
+        <textBox refId="Present_TextBox_Startup_Items" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Templates" >
+        <textBox refId="Present_TextBox_Templates" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Temporary_Internet" >
+        <textBox refId="Present_TextBox_Temporary_Internet" >
+          <label >Redireccionar a esta ubicación:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Logging_filename" >
+        <textBox refId="Present_TextBox_Logging_filename" >
+          <label >Nombre de ruta de acceso a archivo de registro local:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Logging_destination" >
+        <checkBox refId="Present_CheckBox_Logging_destination_file" defaultChecked="true" >Enviar mensajes de registro al archivo de registro.</checkBox>
+        <checkBox refId="Present_CheckBox_Logging_destination_port" >Enviar mensajes de registro al puerto de depuración.</checkBox>
+      </presentation>
+      <presentation id="Present_Logging_flags" >
+        <dropdownList refId="Present_DropList_Logging_flags" >Seleccione el nivel de registro:</dropdownList>
+      </presentation>
+      <presentation id="Present_Log_History_Depth" >
+        <decimalTextBox refId="Present_Numeric_Log_History_Depth" defaultValue="1" >Cantidad de registros que mantener:</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Log_File_Size" >
+        <decimalTextBox refId="Present_Numeric_Log_File_Size" defaultValue="100" >Tamaño del archivo de registro:</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Upload_log_to_network" >
+        <textBox refId="Present_TextBox_Upload_log_to_network" >
+          <label >Ruta del recurso compartido de red:</label>
+        </textBox>
+      </presentation>
+      <presentation id="Present_Manage_user_persona" >
+        <decimalTextBox refId="Present_Numeric_Manage_user_persona" defaultValue="10" >Intervalo de carga del perfil (en minutos):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Persona_repository" >
+        <textBox refId="Present_TextBox_Persona_repository" >
+          <label >Ruta del recurso compartido:</label>
+        </textBox>
+        <checkBox refId="Present_CheckBox_Persona_repository" >Reemplazar la ruta del perfil de usuario de Active Directory si se configura.</checkBox>
+      </presentation>
+      <presentation id="Present_Remove_local_persona" >
+        <text >Eliminar identidades almacenadas localmente cuando los usuarios cierren la sesión.</text>
+        <checkBox refId="Present_CheckBox_Remove_local_persona" defaultChecked="true" >Eliminar &quot;Configuración Local&quot; o &quot;AppData\Local&quot; al eliminar la identidad.</checkBox>
+      </presentation>
+      <presentation id="Present_Roam_local_settings" >
+        <text >Realizar itinerancia de &quot;Configuración Local&quot; o &quot;AppData\Local&quot; junto con la identidad del usuario.</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_preload" >
+        <text >Especificar los archivos que se descargarán del repositorio de identidades</text>
+        <text >cuando el usuario inicie sesión.</text>
+        <listBox refId="Present_ListBox_Files_and_folders_preload" >Archivos y carpetas para precarga:</listBox>
+        <text >Todas las rutas deben referirse a la raíz del perfil local.</text>
+        <text >Ejemplo: Escritorio\Nueva carpeta</text>
+        <text >Documentos\Nueva carpeta</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_preload_exceptions" >
+        <text >Especificar carpetas que son excepciones a la lista de carpetas incluidas</text>
+        <text >en la directiva &quot;Archivos y carpetas para precarga&quot;.</text>
+        <listBox refId="Present_ListBox_Files_and_folders_preload_exceptions" >Excepciones de archivos y carpetas:</listBox>
+        <text >Todas las rutas deben referirse a la raíz del perfil local.</text>
+        <text >Ejemplo: Escritorio\Nueva carpeta</text>
+        <text >Documentos\Nueva carpeta</text>
+      </presentation>
+      <presentation id="Present_Windows_roaming" >
+        <text >Especificar archivos que se gestionarán con</text>
+        <text >la función de perfil de itinerancia de Windows tradicional.</text>
+        <listBox refId="Present_ListBox_Windows_roaming" >Archivos y carpetas:</listBox>
+        <text >Todas las rutas deben referirse a la raíz del perfil local.</text>
+        <text >Ejemplo: Escritorio\Nueva carpeta</text>
+        <text >Documentos\Nueva carpeta</text>
+      </presentation>
+      <presentation id="Present_Windows_roaming_exceptions" >
+        <text >Especificar carpetas que son excepciones a la lista de carpetas incluidas</text>
+        <text >en la directiva &quot;Sincronización de perfiles de itinerancia de Windows&quot;.</text>
+        <listBox refId="Present_ListBox_Windows_roaming_exceptions" >Excepciones de archivos y carpetas:</listBox>
+        <text >Todas las rutas deben referirse a la raíz del perfil local.</text>
+        <text >Ejemplo: Escritorio\Nueva carpeta</text>
+        <text >Documentos\Nueva carpeta</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_excluded_from_roaming" >
+        <text >Especificar carpetas que no se incluirán en la itinerancia de la identidad del usuario.</text>
+        <text >(Estas carpetas solo existen en la identidad del usuario almacenada localmente).</text>
+        <listBox refId="Present_ListBox_Files_and_folders_excluded_from_roaming" >Archivos y carpetas:</listBox>
+        <text >Todas las rutas deben referirse a la raíz del perfil local.</text>
+        <text >Ejemplo: Escritorio\Nueva carpeta</text>
+        <text >Documentos\Nueva carpeta</text>
+      </presentation>
+      <presentation id="Present_Files_and_folders_excluded_from_roaming_exceptions" >
+        <text >Especificar carpetas que son excepciones a la lista de carpetas incluidas</text>
+        <text >en la directiva &quot;Archivos y carpetas excluidos de la itinerancia&quot;.</text>
+        <listBox refId="Present_ListBox_Files_and_folders_excluded_from_roaming_exceptions" >Excepciones de archivos y carpetas:</listBox>
+        <text >Todas las rutas deben referirse a la raíz del perfil local.</text>
+        <text >Ejemplo: Escritorio\Nueva carpeta</text>
+        <text >Documentos\Nueva carpeta</text>
+      </presentation>
+      <presentation id="Present_Enable_background_download" >
+        <text >Habilitar la descarga en segundo plano para portátiles.</text>
+      </presentation>
+      <presentation id="Present_Folders_to_background" >
+        <text >Especificar carpetas que se descargarán en segundo plano</text>
+        <text >después de que el usuario inicie sesión.</text>
+        <listBox refId="Present_ListBox_Folders_to_background" >Carpetas para descarga:</listBox>
+        <text >Todas las rutas deben referirse a la raíz del perfil local.</text>
+        <text >Ejemplo: Application Data\Thinstall</text>
+        <text >Escritorio\Nueva carpeta</text>
+      </presentation>
+      <presentation id="Present_Folders_to_background_exceptions" >
+        <text >Especificar carpetas que son excepciones a la lista de carpetas incluidas</text>
+        <text >en la directiva &quot;Carpetas de descarga en segundo plano&quot;.</text>
+        <listBox refId="Present_ListBox_Folders_to_background_exceptions" >Excepciones de carpetas:</listBox>
+        <text >Todas las rutas deben referirse a la raíz del perfil local.</text>
+        <text >Ejemplo: Application Data\Thinstall</text>
+        <text >Escritorio\Nueva carpeta</text>
+      </presentation>
+      <presentation id="Present_Excluded_Processes" >
+        <text >Especificar nombres de procesos que deban excluir las identidades.</text>
+        <text >Ejemplo: process.exe</text>
+        <listBox refId="Present_ListBox_Element_Excluded_Processes" >Procesos excluidos:</listBox>
+      </presentation>
+      <presentation id="Present_Cleanup_CLFS_Files" >
+        <text >Elimine archivos de CLFS del perfil de itinerancia al iniciar sesión.</text>
+      </presentation>
+
+      <presentation id="Enforce_AD_Wallpaper" >
+        <text >Aplica la configuración de papel tapiz del GPO.</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<!--
+  Note that white space is preserved as is in the text shown in the Group Policy UI.
+  Don't add extra line breaks at the beginning and end of text strings,
+  and make sure that lines of text start in the FIRST column.
+  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="WU_SUPPORTED_Windows7ToXPSP2">Windows 7, Windows Server 2008 R2, Windows Vista, Windows XP SP2</string>
+      <string id="WU_SUPPORTED_Windows7_To_Win2kSP3_Or_XPSP1">Windows 7, Windows Server 2008 R2, Windows Vista, Windows Server 2003, Windows XP SP2, Windows XP SP1, Windows 2000 SP4, Windows 2000 SP3</string>
+      <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_NoWinRT">Al menos Windows XP Professional Service Pack 1 o Windows 2000 Service Pack 3, excluido Windows RT</string>
+      <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Al menos los sistemas operativos Windows Server 2003 o Windows XP Professional con SP1, excluido Windows RT</string>
+      <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Se requiere al menos Windows XP Professional Service Pack 1 o al menos Windows 2000 Service Pack 3 a través de Windows 8.1 o Windows Server 2012 R2 con el Service Pack más reciente</string>
+      <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Se requiere al menos Windows Vista a través de Windows 8.1 o Windows Server 2012 R2 con el Service Pack más reciente</string>
+      <string id="AUDontShowUasHelp">Esta configuración de directiva permite controlar si la opción "Instalar actualizaciones y apagar" se muestra en el cuadro de diálogo Apagar de Windows.
+
+Si habilita esta configuración de directiva, "Instalar actualizaciones y apagar" no aparecerá como opción en el cuadro de diálogo Apagar de Windows, incluso si hay actualizaciones disponibles para instalarse cuando el usuario seleccione la opción Apagar en el menú Inicio.
+
+Si deshabilita o no define esta configuración de directiva, la opción "Instalar actualizaciones y apagar" estará disponible en el cuadro de diálogo Apagar de Windows si hay actualizaciones disponibles cuando el usuario seleccione la opción Apagar en el menú Inicio.</string>
+      <string id="AUDontShowUasPolicy">No mostrar la opción "Instalar actualizaciones y Apagar" en el cuadro de diálogo Apagar de Windows</string>
+      <string id="AUNoUasDefaultHelp_Mach">Esta configuración de directiva permite controlar si se permite que la opción "Instalar actualizaciones y apagar" sea la opción predeterminada en el cuadro de diálogo Apagar de Windows.
+
+Si habilita esta configuración de directiva, la última opción de apagado del usuario (Hibernar, Reiniciar, etc.) es la opción predeterminada en el cuadro de diálogo Apagar de Windows, independientemente de si la opción "Instalar actualizaciones y apagar" está disponible en la lista "¿Qué desea hacer con el equipo?".
+
+Si deshabilita o no define esta configuración de directiva, la opción "Instalar actualizaciones y apagar" será la predeterminada en el cuadro de diálogo Apagar de Windows si hay actualizaciones disponibles para instalarse cuando el usuario seleccione la opción Apagar en el menú Inicio.
+
+Tenga en cuenta que esta configuración de directiva no tiene ningún impacto si está habilitado la configuración de directiva Configuración del equipo\Plantillas administrativas\Componentes de Windows\Windows Update\No mostrar la opción "Instalar actualizaciones y apagar" en el cuadro de diálogo Apagar de Windows.</string>
+      <string id="AUNoUasDefaultHelp_User">Esta configuración de directiva permite controlar si se permite que la opción "Instalar actualizaciones y apagar" sea la opción predeterminada en el cuadro de diálogo Apagar de Windows.
+
+Si habilita esta configuración de directiva, la última opción de apagado del usuario (Hibernar, Reiniciar, etc.) es la opción predeterminada en el cuadro de diálogo Apagar de Windows, independientemente de si la opción "Instalar actualizaciones y apagar" está disponible en la lista "¿Qué desea hacer con el equipo?".
+
+Si deshabilita o no define esta configuración de directiva, la opción "Instalar actualizaciones y apagar" será la predeterminada en el cuadro de diálogo Apagar de Windows si hay actualizaciones disponibles para instalarse cuando el usuario seleccione la opción Apagar en el menú Inicio.
+
+Tenga en cuenta que esta configuración de directiva no tiene ningún impacto si está habilitado la configuración de directiva Configuración de equipo\Plantillas administrativas\Componentes de Windows\Windows Update\No mostrar la opción "Instalar actualizaciones y apagar" en el cuadro de diálogo Apagar de Windows.</string>
+      <string id="AUNoUasDefaultPolicy">No ajustar la opción predeterminada a "Instalar actualizaciones y apagar" en el cuadro de diálogo Apagar</string>
+      <string id="RemoveWindowsUpdate">Quitar el acceso a todas las características de Windows Update</string>
+      <string id="RemoveWindowsUpdate_Help">Esta opción permite quitar el acceso a Windows Update.
+
+Si la habilita, se quitarán todas las características de Windows Update. En consecuencia, se bloquea el acceso al sitio web de Windows Update (http://windowsupdate.microsoft.com) desde el hipervínculo de Windows Update en el menú Inicio y en el menú Herramientas de Internet Explorer. También se deshabilitará la actualización automática de Windows; no recibirá notificaciones ni actualizaciones críticas de Windows Update. Asimismo, esta opción impide que el Administrador de dispositivos instale automáticamente actualizaciones de controladores del sitio web de Windows Update.
+
+En caso de que se encuentre habilitada, puede configurar una de las siguientes opciones de notificación:
+
+0 = No mostrar ninguna notificación
+
+Esta opción quitará cualquier acceso a las características de Windows Update y no se mostrarán notificaciones.
+
+1 = Mostrar notificaciones necesarias para reiniciar
+
+Esta opción mostrará las notificaciones sobre las veces que es necesario reiniciar para completar la instalación.
+
+En Windows 8 y Windows RT, si se habilita esta directiva, solo se mostrarán las notificaciones relacionadas con los reinicios y la imposibilidad de detectar actualizaciones. Las opciones de notificaciones no se admiten. Las notificaciones de la pantalla Inicio de sesión siempre se mostrarán.</string>
+      <string id="RemoveWindowsUpdateModeAll">0 - No mostrar ninguna notificación</string>
+      <string id="RemoveWindowsUpdateModeReboot">1 - Mostrar las notificaciones necesarias para reiniciar</string>
+      <string id="AutoUpdateCfg">Configurar Actualizaciones automáticas</string>
+      <string id="AutoUpdateCfg_Help">Especifica si este equipo recibirá actualizaciones de seguridad y otras descargas importantes a través del servicio de actualización automática de Windows.
+
+Nota: Esta directiva no se aplica a Windows RT.
+
+Esta configuración permite especificar si las actualizaciones automáticas están habilitadas en este equipo. Si el servicio está habilitado, debes seleccionar una de las cuatro opciones de la configuración de directiva de grupo:
+
+        2 = Notificar antes de descargar e instalar cualquier actualización.
+
+Cuando Windows encuentre actualizaciones que se aplican a este equipo, se notificará a los usuarios que las actualizaciones están listas para descargarse. Después de ir a Windows Update, los usuarios pueden descargar e instalar cualquier actualización disponible.
+
+        3 = (Configuración predeterminada) Descargar las actualizaciones automáticamente y enviar una notificación cuando se puedan instalar
+
+        Windows busca actualizaciones que se aplican al equipo y las descarga en segundo plano (no se notifica ni se interrumpe al usuario durante este proceso). Cuando se completen las descargas, se notificará a los usuarios que están listas para instalarse. Después de ir a Windows Update, los usuarios pueden instalarlas.
+
+        4 = Descargar las actualizaciones automáticamente e instalarlas según la programación que se especifica a continuación.
+
+Cuando se selecciona "Automático" como el tiempo de instalación programado, Windows comprobará, descargará e instalará las actualizaciones automáticamente. El dispositivo se reiniciará según la configuración predeterminada de Windows, a menos que se configure con una directiva de grupo. (Se aplica a Windows 10, versión 1809 y posteriores)
+
+        Especifica la programación mediante las opciones de configuración de la directiva de grupo. Para la versión 1709 y las posteriores, hay la opción adicional de limitar la actualización a una ocurrencia semanal, quincenal o mensual. Si no se especifica ninguna programación, la programación predeterminada para todas las instalaciones será todos los días a las 3:00 h. Si alguna actualización requiere un reinicio para completar la instalación, Windows reiniciará el equipo automáticamente. (Si un usuario tiene la sesión iniciada en el equipo cuando Windows está listo para reiniciarse, se le notificará y se le dará la opción de retrasar el reinicio).
+
+        En Windows 8 y versiones posteriores, puedes configurar que las actualizaciones se instalen durante el mantenimiento automático, en lugar de una programación específica. El mantenimiento automático instalará las actualizaciones cuando el equipo no esté en uso, y evitará hacerlo cuando el equipo solo esté funcionando con la batería. Si el mantenimiento automático no puede instalar actualizaciones durante 2 días, Windows Update instalará las actualizaciones de inmediato. A continuación, se notificará a los usuarios que próximamente se hará un reinicio, que solo tendrá lugar si no existe ningún riesgo de pérdida de datos accidental.
+
+        5 = Permitir a los administradores locales seleccionar el modo de configuración en el que las actualizaciones automáticas notifican e instalan las actualizaciones. (Esta opción no se ha transferido a ninguna de las versiones de Windows 10).
+
+        Con esta opción, se permitirá a los administradores locales utilizar el panel de control de Windows Update para seleccionar una opción de configuración de su elección. No se permitirá que los administradores locales deshabiliten la configuración para las actualizaciones automáticas.
+
+Si el estado de esta directiva se establece en Deshabilitado, todas las actualizaciones disponibles en Windows Update se deben descargar e instalar manualmente. Para ello, busca Windows Update en Inicio.
+
+Si el estado está establecido en No configurado, el uso de las actualizaciones automáticas no se especifica en el nivel de directiva de grupo. Sin embargo, un administrador todavía puede configurar las actualizaciones automáticas a través del Panel de control.</string>
+
+      <string id="AutoUpdateModeAdminChooses">5 - Permitir que el administrador local elija la opción</string>
+      <string id="AutoUpdateModeAuto">4 - Descargar automáticamente y programar la instalación</string>
+      <string id="AutoUpdateModeDownload">3 - Descargar automáticamente y notificar instalación</string>
+      <string id="AutoUpdateModeNotify">2 - Notificar la descarga e instalar automáticamente</string>
+      <string id="AutoUpdateSchDay_Everyday">0 - Todos los días</string>
+      <string id="AutoUpdateSchDay_Friday">6 - Todos los viernes</string>
+      <string id="AutoUpdateSchDay_Monday">2 - Todos los lunes</string>
+      <string id="AutoUpdateSchDay_Saturday">7 - Todos los sábados</string>
+      <string id="AutoUpdateSchDay_Sunday">1 - Todos los domingos</string>
+      <string id="AutoUpdateSchDay_Thursday">5 - Todos los jueves</string>
+      <string id="AutoUpdateSchDay_Tuesday">3 - Todos los martes</string>
+      <string id="AutoUpdateSchDay_Wednesday">4 - Todos los miércoles</string>
+      <string id="AutoUpdateSchTime0">00:00</string>
+      <string id="AutoUpdateSchTime1">01:00</string>
+      <string id="AutoUpdateSchTime10">10:00</string>
+      <string id="AutoUpdateSchTime11">11:00</string>
+      <string id="AutoUpdateSchTime12">12:00</string>
+      <string id="AutoUpdateSchTime13">13:00</string>
+      <string id="AutoUpdateSchTime14">14:00</string>
+      <string id="AutoUpdateSchTime15">15:00</string>
+      <string id="AutoUpdateSchTime16">16:00</string>
+      <string id="AutoUpdateSchTime17">17:00</string>
+      <string id="AutoUpdateSchTime18">18:00</string>
+      <string id="AutoUpdateSchTime19">19:00</string>
+      <string id="AutoUpdateSchTime2">02:00</string>
+      <string id="AutoUpdateSchTime20">20:00</string>
+      <string id="AutoUpdateSchTime21">21:00</string>
+      <string id="AutoUpdateSchTime22">22:00</string>
+      <string id="AutoUpdateSchTime23">23:00</string>
+      <string id="AutoUpdateSchTime3">03:00</string>
+      <string id="AutoUpdateSchTime4">04:00</string>
+      <string id="AutoUpdateSchTime5">05:00</string>
+      <string id="AutoUpdateSchTime6">06:00</string>
+      <string id="AutoUpdateSchTime7">07:00</string>
+      <string id="AutoUpdateSchTime8">08:00</string>
+      <string id="AutoUpdateSchTime9">09:00</string>
+      <string id="AutoUpdateSchTimeAuto">Automático</string>
+      <string id="CorpWuURL">Especificar la ubicación del servicio Windows Update en la intranet</string>
+      <string id="CorpWuURL_Help">
+        Especifica un servidor de la intranet que hospede actualizaciones de Microsoft Update. Puedes usar este servicio de actualización para actualizar automáticamente equipos de la red.
+
+        Esta opción te permite especificar un servidor en la red para que funcione como un servicio de actualización interno. El cliente Actualizaciones automáticas buscará en este servicio actualizaciones que se apliquen a los equipos de la red.
+
+        Para usar esta opción, debes establecer dos valores de nombre de servidor: el servidor desde el que el cliente Actualizaciones automáticas detecta y descarga las actualizaciones y el servidor en el que las estaciones de trabajo actualizadas cargan las estadísticas. Puedes establecer ambos valores en el mismo servidor. Se puede especificar un valor de nombre de servidor opcional para configurar el agente de Windows Update para que descargue actualizaciones desde un servidor de descargas alternativo, en lugar del servicio de actualización de la intranet.
+
+        Si el estado se establece en Habilitado, el cliente Actualizaciones automáticas se conecta al servicio Microsoft Update de la intranet especificado (o al servidor de descargas alternativo), en lugar de Windows Update, para buscar y descargar las actualizaciones. Si habilitas esta configuración, los usuarios finales de la organización no tendrán que usar un firewall para obtener actualizaciones y, además, podrán probar las actualizaciones antes de implementarlas.
+
+        Si el estado se establece en Deshabilitado o No configurado y, si el cliente Actualizaciones automáticas no está deshabilitado según las preferencias del usuario o la directiva, este se conecta directamente al sitio de Windows Update en Internet.
+
+        El servidor de descargas alternativo configura el agente de Windows Update para descargar archivos desde un servidor de descargas alternativo, en lugar del servicio de actualización de la intranet.
+
+        La opción Download files with no Url permite descargar contenido desde el servidor de descargas alternativo cuando no haya ninguna URL de descarga para los archivos de los metadatos de la actualización. Esta opción solo se debe usar cuando el servicio de actualización de la intranet no proporciona las URL de descarga en los metadatos de actualización para los archivos del servidor de descargas alternativo.
+
+        Nota: Si la directiva "Configurar Actualizaciones automáticas" está deshabilitada, esta directiva no tiene ningún efecto.
+
+        Nota: Si no está establecida la opción "Definir el servidor de descargas alternativo", se usará el servicio de actualización de la intranet de forma predeterminada para la descarga de actualizaciones.
+
+        Nota: La opción "Download files with no Url..." solo se usa si se establece la opción "Definir el servidor de descargas alternativo".
+
+        Nota: Esta directiva no es compatible con Windows RT. Si estableces esta directiva, no tendrá ningún efecto en equipos con Windows RT.</string>
+      <string id="DetectionFrequency_Help">Especifica las horas que Windows usará para determinar cuánto debe esperar antes de comprobar si existen actualizaciones disponibles. El tiempo de espera exacto se obtiene al sumar el valor específico y una variante aleatoria de entre 0 y 4 horas.
+
+        Si el estado se establece en Habilitado, Windows buscará actualizaciones disponibles en el intervalo especificado.
+
+        Si el estado se establece en Deshabilitado o No configurado, Windows buscará actualizaciones disponibles en el intervalo predeterminado de 22 horas.
+
+        Nota: La configuración "Especificar la ubicación del servicio Microsoft Update de la intranet" debe habilitarse para que esta directiva surta efecto.
+
+        Nota: Si la directiva "Configurar actualizaciones automáticas" está deshabilitada, esta directiva no surtirá efecto.
+
+        Nota: Esta directiva no es compatible con Windows RT. La configuración de esta directiva no tendrá efecto en los equipos con Windows RT.</string>
+      <string id="DetectionFrequency_Title">Frecuencia de detección de Actualizaciones automáticas</string>
+      <string id="ElevateNonAdmins_Help">Esta configuración de directiva te permite controlar si los usuarios que no son administradores recibirán notificaciones de actualización basadas en la configuración de la directiva "Configurar Actualizaciones automáticas".
+
+Si habilitas esta configuración de directiva, Actualizaciones automáticas de Windows y Microsoft Update incluirán a los usuarios que no son administradores para determinar qué usuarios con sesión iniciada deben recibir notificaciones de actualización. Los usuarios que no son administradores podrán instalar contenido opcional, recomendado e importante para el cual hayan recibido una notificación. Los usuarios no verán una ventana Control de cuentas de usuario y no necesitarán permisos elevados para instalar estas actualizaciones, excepto en el caso de actualizaciones que contengan cambios de configuración de la Interfaz de usuario, el Contrato de licencia para el usuario final o Windows Update.
+
+Hay dos situaciones en las que el efecto de esta configuración depende del sistema operativo: ocultar o restaurar actualizaciones y cancelar una instalación.
+
+En XP: si habilitas esta configuración de directiva, los usuarios no verán una ventana Control de cuentas de usuario y no necesitarán permisos elevados para realizar cualquiera de estas tareas relacionadas con las actualizaciones.
+
+En Vista: si habilitas esta configuración de directiva, los usuarios no verán una ventana Control de cuentas de usuario y no necesitarán permisos elevados para realizar cualquiera de estas tareas. Si no habilitas esta configuración de directiva, los usuarios verán una ventana Control de cuentas de usuario y necesitarán permisos elevados para realizar cualquiera de estas tareas.
+
+En Windows 7: esta configuración de directiva no surte efecto. Los usuarios siempre verán una ventana Control de cuentas de usuario y necesitarán permisos elevados para realizar cualquiera de estas tareas.
+
+En Windows 8 y Windows RT: esta configuración de directiva no surte efecto. Los usuarios siempre verán una ventana Control de cuentas de usuario y necesitarán permisos elevados para realizar cualquiera de estas tareas.
+
+Si deshabilitas esta configuración de directiva, solo los usuarios administrativos recibirán notificaciones de actualización.
+
+Nota: en Windows 8 y Windows RT, esta configuración de directiva está habilitada de forma predeterminada. En todas las versiones anteriores de Windows, estará deshabilitada de forma predeterminada.
+
+Si la configuración de directiva "Configurar Actualizaciones automáticas" está deshabilitada o no está configurada, no surte efecto la configuración de directiva Elevar usuarios no administradores.</string>
+      <string id="ElevateNonAdmins_Title">Permitir que los usuarios que no sean administradores reciban notificaciones de actualización</string>
+      <string id="ImmediateInstall_Help">Especifica si Actualizaciones automáticas debe instalar automáticamente ciertas actualizaciones que no interrumpen servicios de Windows ni reinician Windows.
+
+Si el estado se establece en Habilitado, Actualizaciones automáticas instalará automáticamente estas actualizaciones una vez que se descarguen y estén listas para instalarse.
+
+Si el estado se establece en Deshabilitado, estas actualizaciones no se instalarán inmediatamente.
+
+Nota: si la directiva "Configurar Actualizaciones automáticas" está deshabilitada, esta directiva no se aplicará.</string>
+      <string id="ImmediateInstall_Title">Permitir la instalación inmediata de Actualizaciones automáticas</string>
+      <string id="IncludeRecommendedUpdates_Help">Especifica si Actualizaciones automáticas proporcionará las actualizaciones importantes y recomendadas desde el servicio de actualización Windows Update.
+
+Cuando esta directiva está habilitada, Actualizaciones automáticas instalará las actualizaciones recomendadas y las importantes, desde el servicio de actualización Windows Update.
+
+Cuando esté deshabilitada o no se haya configurado, Actualizaciones automáticas continuará proporcionando las actualizaciones importantes, si ya se ha configurado con este propósito.</string>
+      <string id="IncludeRecommendedUpdates_Title">Activar actualizaciones recomendadas mediante Actualizaciones automáticas</string>
+      <string id="FeaturedSoftwareNotification_Help">Esta configuración de directiva le permite controlar si los usuarios verán mensajes de notificación mejorados y detallados del servicio Microsoft Update acerca de software destacado opcional. Los mensajes de notificación mejorados destacan el valor y promueven la instalación y el uso de software opcional. Esta configuración de directiva está destinada a usarse en entornos poco administrados en los que se permite que el usuario final tenga acceso al servicio Microsoft Update.
+
+Si habilita esta configuración de directiva, cuando haya software destacado disponible, aparecerá un mensaje de notificación en el equipo del usuario. Este podrá hacer clic en la notificación para abrir la aplicación Windows Update y obtener más información acerca del software, o bien instalarlo. El usuario también podrá hacer clic en "Cerrar este mensaje" o en "Mostrármelas más tarde" para aplazar la notificación según convenga.
+
+En Windows 7, esta configuración de directiva controlará las notificaciones detalladas solo para aplicaciones opcionales. En Windows Vista, esta configuración de directiva controlará las notificaciones detalladas para aplicaciones y actualizaciones opcionales.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios de Windows 7 recibirán mensajes de notificación detallados para aplicaciones opcionales y los usuarios de Windows Vista no recibirán mensajes de notificación detallados para aplicaciones ni para actualizaciones opcionales.
+
+De forma predeterminada, esta configuración de directiva está deshabilitada.
+
+Si no usa el servicio Microsoft Update, la configuración de directiva de notificaciones de software no surte efecto.
+
+Si la configuración de directiva "Configurar Actualizaciones automáticas" está deshabilitada o no está configurada, no surte efecto la configuración de directiva Activar notificaciones de software.
+      
+      </string>
+      <string id="FeaturedSoftwareNotification_Title">Activar notificaciones de software</string>
+      <string id="AUPowerManagement_Help">Especifica si Windows Update usará las características de administración de energía de Windows para reactivar automáticamente el sistema de la suspensión, en el caso de que hayan actualizaciones programadas para instalarse.
+
+Windows Update solo reactivará automáticamente el sistema si está configurado para instalar actualizaciones automáticamente. Si el sistema se encuentra en estado de suspensión a la hora de instalación programada y hay que aplicar actualizaciones, Windows Update usará las características de administración de energía de Windows para reactivar automáticamente el sistema a fin de instalar las actualizaciones.
+
+Windows Update también reactivará el sistema para instalar una actualización, si se alcanza la fecha límite de una instalación.
+
+No se reactivará el sistema salvo que haya actualizaciones que instalar. Si el sistema está usando la batería cuando Windows Update lo reactive, no se instalarán las actualizaciones y el sistema volverá automáticamente al estado de suspensión en 2 minutos.</string>
+      <string id="AUPowerManagement_Title">Habilitar Administración de energía de Windows Update para que reactive automáticamente el sistema a fin de instalar actualizaciones programadas</string>
+      <string id="NoAutoRebootWithLoggedOnUsers_Help">Especifica que para completar las instalaciones programadas, Actualizaciones automáticas esperará a que el usuario que tiene iniciada la sesión reinicie el equipo, en lugar de reiniciar el equipo automáticamente.
+
+Si el estado se establece como Deshabilitado, Actualizaciones automáticas no reiniciará el equipo automáticamente durante una instalación programada si un usuario tiene una sesión iniciada. En su lugar, Actualizaciones automáticas notificará al usuario que debe reiniciar el equipo.
+
+Tenga en cuenta que el equipo debe reiniciarse para que las actualizaciones surtan efecto.
+
+Si el estado se establece como Deshabilitado o No configurado, las actualizaciones automáticas avisarán al usuario de que el equipo se va a reiniciar dentro de 5 minutos para completar la instalación.
+
+Nota: esta directiva solo se aplica cuando Actualizaciones automáticas se configura para realizar instalaciones programadas de actualizaciones. si la directiva "Configurar Actualizaciones automáticas" está deshabilitada, esta directiva no se aplicará.</string>
+      <string id="NoAutoRebootWithLoggedOnUsers_Title">No reiniciar automáticamente con usuarios que hayan iniciado sesión en instalaciones de actualizaciones automáticas</string>
+      <string id="AlwaysAutoRebootAtScheduledTime_Title">Reiniciar automáticamente siempre en el momento programado</string>
+      <string id="AlwaysAutoRebootAtScheduledTime_Help">Si habilita esta directiva, siempre se pondrá en marcha un temporizador de reinicio inmediatamente después de que Windows Update instale actualizaciones importantes, en lugar de notificar primero a los usuarios en la pantalla Inicio de sesión durante al menos dos días.
+
+El temporizador de reinicio se puede configurar para que comience con cualquier valor, desde 15 a 180 minutos. Cuando el temporizador se agote, el reinicio tendrá lugar aunque haya usuarios con una sesión abierta en el equipo.
+
+Si deshabilita o no configura esta directiva, Windows Update no alterará su comportamiento de reinicio.
+
+Si la directiva "No reiniciar automáticamente con usuarios que hayan iniciado sesión en instalaciones de actualizaciones automáticas" está habilitada, esta directiva no tiene efecto.</string>
+
+      <string id="NoAutoUpdate">Actualizaciones automáticas de Windows</string>
+      <string id="NoAutoUpdate_Help">Esta opción controla las actualizaciones automáticas en el equipo de un usuario.
+
+Cada vez que un usuario se conecta a Internet, Windows busca actualizaciones disponibles para el software y el hardware de su equipo y las descarga automáticamente. Este proceso se realiza en segundo plano y se presenta un mensaje al usuario cuando los componentes descargados están listos para instalarse, o antes de la descarga, según la configuración.
+
+Si habilita esta opción, se prohíbe a Windows que busque actualizaciones.
+
+Si la deshabilita o no la configura, Windows busca actualizaciones y las descarga automáticamente.
+
+Nota: Windows Update es un catálogo en línea personalizado para su equipo que consta de elementos tales como controladores, actualizaciones críticas, archivos de ayuda y productos de Internet que puede descargar para mantener el equipo actualizado.
+
+Consulte también la opción "Quitar vínculos y accesos a Windows Update". Si la opción "Quitar vínculos y accesos a Windows Update" está habilitada, se quitarán también los vínculos a Windows Update del menú Inicio.
+
+Nota: si ha instalado Windows XP Service Pack 1 o la actualización para Actualizaciones automáticas que se publicó después de la publicación original de Windows XP, deberá usar la nueva configuración de Actualizaciones automáticas que se encuentra en: "Configuración del equipo / Plantillas administrativas / Windows Update".</string>
+      <string id="RebootRelaunchTimeout_Help">
+        
+        Especifica la cantidad de tiempo que Actualizaciones automáticas espera antes de volver a notificar un reinicio programado.
+
+        Si el estado se establece en Habilitado, se producirá un reinicio programado tras el número de minutos especificado desde el aplazamiento de la anterior notificación de reinicio.
+
+        Si el estado se establece en Deshabilitado o No configurado, el intervalo predeterminado es de 10 minutos.
+
+        Nota: esta directiva solo se aplica cuando Actualizaciones automáticas se configura para realizar instalaciones programadas de actualizaciones. si la directiva "Configurar Actualizaciones automáticas" está deshabilitada, esta directiva no se aplicará. Esta directiva no tiene ningún efecto en Windows RT.</string>
+      <string id="RebootRelaunchTimeout_Title">Volver a pedir la intervención del usuario para reiniciar con instalaciones programadas</string>
+      <string id="RebootWarningTimeout_Help">Especifica la cantidad de tiempo que Actualizaciones automáticas espera antes de proceder con un reinicio programado.
+
+Si el estado se establece en Habilitado, se producirá un reinicio programado tras el número de minutos especificado después de completarse la instalación.
+
+Si el estado se establece en Deshabilitado o No configurado, el tiempo de espera predeterminado es de 15 minutos.
+
+Nota: esta directiva solo se aplica cuando Actualizaciones automáticas se configura para realizar instalaciones programadas de actualizaciones. Si la directiva "Configurar Actualizaciones automáticas" está deshabilitada, esta directiva no se aplicará.</string>
+      <string id="RebootWarningTimeout_Title">Retrasar el reinicio para las instalaciones programadas</string>
+      <string id="RescheduleWaitTime_Help">Especifica el tiempo que esperará Actualizaciones automáticas, tras el inicio del sistema, antes de continuar con una instalación programada que no se pudo ejecutar anteriormente.
+
+Si se establece el estado como Habilitado, una instalación programada que no se pudo realizar con anterioridad se llevará a cabo tras el siguiente inicio, una vez trascurrido el número de minutos especificado.
+
+Si el estado se establece en Deshabilitado, una instalación programada no ejecutada se llevará a cabo con la siguiente instalación programada.
+
+Si el estado se establece en No configurado, se realizará una instalación programada no ejecutada un minuto después del siguiente reinicio del equipo.
+
+Nota: esta directiva solo se aplica cuando Actualizaciones automáticas se configura para realizar instalaciones programadas de actualizaciones. si la directiva "Configurar Actualizaciones automáticas" está deshabilitada, esta directiva no se aplicará.</string>
+      <string id="RescheduleWaitTime_Title">Volver a programar las instalaciones programadas de Actualizaciones automáticas</string>
+      <string id="TargetGroup_Help">Especifica el nombre o nombres de grupos de destino que deben utilizarse para recibir actualizaciones procedentes de un servicio Microsoft Update de la intranet.
+
+Si el estado se establece en Habilitado, la información del grupo de destino especificado se envía al servicio Microsoft Update de la intranet, que la usa para determinar qué actualizaciones se deben implementar en este equipo.
+
+Si el servicio Microsoft Update de la intranet admite varios grupos de destino, esta directiva puede especificar varios nombres de grupo separados por puntos y comas. En caso contrario, hay que especificar un solo grupo.
+
+Si el estado se establece en Deshabilitado o No configurado, no se enviará información del grupo de destino al servicio Microsoft Update de la intranet.
+
+Nota: esta directiva solo se aplica cuando el servicio de Microsoft Update en la intranet al que se dirige este equipo se configura para admitir destinatarios del lado cliente. Si la directiva "Especificar la ubicación del servicio Microsoft Update en la intranet" está deshabilitada o no configurada, no entrará en vigor.
+Nota: esta directiva no se admite en Windows RT. La configuración de esta directiva no tendrá efecto en los equipos con Windows RT.</string>
+      <string id="TargetGroup_Title">Habilitar destinatarios del lado cliente</string>
+      <string id="WindowsUpdateCat">Windows Update</string>
+      <string id="TrustedPublisher_Title">Permitir actualizaciones firmadas procedentes de una ubicación del servicio Microsoft Update en la intranet  </string>
+      <string id="TrustedPublisher_Help">Esta configuración de directiva permite administrar si Actualizaciones automáticas debe aceptar actualizaciones firmadas por otras entidades distintas de Microsoft cuando la actualización procede de una ubicación del servicio Microsoft Update en la intranet.
+
+Si habilitas esta configuración de directiva, Actualizaciones automáticas acepta las actualizaciones recibidas desde una ubicación del servicio Microsoft Update de la intranet, si están firmadas por un certificado existente en el almacén de certificados "Anunciantes de confianza" del equipo local.
+
+Si deshabilitas o no estableces esta configuración de directiva, las actualizaciones procedentes de una ubicación del servicio Microsoft Update de la intranet deben estar firmadas por Microsoft.
+
+Nota: las actualizaciones procedentes de un servicio distinto del de Microsoft Update de la intranet tienen que estar siempre firmadas por Microsoft y no se ven afectadas por esta configuración de directiva.
+Nota: esta directiva no se admite en Windows RT. La configuración de esta directiva no tendrá efecto en los equipos con Windows RT.</string>
+      <string id="DoNotConnectToWindowsUpdateInternetLocations_Title">No conectar con ninguna ubicación de Internet de Windows Update</string>
+      <string id="DoNotConnectToWindowsUpdateInternetLocations_Help">Incluso cuando Windows Update está configurado para recibir actualizaciones de un servicio de actualización de la intranet, periódicamente recuperará información del servicio público de Windows Update para habilitar futuras conexiones a Windows Update, y otros servicios como Microsoft Update o la Tienda Windows.
+
+Si habilita esta directiva, se deshabilitará esa funcionalidad y podría causar que la conexión a servicios públicos como la Tienda Windows deje de funcionar.
+
+Nota: esta directiva solo se aplica cuando el equipo está configurado para conectarse a un servicio de actualización de la intranet mediante la directiva "Especificar la ubicación del servicio Windows Update en la intranet".</string>
+      <string id="DeferUpdateCat">Actualización de Windows para empresas</string>
+      <string id="ManagePreviewBuilds_Title">Administrar preliminares</string>
+      <string id="ManagePreviewBuilds_Help">Si seleccionas "Deshabilitar las versiones preliminares", estas no se instalarán en el dispositivo y así evitarás que los usuarios participen en el Programa Windows Insider mediante Configuración -&gt; Actualizaciones y seguridad.
+
+Si seleccionas "Disable preview builds once next release is public", no se instalarán las versiones preliminares cuando la siguiente versión de Windows se lance al público. Esta opción puede serte de utilidad si tienes el dispositivo configurado para instalar versiones preliminares y quieres que deje de recibir paquetes piloto. Igualmente, esta opción proporcionará versiones preliminares hasta que el dispositivo tenga la siguiente versión pública.
+
+Si seleccionas "Enable preview builds", podrás instalarlas en el dispositivo. Los usuarios podrán descargar e instalar versiones preliminares de Windows en sus dispositivos; para ello, deberán ir a Configuración -&gt; Actualizaciones y seguridad -&gt; Programa Windows Insider. Asimismo, los administradores pueden usar otras directivas para administrar la configuración de los paquetes piloto en nombre de los usuarios, cuando se establezca este valor.</string>
+      <string id="DisablePreviewBuilds">Deshabilitar preliminares</string>
+      <string id="DisablePreviewBuildsAndOptOut">Deshabilitar preliminares cuando próximo lanzamiento actual al público</string>
+      <string id="EnablePreviewBuilds">Habilitar preliminares</string>
+      <string id="PreviewBuildFastFeatureUpdates">Vista previa de compilación - rápido</string>
+      <string id="PreviewBuildSlowFeatureUpdates">Versión preliminar - lento</string>
+      <string id="ReleasePreviewBranchFeatureUpdates">Versión preliminar</string>
+      <string id="SemiAnnualChannelFeatureUpdates">Canal semianual</string>
+      <string id="SemiAnnualChannelFeatureUpdatesDeprecated">Canal semestral para la versión 1809 y versiones anteriores (en desuso)</string>
+      <string id="SemiAnnualChannelFeatureUpdatesTargetedDeprecated">Canal semestral (dirigido) para la versión 1809 y versiones anteriores (en desuso)</string>
+      <string id="DeferFeatureUpdates_Title">Seleccione cuando se reciben las compilaciones de vista previa y actualizaciones de características</string>
+      <string id="DeferFeatureUpdates_Help">Habilita esta directiva para especificar el nivel de versiones preliminares o actualizaciones de características que quieres recibir y cuándo.
+
+* Versión preliminar (rápida): los dispositivos establecidos en este nivel serán los primeros en recibir nuevas compilaciones de Windows con características que todavía no están disponibles para el público general. Selecciona Rápido para participar en la identificación y notificación de problemas a Microsoft, y envía tus sugerencias sobre la nueva funcionalidad.
+* Versión preliminar (lenta): los dispositivos establecidos en este nivel recibirán nuevas compilaciones de Windows antes de que estén disponibles para el público general, pero con una cadencia más lenta que la establecida en el nivel rápido, y con los cambios y las correcciones identificados en compilaciones anteriores.
+* Vista previa de versión: recibe compilaciones de Windows justo antes de que Microsoft las presente al público general.
+* Canal semestral: recibe actualizaciones de características cuando estén disponibles para el público general.
+
+ Los siguientes niveles de preparación de Windows han quedado en desuso y solo son aplicables a la versión 1809 y versiones anteriores:
+* Canal semestral (dirigido) para la versión 1809 y versiones anteriores: ya se han publicado las actualizaciones de características.
+* Canal semestral para la versión 1809 y versiones anteriores: las actualizaciones de características se han declarado del canal semestral, una designación que indica que la versión está lista para la implementación general.
+Revisa la página de información de la versión en http://aka.ms/ReleaseInformationPage para las fechas de lanzamiento del canal semestral (dirigido) y semestral.
+
+ Al seleccionar una versión preliminar:
+    - Puedes aplazar la recepción de versiones preliminares hasta 14 días.
+    - Para evitar recibir versiones preliminares a la hora programada, las puedes detener temporalmente. La pausa se mantendrá en vigor durante 35 días a partir de la hora de inicio proporcionada.
+    - Para reanudar la recepción de actualizaciones de características en pausa, borra el campo de fecha de inicio.
+
+ La inscripción de versión preliminar requiere un nivel de telemetría de 2 o superior y que tu dominio esté registrado en insider.windows.com. Para obtener más información sobre las versiones preliminares, consulta: https://aka.ms/wipforbiz
+
+Cuando selecciones el canal semestral:
+    - Puedes aplazar la recepción de actualizaciones de características durante un máximo de 365 días.
+    - Para evitar recibir actualizaciones de características a la hora programada, las puedes detener temporalmente. La pausa se mantendrá en vigor durante 35 días a partir de la hora de inicio proporcionada.
+    - Para reanudar la recepción de actualizaciones de características en pausa, borra el campo de fecha de inicio.
+
+Si deshabilitas esta Directiva o no la configuras, Windows Update no alterará su comportamiento.</string>
+      <string id="DeferQualityUpdates_Title">Selecciona cuándo quieres recibir actualizaciones de calidad</string>
+      <string id="DeferQualityUpdates_Help">Habilita esta directiva para especificar si quieres recibir actualizaciones de calidad.
+
+Puedes aplazar la recepción de actualizaciones de calidad hasta 30 días.
+
+Para impedir la recepción de actualizaciones de calidad en la fecha programada, puedes pausar temporalmente las actualizaciones de calidad. La pausa permanecerá en vigor durante 35 días o hasta que desactives el campo de fecha de inicio.
+
+Para reanudar la recepción de actualizaciones de calidad que están en pausa, borra el campo de fecha de inicio.
+
+Si deshabilitas esta directiva o no la configuras, Windows Update no alterará su comportamiento.</string>
+      <string id="ExcludeWUDriversInQualityUpdate_Title">No incluyas controladores con las actualizaciones de Windows</string>
+      <string id="ExcludeWUDriversInQualityUpdate_Help">Habilita esta directiva para no incluir controladores con las actualizaciones de calidad de Windows.
+
+Si deshabilitas o no configuras esta directiva, Windows Update incluirá las actualizaciones que tengan una clasificación de controlador.</string>
+      <string id="ActiveHours_Title">Desactivar el reinicio automático de actualizaciones durante las horas activas</string>
+      <string id="ActiveHours_Help">Si habilitas esta directiva, el equipo no se reiniciará automáticamente durante las horas activas después de que realices las actualizaciones, sino que intentará reiniciarse fuera de ellas.
+
+Ten en cuenta que el equipo debe reiniciarse para que algunas actualizaciones surtan efecto.
+
+Si deshabilitas o no configuras esta directiva y no tienes otras directivas de grupo de reinicio, se recurrirá a las horas que seleccionó el usuario.
+
+Si alguna de las dos directivas siguientes está habilitada, esta directiva no tendrá ningún efecto:
+    1. No reiniciar automáticamente con usuarios que hayan iniciado sesión en instalaciones de actualizaciones automáticas.
+    2. Reiniciar siempre automáticamente a la hora programada.
+
+Ten en cuenta que el intervalo máximo de horas activas es de 18 horas desde su hora de inicio a menos que se configure de otro modo a través de la directiva Especificar el intervalo de horas activas para los reinicios automáticos.</string>
+      <string id="ActiveHoursTime10AM">10 a. m.</string>
+      <string id="ActiveHoursTime10PM">10 p. m.</string>
+      <string id="ActiveHoursTime11AM">11 a. m.</string>
+      <string id="ActiveHoursTime11PM">11 p. m.</string>
+      <string id="ActiveHoursTime12AM">12 a. m.</string>
+      <string id="ActiveHoursTime12PM">12 p. m.</string>
+      <string id="ActiveHoursTime1AM">1 a. m.</string>
+      <string id="ActiveHoursTime1PM">1 p. m.</string>
+      <string id="ActiveHoursTime2AM">2 a. m.</string>
+      <string id="ActiveHoursTime2PM">2 p. m.</string>
+      <string id="ActiveHoursTime3AM">3 a. m.</string>
+      <string id="ActiveHoursTime3PM">3 p. m.</string>
+      <string id="ActiveHoursTime4AM">4 a. m.</string>
+      <string id="ActiveHoursTime4PM">4 p. m.</string>
+      <string id="ActiveHoursTime5AM">5 a. m.</string>
+      <string id="ActiveHoursTime5PM">5 p. m.</string>
+      <string id="ActiveHoursTime6AM">6 a. m.</string>
+      <string id="ActiveHoursTime6PM">6 p. m.</string>
+      <string id="ActiveHoursTime7AM">7 a. m.</string>
+      <string id="ActiveHoursTime7PM">7 p. m.</string>
+      <string id="ActiveHoursTime8AM">8 a. m.</string>
+      <string id="ActiveHoursTime8PM">8 p. m.</string>
+      <string id="ActiveHoursTime9AM">9 a. m.</string>
+      <string id="ActiveHoursTime9PM">9 p. m.</string>
+
+      <string id="AutoRestartDeadline_Title">Especificar la fecha límite antes de reiniciar automáticamente para instalar las actualizaciones</string>
+      <string id="AutoRestartDeadline_Help">Especifica la fecha límite antes de que el equipo se reinicie automáticamente para aplicar las actualizaciones. Se puede establecer la fecha límite entre 2 y 14 días desde la fecha de inicio predeterminada.
+
+Puede que el reinicio se produzca dentro de las horas activas.
+
+Si deshabilitas o no configuras esta directiva, el equipo se reiniciará según la programación predeterminada.
+
+Habilitar cualquiera de estas dos directivas invalidará la directiva anterior:
+    1. No reiniciar automáticamente con usuarios que hayan iniciado sesión en instalaciones programadas de actualizaciones automáticas.
+    2. Reiniciar siempre automáticamente a la hora programada.
+      </string>
+      <string id="AutoRestartDeadlineDay2">2</string>
+      <string id="AutoRestartDeadlineDay3">3</string>
+      <string id="AutoRestartDeadlineDay4">4</string>
+      <string id="AutoRestartDeadlineDay5">5</string>
+      <string id="AutoRestartDeadlineDay6">6</string>
+      <string id="AutoRestartDeadlineDay7">7</string>
+      <string id="AutoRestartDeadlineDay8">8</string>
+      <string id="AutoRestartDeadlineDay9">9</string>
+      <string id="AutoRestartDeadlineDay10">10</string>
+      <string id="AutoRestartDeadlineDay11">11</string>
+      <string id="AutoRestartDeadlineDay12">12</string>
+      <string id="AutoRestartDeadlineDay13">13</string>
+      <string id="AutoRestartDeadlineDay14">14</string>
+      <string id="AutoRestartDeadlineDay15">15</string>
+      <string id="AutoRestartDeadlineDay16">16</string>
+      <string id="AutoRestartDeadlineDay17">17</string>
+      <string id="AutoRestartDeadlineDay18">18</string>
+      <string id="AutoRestartDeadlineDay19">19</string>
+      <string id="AutoRestartDeadlineDay20">20</string>
+      <string id="AutoRestartDeadlineDay21">21</string>
+      <string id="AutoRestartDeadlineDay22">22</string>
+      <string id="AutoRestartDeadlineDay23">23</string>
+      <string id="AutoRestartDeadlineDay24">24</string>
+      <string id="AutoRestartDeadlineDay25">25</string>
+      <string id="AutoRestartDeadlineDay26">26</string>
+      <string id="AutoRestartDeadlineDay27">27</string>
+      <string id="AutoRestartDeadlineDay28">28</string>
+      <string id="AutoRestartDeadlineDay29">29</string>
+      <string id="AutoRestartDeadlineDay30">30</string>
+
+      <string id="DisableUXWUAccess_Title">Quitar el acceso a todas las características de Windows Update</string>
+      <string id="DisableUXWUAccess_Help">Esta configuración te permite quitar el acceso al análisis de Windows Update.
+
+Si habilitas esta configuración, se quitará el acceso al análisis, descarga e instalación de Windows Update.
+      </string>
+
+      <string id="DisablePauseUXAccess_Title">Quitar acceso a la característica "Pausar actualizaciones"</string>
+      <string id="DisablePauseUXAccess_Help">Esta configuración permite eliminar el acceso a la característica "Pausar actualizaciones".
+
+Una vez habilitada, se quita el acceso al usuario para pausar las actualizaciones.
+      </string>
+
+      <string id="ActiveHoursMaxRange_Title">Especificar el intervalo de horas activas para los reinicios automáticos</string>
+      <string id="ActiveHoursMaxRange_Help">Habilita esta directiva para especificar el número máximo de horas desde la hora de inicio en las que los usuarios pueden establecer sus horas activas.
+
+El intervalo máximo de horas activas puede oscilar entre 8 y 18 horas.
+
+Si deshabilitas o no configuras esta directiva, se recurrirá al intervalo máximo de horas activas predeterminado.
+      </string>
+      <string id="ActiveHoursMaxRange8">8</string>
+      <string id="ActiveHoursMaxRange9">9</string>
+      <string id="ActiveHoursMaxRange10">10</string>
+      <string id="ActiveHoursMaxRange11">11</string>
+      <string id="ActiveHoursMaxRange12">12</string>
+      <string id="ActiveHoursMaxRange13">13</string>
+      <string id="ActiveHoursMaxRange14">14</string>
+      <string id="ActiveHoursMaxRange15">15</string>
+      <string id="ActiveHoursMaxRange16">16</string>
+      <string id="ActiveHoursMaxRange17">17</string>
+      <string id="ActiveHoursMaxRange18">18</string>
+
+      <string id="AutoRestartRequiredNotificationDismissal_Title">Configurar las notificaciones necesarias sobre el reinicio automático para realizar actualizaciones</string>
+      <string id="AutoRestartRequiredNotificationDismissal_Help">Habilita esta directiva para especificar el método por el que se descartará la notificación necesaria sobre el reinicio automático. Cuando se deba reiniciar el equipo para instalar actualizaciones, se mostrará la notificación necesaria de reinicio automático. De forma predeterminada, la notificación se descartará automáticamente después de 25 segundos.
+
+El método puede establecerse de forma que tenga que intervenir el usuario para descartar la notificación.
+
+Si deshabilitas o no configuras esta directiva, se usará el método predeterminado.
+      </string>
+      <string id="AutoDismissal">1: Automático</string>
+      <string id="UserAction">2: Acción del usuario</string>
+
+      <string id="AutoRestartNotificationConfig_Title">Configurar las notificaciones de aviso de reinicio automático para las actualizaciones</string>
+      <string id="AutoRestartNotificationConfig_Help">Habilita esta directiva para especificar cuándo se muestran los avisos de reinicio automático.
+
+Puedes especificar el tiempo de antelación con el que se notificará un reinicio programado al usuario.
+
+Si deshabilitas o no configuras esta directiva, se usará el periodo predeterminado.
+      </string>
+      <string id="AutoRestartNotificationSchd15">15</string>
+      <string id="AutoRestartNotificationSchd30">30</string>
+      <string id="AutoRestartNotificationSchd60">60</string>
+      <string id="AutoRestartNotificationSchd120">120</string>
+      <string id="AutoRestartNotificationSchd240">240</string>
+
+      <string id="AutoRestartNotificationDisable_Title">Desactivar las notificaciones de reinicio automático para la instalación de actualizaciones</string>
+      <string id="AutoRestartNotificationDisable_Help">Este ajuste de directiva te permite controlar si los usuarios recibirán notificaciones sobre los reinicios automáticos para la instalación de actualizaciones, incluidas las notificaciones de aviso y de advertencia.
+
+Habilita esta directiva para desactivar todas las notificaciones al respecto.
+
+Si deshabilitas o no configuras esta directiva, no se cambiarán los comportamientos de notificación predeterminados.
+      </string>
+
+      <string id="RestartWarningSchd_Title">Configurar la programación de las notificaciones de advertencia de reinicio automático para realizar actualizaciones</string>
+      <string id="RestartWarningSchd_Help">Habilita esta directiva para controlar el momento en el que se mostrarán las notificaciones para advertir a los usuarios del plazo máximo en el que se llevará a cabo un reinicio programado para la instalación de actualizaciones. Los usuarios no podrán posponer el reinicio programado una vez que se haya llegado a la fecha límite, tras la cual, el equipo se reiniciará automáticamente.
+
+Especifica la antelación con la que se mostrará el aviso de advertencia de un reinicio programado al usuario.
+
+Puedes especificar la antelación con la que se notificará al usuario que el reinicio automático es inminente con el fin de dejarle tiempo suficiente para guardar su trabajo.
+
+Si deshabilitas o no configuras esta directiva, se recurrirá a los comportamientos de notificación predeterminados.
+      </string>
+      <string id="RestartWarnRemindHours2">2</string>
+      <string id="RestartWarnRemindHours4">4</string>
+      <string id="RestartWarnRemindHours8">8</string>
+      <string id="RestartWarnRemindHours12">12</string>
+      <string id="RestartWarnRemindHours24">24</string>
+      <string id="RestartWarnMins15">15</string>
+      <string id="RestartWarnMins30">30</string>
+      <string id="RestartWarnMins60">60</string>
+      <string id="EngagedRestartTransitionSchedule_Title">Especificar la programación de notificaciones y la transición del Reinicio establecido para las actualizaciones</string>
+      <string id="EngagedRestartTransitionSchedule_Help">Habilita esta directiva para controlar el tiempo disponible antes de la transición de los reinicios automáticos programados fuera de las horas activas al reinicio establecido, que es necesario que el usuario programe. El período puede establecerse entre 0 y 30 días a partir del momento en que el reinicio está pendiente.
+
+Puedes especificar el número de días que un usuario puede posponer las notificaciones de aviso de Reinicio establecido. El periodo de posposición puede establecerse entre 1 y 3 días.
+
+Puedes especificar la fecha límite, en días, antes de programar y ejecutar automáticamente un reinicio pendiente fuera de las horas activas. La fecha límite puede establecerse entre 2 y 30 días después de que el reinicio empiece a estar pendiente. Si se configura, el reinicio pendiente realizará la transición de Reinicio automático a Reinicio establecido (programación del usuario pendiente) para ejecutarse automáticamente, dentro del periodo especificado.
+
+Si no se especifica ninguna fecha límite o se establece en 0, el equipo no se reiniciará automáticamente y requerirá que la persona lo programe antes de reiniciar.
+
+Si deshabilitas o no configuras esta directiva, el equipo se reiniciará según la programación predeterminada.
+
+Habilitar cualquiera de estas dos directivas invalidará la directiva anterior:
+    1. No reiniciar automáticamente con usuarios que hayan iniciado sesión en instalaciones programadas de actualizaciones automáticas
+    2. Reiniciar siempre automáticamente a la hora programada
+    3. Especificar la fecha límite antes del reinicio automático para la instalación de la actualización
+      </string>
+      <string id="EngagedRestart_0">0</string>
+      <string id="EngagedRestart_1">1</string>
+      <string id="EngagedRestart_2">2</string>
+      <string id="EngagedRestart_3">3</string>
+      <string id="EngagedRestart_4">4</string>
+      <string id="EngagedRestart_5">5</string>
+      <string id="EngagedRestart_6">6</string>
+      <string id="EngagedRestart_7">7</string>
+      <string id="EngagedRestart_8">8</string>
+      <string id="EngagedRestart_9">9</string>
+      <string id="EngagedRestart_10">10</string>
+      <string id="EngagedRestart_11">11</string>
+      <string id="EngagedRestart_12">12</string>
+      <string id="EngagedRestart_13">13</string>
+      <string id="EngagedRestart_14">14</string>
+      <string id="EngagedRestart_15">15</string>
+      <string id="EngagedRestart_16">16</string>
+      <string id="EngagedRestart_17">17</string>
+      <string id="EngagedRestart_18">18</string>
+      <string id="EngagedRestart_19">19</string>
+      <string id="EngagedRestart_20">20</string>
+      <string id="EngagedRestart_21">21</string>
+      <string id="EngagedRestart_22">22</string>
+      <string id="EngagedRestart_23">23</string>
+      <string id="EngagedRestart_24">24</string>
+      <string id="EngagedRestart_25">25</string>
+      <string id="EngagedRestart_26">26</string>
+      <string id="EngagedRestart_27">27</string>
+      <string id="EngagedRestart_28">28</string>
+      <string id="EngagedRestart_29">29</string>
+      <string id="EngagedRestart_30">30</string>
+      <string id="EngagedRestartSnooze_1">1</string>
+      <string id="EngagedRestartSnooze_2">2</string>
+      <string id="EngagedRestartSnooze_3">3</string>
+
+      <string id="SetEDURestart_Title">Actualizar directiva de energía para los reinicios del carro</string>
+      <string id="SetEDURestart_Help">Si habilitas esta directiva para los dispositivos EDU que permanecen en los carros durante la noche, se omitirán las comprobaciones de energía para garantizar que los reinicios de actualizaciones tienen lugar en las horas de instalación programadas.</string>
+
+      <string id="AllowAutoWindowsUpdateDownloadOverMeteredNetwork_Title">Permitir la descarga automática de actualizaciones sobre conexiones de uso medido</string>
+      <string id="AllowAutoWindowsUpdateDownloadOverMeteredNetwork_Help">Si se habilita esta directiva, las actualizaciones se descargarán automáticamente, incluso sobre conexiones de datos de uso medido (pueden aplicarse cargos).</string>
+
+      <string id="DisableDualScan_Title">No permitir la actualización de directivas de aplazamiento a causar exámenes en Windows Update</string>
+      <string id="DisableDualScan_Help">Habilita esta directiva para no permitir que las directivas de aplazamiento de actualizaciones provoquen exámenes de Windows Update.
+
+Si se deshabilita esta directiva o no se configura, el cliente de Windows Update puede iniciar exámenes automáticos de Windows Update aunque las directivas de aplazamiento de actualizaciones estén habilitadas.
+Nota: Esta directiva solo se aplica cuando el servicio de Microsoft Update en la intranet al que se dirige este equipo se configura para admitir destinatarios del lado cliente. Si la directiva "Especificar la ubicación del servicio Microsoft Update en la intranet" está deshabilitada o no configurada, no entrará en vigor.
+      </string>
+      <string id="UpdateNotificationLevel_Title">Mostrar opciones para notificaciones de actualización</string>
+      <string id="UpdateNotificationLevel_Help">0 (valor predeterminado): usar las notificaciones predeterminadas de Windows Update
+1: desactivar todas las notificaciones, excepto las advertencias de reinicio
+2: desactivar todas las notificaciones, incluidas las advertencias de reinicio
+
+Esta directiva te permite definir qué notificaciones de Windows Update pueden ver los usuarios. Esta Directiva no controla la forma y el momento en que se descargan e instalan las actualizaciones.
+
+Importante: Si decides no recibir notificaciones de actualización y también quieres definir otra directiva de grupo para que los dispositivos no reciban actualizaciones automáticas, ni usuarios de dispositivos tendrán conocimiento de la seguridad, la calidad o las actualizaciones de características críticas, y tus dispositivos pueden estar en riesgo.
+      </string>
+      <string id="DefaultNotification">0 (predeterminado): notificaciones de Windows Update de SO predeterminadas</string>
+      <string id="ExcludingRebootWarnings">1 – Deshabilitar todas las notificaciones, excepto las advertencias de reinicio</string>
+      <string id="IncludingRebootWarnings">2 – Deshabilitar todas las notificaciones, incluidas las advertencias de reinicio</string>
+      <string id="ComplianceDeadline_Title">Especificar fechas límite para actualizaciones y reinicios automáticos</string>
+      <string id="ComplianceDeadline_Help">Esta directiva permite especificar el número de días que un usuario tiene antes de que se instalen automáticamente las actualizaciones de calidad y características en sus dispositivos, así como un período de gracia tras el cual se realizan reinicios automáticos. Las actualizaciones y los reinicios se producirán independientemente de las horas activas y el usuario no podrá volver a programarlos.
+
+Los plazos de actualización de características y de calidad pueden ser de hasta 30 días. El período de gracia de reinicio automático puede comprender entre 0 y 7 días.
+
+También puedes deshabilitar los reinicios automáticos hasta el final de dicho período de gracia.
+
+Si deshabilitas o no configuras esta directiva, los dispositivos recibirán actualizaciones y se reiniciarán según la programación predeterminada.
+
+Esta directiva invalidará las siguientes directivas:
+1.  Especificar la fecha límite antes del reinicio automáticamente para instalar las actualizaciones
+2.  Especificar la transición de reinicio establecido y la programación de notificaciones
+3.  Reiniciar siempre automáticamente a la hora programada
+4.  No reiniciar automáticamente para instalar actualizaciones automáticas programadas si hay usuarios con una sesión iniciada
+      </string>
+      <string id="ComplianceDeadlineDay0">0</string>
+      <string id="ComplianceDeadlineDay1">1</string>
+      <string id="ComplianceDeadlineDay2">2</string>
+      <string id="ComplianceDeadlineDay3">3</string>
+      <string id="ComplianceDeadlineDay4">4</string>
+      <string id="ComplianceDeadlineDay5">5</string>
+      <string id="ComplianceDeadlineDay6">6</string>
+      <string id="ComplianceDeadlineDay7">7</string>
+      <string id="ComplianceDeadlineDay8">8</string>
+      <string id="ComplianceDeadlineDay9">9</string>
+      <string id="ComplianceDeadlineDay10">10</string>
+      <string id="ComplianceDeadlineDay11">11</string>
+      <string id="ComplianceDeadlineDay12">12</string>
+      <string id="ComplianceDeadlineDay13">13</string>
+      <string id="ComplianceDeadlineDay14">14</string>
+      <string id="ComplianceDeadlineDay15">15</string>
+      <string id="ComplianceDeadlineDay16">16</string>
+      <string id="ComplianceDeadlineDay17">17</string>
+      <string id="ComplianceDeadlineDay18">18</string>
+      <string id="ComplianceDeadlineDay19">19</string>
+      <string id="ComplianceDeadlineDay20">20</string>
+      <string id="ComplianceDeadlineDay21">21</string>
+      <string id="ComplianceDeadlineDay22">22</string>
+      <string id="ComplianceDeadlineDay23">23</string>
+      <string id="ComplianceDeadlineDay24">24</string>
+      <string id="ComplianceDeadlineDay25">25</string>
+      <string id="ComplianceDeadlineDay26">26</string>
+      <string id="ComplianceDeadlineDay27">27</string>
+      <string id="ComplianceDeadlineDay28">28</string>
+      <string id="ComplianceDeadlineDay29">29</string>
+      <string id="ComplianceDeadlineDay30">30</string>
+    </stringTable>
+
+    <presentationTable>
+      <presentation id="RemoveWindowsUpdate">
+        <dropdownList refId="RemoveWindowsUpdateMode" defaultItem="0">Configurar notificaciones:</dropdownList>
+      </presentation>
+      <presentation id="AutoUpdateCfg">
+        <dropdownList refId="AutoUpdateMode" defaultItem="1">Configurar actualización automática:</dropdownList>
+        <text>Las siguientes opciones de configuración son necesarias y aplicables si se selecciona la opción 4.</text>
+        <checkBox refId="AutoUpdateAutomaticMaintenanceEnabled" defaultChecked="false">Instalar durante mantenimiento automático</checkBox>
+        <dropdownList refId="AutoUpdateSchDay" defaultItem="0">Día de instalación programado:  </dropdownList>
+        <dropdownList refId="AutoUpdateSchTime" defaultItem="3">Hora de instalación programada:</dropdownList>
+        <text>Si has seleccionado "4 - Descargar automáticamente y programar la instalación" para el día de instalación programado y has especificado un programa, también tienes la opción de limitar la actualización a una ocurrencia semanal, quincenal o mensual, con las opciones siguientes:</text>
+        <checkBox refId="AutoUpdateSchEveryWeek" defaultChecked="true">Semanalmente</checkBox>
+        <checkBox refId="AutoUpdateSchFirstWeek" defaultChecked="false">Primera semana del mes</checkBox>
+        <checkBox refId="AutoUpdateSchSecondWeek" defaultChecked="false">Segunda semana del mes</checkBox>
+        <checkBox refId="AutoUpdateSchThirdWeek" defaultChecked="false">Tercera semana del mes</checkBox>
+        <checkBox refId="AutoUpdateSchFourthWeek" defaultChecked="false">Cuarta semana del mes</checkBox>
+        <text> </text>
+        <checkBox refId="AllowMUUpdateServiceId" defaultChecked="false">Instalar actualizaciones de otros productos de Microsoft</checkBox>
+      </presentation>
+      <presentation id="CorpWuURL">
+        <textBox refId="CorpWUURL_Name">
+          <label>Establecer el servicio de actualización de la intranet para detectar actualizaciones:</label>
+        </textBox>
+        <textBox refId="CorpWUStatusURL_Name">
+          <label>Establecer el servidor de estadísticas de la intranet:</label>
+        </textBox>
+        <textBox refId="CorpWUContentHost_Name">
+          <label>Definir el servidor de descargas alternativo:</label>
+        </textBox>
+        <text>(por ejemplo, http://IntranetUpd01)</text>
+        <checkBox refId="CorpWUFillEmptyContentUrls" defaultChecked="false">Descarga archivos sin URL en los metadatos si se estableció un servidor de descargas alternativo.</checkBox>
+      </presentation>
+      <presentation id="DetectionFrequency_Title">
+        <text>Comprobar actualizaciones con el siguiente</text>
+        <decimalTextBox refId="DetectionFrequency_Hour2" defaultValue="22">intervalo (horas):  </decimalTextBox>
+      </presentation>
+      <presentation id="RebootRelaunchTimeout_Title">
+        <text>Esperar el siguiente período antes de</text>
+        <text>volver a pedir la intervención del usuario con un reinicio</text>
+        <decimalTextBox refId="RebootRelaunchTimeout_Minutes3" defaultValue="10">programado (minutos):  </decimalTextBox>
+      </presentation>
+      <presentation id="RebootWarningTimeout_Title">
+        <text>Esperar el siguiente período antes de</text>
+        <text>continuar con un reinicio</text>
+        <decimalTextBox refId="RebootWarningTimeout_Minutes3" defaultValue="5">programado (minutos):  </decimalTextBox>
+      </presentation>
+      <presentation id="RescheduleWaitTime_Title">
+        <text>Esperar después de que el sistema</text>
+        <decimalTextBox refId="RescheduleWaitTime_Minutes2">se inicie (minutos):  </decimalTextBox>
+      </presentation>
+      <presentation id="TargetGroup_Title">
+        <textBox refId="TargetGroup_Name">
+          <label>Nombre de grupo de destino para este equipo</label>
+        </textBox>
+      </presentation>
+      <presentation id="IdleShutdownTimerDuration_Title">
+        <text>Esperar el siguiente período antes de</text>
+        <text>apagar el servicio cuando</text>
+        <decimalTextBox refId="IdleShutdownTimerDuration_Minutes" defaultValue="10">esté inactivo (minutos):  </decimalTextBox>
+      </presentation>
+      <presentation id="AlwaysAutoRebootAtScheduledTime_Presentation">
+        <text>El temporizador de reinicio concederá a los usuarios</text>
+        <text>todo este tiempo para guardar su</text>
+        <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">trabajo (minutos):  </decimalTextBox>
+      </presentation>
+      <presentation id="ManagePreviewBuilds">
+        <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Establecer el comportamiento de recibir compilaciones de vista previa:</dropdownList>
+      </presentation>
+      <presentation id="DeferFeatureUpdates">
+        <dropdownList refId="BranchReadinessLevelId" noSort="true" defaultItem="0">Seleccione el nivel de preparación de Windows para obtener las actualizaciones que desea recibir:</dropdownList>
+        <decimalTextBox refId="DeferFeatureUpdatesPeriodId" defaultValue="0">Después del lanzamiento de una vista previa de compilación o actualización de características, aplazar su recepción por la siguiente cantidad de días:</decimalTextBox>
+        <textBox refId="PauseFeatureUpdatesStartId">
+          <label>Pausar actualizaciones de características iniciando o compilaciones de vista previa:</label>
+        </textBox>
+        <text>(ejemplo de formato aaaa-mm-dd: 2016-10-30)</text>
+      </presentation>
+      <presentation id="DeferQualityUpdates">
+        <decimalTextBox refId="DeferQualityUpdatesPeriodId" defaultValue="0">Después del lanzamiento de una actualización de calidad, aplazar su recepción por la siguiente cantidad de días:</decimalTextBox>
+        <textBox refId="PauseQualityUpdatesStartId">
+          <label>Iniciándose la pausa de actualizaciones de calidad</label>
+        </textBox>
+        <text>(ejemplo de formato aaaa-mm-dd: 2016-10-30)</text>
+      </presentation>
+      <presentation id="ActiveHours_Title">
+        <text>Horas activas</text>
+        <dropdownList refId="ActiveHoursStartTime" noSort="true" defaultItem="8">Inicio: </dropdownList>
+        <dropdownList refId="ActiveHoursEndTime" noSort="true" defaultItem="17">Fin:</dropdownList>
+      </presentation>
+      <presentation id="AutoRestartDeadline_Title">
+        <text>Especifica el número de días antes de que se ejecute automáticamente un reinicio pendiente fuera de las horas activas: </text>
+        <dropdownList refId="AutoRestartDeadline" noSort="true" defaultItem="5">Actualizaciones de calidad (días): </dropdownList>
+        <dropdownList refId="AutoRestartDeadlineForFeatureUpdates" noSort="true" defaultItem="5">Actualizaciones de características (días): </dropdownList>
+      </presentation>
+      <presentation id="ActiveHoursMaxRange_Title">
+        <text>Especifica el intervalo máximo de horas activas:</text>
+        <dropdownList refId="ActiveHoursMaxRange" noSort="true" defaultItem="10">Intervalo máximo: </dropdownList>
+      </presentation>
+      <presentation id="AutoRestartRequiredNotificationDismissal_Title">
+        <text>Especifica el método por el que se descartarán las notificaciones necesarias sobre el reinicio automático:</text>
+        <dropdownList refId="AutoRestartRequiredNotificationDismissal" noSort="true" defaultItem="0">Método: </dropdownList>
+      </presentation>
+      <presentation id="AutoRestartNotificationConfig_Title">
+        <text>Especifica el periodo de las notificaciones de aviso del reinicio automático:</text>
+        <dropdownList refId="AutoRestartNotificationSchd" noSort="true" defaultItem="0">Plazo (minutos): </dropdownList>
+      </presentation>
+      <presentation id="RestartWarningSchd_Title">
+        <text>Especifica el periodo de las notificaciones de aviso advirtiendo del reinicio automático:</text>
+        <dropdownList refId="RestartWarnRemind" noSort="true" defaultItem="1">Aviso (horas): </dropdownList>
+        <text>Especifica el periodo de las notificaciones que advierten de un reinicio automático inminente:</text>
+        <dropdownList refId="RestartWarn" noSort="true" defaultItem="0">Advertencia (minutos): </dropdownList>
+      </presentation>
+      <presentation id="EngagedRestartTransitionSchedule_Title">
+        <text>Transición: especifica el tiempo antes de la transición desde el reinicio automático hasta el reinicio activado (programa de usuario pendiente).</text>
+        <text>Posponer: especifica la función de posponer para notificaciones de recordatorio de reinicio activadas.</text>
+        <text>Fecha límite: especifica la fecha límite antes de que un reinicio pendiente se ejecute automáticamente fuera de las horas activas.</text>
+        <text></text>
+        <text>Para actualizaciones de calidad: </text>
+        <dropdownList refId="EngagedRestartTransitionSchedule" noSort="true" defaultItem="7">Transición (días): </dropdownList>
+        <dropdownList refId="EngagedRestartSnoozeSchedule" noSort="true" defaultItem="2">Posponer (días):     </dropdownList>
+        <dropdownList refId="EngagedRestartDeadline" noSort="true" defaultItem="0">Fecha límite (días):  </dropdownList>
+        <text></text>
+        <text>Para actualizaciones de características: </text>
+        <dropdownList refId="EngagedRestartTransitionScheduleForFeatureUpdates" noSort="true" defaultItem="7">Transición (días): </dropdownList>
+        <dropdownList refId="EngagedRestartSnoozeScheduleForFeatureUpdates" noSort="true" defaultItem="2">Posponer (días):     </dropdownList>
+        <dropdownList refId="EngagedRestartDeadlineForFeatureUpdates" noSort="true" defaultItem="0">Fecha límite (días):  </dropdownList>
+      </presentation>
+      <presentation id="UpdateNotificationLevel_Title">
+        <dropdownList refId="UpdateNotificationLevel" noSort="true" defaultItem="0">Especificar las opciones de visualización de las notificaciones de actualización:</dropdownList>
+      </presentation>
+      <presentation id="ComplianceDeadline_Title">
+        <text>Especifica el número de días (hasta 30 días) que el usuario tiene antes de que las actualizaciones se ejecuten automáticamente, con independencia de las horas activas y sin posibilidad de reprogramarlo.</text>
+        <dropdownList refId="ConfigureDeadlineForQualityUpdates" noSort="true" defaultItem="5">Actualizaciones de calidad (días):</dropdownList>
+        <dropdownList refId="ConfigureDeadlineForFeatureUpdates" noSort="true" defaultItem="5">Actualizaciones de características (días):</dropdownList>
+        <text></text>
+        <text>Especifica un período de gracia para el reinicio automático (entre 0 y 7 días) desde el momento en que se requiere un reinicio hasta que el dispositivo se reinicie automáticamente. Los dispositivos se reiniciarán con independencia de las horas activa y sin posibilidad de reprogramarlo.</text>
+        <dropdownList refId="ConfigureDeadlineGracePeriod" noSort="true" defaultItem="2">Período de gracia (días)</dropdownList>
+        <text></text>
+        <checkBox refId="ConfigureDeadlineNoAutoReboot" defaultChecked="false">No reiniciar automáticamente hasta el final del período de gracia</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

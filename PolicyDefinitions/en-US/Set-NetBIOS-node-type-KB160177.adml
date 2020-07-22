@@ -1,0 +1,37 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>
+  </displayName>
+  <description>
+  </description>
+  <resources>
+    <stringTable>
+      <string id="NetBIOSNodeType_Title">NetBIOS Node Type</string>
+      <string id="NetBIOSNodeType_B_Node_Value_Display">B-node</string>
+      <string id="NetBIOSNodeType_P_Node_Value_Display">P-node</string>
+      <string id="NetBIOSNodeType_M_Node_Value_Display">M-node</string>
+      <string id="NetBIOSNodeType_H_Node_Value_Display">H-node</string>
+      <string id="NetBIOSNodeType_Explain">Sets the NetBIOS node type. When WINS servers are used, the default is hybrid (h), otherwise broadcast (b).This policy settings allows you to manage the computer's NetBIOS node type. The selected NetBIOS node type determines what methods NetBT will use to register and resolve names.
+
+If you enable this policy setting, you must choose a node type:
+--A b-node system uses broadcasts (default when no WINS servers are configured).
+--A h-node system queries the name server first, then broadcasts (default when a WINS server is configured).
+--A m-node system broadcasts first, then queries the name server. 
+--A p-node system uses only point-to-point name queries to a name server (WINS).
+
+If you disable this policy setting, Windows will check the registry value DhcpNodeType for a configured NetBIOS node type. If DhcpNodeType configures a node type, then that node type will be used. If DhcpNodeType is not present, then the system defaults to b-node if there are no WINS servers configured for the client. Alternatively, if DhcpNodeType is not present and there is a WINS server configured for the client, then the system defaults to h-node.
+
+If you do not configure this policy setting, the system's name resolution behavior will not be modified, and the system will behave as described for a disabled policy setting unless this setting or the NodeType registry value was previously configured.
+
+Note: If this setting is configured, it overrides the behavior specified by the DhcpNodeType registry value.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="NetBIOSNodeType">
+        <dropdownList refId="NetBIOSNodeType" defaultItem="0">NetBIOS Node Type</dropdownList>
+        <text>B-node = Broadcast</text>
+        <text>H-node = Hybrid: use WINS servers first, then use broadcast</text>
+        <text>M-node = Mixed: broadcast first, then use WINS servers</text>
+        <text>P-node = Peer-to-peer: for environments with WINS servers only</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

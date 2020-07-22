@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="BlockedCommandsList_Help">Este ajuste de directiva permite administrar la lista de comandos del Módulo de plataforma segura (TPM) de directiva de grupo bloqueados por Windows.
+
+Si habilitas este ajuste de directiva, Windows bloqueará los comandos especificados para evitar que se envíen al TPM del equipo. Se hace referencia a los comandos del TPM mediante un número de comando. Por ejemplo, el número de comando 129 es TPM_OwnerReadInternalPub y el número de comando 170 es TPM_FieldUpgrade. Para buscar el número de comando asociado a cada comando del TPM con el TPM 1.2, ejecuta "tpm.msc" y ve a la sección "Administración de comandos".
+
+Si deshabilitas o no configuras este ajuste de directiva, Windows solo podrá bloquear los comandos del TPM especificados en las listas local o predeterminada. Windows configura previamente la lista predeterminada de comandos del TPM bloqueados. Para ver la lista predeterminada, ejecuta "tpm.msc", ve a la sección "Administración de comandos" y haz visible la columna "En lista de bloqueados predeterminada". La lista local de comandos del TPM bloqueados se configura fuera de la directiva de grupo, ejecutando "tpm.msc" o mediante secuencias de comandos a través de la interfaz Win32_Tpm. Consulta las configuraciones de directiva relacionadas para aplicar u omitir las listas predeterminada y local de comandos del TPM bloqueados.</string>
+      <string id="BlockedCommandsList_Name">Configurar la lista de comandos del TPM bloqueados</string>
+      <string id="IgnoreDefaultList_Help">Este ajuste de directiva permite aplicar u omitir la lista predeterminada de comandos del Módulo de plataforma segura (TPM) bloqueados en el equipo.
+
+Si habilitas este ajuste de directiva, Windows omitirá la lista predeterminada de comandos del TPM bloqueados en el equipo y solo bloqueará los comandos del TPM especificados por la directiva de grupo o la lista local.
+
+Windows configura previamente la lista predeterminada de comandos del TPM bloqueados. Para ver la lista predeterminada, ejecuta "tpm.msc", ve a la sección "Administración de comandos" y haz visible la columna "En lista de bloqueados predeterminada". La lista local de comandos del TPM bloqueados se configura fuera de la directiva de grupo, ejecutando "tpm.msc" o mediante secuencias de comandos a través de la interfaz Win32_Tpm. Consulta el ajuste de directiva relacionado para configurar la lista de comandos del TPM bloqueados de directiva de grupo.
+
+Si deshabilitas o no configuras este ajuste de directiva, Windows bloqueará los comandos del TPM en la lista predeterminada, además de los comandos de las listas local y de directiva de grupo de comandos del TPM bloqueados. </string>
+      <string id="IgnoreDefaultList_Name">Omitir la lista predeterminada de comandos del TPM bloqueados</string>
+      <string id="IgnoreLocalList_Help">Este ajuste de directiva permite aplicar u omitir la lista local de comandos del Módulo de plataforma segura (TPM) bloqueados en el equipo.
+
+Si habilitas este ajuste de directiva, Windows omitirá la lista local de comandos del TPM bloqueados en el equipo y solo bloqueará los comandos del TPM especificados por la directiva de grupo o la lista predeterminada.
+
+La lista local de comandos del TPM bloqueados se configura fuera de la directiva de grupo, ejecutando "tpm.msc" o mediante secuencias de comandos a través de la interfaz Win32_Tpm. Windows configura previamente la lista predeterminada de comandos del TPM bloqueados. Consulta el ajuste de directiva relacionado para configurar la lista de comandos del TPM bloqueados de directiva de grupo.
+
+Si deshabilitas o no configuras este ajuste de directiva, Windows bloqueará los comandos del TPM en la lista local, además de los comandos de las listas predeterminada y de directiva de grupo de comandos del TPM bloqueados.</string>
+      <string id="IgnoreLocalList_Name">Omitir la lista local de comandos del TPM bloqueados</string>
+      <string id="TPMCategory">Servicios del Módulo de plataforma segura</string>
+      <string id="OSManagedAuth_Name">Configurar el nivel de información de autorización de propietario del TPM disponible para el sistema operativo</string>
+      <string id="OSManagedAuth_Help">Esta configuración de directiva define cuánta información de autorización de propietario de TPM se almacena en el Registro del equipo local. En función de la cantidad de información de autorización de propietario de TPM almacenada de forma local, el sistema operativo y las aplicaciones basadas en TPM pueden ejecutar ciertas acciones del TPM que necesiten autorización de propietario de TPM sin solicitar al usuario que escriba la contraseña de propietario de TPM.
+
+Puedes elegir que el sistema operativo almacene el valor de autorización de propietario de TPM completa, el blob de delegación administrativa del TPM más el blob de delegación de usuario de TPM o ninguno de ellos.
+
+Si habilitas esta configuración de directiva, Windows almacenará la autorización de propietario de TPM en el Registro del equipo local en función de la configuración de autenticación de TPM administrada por el sistema operativo que se establezca.
+
+Elige el valor de autenticación de TPM administrada por el sistema operativo "Completo" para almacenar la autorización de propietario de TPM completa, el blob de delegación administrativa del TPM y el blob de delegación de usuario del TPM en el Registro local. Esta configuración permite usar el TPM sin que resulte necesario el almacenamiento remoto o externo del valor de autorización de propietario de TPM. Esta configuración es adecuada para escenarios que no dependen de evitar el restablecimiento de la lógica de protección contra ataques de repetición (hammering) del TPM ni de cambiar el valor de la autorización de propietario de TPM. Es posible que algunas aplicaciones basadas en TPM necesiten la modificación de esta configuración para que se puedan usar características que dependen de la lógica de protección contra ataques de repetición del TPM.
+
+Elige el valor de autenticación de TPM administrada por el sistema operativo "Delegado" para almacenar solo el blob de delegación administrativa del TPM y el blob de delegación de usuario del TPM en el Registro local. Esta configuración es adecuada para usarla con aplicaciones basadas en TPM que dependen de la lógica de protección contra ataques de repetición (hammering) del TPM.
+
+Elige el valor de autenticación de TPM administrada por el sistema operativo "Ninguno" para contar con compatibilidad con sistemas operativos y aplicaciones anteriores o para su uso con escenarios que necesitan que la autorización de propietario de TPM no se almacene de forma local. El uso de esta configuración podría causar problemas con algunas aplicaciones basadas en TPM.
+
+Nota: Si la configuración de autenticación de TPM administrada por el sistema operativo se cambia de "Completo" a "Delegado", se volverá a generar el valor de autorización de propietario de TPM completa y las copias del valor de autorización de propietario de TPM original dejarán de ser válidas.
+</string>
+      <string id="OSManagedAuth-TpmAuthFull">Completo</string>
+      <string id="OSManagedAuth-TpmAuthAdminPlusUser">Delegado</string>
+      <string id="OSManagedAuth-TpmAuthNone">Ninguno</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name">Duración de bloqueo de usuario estándar</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name_Help">Este ajuste de directiva permite administrar la duración en minutos en la que se contarán errores de autorización de usuario estándar para comandos del Módulo de plataforma segura (TPM) que requieren autorización. Si el número de comandos del TPM con error de autorización que ocurren dentro de esa duración iguala un umbral, se impide que un usuario estándar envíe comandos que requieran autorización al TPM.
+
+Este ajuste ayuda a los administradores a evitar que el hardware del TPM entre en modo de bloqueo porque disminuye la velocidad a la que los usuarios estándar pueden enviar comandos que requieren autorización al TPM.
+
+Se produce un error de autorización cada vez que un usuario estándar envía un comando al TPM y recibe una respuesta de error que le indica que se produjo un error de autorización. No se tienen en cuenta los errores de autorización más antiguos que esta duración.
+
+Se aplican dos umbrales a cada usuario estándar. Si el usuario estándar excede cualquiera de los dos umbrales, no podrá enviar comandos que requieran autorización al TPM.
+
+El valor individual de umbral de bloqueo de usuario estándar es el número máximo de errores de autorización que puede tener cada usuario estándar antes de que no se le permita enviar comandos que requieren autorización al TPM.
+
+El valor de umbral total de bloqueo de usuarios estándar es el número máximo de errores de autorización que puede tener la totalidad de usuarios estándar antes de que no se le permita a ninguno de ellos enviar comandos que requieran autorización al TPM.
+
+El TPM está diseñado para protegerse contra ataques de adivinación de contraseña entrando en modo de bloqueo de hardware cuando recibe demasiados comandos con un valor de autorización incorrecto. Cuando el TPM entra en modo de bloqueo, ese bloqueo es general para todos los usuarios, incluidos administradores y características de Windows como Cifrado de unidad BitLocker. El número de errores de autorización que permite un TPM y el tiempo que el TPM permanece bloqueado varían según el fabricante. Algunos TPM pueden entrar en modo de bloqueo por períodos que son sucesivamente más prolongados con cada vez menos errores de autorización en función de los errores pasados. Algunos TPM pueden requerir que se reinicie el sistema para salir del modo de bloqueo. Otros TPM pueden requerir que el sistema esté activo para que transcurran suficientes ciclos de reloj antes de que el TPM salga del modo de bloqueo.
+
+Si un administrador cuenta con la contraseña de propietario del TPM, puede efectuar un restablecimiento completo de la lógica de bloqueo de hardware del TPM mediante la consola de administración del TPM (tpm.msc). Cada vez que un administrador restablece la lógica de bloqueo de hardware del TPM, todos los errores previos de autorización del TPM de usuarios estándar se pasan por alto, y, como resultado, se permite a los usuarios estándar volver a usar normalmente el TPM de inmediato.
+
+Si este valor no se configura, se usa un valor predeterminado de 480 minutos (8 horas).
+      </string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name">Umbral de bloqueo individual de usuario estándar</string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name_Help">Esta configuración de directiva permite administrar el número máximo de errores de autorización para cada usuario estándar del Módulo de plataforma segura (TPM). Si el número de errores de autorización correspondientes al usuario que ocurren dentro de la duración de bloqueo de usuario estándar iguala este valor, se impide que el usuario estándar envíe comandos que requieran autorización al Módulo de plataforma segura (TPM).
+
+Este ajuste ayuda a los administradores a evitar que el hardware del TPM entre en modo de bloqueo porque disminuye la velocidad a la que los usuarios estándar pueden enviar comandos que requieren autorización al TPM.
+
+Se produce un error de autorización cada vez que un usuario estándar envía un comando al TPM y recibe una respuesta de error que le indica que se produjo un error de autorización. No se tienen en cuenta los errores de autorización más antiguos que esta duración.
+
+Se aplican dos umbrales a cada usuario estándar. Si el usuario estándar excede cualquiera de los dos umbrales, no podrá enviar comandos que requieran autorización al TPM.
+
+Este valor es el número máximo de errores de autorización que cada usuario estándar puede tener antes de que no se le permita enviar comandos que requieren autorización al TPM.
+
+El valor de umbral total de bloqueo de usuarios estándar es el número máximo de errores de autorización que puede tener la totalidad de usuarios estándar antes de que no se le permita a ninguno de ellos enviar comandos que requieran autorización al TPM.
+
+El TPM está diseñado para protegerse contra ataques de adivinación de contraseña entrando en modo de bloqueo de hardware cuando recibe demasiados comandos con un valor de autorización incorrecto. Cuando el TPM entra en modo de bloqueo, ese bloqueo es general para todos los usuarios, incluidos administradores y características de Windows como Cifrado de unidad BitLocker. El número de errores de autorización que permite un TPM y el tiempo que el TPM permanece bloqueado varían según el fabricante. Algunos TPM pueden entrar en modo de bloqueo por períodos que son sucesivamente más prolongados con cada vez menos errores de autorización en función de los errores pasados. Algunos TPM pueden requerir que se reinicie el sistema para salir del modo de bloqueo. Otros TPM pueden requerir que el sistema esté activo para que transcurran suficientes ciclos de reloj antes de que el TPM salga del modo de bloqueo.
+
+Si un administrador cuenta con la contraseña de propietario del TPM, puede efectuar un restablecimiento completo de la lógica de bloqueo de hardware del TPM mediante la consola de administración del TPM (tpm.msc). Cada vez que un administrador restablece la lógica de bloqueo de hardware del TPM, todos los errores previos de autorización del TPM de usuarios estándar se pasan por alto, y, como resultado, se permite a los usuarios estándar volver a usar normalmente el TPM de inmediato.
+
+Si este valor no se configura, se usa un valor predeterminado de 4.
+
+El valor cero significa que el sistema operativo no permitirá que los usuarios estándar envíen al TPM comandos que puedan generar un error de autorización.
+      </string>
+
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name">Umbral de bloqueo total de usuario estándar</string>
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name_Help">Este ajuste de directiva permite administrar el máximo número de errores de autorización para todos los usuarios estándar del Módulo de plataforma segura (TPM). Si el número total de errores de autorización correspondientes a todos los usuarios estándar que ocurren dentro de la duración de bloqueo de usuario estándar iguala este valor, se impide que todos los usuarios estándar envíen comandos que requieran autorización al Módulo de plataforma segura (TPM).
+
+Esta opción ayuda a los administradores a evitar que el hardware del TPM entre en modo de bloqueo porque disminuye la velocidad a la que los usuarios estándar pueden enviar comandos que requieren autorización al TPM.
+
+Se produce un error de autorización cada vez que un usuario estándar envía un comando al TPM y recibe una respuesta de error que le indica que se produjo un error de autorización. No se tienen en cuenta los errores de autorización más antiguos que esta duración.
+
+Se aplican dos umbrales a cada usuario estándar. Si el usuario estándar excede cualquiera de los dos umbrales, no podrá enviar comandos que requieran autorización al TPM.
+
+El valor de bloqueo individual de usuario estándar es el número máximo de errores de autorización que cada usuario estándar puede tener antes de que no se le permita enviar comandos que requieren autorización al TPM.
+
+Este valor es el número total máximo de errores de autorización que puede tener la totalidad de usuarios estándar antes de que no se le permita a ninguno de ellos enviar comandos que requieran autorización al TPM.
+
+El TPM está diseñado para protegerse contra ataques de adivinación de contraseña entrando en modo de bloqueo de hardware cuando recibe demasiados comandos con un valor de autorización incorrecto. Cuando el TPM entra en modo de bloqueo, ese bloqueo es general para todos los usuarios, incluidos administradores y características de Windows como Cifrado de unidad BitLocker. El número de errores de autorización que permite un TPM y el tiempo que el TPM permanece bloqueado varían según el fabricante. Algunos TPM pueden entrar en modo de bloqueo por períodos que son sucesivamente más prolongados con cada vez menos errores de autorización en función de los errores pasados. Algunos TPM pueden requerir que se reinicie el sistema para salir del modo de bloqueo. Otros TPM pueden requerir que el sistema esté activo para que transcurran suficientes ciclos de reloj antes de que el TPM salga del modo de bloqueo.
+
+Si un administrador cuenta con la contraseña de propietario del TPM, puede efectuar un restablecimiento completo de la lógica de bloqueo de hardware del TPM mediante la consola de administración del TPM (tpm.msc). Cada vez que un administrador restablece la lógica de bloqueo de hardware del TPM, todos los errores previos de autorización del TPM de usuarios estándar se pasan por alto, y, como resultado, se permite a los usuarios estándar volver a usar normalmente el TPM de inmediato.
+
+Si este valor no se configura, se usa un valor predeterminado de 9.
+
+El valor cero significa que el sistema operativo no permitirá que los usuarios estándar envíen al TPM comandos que puedan generar un error de autorización.
+
+      </string>
+      <string id="UseLegacyDAP_Name">Configura el sistema para usar el ajuste heredado de parámetros de prevención de ataque por diccionario para TPM 2.0.</string>
+      <string id="UseLegacyDAP_Help">Esta configuración de directiva configura el TPM para usar los parámetros de prevención de ataque por diccionario (umbral de bloqueo y tiempo de recuperación) para los valores que se usaron en Windows 10 versión 1607 y anterior. La configuración de esta directiva solo surtirá efecto si a) el TPM se preparó originalmente con una versión de Windows posterior a Windows 10 versión 1607 y si b) el sistema dispone de un TPM 2.0. Ten en cuenta que, si se habilita esta directiva, solo surtirá efecto después de ejecutar las tareas de mantenimiento del TPM (que, por lo general, tienen lugar tras el reinicio del sistema). Una vez que esta directiva se haya habilitado en un sistema y que haya entrado en vigor (después de reiniciar el sistema), el hecho de deshabilitarla no tendrá ninguna repercusión y el TPM del sistema seguirá configurado con los parámetros heredados de prevención de ataque por diccionario, con independencia del valor de esta directiva de grupo. La única forma de que la deshabilitación de esta configuración de directiva surta efecto en un sistema en el que se ha habilitado previamente consiste en a) deshabilitarla de la directiva de grupo y b) borrar el TPM del sistema.</string>
+      <string id="DSHACategory">Servicio de atestación de mantenimiento del dispositivo</string>
+      <string id="OptIntoDSHA_Name">Habilitar la atestación de estado de dispositivo de supervisión y generación de informes</string>
+      <string id="OptIntoDSHA_Help">Esta directiva de grupo permite la atestación de mantenimiento informes (DHA-informe) en dispositivos compatibles. Se habilita admitida dispositivos para enviar la atestación de mantenimiento la información relativa (registros de arranque del dispositivo, los valores PCR, certificado TPM, etc.) a servicio de atestación de mantenimiento del dispositivo (DHA-Service) cada vez que se inicia un dispositivo. Servicio de atestación de mantenimiento del dispositivo valida el estado de seguridad y mantenimiento de los dispositivos y hace que los resultados que puede tener acceso a los administradores de empresa a través de una nube basada en portal de informes. Esta directiva es independiente DHA informes de que se inician mediante soluciones de capacidad de administración de dispositivos (por ejemplo, MDM o SCCM) y no interfiere con los flujos de trabajo.</string>
+      <string id="ClearTPMIfNotReady_Name">Configurar el sistema para borrar el TPM, si no se encuentra en un estado listo.</string>
+      <string id="ClearTPMIfNotReady_Help">Esta configuración de directiva configura el sistema para que pida al usuario que borre el TPM si se detecta en cualquier otro estado que no sea Listo. Esta directiva solo se aplicará si el TPM del sistema está en cualquier otro estado que no sea Listo, incluso si el TPM está en "Listo, con funcionalidad reducida". La petición para borrar el TPM se iniciará después del siguiente reinicio, después del inicio de sesión del usuario solo si el usuario que inició sesión es parte del grupo Administradores del sistema. Se puede descartar la petición, pero volverá a aparecer después de cada reinicio e inicio de sesión hasta que se deshabilite la directiva o el TPM esté en Listo.</string>
+        
+    </stringTable>
+    <presentationTable>
+      <presentation id="BlockedCommandsList_Name">
+        <text>Especificar los comandos que se bloquearán agregando sus números a la lista.</text>
+        <listBox refId="BlockedCommandsList_Ordinals2">La lista de comandos del TPM bloqueados:</listBox>
+        <text>Por ejemplo, para bloquear los comandos TPM_OwnerReadInternalPub</text>
+        <text>y TPM_FieldUpgrade, agregue los elementos 129 y 170 a la lista.</text>
+      </presentation>
+      <presentation id="OSManagedAuth_Name">
+        <dropdownList refId="SelectOSManagedAuthLevel" noSort="true" defaultItem="1">Nivel de autenticación de TPM administrado por el sistema operativo:</dropdownList>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureDuration_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureDuration_Name" defaultValue="480">Duración en que se contarán errores de autorización del TPM (minutos):</decimalTextBox>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureIndividualThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureIndividualThreshold_Name" defaultValue="4">Número máximo de errores de autorización por duración:</decimalTextBox>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureTotalThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureTotalThreshold_Name" defaultValue="9">Número máximo de errores de autorización por duración:</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

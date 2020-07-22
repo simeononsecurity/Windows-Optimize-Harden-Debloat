@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>πληκτρολογήστε εδώ το εμφανιζόμενο όνομα</displayName>
+  <description>πληκτρολογήστε εδώ την περιγραφή</description>
+  <resources>
+    <stringTable>
+      <string id="WCN_Category">Άμεση σύνδεση των Windows</string>
+      <string id="WCN_DisableWcnUi">Απαγόρευση πρόσβασης στους Οδηγούς της Άμεσης σύνδεσης των Windows</string>
+      <string id="WCN_DisableWcnUi_Help">Αυτή η ρύθμιση πολιτικής απαγορεύει την πρόσβαση στους Οδηγούς της Άμεσης σύνδεσης των Windows (WCN). 
+
+Αν ενεργοποιηθεί αυτή η ρύθμιση πολιτικής, οι οδηγοί απενεργοποιούνται και οι χρήστες δεν έχουν πρόσβαση σε καμία από τις εργασίες των οδηγών. Όλες οι εργασίες που σχετίζονται με τη ρύθμιση παραμέτρων, συμπεριλαμβανομένων των "Ρύθμιση ασύρματου δρομολογητή ή σημείου πρόσβασης" και "Προσθήκη ασύρματης συσκευής", θα απενεργοποιηθούν. 
+
+Αν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή δεν ρυθμίσετε τις παραμέτρους της, οι χρήστες θα έχουν πρόσβαση στις εργασίες των Οδηγών, συμπεριλαμβανομένων των "Ρύθμιση ασύρματου δρομολογητή ή σημείου πρόσβασης" και "Προσθήκη ασύρματης συσκευής". Η προεπιλογή για αυτήν τη ρύθμιση πολιτικής επιτρέπει στους χρήστες την πρόσβαση σε όλους τους οδηγούς WCN.</string>
+      <string id="WCN_EnableRegistrar">Ρύθμιση παραμέτρων ασύρματου δικτύου με την Άμεση σύνδεση των Windows</string>
+      <string id="WCN_EnableRegistrar_Help">Αυτή η ρύθμιση πολιτικής επιτρέπει τη ρύθμιση παραμέτρων ασύρματου δικτύου χρησιμοποιώντας την Άμεση σύνδεση των Windows (WCN). Το Μητρώο WCN επιτρέπει τον εντοπισμό και τη ρύθμιση παραμέτρων συσκευών μέσω Ethernet (UPnP), μέσω In-band 802.11 WLAN, με το API φορητών συσκευών των Windows (WPD) και μέσω μονάδων Flash USB.
+
+Είναι διαθέσιμες επιπλέον επιλογές για να επιτρέπεται ο εντοπισμός και η ρύθμιση παραμέτρων μέσω συγκεκριμένου μέσου. 
+
+Αν ενεργοποιηθεί αυτή η ρύθμιση πολιτικής, θα υπάρχουν διαθέσιμες επιπλέον επιλογές για την απενεργοποίηση των λειτουργιών μέσω συγκεκριμένου μέσου. 
+
+Αν αυτή η ρύθμιση πολιτικής απενεργοποιηθεί, οι λειτουργίες απενεργοποιούνται σε όλα τα μέσα. 
+
+Αν δεν ρυθμίσετε τις παραμέτρους αυτής της ρύθμισης πολιτικής, οι λειτουργίες θα ενεργοποιηθούν σε όλα τα μέσα. 
+
+Η προεπιλογή για αυτήν τη ρύθμιση πολιτικής επιτρέπει τις λειτουργίες σε όλα τα μέσα.</string>
+      <string id="WCN_Higher_Precedence_Registrar_UPnP">WCN μέσω Ethernet (UPnP)</string>
+      <string id="WCN_Higher_Precedence_Registrar_InBand802DOT11">WCN μέσω In-band 802.11 WLAN</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="WCN_EnableRegistrar">
+        <checkBox refId="WCN_EnableRegistrar_DisableUPnP">Απενεργοποίηση δυνατότητας ρύθμισης παραμέτρων με WCN μέσω Ethernet (UPnP)</checkBox>
+        <checkBox refId="WCN_EnableRegistrar_DisableInBand802DOT11">Απενεργοποίηση δυνατότητας ρύθμισης παραμέτρων με WCN μέσω In-band 802.11 WLAN</checkBox>
+        <checkBox refId="WCN_EnableRegistrar_DisableFlashConfig">Απενεργοποίηση δυνατότητας ρύθμισης παραμέτρων με μονάδα Flash USB</checkBox>
+        <checkBox refId="WCN_EnableRegistrar_DisableWPD">Απενεργοποίηση δυνατότητας ρύθμισης παραμέτρων Φορητής συσκευής των Windows (WPD)</checkBox>
+        <decimalTextBox refId="WCN_EnableRegistrar_MaxWCNDeviceNumber" defaultValue="500">Μέγιστος αριθμός επιτρεπόμενων συσκευών WCN:</decimalTextBox>
+        <dropdownList refId="WCN_Higher_Precedence_Registrar" noSort="true" defaultItem="0">Μέσο υψηλότερης προτεραιότητας για συσκευές που αντιμετωπίζονται από πολλά μέσα:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

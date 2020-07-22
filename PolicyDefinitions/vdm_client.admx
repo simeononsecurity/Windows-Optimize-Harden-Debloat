@@ -1,0 +1,2573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="vdm_client" namespace="VMware.Policies.vdm_client" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <supersededAdm fileName="vdm_client.adm" />
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_NotSpecified" displayName="$(string.VDMClient_SupportedOn_Empty)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="VMwareViewClient" displayName="$(string.VMwareViewClient)" />
+    <category name="VMwareViewClientUSB" displayName="$(string.VMwareViewClientUSB)">
+      <parentCategory ref="VMwareViewClient" />
+    </category>
+    <category name="VMwareViewClientOnlySetting" displayName="$(string.VMwareViewClientOnlySetting)">
+      <parentCategory ref="VMwareViewClientUSB" />
+    </category>
+    <category name="VMwareViewClientSecurity" displayName="$(string.VMwareViewClientSecurity)">
+      <parentCategory ref="VMwareViewClient" />
+    </category>
+    <category name="VMwareViewClientScripting" displayName="$(string.VMwareViewClientScripting)">
+      <parentCategory ref="VMwareViewClient" />
+    </category>
+    <category name="VMwareViewRdpSettings" displayName="$(string.VMwareViewRdpSettings)">
+      <parentCategory ref="VMwareViewClient" />
+    </category>
+    <category name="VMwareViewBrowserRedirection" displayName="$(string.VMwareViewBrowserRedirection)">
+      <parentCategory ref="VMwareViewClient" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="DisableTimeZoneForwarding" class="Machine" displayName="$(string.DisableTimeZoneForwarding)" explainText="$(string.DisableTimeZoneForwardingExplain)" presentation="$(presentation.DisableTimeZoneForwarding)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="DisableTimeZoneForwarding">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AutomaticInputFocus" class="Machine" displayName="$(string.AutomaticInputFocus)" explainText="$(string.AutomaticInputFocusExplain)" presentation="$(presentation.AutomaticInputFocus)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AutomaticInputFocus">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="TunnelProxyBypass" class="Machine" displayName="$(string.TunnelProxyBypass)" explainText="$(string.TunnelProxyBypassExplain)" presentation="$(presentation.TunnelProxyBypass)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="TunnelProxyBypass" valueName="TunnelProxyBypass" />
+      </elements>
+    </policy>
+    <policy name="HelpURL" class="Machine" displayName="$(string.HelpURL)" explainText="$(string.HelpURLExplain)" presentation="$(presentation.HelpURL)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="HelpURL" valueName="HelpURL" />
+      </elements>
+    </policy>
+    <policy name="AutomaticallyInstallShortcuts" class="Machine" displayName="$(string.AutomaticallyInstallShortcuts)" explainText="$(string.AutomaticallyInstallShortcutsExplain)" presentation="$(presentation.AutomaticallyInstallShortcuts)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AutomaticallyInstallShortcuts">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AutoUpdateAllowed" class="Machine" displayName="$(string.AutoUpdateAllowed)" explainText="$(string.AutoUpdateAllowedExplain)" presentation="$(presentation.AutoUpdateAllowed)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AutoUpdateAllowed">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AutoUpdateURL" class="Machine" displayName="$(string.AutoUpdateURL)" explainText="$(string.AutoUpdateURLExplain)" presentation="$(presentation.AutoUpdateURL)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="AutoUpdateURL" valueName="AutoUpdateURL" />
+      </elements>
+    </policy>
+    <policy name="RedirectSmartCardsInLocalMode" class="Machine" displayName="$(string.RedirectSmartCardsInLocalMode)" explainText="$(string.RedirectSmartCardsInLocalModeExplain)" presentation="$(presentation.RedirectSmartCardsInLocalMode)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="RedirectSmartCardsInLocalMode">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="ReplicationStartupDelay" class="Machine" displayName="$(string.ReplicationStartupDelay)" explainText="$(string.ReplicationStartupDelayExplain)" presentation="$(presentation.ReplicationStartupDelay)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="ReplicationStartupDelay" valueName="ReplicationStartupDelay" minValue="0" />
+      </elements>
+    </policy>
+    <policy name="DisableToastNotifications" class="Machine" displayName="$(string.DisableToastNotifications)" explainText="$(string.DisableToastNotificationsExplain)" presentation="$(presentation.DisableToastNotifications)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="DisableToast">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="EnableRelativeMouse" class="Machine" displayName="$(string.EnableRelativeMouse)" explainText="$(string.EnableRelativeMouseExplain)" presentation="$(presentation.EnableRelativeMouse)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="EnableRelativeMouse">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="DisableDisconnectMessages" class="Machine" displayName="$(string.DisableDisconnectMessages)" explainText="$(string.DisableDisconnectMessagesExplain)" presentation="$(presentation.DisableDisconnectMessages)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="DisableDisconnectMessages">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="HideClientAfterLaunchSession" class="Machine" displayName="$(string.HideClientAfterLaunchSession)" explainText="$(string.HideClientAfterLaunchSessionExplain)" presentation="$(presentation.HideClientAfterLaunchSession)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="HideClientAfterLaunchSession">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="DisallowClientInformationPassthrough" class="Machine" displayName="$(string.DisallowClientInformationPassthrough)" explainText="$(string.DisallowClientInformationPassthroughExplain)" presentation="$(presentation.DisallowClientInformationPassthrough)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="DisallowClientInformationPassthrough">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="BlockMultipleInstances" class="Machine" displayName="$(string.BlockMultipleInstances)" explainText="$(string.BlockMultipleInstancesExplain)" presentation="$(presentation.BlockMultipleInstances)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="BlockMultipleInstances">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="ListSmartCardCertsOnly" class="Machine" displayName="$(string.ListSmartCardCertsOnly)" explainText="$(string.ListSmartCardCertsOnlyExplain)" presentation="$(presentation.ListSmartCardCertsOnly)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="ListSmartCardCertsOnly">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="ForceFloatingLanguageBarOff" class="Machine" displayName="$(string.ForceFloatingLanguageBarOff)" explainText="$(string.ForceFloatingLanguageBarOffExplain)" presentation="$(presentation.ForceFloatingLanguageBarOff)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="ForceFloatingLanguageBarOff">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowDisplayScaling" class="Machine" displayName="$(string.AllowDisplayScaling)" explainText="$(string.AllowDisplayScalingExplain)" presentation="$(presentation.AllowDisplayScaling)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AllowDisplayScaling">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AutoSyncToggleKeys" class="Machine" displayName="$(string.AutoSyncToggleKeys)" explainText="$(string.AutoSyncToggleKeysExplain)" presentation="$(presentation.AutoSyncToggleKeys)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AutoSyncToggleKeys">
+    <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowHEVC" class="Machine" displayName="$(string.AllowHEVC)" explainText="$(string.AllowHEVCExplain)" presentation="$(presentation.AllowHEVC)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AllowClientHEVC">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowBlastThroughProxy" class="Machine" displayName="$(string.AllowBlastThroughProxy)" explainText="$(string.AllowBlastThroughProxyExplain)" presentation="$(presentation.AllowBlastThroughProxy)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="BlastConnectThroughProxy">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="SplitExcludeVidPid" class="Machine" displayName="$(string.SplitExcludeVidPid)" explainText="$(string.SplitExcludeVidPidExplain)" presentation="$(presentation.SplitExcludeVidPid)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="SplitExcludeVidPid" valueName="SplitExcludeVidPid" />
+      </elements>
+    </policy>
+    <policy name="SplitVidPid" class="Machine" displayName="$(string.SplitVidPid)" explainText="$(string.SplitVidPidExplain)" presentation="$(presentation.SplitVidPid)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="SplitVidPid" valueName="SplitVidPid" />
+      </elements>
+    </policy>
+    <policy name="ExcludeVidPid" class="Machine" displayName="$(string.ExcludeVidPid)" explainText="$(string.ExcludeVidPidExplain)" presentation="$(presentation.ExcludeVidPid)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="ExcludeVidPid" valueName="ExcludeVidPid" />
+      </elements>
+    </policy>
+    <policy name="IncludeVidPid" class="Machine" displayName="$(string.IncludeVidPid)" explainText="$(string.IncludeVidPidExplain)" presentation="$(presentation.IncludeVidPid)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="IncludeVidPid" valueName="IncludeVidPid" />
+      </elements>
+    </policy>
+    <policy name="ExcludeFamily" class="Machine" displayName="$(string.ExcludeFamily)" explainText="$(string.ExcludeFamilyExplain)" presentation="$(presentation.ExcludeFamily)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="ExcludeFamily" valueName="ExcludeFamily" />
+      </elements>
+    </policy>
+    <policy name="IncludeFamily" class="Machine" displayName="$(string.IncludeFamily)" explainText="$(string.IncludeFamilyExplain)" presentation="$(presentation.IncludeFamily)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="IncludeFamily" valueName="IncludeFamily" />
+      </elements>
+    </policy>
+    <policy name="ExcludeAllDevices" class="Machine" displayName="$(string.ExcludeAllDevices)" explainText="$(string.ExcludeAllDevicesExplain)" presentation="$(presentation.ExcludeAllDevices)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB" valueName="ExcludeAllDevices">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowHID" class="Machine" displayName="$(string.AllowHID)" explainText="$(string.AllowHIDExplain)" presentation="$(presentation.AllowHID)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB" valueName="AllowHID">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowHIDBootable" class="Machine" displayName="$(string.AllowHIDBootable)" explainText="$(string.AllowHIDBootableExplain)" presentation="$(presentation.AllowHIDBootable)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB" valueName="AllowHIDBootable">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowAudioIn" class="Machine" displayName="$(string.AllowAudioIn)" explainText="$(string.AllowAudioInExplain)" presentation="$(presentation.AllowAudioIn)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB" valueName="AllowAudioIn">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowAudioOut" class="Machine" displayName="$(string.AllowAudioOut)" explainText="$(string.AllowAudioOutExplain)" presentation="$(presentation.AllowAudioOut)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB" valueName="AllowAudioOut">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowKeyboardMouse" class="Machine" displayName="$(string.AllowKeyboardMouse)" explainText="$(string.AllowKeyboardMouseExplain)" presentation="$(presentation.AllowKeyboardMouse)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB" valueName="AllowKeyboardMouse">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowVideo" class="Machine" displayName="$(string.AllowVideo)" explainText="$(string.AllowVideoExplain)" presentation="$(presentation.AllowVideo)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB" valueName="AllowVideo">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowSmartcard" class="Machine" displayName="$(string.AllowSmartcard)" explainText="$(string.AllowSmartcardExplain)" presentation="$(presentation.AllowSmartcard)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB" valueName="AllowSmartcard">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowAutoDeviceSplitting" class="Machine" displayName="$(string.AllowAutoDeviceSplitting)" explainText="$(string.AllowAutoDeviceSplittingExplain)" presentation="$(presentation.AllowAutoDeviceSplitting)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB" valueName="AllowAutoDeviceSplitting">
+      <parentCategory ref="VMwareViewClientUSB" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="ExcludePath" class="Machine" displayName="$(string.ExcludePath)" explainText="$(string.ExcludePathExplain)" presentation="$(presentation.ExcludePath)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB">
+      <parentCategory ref="VMwareViewClientOnlySetting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="ExcludePath" valueName="ExcludePath" />
+      </elements>
+    </policy>
+    <policy name="IncludePath" class="Machine" displayName="$(string.IncludePath)" explainText="$(string.IncludePathExplain)" presentation="$(presentation.IncludePath)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB">
+      <parentCategory ref="VMwareViewClientOnlySetting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="IncludePath" valueName="IncludePath" />
+      </elements>
+    </policy>
+    <policy name="DisableRemoteConfig" class="Machine" displayName="$(string.DisableRemoteConfig)" explainText="$(string.DisableRemoteConfigExplain)" presentation="$(presentation.DisableRemoteConfig)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB" valueName="DisableRemoteConfig">
+      <parentCategory ref="VMwareViewClientOnlySetting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowDevDescFailsafe" class="Machine" displayName="$(string.AllowDevDescFailsafe)" explainText="$(string.AllowDevDescFailsafeExplain)" presentation="$(presentation.AllowDevDescFailsafe)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\USB" valueName="AllowDevDescFailsafe">
+      <parentCategory ref="VMwareViewClientOnlySetting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="LogInAsCurrentUser_Display" class="Machine" displayName="$(string.LogInAsCurrentUser_Display)" explainText="$(string.LogInAsCurrentUser_DisplayExplain)" presentation="$(presentation.LogInAsCurrentUser_Display)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="LogInAsCurrentUser_Display">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="LogInAsCurrentUser" class="Machine" displayName="$(string.LogInAsCurrentUser)" explainText="$(string.LogInAsCurrentUserExplain)" presentation="$(presentation.LogInAsCurrentUser)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="LogInAsCurrentUser">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="EnableRecursiveUnlock" class="Machine" displayName="$(string.EnableRecursiveUnlock)" explainText="$(string.EnableRecursiveUnlockExplain)" presentation="$(presentation.EnableRecursiveUnlock)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="EnableRecursiveUnlock">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="BrokersTrustedForDelegation" class="Machine" displayName="$(string.BrokersTrustedForDelegation)" explainText="$(string.BrokersTrustedForDelegationExplain)" presentation="$(presentation.BrokersTrustedForDelegation)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security\BrokersTrustedForDelegation">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <list id="BrokersTrustedForDelegation" valuePrefix="" />
+      </elements>
+    </policy>
+    <policy name="IgnoreRevocation" class="Machine" displayName="$(string.IgnoreRevocation)" explainText="$(string.IgnoreRevocationExplain)" presentation="$(presentation.IgnoreRevocation)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="IgnoreRevocation">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="CertCheckMode" class="Machine" displayName="$(string.CertCheckMode)" explainText="$(string.CertCheckModeExplain)" presentation="$(presentation.CertCheckMode)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="CertCheckMode" valueName="CertCheckMode">
+          <item displayName="$(string.CertCheckMode_NoSecurity)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.CertCheckMode_WarnButAllow)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.CertCheckMode_FullSecurity)">
+            <value>
+              <string>2</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="AllowConnectionViaAnSslProxy" class="Machine" displayName="$(string.AllowConnectionViaAnSslProxy)" explainText="$(string.AllowConnectionViaAnSslProxyExplain)" presentation="$(presentation.AllowConnectionViaAnSslProxy)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="AllowConnectionViaAnSslProxy">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="EnableSmartCardSSO" class="Machine" displayName="$(string.EnableSmartCardSSO)" explainText="$(string.EnableSmartCardSSOExplain)" presentation="$(presentation.EnableSmartCardSSO)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="EnableSmartCardSSO">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="EnableJumplist" class="Machine" displayName="$(string.EnableJumplist)" explainText="$(string.EnableJumplistExplain)" presentation="$(presentation.EnableJumplist)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="EnableJumplist">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowCmdLineCredentials" class="Machine" displayName="$(string.AllowCmdLineCredentials)" explainText="$(string.AllowCmdLineCredentialsExplain)" presentation="$(presentation.AllowCmdLineCredentials)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="AllowCmdLineCredentials">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="EnableTicketSSLAuth" class="Machine" displayName="$(string.EnableTicketSSLAuth)" explainText="$(string.EnableTicketSSLAuthExplain)" presentation="$(presentation.EnableTicketSSLAuth)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="EnableTicketSSLAuth" valueName="EnableTicketSSLAuth" required="true">
+          <item displayName="$(string.EnableTicketSSLAuth_Enable)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.EnableTicketSSLAuth_Disable)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.EnableTicketSSLAuth_Enforce)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="SSLCipherList" class="Machine" displayName="$(string.SSLCipherList)" explainText="$(string.SSLCipherListExplain)" presentation="$(presentation.SSLCipherList)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="SSLCipherList" valueName="SSLCipherList" />
+      </elements>
+    </policy>
+    <policy name="ServerURL" class="Machine" displayName="$(string.ServerURL)" explainText="$(string.ServerURLExplain)" presentation="$(presentation.ServerURL)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="ServerURL" valueName="ServerURL" />
+      </elements>
+    </policy>
+    <policy name="UserName" class="Machine" displayName="$(string.UserName)" explainText="$(string.UserNameExplain)" presentation="$(presentation.UserName)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="UserName" valueName="UserName" />
+      </elements>
+    </policy>
+    <policy name="DomainName" class="Machine" displayName="$(string.DomainName)" explainText="$(string.DomainNameExplain)" presentation="$(presentation.DomainName)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="DomainName" valueName="DomainName" />
+      </elements>
+    </policy>
+    <policy name="Password" class="Machine" displayName="$(string.Password)" explainText="$(string.PasswordExplain)" presentation="$(presentation.Password)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="Password" valueName="Password" />
+      </elements>
+    </policy>
+    <policy name="DesktopName" class="Machine" displayName="$(string.DesktopName)" explainText="$(string.DesktopNameExplain)" presentation="$(presentation.DesktopName)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="DesktopName" valueName="DesktopName" />
+      </elements>
+    </policy>
+    <policy name="DesktopLayout" class="Machine" displayName="$(string.DesktopLayout)" explainText="$(string.DesktopLayoutExplain)" presentation="$(presentation.DesktopLayout)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="DesktopLayout" valueName="DesktopLayout">
+          <item displayName="$(string.DesktopLayout_FullScreen)">
+            <value>
+              <string>FullScreen</string>
+            </value>
+          </item>
+          <item displayName="$(string.DesktopLayout_WindowLarge)">
+            <value>
+              <string>WindowLarge</string>
+            </value>
+          </item>
+          <item displayName="$(string.DesktopLayout_WindowSmall)">
+            <value>
+              <string>WindowSmall</string>
+            </value>
+          </item>
+          <item displayName="$(string.DesktopLayout_MultiMonitor)">
+            <value>
+              <string>MultiMonitor</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="LockedGuestSize" class="Machine" displayName="$(string.LockedGuestSize)" explainText="$(string.LockedGuestSizeExplain)" presentation="$(presentation.LockedGuestSize)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="LockedGuestWidth" valueName="LockedGuestWidth" required="true" minValue="640" maxValue="4096" />
+        <decimal id="LockedGuestHeight" valueName="LockedGuestHeight" required="true" minValue="480" maxValue="4096" />
+      </elements>
+    </policy>
+    <policy name="NonInteractive" class="Machine" displayName="$(string.NonInteractive)" explainText="$(string.NonInteractiveExplain)" presentation="$(presentation.NonInteractive)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="NonInteractive">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="SingleAutoConnect" class="Machine" displayName="$(string.SingleAutoConnect)" explainText="$(string.SingleAutoConnectExplain)" presentation="$(presentation.SingleAutoConnect)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="SingleAutoConnect">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="noTSCAddins" class="Machine" displayName="$(string.noTSCAddins)" explainText="$(string.noTSCAddinsExplain)" presentation="$(presentation.noTSCAddins)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="noTSCAddins">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="connectUSBOnStartup" class="Machine" displayName="$(string.connectUSBOnStartup)" explainText="$(string.connectUSBOnStartupExplain)" presentation="$(presentation.connectUSBOnStartup)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="connectUSBOnStartup">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="connectUSBOnInsert" class="Machine" displayName="$(string.connectUSBOnInsert)" explainText="$(string.connectUSBOnInsertExplain)" presentation="$(presentation.connectUSBOnInsert)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="connectUSBOnInsert">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AppSessionReconnectBehavior" class="Machine" displayName="$(string.AppSessionReconnectBehavior)" explainText="$(string.AppSessionReconnectBehaviorExplain)" presentation="$(presentation.AppSessionReconnectBehavior)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="AppSessionReconnectBehavior" valueName="AppSessionReconnectBehavior">
+          <item displayName="$(string.AppSessionReconnectBehavior_Ask)">
+            <value>
+              <string>ask</string>
+            </value>
+          </item>
+          <item displayName="$(string.AppSessionReconnectBehavior_Always)">
+            <value>
+              <string>always</string>
+            </value>
+          </item>
+          <item displayName="$(string.AppSessionReconnectBehavior_Never)">
+            <value>
+              <string>never</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="ErrorFooterTextFile" class="Machine" displayName="$(string.CustomErrorScreenFooter)" explainText="$(string.CustomErrorScreenFooterExplain)" presentation="$(presentation.ErrorFooterTextFile)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="ErrorFooterTextFile" valueName="ErrorFooterTextFile" />
+      </elements>
+    </policy>
+    <policy name="UnauthenticatedAccessEnabled" class="Machine" displayName="$(string.UnauthenticatedAccessEnabled)" explainText="$(string.UnauthenticatedAccessEnabledExplain)" presentation="$(presentation.UnauthenticatedAccessEnabled)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="UnauthenticatedAccessEnabled">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+        <policy name="ForceUserAffinity" class="Machine" displayName="$(string.ForceUserAffinity)" explainText="$(string.ForceUserAffinityExplain)" presentation="$(presentation.ForceUserAffinity)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="ForceUserAffinity">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="UnauthenticatedAccessAccount" class="Machine" displayName="$(string.UnauthenticatedAccessAccount)" explainText="$(string.UnauthenticatedAccessAccountExplain)" presentation="$(presentation.UnauthenticatedAccessAccount)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="UnauthenticatedAccessAccount" valueName="UnauthenticatedAccessAccount" />
+      </elements>
+    </policy>
+    <policy name="AllowDataSharing" class="Machine" displayName="$(string.AllowDataSharing)" explainText="$(string.AllowDataSharingExplain)" presentation="$(presentation.AllowDataSharing)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AllowDataSharing">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowResolutionDpiSync" class="Machine" displayName="$(string.AllowResolutionDpiSync)" explainText="$(string.AllowResolutionDpiSyncExplain)" presentation="$(presentation.AllowResolutionDpiSync)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AllowResolutionDpiSync">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="KeyboardHotkeys" class="Machine" displayName="$(string.KeyboardHotkeys)" explainText="$(string.KeyboardHotkeysExplain)" presentation="$(presentation.KeyboardHotkeys)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="DisplaySwitchModifierKey" valueName="DisplaySwitchModifierKey">
+          <item displayName="$(string.KEY_NONE)">
+            <value>
+              <string>(none)</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_ALT)">
+            <value>
+              <string>Alt</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_CTRL)">
+            <value>
+              <string>Ctrl</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_SHIFT)">
+            <value>
+              <string>Shift</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="DisplaySwitchFunctionKey" valueName="DisplaySwitchFunctionKey">
+          <item displayName="$(string.KEY_NONE)">
+            <value>
+              <string>(none)</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F1)">
+            <value>
+              <string>F1</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F2)">
+            <value>
+              <string>F2</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F3)">
+            <value>
+              <string>F3</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F4)">
+            <value>
+              <string>F4</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F5)">
+            <value>
+              <string>F5</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F6)">
+            <value>
+              <string>F6</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F7)">
+            <value>
+              <string>F7</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F8)">
+            <value>
+              <string>F8</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F9)">
+            <value>
+              <string>F9</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F10)">
+            <value>
+              <string>F10</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F11)">
+            <value>
+              <string>F11</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F12)">
+            <value>
+              <string>F12</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HotkeyUngrabDesktop" class="Machine" displayName="$(string.HotkeyUngrabDesktop)" explainText="$(string.HotkeyUngrabDesktopExplain)" presentation="$(presentation.HotkeyUngrabDesktop)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+       <enum id="UngrabDesktopModifierKey" valueName="UngrabDesktopModifierKey">
+         <item displayName="$(string.KEY_CTRL)">
+         <value>
+           <string>Ctrl</string>
+         </value>
+         </item>
+         <item displayName="$(string.KEY_ALT)">
+         <value>
+           <string>Alt</string>
+         </value>
+         </item>
+         <item displayName="$(string.KEY_SHIFT)">
+         <value>
+           <string>Shift</string>
+         </value>
+         </item>
+        </enum>
+        <enum id="SecondUngrabDesktopModifierKey" valueName="SecondUngrabDesktopModifierKey">
+          <item displayName="$(string.KEY_NONE)">
+            <value>
+              <string>(none)</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_CTRL)">
+            <value>
+              <string>Ctrl</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_ALT)">
+            <value>
+              <string>Alt</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_SHIFT)">
+            <value>
+              <string>Shift</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="UngrabDesktopFunctionKey" valueName="UngrabDesktopFunctionKey">
+          <item displayName="$(string.KEY_F5)">
+            <value>
+              <string>F5</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F6)">
+            <value>
+              <string>F6</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F7)">
+            <value>
+              <string>F7</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F8)">
+            <value>
+              <string>F8</string>
+            </value>
+          </item>
+        </enum>
+    </elements>
+    </policy>
+    <policy name="HotkeyGrabDesktop" class="Machine" displayName="$(string.HotkeyGrabDesktop)" explainText="$(string.HotkeyGrabDesktopExplain)" presentation="$(presentation.HotkeyGrabDesktop)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+       <enum id="GrabDesktopModifierKey" valueName="GrabDesktopModifierKey">
+          <item displayName="$(string.KEY_CTRL)">
+            <value>
+              <string>Ctrl</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_ALT)">
+            <value>
+              <string>Alt</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_SHIFT)">
+            <value>
+              <string>Shift</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="SecondGrabDesktopModifierKey" valueName="SecondGrabDesktopModifierKey">
+          <item displayName="$(string.KEY_NONE)">
+            <value>
+              <string>(none)</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_CTRL)">
+            <value>
+              <string>Ctrl</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_ALT)">
+            <value>
+              <string>Alt</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_SHIFT)">
+            <value>
+              <string>Shift</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="GrabDesktopFunctionKey" valueName="GrabDesktopLetterKey">
+          <item displayName="$(string.KEY_H)">
+            <value>
+              <string>H</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_I)">
+            <value>
+              <string>I</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_J)">
+            <value>
+              <string>J</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_K)">
+            <value>
+              <string>K</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_L)">
+            <value>
+              <string>L</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_M)">
+            <value>
+              <string>M</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_N)">
+            <value>
+              <string>N</string>
+            </value>
+          </item>
+        </enum>
+    </elements>
+    </policy>
+    <policy name="HideToolBarMenu" class="Machine" displayName="$(string.HideToolBarMenu)" explainText="$(string.HideToolBarMenuExplain)" presentation="$(presentation.HideToolBarMenu)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="HideFavoritesToolbar" valueName="HideFavoritesToolbar">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideSettingsToolbar" valueName="HideSettingsToolbar">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HideDesktopContextMenu" class="Machine" displayName="$(string.HideDesktopContextMenu)" explainText="$(string.HideDesktopContextMenuExplain)" presentation="$(presentation.HideDesktopContextMenu)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="HideResetDesktopDesktopContext" valueName="HideResetDesktopDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideRestartDesktopDesktopContext" valueName="HideRestartDesktopDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideDisplayDesktopContext" valueName="HideDisplayDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideSettingsDesktopContext" valueName="HideSettingsDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideCreateShortcutToDesktopDesktopContext" valueName="HideCreateShortcutToDesktopDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideAddToStartMenuDesktopContext" valueName="HideAddToStartMenuDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideMarkAsFavoriteDesktopContext" valueName="HideMarkAsFavoriteDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HideAppContextMenu" class="Machine" displayName="$(string.HideAppContextMenu)" explainText="$(string.HideAppContextMenuExplain)" presentation="$(presentation.HideAppContextMenu)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="HideSettingsAppContext" valueName="HideSettingsAppContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideCreateShortcutToDesktopAppContext" valueName="HideCreateShortcutToDesktopAppContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideAddToStartMenuAppContext" valueName="HideAddToStartMenuAppContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideMarkAsFavoriteAppContext" valueName="HideMarkAsFavoriteAppContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HideDesktopMenu" class="Machine" displayName="$(string.HideDesktopMenu)" explainText="$(string.HideDesktopMenuExplain)" presentation="$(presentation.HideDesktopMenu)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="HideHelpDesktopMenu" valueName="HideHelpDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideSupportInformationDesktopMenu" valueName="HideSupportInformationDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideEnableRelativeMouseDesktopMenu" valueName="HideEnableRelativeMouseDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideShareFoldersDesktopMenu" valueName="HideShareFoldersDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideAllowDisplayScalingDesktopMenu" valueName="HideAllowDisplayScalingDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideResetDesktopDesktopMenu" valueName="HideResetDesktopDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideRestartDesktopDesktopMenu" valueName="HideRestartDesktopDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideConnectUSBDeviceDesktopMenu" valueName="HideConnectUSBDeviceDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HideNotificationMenu_1" class="User" displayName="$(string.HideNotificationMenu)" explainText="$(string.HideNotificationMenuExplain)" presentation="$(presentation.HideNotificationMenu)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="HideSharingNotificationMenu" valueName="HideSharingNotificationMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideSettingsNotificationMenu" valueName="HideSettingsNotificationMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HideNotificationMenu" class="Machine" displayName="$(string.HideNotificationMenu)" explainText="$(string.HideNotificationMenuExplain)" presentation="$(presentation.HideNotificationMenu)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="HideSharingNotificationMenu" valueName="HideSharingNotificationMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideSettingsNotificationMenu" valueName="HideSettingsNotificationMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="EnableShade" class="User" displayName="$(string.EnableShade)" explainText="$(string.EnableShadeExplain)" presentation="$(presentation.EnableShade)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="EnableShade">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AutomaticInputFocus_1" class="User" displayName="$(string.AutomaticInputFocus)" explainText="$(string.AutomaticInputFocusExplain)" presentation="$(presentation.AutomaticInputFocus)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AutomaticInputFocus">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="InitialPinState" class="User" displayName="$(string.InitialPinState)" explainText="$(string.InitialPinStateExplain)" presentation="$(presentation.InitialPinState)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="InitialPinState">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="DisableSpanChecks" class="User" displayName="$(string.DisableSpanChecks)" explainText="$(string.DisableSpanChecksExplain)" presentation="$(presentation.DisableSpanChecks)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="DisableSpanChecks">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="EnableMMR" class="User" displayName="$(string.EnableMMR)" explainText="$(string.EnableMMRExplain)" presentation="$(presentation.EnableMMR)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="EnableMMR">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AlwaysOnTop" class="User" displayName="$(string.AlwaysOnTop)" explainText="$(string.AlwaysOnTopExplain)" presentation="$(presentation.AlwaysOnTop)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AlwaysOnTop">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AutomaticallyInstallShortcuts_1" class="User" displayName="$(string.AutomaticallyInstallShortcuts)" explainText="$(string.AutomaticallyInstallShortcutsExplain)" presentation="$(presentation.AutomaticallyInstallShortcuts_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AutomaticallyInstallShortcuts">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="LocalModeExitBehavior" class="User" displayName="$(string.LocalModeExitBehavior)" explainText="$(string.LocalModeExitBehaviorExplain)" presentation="$(presentation.LocalModeExitBehavior)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="LocalModeExitBehavior" valueName="LocalModeExitBehavior">
+          <item displayName="$(string.LocalModeExitBehavior_Shutdown)">
+            <value>
+              <string>shutdown</string>
+            </value>
+          </item>
+          <item displayName="$(string.LocalModeExitBehavior_Suspend)">
+            <value>
+              <string>suspend</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="DisableToastNotifications_1" class="User" displayName="$(string.DisableToastNotifications)" explainText="$(string.DisableToastNotificationsExplain)" presentation="$(presentation.DisableToastNotifications_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="DisableToast">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="EnableRelativeMouse_1" class="User" displayName="$(string.EnableRelativeMouse)" explainText="$(string.EnableRelativeMouseExplain)" presentation="$(presentation.EnableRelativeMouse_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="EnableRelativeMouse">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="DisableDisconnectMessages_1" class="User" displayName="$(string.DisableDisconnectMessages)" explainText="$(string.DisableDisconnectMessagesExplain)" presentation="$(presentation.DisableDisconnectMessages_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="DisableDisconnectMessages">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="HideClientAfterLaunchSession_1" class="User" displayName="$(string.HideClientAfterLaunchSession)" explainText="$(string.HideClientAfterLaunchSessionExplain)" presentation="$(presentation.HideClientAfterLaunchSession_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="HideClientAfterLaunchSession">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="DisableSharing" class="User" displayName="$(string.DisableSharing)" explainText="$(string.DisableSharingExplain)" presentation="$(presentation.DisableSharing)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="DisableSharing">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="ForceFloatingLanguageBarOff_1" class="User" displayName="$(string.ForceFloatingLanguageBarOff)" explainText="$(string.ForceFloatingLanguageBarOffExplain)" presentation="$(presentation.ForceFloatingLanguageBarOff_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="ForceFloatingLanguageBarOff">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="DisableFileRedirection" class="User" displayName="$(string.DisableFileRedirection)" explainText="$(string.DisableFileRedirectionExplain)" presentation="$(presentation.DisableFileRedirection)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="DisableFileRedirection">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AllowDisplayScaling_1" class="User" displayName="$(string.AllowDisplayScaling)" explainText="$(string.AllowDisplayScalingExplain)" presentation="$(presentation.AllowDisplayScaling)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="AllowDisplayScaling">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="KeyboardHotkeys_1" class="User" displayName="$(string.KeyboardHotkeys)" explainText="$(string.KeyboardHotkeysExplain)" presentation="$(presentation.KeyboardHotkeys)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="DisplaySwitchModifierKey" valueName="DisplaySwitchModifierKey">
+          <item displayName="$(string.KEY_NONE)">
+            <value>
+              <string>(none)</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_ALT)">
+            <value>
+              <string>Alt</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_CTRL)">
+            <value>
+              <string>Ctrl</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_SHIFT)">
+            <value>
+              <string>Shift</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="DisplaySwitchFunctionKey" valueName="DisplaySwitchFunctionKey">
+          <item displayName="$(string.KEY_NONE)">
+            <value>
+              <string>(none)</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F1)">
+            <value>
+              <string>F1</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F2)">
+            <value>
+              <string>F2</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F3)">
+            <value>
+              <string>F3</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F4)">
+            <value>
+              <string>F4</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F5)">
+            <value>
+              <string>F5</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F6)">
+            <value>
+              <string>F6</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F7)">
+            <value>
+              <string>F7</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F8)">
+            <value>
+              <string>F8</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F9)">
+            <value>
+              <string>F9</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F10)">
+            <value>
+              <string>F10</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F11)">
+            <value>
+              <string>F11</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F12)">
+            <value>
+              <string>F12</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HotkeyUngrabDesktop_1" class="User" displayName="$(string.HotkeyUngrabDesktop)" explainText="$(string.HotkeyUngrabDesktopExplain)" presentation="$(presentation.HotkeyUngrabDesktop)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="UngrabDesktopModifierKey" valueName="UngrabDesktopModifierKey">
+          <item displayName="$(string.KEY_CTRL)">
+            <value>
+              <string>Ctrl</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_ALT)">
+            <value>
+              <string>Alt</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_SHIFT)">
+            <value>
+              <string>Shift</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="SecondUngrabDesktopModifierKey" valueName="SecondUngrabDesktopModifierKey">
+          <item displayName="$(string.KEY_NONE)">
+            <value>
+              <string>(none)</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_CTRL)">
+            <value>
+              <string>Ctrl</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_ALT)">
+            <value>
+              <string>Alt</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_SHIFT)">
+            <value>
+              <string>Shift</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="UngrabDesktopFunctionKey" valueName="UngrabDesktopFunctionKey">
+          <item displayName="$(string.KEY_F5)">
+            <value>
+              <string>F5</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F6)">
+            <value>
+              <string>F6</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F7)">
+            <value>
+              <string>F7</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_F8)">
+            <value>
+              <string>F8</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HotkeyGrabDesktop_1" class="User" displayName="$(string.HotkeyGrabDesktop)" explainText="$(string.HotkeyGrabDesktopExplain)" presentation="$(presentation.HotkeyGrabDesktop)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+       <enum id="GrabDesktopModifierKey" valueName="GrabDesktopModifierKey">
+          <item displayName="$(string.KEY_CTRL)">
+            <value>
+              <string>Ctrl</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_ALT)">
+            <value>
+              <string>Alt</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_SHIFT)">
+            <value>
+              <string>Shift</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="SecondGrabDesktopModifierKey" valueName="SecondGrabDesktopModifierKey">
+          <item displayName="$(string.KEY_NONE)">
+            <value>
+              <string>(none)</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_CTRL)">
+            <value>
+              <string>Ctrl</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_ALT)">
+            <value>
+              <string>Alt</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_SHIFT)">
+            <value>
+              <string>Shift</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="GrabDesktopFunctionKey" valueName="GrabDesktopLetterKey">
+          <item displayName="$(string.KEY_H)">
+            <value>
+              <string>H</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_I)">
+            <value>
+              <string>I</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_J)">
+            <value>
+              <string>J</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_K)">
+            <value>
+              <string>K</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_L)">
+            <value>
+              <string>L</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_M)">
+            <value>
+              <string>M</string>
+            </value>
+          </item>
+          <item displayName="$(string.KEY_N)">
+            <value>
+              <string>N</string>
+            </value>
+          </item>
+        </enum>
+    </elements>
+    </policy>
+    <policy name="HideToolBarMenu_1" class="User" displayName="$(string.HideToolBarMenu)" explainText="$(string.HideToolBarMenuExplain)" presentation="$(presentation.HideToolBarMenu)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="HideFavoritesToolbar" valueName="HideFavoritesToolbar">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideSettingsToolbar" valueName="HideSettingsToolbar">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HideDesktopContextMenu_1" class="User" displayName="$(string.HideDesktopContextMenu)" explainText="$(string.HideDesktopContextMenuExplain)" presentation="$(presentation.HideDesktopContextMenu)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="HideResetDesktopDesktopContext" valueName="HideResetDesktopDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideRestartDesktopDesktopContext" valueName="HideRestartDesktopDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideDisplayDesktopContext" valueName="HideDisplayDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideSettingsDesktopContext" valueName="HideSettingsDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideCreateShortcutToDesktopDesktopContext" valueName="HideCreateShortcutToDesktopDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideAddToStartMenuDesktopContext" valueName="HideAddToStartMenuDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideMarkAsFavoriteDesktopContext" valueName="HideMarkAsFavoriteDesktopContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HideAppContextMenu_1" class="User" displayName="$(string.HideAppContextMenu)" explainText="$(string.HideAppContextMenuExplain)" presentation="$(presentation.HideAppContextMenu)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="HideSettingsAppContext" valueName="HideSettingsAppContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideCreateShortcutToDesktopAppContext" valueName="HideCreateShortcutToDesktopAppContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideAddToStartMenuAppContext" valueName="HideAddToStartMenuAppContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideMarkAsFavoriteAppContext" valueName="HideMarkAsFavoriteAppContext">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="HideDesktopMenu_1" class="User" displayName="$(string.HideDesktopMenu)" explainText="$(string.HideDesktopMenuExplain)" presentation="$(presentation.HideDesktopMenu)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClient" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="HideHelpDesktopMenu" valueName="HideHelpDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideSupportInformationDesktopMenu" valueName="HideSupportInformationDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideEnableRelativeMouseDesktopMenu" valueName="HideEnableRelativeMouseDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideShareFoldersDesktopMenu" valueName="HideShareFoldersDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideAllowDisplayScalingDesktopMenu" valueName="HideAllowDisplayScalingDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideResetDesktopDesktopMenu" valueName="HideResetDesktopDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideRestartDesktopDesktopMenu" valueName="HideRestartDesktopDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="HideConnectUSBDeviceDesktopMenu" valueName="HideConnectUSBDeviceDesktopMenu">
+          <item displayName="$(string.HIDE_MENU_YES)">
+            <value>
+              <string>true</string>
+            </value>
+          </item>
+          <item displayName="$(string.HIDE_MENU_NO)">
+            <value>
+              <string>false</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="ColorDepth" class="User" displayName="$(string.ColorDepth)" explainText="$(string.ColorDepthExplain)" presentation="$(presentation.ColorDepth)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="ColorDepth" valueName="ColorDepth" required="true">
+          <item displayName="$(string.ColorDepth_8bit)">
+            <value>
+              <decimal value="8" />
+            </value>
+          </item>
+          <item displayName="$(string.ColorDepth_15bit)">
+            <value>
+              <decimal value="15" />
+            </value>
+          </item>
+          <item displayName="$(string.ColorDepth_16bit)">
+            <value>
+              <decimal value="16" />
+            </value>
+          </item>
+          <item displayName="$(string.ColorDepth_24bit)">
+            <value>
+              <decimal value="24" />
+            </value>
+          </item>
+          <item displayName="$(string.ColorDepth_32bit)">
+            <value>
+              <decimal value="32" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="DisableWallpaper" class="User" displayName="$(string.DisableWallpaper)" explainText="$(string.DisableWallpaperExplain)" presentation="$(presentation.DisableWallpaper)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="DisableWallpaper">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>false</string>
+      </enabledValue>
+      <disabledValue>
+        <string>true</string>
+      </disabledValue>
+    </policy>
+    <policy name="DisableFullWindowDrag" class="User" displayName="$(string.DisableFullWindowDrag)" explainText="$(string.DisableFullWindowDragExplain)" presentation="$(presentation.DisableFullWindowDrag)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="DisableFullWindowDrag">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>false</string>
+      </enabledValue>
+      <disabledValue>
+        <string>true</string>
+      </disabledValue>
+    </policy>
+    <policy name="DisableMenuAnimations" class="User" displayName="$(string.DisableMenuAnimations)" explainText="$(string.DisableMenuAnimationsExplain)" presentation="$(presentation.DisableMenuAnimations)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="DisableMenuAnimations">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>false</string>
+      </enabledValue>
+      <disabledValue>
+        <string>true</string>
+      </disabledValue>
+    </policy>
+    <policy name="DisableTheming" class="User" displayName="$(string.DisableTheming)" explainText="$(string.DisableThemingExplain)" presentation="$(presentation.DisableTheming)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="DisableTheming">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>false</string>
+      </enabledValue>
+      <disabledValue>
+        <string>true</string>
+      </disabledValue>
+    </policy>
+    <policy name="DisableCursorShadow" class="User" displayName="$(string.DisableCursorShadow)" explainText="$(string.DisableCursorShadowExplain)" presentation="$(presentation.DisableCursorShadow)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="DisableCursorShadow">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>false</string>
+      </enabledValue>
+      <disabledValue>
+        <string>true</string>
+      </disabledValue>
+    </policy>
+    <policy name="FontSmoothing" class="User" displayName="$(string.FontSmoothing)" explainText="$(string.FontSmoothingExplain)" presentation="$(presentation.FontSmoothing)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="FontSmoothing">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="DesktopComposition" class="User" displayName="$(string.DesktopComposition)" explainText="$(string.DesktopCompositionExplain)" presentation="$(presentation.DesktopComposition)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="DesktopComposition">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AudioRedirectionMode" class="User" displayName="$(string.AudioRedirectionMode)" explainText="$(string.AudioRedirectionModeExplain)" presentation="$(presentation.AudioRedirectionMode)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="AudioRedirectionEnable">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+      <elements>
+        <enum id="AudioRedirectionMode" valueName="AudioRedirectionMode" required="true">
+          <item displayName="$(string.AudioRedirectionMode_PlayInVM)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.AudioRedirectionMode_RedirectToClient)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.AudioRedirectionMode_DisableAudio)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="RedirectDrives" class="User" displayName="$(string.RedirectDrives)" explainText="$(string.RedirectDrivesExplain)" presentation="$(presentation.RedirectDrives)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="RedirectDrives">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="RedirectPrinters" class="User" displayName="$(string.RedirectPrinters)" explainText="$(string.RedirectPrintersExplain)" presentation="$(presentation.RedirectPrinters)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="RedirectPrinters">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="RedirectPorts" class="User" displayName="$(string.RedirectPorts)" explainText="$(string.RedirectPortsExplain)" presentation="$(presentation.RedirectPorts)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="RedirectPorts">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="RedirectSmartcards" class="User" displayName="$(string.RedirectSmartcards)" explainText="$(string.RedirectSmartcardsExplain)" presentation="$(presentation.RedirectSmartcards)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="RedirectSmartcards">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="RedirectClipboard" class="User" displayName="$(string.RedirectClipboard)" explainText="$(string.RedirectClipboardExplain)" presentation="$(presentation.RedirectClipboard)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="RedirectClipboard">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="RedirectPlugAndPlayDevices" class="User" displayName="$(string.RedirectPlugAndPlayDevices)" explainText="$(string.ExplainRedirectPlugAndPlayDevices)" presentation="$(presentation.RedirectPlugAndPlayDevices)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="RedirectPlugAndPlayDevices">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="ShadowBitmap" class="User" displayName="$(string.ShadowBitmap)" explainText="$(string.ShadowBitmapExplain)" presentation="$(presentation.ShadowBitmap)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="ShadowBitmap">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="CachePersistenceActive" class="User" displayName="$(string.CachePersistenceActive)" explainText="$(string.CachePersistenceActiveExplain)" presentation="$(presentation.CachePersistenceActive)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="CachePersistenceActive">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="EnableCompression" class="User" displayName="$(string.EnableCompression)" explainText="$(string.EnableCompressionExplain)" presentation="$(presentation.EnableCompression)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="EnableCompression">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="KeyboardHookMode" class="User" displayName="$(string.KeyboardHookMode)" explainText="$(string.KeyboardHookModeExplain)" presentation="$(presentation.KeyboardHookMode)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="KeyboardHookMode" valueName="KeyboardHookMode" required="true">
+          <item displayName="$(string.KeyboardHookMode_ApplyKeyCombinationsLocal)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.KeyboardHookMode_SendKeyCombinationsToVM)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="EnableCredSspSupport" class="User" displayName="$(string.EnableCredSspSupport)" explainText="$(string.EnableCredSspSupportExplain)" presentation="$(presentation.EnableCredSspSupport)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="EnableCredSspSupport">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="BitmapCacheSize" class="User" displayName="$(string.BitmapCacheSize)" explainText="$(string.BitmapCacheSizeExplain)" presentation="$(presentation.BitmapCacheSize)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="BitmapCacheSize" valueName="BitmapCacheSize" required="true" minValue="1" maxValue="32" />
+      </elements>
+    </policy>
+    <policy name="BitmapVirtualCacheSize" class="User" displayName="$(string.BitmapVirtualCacheSize)" explainText="$(string.BitmapVirtualCacheSizeExplain)" presentation="$(presentation.BitmapVirtualCacheSize)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="BitmapVirtualCacheSize" valueName="BitmapVirtualCacheSize" required="true" minValue="1" maxValue="32" />
+      </elements>
+    </policy>
+    <policy name="BitmapVirtualCache16BppSize" class="User" displayName="$(string.BitmapVirtualCache16BppSize)" explainText="$(string.BitmapVirtualCache16BppSizeExplain)" presentation="$(presentation.BitmapVirtualCache16BppSize)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="BitmapVirtualCache16BppSize" valueName="BitmapVirtualCache16BppSize" required="true" minValue="1" maxValue="32" />
+      </elements>
+    </policy>
+    <policy name="BitmapVirtualCache24BppSize" class="User" displayName="$(string.BitmapVirtualCache24BppSize)" explainText="$(string.BitmapVirtualCache24BppSizeExplain)" presentation="$(presentation.BitmapVirtualCache24BppSize)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="BitmapVirtualCache24BppSize" valueName="BitmapVirtualCache24BppSize" required="true" minValue="1" maxValue="32" />
+      </elements>
+    </policy>
+    <policy name="BitmapVirtualCache32BppSize" class="User" displayName="$(string.BitmapVirtualCache32BppSize)" explainText="$(string.BitmapVirtualCache32BppSizeExplain)" presentation="$(presentation.BitmapVirtualCache32BppSize)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="BitmapVirtualCache32BppSize" valueName="BitmapVirtualCache32BppSize" required="true" minValue="1" maxValue="32" />
+      </elements>
+    </policy>
+    <policy name="EnableAutoReconnect" class="User" displayName="$(string.EnableAutoReconnect)" explainText="$(string.EnableAutoReconnectExplain)" presentation="$(presentation.EnableAutoReconnect)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="EnableAutoReconnect">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="RedirectAudioCapture" class="User" displayName="$(string.RedirectAudioCapture)" explainText="$(string.RedirectAudioCaptureExplain)" presentation="$(presentation.RedirectAudioCapture)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\RDP Settings" valueName="RedirectAudioCapture">
+      <parentCategory ref="VMwareViewRdpSettings" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="LogInAsCurrentUser_Display_1" class="User" displayName="$(string.LogInAsCurrentUser_Display)" explainText="$(string.LogInAsCurrentUser_DisplayExplain)" presentation="$(presentation.LogInAsCurrentUser_Display_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="LogInAsCurrentUser_Display">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="LogInAsCurrentUser_1" class="User" displayName="$(string.LogInAsCurrentUser)" explainText="$(string.LogInAsCurrentUserExplain)" presentation="$(presentation.LogInAsCurrentUser_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="LogInAsCurrentUser">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="EnableRecursiveUnlock_1" class="User" displayName="$(string.EnableRecursiveUnlock)" explainText="$(string.EnableRecursiveUnlockExplain)" presentation="$(presentation.EnableRecursiveUnlock_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="EnableRecursiveUnlock">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="EnableTicketSSLAuth_1" class="User" displayName="$(string.EnableTicketSSLAuth)" explainText="$(string.EnableTicketSSLAuthExplain)" presentation="$(presentation.EnableTicketSSLAuth_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="EnableTicketSSLAuth" valueName="EnableTicketSSLAuth" required="true">
+          <item displayName="$(string.EnableTicketSSLAuth_Enable)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.EnableTicketSSLAuth_Disable)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.EnableTicketSSLAuth_Enforce)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="IgnoreRevocation_1" class="User" displayName="$(string.IgnoreRevocation)" explainText="$(string.IgnoreRevocationExplain)" presentation="$(presentation.IgnoreRevocation_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security" valueName="IgnoreRevocation">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="SSLCipherList_1" class="User" displayName="$(string.SSLCipherList)" explainText="$(string.SSLCipherListExplain)" presentation="$(presentation.SSLCipherList_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client\Security">
+      <parentCategory ref="VMwareViewClientSecurity" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="SSLCipherList" valueName="SSLCipherList" />
+      </elements>
+    </policy>
+    <policy name="ServerURL_1" class="User" displayName="$(string.ServerURL)" explainText="$(string.ServerURLExplain)" presentation="$(presentation.ServerURL_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="ServerURL" valueName="ServerURL" />
+      </elements>
+    </policy>
+    <policy name="UserName_1" class="User" displayName="$(string.UserName)" explainText="$(string.UserNameExplain)" presentation="$(presentation.UserName_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="UserName" valueName="UserName" />
+      </elements>
+    </policy>
+    <policy name="DomainName_1" class="User" displayName="$(string.DomainName)" explainText="$(string.DomainNameExplain)" presentation="$(presentation.DomainName_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="DomainName" valueName="DomainName" />
+      </elements>
+    </policy>
+    <policy name="Password_1" class="User" displayName="$(string.Password)" explainText="$(string.PasswordExplain)" presentation="$(presentation.Password_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="Password" valueName="Password" />
+      </elements>
+    </policy>
+    <policy name="DesktopName_1" class="User" displayName="$(string.DesktopName)" explainText="$(string.DesktopNameExplain)" presentation="$(presentation.DesktopName_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="DesktopName" valueName="DesktopName" />
+      </elements>
+    </policy>
+    <policy name="DesktopLayout_1" class="User" displayName="$(string.DesktopLayout)" explainText="$(string.DesktopLayoutExplain)" presentation="$(presentation.DesktopLayout_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="DesktopLayout" valueName="DesktopLayout">
+          <item displayName="$(string.DesktopLayout_FullScreen)">
+            <value>
+              <string>FullScreen</string>
+            </value>
+          </item>
+          <item displayName="$(string.DesktopLayout_WindowLarge)">
+            <value>
+              <string>WindowLarge</string>
+            </value>
+          </item>
+          <item displayName="$(string.DesktopLayout_WindowSmall)">
+            <value>
+              <string>WindowSmall</string>
+            </value>
+          </item>
+          <item displayName="$(string.DesktopLayout_MultiMonitor)">
+            <value>
+              <string>MultiMonitor</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="LockedGuestSize_1" class="User" displayName="$(string.LockedGuestSize)" explainText="$(string.LockedGuestSizeExplain)" presentation="$(presentation.LockedGuestSize_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="LockedGuestWidth" valueName="LockedGuestWidth" required="true" minValue="640" maxValue="4096" />
+        <decimal id="LockedGuestHeight" valueName="LockedGuestHeight" required="true" minValue="480" maxValue="4096" />
+      </elements>
+    </policy>
+    <policy name="NonInteractive_1" class="User" displayName="$(string.NonInteractive)" explainText="$(string.NonInteractiveExplain)" presentation="$(presentation.NonInteractive_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="NonInteractive">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="SingleAutoConnect_1" class="User" displayName="$(string.SingleAutoConnect)" explainText="$(string.SingleAutoConnectExplain)" presentation="$(presentation.SingleAutoConnect_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="SingleAutoConnect">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="noTSCAddins_1" class="User" displayName="$(string.noTSCAddins)" explainText="$(string.noTSCAddinsExplain)" presentation="$(presentation.noTSCAddins_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="noTSCAddins">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="connectUSBOnStartup_1" class="User" displayName="$(string.connectUSBOnStartup)" explainText="$(string.connectUSBOnStartupExplain)" presentation="$(presentation.connectUSBOnStartup_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="connectUSBOnStartup">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="connectUSBOnInsert_1" class="User" displayName="$(string.connectUSBOnInsert)" explainText="$(string.connectUSBOnInsertExplain)" presentation="$(presentation.connectUSBOnInsert_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="connectUSBOnInsert">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="AppSessionReconnectBehavior_1" class="User" displayName="$(string.AppSessionReconnectBehavior)" explainText="$(string.AppSessionReconnectBehaviorExplain)" presentation="$(presentation.AppSessionReconnectBehavior_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="AppSessionReconnectBehavior" valueName="AppSessionReconnectBehavior">
+          <item displayName="$(string.AppSessionReconnectBehavior_Ask)">
+            <value>
+              <string>ask</string>
+            </value>
+          </item>
+          <item displayName="$(string.AppSessionReconnectBehavior_Always)">
+            <value>
+              <string>always</string>
+            </value>
+          </item>
+          <item displayName="$(string.AppSessionReconnectBehavior_Never)">
+            <value>
+              <string>never</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="UnauthenticatedAccessEnabled_1" class="User" displayName="$(string.UnauthenticatedAccessEnabled)" explainText="$(string.UnauthenticatedAccessEnabledExplain)" presentation="$(presentation.UnauthenticatedAccessEnabled_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client" valueName="UnauthenticatedAccessEnabled">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="UnauthenticatedAccessAccount_1" class="User" displayName="$(string.UnauthenticatedAccessAccount)" explainText="$(string.UnauthenticatedAccessAccountExplain)" presentation="$(presentation.UnauthenticatedAccessAccount_1)" key="Software\Policies\VMware, Inc.\VMware VDM\Client">
+      <parentCategory ref="VMwareViewClientScripting" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="UnauthenticatedAccessAccount" valueName="UnauthenticatedAccessAccount" />
+      </elements>
+    </policy>
+    <policy name="BrowserRedirUseCache" class="Machine" displayName="$(string.BrowserRedirUseCache)" explainText="$(string.BrowserRedirUseCacheExplain)" valueName="useCache" key="Software\Policies\VMware, Inc.\VMware BrowserRedir">
+      <parentCategory ref="VMwareViewBrowserRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="BrowserRedirIgnoreCertErrors" class="Machine" displayName="$(string.BrowserRedirIgnoreCertErrors)" explainText="$(string.BrowserRedirIgnoreCertErrorsExplain)" valueName="ignoreCertErrors" key="Software\Policies\VMware, Inc.\VMware BrowserRedir">
+      <parentCategory ref="VMwareViewBrowserRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="BrowserRedirEnableMediaStream" class="Machine" displayName="$(string.BrowserRedirEnableMediaStream)" explainText="$(string.BrowserRedirEnableMediaStreamExplain)" valueName="enableMediaStream" key="Software\Policies\VMware, Inc.\VMware BrowserRedir">
+      <parentCategory ref="VMwareViewBrowserRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

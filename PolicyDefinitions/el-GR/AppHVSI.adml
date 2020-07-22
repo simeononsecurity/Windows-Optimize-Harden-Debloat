@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Windows Defender Application Guard</displayName>
+  <description>Ενεργοποίηση του Windows Defender Application Guard σε διαχειριζόμενη λειτουργία</description>
+  <resources>
+    <stringTable>
+        <string id="AppHVSICat_DisplayName">Windows Defender Application Guard</string>
+        <string id="AppHVSI_AllowAppHVSI_DisplayName">Ενεργοποίηση του Windows Defender Application Guard σε διαχειριζόμενη λειτουργία</string>
+        <string id="AppHVSI_AllowAppHVSI_Explain">Αυτή η ρύθμιση πολιτικής ενεργοποιεί την απομόνωση εφαρμογών με χρήση του Windows Defender Application Guard. (Application Guard).
+
+Το Application Guard χρησιμοποιεί τον υπερεπόπτη των Windows για τη δημιουργία ενός περιβάλλοντος αναπαράστασης για εφαρμογές που είναι ρυθμισμένες έτσι ώστε να χρησιμοποιούν απομόνωση ασφάλειας βάσει αναπαράστασης. Ενώ βρίσκονται σε απομόνωση, οι ακατάλληλες αλληλεπιδράσεις με χρήστες και οι ευπάθειες των εφαρμογών δεν μπορούν να εκθέσουν σε κίνδυνο τον πυρήνα και άλλες εφαρμογές που εκτελούνται εκτός του περιβάλλοντος αναπαράστασης.
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, το Application Guard ενεργοποιείται για τον οργανισμό σας.
+        </string>
+        <string id="AppHVSI_ClipboardSettings_DisplayName">Ρύθμιση παραμέτρων πρόχειρου του Windows Defender Application Guard</string>
+        <string id="AppHVSI_ClipboardSettings_Explain">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να καθορίζετε τη συμπεριφορά του Προχείρου κατά τη χρήση του Windows Defender Application Guard (Application Guard).
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, πρέπει να επιλέξετε ανάμεσα στις παρακάτω συμπεριφορές:
+
+- Πλήρης απενεργοποίηση της λειτουργικότητας του Πρόχειρου μεταξύ του κεντρικού υπολογιστή και του Application Guard
+
+- Ενεργοποίηση της αντιγραφής περιεχομένου στο Πρόχειρο από το Application Guard προς τον κεντρικό υπολογιστή
+
+- Ενεργοποίηση της αντιγραφής περιεχομένου στο Πρόχειρο από τον κεντρικό υπολογιστή προς το Application Guard.
+
+Σημείωση
+Προτείνουμε να μην ενεργοποιήσετε την αντιγραφή από τον κεντρικό υπολογιστή προς το Application Guard. Η ενεργοποίηση αυτής της λειτουργικότητας θα σήμαινε ότι μια δυνητικά επισφαλής περίοδος λειτουργίας του Application Guard θα μπορούσε να αποκτήσει πρόσβαση στο Πρόχειρο της κεντρικής συσκευής και στο περιεχόμενο που υπάρχει σε αυτή.
+
+Εάν επιλέξετε να ενεργοποιήσετε την αντιγραφή, πρέπει επίσης να επιλέξετε το είδος περιεχομένου που επιτρέπεται να αντιγράφεται, χρησιμοποιώντας τις επιλογές περιεχομένου:
+
+- 1. Επιτρέπει την αντιγραφή κειμένου.
+
+- 2. Επιτρέπει την αντιγραφή εικόνων.
+
+- 3. Επιτρέπει την αντιγραφή κειμένου και εικόνων.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση ή δεν ορίσετε τις παραμέτρους της, όλη η λειτουργικότητα του Προχείρου απενεργοποιείται στο Application Guard.
+        </string>
+        <string id="AppHVSI_ClipboardSettings_DropdownList_Option_OperationDisabled">Αποκλεισμός λειτουργιών προχείρου (προεπιλογή)</string>
+        <string id="AppHVSI_ClipboardSettings_DropdownList_Option_ContainerToHostEnabled">Ενεργοποίηση λειτουργίας προχείρου από μια απομονωμένη περίοδο λειτουργίας προς τον κεντρικό υπολογιστή</string>
+        <string id="AppHVSI_ClipboardSettings_DropdownList_Option_HostToContainerEnabled">Ενεργοποίηση λειτουργίας προχείρου από ένα κεντρικό υπολογιστή προς μια απομονωμένη περίοδο λειτουργίας</string>
+        <string id="AppHVSI_ClipboardSettings_DropdownList_Option_BothDirectionsEnabled">Ενεργοποίηση λειτουργίας προχείρου και προς τις δύο κατευθύνσεις</string>
+        <string id="AppHVSI_PrintingSettings_DisplayName">Ρύθμιση παραμέτρων εκτύπωσης του Windows Defender Application Guard</string>
+        <string id="AppHVSI_PrintingSettings_Explain">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να καθορίζετε τη συμπεριφορά της λειτουργίας εκτύπωσης κατά τη χρήση του Windows Defender Application Guard (Application Guard).
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, πρέπει να επιλέξετε μία ή περισσότερες από τις παρακάτω συμπεριφορές:
+
+- Απενεργοποίηση όλων των λειτουργιών εκτύπωσης στο Application Guard.
+
+- Ενεργοποίηση εκτύπωσης σε υπάρχοντες εκτυπωτές δικτύου.
+
+- Ενεργοποίηση εκτύπωσης σε τοπικούς εκτυπωτές.
+
+- Ενεργοποίηση εκτύπωσης σε PDF, επιτρέπει στους χρήστες να εκτυπώσουν σε μορφή PDF και να αποθηκεύσουν το αρχείο που δημιουργείται στον κεντρικό υπολογιστή.
+
+- Ενεργοποίηση εκτύπωσης σε XPS, επιτρέπει στους χρήστες να εκτυπώσουν σε μορφή XPS και να αποθηκεύσουν το αρχείο που δημιουργείται στον κεντρικό υπολογιστή.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση ή δεν ορίσετε τις παραμέτρους της, όλη η λειτουργικότητα εκτύπωσης απενεργοποιείται στο Application Guard.
+        </string>
+
+        <string id="AppHVSI_CertificateThumbprints_DisplayName">Να επιτρέπεται στο Windows Defender Application Guard να χρησιμοποιεί αρχές έκδοσης πιστοποιητικών ρίζας από τη συσκευή του χρήστη</string>
+        <string id="AppHVSI_CertificateThumbprints_Explain">Αυτή η ρύθμιση πολιτικής επιτρέπει την κοινή χρήση ορισμένων πιστοποιητικών ρίζας με το κοντέινερ του Windows Defender Application Guard.
+
+Με την ενεργοποίηση αυτής της ρύθμισης, τα πιστοποιητικά με αποτύπωμα που συμφωνεί με αυτά που καθορίστηκαν θα μεταφερθούν στο κοντέινερ. Μπορούν να καθοριστούν πολλά πιστοποιητικά χρησιμοποιώντας κόμμα για τον διαχωρισμό των αποτυπωμάτων για κάθε πιστοποιητικό που θέλετε να μεταφερθεί.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση ή δεν ρυθμίσετε τις παραμέτρους της, δεν γίνεται κοινή χρήση πιστοποιητικών με το κοντέινερ του Windows Defender Application Guard.
+
+Παράδειγμα:  b4e72779a8a362c860c36a6461f31e3aa7e58c14,1b1d49f06d2a697a544a1059bd59a7b058cda924
+        </string>
+
+        <string id="AppHVSI_BlockNonEnterpriseContent_DisplayName">Αποτρέψτε εταιρικών τοποθεσιών web από τη φόρτωση μη εταιρικού περιεχομένου στον Microsoft Edge και Internet Explorer</string>
+        <string id="AppHVSI_BlockNonEnterpriseContent_Explain">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να καθορίσετε εάν επιτρέπεται στις τοποθεσίες web η φόρτωση μη εταιρικού περιεχομένου στο Microsoft Edge και τον Internet Explorer.
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, δεν επιτρέπεται το άνοιγμα μη εταιρικού περιεχομένου που υπάρχει ενσωματωμένο σε εταιρικές τοποθεσίες στον Internet Explorer ή το Microsoft Edge εκτός του περιβάλλοντος του Windows Defender Application Guard.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση ή δεν ρυθμίσετε τις παραμέτρους της, θα είναι δυνατό το άνοιγμα μη εταιρικών τοποθεσιών εκτός του κοντέινερ του Windows Defender Application Guard, απευθείας στον Internet Explorer και το Microsoft Edge.
+        </string>
+        <string id="AppHVSI_AllowCameraMicrophoneRedirection_DisplayName">Να επιτρέπεται η πρόσβαση στην κάμερα και το μικρόφωνο στο Windows Defender Application Guard</string>
+        <string id="AppHVSI_AllowCameraMicrophoneRedirection_Explain">Η πολιτική σάς επιτρέπει να προσδιορίσετε εάν οι εφαρμογές εντός του Windows Defender Application Guard μπορούν να έχουν πρόσβαση στην κάμερα και το μικρόφωνο της συσκευής όταν αυτές οι ρυθμίσεις είναι ενεργοποιημένες στη συσκευή του χρήστη.
+
+Εάν ενεργοποιήσετε αυτή την πολιτική, οι εφαρμογές εντός του Windows Defender Application Guard θα μπορούν να έχουν πρόσβαση στην κάμερα και το μικρόφωνο της συσκευής του χρήστη.
+
+Εάν απενεργοποιήσετε ή δεν ρυθμίσετε τις παραμέτρους αυτής της πολιτικής, οι εφαρμογές εντός του Windows Defender Application Guard δεν θα έχουν πρόσβαση στην κάμερα και το μικρόφωνο της συσκευής του χρήστη.
+
+Σημαντικό: Αν ενεργοποιήσετε αυτήν την πολιτική, ένα επισφαλές κοντέινερ θα μπορούσε να παρακάμψει τα δικαιώματα της κάμερας και του μικροφώνου και να αποκτήσει πρόσβαση στην κάμερα και το μικρόφωνο εν αγνοία του χρήστη. Για να αποφευχθεί η μη εξουσιοδοτημένη πρόσβαση, συνιστούμε να απενεργοποιούνται οι ρυθμίσεις προστασίας προσωπικών δεδομένων κάμερας και μικροφώνου στη συσκευή του χρήστη όταν δεν είναι απαραίτητες.
+        </string>
+        <string id="AppHVSI_AllowPersistence_DisplayName">Αποδοχή διατήρησης δεδομένων για το Windows Defender Application Guard</string>
+        <string id="AppHVSI_AllowPersistence_Explain">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να καθορίσετε εάν θα πρέπει να διατηρούνται τα δεδομένα σε διαφορετικές περιόδους λειτουργίας στο Windows Defender Application Guard (Application Guard).
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, το Application Guard αποθηκεύει τα αρχεία που κατεβάζουν οι χρήστες και άλλα στοιχεία (όπως cookie, αγαπημένα κ.λπ.) για χρήση σε μελλοντικές περιόδους λειτουργίας του Application Guard.
+
+Σημείωση:
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, μπορείτε ακόμη να διαγράψετε τα δεδομένα ενός χρήστη από μια συγκεκριμένη συσκευή χρησιμοποιώντας την εντολή Reset-ApplicationGuard του PowerShell. Η εκτέλεση αυτής της εντολής διαγράφει όλα τα δεδομένα του υπαλλήλου, ανεξάρτητα από τη ρύθμιση παραμέτρων και μπορεί να οδηγήσει σε απώλεια δεδομένων για τον υπάλληλο.
+
+Εάν απενεργοποιήσετε αυτή τη ρύθμιση ή δεν ορίσετε τις παραμέτρους της, το Application Guard διαγράφει όλα τα δεδομένα χρηστών στο κοντέινερ του Application Guard.
+        </string>
+        <string id="AppHVSI_AllowVirtualGPU_DisplayName">Να επιτρέπεται η φωτοαπόδοση μέσω επιτάχυνσης υλικού για το Windows Defender Application Guard</string>
+        <string id="AppHVSI_AllowVirtualGPU_Explain">Αυτή η ρύθμιση πολιτικής καθορίζει αν το Windows Defender Application Guard θα αποδίδει τα γραφικά χρησιμοποιώντας επιτάχυνση υλικού ή λογισμικού.
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, το Windows Defender Application Guard χρησιμοποιεί Hyper-V για την πρόσβαση σε υποστηριζόμενο υλικό απόδοσης γραφικών υψηλής ασφαλείας (GPU). Αυτές οι GPU βελτιώνουν τις επιδόσεις φωτοαπόδοσης και τη διάρκεια ζωής μπαταρίας κατά τη χρήση του Windows Defender Application Guard, ιδιαίτερα για την αναπαραγωγή βίντεο και άλλες περιπτώσεις εντατικής χρήσης γραφικών. Εάν ενεργοποιήσετε αυτήν τη ρύθμιση χωρίς να συνδέσετε οποιαδήποτε υλικό απόδοσης γραφικών υψηλής ασφαλείας, το Windows Defender Application Guard θα επιστρέψει αυτόματα σε φωτοαπόδοση μέσω λογισμικού (CPU).
+
+Σημείωση:
+Έχετε υπόψη ότι η ενεργοποίηση αυτής της ρύθμισης με δυνητικά επισφαλείς συσκευές γραφικών ή προγράμματα οδήγησης ενδέχεται να συνιστούν κίνδυνο για την κεντρική συσκευή.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση ή δεν ρυθμίσετε τις παραμέτρους της, το Windows Defender Application Guard χρησιμοποιεί φωτοαπόδοση με βάση το λογισμικό (CPU) και δεν θα φορτώσει  προγράμματα οδήγησης τρίτων κατασκευαστών γραφικών, ούτε θα αλληλεπιδράσει με οποιοδήποτε συνδεδεμένο υλικό γραφικών.
+        </string>
+        <string id="AppHVSI_AuditApplicationGuard_DisplayName">Αποδοχή συμβάντων ελέγχου στο Windows Defender Application Guard</string>
+        <string id="AppHVSI_AuditApplicationGuard_Explain">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να αποφασίσετε αν θα είναι δυνατή η συλλογή συμβάντων ελέγχου από το Windows Defender Application Guard.
+
+Εάν ενεργοποιήσετε αυτή την πολιτική, το Application Guard κληρονομεί τις πολιτικές ελέγχου από τη συσκευή σας και καταγράφει τα συμβάντα συστήματος από το κοντέινερ του Application Guard στον κεντρικό υπολογιστή σας.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση ή δεν ρυθμίσετε τις παραμέτρους της, τα αρχεία καταγραφής συμβάντων δεν θα συλλέγονται από το κοντέινερ του Application Guard.
+        </string>
+
+        <string id="AppHVSI_SaveFilesToHost_DisplayName">Να επιτρέπεται η λήψη και η αποθήκευση αρχείων από το Windows Defender Application Guard στο λειτουργικό σύστημα κεντρικού υπολογιστή</string>
+        <string id="AppHVSI_SaveFilesToHost_Explain">Αυτή η ρύθμιση πολιτικής καθορίζει εάν θα γίνεται αποθήκευση των ληφθέντων αρχείων στο λειτουργικό σύστημα του κεντρικού υπολογιστή από το κοντέινερ του Windows Defender Application Guard.
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, οι χρήστες θα μπορούν να αποθηκεύουν αρχεία που έχουν ληφθεί από το κοντέινερ του Windows Defender Application Guard στο λειτουργικό σύστημα του κεντρικού υπολογιστή.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση ή δεν ορίσετε τις παραμέτρους της, οι χρήστες δεν θα μπορούν να αποθηκεύουν αρχεία που έχουν ληφθεί από το κοντέινερ του Windows Defender Application Guard στο λειτουργικό σύστημα του κεντρικού υπολογιστή.
+        </string>
+        <string id="AppHVSI_FileTrustCriteria_DisplayName">Να επιτρέπεται στους χρήστες να εμπιστεύονται αρχεία που ανοίγουν στο Windows Defender Application Guard</string>
+        <string id="AppHVSI_FileTrustCriteria_Explain">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να ρυθμίσετε τις απαιτούμενες ενέργειες και τις επικυρώσεις που επιτρέπουν στους χρήστες να θεωρούν αξιόπιστα τα αρχεία που ανοίγουν στο Application Guard. Μετά την επιτυχημένη ολοκλήρωση, τα αρχεία θα ανοίγουν στον κεντρικό υπολογιστή. 
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, πρέπει να επιλέξετε ένα ή περισσότερα από τα εξής:
+0. Να μην επιτρέπεται στους χρήστες να θεωρούν αξιόπιστα τα αρχεία με μη αυτόματο τρόπο. Οι χρήστες δεν θα έχουν την επιλογή να θεωρούν αξιόπιστα τα αρχεία.
+1. Να επιτρέπεται στους χρήστες να θεωρούν αξιόπιστα τα αρχεία με μη αυτόματο τρόπο: Οι χρήστες μπορούν να ανοίξουν περιβάλλον εργασίας χρήστη στα Windows που τους δίνει τη δυνατότητα να θεωρήσουν ρητά αξιόπιστα τα επιλεγμένα αρχεία.
+2. Να επιτρέπεται στους χρήστες να θεωρούν αξιόπιστα τα αρχεία με μη αυτόματο τρόπο μετά από έλεγχο προστασίας από ιούς: Οι χρήστες μπορούν να ανοίξουν περιβάλλον εργασίας χρήστη στα Windows που τους δίνει τη δυνατότητα να θεωρήσουν ρητά αξιόπιστα τα επιλεγμένα αρχεία. Τα αρχεία θεωρούνται αξιόπιστα μόνο αφού εγκριθούν από το πρόγραμμα προστασίας από ιούς που είναι εγκατεστημένο στη συσκευή του χρήστη.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση ή δεν ορίσετε τις παραμέτρους της, οι χρήστες δεν θα μπορούν να θεωρούν αξιόπιστα τα αρχεία που ανοίγουν στο Application Guard.
+</string>
+
+        <string id="AppHVSI_FileTrustOrigin_DisplayName">Ρύθμιση παραμέτρων πρόσθετων προελεύσεων για μη αξιόπιστα αρχεία του Windows Defender Application Guard.</string>
+        <string id="AppHVSI_FileTrustOrigin_Explain">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να ρυθμίσετε πρόσθετες προελεύσεις για μη αξιόπιστα αρχεία.
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, πρέπει να επιλέξετε ένα ή περισσότερα από τα εξής:
+1. Αφαιρούμενα μέσα αποθήκευσης: Τα αρχεία που ανοίγουν ή αντιγράφονται από αφαιρούμενα μέσα αποθήκευσης θα ανοίγουν πάντα στο Windows Defender Application Guard.
+
+2. Κοινόχρηστα στοιχεία δικτύου: Τα αρχεία που ανοίγουν ή αντιγράφονται από κοινόχρηστα στοιχεία δικτύου θα ανοίγουν πάντα στο Windows Defender Application Guard. Εάν θέλετε να θεωρείτε ρητά αξιόπιστη μια θέση δικτύου και να μην ανοίγουν τα αρχεία από αυτήν τη θέση στο Application Guard, χρησιμοποιήστε μία από τις πολιτικές απομόνωσης δικτύου.
+
+3. Αρχεία με σήμανση Web (MotW): Τα αρχεία που έχουν επισημανθεί με MotW θα ανοίγουν πάντα στο Windows Defender Application Guard.
+
+Εάν απενεργοποιήσετε αυτή τη ρύθμιση ή δεν ρυθμίσετε τις παραμέτρους της, μόνο τα αρχεία που λαμβάνονται από το Application Guard για Microsoft Edge θα ανοίγουν στο Application Guard για Microsoft Word, Excel ή PowerPoint.
+</string>
+
+    </stringTable>
+    <presentationTable>
+      <presentation id="AppHVSI_AllowAppHVSI_Presentation">
+        <decimalTextBox refId="AppHVSI_AllowAppHVSI_TextBox" defaultValue="1"></decimalTextBox>
+        <text>
+Επιλογές:
+0. Απενεργοποίηση του Windows Defender Application Guard
+1. Ενεργοποίηση του Windows Defender Application Guard για το Microsoft Edge ΜΟΝΟ
+2. Ενεργοποίηση του Windows Defender Application Guard για το Microsoft Office ΜΟΝΟ
+3. Ενεργοποίηση του Windows Defender Application Guard για το Microsoft Edge ΚΑΙ το Microsoft Office
+        </text>
+      </presentation>
+    <presentation id="AppHVSIClipboardSettings_Presentation">
+        <dropdownList refId="AppHVSIClipboardSettings_CopyPasteDirection_DropdownList" noSort="true" defaultItem="0">Ρύθμιση συμπεριφοράς του Προχείρου.</dropdownList>
+        <decimalTextBox refId="AppHVSIClipboardFileType_AllowedFileType_TextBox" defaultValue="1">Επιλογές περιεχομένου του Προχείρου.
+        </decimalTextBox>
+      </presentation>
+      <presentation id="AppHVSIPrintingSettings_Presentation">
+        <decimalTextBox refId="AppHVSIPrintingSettings_TextBox" defaultValue="0">Επιτρεπόμενοι τύποι εκτύπωσης στο Application Guard.
+        </decimalTextBox>
+        <text>Για να καθορίσετε τους τύπους εκτύπωσης που επιτρέπονται, πρέπει να επιλέξετε:
+     - 0. Απενεργοποίηση όλων των λειτουργιών εκτύπωσης.
+     - 1. Ενεργοποίηση μόνο εκτύπωσης XPS.
+     - 2. Ενεργοποίηση μόνο εκτύπωσης PDF.
+     - 3. Ενεργοποίηση εκτύπωσης PDF και XPS.
+     - 4. Ενεργοποίηση μόνο τοπικής εκτύπωσης.
+     - 5. Ενεργοποίηση τοπικής εκτύπωσης και εκτύπωσης XPS.
+     - 6. Ενεργοποίηση τοπικής εκτύπωσης και εκτύπωσης PDF.
+     - 7. Ενεργοποίηση τοπικής εκτύπωσης, εκτύπωσης PDF και εκτύπωσης XPS.
+     - 8. Ενεργοποίηση μόνο εκτύπωσης μέσω δικτύου.
+     - 9. Ενεργοποίηση εκτύπωσης μέσω δικτύου και εκτύπωσης XPS.
+     - 10. Ενεργοποίηση εκτύπωσης μέσω δικτύου και εκτύπωσης PDF.
+     - 11. Ενεργοποίηση εκτύπωσης μέσω δικτύου, εκτύπωσης PDF και εκτύπωσης XPS.
+     - 12. Ενεργοποίηση εκτύπωσης μέσω δικτύου και τοπικής εκτύπωσης.
+     - 13. Ενεργοποίηση εκτύπωσης μέσω δικτύου, τοπικής εκτύπωσης και εκτύπωσης XPS.
+     - 14. Ενεργοποίηση εκτύπωσης μέσω δικτύου, τοπικής εκτύπωσης και εκτύπωσης PDF.
+     - 15. Ενεργοποίηση κάθε τύπου εκτύπωσης.
+        </text>
+      </presentation>
+      <presentation id="AppHVSI_FileTrustCriteria_Presentation">
+        <decimalTextBox refId="AppHVSI_FileTrustCriteria_TextBox" defaultValue="0"></decimalTextBox>
+        <text>Ρύθμιση παραμέτρων απαιτούμενων ενεργειών και επικυρώσεων που πρέπει να ολοκληρωθούν από έναν τελικό χρήστη για να προβιβάσει ένα μη αξιόπιστο αρχείο και να το ανοίξει, να το προβάλλει και να το επεξεργαστεί στη συσκευή του χρήστη.
+0. Να μην επιτρέπεται στους χρήστες να θεωρούν αξιόπιστα τα αρχεία με μη αυτόματο τρόπο
+1. Να επιτρέπεται στους χρήστες να θεωρούν αξιόπιστα τα αρχεία με μη αυτόματο τρόπο
+2. Να επιτρέπεται στους χρήστες να θεωρούν αξιόπιστα τα αρχεία με μη αυτόματο τρόπο μετά από έλεγχο από το λογισμικό προστασίας από ιούς</text>
+      </presentation>
+      <presentation id="AppHVSI_FileTrustOrigin_Presentation">
+         <checkBox refId="AppHVSI_FileTrustOrigin_RemovableMedia_Checkbox" defaultChecked="true">Αφαιρούμενα μέσα αποθήκευσης</checkBox>
+         <checkBox refId="AppHVSI_FileTrustOrigin_NetworkShares_Checkbox" defaultChecked="true">Κοινόχρηστα στοιχεία δικτύου</checkBox>
+         <checkBox refId="AppHVSI_FileTrustOrigin_MOTW_Checkbox" defaultChecked="true">Αρχεία με σήμανση Web</checkBox>
+      </presentation>
+
+      <presentation id="AppHVSICertificateThumbprints_Presentation">
+        <textBox refId="AppHVSICertificateThumbprints_TextBox">
+          <label>Αποτυπώματα των πιστοποιητικών προς κοινή χρήση</label>
+        </textBox>
+      </presentation>
+  </presentationTable>
+  </resources>
+</policyDefinitionResources>

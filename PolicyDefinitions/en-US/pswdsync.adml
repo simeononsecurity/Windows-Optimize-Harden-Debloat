@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>enter display name here</displayName>
+  <description>enter description here</description>
+  <resources>
+    <stringTable>
+      <string id="PswdSync">Password Synchronization</string>
+      <string id="Psync_LoggingLevel">Turn on extensive logging for Password Synchronization</string>
+      <string id="Psync_LoggingLevel_Help">This policy setting allows an administrator to turn on extensive logging for Password Synchronization.
+
+If you enable this policy setting, all affected computers that are running Password Synchronization log intermediate steps for password synchronization attempts.
+
+If you disable or do not configure this policy setting, individual computers that are running Password Synchronization log steps of password synchronization attempts based upon how the "Enable extensive logging" setting on the Configuration tab of the Password Synchronization Properties dialog box is configured.</string>
+
+  <string id="Psync_MaxRetries">Set the number of synchronization retries for servers running Password Synchronization</string>
+  
+  <string id="Psync_MaxRetries_Help">This policy setting allows an administrator to set the number of password synchronization retries that Password Synchronization can attempt, in the event a synchronization attempt fails.
+
+If you enable this policy setting, the number of retries specified in the policy setting applies to all affected computers in the domain that are running Password Synchronization.
+
+If you disable or do not configure this policy setting, individual computers that are running Password Synchronization retry synchronization the number of times specified on the Configuration tab of the Password Synchronization Properties dialog box.
+
+Note: Valid values that can be specified for the number of retries are whole numbers 0 through 9. The default value, if the policy setting is enabled, is 3.</string>
+
+      <string id="Psync_SNISPasswordSyncEnable">Turn on the Windows to NIS password synchronization for users that have been migrated to Active Directory</string>
+      <string id="Psync_SNISPasswordSyncEnable_Help">This policy setting allows an administrator to turn on the Windows to Network Information Service (NIS) password synchronization for UNIX-based user accounts that have been migrated to Active Directory Domain Services.
+
+If you enable this policy setting, all affected computers that are running Password Synchronization automatically update a user's UNIX-based account password when the password is changed in the Windows environment, if the user account has been migrated to Active Directory Domain Services.
+
+If you disable or do not configure this policy setting, individual computers that are running Password Synchronization synchronize changes to UNIX-based user account passwords based upon how the "Windows to NIS (Active Directory) password synchronization" setting on the Configuration tab of the Password Synchronization Properties dialog box is configured.</string>
+      <string id="Psync_Update_Retry_Interval">Set the interval between synchronization retries for Password Synchronization</string>
+      <string id="Psync_Update_Retry_Interval_Help">This policy setting allows a Password Synchronization administrator to configure the interval, in seconds, between synchronization retries in the event that a synchronization attempt fails.
+
+If you enable this policy setting, the specified retry interval in the policy setting is used by all affected computers that are running Password Synchronization.
+
+If you disable or do not configure this policy setting, individual computers that are running Password Synchronization use the synchronization retry interval specified on the Configuration tab of the Password Synchronization Properties dialog box.
+
+Note: Valid values for the interval between retries are whole numbers from 1 through 600. The default value, if the policy setting is enabled, is 120.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Psync_MaxRetries">
+        <decimalTextBox refId="Psync_MaxRetries" defaultValue="3">Set the number of Password Synchronization retries</decimalTextBox>
+      </presentation>
+      <presentation id="Psync_Update_Retry_Interval">
+        <decimalTextBox refId="Psync_Update_Retry_Interval" defaultValue="120">Set the interval between synchronization retries</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

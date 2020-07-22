@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>enter display name here</displayName>
+  <description>enter description here</description>
+  <resources>
+    <stringTable>
+      <string id="DisableNetworkProjector">Turn off Connect to a Network Projector</string>
+      <string id="DisableNetworkProjectorExplain">This policy setting disables the Connect to a Network Projector wizard so that users cannot connect to a network projector. 
+
+If you enable this policy setting, users cannot use the Connect to a Network Projector Wizard to connect to a projector. 
+
+If you disable or do not configure this policy setting, users can run the Connect to a Network Projector Wizard to connect to a projector.</string>
+      <string id="NetworkProjectorCat">Network Projector</string>
+      <string id="NetworkProjectionPortNo">Network Projector Port Setting</string>
+      <string id="NetworkProjectionPortNoExplain">This policy setting allows you to select the TCP port that the Network Projector uses to send packets. 
+
+If you enable this policy setting, you can enter a TCP port number for the Network Projector.  If you select a TCP port that is already in use by a system, the Network Projector fails to initialize. If you enter zero (0), the operating system selects an available port. 
+
+If you disable or do not configure this policy setting, the operating system selects an available port. 
+
+Note: Network port usage is dependent on how the "Turn off Connect to a Network Projector" policy setting is configured.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="NetworkProjectionPortNo">
+        <text>The setting allows you to customize the Network Projector port</text>
+        <text>The range is 0 to 65535. Default is 5363.</text>
+        <decimalTextBox refId="NetworkProjectionPortNoBox" defaultValue="5363"> </decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

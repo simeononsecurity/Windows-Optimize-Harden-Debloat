@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  ActivIdentity  -->
+<policyDefinitions	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					revision="702.1" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+	<policyNamespaces>
+		<target prefix="ailogging" namespace="ActivIdentity.Policies.ActivIdentity.AdvancedDiagnostics" />
+		<using prefix="windows" namespace="Microsoft.Policies.Windows" />
+		<using prefix="ai" namespace="ActivIdentity.Policies.ActivIdentity" />
+	</policyNamespaces>
+	<resources minRequiredRevision="702.1" />
+	<supportedOn>
+		<definitions>
+			<definition name="SUPPORTED_ADVDIAG_GENERIC" displayName="$(string.SUPPORTED_ADVDIAG_GENERIC)"/>
+		</definitions>
+	</supportedOn>
+	<!--  Use category AdvancedDiagnostics defined in ActivIdentity.admx  -->
+	<policies>
+		<policy name="mail" class="Machine" displayName="$(string.policy_displayName_mail)" explainText="$(string.policy_explainText_mail)"
+				key="SOFTWARE\Policies\ActivIdentity\AdvancedDiagnostics"
+				presentation="$(presentation.policy_presentation_mail)">
+				<parentCategory ref="ai:AdvancedDiagnostics" />
+				<supportedOn ref="SUPPORTED_ADVDIAG_GENERIC" />
+				<elements>
+					<text id="idmail" valueName="mail" required="true" />
+				</elements>
+		</policy>
+		
+		<policy name="SmartCardDiagnosticOff" class="Machine" displayName="$(string.policy_displayName_SmartCardDiagnosticOff)" explainText="$(string.policy_explainText_SmartCardDiagnosticOff)"
+				key="SOFTWARE\Policies\ActivIdentity\AdvancedDiagnostics"
+				valueName="SmartCardDiagnosticOff">
+				<parentCategory ref="ai:AdvancedDiagnostics" />
+				<supportedOn ref="SUPPORTED_ADVDIAG_GENERIC" />
+				<enabledValue> <decimal value="1" /> </enabledValue>
+				<disabledValue> <decimal value="0" /> </disabledValue>
+		</policy>
+		
+		<policy name="HideMail" class="Machine" displayName="$(string.policy_displayName_HideMail)" explainText="$(string.policy_explainText_HideMail)"
+				key="SOFTWARE\Policies\ActivIdentity\AdvancedDiagnostics"
+				valueName="HideMail">
+				<parentCategory ref="ai:AdvancedDiagnostics" />
+				<supportedOn ref="SUPPORTED_ADVDIAG_GENERIC" />
+				<enabledValue> <decimal value="1" /> </enabledValue>
+				<disabledValue> <decimal value="0" /> </disabledValue>
+		</policy>
+	</policies>
+</policyDefinitions>

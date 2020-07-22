@@ -1,0 +1,141 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <displayName />
+  <description />
+  <resources>
+    <stringTable>
+      <string id="Cat_ImmidioFlexPlusSyncTool">SyncTool</string>
+      <string id="Cat_ImmidioFlexPlusSyncTool_Help">Contains settings to allow configuration of the VMware UEM SyncTool.</string>
+      <string id="Cat_ImmidioFlexPlusSyncToolNetworkDetection">Network Detection</string>
+      <string id="PlatformSupport">At least Microsoft Windows 7 with SP1 or Windows Server 2008 R2 with SP1</string>
+      <string id="LocalSyncPath">Local sync path</string>
+      <string id="LocalSyncPath_Help">Location where VMware UEM SyncTool stores all VMware UEM files.&#10;&#10;Configure to a local path, unique per user, e.g. '%LOCALAPPDATA%\VMware UEM'.</string>
+      <string id="LocalFileChangeNotifications">Watch local profile archive changes</string>
+      <string id="LocalFileChangeNotifications_Help">Automatically triggers a synchronization in resident mode as soon as a local modification to a profile archive is detected, for example when closing an application for which DirectFlex has been configured.</string>
+      <string id="SyncIntervals">Synchronization intervals</string>
+      <string id="SyncIntervals_Help">During resident mode, synchronization occurs periodically. Configure this setting to specify how frequently this happens.&#10;&#10;If you do not configure this setting, synchronization takes place every 3600 seconds (every hour).</string>
+      <string id="RetryIntervals">Synchronization retry intervals</string>
+      <string id="RetryIntervals_Help">During resident mode, if a synchronization fails or is not allowed due to network thresholds, a retry is performed periodically.&#10;&#10;Configure this setting to specify how frequently this happens.&#10;&#10;If you do not configure this setting, retry takes place every 300 seconds (every 5 minutes).</string>
+      <string id="FlexSyncLogging">VMware UEM SyncTool logging</string>
+      <string id="FlexSyncLogging_Help">If 'Create VMware UEM SyncTool log file' is enabled, a 'FlexSync.log' file is created in the configured Local Sync Path.&#10;&#10;The log level controls the level of detail that is logged. It is not recommended to use 'Debug' or 'Info' in production, as the amount of logging information can impact the performance. If a maximum log file size is specified, the log file will be recreated once that size is reached. If the maximum log file size is set to 0, the file will grow indefinitely.&#10;&#10;To centrally log the most important sync status, enable 'Create central sync status log file'. A file named 'FlexSyncStatus-%COMPUTERNAME%.log' will be created during logoff, in the same folder as the log file of FlexEngine. If a maximum size is specified, the sync status log file will be truncated as specified. If the maximum size is set to 0, the file will grow indefinitely.</string>
+      <string id="Item_LogLevelError">Error</string>
+      <string id="Item_LogLevelWarn">Warn</string>
+      <string id="Item_LogLevelInfo">Info</string>
+      <string id="Item_LogLevelDebug">Debug</string>
+      <string id="SyncOnlyPolicy">Files to synchronize</string>
+      <string id="SyncOnlyPolicy_Help">By default, VMware UEM SyncTool synchronizes both Flex configuration files and the user-specific profile archives, profile archive backups, and log files.&#10;&#10;Use this setting to only synchronize the configuration files or the user-specific files.</string>
+      <string id="Item_SyncOnlyConfig">Flex configuration files</string>
+      <string id="Item_SyncOnlyArchive">Profile archives, backups and log files</string>
+      <string id="BackupSync">Synchronize profile archive backups</string>
+      <string id="BackupSync_Help">Use this setting to configure when profile archive backups are synchronized. If you have configured backups to be synchronized during a session, you can additionally choose to only do this once per session.&#10;Backups are never synchronized at logon.&#10;&#10;If you do not configure this setting, profile archive backups are never synchronized.</string>
+      <string id="Item_SyncAtLogoff">Only at logoff</string>
+      <string id="Item_SyncBoth">During session and at logoff</string>
+      <string id="Item_SyncDuringSession">Only during session</string>
+      <string id="SyncFlexEngineLog">Sync local FlexEngine log file to network at logoff</string>
+      <string id="SyncFlexEngineLog_Help">If this setting is enabled, the local FlexEngine log file will be uploaded to the central location. The name of the log file will be modified to include the computer name.</string>
+      <string id="ConflictResolution">Do not use laptop conflict resolution</string>
+      <string id="ConflictResolution_Help">This setting controls the behavior when a conflict is detected between a local and a central profile archive. A conflict occurs when both the local and central profile archive have changed since the last synchronization. In the default behavior (known as 'laptop conflict resolution'), the local profile archive will 'win'.&#10;&#10;If this setting is enabled, conflict resolution for laptops will not be applied and the profile archive with the most recent changes 'wins'.</string>
+      <string id="HideSyncButton">Hide 'Sync' button in resident mode UI</string>
+      <string id="HideSyncButton_Help">If this setting is enabled, the 'Sync' button is hidden in the resident mode UI.</string>
+      <string id="DisableIconSync">Do not synchronize icons</string>
+      <string id="DisableIconSync_Help">If this setting is enabled, .ico files are not synchronized. This can improve performance on slow networks.</string>
+      <string id="TriggerRefresh">Trigger FlexEngine refresh</string>
+      <string id="TriggerRefresh_Help">Enable the item type(s) for which you want to trigger a FlexEngine refresh if synchronization resulted in an update for that type.</string>
+      <string id="PreferIPv6Addresses">Prefer IPv6 when resolving host names</string>
+      <string id="PreferIPv6Addresses_Help">To perform network measurements, host names must be resolved to IP addresses. This setting controls the behavior when a host name resolves to both IPv4 and IPv6.&#10;&#10;NOTE: If you have not configured network thresholds, you do not need to configure this setting.</string>
+      <string id="ResolveAsDfs">DFS namespace support</string>
+      <string id="ResolveAsDfs_Help">When using DFS namespaces to store VMware UEM files, this setting must be enabled to correctly perform network measurements.&#10;&#10;NOTE: If you have not configured network thresholds, you do not need to configure this setting.</string>
+      <string id="BandwidthPing">Network measurement settings</string>
+      <string id="BandwidthPing_Help">These settings control how network measurements are performed when network thresholds are configured.&#10;&#10;The ping cache setting controls how long network measurement results are remembered, to prevent performing multiple measurements for VMware UEM network paths hosted on the same server.&#10;&#10;If these settings are not configured, 3 pings will be done of 2048 bytes with a timeout of 5 seconds. The default ping cache is 60 seconds.&#10;&#10;NOTE: If you have not configured network thresholds, you do not need to configure these settings.</string>
+      <string id="MinimumBandwidth">Network threshold: Bandwidth</string>
+      <string id="MinimumBandwidth_Help">Specify the minimum bandwidth that should be available to allow synchronization to occur.&#10;&#10;This setting can be combined with the latency threshold.</string>
+      <string id="MaximumLatency">Network threshold: Latency</string>
+      <string id="MaximumLatency_Help">Specify the maximum latency acceptable for synchronization to occur.&#10;&#10;This setting can be combined with the bandwidth threshold.</string>
+      <string id="ForceLogonSync">Force synchronization at logon</string>
+      <string id="ForceLogonSync_Help">When network thresholds do not meet the configured requirements during logon, synchronization does not occur. Use these settings to override this behavior.&#10;&#10;Enable 'Force sync at logon' to always synchronize all VMware UEM files at logon. If you want to only synchronize certain file types, also select one or more of the other options.&#10;&#10;NOTE: If you have not configured network thresholds, you do not need to configure these settings.</string>
+      <string id="ForceLogoffSync">Force synchronization at logoff</string>
+      <string id="ForceLogoffSync_Help">When network thresholds do not meet the configured requirements during logoff, synchronization does not occur. Use these settings to override this behavior.&#10;&#10;Enable 'Force sync at logoff' to always synchronize all VMware UEM files at logoff. If you want to only synchronize certain file types, also select one or more of the other options.&#10;&#10;NOTE: If you have not configured network thresholds, you do not need to configure these settings.</string>
+      <string id="ForceResidentSync">Force synchronization in resident mode</string>
+      <string id="ForceResidentSync_Help">When network thresholds do not meet the configured requirements in resident mode, synchronization does not occur. Use these settings to override this behavior.&#10;&#10;Enable 'Force sync in resident mode' to always synchronize all VMware UEM files in resident mode. If you want to only synchronize certain file types, also select one or more of the other options.&#10;&#10;NOTE: If you have not configured network thresholds, you do not need to configure these settings.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="LocalSyncPath">
+        <textBox refId="LocalPath">
+          <label>Local path:</label>
+          <defaultValue>%LOCALAPPDATA%\VMware UEM</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="SyncIntervals">
+        <decimalTextBox refId="Dec_SyncFlexConfig" defaultValue="3600">FlexConfig:        </decimalTextBox>
+        <decimalTextBox refId="Dec_SyncFlexRepository" defaultValue="3600">FlexRepository: </decimalTextBox>
+        <decimalTextBox refId="Dec_SyncProfilearchives" defaultValue="3600">Profile archives:</decimalTextBox>
+      </presentation>
+      <presentation id="RetryIntervals">
+        <decimalTextBox refId="Dec_RetryFlexConfig" defaultValue="300">FlexConfig:        </decimalTextBox>
+        <decimalTextBox refId="Dec_RetryFlexRepository" defaultValue="300">FlexRepository: </decimalTextBox>
+        <decimalTextBox refId="Dec_RetryProfilearchives" defaultValue="300">Profile archives:</decimalTextBox>
+      </presentation>
+      <presentation id="FlexSyncLogging">
+        <checkBox refId="Chk_SaveLog">Create VMware UEM SyncTool log file</checkBox>
+        <dropdownList refId="List_Loglevel" noSort="true" defaultItem="2">Log level:</dropdownList>
+        <decimalTextBox refId="Dec_MaxLogFileSize" defaultValue="0">Maximum log file size (in kB):</decimalTextBox>
+        <checkBox refId="Chk_UploadStatusLog">Create central sync status log file</checkBox>
+        <decimalTextBox refId="Dec_MaxUploadStatusLogFileSize" defaultValue="0">Maximum sync status log file size (in kB):</decimalTextBox>
+        <decimalTextBox refId="Dec_TruncateStatusLogFileSize" defaultValue="0">Truncate sync status log file to this size (in kB):</decimalTextBox>
+        <decimalTextBox refId="Dec_UILogEntries" defaultValue="500">Maximum number of log entries in resident UI:</decimalTextBox>
+      </presentation>
+      <presentation id="SyncOnlyPolicy">
+        <dropdownList refId="List_SyncOnlyPolicy" noSort="true">Sync only:</dropdownList>
+      </presentation>
+      <presentation id="BackupSync">
+        <dropdownList refId="List_BackupSync" noSort="true" defaultItem="1">Synchronize:</dropdownList>
+        <checkBox refId="Chk_BackupSyncOnce">Sync backups only once in resident mode</checkBox>
+      </presentation>
+      <presentation id="BandwidthPing">
+        <decimalTextBox refId="Dec_PingSize" defaultValue="2048">Ping size (in bytes):           </decimalTextBox>
+        <decimalTextBox refId="Dec_PingCount" defaultValue="3">Number of pings:              </decimalTextBox>
+        <decimalTextBox refId="Dec_PingTimeout" defaultValue="5">Ping timeout (in seconds):</decimalTextBox>
+        <decimalTextBox refId="Dec_PingCache" defaultValue="60">Ping cache (in seconds):   </decimalTextBox>
+      </presentation>
+      <presentation id="MinimumBandwidth">
+        <decimalTextBox refId="Dec_MinimumBandwidth" defaultValue="256">Minimum bandwidth (in kB/s):</decimalTextBox>
+      </presentation>
+      <presentation id="MaximumLatency">
+        <decimalTextBox refId="Dec_MaximumLatency" defaultValue="100">Maximum latency (in ms):</decimalTextBox>
+      </presentation>
+      <presentation id="ForceLogonSync">
+        <checkBox refId="Chk_ForceSyncAtGpeRun">Force sync at logon</checkBox>
+        <text>Only the following file types:</text>
+        <checkBox refId="Chk_ForceSyncAtGpeRunIni">Force sync of Flex Config</checkBox>
+        <checkBox refId="Chk_ForceSyncAtGpeRunRepo">Force sync of FlexRepository</checkBox>
+        <checkBox refId="Chk_ForceSyncAtGpeRunZip">Force sync of Profile Archives</checkBox>
+      </presentation>
+      <presentation id="ForceLogoffSync">
+        <checkBox refId="Chk_ForceSyncAtLogOff">Force sync at logoff</checkBox>
+        <text>Only the following file types:</text>
+        <checkBox refId="Chk_ForceSyncAtLogoffIni">Force sync of Flex Config</checkBox>
+        <checkBox refId="Chk_ForceSyncAtLogoffRepo">Force sync of FlexRepository</checkBox>
+        <checkBox refId="Chk_ForceSyncAtLogoffZip">Force sync of Profile Archives</checkBox>
+      </presentation>
+      <presentation id="ForceResidentSync">
+        <checkBox refId="Chk_ForceSyncDuringSession">Force sync in resident mode</checkBox>
+        <text>Only the following file types:</text>
+        <checkBox refId="Chk_ForceSyncDuringSessionIni">Force sync of Flex Config</checkBox>
+        <checkBox refId="Chk_ForceSyncDuringSessionRepo">Force sync of FlexRepository</checkBox>
+        <checkBox refId="Chk_ForceSyncDuringSessionZip">Force sync of Profile Archives</checkBox>
+      </presentation>
+      <presentation id="P_TriggerRefresh">
+        <checkBox refId="Chk_DirectFlex" defaultChecked="false">Refresh DirectFlex configuration</checkBox>
+        <checkBox refId="Chk_Admx" defaultChecked="false">Refresh ADMX-based settings</checkBox>
+        <checkBox refId="Chk_ApplicationBlocking" defaultChecked="false">Refresh application blocking settings</checkBox>
+        <checkBox refId="Chk_DriveMapping" defaultChecked="false">Refresh drive mappings</checkBox>
+        <checkBox refId="Chk_EnvVar" defaultChecked="false">Refresh environment variables</checkBox>
+        <checkBox refId="Chk_Fta" defaultChecked="false">Refresh file type associations</checkBox>
+        <checkBox refId="Chk_Horizon" defaultChecked="false">Refresh Horizon policy settings</checkBox>
+        <checkBox refId="Chk_PrinterMapping" defaultChecked="false">Refresh printer mappings</checkBox>
+        <checkBox refId="Chk_PrivilegeElevation" defaultChecked="false">Refresh privilege elevation settings</checkBox>
+        <checkBox refId="Chk_Shortcut" defaultChecked="false">Refresh shortcuts</checkBox>
+        <checkBox refId="Chk_TriggeredTask" defaultChecked="false">Refresh triggered task settings</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

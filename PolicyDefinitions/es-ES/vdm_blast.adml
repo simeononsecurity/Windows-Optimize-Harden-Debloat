@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="BLAST_CAT_LABEL">VMware Blast</string>
+      <string id="BLAST_CAT_EXPLAIN">Directivas de configuración del protocolo Blast.</string>
+      <string id="BLAST_MAX_SESSION_BW_LABEL">Máximo ancho de banda de sesión</string>
+      <string id="BLAST_MAX_SESSION_BW_EXPLAIN">Indica el ancho de banda máximo (expresado en kilobits por segundo) del protocolo Blast para una sesión remota. El ancho de banda incluye todo el tráfico de control de Blast, USB, imágenes, audio y canal virtual.</string>
+      <string id="BLAST_MIN_SESSION_BW_LABEL">Mínimo ancho de banda de sesión</string>
+      <string id="BLAST_MIN_SESSION_BW_EXPLAIN">Indica el ancho de banda mínimo (expresado en kilobits por segundo) reservado al protocolo Blast para una sesión remota.</string>
+      <string id="BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_LABEL">Máx. ancho de banda de sesión (kbit/s=megapíxel*pendiente)</string>
+      <string id="BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_EXPLAIN">Indica la pendiente de kbps por megapíxel de la resolución de la pantalla remota que puede usar el protocolo Blast para una sesión remota. kbit/s = megapíxeles totales de la pantalla * pendiente</string>
+      <string id="BLAST_MAX_FPS_LABEL">Máx. velocidad de fotogramas</string>
+      <string id="BLAST_MAX_FPS_EXPLAIN">Valor máximo de fotogramas para gestionar el ancho de banda medio consumido por el usuario limitando el número de actualizaciones de pantalla por segundo.</string>
+      <string id="BLAST_UDP_LABEL">Protocolo UDP</string>
+      <string id="BLAST_UDP_EXPLAIN">Cuando se habilita este ajuste o no se configura, se utilizará el protocolo UDP. Si el ajustese deshabilita, se utilizará el protocolo TCP.</string>
+      <!--
+        NOTE FOR TRANSLATORS: the collection of BLAST_DSCP_..._EXPLAIN strings that follow
+	BLAST_DSP_ACTIVATE_LABEL all cite this "DSCP Marking" string in their second paragraph.
+	Whatever translation you apply to this string needs to be applied to those _EXPLAIN
+	strings too.
+      -->
+      <string id="BLAST_DSCP_ACTIVATE_LABEL">Marcado DSCP</string>
+      <string id="BLAST_DSCP_ACTIVATE_EXPLAIN">Cuando se habilita o no está configurada, permite que los valores del Punto de código de servicios diferenciados se especifiquen en el tráfico de red que envíe el agente, el cliente o la puerta de enlace segura de Blast.  Cuando se deshabilita, no se realiza ningún marcado de DSCP.</string>
+      <string id="BLAST_DSCP_AGENT_OUT_TCP4_LABEL">DSCP del agente, TCP/IPv4</string>
+      <string id="BLAST_DSCP_AGENT_OUT_TCP4_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía el agente de Blast a través de TCP sobre IPv4.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_AGENT_OUT_UDP4_LABEL">DSCP del agente, UDP/IPv4</string>
+      <string id="BLAST_DSCP_AGENT_OUT_UDP4_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía el agente de Blast a través de UDP sobre IPv4.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_AGENT_OUT_TCP6_LABEL">DSCP del agente, TCP/IPv6.</string>
+      <string id="BLAST_DSCP_AGENT_OUT_TCP6_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía el agente de Blast a través de TCP sobre IPv6.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_AGENT_OUT_UDP6_LABEL">DSCP del agente, UDP/IPv6</string>
+      <string id="BLAST_DSCP_AGENT_OUT_UDP6_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía el agente de Blast a través de UDP sobre IPv6.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_TCP4_LABEL">DSCP del cliente, TCP/IPv4</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_TCP4_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía el cliente de Blast a través de TCP sobre IPv4.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_UDP4_LABEL">DSCP del cliente, UDP/IPv4</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_UDP4_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía el cliente de Blast a través de UDP sobre IPv4.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_TCP6_LABEL">DSCP del cliente, TCP/IPv6</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_TCP6_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía el cliente de Blast a través de TCP sobre IPv6.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_UDP6_LABEL">DSCP del cliente, UDP/IPv6</string>
+      <string id="BLAST_DSCP_CLIENT_OUT_UDP6_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía el cliente de Blast a través de UDP sobre IPv6.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_BSG_DOWN_TCP4_LABEL">DSCP de BSG a Cliente, TCP/IPv4</string>
+      <string id="BLAST_DSCP_BSG_DOWN_TCP4_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía la puerta de enlace segura de Blast al cliente de Blast a través de TCP sobre IPv4.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_BSG_DOWN_UDP4_LABEL">DSCP de BSG a Cliente, UDP/IPv4</string>
+      <string id="BLAST_DSCP_BSG_DOWN_UDP4_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía la puerta de enlace segura de Blast al cliente de Blast a través de UDP sobre IPv4.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_BSG_DOWN_TCP6_LABEL">DSCP de BSG a Cliente, TCP/IPv6</string>
+      <string id="BLAST_DSCP_BSG_DOWN_TCP6_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía la puerta de enlace segura de Blast al cliente de Blast a través de TCP sobre IPv6.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_BSG_DOWN_UDP6_LABEL">DSCP de BSG a Cliente, UDP/IPv6</string>
+      <string id="BLAST_DSCP_BSG_DOWN_UDP6_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía la puerta de enlace segura de Blast al cliente de Blast a través de UDP sobre IPv6.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_BSG_UP_TCP4_LABEL">DSCP de BSG a Agente, TCP/IPv4</string>
+      <string id="BLAST_DSCP_BSG_UP_TCP4_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía la puerta de enlace segura de Blast al agente de Blast a través de TCP sobre IPv4.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_BSG_UP_UDP4_LABEL">DSCP de BSG a Agente, UDP/IPv4</string>
+      <string id="BLAST_DSCP_BSG_UP_UDP4_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía la puerta de enlace segura de Blast al agente de Blast a través de UDP sobre IPv4.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_BSG_UP_TCP6_LABEL">DSCP de BSG a Agente, TCP/IPv6</string>
+      <string id="BLAST_DSCP_BSG_UP_TCP6_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía la puerta de enlace segura de Blast al agente de Blast a través de TCP sobre IPv6.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_DSCP_BSG_UP_UDP6_LABEL">DSCP de BSG a Agente, UDP/IPv6</string>
+      <string id="BLAST_DSCP_BSG_UP_UDP6_EXPLAIN">El valor del Punto de código de servicios diferenciados que debe asignarse al tráfico de red que envía la puerta de enlace segura de Blast al agente de Blast a través de UDP sobre IPv6.
+
+Este ajuste solo es efectivo si lo permite la configuración de Marcado DSCP.</string>
+      <string id="BLAST_H264_ENCODE_LABEL">H.264</string>
+      <string id="BLAST_H264_ENCODE_EXPLAIN">Si habilita o no configura este ajuste de directiva, se utilizará la codificación H.264 para la comunicación remota del escritorio. Si deshabilita este ajuste de directiva, se utilizará JPEG/PNG para la codificación.</string>
+      <string id="BLAST_HEVC_ENCODE_LABEL">HEVC</string>
+      <string id="BLAST_HEVC_ENCODE_EXPLAIN">Si habilita o no establece este ajuste de directiva, la codificación HEVC se podrá utilizar para enviar el escritorio remoto. Si deshabilita este ajuste de directiva, se utilizarán H.264 o JPEG/PNG para la codificación.</string>
+      <string id="BLAST_PNG_ENCODE_LABEL">PNG</string>
+      <string id="BLAST_PNG_ENCODE_EXPLAIN">Si habilita o no configura este ajuste de directiva, la codificación PNG estará disponible para las sesiones remotas. Si deshabilita este ajuste de directiva, solo se utilizará JPEG para el modo de codificación JPEG/PNG. Esta directiva no se aplica cuando está activado el codificador H.264.</string>
+      <string id="BLAST_SCREEN_BLANK_LABEL">Pantalla en blanco</string>
+      <string id="BLAST_SCREEN_BLANK_EXPLAIN">Si habilita o no configura este ajuste de directiva, la consola del escritorio de la máquina virtual mostrará una pantalla en blanco cuando haya una sesión activa en el escritorio. Si desactiva este ajuste de directiva, la consola de la máquina virtual mostrará el escritorio que ve el usuario.</string>
+      <string id="BLAST_COOKIE_CLEANUP_LABEL">Intervalo de limpieza de cookie</string>
+      <string id="BLAST_COOKIE_CLEANUP_EXPLAIN">El intervalo controla con qué frecuencia se limpian las sesiones inactivas. Para ello se elimina la cookie asociada a la sesión.</string>
+      <string id="BLAST_COOKIE_CLEANUP_INTERVAL_LABEL">Intervalo (ms)</string>
+      <string id="BLAST_DISPLAY_QUALITY_LABEL">Calidad de imagen</string>
+      <string id="BLAST_DISPLAY_QUALITY_EXPLAIN">Estos ajustes controlan la calidad de imagen de la pantalla remota. 
+Existen dos perfiles de calidad: baja y alta. El perfil de calidad baja se utiliza para zonas de la pantalla que cambian con frecuencia, por ejemplo al desplazarse. El perfil de calidad alta se usa para refinar zonas de la pantalla que cambian menos, lo que da como resultado una imagen final mejor.
+Cuanto mayor es la calidad, más ancho de banda se utiliza y mayor es la posible latencia cuando las zonas de la pantalla cambian frecuentemente, por ejemplo al desplazarse.</string>
+      <string id="BLAST_DISPLAY_QUALITY_JPEG_QUAL_LOW">Calidad JPEG baja</string>
+      <string id="BLAST_DISPLAY_QUALITY_JPEG_QUAL_MID">Calidad JPEG media</string>
+      <string id="BLAST_DISPLAY_QUALITY_JPEG_QUAL_HIGH">Calidad JPEG alta</string>
+      <string id="BLAST_H264_QUALITY_LABEL">Calidad H.264</string>
+      <string id="BLAST_H264_QUALITY_EXPLAIN">Estos ajustes controlan la calidad de imagen de la pantalla remota al utilizar compresión H.264. El parámetro de cuantificación (Quantization Parameter, QZ) controla el grado de cuantificación de la imagen resultante, es decir, la compresión con pérdidas:
+- El QP mínimo establece el límite inferior de cuantificación, es decir, la mejor calidad.
+- El QP máximo establece el límite superior de cuantificación, es decir, la calidad más baja.
+Recomendamos mantener estos valores entre +/- 5 de los valores por defecto, ya que de lo contrario pueden producirse efectos drásticos.</string>
+      <string id="BLAST_H264_QUALITY_MAX_QP">Máximo QP de H.264</string>
+      <string id="BLAST_H264_QUALITY_MIN_QP">Mínimo QP de H.264</string>
+      <string id="BLAST_H264_COLOR_ACCURACY_LABEL">Alta precisión de color de H.264</string>
+      <string id="BLAST_H264_COLOR_ACCURACY_EXPLAIN">Si habilita este ajuste de directiva, se solicitará una mayor precisión de color cuando se use la codificación H.264, al usar el espacio de colores YUV 4:4:4 en lugar del 4:2:0.
+Esto puede provocar que se degrade el rendimiento cuando se trabaja con altas resoluciones o con varios monitores.</string>
+
+      <string id="BLAST_HEVC_COLOR_ACCURACY_LABEL">Alta precisión de color HEVC</string>
+      <string id="BLAST_HEVC_COLOR_ACCURACY_EXPLAIN">Si habilita este ajuste de directiva, se solicitará una mayor precisión de color cuando se use la codificación HEVC utilizando el espacio de colores YUV 4:4:4 en lugar del 4:2:0.
+Para que esta directiva se aplique, se requiere una aceleración de hardware en el cliente de HEVC 4:4:4.</string>
+      <string id="BLAST_HTTP_LABEL">Servicio HTTP</string>
+      <string id="BLAST_HTTP_EXPLAIN">Estos ajustes controlan el servicio HTTP de Blast. El número de puerto usado debe coincidir con la configuración del firewall</string>
+      <string id="BLAST_HTTP_PORTS_SECURE_LABEL">Puerto seguro (HTTPS)</string>
+      <string id="BLAST_AUDIO_LABEL">Reproducción de audio</string>
+      <string id="BLAST_AUDIO_EXPLAIN">Este ajuste controla si se permite la reproducción de audio en el escritorio remoto. Está habilitado de forma predeterminada.</string>
+      <string id="SERVER_CLIPBOARD_STATE">Configurar el redireccionamiento del portapapeles</string>
+      <string id="SERVER_CLIPBOARD_AUDIT">Configurar auditoría del portapapeles</string>
+      <string id="SERVER_CLIPBOARD_AUDIT_BLOCK_CLIPBOARD">Si se bloquea el redireccionamiento del portapapeles al cliente cuando el cliente no admite auditoría</string>
+      <string id="SERVER_CLIPBOARD_AUDIT_EXPLAIN">Determina la dirección en la que se permite la auditoría del portapapeles. Puede seleccionar uno de los siguientes valores:
+
+- Deshabilitado en ambas direcciones
+- Habilitado solo de cliente a servidor, es decir, que se registrará la información de los datos del portapapeles copiados de cliente a agente
+- Habilitado solo de servidor a cliente, es decir, que se registrará la información de los datos del portapapeles copiados de agente a cliente
+- Habilitado en ambas direcciones
+
+Este ajuste se aplica únicamente al servidor (escritorio de View).
+
+Cuando este ajuste está deshabilitado o no está configurado, el valor predeterminado es 'Deshabilitado en ambas direcciones'.</string>
+      <string id="SERVER_CLIPBOARD_AUDIT_BLOCK_CLIPBOARD_EXPLAIN">Determina si se bloquea el redireccionamiento del portapapeles al cliente si Horizon Client no admite la función de auditoría.
+
+Puede seleccionar el comportamiento del redireccionamiento del portapapeles:
+
+-Permitir el redireccionamiento del portapapeles del agente al cliente si la auditoría está habilitada en Horizon Agent, pero no en Horizon Client
+-Bloquear el redireccionamiento del portapapeles del agente al cliente si la auditoría está habilitada en Horizon Agent, pero no en Horizon Client
+
+Este ajuste solo puede surtir efecto después de habilitar auditoría.</string>
+      <string id="String_Policy_DropList_Select_Configure_clipboard_Audit_Pass_Through">Pasar</string>
+      <string id="String_Policy_DropList_Select_Configure_clipboard_Audit_Block">Bloquear</string>
+      <string id="CLIPBOARD_STATE_DISABLE_BOTH">Deshabilitado en ambas direcciones</string>
+      <string id="CLIPBOARD_STATE_ENABLE_BOTH">Habilitado en ambas direcciones</string>
+      <string id="CLIPBOARD_STATE_ENABLE_CLIENT_2_SERVER">Habilitado solo de cliente a servidor</string>
+      <string id="CLIPBOARD_STATE_ENABLE_SERVER_2_CLIENT">Habilitado solo de servidor a cliente</string>
+      <string id="String_Policy_DropList_Select_clipboard_size_unit_kilobytes" >kilobytes</string>
+      <string id="String_Policy_DropList_Select_clipboard_size_unit_bytes" >bytes</string>
+      <string id="SERVER_CLIPBOARD_STATE_EXPLAIN">Determina en qué dirección se permite el redireccionamiento del portapapeles. Puede seleccionar uno de estos valores:
+
+- Deshabilitado en ambas direcciones
+- Habilitado en ambas direcciones
+- Habilitado solo de cliente a servidor (solo se permite copiar y pegar desde el sistema cliente al escritorio de View.)
+-Habilitado solo de servidor a cliente (solo se permite copiar y pegar desde el escritorio de View al sistema cliente.)
+
+Estos ajustes se aplican al servidor (escritorio de View).
+
+Cuando se deshabilita este ajuste o no se configura, el valor por defecto es &quot;Habilitado solo de cliente a servidor&quot;.</string>
+      <string id="SERVER_CLIPBOARD_SIZE">Tamaño de la memoria del portapapeles del servidor</string>
+      <string id="SERVER_CLIPBOARD_SIZE_EXPLAIN">Estos ajustes indican el tamaño de la memoria del portapapeles del servidor.
+
+El tamaño de la memoria del portapapeles del servidor se muestra en bytes o kilobytes, según se seleccione. Si no se configura esta opción, el tamaño de la memoria se mostrará en kilobytes.
+
+El cliente también tiene un valor para el tamaño de la memoria del portapapeles, pero siempre se indica en kilobytes.
+
+Después de configurar la sesión:
+-El valor del tamaño de la memoria del portapapeles del servidor se envía al cliente.
+-En el cliente, se determina el valor efectivo del tamaño de la memoria del portapapeles buscando los valores mínimos del servidor y del cliente.</string>
+      <string id="CLIPBOARD_FINE_GRAIN_LABEL">Configuración detallada del portapapeles</string>
+      <string id="CLIPBOARD_FINE_GRAIN_EXPLAIN">Determina si el ajuste detallado del portapapeles está habilitado. Si está habilitada, el tamaño de la memoria del portapapeles se muestra en bytes. Si está deshabilitada, se muestra en kilobytes.
+
+Este ajuste solo se aplica al agente.</string>
+      <string id="KEYBOARD_LOCALE_SYNC_LABEL">Sincronización de configuración regional del teclado</string>
+      <string id="KEYBOARD_LOCALE_SYNC_EXPLAIN">Determina si la lista de configuraciones locales del teclado y la configuración local por defecto del teclado del usuario de la sesión están sincronizados con los datos del endpoint del cliente. Cuando se habilita este ajuste, se permite la sincronización. Cuando se deshabilita o no se configura, no se permite la sincronización.
+
+Este ajuste solo afecta al agente.</string>
+      <string id="SERVER_FILE_TRANSFER_STATE">Configurar la transferencia de archivos</string>
+      <string id="FILE_TRANSFER_STATE_DISABLE_BOTH">Carga y descarga deshabilitadas</string>
+      <string id="FILE_TRANSFER_STATE_ENABLE_BOTH">Carga y descarga habilitadas</string>
+      <string id="FILE_TRANSFER_STATE_ENABLE_UPLOAD">Solo carga de archivos habilitada</string>
+      <string id="FILE_TRANSFER_STATE_ENABLE_DOWNLOAD">Solo descarga de archivos habilitada</string>
+      <string id="SERVER_FILE_TRANSFER_STATE_EXPLAIN">Determina la transferencia de archivos entre el agente y HTML Access. Puede seleccionar uno de estos valores:
+
+- Carga y descarga deshabilitadas
+- Carga y descarga habilitadas
+- Solo carga de archivos habilitada (se permite la carga de archivos al escritorio de View desde el sistema cliente).
+- Solo descarga de archivos habilitada (se permite la descarga de archivos desde el escritorio de View al sistema cliente).
+
+Estos ajustes solo se aplican al servidor (escritorio de View).
+
+Cuando se deshabilita este ajuste o no se configura, el valor por defecto es &quot;Habilitado solo de cliente a servidor&quot;.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_TEXT_IN">Filtrar texto de los datos de portapapeles entrantes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_TEXT_IN_EXPLAIN">Determina si se deben filtrar los datos textuales de los datos del portapapeles que provienen del cliente y se dirigen al agente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_RTF_IN">Filtrar datos con formato de texto enriquecido de los datos de portapapeles entrantes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_RTF_IN_EXPLAIN">Determina si se deben filtrar los datos en formato de texto enriquecido de los datos del portapapeles que provienen del cliente y se dirigen al agente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_IMAGE_IN">Filtrar imágenes de los datos de portapapeles entrantes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_IMAGE_IN_EXPLAIN">Determina si se deben filtrar las imágenes de los datos del portapapeles que provienen del cliente y se dirigen al agente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_IN">Filtrar datos de texto de Microsoft Office de los datos de portapapeles entrantes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_IN_EXPLAIN">Determina si se deben filtrar los datos en formato de texto Microsoft Office (formato BIFF12) de los datos del portapapeles que provienen del cliente y se dirigen al agente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_IN">Filtrar datos de gráficos y SmartArt de Microsoft de los datos de portapapeles entrantes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_IN_EXPLAIN">Determina si se deben filtrar los datos de Microsoft Chart y Smart Art (Art::GVML ClipFormat) de los datos del portapapeles que provienen del cliente y se dirigen al agente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_IN">Filtrar datos de efectos de texto de Microsoft de los datos de portapapeles entrantes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_IN_EXPLAIN">Determina si se deben filtrar los datos de efectos de texto de Microsoft Office (formato HTML) de los datos del portapapeles que provienen del cliente y se dirigen al agente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_TEXT_OUT">Filtrar texto de los datos de portapapeles salientes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_TEXT_OUT_EXPLAIN">Determina si se deben filtrar los datos textuales de los datos del portapapeles que provienen del agente y se dirigen al cliente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_RTF_OUT">Filtrar datos con formato de texto enriquecido de los datos de portapapeles salientes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_RTF_OUT_EXPLAIN">Determina si se deben filtrar los datos en formato de texto enriquecido de los datos del portapapeles que provienen del agente y se dirigen al cliente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_IMAGE_OUT">Filtrar datos de imágenes de los datos de portapapeles salientes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_IMAGE_OUT_EXPLAIN">Determina si se deben filtrar las imágenes de los datos del portapapeles que provienen del agente y se dirigen al cliente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_OUT">Filtrar datos de texto de Microsoft Office de los datos de portapapeles salientes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_OUT_EXPLAIN">Determina si se deben filtrar los datos en formato de texto Microsoft Office (formato BIFF12) de los datos del portapapeles que provienen del agente y se dirigen al cliente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_OUT">Filtrar datos de gráficos y SmartArt de Microsoft de los datos de portapapeles salientes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_OUT_EXPLAIN">Determina si se deben filtrar los datos de Microsoft Chart y Smart Art (Art::GVML ClipFormat) de los datos del portapapeles que provienen del agente y se dirigen al cliente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_OUT">Filtrar datos de efectos de texto de Microsoft de los datos de portapapeles salientes</string>
+      <string id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_OUT_EXPLAIN">Determina si se deben filtrar los datos de efectos de texto de Microsoft Office (formato HTML) de los datos del portapapeles que provienen del agente y se dirigen al cliente. Cuando esta casilla está activada, los datos se filtran; de lo contrario, se incluyen.</string>
+      <string id="BLAST_SUPPORTEDON_EMPTY"></string>
+      <string id="CLIPBOARD_AUDIT_DISABLE_BOTH">Deshabilitado en ambas direcciones</string>
+      <string id="CLIPBOARD_AUDIT_ENABLE_ONLY_CLIENT_TO_SERVER">Habilitado solo de cliente a servidor</string>
+      <string id="CLIPBOARD_AUDIT_ENABLE_ONLY_SERVER_TO_CLIENT">Habilitado solo de servidor a cliente</string>
+      <string id="CLIPBOARD_AUDIT_ENABLE_BOTH">Habilitado en ambas direcciones</string>
+      <string id="SERVER_DND_STATE">Configurar la dirección de la función de arrastrar y soltar</string>
+      <string id="DND_STATE_DISABLE_BOTH">Deshabilitado en ambas direcciones</string>
+      <string id="DND_STATE_ENABLE_CLIENT_2_SERVER">Habilitado solo del cliente al agente</string>
+      <string id="DND_STATE_ENABLE_SERVER_2_CLIENT">Habilitado solo del agente al cliente</string>
+      <string id="DND_STATE_ENABLE_BOTH">Habilitado en ambas direcciones</string>
+      <string id="SERVER_DND_STATE_EXPLAIN">Determina la dirección en la que se permite arrastrar y soltar. Puede seleccionar uno de los siguientes valores:
+
+-Deshabilitado en ambas direcciones
+-Habilitado solo del agente al cliente (es decir, permite arrastrar y soltar únicamente desde el sistema del agente al del cliente).
+-Habilitado solo del cliente al agente (es decir, permite arrastrar y soltar únicamente desde el sistema del cliente al del agente).
+- Habilitado en ambas direcciones
+
+Este ajuste se aplica únicamente al agente.
+Cuando este ajuste está deshabilitado o no está configurado, el valor predeterminado es 'Habilitado solo del cliente al agente'.</string>
+      <string id="SERVER_DND_FORMAT_STATE">Configurar formatos de la función de arrastrar y soltar</string>
+      <string id="SERVER_DND_FORMAT_STATE_EXPLAIN">Este ajuste determina qué opción de &quot;Arrastrar y soltar&quot; se permite para cada formato (Archivo/Texto/Texto enriquecido/Imagen/Formato HTML/Contenido de archivo). Los valores de las opciones son:
+
+-Deshabilitado en ambas direcciones
+-Habilitado solo del agente al cliente
+-Habilitado solo del cliente al agente
+-Habilitado en ambas direcciones
+
+Este ajuste se aplica solo al agente y no está configurado de forma predeterminada.
+
+Si el ajuste no está configurado o está deshabilitado, la opción de &quot;arrastrar y soltar&quot; usará el valor &quot;Habilitado en ambas direcciones&quot; para todos los formatos.</string>
+      <string id="String_Policy_DropList_Select_DnD_size_unit_bytes" >Bytes</string>
+      <string id="String_Policy_DropList_Select_DnD_size_unit_kilobytes" >Kilobytes</string>
+      <string id="String_Policy_DropList_Select_DnD_size_unit_megabytes" >Megabytes</string>
+      <string id="SERVER_DND_SIZE">Configurar el umbral de tamaño de arrastrar y soltar</string>
+      <string id="SERVER_DND_SIZE_EXPLAIN">La función de arrastrar y soltar permite arrastrar varios tipos de datos, incluidos texto sin formato, texto enriquecido, imágenes, archivos, carpetas, etc. Este ajuste determina el tamaño máximo que se puede arrastrar de tipos de datos comunes que no sean archivos ni carpetas.
+
+La unidad de tamaño de los datos que se pueden arrastrar se puede configurar en bytes, kilobytes y megabytes.
+
+El valor de tamaño deseado se configura en &quot;Umbral de tamaño de arrastrar y soltar&quot;. Los rangos de datos efectivos para unidades de tamaño diferentes son:
+  - Bytes: 1 ~ 1023
+  - Kilobytes: 1 ~ 1023
+  - Megabytes: 1 ~ 16 (el tamaño máximo de datos que se pueden arrastrar y soltar es de 16 megabytes)
+
+Este ajuste solo se aplica al agente.
+
+Si el ajuste no está configurado o está deshabilitado, se establecerá un umbral predeterminado de 1 megabyte.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="BLAST_MAX_SESSION_BW_LABEL">
+        <decimalTextBox refId="BLAST_MAX_SESSION_BW_LABEL" defaultValue="2147483647">Máximo ancho de banda de sesión</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_MIN_SESSION_BW_LABEL">
+        <decimalTextBox refId="BLAST_MIN_SESSION_BW_LABEL" defaultValue="256">Mínimo ancho de banda de sesión</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_LABEL">
+        <decimalTextBox refId="BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_LABEL" defaultValue="6200">Máx. ancho de banda de sesión (kbit/s=megapíxel*pendiente)</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_MAX_FPS_LABEL">
+        <decimalTextBox refId="BLAST_MAX_FPS_LABEL" defaultValue="30">Máx. velocidad de fotogramas</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_UDP_LABEL" />
+      <presentation id="BLAST_DSCP_ACTIVATE_LABEL" />
+      <presentation id="BLAST_DSCP_AGENT_OUT_TCP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_AGENT_OUT_TCP4_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_AGENT_OUT_UDP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_AGENT_OUT_UDP4_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_AGENT_OUT_TCP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_AGENT_OUT_TCP6_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_AGENT_OUT_UDP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_AGENT_OUT_UDP6_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_CLIENT_OUT_TCP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_CLIENT_OUT_TCP4_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_CLIENT_OUT_UDP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_CLIENT_OUT_UDP4_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_CLIENT_OUT_TCP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_CLIENT_OUT_TCP6_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_CLIENT_OUT_UDP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_CLIENT_OUT_UDP6_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_DOWN_TCP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_DOWN_TCP4_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_DOWN_UDP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_DOWN_UDP4_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_DOWN_TCP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_DOWN_TCP6_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_DOWN_UDP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_DOWN_UDP6_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_UP_TCP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_UP_TCP4_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_UP_UDP4_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_UP_UDP4_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_UP_TCP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_UP_TCP6_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DSCP_BSG_UP_UDP6_LABEL">
+        <decimalTextBox refId="BLAST_DSCP_BSG_UP_UDP6_LABEL" defaultValue="">Valor de DSCP</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_H264_ENCODE_LABEL" />
+      <presentation id="BLAST_HEVC_ENCODE_LABEL" />
+      <presentation id="BLAST_PNG_ENCODE_LABEL" />
+      <presentation id="BLAST_SCREEN_BLANK_LABEL" />
+      <presentation id="BLAST_COOKIE_CLEANUP_LABEL">
+        <decimalTextBox refId="BLAST_COOKIE_CLEANUP_INTERVAL_LABEL" defaultValue="1000">Intervalo (ms)</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_DISPLAY_QUALITY_LABEL">
+        <decimalTextBox refId="BLAST_DISPLAY_QUALITY_JPEG_QUAL_LOW" defaultValue="25">Calidad JPEG baja</decimalTextBox>
+        <decimalTextBox refId="BLAST_DISPLAY_QUALITY_JPEG_QUAL_MID" defaultValue="35">Calidad JPEG media</decimalTextBox>
+        <decimalTextBox refId="BLAST_DISPLAY_QUALITY_JPEG_QUAL_HIGH" defaultValue="90">Calidad JPEG alta</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_H264_QUALITY_LABEL">
+        <decimalTextBox refId="BLAST_H264_QUALITY_MAX_QP" defaultValue="36">Máximo QP de H.264</decimalTextBox>
+        <decimalTextBox refId="BLAST_H264_QUALITY_MIN_QP" defaultValue="10">Mínimo QP de H.264</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_H264_COLOR_ACCURACY_LABEL" />
+      <presentation id="BLAST_HEVC_COLOR_ACCURACY_LABEL" />
+      <presentation id="BLAST_HTTP_LABEL">
+        <decimalTextBox refId="BLAST_HTTP_PORTS_SECURE_LABEL" defaultValue="22443">Puerto seguro (HTTPS)</decimalTextBox>
+      </presentation>
+      <presentation id="BLAST_AUDIO_LABEL" />
+      <presentation id="SERVER_CLIPBOARD_STATE">
+        <dropdownList refId="SERVER_CLIPBOARD_STATE" defaultItem="2">Configurar el redireccionamiento del portapapeles</dropdownList>
+      </presentation>
+      <presentation id="SERVER_CLIPBOARD_SIZE">
+        <dropdownList refId="Policy_DropList_Clipboard_Fine_Grained" defaultItem="1" >Elegir la unidad para indicar el tamaño de la memoria del portapapeles</dropdownList>
+        <decimalTextBox refId="SERVER_CLIPBOARD_SIZE" defaultValue="1024" spinStep="100">Tamaño de la memoria del portapapeles del servidor</decimalTextBox>
+      </presentation>
+      <presentation id="SERVER_CLIPBOARD_AUDIT">
+        <dropdownList refId="SERVER_CLIPBOARD_AUDIT" defaultItem="0">Configurar auditoría del portapapeles</dropdownList>
+      </presentation>
+      <presentation id="SERVER_CLIPBOARD_AUDIT_BLOCK_CLIPBOARD">
+        <dropdownList refId="Policy_DropList_Element_Configure_clipboard" defaultItem="0">Configurar el comportamiento del portapapeles si el cliente no admite auditorías</dropdownList>
+      </presentation>
+      <presentation id="CLIPBOARD_FINE_GRAIN_LABEL" />
+      <presentation id="KEYBOARD_LOCALE_SYNC_LABEL" />
+      <presentation id="SERVER_FILE_TRANSFER_STATE">
+        <dropdownList refId="SERVER_FILE_TRANSFER_STATE" defaultItem="1">Configurar la transferencia de archivos</dropdownList>
+      </presentation>
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_TEXT_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_RTF_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_IMAGE_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_IN" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_TEXT_OUT" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_RTF_OUT" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_IMAGE_OUT" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_OUT" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_OUT" />
+      <presentation id="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_OUT" />
+      <presentation id="SERVER_DND_STATE">
+        <dropdownList refId="SERVER_DND_STATE" defaultItem="1">Configurar la función de arrastrar y soltar</dropdownList>
+      </presentation>
+      <presentation id="SERVER_DND_FORMAT_STATE">
+        <dropdownList refId="SERVER_DND_FILE_STATE" defaultItem="3">Opción para el formato de archivo:</dropdownList>
+        <dropdownList refId="SERVER_DND_TEXT_STATE" defaultItem="3">Opción para el formato de texto:</dropdownList>
+        <dropdownList refId="SERVER_DND_RTF_STATE" defaultItem="3">Opción para el formato de texto enriquecido:</dropdownList>
+        <dropdownList refId="SERVER_DND_IMAGE_STATE" defaultItem="3">Opción para el formato de imagen:</dropdownList>
+        <dropdownList refId="SERVER_DND_HTML_STATE" defaultItem="3">Opción para el formato HTML:</dropdownList>
+        <dropdownList refId="SERVER_DND_FILE_CONTENT_STATE" defaultItem="3">Opción para el formato de contenido de archivo:</dropdownList>
+      </presentation>
+      <presentation id="SERVER_DND_SIZE">
+        <dropdownList refId="Policy_DropList_DnD_Size_Unit" defaultItem="2" >Elegir la unidad de tamaño de la función de arrastrar y soltar</dropdownList>
+        <decimalTextBox refId="SERVER_DND_SIZE" defaultValue="1">Umbral de tamaño de arrastrar y soltar</decimalTextBox>
+      </presentation>
+      <presentation id="SERVER_HTMLACCESS_PRINT_STATE" />
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

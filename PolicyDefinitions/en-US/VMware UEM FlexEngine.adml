@@ -1,0 +1,125 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <displayName />
+  <description />
+  <resources>
+    <stringTable>
+      <string id="Cat_FlexPlus">FlexEngine</string>
+      <string id="Cat_FlexPlus_Help">Contains settings to allow configuration of VMware UEM FlexEngine.</string>
+      <string id="PlatformSupport">At least Microsoft Windows 7 with SP1 or Windows Server 2008 R2 with SP1</string>
+      <string id="FlexConfigFilesPath">Flex config files</string>
+      <string id="FlexConfigFilesPath_Help">Use this setting to configure the central location of the Flex config (.INI) files that is processed by FlexEngine.&#10;&#10;In a typical configuration this would be the 'General' folder as created by the VMware UEM Management Console in the UEM configuration share, like \\Filesrv\UemConfig$\General.&#10;&#10;Enable 'Process folder recursively' to let FlexEngine process this folder recursively.&#10;&#10;FlexEngine runs with the user's credentials and will process each Flex config file that the user has NTFS read access to.</string>
+      <string id="ProfileArchivePath">Profile archives</string>
+      <string id="ProfileArchivePath_Help">The location configured through this setting is used by FlexEngine to read and save user profile archives.&#10;&#10;It is recommended to use a generic path here which is specific for each user (e.g. \\Filesrv\UemUsers$\%username%\Archives). If you specify a subdirectory that does not exist, FlexEngine will automatically create it.&#10;&#10;Enable 'Hide profile archive folder' to automatically mark the profile archive folder as hidden.&#10;&#10;Profile archives are stored in ZIP format but are not compressed by default. Enable profile archive compression to store the archives compressed.&#10;NOTE: When migrating from Immidio Flex Profiles Express 6.0, do not enable this until you have completely migrated to VMware UEM.&#10;&#10;Enable 'Retain file modification dates' to restore last modified dates when importing profile archives.</string>
+      <string id="ProfileArchiveBackups">Profile archive backups</string>
+      <string id="ProfileArchiveBackups_Help">The location configured through this setting is used by FlexEngine to store profile archive backups.&#10;&#10;It is recommended to use a generic path which is specific for each user (e.g. \\Filesrv\UemUsers$\%username%\Backups). If you specify a subdirectory that does not exist, FlexEngine will automatically create it at the first backup action for each user.&#10;&#10;Enable 'Hide backup folder' to automatically mark the profile archive backup folder as hidden.&#10;&#10;The default number of backups for each profile archive is 1. You can configure any number of backups. Please be aware of the additional storage this will claim in the configured profile archive backup path.&#10;NOTE: This setting can be overridden in Flex config files.&#10;&#10;If the 'Create single backup per day' setting is enabled, the configured number of backups is interpreted as the number of days to keep backups for.</string>
+      <string id="FlexEngineGPExt">Run FlexEngine as Group Policy Extension</string>
+      <string id="FlexEngineGPExt_Help">Enable this setting to run FlexEngine earlier during logon by running as a Group Policy client-side extension.&#10;&#10;When this setting is enabled, FlexEngine runs automatically during logon.&#10;&#10;To guarantee that the FlexEngine Group Policy client-side extension will run during each logon, you must enable the 'Always wait for the network at computer startup and logon' Group Policy setting.&#10;&#10;Make sure that the 'FlexEngine.exe -s' command is configured through a Group Policy Logoff Script to run when a user logs off.&#10;&#10;If you enable this setting when upgrading from Immidio Flex Profiles 6.x, make sure the 'FlexEngine.exe -r' command is no longer running from a logon script.</string>
+      <string id="FlexEngineLogFile">FlexEngine logging</string>
+      <string id="FlexEngineLogFile_Help">Use this setting to configure the location and name of the FlexEngine log file.&#10;&#10;It is recommended to use a generic path here which is specific for each user (e.g. \\Filesrv\UemUsers$\%username%\Logs\FlexEngine.log). If you specify a subdirectory that does not exist, FlexEngine will automatically create it for each user as soon as logging occurs.&#10;&#10;The log level controls the level of detail that is logged. It is not recommended to use 'Debug' or 'Info' in production, as the amount of logging information can impact the performance.&#10;&#10;If a maximum log file size is specified, the log file will be recreated once that size is reached. If the log file size is set to 0, the file will grow indefinitely.</string>
+      <string id="DirectFlex">DirectFlex &#x2013; advanced settings</string>
+      <string id="DirectFlex_Help">By default, DirectFlex exports profile information when an application is closed. Enabling 'Only export at logoff' postpones the export action to the user's logoff.&#10;NOTE: This setting can be overridden in Flex config files.&#10;&#10;To display a message in the notification area when DirectFlex is performing an import or export, enable the 'Show DirectFlex notifications' setting.&#10;&#10;If the import or export takes less time than the configured notification delay, no message is shown. This can be used to only display messages when access to the profile archive path is slow (i.e. when imports and exports take longer).&#10;If the notification delay is set to 0, messages are shown immediately.&#10;&#10;To only show a message in the notification area when DirectFlex is performing an import, enable the 'Hide DirectFlex exit notification' setting.</string>
+      <string id="Item_LogLevelDebug">Debug</string>
+      <string id="Item_LogLevelInfo">Info</string>
+      <string id="Item_LogLevelWarn">Warn</string>
+      <string id="Item_LogLevelError">Error</string>
+      <string id="Item_LogLevelFatal">Fatal</string>
+      <string id="ShowProgressInformation">Show VMware UEM logon and logoff progress information</string>
+      <string id="ShowProgressInformation_Help">When this setting is enabled, a splash screen with progress bar is shown when FlexEngine is called from a script.</string>
+      <string id="SiloSpecific">Silo-specific Flex config files</string>
+      <string id="SiloSpecific_Help">Specify an additional, silo-specific path for Flex config files, to be processed in addition to the general Flex config files path.&#10;&#10;The silo-specific suffix is used as a subfolder of the configured profile archive path, to separate profile archives for silo-specific Flex config files from general ones.&#10;If no silo-specific suffix is configured, the last component of the silo-specific Flex config files path is used.</string>
+      <string id="CertificateSupport">Certificate support for mandatory profiles</string>
+      <string id="CertificateSupport_Help">Use this setting to enable the use of personal certificates in a mandatory profile.&#10;&#10;In addition, you also need to create a Flex config file with the 'Personal Certificates' Windows Common Setting.</string>
+      <string id="RefreshSettings">FlexEngine refresh settings</string>
+      <string id="RefreshSettings_Help">NOTE: The configuration of this setting is not necessary when running FlexEngine as Group Policy client-side extension.&#10;&#10;Enable the 'Refresh Windows appearance' setting to refresh Windows appearance-related settings, like the wallpaper, at logon. Besides enabling this setting you also need to create a Flex config file that contains the appropriate information to be processed by FlexEngine.&#10;&#10;Enable 'Refresh mouse settings' to refresh mouse-related settings at logon. Besides enabling this setting you also need to create a Flex config file that contains the 'Mouse' Windows Common Setting.&#10;&#10;Enable 'Refresh keyboard settings' to refresh keyboard-related settings at logon. Besides enabling this setting you also need to create a Flex config file that contains the 'Keyboard' Windows Common Setting.</string>
+      <string id="EventLog">FlexEngine logging to the Windows event log</string>
+      <string id="EventLog_Help">When this setting is enabled, FlexEngine logs path-based import and export messages to the Windows event log.&#10;&#10;Optionally, Windows event log messages can also be logged for other FlexEngine actions (specifying a size of 0 turns off the corresponding warning).</string>
+      <string id="SelfSupport">Prevent access to VMware UEM Self-Support</string>
+      <string id="SelfSupport_Help">Enable this setting to prevent users from starting VMware UEM Self-Support.</string>
+      <string id="MissingPathsAtLogon">Paths unavailable at logon</string>
+      <string id="MissingPathsAtLogon_Help">Use this setting to configure the behavior in case the Flex config files path or the profile archive path is not available at logon.</string>
+      <string id="Item_MissingPathSkip">Skip import</string>
+      <string id="Item_MissingPathUem">Apply user environment settings</string>
+      <string id="Item_MissingPathLogoff">Logoff</string>
+      <string id="ApplicationBlockingLog">Application blocking logging to the Windows event log</string>
+      <string id="ApplicationBlockingLog_Help">When this setting is enabled, details about blocked application launches are logged to the Windows event log.</string>
+      <string id="PrivilegeElevationLog">Privilege elevation logging to the Windows event log</string>
+      <string id="PrivilegeElevationLog_Help">When this setting is enabled, details about elevated application launches are logged to the Windows event log.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="FlexConfigFilesPath">
+        <textBox refId="Txt_FlexConfigFilesPath">
+          <label>Central location of Flex config files:</label>
+        </textBox>
+        <checkBox refId="Chk_FlexConfigFilesPath" defaultChecked="true">Process folder recursively</checkBox>
+      </presentation>
+      <presentation id="ProfileArchivePath">
+        <textBox refId="Txt_ProfileArchivePath">
+          <label>Location for storing user profile archives:</label>
+        </textBox>
+        <checkBox refId="Chk_HideProfileArchiveFolder">Hide profile archive folder</checkBox>
+        <checkBox refId="Chk_ProfileArchiveCompression" defaultChecked="true">Compress profile archives</checkBox>
+        <checkBox refId="Chk_RetainFileModificationDates">Retain file modification dates</checkBox>
+      </presentation>
+      <presentation id="ProfileArchiveBackups">
+        <textBox refId="Txt_ProfileArchiveBackups">
+          <label>Location for storing user profile archive backups:</label>
+        </textBox>
+        <checkBox refId="Chk_HideBackupFolder">Hide backup folder</checkBox>
+        <decimalTextBox refId="Dec_ProfileArchiveBackupCount" defaultValue="1">Number of backups per profile archive:</decimalTextBox>
+        <checkBox refId="Chk_BackupDaily">Create single backup per day</checkBox>
+      </presentation>
+      <presentation id="FlexEngineLogFile">
+        <textBox refId="Txt_FlexEngineLogFile">
+          <label>Path and name of log file:</label>
+        </textBox>
+        <dropdownList refId="List_FlexEngineLogLevel" defaultItem="2" noSort="true">Log level:</dropdownList>
+        <decimalTextBox refId="Dec_MaxLogFileSize" defaultValue="512">Maximum log file size in kB:</decimalTextBox>
+        <checkBox refId="Chk_LogProfileArchiveFolderSize">Log total size of profile archive and profile archive backups folders</checkBox>
+      </presentation>
+      <presentation id="DirectFlex">
+        <checkBox refId="Chk_OnlyExportAtLogoff">Only export at logoff</checkBox>
+        <checkBox refId="Chk_ShowDirectFlexNotifications">Show DirectFlex notifications</checkBox>
+        <decimalTextBox refId="Dec_NotificationDelay" defaultValue="5">Notification delay in seconds:</decimalTextBox>
+        <checkBox refId="Chk_HideExitNotification">Hide DirectFlex exit notification</checkBox>
+      </presentation>
+      <presentation id="SiloSpecific">
+        <textBox refId="Txt_SiloIniFilePath">
+          <label>Central location of silo-specific Flex config files:</label>
+        </textBox>
+        <textBox refId="Txt_SiloSuffix">
+          <label>Silo-specific suffix:</label>
+        </textBox>
+      </presentation>
+      <presentation id="RefreshSettings">
+        <checkBox refId="Chk_RefreshWindowsAppearance">Refresh Windows appearance</checkBox>
+        <checkBox refId="Chk_RefreshMouseSettings">Refresh mouse settings</checkBox>
+        <checkBox refId="Chk_RefreshKeyboardSettings">Refresh keyboard settings</checkBox>
+      </presentation>
+      <presentation id="EventLog">
+        <text>Configure additional logging:</text>
+        <checkBox refId="Chk_EventLogAsync">Asynchronous UEM actions</checkBox>
+        <checkBox refId="Chk_EventLogDirectFlexRefresh">DirectFlex refresh</checkBox>
+        <checkBox refId="Chk_EventLogUEMRefresh">UEM refresh</checkBox>
+        <text>Warn about profile archive sizes:</text>
+        <decimalTextBox refId="Dec_EventLogMaxFileSize" defaultValue="0">Warn if size of single profile archive exceeds this size in kB:</decimalTextBox>
+        <decimalTextBox refId="Dec_EventLogMaxFolderSize" defaultValue="0">Warn if total size of profile archive folder exceeds this size in kB:</decimalTextBox>
+        <checkBox refId="Chk_EventLogIncludeBackupFolder">Include profile archive backup folder when determining folder size</checkBox>
+      </presentation>
+      <presentation id="MissingPathsAtLogon">
+        <dropdownList refId="List_ConfigPathMissing" defaultItem="1" noSort="true">If Flex config files path is not available:</dropdownList>
+        <textBox refId="Txt_ConfigPathMissing">
+          <label>Optional message to display:</label>
+        </textBox>
+        <decimalTextBox refId="Dec_ConfigPathMissingMessageTimeout" defaultValue="10">Timeout after which to dismiss message:</decimalTextBox>
+        <dropdownList refId="List_ArchivePathMissing" defaultItem="1" noSort="true">If profile archive path is not available:</dropdownList>
+        <textBox refId="Txt_ArchivePathMissing">
+          <label>Optional message to display:</label>
+        </textBox>
+        <decimalTextBox refId="Dec_ArchivePathMissingMessageTimeout" defaultValue="10">Timeout after which to dismiss message:</decimalTextBox>
+      </presentation>
+      <presentation id="PrivilegeElevationLog">
+        <checkBox refId="Chk_DeElevationEventLog" defaultChecked="true">Log de-elevated application launches</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

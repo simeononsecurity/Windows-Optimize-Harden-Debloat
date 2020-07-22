@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="bitlockerusermanagement" namespace="Microsoft.Policies.BitLockerUserManagement" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />   
+  </policyNamespaces> 
+  <resources minRequiredRevision="1.0" />
+   <supportedOn>  
+    <definitions>
+      <!-- We must make our own definition for Windows 7 -->  
+	  <definition name="SUPPORTED_Windows7" displayName="$(string.SUPPORTED_Windows7)" />
+    </definitions>
+  </supportedOn>
+  <!--  Categories under [Windows Components]\BitLocker Management Solution  -->
+  <categories>
+    <category name="BitLockerUserManagementCategory" displayName="$(string.BitLockerUserManagementCategory)">
+      <parentCategory ref="windows:WindowsComponents" />
+    </category>
+  </categories>
+  <!--  BMS user policies under [Windows Components]\BitLocker Management Solution  -->
+  <policies>
+    <policy name="BMSUserExemptionPolicy" class="User" displayName="$(string.BMSUserExemptionPolicy)" explainText="$(string.BMSUserExemptionPolicy_Help)" key="SOFTWARE\Policies\Microsoft\FVE\MDOPBitLockerManagement" valueName="IsUserExempted">
+      <parentCategory ref="BitLockerUserManagementCategory" />
+      <supportedOn ref="SUPPORTED_Windows7" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

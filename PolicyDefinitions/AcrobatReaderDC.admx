@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" xsi:schemaLocation="" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+
+	<policyNamespaces >
+		<target prefix="Adobe Acrobat Reader DC" namespace="Adobe.ReaderDC.Policies" />
+	</policyNamespaces>
+	<supersededAdm fileName="AcrobatReaderDC.adm" />
+	<resources minRequiredRevision="1.0" fallbackCulture="en-us" />
+	<supportedOn >
+		<definitions >
+			<definition name="SupportedOn_1" displayName="$(string.String_SupportedOn_Undefined_2)" />
+			<definition name="SupportedOn_3" displayName="$(string.String_SupportedOn_Undefined_4)" />
+			<definition name="SupportedOn_5" displayName="$(string.String_SupportedOn_Undefined_6)" />
+			<definition name="SupportedOn_7" displayName="$(string.String_SupportedOn_Undefined_8)" />
+			<definition name="SupportedOn_9" displayName="$(string.String_SupportedOn_Undefined_10)" />
+			<definition name="SupportedOn_11" displayName="$(string.String_SupportedOn_Undefined_12)" />
+			<definition name="SupportedOn_13" displayName="$(string.String_SupportedOn_Undefined_14)" />
+			<definition name="SupportedOn_15" displayName="$(string.String_SupportedOn_Undefined_16)" />
+			<definition name="SupportedOn_17" displayName="$(string.String_SupportedOn_Undefined_18)" />
+			<definition name="SupportedOn_19" displayName="$(string.String_SupportedOn_Undefined_20)" />
+			<definition name="SupportedOn_21" displayName="$(string.String_SupportedOn_Undefined_22)" />
+			<definition name="SupportedOn_23" displayName="$(string.String_SupportedOn_Undefined_24)" />
+			<definition name="SupportedOn_25" displayName="$(string.String_SupportedOn_Undefined_26)" />
+			<definition name="SupportedOn_27" displayName="$(string.String_SupportedOn_Undefined_28)" />
+		</definitions>
+	</supportedOn>
+	<categories ><!--Storage for Category Definitions-->
+
+		<category name="Cat_Adobe_Reader_DC_31" displayName="$(string.String_Cat_Adobe_Reader_DC_32)" />
+		<category name="Cat_Preferences_33" displayName="$(string.String_Cat_Preferences_34)" >
+			<parentCategory ref="Cat_Adobe_Reader_DC_31" />
+		</category>
+		<category name="Cat_General_35" displayName="$(string.String_Cat_General_36)" >
+			<parentCategory ref="Cat_Preferences_33" />
+		</category>
+		<category name="Cat_Security_37" displayName="$(string.String_Cat_Security_38)" >
+			<parentCategory ref="Cat_Preferences_33" />
+		</category>
+		<category name="Cat_DigitalSignature_39" displayName="$(string.String_Cat_DigitalSignature_40)" >
+			<parentCategory ref="Cat_Security_37" />
+		</category>
+		<category name="Cat_TrustManager_41" displayName="$(string.String_Cat_TrustManager_42)" >
+			<parentCategory ref="Cat_Security_37" />
+		</category>
+		<category name="Cat_Startup_43" displayName="$(string.String_Cat_Startup_44)" >
+			<parentCategory ref="Cat_Preferences_33" />
+		</category>
+	</categories>
+	<policies ><!--Storage for Policy Definitions-->
+
+		<policy name="Policy_Disable_PDF_handler_45" class="Machine" displayName="$(string.String_Policy_Disable_PDF_handler_46)" explainText="$(string.String_Explain_Disables_the_ability_47)" key="SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown" valueName="bDisablePDFHandlerSwitching" >
+			<parentCategory ref="Cat_General_35" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Disable_automatic_48" class="Machine" displayName="$(string.String_Policy_Disable_automatic_49)" explainText="$(string.String_Explain_Disables_automatic_50)" key="SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown" valueName="bUpdater" >
+			<parentCategory ref="Cat_General_35" />
+			<supportedOn ref="SupportedOn_3" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Turn_off_user_participati_51" class="Machine" displayName="$(string.String_Policy_Turn_off_user_participati_52)" explainText="$(string.String_Explain_Turns_off_and_locks_53)" key="SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown" valueName="bUsageMeasurement" >
+			<parentCategory ref="Cat_General_35" />
+			<supportedOn ref="SupportedOn_5" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Don_t_show_messages_54" class="Machine" displayName="$(string.String_Policy_Don_t_show_messages_55)" explainText="$(string.String_Explain_Specifies_whether_56)" key="SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cIPM" valueName="bDontShowMsgWhenViewingDoc" >
+			<parentCategory ref="Cat_General_35" />
+			<supportedOn ref="SupportedOn_7" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Show_messages_when_57" class="Machine" displayName="$(string.String_Policy_Show_messages_when_58)" explainText="$(string.String_Explain_Specifies_whether_59)" key="SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cIPM" valueName="bShowMsgAtLaunch" >
+			<parentCategory ref="Cat_General_35" />
+			<supportedOn ref="SupportedOn_9" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Auto_Complete_63" class="Machine" displayName="$(string.String_Policy_Auto_Complete_64)" explainText="$(string.String_Explain_Locks_the_auto_fill_65)" key="SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown" valueName="bAutoFill" >
+			<parentCategory ref="Cat_General_35" />
+			<supportedOn ref="SupportedOn_13" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Enable_Protected_66" class="Machine" displayName="$(string.String_Policy_Enable_Protected_67)" explainText="$(string.String_Explain_Summary_Enables_68)" key="SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown" valueName="bProtectedMode" >
+			<parentCategory ref="Cat_Startup_43" />
+			<supportedOn ref="SupportedOn_15" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Accept_EULA_69" class="User" displayName="$(string.String_Policy_Accept_EULA_70)" explainText="$(string.String_Explain_For_Reader_indicates_71)" key="Software\Adobe\Acrobat Reader\DC\AdobeViewer" valueName="EULA" >
+			<parentCategory ref="Cat_General_35" />
+			<supportedOn ref="SupportedOn_17" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Display_splash_72" class="User" displayName="$(string.String_Policy_Display_splash_73)" explainText="$(string.String_Explain_Summary_By_default_74)" key="Software\Adobe\Acrobat Reader\DC\Originals" valueName="bDisplayAboutDialog" >
+			<parentCategory ref="Cat_General_35" />
+			<supportedOn ref="SupportedOn_19" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Enable_Acrobat_75" class="User" displayName="$(string.String_Policy_Enable_Acrobat_76)" explainText="$(string.String_Explain_Toggles_JavaScript_77)" key="Software\Adobe\Acrobat Reader\DC\JSPrefs" valueName="bEnableJS" >
+			<parentCategory ref="Cat_Security_37" />
+			<supportedOn ref="SupportedOn_21" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Ask_before_installing_78" class="User" displayName="$(string.String_Policy_Ask_before_installing_79)" explainText="$(string.String_Explain_Specifies_whether_80)" key="Software\Adobe\Acrobat Reader\DC\Security\cDigSig\cAdobeDownload" valueName="bAskBeforeInstalling" >
+			<parentCategory ref="Cat_Security_37" />
+			<supportedOn ref="SupportedOn_23" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Load_security_settings_81" class="User" displayName="$(string.String_Policy_Load_security_settings_82)" explainText="$(string.String_Explain_Specifies_whether_83)" key="Software\Adobe\Acrobat Reader\DC\Security\cDigSig\cAdobeDownload" valueName="bLoadSettingsFromURL" >
+			<parentCategory ref="Cat_Security_37" />
+			<supportedOn ref="SupportedOn_25" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Policy_Automatically_trust_84" class="User" displayName="$(string.String_Policy_Automatically_trust_85)" explainText="$(string.String_Explain_Elevates_the_trusted_86)" key="Software\Adobe\Acrobat Reader\DC\TrustManager" valueName="bTrustOSTrustedSites" >
+			<parentCategory ref="Cat_TrustManager_41" />
+			<supportedOn ref="SupportedOn_27" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+	</policies>
+</policyDefinitions>

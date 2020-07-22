@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2016 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="findMyDevice" namespace="Microsoft.Policies.FindMyDevice" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="FindMyDeviceCat" displayName="$(string.FindMyDeviceCat_DisplayName)">
+        <parentCategory ref="windows:WindowsComponents" />
+    </category>
+  </categories>
+  <policies>
+    <!-- AllowFindMyDevice -->
+    <policy name="FindMy_AllowFindMyDeviceConfig"
+            class="Machine"
+            displayName="$(string.FindMyDevice_AllowFindMyDevice_DisplayName)"
+            explainText="$(string.FindMyDevice_AllowFindMyDevice_Explain)"
+            key="SOFTWARE\Policies\Microsoft\FindMyDevice"
+            valueName="AllowFindMyDevice"
+            >
+        <parentCategory ref="FindMyDeviceCat" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER" />
+        <enabledValue>
+          <decimal value="1" />
+        </enabledValue>
+        <disabledValue>
+          <decimal value="0" />
+        </disabledValue>
+    </policy>
+ </policies>
+</policyDefinitions>

@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   revision="1.0"
+                   schemaVersion="1.0"
+                   xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+  <!-- Copyright 2005-2016 VMware, Inc.  All rights reserved. -->
+
+  <policyNamespaces >
+    <target prefix="ViewPMAdv" namespace="VMware.Policies.ViewPMAdv" />
+    <using prefix="ViewPM" namespace="VMware.Policies.ViewPM" />
+  </policyNamespaces>
+  <supersededAdm fileName="ViewPMAdv.adm" />
+  <resources minRequiredRevision="1.0" fallbackCulture="en-us" />
+
+  <categories ><!--Storage for Category Definitions-->
+    <category name="Category_Troubleshooting" displayName="$(string.String_Category_Troubleshooting)" >
+      <parentCategory ref="ViewPM:Category_Persona_Management" />
+    </category>
+  </categories>
+
+  <policies ><!--Storage for Policy Definitions-->
+    <policy name="Policy_Logging_Flags"
+            class="Machine"
+            displayName="$(string.String_Policy_Logging_flags)"
+            explainText="$(string.String_Explain_Logging_flags)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Log Levels"
+            presentation="$(presentation.Present_Logging_flags)" >
+      <parentCategory ref="ViewPM:Category_Logging" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <boolean id="Present_CheckBox_Log_Error"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Log Levels"
+                 valueName="LogError (0x00000001)" >
+          <trueValue >
+            <decimal value="1" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Log_Info"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Log Levels"
+                 valueName="LogInformation (0x00000002)" >
+          <trueValue >
+            <decimal value="2" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Log_Debug"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Log Levels"
+                 valueName="LogDebug (0x00000004)" >
+          <trueValue >
+            <decimal value="4" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Log_Alt_Path"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Log Levels"
+                 valueName="LogAltPath (0x00000020)" >
+          <trueValue >
+            <decimal value="32" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Log_Impersonation"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Log Levels"
+                 valueName="LogImpersonation (0x00000040)" >
+          <trueValue >
+            <decimal value="64" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Log_Only_Driver"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Log Levels"
+                 valueName="LogDriverOnly (0x00000080)" >
+          <trueValue >
+            <decimal value="128" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Log_Offline"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Log Levels"
+                 valueName="LogOfflineFiles (0x00000100)" >
+          <trueValue >
+            <decimal value="256" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Log_Status_Log"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Log Levels"
+                 valueName="LogStatusLog (0x00000200)" >
+          <trueValue >
+            <decimal value="512" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Log_Fetch"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Log Levels"
+                 valueName="LogFetch (0x00000400)" >
+          <trueValue >
+            <decimal value="1024" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Log_Performance"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Log Levels"
+                 valueName="LogPerformance (0x00000800)" >
+          <trueValue >
+            <decimal value="2048" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+
+    <policy name="Policy_Debug_Flags"
+            class="Machine"
+            displayName="$(string.String_Policy_Debug_flags)"
+            explainText="$(string.String_Explain_Debug_flags)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+            presentation="$(presentation.Present_Debug_flags)" >
+      <parentCategory ref="ViewPM:Category_Logging" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <boolean id="Present_CheckBox_Debug_Error"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugError (0x00000001)" >
+          <trueValue >
+            <decimal value="1" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_IRQL"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugIRQL (0x00000002)" >
+          <trueValue >
+            <decimal value="2" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Port"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugPorts (0x00000004)" >
+          <trueValue >
+            <decimal value="4" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Process"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugProcesses (0x00000008)" >
+          <trueValue >
+            <decimal value="8" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Registry"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugRegistry (0x00000010)" >
+          <trueValue >
+            <decimal value="16" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Info"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugInformation (0x00000200)" >
+          <trueValue >
+            <decimal value="512" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Directory"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugDirs (0x00000400)" >
+          <trueValue >
+            <decimal value="1024" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Stream"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugStream (0x00000800)" >
+          <trueValue >
+            <decimal value="2048" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Create"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugCreate (0x00001000)" >
+          <trueValue >
+            <decimal value="4096" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Offline_File_Table"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugOfflineFileTable (0x00008000)" >
+          <trueValue >
+            <decimal value="32768" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_User_Table"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugUserTable (0x00010000)" >
+          <trueValue >
+            <decimal value="65536" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Alt_Path"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugAltPath (0x00020000)" >
+          <trueValue >
+            <decimal value="131072" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Registry_Filter"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugRegFilter (0x00040000)" >
+          <trueValue >
+            <decimal value="262144" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Oplock"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugOplocks (0x00200000)" >
+          <trueValue >
+            <decimal value="2097152" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Impersonation"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugImpersonation (0x00400000)" >
+          <trueValue >
+            <decimal value="4194304" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Name_Provider"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugNameProvider (0x00800000)" >
+          <trueValue >
+            <decimal value="8388608" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Lock_Control"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugLockControl (0x01000000)" >
+          <trueValue >
+            <decimal value="16777216" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Set_Info"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugSetInfo (0x02000000)" >
+          <trueValue >
+            <decimal value="33554432" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Offline"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugOfflineFiles (0x04000000)" >
+          <trueValue >
+            <decimal value="67108864" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Debug_Status_Log"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugFlags"
+                 valueName="DebugStatusLog (0x08000000)" >
+          <trueValue >
+            <decimal value="134217728" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+
+    <policy name="Policy_Repository_connection"
+            class="Machine"
+            displayName="$(string.String_Policy_Repository_connection)"
+            explainText="$(string.String_Explain_Repository_connection)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Helper Flags"
+            valueName="ConnectionMonitor (0x00001000)"
+            presentation="$(presentation.Present_Repository_connection)" >
+      <parentCategory ref="Category_Troubleshooting" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="4096" />
+      </disabledValue>
+      <elements >
+        <decimal id="Present_Numeric_Repository_connection_Interval"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+                 valueName="NetTestInterval"
+                 required="true"
+                 maxValue="600"
+                 minValue="0" />
+        <decimal id="Present_Numeric_Repository_connection_Max_Latency"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+                 valueName="NetMaxLatency"
+                 required="true"
+                 maxValue="1000"
+                 minValue="0" />
+      </elements>
+    </policy>
+
+    <policy name="Policy_Download_Timeout"
+            class="Machine"
+            displayName="$(string.String_Policy_Download_Timeout)"
+            explainText="$(string.String_Explain_Download_Timeout)"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver"
+            presentation="$(presentation.Present_Download_Timeout)" >
+      <parentCategory ref="Category_Troubleshooting" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <decimal id="Present_Numeric_Download_Timeout"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver"
+                 valueName="CopyTimeout"
+                 required="true"
+                 maxValue="600000"
+                 minValue="0" />
+      </elements>
+    </policy>
+
+    <policy name="Policy_Sync_onlogon"
+            class="Machine"
+            displayName="$(string.String_Policy_Sync_onlogon)"
+            explainText="$(string.String_Explain_Sync_onlogon)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+            valueName="SyncProfileAtLogon (0x00000200)"
+            presentation="$(presentation.Present_Sync_onlogon)" >
+      <parentCategory ref="Category_Troubleshooting" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="512" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+
+    <policy name="Policy_File_creation_delay"
+            class="Machine"
+            displayName="$(string.String_Policy_File_creation_delay)"
+            explainText="$(string.String_Explain_File_creation_delay)"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+            presentation="$(presentation.Present_File_creation_delay)" >
+      <parentCategory ref="Category_Troubleshooting" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <decimal id="Present_Numeric_File_creation_delay"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+                 valueName="CreateDelay"
+                 required="true"
+                 maxValue="600000"
+                 minValue="0" />
+      </elements>
+    </policy>
+
+    <policy name="Policy_Create_retry_delay"
+            class="Machine"
+            displayName="$(string.String_Policy_Create_retry_delay)"
+            explainText="$(string.String_Explain_Create_retry_delay)"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+            presentation="$(presentation.Present_Create_retry_delay)" >
+      <parentCategory ref="Category_Troubleshooting" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <decimal id="Present_Numeric_Create_retry_delay"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+                 valueName="RetryDelay"
+                 required="true"
+                 maxValue="600000"
+                 minValue="0" />
+      </elements>
+    </policy>
+
+    <policy name="Policy_Profile_reconcile_delay"
+            class="Machine"
+            displayName="$(string.String_Policy_Profile_reconcile_delay)"
+            explainText="$(string.String_Explain_Profile_reconcile_delay)"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+            presentation="$(presentation.Present_Profile_reconcile_delay)" >
+      <parentCategory ref="Category_Troubleshooting" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <decimal id="Present_Numeric_Profile_reconcile_delay"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+                 valueName="ReconcileDelay"
+                 required="true"
+                 maxValue="600"
+                 minValue="0" />
+      </elements>
+    </policy>
+
+    <policy name="Policy_Remove_temporary"
+            class="Machine"
+            displayName="$(string.String_Policy_Remove_temporary)"
+            explainText="$(string.String_Explain_Remove_temporary)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+            valueName="RemoveTempFiles (0x00000004)"
+            presentation="$(presentation.Present_Remove_temporary)" >
+      <parentCategory ref="Category_Troubleshooting" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="4" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+
+    <policy name="Policy_Disable_create_retry"
+            class="Machine"
+            displayName="$(string.String_Policy_Disable_create_retry)"
+            explainText="$(string.String_Explain_Disable_create_retry)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+            valueName="DisableCreateRetry (0x00000040)"
+            presentation="$(presentation.Present_Disable_create_retry)" >
+      <parentCategory ref="Category_Troubleshooting" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="64" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+
+    <policy name="Policy_Disable_desktop"
+            class="Machine"
+            displayName="$(string.String_Policy_Disable_desktop)"
+            explainText="$(string.String_Explain_Disable_desktop)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+            valueName="DisableDesktopRefresh (0x00000080)"
+            presentation="$(presentation.Present_Disable_desktop)" >
+      <parentCategory ref="Category_Troubleshooting" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="128" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+
+    <policy name="Policy_Disable_user_environment"
+            class="Machine"
+            displayName="$(string.String_Policy_Disable_user_environment)"
+            explainText="$(string.String_Explain_Disable_user_environment)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+            valueName="DisableUserEnvErrors (0x00000400)"
+            presentation="$(presentation.Present_Disable_user_environment)" >
+      <parentCategory ref="Category_Troubleshooting" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="1024" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+
+    <policy name="Policy_Driver_Disable"
+            class="Machine"
+            displayName="$(string.String_Policy_Driver_Disable)"
+            explainText="$(string.String_Explain_Driver_Disable)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DisableFlags"
+            presentation="$(presentation.Present_Driver_Disable)" >
+      <parentCategory ref="Category_Troubleshooting" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <boolean id="Present_CheckBox_Driver_Disable"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DisableFlags"
+                 valueName="LogLevelOverride (0x00080000)" >
+          <trueValue >
+            <decimal value="524288" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

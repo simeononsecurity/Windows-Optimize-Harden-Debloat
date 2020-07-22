@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.2" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <!-- Supported Platforms -->
+      <string id="SUPPORTED_WindowsXPSP2WindowsNETSP1orBITS20">SP2 de Windows XP o SP1 de Windows Server 2003, o equipos con BITS 2.0 instalado</string>
+      <string id="SUPPORTED_WindowsXPWindowsNETorBITS15">Windows XP o Windows Server 2003, o equipos con BITS 1.5 instalado</string>
+      <string id="SUPPORTED_Windows7OrBITS35">Windows 7 o equipos con BITS 3.5 instalado</string>
+      <string id="SUPPORTED_Windows8OrBITS5">Windows 8, Windows Server 2012, Windows RT o equipos con BITS 5 instalado.</string>
+      <!-- Supported Platforms -->
+
+      <!-- Component name -->
+      <string id="BITS">Servicio de transferencia inteligente en segundo plano (BITS)</string>
+      <!-- Component name -->
+
+<!-- inactive job timeout -->      
+      <string id="BITS_Job_Timeout">Tiempo de espera de trabajos de BITS inactivos</string>
+      <string id="BITS_Job_Timeout_Help">Esta configuración de directiva especifica el número de días que puede permanecer inactivo un trabajo de BITS antes de que se considere abandonado. De forma predeterminada, BITS esperará 90 días antes de considerar abandonado un trabajo inactivo. Después de que un trabajo se determina como abandonado, se elimina de BITS y se borra del disco cualquier archivo descargado para ese trabajo.
+          Nota: cualquier cambio en las propiedades del trabajo o cualquier acción correcta de descarga restablecerá este tiempo de espera.
+
+          Si los equipos tienden a permanecer desconectados durante un largo periodo de tiempo y tienen trabajos pendientes, considere la posibilidad de aumentar el valor de tiempo de espera. 
+          Si le preocupa que los trabajos abandonados ocupen el disco duro, considere la posibilidad de reducir este valor.
+
+          Si habilita esta configuración de directiva, puede configurar el tiempo de espera del trabajo inactivo en un número específico de días.
+
+          Si se deshabilita o no se establece esta configuración de directiva, se usará el valor predeterminado de 90 (días) como tiempo de espera para el trabajo inactivo.</string>
+
+<!-- inactive job timeout -->
+
+<!-- max job download time -->
+      <string id="BITS_MaxDownloadTime">Limitar el tiempo máximo de descarga de trabajo de BITS</string>
+      <string id="BITS_MaxDownloadTimeText">Esta configuración de directiva limita la cantidad de tiempo que el Servicio de transferencia inteligente en segundo plano (BITS) dedicará a la descarga de archivos de un trabajo de BITS.
+
+          El límite de tiempo solo se aplica al tiempo en que BITS está descargando archivos de forma activa, no al tiempo real. Cuando el tiempo de descarga acumulado supera este límite, el trabajo adopta el estado de error.
+
+          De forma predeterminada, BITS usa un tiempo de descarga máximo de 90 días (7.776.000 segundos).
+
+          Si se habilita esta configuración de directiva, se puede establecer el tiempo máximo de descarga de trabajo al número especificado de segundos.
+
+          Si se deshabilita o no se establece esta configuración de directiva, se usará el valor predeterminado de 90 días (7.776.000 segundos).</string>
+
+<!-- max job download time -->
+
+<!-- max bandwidth -->
+      <string id="BITS_MaxBandwidth">Limitar el ancho de banda de red máximo para transferencias BITS en segundo plano</string>
+      <string id="BITS_MaxBandwidth_Help">Esta configuración de directiva limita el ancho de banda que el Servicio de transferencia inteligente en segundo plano (BITS) usa para las transferencias en segundo plano. (Esta configuración de directiva no afecta a las transferencias en primer plano.)
+
+          Se puede especificar un límite para usar durante un intervalo específico de tiempo y en cualquier otro momento. Por ejemplo, limite el uso del ancho de banda de red a 10 Kbps entre las 08:00 y las 17:00, y use el resto del ancho de banda disponible no usado el resto de las horas del día.
+
+          Si habilita esta configuración de directiva, BITS limitará el uso del ancho de banda a los valores especificados. Se puede especificar el límite en kilobits por segundo (Kbps). Si se especifica un valor menor que 2 kilobits, BITS continuará usando 2 kilobits aproximadamente. Para impedir que se produzcan transferencias de BITS, especifique un límite de 0.
+
+          Si se deshabilita o no se establece esta configuración de directiva, BITS usará todo el ancho de banda disponible.
+
+          Nota: el límite se debe basar en la velocidad del vínculo de red, no en las tarjetas de interfaz de red (NIC) de los equipos. Esta configuración de directiva no afecta a transferencias de almacenamiento en caché de sistemas del mismo nivel entre equipos del mismo nivel (afecta a transferencias desde el servidor de origen); la configuración de directiva "Limitar el ancho de banda de red máximo usado para el almacenamiento en caché de sistemas del mismo nivel" debe usarse para este fin.
+
+          Considere la posibilidad de usar esta configuración de directiva para evitar que las transferencias de BITS compitan por ancho de banda cuando el equipo del cliente tiene una tarjeta de red rápida (10 Mbs), pero está conectado a la red a través de un vínculo lento (56 Kbs).</string>
+
+      <string id="BITS_MaxBandwidthTime10AM">10 a.m.</string>
+      <string id="BITS_MaxBandwidthTime10PM">10 p.m.</string>
+      <string id="BITS_MaxBandwidthTime11AM">11 a.m.</string>
+      <string id="BITS_MaxBandwidthTime11PM">11 p.m.</string>
+      <string id="BITS_MaxBandwidthTime12AM">12 a.m.</string>
+      <string id="BITS_MaxBandwidthTime12PM">12 p.m.</string>
+      <string id="BITS_MaxBandwidthTime1AM">1 a.m.</string>
+      <string id="BITS_MaxBandwidthTime1PM">1 p.m.</string>
+      <string id="BITS_MaxBandwidthTime2AM">2 a.m.</string>
+      <string id="BITS_MaxBandwidthTime2PM">2 p.m.</string>
+      <string id="BITS_MaxBandwidthTime3AM">3 a.m.</string>
+      <string id="BITS_MaxBandwidthTime3PM">3 p.m.</string>
+      <string id="BITS_MaxBandwidthTime4AM">4 a.m.</string>
+      <string id="BITS_MaxBandwidthTime4PM">4 p.m.</string>
+      <string id="BITS_MaxBandwidthTime5AM">5 a.m.</string>
+      <string id="BITS_MaxBandwidthTime5PM">5 p.m.</string>
+      <string id="BITS_MaxBandwidthTime6AM">6 a.m.</string>
+      <string id="BITS_MaxBandwidthTime6PM">6 p.m.</string>
+      <string id="BITS_MaxBandwidthTime7AM">7 a.m.</string>
+      <string id="BITS_MaxBandwidthTime7PM">7 p.m.</string>
+      <string id="BITS_MaxBandwidthTime8AM">8 a.m.</string>
+      <string id="BITS_MaxBandwidthTime8PM">8 p.m.</string>
+      <string id="BITS_MaxBandwidthTime9AM">9 a.m.</string>
+      <string id="BITS_MaxBandwidthTime9PM">9 p.m.</string>
+
+      <string id="BITS_MaxBandwidthDaysSunday">Domingo</string>
+      <string id="BITS_MaxBandwidthDaysMonday">Lunes</string>
+      <string id="BITS_MaxBandwidthDaysTuesday">Martes</string>
+      <string id="BITS_MaxBandwidthDaysWednesday">Miércoles</string>
+      <string id="BITS_MaxBandwidthDaysThursday">Jueves</string>
+      <string id="BITS_MaxBandwidthDaysFriday">Viernes</string>
+      <string id="BITS_MaxBandwidthDaysSaturday">Sábado</string>
+
+      <string id="BITS_MaxBandwidthLimitKbps">Kbps</string>
+      <string id="BITS_MaxBandwidthLimitMbps">Mbps</string>
+      <string id="BITS_MaxBandwidthLimitUnlimited">Sin límite</string>
+
+      <string id="BITS_MaxBandwidthV2_Work">Configurar una programación de trabajo para limitar el ancho de banda de red máximo usado para transferencias en segundo plano de BITS</string>
+      <string id="BITS_MaxBandwidthV2_Work_Help">Esta configuración de directiva limita el ancho de banda que el Servicio de transferencia inteligente en segundo plano (BITS) usa para las transferencias en segundo plano durante los días y las horas laborables y no laborables. La programación de trabajo se define con un calendario semanal, que consiste en días de la semana y horas del día. Todas las horas y los días que no se definen en la programación de trabajo se consideran horas no laborables.
+
+          Si habilita esta configuración de directiva, puede configurar una programación para limitar el ancho de banda de red durante las horas laborables y no laborables. Una vez que se ha definido la programación de trabajo, puede establecer límites de uso de ancho de banda para cada uno de los tres niveles de prioridad en segundo plano de BITS: alta, normal y baja.
+
+          Puede especificar un límite para usar trabajos en segundo plano durante una programación de trabajo. Por ejemplo, puede limitar el ancho de banda de red de los trabajos de baja prioridad a 128 Kbps de 8:00 a.m. a 17:00 p.m. de lunes a viernes y, a continuación, establecer el límite de 512 Kbps para las horas no laborables.
+
+          Si se deshabilita o no se establece esta configuración de directiva, BITS usará todo el ancho de banda disponible para las transferencias de trabajos en segundo plano.
+      
+      </string>
+
+      <string id="BITS_MaxBandwidthV2_Maintenance">Configurar una programación de mantenimiento para limitar el ancho de banda de red máximo usado para transferencias en segundo plano de BITS</string>
+      <string id="BITS_MaxBandwidthV2_Maintenance_Help">Esta configuración de directiva limita el ancho de banda que el Servicio de transferencia inteligente en segundo plano (BITS) usa para las transferencias en segundo plano durante los días y las horas de mantenimiento. Las programaciones de mantenimiento limitan más el ancho de banda de red que se utiliza para las transferencias en segundo plano.
+
+          Si se habilita esta configuración de directiva, se puede definir un conjunto límites de ancho de banda de red por separado para el período de mantenimiento.
+
+          Puede especificar un límite para usar trabajos en segundo plano durante una programación de mantenimiento. Por ejemplo, si los trabajos de prioridad normal están limitados actualmente a 256 Kbps en una programación de trabajo, se puede limitar más el ancho de banda de red de los trabajos de prioridad normal a 0 Kbps de 8:00 a.m. a 10:00 a.m. durante una programación de mantenimiento.
+
+          Si se deshabilita o no se establece esta configuración de directiva, se usarán los límites definidos para las programaciones laborables y no laborables.
+
+          Nota: los límites de ancho de banda configurados para el período de mantenimiento sustituyen cualquier límite de trabajo y otras programaciones.
+      
+      </string>
+
+      <!-- max bandwidth -->
+
+
+      <!-- cost transfer policies -->
+      <string id="BITS_SetTransferPolicyOnCostedNetwork">Configurar un comportamiento de descarga predeterminado para los trabajos de BITS en las redes estimadas</string>
+      <string id="BITS_SetTransferPolicyOnCostedNetwork_Help">
+          configurada explícitamente por la aplicación que creó el trabajo de BITS, pero sí se aplica a trabajos que se crean especificando solo una prioridad.
+
+          Por ejemplo, puede especificar que los trabajos en segundo plano, de manera predeterminada, sean solo de transferencia cuando estén en conexiones de red sin estimar, pero que los trabajos en primer plano se ejecuten solo cuando no estén en itinerancia. Los valores que pueden asignarse son:
+          -         Transferir siempre
+          -         Transferir a menos que esté en itinerancia
+          -         Transferir a menos que se apliquen recargos (cuando no esté en itinerancia ni con sobrecapacidad)
+          -         Transferir a menos que esté cerca del límite (cuando no esté en itinerancia ni cerca del límite de capacidad)
+          -         Transferir solo si está sin restricciones
+          -         Personalizado permite especificar una máscara de bits, en la que los bits describen los estados de costo permitidos o no permitidos para esta prioridad: (los bits se describen aquí)
+          0x1 - Se desconoce el costo o la conexión es ilimitada y se considera sin restricciones de costos por uso y sin restricciones de capacidad.
+          0x2 - El uso de esta conexión es sin restricciones hasta cierto límite de datos
+0x4 - El uso de esta conexión es sin restricciones hasta cierto límite de datos y el uso planificado es menor que el 80 por ciento del límite.
+          0x8 - El uso de esta conexión es sin restricciones hasta cierto límite de datos y el uso planificado es menor que el 80 y el 100 por ciento del límite.
+          0x10 - El uso de esta conexión es sin restricciones hasta cierto límite de datos, el cual se ha sobrepasado. Recargo aplicado o desconocido.
+          0x20 - El uso de esta conexión es sin restricciones hasta cierto límite de datos, el cual se ha sobrepasado. No se aplican recargos pero posiblemente se reducen las velocidades.
+          0x40 - La conexión se estima por bytes.
+          0x80 - La conexión está en itinerancia.
+          0x80000000 - Ignorar la congestión.
+
+      </string>
+      <string id="BITS_TransferPolicyAlwaysTransfer">Transferir siempre</string>
+      <string id="BITS_TransferPolicyNotRoamingTransfer">Transferir a menos que esté en itinerancia</string>
+      <string id="BITS_TransferPolicyNoSurcharge">Transferir a menos que se apliquen recargos (cuando no esté en itinerancia ni con sobrecapacidad)</string>
+      <string id="BITS_TransferPolicyStandard">Transferir a menos que esté cerca del límite (cuando no esté en itinerancia ni cerca del límite de capacidad)</string>
+      <string id="BITS_TransferPolicyUnrestricted">Transferir solo si está sin restricciones</string>
+      <string id="BITS_Custom">Personalizado</string>
+      
+      <!-- cost transfer policies -->
+
+      <!-- enable peercaching -->      
+      <string id="BITS_EnablePeercaching">Permitir el almacenamiento en caché de sistemas de mismo nivel de BITS</string>
+      <string id="BITS_EnablePeercachingText">Esta configuración de directiva determina si la característica de almacenamiento en caché de sistemas de mismo nivel del Servicio de transferencia inteligente en segundo plano (BITS) se habilita en un determinado equipo.  De forma predeterminada, los archivos de un trabajo de BITS solo se descargan desde el servidor de origen especificado por el propietario del trabajo.
+
+          Si se habilita el almacenamiento en caché de sistemas de mismo nivel del BITS, BITS almacena en caché los archivos descargados y hace que estén disponibles para otros equipos del mismo nivel. Cuando se transfiere un trabajo descargado, BITS solicita primero los archivos para el trabajo a los equipos del mismo nivel de la misma subred IP. Si ninguno de estos equipos del mismo nivel de la subred tiene los archivos solicitados, BITS los descarga del servidor de origen.
+
+          Si se habilita esta configuración de directiva, BITS descarga archivos desde equipos del mismo nivel, los almacena en caché y responde a las solicitudes de contenido de los equipos del mismo nivel.  Al usar las configuraciones de directiva "No permitir que el equipo actúe como un servidor de almacenamiento en caché de sistemas de mismo nivel de BITS" y "No permitir que el equipo actúe como un cliente de almacenamiento en caché de sistemas de mismo nivel de BITS", es posible controlar la característica de almacenamiento en caché de sistemas del mismo nivel de BITS con mayor detalle. Sin embargo, hay que tener en cuenta que debe habilitarse la configuración de directiva "Permitir el almacenamiento en caché de sistemas de mismo nivel de BITS" para que las otras dos configuraciones de directiva surtan efecto.
+
+          Si deshabilita o no define esta configuración de directiva, se deshabilitará la característica de almacenamiento en caché de sistemas de mismo nivel de BITS, y BITS descargará los archivos directamente del servidor de origen.</string>
+<!-- enable peercaching -->
+
+
+<!-- peercache size limit -->
+      <string id="BITS_MaxCacheSize">Limitar el tamaño de la memoria caché de sistemas de mismo nivel de BITS</string>
+      <string id="BITS_MaxCacheSizeText">Esta configuración de directiva limita el máximo de espacio en disco que se puede usar para la memoria caché de sistemas del mismo nivel de BITS, como un porcentaje del tamaño total del disco de sistema. BITS agregará archivos a la memoria caché de sistemas del mismo nivel y los dejará disponibles para los equipos del mismo nivel hasta que el contenido de la memoria caché alcance el tamaño de caché especificado. De forma predeterminada, BITS usará el 1 por ciento del total del disco del sistema para la memoria caché de sistemas de mismo nivel.
+
+          Si se habilita esta configuración de directiva, se puede escribir el porcentaje de espacio de disco que va a usarse para la memoria caché de sistemas de mismo nivel de BITS. Se puede escribir un valor entre 1 y 80 por ciento.
+
+          Si se deshabilita o no se establece esta configuración de directiva, el tamaño predeterminado para la memoria caché de sistemas de mismo nivel de BITS es el 1 por ciento del tamaño total del disco de sistema.
+
+          Nota: esta configuración de directiva no tiene efecto si la opción "Permitir el almacenamiento en caché de sistemas de mismo nivel de BITS" se deshabilita o no se configura.</string>
+<!-- peercache size limit -->
+      
+
+<!-- max peercaching content age limit-->      
+      <string id="BITS_MaxContentAge">Limitar la antigüedad de los archivos en caché del mismo nivel de BITS</string>
+      <string id="BITS_MaxContentAgeText">Esta configuración de directiva limita la antigüedad máxima de los archivos de la memoria caché de sistemas del mismo nivel del Servicio de transferencia inteligente en segundo plano (BITS). De forma predeterminada, a fin de hacer un uso más eficiente del espacio del disco duro, BITS quita los archivos de la memoria caché de sistemas del mismo nivel a los que no se haya tenido acceso en los últimos 90 días.
+
+          Si se habilita esta configuración de directiva, se puede especificar la antigüedad máxima de los archivos de la memoria caché en días. Se puede escribir un valor entre 1 y 120 días.
+
+          Si se deshabilita o no se establece esta configuración de directiva, los archivos a los que no se haya tenido acceso en los últimos 90 días se quitarán de la memoria caché de sistemas de mismo nivel.
+
+          Nota: esta configuración de directiva no surte efecto si la opción "Permitir el almacenamiento en caché de sistemas de mismo nivel de BITS" se deshabilita o no se configura.</string>
+
+<!-- max peercaching content age limit-->
+      
+<!-- disable peercache client-->
+      <string id="BITS_DisablePeercachingClient">No permitir que el equipo actúe como un cliente de almacenamiento en caché de sistemas de mismo nivel de BITS</string>
+      <string id="BITS_DisablePeercachingClientText">Esta configuración de directiva especifica si el equipo actuará como un cliente de almacenamiento en caché de sistemas de mismo nivel de BITS. De forma predeterminada, cuando se habilita el almacenamiento en caché de sistemas de mismo nivel de BITS, el equipo actúa como un servidor (que ofrece archivos a los equipos del mismo nivel) y como un cliente (que descarga archivos de los equipos del mismo nivel) de almacenamiento en caché de sistemas de mismo nivel.
+
+          Si se habilita esta configuración de directiva, el equipo ya no usará la característica de almacenamiento en caché de sistemas de mismo nivel de BITS para la descarga de archivos; los archivos solo se descargarán desde el servidor original. Sin embargo, el equipo hará que los archivos sigan estando disponibles para otros equipos del mismo nivel.
+
+          Si se deshabilita o no se configura esta configuración de directiva, el equipo intenta descargar trabajos de BITS habilitados desde equipos del mismo nivel antes de acudir al servidor original.
+
+          Nota: esta configuración de directiva no tiene efecto si la opción "Permitir el almacenamiento en caché de sistemas de mismo nivel de BITS" se deshabilita o no se configura.</string>
+<!-- disable peercache client-->
+
+      
+<!-- disable peercache server-->
+      <string id="BITS_DisablePeercachingServer">No permitir que el equipo actúe como un servidor de almacenamiento en caché de sistemas de mismo nivel de BITS</string>
+      <string id="BITS_DisablePeercachingServerText">Esta configuración de directiva especifica si el equipo actuará como un servidor de almacenamiento en caché de sistemas de mismo nivel de BITS. De forma predeterminada, cuando se habilita el almacenamiento en caché de sistemas de mismo nivel de BITS, el equipo actúa como un servidor (que ofrece archivos a los equipos del mismo nivel) y como un cliente (que descarga archivos de los equipos del mismo nivel) de almacenamiento en caché de sistemas de mismo nivel.
+
+          Si se habilita esta configuración de directiva, el equipo no almacenará en caché más archivos descargados ni los ofrecerá a los equipos del mismo nivel. Sin embargo, el equipo seguirá descargando archivos desde los equipos del mismo nivel.
+
+          Si se deshabilita o no se establece esta configuración de directiva, el equipo ofrecerá archivos descargados y en caché a los equipos del mismo nivel.
+
+          Nota: esta configuración no tiene efecto si la opción "Permitir el almacenamiento en caché de sistemas de mismo nivel de BITS" se deshabilita o no se configura.</string>
+<!-- disable peercache server-->
+
+      
+<!-- limit peercache bandwidth-->
+      <string id="BITS_MaxBandwidthServedForPeers">Limitar el ancho de banda de red máximo usado para el almacenamiento en caché de sistemas del mismo nivel</string>
+      <string id="BITS_MaxBandwidthServedForPeersText">Esta configuración de directiva limita el ancho de banda de red que BITS usa para las transferencias de caché de sistemas de mismo nivel (esta configuración no afecta a las transferencias desde el servidor original).
+          De forma predeterminada, para evitar cualquier impacto negativo en un equipo ocasionado por servir a sistemas del mismo nivel, BITS usará hasta el 30 por ciento del ancho de banda de la interfaz de red activa más lenta. Por ejemplo, si un equipo tiene una tarjeta de red de 100 Mbps y un módem de 56 Kbps, y ambos están activos, BITS usará como máximo el 30 por ciento de los 56 Kbps. 
+          Se puede cambiar el comportamiento predeterminado de BITS y especificar un ancho de banda máximo y fijo que BITS usará para el almacenamiento en caché de sistemas de mismo nivel.
+
+          Si se habilita esta configuración de directiva, se puede escribir un valor en bits por segundo (bps) entre 1048576 y 4294967200, para usarlo como el ancho de banda de red máximo para el almacenamiento en caché de sistemas de mismo nivel.
+
+          Si se deshabilita o no se establece esta configuración de directiva, se usará como valor predeterminado el 30 por ciento de la interfaz de red activa más lenta.
+
+          Nota: esta configuración no tiene efecto si la opción "Permitir el almacenamiento en caché de sistemas de mismo nivel de BITS" se deshabilita o no se configura.</string>
+<!-- limit peercache bandwidth-->
+      
+      
+<!-- max jobs per computer -->    
+      <string id="BITS_MaxJobsPerMachine">Limitar el número máximo de trabajos de BITS para este equipo</string>
+      <string id="BITS_MaxJobsPerMachineText">Esta configuración de directiva limita el número de trabajos de BITS que se pueden crear para todos los usuarios del equipo. De forma predeterminada, BITS limita a 300 el número total de trabajos que se pueden crear en el equipo. Se puede usar esta configuración de directiva para aumentar o reducir el número máximo de trabajos de BITS de usuario.
+
+          Si se habilita esta configuración de directiva, BITS limitará el número máximo de trabajos de BITS al número especificado.
+
+          Si se deshabilita o no se establece esta configuración de directiva, BITS usará el límite predeterminado de 300 trabajos.
+
+          Nota: los trabajos de BITS creados por los servicios y la cuenta de administrador local no se cuentan para este límite.</string>
+
+<!-- max jobs per computer -->
+
+<!-- max jobs per user -->
+      <string id="BITS_MaxJobsPerUser">Limitar el número máximo de trabajos de BITS para cada usuario</string>
+      <string id="BITS_MaxJobsPerUserText">Esta configuración de directiva limita el número de trabajos de BITS que puede crear un usuario. De forma predeterminada, BITS limita a 60 el número total de trabajos que puede crear un usuario. Se puede usar esta configuración para aumentar o reducir el número máximo de trabajos de BITS que un usuario puede crear.
+
+          Si se habilita esta configuración de directiva, BITS limitará el número máximo de trabajos de BITS que puede crear un usuario al número especificado.
+
+          Si se deshabilita o no se establece esta configuración de directiva, BITS usará el límite predeterminado de 300 trabajos.
+
+          Nota: este límite debe ser inferior al valor especificado en la configuración de directiva "Número máximo de trabajos de BITS para este equipo", o 300 si no se ha establecido la opción "Número máximo de trabajos de BITS para este equipo". Los trabajos de BITS creados por los servicios y la cuenta de administrador local no se cuentan para este límite.</string>
+
+<!-- max jobs per computer -->
+
+<!-- max files per job -->
+      <string id="BITS_MaxFilesPerJob">Limitar el número máximo de archivos permitidos en un trabajo de BITS</string>
+      <string id="BITS_MaxFilesPerJobText">Esta configuración de directiva limita el número de archivos que puede contener un trabajo de BITS. De forma predeterminada, un trabajo de BITS está limitado a 200 archivos. Se puede usar esta configuración para aumentar o reducir el número máximo de archivos que puede contener un trabajo de BITS.
+
+          Si se habilita esta configuración de directiva, BITS limitará el número máximo de archivos que puede contener un trabajo al número especificado.
+
+          Si se deshabilita o no se establece esta configuración de directiva, BITS usará el valor predeterminado de 200 como número máximo de archivos que puede contener un trabajo.
+
+          Nota: los trabajos de BITS creados por los servicios y la cuenta de administrador local no se cuentan para este límite.</string>
+<!-- max files per job -->
+
+<!-- max ranges per file -->      
+      <string id="BITS_MaxRangesPerFile">Limitar el número máximo de intervalos que se pueden agregar a un archivo de un trabajo de BITS</string>
+      <string id="BITS_MaxRangesPerFileText">Esta configuración de directiva limita el número de intervalos que se pueden agregar a un archivo de un trabajo de BITS. De forma predeterminada, los archivos de un trabajo de BITS están limitados a 500 intervalos por archivo. Se puede usar esta configuración para aumentar o reducir el número máximo de intervalos por archivo.
+
+          Si se habilita esta configuración de directiva, BITS limitará el número máximo de intervalos que se pueden agregar a un archivo al número especificado.
+
+          Si se deshabilita o no se establece esta configuración de directiva, BITS limitará los intervalos a 500 por archivo.
+
+          Nota: los trabajos de BITS creados por los servicios y la cuenta de administrador local no se cuentan para este límite.</string>
+<!-- max ranges per file -->
+
+<!-- disable branch cache-->
+      <string id="BITS_DisableBranchCache">No permitir que el cliente de BITS use Windows BranchCache</string>
+      <string id="BITS_DisableBranchCacheText">Esta configuración afecta a si se permite que el cliente de BITS use Windows BranchCache. Si el componente Windows BranchCache está instalado y habilitado en un equipo, los trabajos de BITS en ese equipo pueden usar Windows BranchCache de forma predeterminada.
+
+          Si habilita esta configuración de directiva, el cliente de BITS no usará Windows BranchCache.
+
+          Si deshabilita o no establece esta configuración de directiva, el cliente de BITS usará Windows BranchCache.
+
+          Nota: esta configuración de directiva no afecta al uso de Windows BranchCache realizado por aplicaciones distintas de BITS. Esta configuración de directiva no se aplica a las transferencias de BITS a través de SMB. Esta configuración no surte efecto si la configuración administrativa del equipo para Windows BranchCache deshabilita su uso por completo.
+      
+      </string>
+<!-- disable branch cache-->
+
+    </stringTable>
+    <presentationTable>
+      <presentation id="BITS_Job_Timeout">
+        <decimalTextBox refId="BITS_Job_Timeout_Time" defaultValue="90">Tiempo de espera de trabajos inactivos (en días):</decimalTextBox>
+      </presentation>
+      <presentation id="BITS_MaxDownloadTime">
+          <decimalTextBox refId="BITS_MaxDownloadSeconds" defaultValue="54000">Tiempo de espera de trabajos activos (en segundos):</decimalTextBox>
+      </presentation>
+      <presentation id="BITS_MaxBandwidth">
+        <decimalTextBox refId="BITS_MaxTransferRateText" defaultValue="10" spinStep="10">Limitar la velocidad de transferencia en segundo plano (Kbps) a:</decimalTextBox>
+        <dropdownList refId="BITS_BandwidthLimitSchedFrom" noSort="true" defaultItem="8">De</dropdownList>
+        <dropdownList refId="BITS_BandwidthLimitSchedTo" noSort="true" defaultItem="17">a</dropdownList>
+        <text>En todas las demás horas</text>
+        <checkBox refId="BITS_UseSystemMaximum" defaultChecked="true">Usar todo el ancho de banda sin usar disponible</checkBox>
+        <text>O</text>
+        <decimalTextBox refId="BITS_MaxTransferRateText_1" defaultValue="20" spinStep="10">Limitar la velocidad de transferencia en segundo plano (Kbps) a:</decimalTextBox>
+      </presentation>
+      <presentation id="BITS_MaxContentAge">
+        <decimalTextBox refId="BITS_MaxContentAgeList" defaultValue="90">Número de días:</decimalTextBox>
+      </presentation>
+      <presentation id="BITS_MaxCacheSize">
+        <decimalTextBox refId="BITS_MaxSize" defaultValue="5">Porcentaje del espacio de disco que se va a usar para la memoria caché de sistemas de mismo nivel de BITS:</decimalTextBox>
+      </presentation>
+      <presentation id="BITS_MaxBandwidthServedForPeers">
+        <decimalTextBox refId="BITS_MaxBandwidthServedForPeersList" defaultValue="1048576">Ancho de banda de red máximo usado para el almacenamiento en caché de sistemas de mismo nivel (bps):</decimalTextBox>
+      </presentation>
+
+      <presentation id="BITS_MaxJobsPerMachine">
+        <decimalTextBox refId="BITS_MaxJobsPerMachineList" defaultValue="300">Número máximo de trabajos de BITS para este equipo:</decimalTextBox>
+      </presentation>
+      <presentation id="BITS_MaxJobsPerUser">
+        <decimalTextBox refId="BITS_MaxJobsPerUserList" defaultValue="60">Número máximo de trabajos de BITS para cada usuario:</decimalTextBox>
+      </presentation>
+      <presentation id="BITS_MaxFilesPerJob">
+        <decimalTextBox refId="BITS_MaxFilesPerJobList" defaultValue="200">Número máximo de archivos permitidos en un trabajo de BITS:</decimalTextBox>
+      </presentation>
+      <presentation id="BITS_MaxRangesPerFile">
+        <decimalTextBox refId="BITS_MaxRangesPerFileList" defaultValue="500">Número máximo de intervalos que se pueden agregar a un archivo de un trabajo de BITS:</decimalTextBox>
+      </presentation>
+
+      <presentation id="BITS_MaxBandwidthV2_Work">
+        <checkBox refId="BITS_IgnoreLimitsOnLan" defaultChecked="false">Omitir límites de ancho de banda si el origen y el destino están en la misma subred.</checkBox>
+        <text>Días laborables</text>
+        <dropdownList refId="BITS_WorkDaysFrom" noSort="true" defaultItem="1">De</dropdownList>
+        <dropdownList refId="BITS_WorkDaysTo" noSort="true" defaultItem="5">a</dropdownList>
+        <text> </text>
+        <text>Horas laborables diarias</text>
+        <dropdownList refId="BITS_WorkHoursFrom" noSort="true" defaultItem="8">De</dropdownList>
+        <dropdownList refId="BITS_WorkHoursTo" noSort="true" defaultItem="17">a</dropdownList>
+        <text> </text>
+        <text>Límites de ancho de banda durante las horas laborables</text>
+        <decimalTextBox refId="BITS_WorkHighPriorityLimit" defaultValue="0">Límite de prioridad alta:</decimalTextBox>
+        <dropdownList refId="BITS_WorkHighPriorityUnit" noSort="true" defaultItem="2">Unidad de prioridad alta:</dropdownList>
+        <decimalTextBox refId="BITS_WorkNormalPriorityLimit" defaultValue="0">Límite de prioridad normal:</decimalTextBox>
+        <dropdownList refId="BITS_WorkNormalPriorityUnit" noSort="true" defaultItem="2">Unidad de prioridad normal:</dropdownList>
+        <decimalTextBox refId="BITS_WorkLowPriorityLimit" defaultValue="0">Límite de prioridad baja:</decimalTextBox>
+        <dropdownList refId="BITS_WorkLowPriorityUnit" noSort="true" defaultItem="2">Unidad de prioridad baja:</dropdownList>
+        <text> </text>
+        <text>Límites de ancho de banda durante las horas no laborables</text>
+        <decimalTextBox refId="BITS_NonWorkHighPriorityLimit" defaultValue="0">Límite de prioridad alta:</decimalTextBox>
+        <dropdownList refId="BITS_NonWorkHighPriorityUnit" noSort="true" defaultItem="2">Unidad de prioridad alta:</dropdownList>
+        <decimalTextBox refId="BITS_NonWorkNormalPriorityLimit" defaultValue="0">Límite de prioridad normal:</decimalTextBox>
+        <dropdownList refId="BITS_NonWorkNormalPriorityUnit" noSort="true" defaultItem="2">Unidad de prioridad normal:</dropdownList>
+        <decimalTextBox refId="BITS_NonWorkLowPriorityLimit" defaultValue="0">Límite de prioridad baja:</decimalTextBox>
+        <dropdownList refId="BITS_NonWorkLowPriorityUnit" noSort="true" defaultItem="2">Unidad de prioridad baja:</dropdownList>
+      </presentation>
+
+      <presentation id="BITS_SetTransferPolicyOnCostedNetwork">
+        <text>Configurar un comportamiento de transferencia predeterminado para los trabajos de BITS en las redes estimadas</text>
+        <dropdownList refId="BITS_TransferPolicyForegroundPriorityValue" noSort="true" defaultItem="0">Primer plano  </dropdownList>
+        <decimalTextBox refId="BITS_TransferPolicyForegroundPriorityValueCustom" defaultValue="255">Primer plano (personalizado)</decimalTextBox>
+        <dropdownList refId="BITS_TransferPolicyHighPriorityValue" noSort="true" defaultItem="0">Alta  </dropdownList>
+        <decimalTextBox refId="BITS_TransferPolicyHighPriorityValueCustom" defaultValue="255">Alta (personalizada)</decimalTextBox>
+        <dropdownList refId="BITS_TransferPolicyNormalPriorityValue" noSort="true" defaultItem="0">Normal  </dropdownList>
+        <decimalTextBox refId="BITS_TransferPolicyNormalPriorityValueCustom" defaultValue="255">Normal (personalizada)</decimalTextBox>
+        <dropdownList refId="BITS_TransferPolicyLowPriorityValue" noSort="true" defaultItem="0">Baja  </dropdownList>
+        <decimalTextBox refId="BITS_TransferPolicyLowPriorityValueCustom" defaultValue="255">Baja (personalizada)</decimalTextBox>
+      </presentation>
+      
+      <presentation id="BITS_MaxBandwidthV2_Maintenance">
+        <text>Días de mantenimiento</text>
+        <dropdownList refId="BITS_MaintenanceDaysFrom" noSort="true" defaultItem="1">De</dropdownList>
+        <dropdownList refId="BITS_MaintenanceDaysTo" noSort="true" defaultItem="5">a</dropdownList>
+        <text> </text>
+        <text>Horas de mantenimiento diario</text>
+        <dropdownList refId="BITS_MaintenanceHoursFrom" noSort="true" defaultItem="20">De</dropdownList>
+        <dropdownList refId="BITS_MaintenanceHoursTo" noSort="true" defaultItem="22">a</dropdownList>
+        <text> </text>
+        <text>Límites de ancho de banda durante las horas de mantenimiento</text>
+        <decimalTextBox refId="BITS_MaintenanceHighPriorityLimit" defaultValue="0">Límite de prioridad alta:</decimalTextBox>
+        <dropdownList refId="BITS_MaintenanceHighPriorityUnit" noSort="true" defaultItem="2">Unidad de prioridad alta:</dropdownList>
+        <decimalTextBox refId="BITS_MaintenanceNormalPriorityLimit" defaultValue="0">Límite de prioridad normal:</decimalTextBox>
+        <dropdownList refId="BITS_MaintenanceNormalPriorityUnit" noSort="true" defaultItem="2">Unidad de prioridad normal:</dropdownList>
+        <decimalTextBox refId="BITS_MaintenanceLowPriorityLimit" defaultValue="0">Límite de prioridad baja:</decimalTextBox>
+        <dropdownList refId="BITS_MaintenanceLowPriorityUnit" noSort="true" defaultItem="2">Unidad de prioridad baja:</dropdownList>
+      </presentation>
+
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

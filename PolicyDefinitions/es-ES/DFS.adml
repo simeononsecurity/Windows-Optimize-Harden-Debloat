@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="DFSDiscoverDC">Configura con qué frecuencia un cliente DFS descubre los controladores de dominio</string>
+      <string id="DFSDiscoverDC_Help">Esta configuración de directiva le permite configurar la frecuencia con la que un cliente DFS (Sistema de archivos distribuido) intenta descubrir los controladores de dominio de una red. De forma predeterminada, un cliente DFS intenta descubrir los controladores de dominio cada 15 minutos.
+
+Si habilita esta configuración de directiva, puede configurar la frecuencia con la que un cliente DFS intenta descubrir los controladores de dominio. Este valor se especifica en minutos.
+
+Si deshabilita o no establece esta configuración de directiva, se aplica el valor predeterminado de 15 minutos.
+
+Nota: el valor mínimo que puede seleccionar es 15 minutos. Si intenta establecer esta opción en un valor inferior a 15 minutos, se aplicará el valor predeterminado de 15 minutos.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DFSDiscoverDC">
+        <decimalTextBox refId="DFSDiscoverDialog" defaultValue="15">Tiempo en minutos:</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

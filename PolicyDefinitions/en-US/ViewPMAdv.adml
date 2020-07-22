@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           revision="1.0"
+                           schemaVersion="1.0"
+                           xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+  <!-- Copyright 2005-2016 VMware, Inc.  All rights reserved. -->
+
+  <displayName >Persona Management</displayName>
+  <description >Persona Management Advance Policy</description>
+  <resources >
+    <stringTable ><!--Storage for String Definitions-->
+      <string id="String_Category_Troubleshooting" >Troubleshooting</string>
+      <string id="String_Policy_Logging_flags" >Logging flags</string>
+      <string id="String_Explain_Logging_flags" >Specifies the type of log messages that are generated. By default, log messages are set to information level.</string>
+      <string id="String_Policy_Debug_flags" >Debug flags</string>
+      <string id="String_Explain_Debug_flags" >Specifies the type of debug messages that are generated. Debug messages are handled the same as log messages. By default, debug messages are turned off.</string>
+      <string id="String_Policy_Repository_connection" >Repository connection monitor</string>
+      <string id="String_Explain_Repository_connection" >When enabled, View Persona Management will detect when the connection to the persona repository has been lost or become too slow. Once a fast connection is re-established all local changes are uploaded and synchronized with the user's remote persona. The frequency at which the network connection is tested and the maximum network latency can be tuned for optimum performance. By default, the test interval is 120 seconds and the maximum network latency is 40 ms.</string>
+      <string id="String_Policy_Download_Timeout" >Repository file download timeout</string>
+      <string id="String_Explain_Download_Timeout" >Specifies the time (in milliseconds) before downloading a file from the remote repository times out. By default, the timeout is 1,800 seconds.</string>
+      <string id="String_Policy_Sync_onlogon" >Synchronize profile at logon</string>
+      <string id="String_Explain_Sync_onlogon" >When enabled, files in the user's local profile are synchronized with the roaming profile at logon. By default, the user's profile is synchronized at logon.</string>
+      <string id="String_Policy_File_creation_delay" >File creation delay</string>
+      <string id="String_Explain_File_creation_delay" >Indicates the delay (in milliseconds) between logon and the creation of the offline files in the user's profile. By default, the delay is 10,000 milliseconds.</string>
+      <string id="String_Policy_Create_retry_delay" >Create retry delay</string>
+      <string id="String_Explain_Create_retry_delay" >Indicates the delay (in milliseconds) between a file creation failure and retrying to create the file again. By default, the delay is 500 milliseconds.</string>
+      <string id="String_Policy_Profile_reconcile_delay" >Profile reconcile delay</string>
+      <string id="String_Explain_Profile_reconcile_delay" >Indicates the delay (in seconds) between logon and starting to reconcile the user's profile. By default, the delay is 10 seconds.</string>
+      <string id="String_Policy_Remove_temporary" >Remove temporary files at logoff</string>
+      <string id="String_Explain_Remove_temporary" >When enabled, files with a .tmp extension will be removed from the user's profile at logoff. View Persona Management uses .tmp files for various file synchronization between the local and remote profile. By default, temporary files are removed.</string>
+      <string id="String_Policy_Disable_create_retry" >Disable create file retry</string>
+      <string id="String_Explain_Disable_create_retry" >When enabled, a retry attempt is not made after a file creation failure. By default, a retry attempt will be made.</string>
+      <string id="String_Policy_Disable_desktop" >Disable desktop refresh</string>
+      <string id="String_Explain_Disable_desktop" >When enabled, the user's desktop icons are not refreshed after retrieving corresponding .exe files. Enabling this flag may cause icons on desktop shortcuts to not appear if the shortcut points to an executable within the profile, but will prevent extraneous desktop refreshes. By default, the desktop icons are refreshed.</string>
+      <string id="String_Policy_Disable_user_environment" >Disable user environment errors at logon</string>
+      <string id="String_Explain_Disable_user_environment" >When enabled, system user environment error messages are disabled during logong. By default, user environment errors are disabled.</string>
+      <string id="String_Policy_Driver_Disable" >Driver Disable Flags</string>
+      <string id="String_Explain_Driver_Disable" >Disable flags disable certain functionality in Persona.</string>
+    </stringTable>
+
+    <presentationTable ><!--Storage for Presentation Definitions-->
+      <presentation id="Present_Logging_flags" >
+        <checkBox refId="Present_CheckBox_Log_Error" >Log error messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Info" >Log information messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Debug" >Log debug messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Alt_Path" >Log alt path messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Impersonation" >Log impersonation messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Only_Driver" >Log only driver messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Offline" >Log offline files messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Status_Log" >Log status log messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Fetch" >Log fetch messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Performance" >Log performance messages.</checkBox>
+      </presentation>
+      <presentation id="Present_Debug_flags" >
+        <checkBox refId="Present_CheckBox_Debug_Error" >Debug error messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_IRQL" >Debug IRQL messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Port" >Debug port messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Process" >Debug process messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Registry" >Debug registry messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Info" >Debug information messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Directory" >Debug directory messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Stream" >Debug stream context messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Create" >Debug create messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Offline_File_Table" >Debug offline file table messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_User_Table" >Debug user table messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Alt_Path" >Debug alt path messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Registry_Filter" >Debug registry filter messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Oplock" >Debug oplock messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Impersonation" >Debug impersonation messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Name_Provider" >Debug name provider messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Lock_Control" >Debug lock control messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Set_Info" >Debug set info messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Offline" >Debug offline files messages.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Status_Log" >Debug status log messages.</checkBox>
+      </presentation>
+      <presentation id="Present_Repository_connection" >
+        <text >Monitor the connection to the persona repository.</text>
+        <decimalTextBox refId="Present_Numeric_Repository_connection_Interval" defaultValue="120" >Connection test interval (sec):</decimalTextBox>
+        <decimalTextBox refId="Present_Numeric_Repository_connection_Max_Latency" defaultValue="40" >Maximum network latency for uploading changes (ms):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Download_Timeout" >
+        <decimalTextBox refId="Present_Numeric_Download_Timeout" defaultValue="1800" >Timeout for downloading remote user files (ms):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Sync_onlogon" >
+        <text >Synchronize local files to remote profile during logon.</text>
+      </presentation>
+      <presentation id="Present_File_creation_delay" >
+        <decimalTextBox refId="Present_Numeric_File_creation_delay" defaultValue="10000" >Delay between logon and creation of user files (ms):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Create_retry_delay" >
+        <decimalTextBox refId="Present_Numeric_Create_retry_delay" defaultValue="500" >Delay before retrying to create user files (ms):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Profile_reconcile_delay" >
+        <decimalTextBox refId="Present_Numeric_Profile_reconcile_delay" defaultValue="10" >Delay between logon and reconcile start (sec):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Remove_temporary" >
+        <text >Remove .tmp files from remote profile when users log off.</text>
+      </presentation>
+      <presentation id="Present_Disable_create_retry" >
+        <text >Don't retry if file create failes.</text>
+      </presentation>
+      <presentation id="Present_Disable_desktop" >
+        <text >Don't refresh desktop icons after retrieving EXE files from profile.</text>
+      </presentation>
+      <presentation id="Present_Disable_user_environment" >
+        <text >Disable userenv profile errors during logon.</text>
+      </presentation>
+      <presentation id="Present_Driver_Disable" >
+        <checkBox refId="Present_CheckBox_Driver_Disable" >Configure driver and service log levels independently</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="NC_AddRemoveComponents">Prohibir la adición y eliminación de componentes de una LAN o una conexión de acceso remoto</string>
+      <string id="NC_AddRemoveComponents_Help">Determina si los administradores pueden agregar o quitar componentes de red para una LAN o conexión de acceso remoto. Esta opción no afecta a los usuarios que no son administradores.
+
+Si habilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), los botones Instalar y Desinstalar para los componentes de conexiones estarán deshabilitados y los administradores no tendrán acceso a los componentes de red en el Asistente para componentes de Windows.
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, los botones Instalar y Desinstalar para componentes de conexiones en la carpeta Conexiones de red estarán habilitados. Además, los administradores tendrán acceso a los componentes de red en el Asistente para componentes de Windows.
+
+El botón Instalar abre los cuadros de diálogo que se usan para agregar componentes de red. Al hacer clic en el botón Desinstalar se quita al componente seleccionado de la lista de componentes que se encuentra encima del botón.
+
+Los botones Instalar y Desinstalar aparecen en el cuadro de diálogo de propiedades de las conexiones. Estos botones se encuentran en la pestaña General para las conexiones LAN y en la pestaña Red para las conexiones de acceso remoto.
+
+Nota: cuando las opciones "Prohibir el acceso a las propiedades de una conexión LAN", "Capacidad para cambiar las propiedades de una conexión de acceso remoto para todos los usuarios" o "Prohibir el cambio de propiedades de una conexión de acceso remoto privada" estén configuradas para denegar el acceso al cuadro de diálogo de propiedades de la conexión, los botones Instalar y Desinstalar estarán bloqueados.
+
+Nota: los usuarios que no sean administradores no tienen permiso para agregar o quitar componentes de conexión independientemente de esta opción.</string>
+      <string id="NC_AdvancedSettings">Prohibir el acceso al elemento Configuración avanzada en el menú Opciones avanzadas</string>
+      <string id="NC_AdvancedSettings_Help">Determina si el elemento Configuración avanzada del menú Opciones avanzadas de Conexiones de red está habilitado para los administradores.
+
+El elemento Configuración avanzada permite a los usuarios ver y cambiar enlaces y ver y cambiar el orden en el que el equipo tiene acceso a las conexiones, proveedores de red y proveedores de impresión.
+
+Si habilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), el elemento Configuración avanzada estará deshabilitado para los administradores.
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, el elemento Configuración avanzada estará habilitado para los administradores.
+
+Nota: los usuarios que no sean administradores no tienen permiso para tener acceso al cuadro de diálogo Configuración avanzada independientemente de esta opción.</string>
+      <string id="NC_AllowAdvancedTCPIPConfig">Prohibir la configuración TCP/IP avanzada</string>
+      <string id="NC_AllowAdvancedTCPIPConfig_Help">Determina si los usuarios pueden establecer la configuración avanzada de TCP/IP.
+
+Si habilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), el botón Opciones avanzadas en el cuadro de diálogo Propiedades del Protocolo Internet (TCP/IP) estará deshabilitado para todos los usuarios (incluidos los administradores). Como resultado, los usuarios no podrán abrir la página de propiedades de Configuración avanzada de TCP/IP y modificar la configuración IP, como la información de servidor WINS y DNS.
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción, el botón Opciones avanzadas estará habilitado y todos los usuarios podrán abrir el cuadro de diálogo Configuración avanzada de TCP/IP.
+
+Nota: esta configuración se reemplaza por configuraciones que prohíben el acceso a las propiedades de las conexiones o de los componentes de las conexiones. Cuando se establecen estas directivas para denegar el acceso al cuadro de diálogo de propiedades de conexión o al botón Propiedades para los componentes de conexión, los usuarios no tendrán acceso al botón Opciones avanzadas de la configuración TCP/IP.
+
+Nota: los usuarios que no sean administradores (excluidos los Operadores de configuración de red) no tienen permiso de acceso a la configuración avanzada de TCP/IP para una conexión LAN independientemente de esta opción.
+
+Sugerencia: para abrir el cuadro de diálogo de Configuración avanzada de TCP/IP, en la carpeta conexiones de red, haga clic con el botón secundario del mouse en un icono de conexión y haga clic en Propiedades. Para conexiones de acceso remoto, haga clic en la pestaña Funciones de red.  En el cuadro "Esta conexión usa los componentes seleccionados", haga clic en Protocolo Internet (TCP/IP), haga clic en el botón Propiedades y luego en el botón Opciones avanzadas.
+
+Nota: cambiar esta opción de Habilitada a No configurada no habilita el botón Opciones avanzadas hasta que el usuario cierra la sesión.</string>
+      <string id="NC_AllowNetBridge_NLA">Prohibir la instalación y configuración de puentes de red en su red de dominio DNS</string>
+      <string id="NC_AllowNetBridge_NLA_Help">Determina si un usuario puede instalar y configurar el Puente de red.
+
+Importante: esta opción reconoce la ubicación. Solo se aplicará cuando un equipo esté conectado a la misma red de dominio DNS a la que estaba conectado cuando se actualizó la configuración en ese equipo. Si un equipo está conectado a una red de dominio DNS distinta a la que estaba conectado cuando se actualizó la opción, dicha opción no se aplicará.
+
+El Puente de red permite a los usuarios crear un puente MAC de capa 2, lo que permite conectar dos o más dos o más segmentos de red. Esta conexión aparece en la carpeta Conexiones de red.
+
+Si deshabilita esta opción o no la configura, el usuario podrá crear y modificar la configuración de un Puente de red. Habilitar esta opción no quita un puente de red existente en el equipo del usuario.</string>
+      <string id="NC_ChangeBindState">Prohibir la habilitación o deshabilitación de componentes de una conexión LAN</string>
+      <string id="NC_ChangeBindState_Help">Determina si los administradores pueden habilitar y deshabilitar los componentes usados por las conexiones LAN.
+
+Si habilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), las casillas para habilitar y deshabilitar componentes estarán deshabilitadas. Como resultado, los administradores no podrán habilitar o deshabilitar los componentes que usa la conexión.
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, el cuadro de diálogo Propiedades de las conexiones incluirán una casilla junto al nombre de cada componente que use la conexión. Al activar la casilla, se habilitará el componente y, al desactivarla, se deshabilitará el componente.
+
+Nota: cuando se habilite la opción "Prohibir el acceso a las propiedades de una conexión LAN", los usuarios no podrán tener acceso a las casillas para habilitar y deshabilitar los componentes de una conexión LAN.
+
+Nota: los usuarios que no sean administradores no tienen acceso para habilitar o deshabilitar los componentes de una conexión LAN independientemente de esta opción.</string>
+      <string id="NC_DeleteAllUserConnection">Capacidad para eliminar todas las conexiones de acceso remoto de usuarios</string>
+      <string id="NC_DeleteAllUserConnection_Help">Determina si los usuarios pueden eliminar las conexiones de acceso remoto para todos los usuarios.
+
+Para crear una conexión de acceso remoto para todos los usuarios, en la página Disponibilidad de conexión del Asistente para nueva conexión, haga clic en la opción "Para todos los usuarios".
+
+Si habilita esta opción, todos los usuarios podrán eliminar conexiones de acceso remoto compartidas. Además, si su sistema de archivos es NTFS, los usuarios necesitarán acceso de escritura en Documents and Settings\All Users\Datos de programa\Microsoft\Network\Connections\Pbk para eliminar una conexión de acceso remoto compartida.
+
+Si deshabilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), los usuarios (incluidos los administradores) no podrán eliminar las conexiones de acceso remoto para todos los usuarios. (De forma predeterminada, los usuarios seguirán pudiendo eliminar sus conexiones privadas, pero puede cambiar la configuración predeterminada usando la configuración "Prohibir la eliminación de conexiones de acceso remoto").
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si no configura esta opción, solo los Administradores y Operadores de configuración de red podrán eliminar las conexiones de acceso remoto para todos los usuarios.
+
+Importante: cuando la configuración "Prohibir la eliminación de conexiones de acceso remoto" está habilitada tendrá preferencia sobre esta opción. Los usuarios (incluidos los administradores) no podrán eliminar ninguna conexión de acceso remoto y se ignorará esta opción.
+
+Nota: las conexiones LAN se crean y eliminan automáticamente cuando se instala o quita un adaptador de LAN. No se puede usar la carpeta Conexiones de red para crear o eliminar una conexión LAN.
+
+Nota: esta opción no impide que los usuarios usen otros programas como Internet Explorer para eludir esta configuración.</string>
+      <string id="NC_DeleteConnection">Prohibir la eliminación de conexiones de acceso remoto</string>
+      <string id="NC_DeleteConnection_Help">Determina si los usuarios pueden eliminar conexiones de acceso remoto.
+
+Si habilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), los usuarios (incluidos los administradores) no podrán eliminar ninguna conexión de acceso remoto. Esta opción también deshabilita la opción Eliminar del menú contextual para una conexión de acceso remoto y en el menú Archivo en la carpeta Conexiones de red.
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, todos los usuarios podrán eliminar sus conexiones de acceso remoto privadas. Las conexiones privadas son aquellas que están disponibles solo para un usuario. (De forma predeterminada, solo los Administradores y Operadores de configuración de red pueden eliminar conexiones disponibles para todos los usuarios, pero puede cambiar la configuración predeterminada con la opción "Capacidad para eliminar todas las conexiones de acceso remoto de usuarios").
+
+Importante: cuando esta opción está habilitada tiene preferencia sobre la opción "Capacidad para eliminar todas las conexiones de acceso remoto de usuarios". Los usuarios no podrán eliminar ninguna conexión de acceso remoto y la configuración "Capacidad para eliminar todas las conexiones de acceso remoto de usuarios" se omitirá.
+
+Nota: las conexiones LAN se crean y eliminan automáticamente cuando se instala o quita un adaptador de LAN. No se puede usar la carpeta Conexiones de red para crear o eliminar una conexión LAN.
+
+Nota: esta opción no impide que los usuarios usen otros programas como Internet Explorer para eludir esta configuración.</string>
+      <string id="NC_DialupPrefs">Prohibir el acceso al elemento Preferencias de acceso remoto en el menú Opciones avanzadas</string>
+      <string id="NC_DialupPrefs_Help">Determina si el elemento Preferencias de acceso remoto del menú Opciones avanzadas en la carpeta Conexiones de red está habilitado.
+
+El elemento Preferencias de acceso remoto permite a los usuarios crear y cambiar conexiones antes de iniciar la sesión y configurar las características de marcado automático y devolución de llamada.
+
+Si habilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), el elemento Preferencias de acceso remoto estará deshabilitado para todos los usuarios (incluidos los administradores).
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, el elemento Preferencias de acceso remoto estará habilitado para todos los usuarios.</string>
+      <string id="NC_EnableAdminProhibits">Habilitar la configuración de conexiones de red de Windows 2000 para administradores</string>
+      <string id="NC_EnableAdminProhibits_Help">Determina si las opciones que existían en la familia Windows 2000 Server se aplicarán a los administradores.
+
+El conjunto de opciones de grupo de conexiones de red que existía en Windows 2000 Professional también existe en Windows XP Professional. En Windows 2000 Professional, todas estas opciones tenían la capacidad de prohibir a los administradores el uso de ciertas características.
+
+De forma predeterminada, las opciones de grupo de conexiones de red en Windows XP Professional no tienen la capacidad de prohibir a los administradores el uso de esas características.
+
+Si habilita esta opción, las opciones de Windows XP que existían en Windows 2000 tendrán la capacidad de prohibir a los administradores el uso de ciertas características. Estas configuraciones son "Capacidad para cambiar de nombre a las conexiones LAN o conexiones de acceso remoto disponibles para todos los usuarios", "Prohibir el acceso a las propiedades de componentes de una conexión LAN", "Prohibir el acceso a propiedades de componentes de una conexión de acceso remoto", "Capacidad para tener acceso a la configuración avanzada de TCP/IP", "Prohibir el acceso al elemento Configuración avanzada en el menú Opciones avanzadas", "Prohibir la adición y eliminación de componentes de una LAN o una conexión de acceso remoto", "Prohibir el acceso a las propiedades de una conexión LAN", "Prohibir la habilitación o deshabilitación de componentes de una conexión LAN", "Capacidad para cambiar las propiedades de una conexión de acceso remoto para todos los usuarios", "Prohibir el cambio de propiedades de una conexión de acceso remoto privada", "Prohibir la eliminación de conexiones de acceso remoto", "Capacidad para eliminar todas las conexiones de acceso remoto de usuarios", "Prohibir la conexión y desconexión de una conexión de acceso remoto", "Capacidad para habilitar o deshabilitar una conexión LAN", "Prohibir el acceso al Asistente para nueva conexión", "Prohibir el cambio de nombre de conexiones de acceso remoto privadas", "Prohibir el acceso al elemento Preferencias de acceso remoto en el menú Opciones avanzadas" y "Prohibir que se vea el estado de una conexión activa". Cuando se habilita esta opción, las configuraciones que existen en Windows 2000 Professional y Windows XP Professional tendrán el mismo comportamiento para los administradores.
+
+Si deshabilita esta opción o no la configura, las opciones de Windows XP que existían en Windows 2000 no se aplicarán a los administradores.
+
+Nota: esta opción está pensada para usarse en una situación en la que el objeto de directiva de grupo (GPO) al que se están aplicando estas opciones contiene equipos con Windows 2000 Professional y Windows XP Professional, y se requiere un comportamiento de directivas de conexiones de red idéntico entre todos los equipos con Windows 2000 Professional y Windows XP Professional.</string>
+      <string id="NC_IpStateChecking">Desactivar notificaciones cuando una conexión tenga conectividad limitada o ninguna</string>
+      <string id="NC_IpStateChecking_Help">Esta configuración de directiva le permite administrar si se muestra alguna notificación al usuario cuando una conexión configurada con DHCP no pueda recuperar una dirección IP de un servidor DHCP. A menudo esto se representa por la asignación de una dirección IP privada automática (por ejemplo, una dirección IP en el intervalo 169.254.*.*). Esto indica que un servidor DHCP no se pudo establecer contacto o que se estableció contacto con un servidor DHCP pero éste no pudo responder a la petición con una dirección IP válida. De manera predeterminada, se muestra una notificación que proporciona información al usuario acerca de cómo se puede resolver el problema.
+
+Si habilita esta configuración de directiva, no se informará al usuario de esta condición como un error.
+
+Si deshabilita esta configuración de directiva o no la establece, se enviará una notificación al usuario cuando exista una conexión configurada con DHCP sin dirección IP asignada, proporcionándole información acerca de cómo se puede resolver el problema.</string>
+      <string id="NC_LanChangeProperties">Prohibir el acceso a las propiedades de componentes de una conexión LAN</string>
+      <string id="NC_LanChangeProperties_Help">Determina si los Administradores y los Operadores de configuración de red pueden cambiar las propiedades de los componentes usados por la conexión LAN.
+
+Esta opción determina si el botón Propiedades de los componentes de una conexión LAN está habilitado.
+
+Si habilita esta opción (y habilita la opción "Habilitar configuración de conexiones de red para Administradores"), el botón Propiedades está deshabilitado para los Administradores. Los Operadores de configuración de red tienen prohibido el acceso a los componentes de conexión independientemente de la opción "Habilitar configuración de conexiones de red para Administradores".
+
+Importante: si "Habilitar la configuración de conexión de red para Administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, el botón Propiedades se habilitará para los administradores y los Operadores de configuración de red.
+
+El cuadro de diálogo Propiedades de conexión de área local incluye una lista de los componentes de red que la conexión usa. Para ver o cambiar las propiedades del componente, haga clic en el nombre del componente y luego haga clic en el botón Propiedades que se encuentra debajo de la lista de componentes.
+
+Nota: no todos los componentes de red tienen propiedades configurables. Para componentes que no se pueden configurar, el botón Propiedades está siempre deshabilitado.
+
+Nota: cuando la opción "Prohibir el acceso a las propiedades de una conexión LAN" está habilitada, los usuarios tienen el acceso bloqueado al botón Propiedades de los componentes de conexión LAN.
+
+Nota: los Operadores de conexión de red solo tienen permisos para cambiar las propiedades TCP/IP. Las propiedades para todos los demás componentes no estarán disponibles para estos usuarios.
+
+Nota: los no administradores ya tienen prohibido el acceso a las propiedades de los componentes para una conexión LAN independientemente de esta opción.</string>
+      <string id="NC_LanConnect">Capacidad para habilitar o deshabilitar una conexión LAN</string>
+      <string id="NC_LanConnect_Help">Determina si los usuarios pueden habilitar o deshabilitar las conexiones LAN.
+
+Si habilita esta opción, las opciones Habilitar o Deshabilitar para las conexiones LAN estarán disponibles para los usuarios (incluidos los que no sean administradores). Los usuarios pueden habilitar o deshabilitar una conexión LAN haciendo doble clic en el icono que representa la conexión, haciendo clic en él con el botón secundario del mouse o usando el menú Archivo.
+
+Si deshabilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), hacer doble clic en el icono no tendrá efecto y los elementos de menú Habilitar y Deshabilitar estarán deshabilitados para todos los usuarios (incluidos los administradores).
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si no configura esta opción, solo los Administradores y Operadores de configuración de red podrán habilitar y deshabilitar las conexiones LAN.
+
+Nota: cuando esta configuración esté deshabilitada los administradores seguirán pudiendo habilitar o deshabilitar conexiones LAN desde el Administrador de dispositivos.</string>
+      <string id="NC_LanProperties">Prohibir el acceso a las propiedades de una conexión LAN</string>
+      <string id="NC_LanProperties_Help">Determina si los usuarios pueden cambiar las propiedades de una conexión LAN.
+
+Esta opción determina si el elemento Propiedades del menú está habilitado y, por lo tanto, si el cuadro de diálogo Propiedades de conexión de área local está disponible para los usuarios.
+
+Si habilita esta opción (y habilita la configuración "Habilitar la configuración de conexión de red para administradores"), los elementos del menú Propiedades estarán deshabilitados para todos los usuarios, y ningún usuario podrá abrir el cuadro de diálogo Propiedades de conexión de área local.
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, el elemento Propiedades del menú aparecerá cuando los usuarios hagan clic con el botón secundario del mouse en el icono de una conexión LAN. Además, cuando los usuarios seleccionen la conexión, Propiedades estará habilitado en el menú Archivo.
+
+Nota: esta opción tiene prioridad sobre las opciones que manipulan la disponibilidad de características dentro del cuadro de diálogo Propiedades de conexiones de área local. Si se habilita esta opción, no habrá nada disponible para los usuarios en el cuadro de diálogo de propiedades de una conexión LAN.
+
+Nota: los usuarios que no sean administradores tienen acceso para ver el cuadro de diálogo de propiedades de una conexión pero no para hacer cambios independientemente de esta opción.</string>
+      <string id="NC_NewConnectionWizard">Prohibir el acceso al Asistente para nueva conexión</string>
+      <string id="NC_NewConnectionWizard_Help">Determina si los usuarios pueden usar el Asistente para nueva conexión para crear conexiones de red nuevas.
+
+Si habilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), el icono Realizar nueva conexión no aparecerá en el menú Inicio en la carpeta Conexiones de red. Como resultado, los usuarios (incluidos los administradores) no podrán iniciar el Asistente para nueva conexión.
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, el icono Realizar nueva conexión aparecerá en el menú Inicio y en la carpeta Conexiones de red para todos los usuarios. Al hacer clic en el icono Realizar nueva conexión se iniciará el Asistente para nueva conexión.
+
+Nota: cambiar esta opción de Habilitada a No configurada no restablece el icono Realizar nueva conexión hasta que el usuario cierra la sesión y la vuelve a abrir. Cuando se aplican otros cambios a esta opción, el icono no aparece o desaparece de la carpeta Conexiones de red hasta que se actualiza la carpeta.
+
+Nota: esta opción no impide que los usuarios usen otros programas como Internet Explorer para eludir esta configuración.</string>
+      <string id="NC_PersonalFirewallConfig">Prohibir el uso del Firewall de conexión a Internet en su red de dominio DNS</string>
+      <string id="NC_PersonalFirewallConfig_Help">Prohíbe el uso del Firewall de conexión a Internet en su red de dominio DNS.
+
+Determina si los usuarios pueden habilitar la característica Firewall de conexión a Internet en una conexión y si el servicio Firewall de conexión a Internet puede ejecutarse en un equipo.
+
+Importante: esta opción reconoce la ubicación. Solo se aplicará cuando un equipo esté conectado a la misma red de dominio DNS a la que estaba conectado cuando se actualizó la configuración en ese equipo. Si un equipo está conectado a una red de dominio DNS distinta a la que estaba conectado cuando se actualizó la opción, dicha opción no se aplicará.
+
+Firewall de conexión a Internet es un filtro de paquetes para usuarios domésticos y de oficinas pequeñas diseñado para protegerlos de amenazas de seguridad en Internet.
+
+Si habilita esta opción, los usuarios (incluidos los administradores) no podrán habilitar ni configurar el Firewall de conexión a Internet, y éste no se podrá ejecutar en el equipo. La opción para habilitar el Firewall de conexión a Internet a través de la pestaña Opciones avanzadas, se quitará. Adicionalmente, el Firewall de conexión a Internet no estará habilitado para conexiones de acceso remoto creadas con el Asistente para conexión nueva. Se deshabilitará el Asistente para configuración de red.
+
+Nota: si habilita la configuración de directiva "Firewall de Windows: proteger todas las conexiones de red", la configuración de directiva "Prohibir el uso del Firewall de conexión a Internet en su red de dominio DNS" no tendrá efecto en los equipos que ejecuten el Firewall de Windows, el cual reemplaza al Firewall de conexión a Internet cuando se instala Windows XP Service Pack 2.
+
+Si deshabilita esta opción o no la configura, el Firewall de conexión a Internet estará deshabilitado cuando se cree una conexión LAN o VPN, pero los usuarios podrán usar la pestaña Opciones avanzadas en las propiedades de conexión para habilitarlo. El Firewall de conexión a Internet está habilitado de forma predeterminada en la conexión para la que está habilitada la Conexión compartida a Internet. Adicionalmente, las conexiones de acceso remoto creadas a través del Asistente para conexión nueva tendrán habilitado el Firewall de conexión a Internet.</string>
+      <string id="NC_RasAllUserProperties">Capacidad para cambiar las propiedades de una conexión de acceso remoto para todos los usuarios</string>
+      <string id="NC_RasAllUserProperties_Help">Determina si un usuario puede ver y cambiar las propiedades de conexiones de acceso remoto que están disponibles para todos los usuarios del equipo.
+
+Para crear una conexión de acceso remoto para todos los usuarios, en la página Disponibilidad de conexión del Asistente para nueva conexión, haga clic en la opción "Para todos los usuarios".
+
+Esta opción determina si el elemento Propiedades del menú está habilitado y, por lo tanto, si el cuadro de diálogo Propiedades de conexiones de acceso remoto está disponible para los usuarios.
+
+Si habilita esta opción, el elemento Propiedades del menú aparecerá cuando los usuarios hagan clic con el botón secundario del mouse en el icono de una conexión de acceso remoto. Además, cuando un usuario seleccione la conexión, Propiedades aparecerá en el menú Archivo.
+
+Si deshabilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), el elemento Propiedades del menú estará deshabilitado y los usuarios (incluidos los administradores) no podrán abrir el cuadro de diálogo de propiedades de conexiones de acceso remoto.
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no establecida, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si no configura esta opción, solo los Administradores y Operadores de configuración de red podrán cambiar las propiedades de conexiones de acceso remoto para todos los usuarios.
+
+Nota: esta opción tiene prioridad sobre las configuraciones que manipulan la disponibilidad de características dentro del cuadro de diálogo Propiedades de conexiones de acceso remoto. Si esta opción se deshabilita, no habrá nada disponible para los usuarios en el cuadro de diálogo de propiedades de una conexión de acceso remoto.
+
+Nota: esta opción no impide que los usuarios usen otros programas como Internet Explorer para eludir esta configuración.</string>
+      <string id="NC_RasChangeProperties">Prohibir el acceso a propiedades de componentes de una conexión de acceso remoto</string>
+      <string id="NC_RasChangeProperties_Help">Determina si los usuarios pueden ver y cambiar las propiedades de los componentes usados por una conexión de acceso remoto privada o para todos los usuarios.
+
+Esta opción determina si está habilitado el botón Propiedades para los componentes usados por una conexión de acceso remoto privada o para todos los usuarios.
+
+Si habilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), el botón Propiedades estará deshabilitado para todos los usuarios (incluidos los administradores).
+
+Importante: si "Habilitar la configuración de conexión de red para Administradores" está deshabilitada o no configurada, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, el botón Propiedades estará habilitado para todos los usuarios.
+
+La pestaña Red del cuadro de diálogo Propiedades de conexiones de acceso remoto incluye una lista de los componentes de red que usa la conexión. Para ver o cambiar las propiedades del componente, haga clic en el nombre del componente y luego haga clic en el botón Propiedades que se encuentra debajo de la lista de componentes.
+
+Nota: no todos los componentes de red tienen propiedades configurables. Para componentes que no se pueden configurar, el botón Propiedades está siempre deshabilitado.
+
+Nota: cuando las opciones "Capacidad para cambiar las propiedades de una conexión de acceso remoto para todos los usuarios" o "Prohibir el cambio de propiedades de una conexión de acceso remoto privada" están establecidas para denegar el acceso al cuadro de diálogo Propiedades de conexiones de acceso remoto, el botón Propiedades de los componentes de conexión de acceso remoto estará bloqueado.
+
+Nota: esta opción no impide que los usuarios usen otros programas como Internet Explorer para eludir esta configuración.</string>
+      <string id="NC_RasConnect">Prohibir la conexión y desconexión de una conexión de acceso remoto</string>
+      <string id="NC_RasConnect_Help">Determina si los usuarios pueden conectar y desconectar conexiones de acceso remoto.
+
+Si habilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), hacer doble clic en el icono no tendrá efecto y los elementos de menú Conectar y Desconectar estarán deshabilitados para todos los usuarios (incluidos los administradores).
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no establecida, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, las opciones Conectar y Desconectar para conexiones de acceso remoto estarán disponibles para todos los usuarios. Los usuarios podrán conectar o desconectar una conexión de acceso remoto haciendo doble clic en el icono que representa la conexión, haciendo clic en él con el botón secundario del mouse o usando el menú Archivo.</string>
+      <string id="NC_RasMyProperties">Prohibir el cambio de propiedades de una conexión de acceso remoto privada</string>
+      <string id="NC_RasMyProperties_Help">Determina si los usuarios pueden ver y cambiar las propiedades de sus conexiones de acceso remoto privadas.
+
+Las conexiones privadas son aquellas que están disponibles solo para un usuario. Para crear una conexión privada, en la página Disponibilidad de conexión en el Asistente para nueva conexión, haga clic en la opción "Solo para mí".
+
+Esta opción determina si el elemento Propiedades del menú está habilitado y, por lo tanto, si el cuadro de diálogo Propiedades de conexiones de acceso remoto para una conexión privada está disponible para los usuarios.
+
+Si habilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), los elementos del menú Propiedades estarán deshabilitados y ningún usuario (incluidos los administradores) podrá abrir el cuadro de diálogo Propiedades de conexiones de acceso remoto de una conexión privada.
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no establecida, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, el elemento Propiedades del menú aparecerá cuando los usuarios hacen clic con el botón secundario del mouse en el icono de una conexión privada de acceso remoto. Además, cuando un usuario seleccione la conexión, Propiedades aparecerá en el menú Archivo.
+
+Nota: esta configuración tiene prioridad sobre las configuraciones que manipulan la disponibilidad de características en el cuadro de diálogo Propiedades de conexiones de acceso remoto. Si esta opción está habilitada, no habrá nada disponible para los usuarios en el cuadro de diálogo de propiedades de una conexión de acceso remoto.
+
+Nota: esta opción no impide que los usuarios usen otros programas como Internet Explorer para eludir esta configuración.</string>
+      <string id="NC_RenameAllUserRasConnection">Capacidad para cambiar de nombre a todas las conexiones de acceso remoto de usuarios</string>
+      <string id="NC_RenameAllUserRasConnection_Help">Determina si los usuarios que no son administradores pueden cambiar el nombre a sus conexiones de acceso remoto para todos los usuarios.
+
+Para crear una conexión para todos los usuarios, en la página Disponibilidad de conexión del Asistente para nueva conexión, haga clic en la opción "Para todos los usuarios".
+
+Si habilita esta opción, la opción Cambiar nombre estará habilitada para las conexiones de acceso remoto para todos los usuarios. Cualquier usuario podrá cambiar los nombres de las conexiones haciendo clic en un icono que represente la conexión o mediante el menú Archivo.
+
+Si deshabilita esta opción, la opción Cambiar nombre estará deshabilitada para todos los usuarios que no sean administradores.
+
+Si no configura esta opción, solo los Administradores y Operadores de configuración de red podrán cambiar los nombres de las conexiones de acceso remoto para todos los usuarios.
+
+Nota: esta opción no se aplica a los administradores
+
+Nota: cuando se configura la opción "Capacidad para cambiar de nombre a las conexiones LAN o conexiones de acceso remoto disponibles para todos los usuarios" (se establece como Habilitada o Deshabilitada), esta opción no se aplicará.
+
+Nota: esta opción no impide que los usuarios usen otros programas como Internet Explorer para eludir esta configuración.</string>
+      <string id="NC_RenameConnection">Capacidad para cambiar de nombre a las conexiones LAN o conexiones de acceso remoto disponibles para todos los usuarios</string>
+      <string id="NC_RenameConnection_Help">Determina si los usuarios pueden cambiar el nombre de las conexiones de acceso remoto para todos los usuarios o LAN.
+
+Si habilita esta opción, la opción Cambiar nombre estará habilitada para todos los usuarios. Los usuarios podrán cambiar los nombres de las conexiones haciendo clic en el icono de una conexión o usando el menú Archivo.
+
+Si deshabilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para Administradores"), la opción Cambiar nombre para las LAN y las conexiones de acceso remoto para todos los usuarios estará deshabilitada para todos los usuarios (incluidos los Administradores y Operadores de configuración de red).
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no establecida, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si esta opción no está configurada, solo los Administradores y los Operadores de configuración de red podrán cambiar de nombre a las LAN o a las conexiones de acceso remoto para todos los usuarios.
+
+Nota: cuando se configure, esta opción tendrá siempre precedencia sobre las opciones "Capacidad para cambiar de nombre a las conexiones LAN" y "Capacidad para cambiar de nombre a todas las conexiones de acceso remoto de usuarios".
+
+Nota: esta opción no evita que los usuarios usen otros programas como Internet Explorer para cambiar de nombre a las conexiones de acceso remoto.</string>
+      <string id="NC_RenameLanConnection">Capacidad para cambiar de nombre a las conexiones LAN</string>
+      <string id="NC_RenameLanConnection_Help">Determina si los usuarios que no son administradores pueden cambiar el nombre de una conexión LAN.
+
+Si habilita esta opción, la opción Cambiar nombre estará habilitada para las conexiones LAN. Los usuarios que no son administradores podrán cambiar los nombres de las conexiones LAN haciendo clic en un icono que represente la conexión o mediante el menú Archivo.
+
+Si deshabilita esta opción, la opción Cambiar nombre estará deshabilitada para todos los usuarios que no sean administradores.
+
+Si no configura esta opción, solo los Administradores y Operadores de configuración de red podrán cambiar los nombres de las conexiones LAN
+
+Nota: esta opción no se aplica a los administradores.
+
+Nota: cuando se configura la opción "Capacidad para cambiar de nombre a las conexiones LAN o conexiones de acceso remoto disponibles para todos los usuarios" (se establece como Habilitada o Deshabilitada), esta opción no se aplicará.</string>
+      <string id="NC_RenameMyRasConnection">Prohibir el cambio de nombre de conexiones de acceso remoto privadas</string>
+      <string id="NC_RenameMyRasConnection_Help">Determina si los usuarios pueden cambiar el nombre a sus conexiones de acceso remoto privadas.
+
+Las conexiones privadas son aquellas que están disponibles solo para un usuario. Para crear una conexión privada, en la página Disponibilidad de conexión en el Asistente para nueva conexión, haga clic en la opción "Solo para mí".
+
+Si habilita esta opción (y habilita la opción "Habilitar la configuración de conexión de red para administradores"), la opción Cambiar nombre estará deshabilitada para todos los usuarios (incluidos los administradores).
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no establecida, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, la opción Cambiar nombre estará habilitada para las conexiones de acceso remoto privadas de todos los usuarios. Los usuarios podrán cambiar el nombre de sus conexiones privadas haciendo clic en el icono de la conexión o mediante el menú Archivo.
+
+Nota: esta opción no impide que los usuarios usen otros programas como Internet Explorer para eludir esta configuración.</string>
+      <string id="NC_ShowSharedAccessUI">Prohibir el uso de Conexión compartida a Internet en su red de dominio DNS</string>
+      <string id="NC_ShowSharedAccessUI_Help">Determina si los administradores pueden habilitar y configurar la característica Conexión compartida a Internet (ICS) de una conexión a Internet y si el servicio ICS puede ejecutarse en el equipo.
+
+ICS permite que los administradores configuren sus sistemas como una puerta de enlace de Internet para una red pequeña y proporciona los servicios de red tales como resolución de nombres y direcciones a través de DHCP en una red privada local.
+
+Si habilita esta opción, los administradores no pueden habilitar o configurar ICS, y este servicio no se puede ejecutar en el equipo. La pestaña Avanzadas en el cuadro de diálogo de Propiedades para una conexión LAN o acceso remoto se quita. La página de Conexión compartida a Internet se quitará del Asistente para nueva conexión. Se deshabilitará el Asistente para configuración de red.
+
+Si deshabilita esta opción o no la configura, y tiene dos o más conexiones, los administradores pueden habilitar ICS. La pestaña Avanzadas en el cuadro de diálogo de Propiedades para una conexión LAN o acceso remoto estará disponible. Adicionalmente, se le presentará al usuario la opción para habilitar Conexión compartida a Internet en el Asistente para configuración de red y Asistente para hacer una nueva conexión. (El Asistente para configuración de red está solo disponible en Windows XP Professional).
+
+De forma predeterminada, ICS está deshabilitado cuando crea una conexión de acceso remoto, pero los administradores pueden usar la pestaña Avanzadas para habilitarlo. Cuando se ejecutan el Asistente para nueva conexión o el Asistente para configuración de red, los administradores pueden habilitar ICS.
+
+Nota: Conexión compartida a Internet solo estará disponible cuando dos o más conexiones de red estén presentes.
+
+Nota: cuando las opciones "Prohibir el acceso a las propiedades de una conexión LAN", "Capacidad para cambiar las propiedades de una conexión de acceso remoto de todos los usuarios" o "Prohibir el cambio de propiedades de una conexión de acceso remoto privada" están configuradas para denegar acceso al cuadro de diálogo Propiedades de conexión, la pestaña Avanzadas de esta conexión no estará disponible.
+
+Nota: a los no administradores no les está permitido configurar Conexión compartida a Internet sin importar cuál sea la configuración.
+
+Nota: deshabilitar esta configuración no impide que las conexiones inalámbricas a redes hospedadas usen el servicio ICS para servicios DHCP. Para impedir que se ejecute el servicio ICS, en la pestaña Permisos de red de las propiedades de directiva de la red, seleccione la casilla "No usar redes hospedadas".</string>
+      <string id="NC_Statistics">Prohibir que se vea el estado de una conexión activa</string>
+      <string id="NC_Statistics_Help">Determina si los usuarios pueden ver el estado de una conexión activa.
+
+El estado de la conexión está disponible desde el icono de estado de la conexión de la barra de tareas o desde el cuadro de diálogo Estado. El cuadro de diálogo Estado muestra información sobre la conexión y su actividad. También proporciona botones para desconectar y configurar las propiedades de la conexión.
+
+Si habilita esta opción, el icono de estado de la conexión de la barra de tareas y el cuadro de diálogo Estado no estarán disponibles para los usuarios (incluidos los administradores). La opción Estado estará desactivada en el menú contextual de la conexión y en el menú Archivo en la carpeta Conexiones de red. Los usuarios no podrán elegir si desean mostrar el icono de la barra de tareas desde el cuadro de diálogo de propiedades de la conexión.
+
+Importante: si "Habilitar la configuración de conexión de red para administradores" está deshabilitada o no establecida, esta opción no se aplicará a los administradores de equipos con sistemas operativos posteriores a Windows 2000.
+
+Si deshabilita esta opción o no la configura, el icono de estado de la conexión de la barra de estado y el cuadro de diálogo Estado estarán disponibles para todos los usuarios.</string>
+      <string id="NC_StdDomainUserSetLocation">Requerir que los usuarios de dominio eleven su nivel de permisos al establecer una ubicación de red</string>
+      <string id="NC_StdDomainUserSetLocation_Help">Esta configuración de directiva determina si se debe requerir que los usuarios de dominio eleven su nivel de permisos al establecer una ubicación de red.
+
+Si habilita esta configuración de directiva, los usuarios de dominio deberán elevar su nivel de permisos al establecer una ubicación de red.
+
+Si deshabilita o no define esta configuración de directiva, los usuarios de dominio podrán establecer una ubicación de red sin elevar su nivel de permisos.</string>
+      <string id="NC_DoNotShowLocalOnlyIcon">No mostrar el icono de red "Solo acceso local"</string>
+      <string id="NC_DoNotShowLocalOnlyIcon_Help">Especifica si se mostrará el icono de red "Solo acceso local".
+
+Si se habilita esta opción, el icono de acceso a Internet se mostrará en la bandeja del sistema aunque un usuario esté conectado a una red con acceso solo local.
+
+Si se deshabilita esta opción o no se configura, se usará el icono "Solo acceso local" cuando un usuario esté conectado a una red con acceso solo local.</string>
+      <string id="NetworkConnections">Conexiones de red</string>
+      <string id="SUPPORTED_Win2kSP1_WindowsPreVista">Solo sistemas operativos Microsoft Windows Server 2003, Windows XP y Windows 2000 Service Pack 1</string>
+      <string id="SUPPORTED_WindowsXPSP2_WindowsNET">Solo Microsoft Windows XP Professional con SP2 y la familia Windows Server 2003</string>
+
+      <string id="EnabledState">Estado Habilitado</string>      
+      <string id="DisabledState">Estado Deshabilitado</string>      
+      
+      <string id="NC_ForceTunneling">Enrutar todo el tráfico a través de la red interna</string>
+      <string id="NC_ForceTunneling_Help">Esta configuración de directiva determina si un equipo cliente remoto enruta el tráfico de Internet a través de la red interna o si el cliente obtiene acceso a Internet directamente.
+
+Cuando un equipo cliente remoto se conecta a una red interna mediante DirectAccess, puede obtener acceso a Internet de dos formas: a través del túnel seguro que DirectAccess establece entre el equipo y la red interna, o bien directamente a través de la puerta de enlace predeterminada local.
+
+Si habilita esta configuración de directiva, todo el tráfico entre equipos cliente remotos que ejecutan DirectAccess e Internet se enrutará a través de la red interna.
+
+Si deshabilita esta configuración de directiva, el tráfico entre equipos cliente remotos que ejecutan DirectAccess e Internet no se enrutará a través de la red interna.
+
+Si no define esta configuración de directiva, el tráfico entre equipos cliente remotos que ejecutan DirectAccess e Internet no se enrutará a través de la red interna.</string>
+    </stringTable>
+    <presentationTable>
+
+      <presentation id="StateSelection">
+        <dropdownList refId="StateSelect" noSort="true" defaultItem="0">Seleccionar entre los siguientes estados:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

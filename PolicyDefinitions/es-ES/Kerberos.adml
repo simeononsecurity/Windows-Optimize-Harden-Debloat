@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Configuración de Kerberos</displayName>
+  <description>Opciones de configuración del protocolo de autenticación Kerberos.</description>
+  <resources>
+    <stringTable>
+      <string id="kerberos">Kerberos</string>
+      <string id="forestsearch">Usar orden de búsqueda en bosques</string>
+      <string id="forestsearch_explain">Esta configuración de directiva define la lista de bosques de confianza en los que el cliente Kerberos realiza una búsqueda al intentar resolver nombres de entidad de seguridad de servicio (SPN) de dos partes.
+
+Si habilita esta configuración de directiva, el cliente Kerberos buscará en los bosques de esta lista si no puede resolver un SPN de dos partes. Si encuentra una coincidencia, el cliente Kerberos solicitará un vale de referencia al dominio correspondiente.
+
+Si deshabilita o no establece esta configuración de directiva, el cliente Kerberos no buscará en los bosques de la lista para resolver el SPN. Si el cliente Kerberos no puede resolver el SPN porque no encuentra el nombre, se puede usar la autenticación NTLM.</string>
+      <string id="hosttorealm">Definir asignaciones de nombres de host al dominio kerberos</string>
+      <string id="hosttorealm_explain">Esta configuración de directiva le permite especificar los nombres de host DNS y los sufijos DNS que se asignan a un dominio kerberos.
+
+Si habilita esta configuración de directiva, podrá ver y cambiar la lista de nombres de host DNS y sufijos DNS asignados a un dominio kerberos definida por la directiva de grupo. Para ver la lista de asignaciones, habilite la configuración de directiva y haga clic en el botón Mostrar. Para agregar una asignación, habilite la configuración de directiva, observe la sintaxis y haga clic en el botón Mostrar. En el cuadro de diálogo Mostrar contenido, en la columna Nombre de valor, escriba un nombre de dominio kerberos. En la columna Valor, escriba la lista de nombres de host DNS y sufijos DNS con el formato de sintaxis adecuado. Para quitar una asignación de la lista, haga clic en la entrada de la asignación que desea quitar y, después, presione la tecla Suprimir. Para editar una asignación, quite la entrada actual de la lista y agregue una nueva con parámetros diferentes.
+
+Si deshabilita esta configuración de directiva, se eliminará la lista de asignaciones de nombres de host al dominio kerberos definida por la directiva de grupo.
+
+Si no establece esta configuración de directiva, el sistema usará las asignaciones de nombres de host al dominio kerberos definidas en el Registro local, en el caso de que existan.</string>
+      <string id="MitRealms">Definir configuración de dominios kerberos V5 interoperables</string>
+      <string id="MitRealms_explain">Esta configuración de directiva configura el cliente Kerberos para que se pueda autenticar con dominios kerberos V5 interoperables, según lo definido por esta configuración de directiva.
+      
+Si habilita esta configuración de directiva, podrá ver y cambiar la lista de dominios kerberos V5 interoperables y su configuración. Para ver la lista de dominios kerberos V5 interoperables, habilite la configuración de directiva y haga clic en el botón Mostrar. Para agregar un dominio kerberos V5 interoperable, habilite la configuración de directiva, observe la sintaxis y haga clic en el botón Mostrar. En el cuadro de diálogo Mostrar contenido, en la columna Nombre de valor, escriba el nombre del dominio kerberos V5 interoperable. En la columna Valor, escriba las marcas de dominio kerberos y los nombres de host de los KDC host con el formato de sintaxis adecuado. Para quitar de la lista una entrada de valor o nombre de valor de dominio kerberos V5 interoperable, haga clic en la entrada y, después, presione la tecla Suprimir. Para editar una asignación, quite la entrada actual de la lista y agregue una nueva con parámetros diferentes.
+
+Si deshabilita esta configuración de directiva, se eliminará la configuración de los dominios kerberos V5 interoperables definida en la directiva de grupo.
+
+Si no establece esta configuración de directiva, el sistema usará la configuración de los dominios kerberos V5 interoperables definida en el Registro local, en el caso de que exista.</string>
+      <string id="ValidateKDC">Requerir validación KDC estricta</string>
+      <string id="ValidateKDC_explain">Esta configuración de directiva controla el comportamiento del cliente Kerberos al validar el certificado KDC para el inicio de sesión de tarjetas inteligentes y certificados de sistema.  
+
+Si habilita esta configuración de directiva, el cliente Kerberos requerirá que el certificado X.509 de KDC contenga el identificador del objeto de propósito de la clave KDC en las extensiones de uso mejorado de clave (EKU) y una extensión dNSName subjectAltName (SAN) que coincida con el nombre DNS del dominio. Si el equipo está unido a un dominio, el cliente Kerberos requerirá que el certificado X.509 de KDC esté firmado por una entidad de certificación (CA) en el almacén NTAuth. Si el equipo no está unido a un dominio, el cliente Kerberos permitirá usar el certificado de CA raíz de la tarjeta inteligente en la validación de ruta del certificado X.509 de KDC.
+
+Si deshabilita o no establece esta configuración de directiva, el cliente Kerberos solo requerirá que el certificado KDC contenga el identificador del objeto de propósito de autenticación de servidor en las extensiones EKU, el cual puede emitirse para cualquier servidor.
+
+</string>
+      <string id="StrictTarget">Requerir coincidencia de SPN de destino estricta en llamadas a procedimiento remoto</string>
+      <string id="StrictTarget_explain">  Esta configuración de directiva le permite configurar este servidor de forma que Kerberos pueda descifrar un vale que contenga el SPN generado por el sistema. Cuando un aplicación intenta realizar una llamada a procedimiento remoto (RPC) en este servidor con un valor NULL de nombre de entidad de seguridad de servicio (SPN), los equipos que ejecutan Windows 7 o versiones posteriores intentarán usar Kerberos mediante la generación de un SPN.
+              
+Si habilita esta configuración de directiva, solo se permitirá aceptar estas conexiones a los servicios que se ejecuten como LocalSystem o NetworkService. Es posible que los servicios que se ejecuten con identidades diferentes de LocalSystem o NetworkService no puedan autenticarse.
+
+Si deshabilita o no establece esta configuración de directiva, se permitirá que todos los servicios acepten conexiones entrantes con el SPN generado por este sistema.</string>
+      <string id="KdcProxyServer">Especificar servidores proxy KDC para clientes Kerberos</string>
+      <string id="KdcProxyServer_explain">Esta configuración de directiva establece la asignación de dominios a servidores proxy KDC que el cliente Kerberos realiza en función de sus nombres de sufijo DNS.
+
+Si habilita esta configuración de directiva, el cliente Kerberos usará el servidor proxy KDC para un dominio cuando no se encuentre un controlador de dominio según las asignaciones configuradas. Para asignar un servidor proxy KDC a un dominio, habilite la configuración de directiva, haga clic en Mostrar y, a continuación, asigne los nombres de los servidores proxy KDC al nombre DNS del dominio usando la sintaxis que se describe en el panel de opciones. En el cuadro de diálogo Mostrar contenido, en la columna Nombre de valor, escriba un nombre de sufijo DNS. En la columna Valor, escriba la lista de servidores proxy con el formato de sintaxis adecuado. Para ver la lista de asignaciones, habilite la configuración de directiva y haga clic en el botón Mostrar. Para quitar una asignación de la lista, haga clic en la entrada de la asignación que desea quitar y, después, presione la tecla Suprimir. Para editar una asignación, quite la entrada actual de la lista y agregue una nueva con parámetros diferentes.
+
+Si deshabilita o no establece esta configuración de directiva, el cliente Kerberos no tendrá la configuración de servidores proxy KDC definida por la directiva de grupo.
+
+</string>
+      <string id="KdcProxyDisableServerRevocationCheck">Deshabilitar la comprobación de revocación para el certificado SSL de servidores proxy KDC</string>
+      <string id="KdcProxyDisableServerRevocationCheck_explain">Esta configuración de directiva le permite deshabilitar la comprobación de revocación para el certificado SSL del servidor proxy KDC de destino.
+
+Si habilita esta configuración de directiva, el cliente Kerberos pasará por alto la comprobación de revocación para el certificado SSL del servidor proxy KDC. Esta configuración de directiva solo debe usarse para solucionar problemas de conexiones proxy KDC. 
+Advertencia: cuando se omite la comprobación de revocación, no se garantiza que el servidor representado por el certificado sea válido. 
+
+Si deshabilita o no establece esta configuración de directiva, el cliente Kerberos aplicará la comprobación de revocación para el certificado SSL. Si se produce un error en la comprobación de revocación, no se establecerá la conexión con el servidor proxy KDC.
+
+</string>
+      <string id="ClientRequireFast">Generar un error en las solicitudes de autenticación cuando la protección de Kerberos no esté disponible</string>
+      <string id="ClientRequireFast_explain">Esta configuración de directiva controla si un equipo requerirá que los intercambios de mensajes Kerberos se protejan al establecer una comunicación con un controlador de dominio.
+
+Advertencia: cuando un dominio no admite la protección de Kerberos mediante la habilitación de "Admitir control de acceso dinámico y protección de Kerberos", se producirán errores en las autenticaciones de todos sus usuarios en los equipos donde esta configuración de directiva esté habilitada.
+
+Si habilita esta configuración de directiva, los equipos cliente del dominio aplicarán el uso de la protección de Kerberos únicamente en los intercambios de mensajes del servicio de autenticación (AS) y del servicio de concesión de vales (TGS) con los controladores de dominio. 
+
+Nota: la directiva de grupo Kerberos "El cliente Kerberos admite notificaciones, autenticación compuesta y protección de Kerberos" también debe estar habilitada para admitir la protección de Kerberos. 
+
+Si deshabilita o no establece esta configuración de directiva, los equipos cliente del dominio aplicarán el uso de la protección de Kerberos siempre que sea posible según lo admita el dominio de destino.
+
+</string>
+      <string id="ServerAcceptsCompound">Compatibilidad con autenticación compuesta</string>
+      <string id="ServerAcceptsCompound_explain">Esta configuración de directiva controla la configuración de la cuenta de Active Directory del dispositivo para la autenticación compuesta.
+
+La compatibilidad con la autenticación compuesta que se usa para el control de acceso requerirá una cantidad suficiente de controladores de dominio en los dominios de las cuentas de recursos para admitir las solicitudes. El administrador de dominio debe configurar la directiva "Compatibilidad con control de acceso dinámico y protección de Kerberos" en todos los controladores de dominio para admitir esta directiva.
+
+Si habilita esta configuración de directiva, se utilizarán las opciones siguientes para configurar la autenticación compuesta en la cuenta de Active Directory del dispositivo:
+
+Nunca: no se proporcionará nunca autenticación compuesta para esta cuenta de equipo.
+
+Automático: se proporcionará autenticación compuesta para esta cuenta de equipo cuando una o varias aplicaciones están configuradas para el control de acceso dinámico.
+
+Siempre: se proporcionará siempre autenticación compuesta para esta cuenta de equipo.
+
+Si deshabilita esta configuración de directiva, se usará Nunca.
+Si no establece esta configuración de directiva, se usará Automático.
+
+</string>
+      <string id="CompoundIdEnable_No">Nunca</string>
+      <string id="CompoundIdEnable_Auto">Automático</string>
+      <string id="CompoundIdEnable_Yes">Siempre</string>
+
+      <string id="MaxTokenSize">Establecer el tamaño máximo del búfer de token de contexto SSPI de Kerberos</string>
+      <string id="MaxTokenSize_explain">Esta configuración de directiva le permite establecer el valor que se devolverá a las aplicaciones que soliciten el tamaño máximo del búfer de token de contexto SSPI.
+              
+El tamaño del búfer de token de contexto determina el tamaño máximo de los tokens de contexto SSPI que una aplicación espera y asigna. En función del procesamiento de solicitudes de autenticación y las pertenencias a grupos, es posible que el tamaño del búfer sea inferior al tamaño real del token de contexto SSPI. 
+
+Si habilita esta configuración de directiva, el servidor o el cliente Kerberos usarán el valor configurado o el valor máximo permitido localmente (el que sea más pequeño).
+
+Si deshabilita o no establece esta configuración de directiva, el servidor o el cliente Kerberos usarán el valor configurado localmente o el valor predeterminado. 
+
+Nota: esta configuración de directiva establece el valor del Registro MaxTokenSize existente en HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters, que se agregó en Windows XP y Windows Server 2003, con un valor predeterminado de 12.000 bytes. A partir de Windows 8, el valor predeterminado es de 48.000 bytes. Debido a la codificación base64 de tokens de contexto de autenticación de HTTP, no se recomienda establecer este valor por encima de los 48.000 bytes.
+
+
+
+</string>
+      <string id="EnableCbacAndArmor">El cliente Kerberos admite notificaciones, autenticación compuesta y protección de Kerberos</string>
+      <string id="EnableCbacAndArmor_explain">Esta configuración de directiva controla si un dispositivo solicitará notificaciones y autenticación compuesta para el control de acceso dinámico y protección de Kerberos usando la autenticación Kerberos con los dominios que admiten estas características. 
+Si habilita esta configuración de directiva, los equipos cliente solicitarán notificaciones, proporcionarán la información necesaria para crear una autenticación compuesta y blindarán los mensajes Kerberos en dominios que admiten notificaciones y autenticación compuesta para el control de acceso dinámico y protección de Kerberos.
+
+Si deshabilita o no establece esta configuración de directiva, los dispositivos cliente no solicitarán notificaciones, proporcionarán la información necesaria para crear una autenticación compuesta y blindarán los mensajes Kerberos. Los servicios hospedados en el dispositivo no podrán recuperar las notificaciones para los clientes mediante la transición del protocolo Kerberos.  
+  
+</string>
+      <string id="AlwaysSendCompoundId">Enviar siempre autenticación compuesta primero</string>
+      <string id="AlwaysSendCompoundId_explain">Esta configuración de directiva establece si un dispositivo envía siempre una solicitud de autenticación compuesta cuando el dominio de recursos solicita una identidad compuesta.
+
+Nota: para que un controlador de dominio solicite la autenticación compuesta, las directivas "KDC admite notificaciones, autenticación compuesta y protección de Kerberos" y "Solicitar autenticación compuesta" deben estar configuradas y habilitadas en el dominio de las cuentas de recursos. 
+
+Si habilita esta configuración de directiva y el dominio de recursos solicita la autenticación compuesta, los dispositivos compatibles con la autenticación compuesta siempre enviarán una solicitud de autenticación compuesta. 
+
+Si deshabilita o no configura esta configuración de directiva y el dominio de recursos solicita la autenticación compuesta, los dispositivos enviarán primero una solicitud de autenticación no compuesta y luego una solicitud de autenticación compuesta cuando el servicio solicite la autenticación compuesta.
+
+</string>
+      <string id="DevicePKInitEnabled">Compatibilidad para la autenticación de dispositivos de soporte con certificado:</string>
+      <string id="DevicePKInitEnabled_explain">La compatibilidad con la autenticación de dispositivos con certificado requiere conectividad con un controlador de dominio en el dominio de cuentas de dispositivo que admita la autenticación de certificados para las cuentas de equipo. 
+
+Esta configuración de directiva permite establecer la compatibilidad para que Kerberos intente la autenticación mediante el certificado del dispositivo para el dominio.
+
+Si habilitas esta configuración de directiva, las credenciales de dispositivo se seleccionará en función de las siguientes opciones:
+
+Automático: el dispositivo intentará autenticar mediante su certificado. Si el controlador de dominio no admite el uso de certificados para la autenticación de cuentas de equipo, se intentará la autenticación con contraseña.
+
+Forzar: el dispositivo siempre se autenticará mediante su certificado. Si no se puede encontrar un controlador de dominio que admita el uso de certificados para la autenticación de cuentas de equipo, se producirá un error en la autenticación.
+
+Si deshabilitas esta configuración de directiva, nunca se usarán certificados.
+Si no estableces esta configuración de directiva, se usará la opción Automático.
+</string>
+      <string id="DevicePKInitBehavior_Automatic">Automático</string>
+      <string id="DevicePKInitBehavior_Force">Forzado</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="hosttorealm">
+        <listBox refId="hosttorealm">Definir asignaciones de nombres de host al dominio kerberos:</listBox>
+        <text></text>
+        <text>Sintaxis:</text>
+        <text>Escriba el nombre del dominio kerberos en el campo Nombre de valor.</text>
+        <text>Escriba los nombres de host y los sufijos DNS que desea</text>
+        <text>asignar al dominio kerberos en el campo Valor.  Para agregar varios</text>
+        <text>nombres, separe las entradas con ";".</text>
+        <text></text>
+        <text>Nota: para especificar un sufijo DNS, anteponga un '.' punto a la entrada.</text>
+        <text>En el caso de las entradas de nombres de host, no especifique el punto ('.') inicial.</text>
+        <text></text>
+        <text>Ejemplo:</text>
+        <text>Nombre de valor: MICROSOFT.COM</text>
+        <text>Valor: .microsoft.com; .ms.com; equipo1.fabrikam.com;</text>
+        <text></text>
+        <text>En el ejemplo anterior. Todas las entidades de seguridad con el sufijo DNS</text>
+        <text>de *.microsoft.com o *.ms.com se asignarán al</text>
+        <text>dominio kerberos MICROSOFT.COM.  Asimismo, el nombre de host</text>
+        <text>equipo1.fabrikam.com también se asignará al  </text>
+        <text>dominio kerberos MICROSOFT.COM.</text>
+      </presentation>
+      <presentation id="MitRealms">
+        <listBox refId="MitRealms">Definir configuración de dominios kerberos V5 interoperables:</listBox>
+        <text></text>
+        <text>Sintaxis:</text>
+        <text>Escriba el nombre del dominio kerberos V5 interoperable en el campo Nombre de valor.</text>
+        <text>Escriba las marcas del dominio kerberos y los nombres de host de los KDC en</text>
+        <text>el campo Valor.  Escriba las marcas del dominio kerberos entre las siguientes</text>
+        <text>etiquetas &lt;f&gt; &lt;/f&gt;.  Escriba la lista de KDC entre las etiquetas &lt;k&gt; &lt;/k&gt;</text>
+        <text>Para agregar varios nombres de KDC, separe las entradas con</text>
+        <text>un punto y coma (";").</text>
+        <text></text>
+        <text>Ejemplo:</text>
+        <text>Nombre de valor: PRUEBA.COM</text>
+        <text>Valor: &lt;f&gt;0x00000004&lt;/f&gt;&lt;k&gt;kdc1.prueba.com; kdc2.prueba.com&lt;/k&gt;</text>
+        <text></text>
+        <text>Otro ejemplo:</text>
+        <text>Nombre de valor: DOMINIO_KERBEROS.FABRIKAM.COM</text>
+        <text>Valor: &lt;f&gt;0x0000000E&lt;/f&gt;</text>
+      </presentation>
+      <presentation id="ValidateKDC">
+        <dropdownList refId="ValidateKDCOp" noSort="true" defaultItem="0">Modo:</dropdownList>
+      </presentation>
+      <presentation id="ForestSearch">
+        <textBox refId="ForestSearchList">
+          <label>Bosques en los que buscar</label>
+        </textBox>
+        <text>Sintaxis:</text>
+        <text>Escriba la lista de bosques en los que buscar cuando esté habilitada esta directiva.</text>
+        <text>Use el formato de nombre de dominio completo (FQDN).</text>
+        <text>Separe varias entradas de búsqueda mediante punto y coma (";").</text>
+        <text>Detalles:</text>
+        <text>No hace falta incluir en la lista el bosque actual porque el orden de búsqueda en bosques usa primero el catálogo global y después busca en el orden de la lista.</text>
+        <text>No es necesario incluir en la lista por separado todos los dominios del bosque.</text>
+        <text>Si se incluye en la lista un bosque de confianza, se buscará en todos los dominios de ese bosque.</text>
+        <text>Para mejorar el rendimiento, ordene los bosques en la lista según la probabilidad de que la búsqueda tenga éxito.  </text>
+      </presentation>
+      <presentation id="KdcProxyServer">
+        <listBox refId="KdcProxyServer">Definir la configuración de los servidores proxy KDC:</listBox>
+        <text></text>
+        <text>Sintaxis:</text>
+        <text></text>
+        <text>Escriba el nombre de sufijo DNS en el campo Nombre de valor.</text>
+        <text>El nombre de sufijo DNS permite tres formatos en orden de preferencia decreciente:</text>
+        <text>Coincidencia total: host.contoso.com</text>
+        <text>Coincidencia de sufijo: .contoso.com</text>
+        <text>Coincidencia predeterminada: *</text>
+        <text></text>
+        <text>Escriba los nombres de los servidores proxy en el campo Valor.</text>
+        <text>Los nombres de los servidores proxy deben escribirse entre etiquetas &lt;https /&gt;</text>
+        <text>Para agregar varios nombres de servidores proxy, separe las entradas con un espacio o una coma ","</text>
+        <text></text>
+        <text>Ejemplo:</text>
+        <text>Nombre de valor: .contoso.com</text>
+        <text>Valor: &lt;https proxy1.contoso.com proxy2.contoso.com /&gt;</text>
+        <text></text>
+        <text>Otro ejemplo:</text>
+        <text>Nombre de valor: *</text>
+        <text>Valor: &lt;https proxy.contoso.com /&gt;</text>
+      </presentation>
+      <presentation id="ClientRequireFast">
+      </presentation>
+      <presentation id="ServerAcceptsCompound">
+       <dropdownList refId="CompoundIdEnabled" noSort="true" defaultItem="2">Admitir la autorización con información de dispositivos cliente:</dropdownList>  
+      </presentation>
+      <presentation id="MaxTokenSize">
+        <decimalTextBox refId="MaxTokenSize" defaultValue="48000" spinStep="1000">Tamaño máximo</decimalTextBox>
+      </presentation>
+      <presentation id="EnableCbacAndArmor">
+      </presentation>
+      <presentation id="DevicePKInitBehavior">
+        <dropdownList refId="DevicePKInitBehavior" noSort="true" defaultItem="0">Comportamiento de la autenticación de dispositivos con certificado:</dropdownList>  
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

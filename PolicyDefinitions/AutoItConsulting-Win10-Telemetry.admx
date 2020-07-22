@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2018 AutoIt Consulting - https://www.autoitconsulting.com -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="Win10Privacy" namespace="Microsoft.Policies.Win10Privacy" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  
+  <resources minRequiredRevision="1.0" />
+
+  <categories>
+    <category name="AutoIt_Consulting" displayName="$(string.AutoIt_Consulting)" />
+    <category name="Win10Privacy" displayName="$(string.Win10Privacy)">
+      <parentCategory ref="AutoIt_Consulting" />
+    </category>
+    <category name="DataCollection" displayName="$(string.DataCollection)">
+      <parentCategory ref="Win10Privacy" />
+    </category>	
+    <category name="Search" displayName="$(string.Search)">
+      <parentCategory ref="Win10Privacy" />
+    </category>	
+  </categories>
+  
+  <policies>
+  
+    <!-- MACHINE POLICIES -->
+  
+	<policy name="DontReportInfection" class="Machine" displayName="$(string.DontReportInfection)" explainText="$(string.DontReportInfection_Explain)" key="Software\Policies\Microsoft\MRT" valueName="DontReportInfectionInformation">
+      <parentCategory ref="Win10Privacy" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+  
+    <!-- USER POLICIES -->
+	
+	<policy name="ImproveTyping" class="User" displayName="$(string.ImproveTyping)" explainText="$(string.ImproveTyping_Explain)" key="Software\Microsoft\Input\TIPC" valueName="Enabled">
+      <parentCategory ref="Win10Privacy" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+
+	<policy name="StartTrackProgs" class="User" displayName="$(string.StartTrackProgs)" explainText="$(string.StartTrackProgs_Explain)" key="Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" valueName="Start_TrackProgs">
+      <parentCategory ref="Win10Privacy" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+	
+	<policy name="WebsiteAccessLang" class="User" displayName="$(string.WebsiteAccessLang)" explainText="$(string.WebsiteAccessLang_Explain)" key="Control Panel\International\User Profile" valueName="HttpAcceptLanguageOptOut">
+      <parentCategory ref="Win10Privacy" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+	
+  </policies>
+</policyDefinitions>

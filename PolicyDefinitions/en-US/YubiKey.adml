@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2017 Michael Grafnetter  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions"  xsi:schemaLocation="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions ../../Schema/PolicyDefinitionFiles.xsd">
+  <displayName>YubiKey PIV Manager</displayName>
+  <description>YubiKey PIV Manager Settings</description>
+  <resources>
+    <stringTable>
+      <string id="YubiKeyPIVManager">YubiKey PIV Manager</string>
+      <string id="YubiKeyPIVManager_TouchPolicy">Configure Touch Policy</string>
+      <string id="YubiKeyPIVManager_TouchPolicy_Help">This policy setting configures the list of certificate slots to show the Touch Policy setting for.
+
+If you enable this policy setting, the option to choose the touch policy will be shown for the selected slots. These values are supported:
+9a - Authentication
+9c - Digital Signature
+9d - Key Management
+9e - Card Authentication
+
+If you also select the "Always require touch on the slots above" option, the YubiKey will always require its button to be touched to perform any action with the private keys of the slots specified.
+
+If you disable or do not configure this policy setting, the options will be hidden in the UI and the default slot-specific touch policies will be used.</string>
+      <string id="YubiKeyPIVManager_Algorithm_Select">User-defined</string>
+      <string id="YubiKeyPIVManager_Algorithm_RSA1024">RSA-1024</string>
+      <string id="YubiKeyPIVManager_Algorithm_RSA2048">RSA-2048</string>
+      <string id="YubiKeyPIVManager_Algorithm_ECC256">ECC P-256</string>
+      <string id="YubiKeyPIVManager_Algorithm_ECC384">ECC P-384</string>
+      <string id="YubiKeyPIVManager_CardReader">Set card reader name filter</string>
+      <string id="YubiKeyPIVManager_CardReader_Help">This policy setting configures the string to match against when looking for compatible YubiKey devices.
+
+If you enable this policy setting, only YubiKeys from matching card readers will be shown in the UI.
+
+If you disable or do not configure this policy setting, all YubiKey devices will be shown in the UI.</string>
+      <string id="YubiKeyPIVManager_Request">Set certificate request properties</string>
+      <string id="YubiKeyPIVManager_Request_Help">This policy setting configures the properties of generated certificates and certificate signing requests.
+
+If you enable this policy setting, the specified values will be used by the YubiKey PIV Manager.
+
+If you disable or do not configure this policy setting, application defaults will be used.</string>
+      <string id="YubiKeyPIVManager_DisableImport">Disable certificate import</string>
+      <string id="YubiKeyPIVManager_DisableImport_Help">This policy setting controls the ability to import certificates.
+
+If you enable this policy setting, the "Import from file..." button will be hidden in the UI.
+
+If you disable or do not configure this policy setting,  the "Import from file..." button will be shown in the UI.</string>
+      <string id="YubiKeyPIVManager_PinPolicy">Configure PIN Policy</string>
+      <string id="YubiKeyPIVManager_PinPolicy_Help">This policy setting configures the requirements for PIN usage.
+
+If you enable this policy setting, the default application behavior will be overriden.
+
+The PIN Requirement Policy setting will only be shown for the certificate slots listed. These certificate slot identifiers are supported:
+9a - Authentication
+9c - Digital Signature
+9d - Key Management
+9e - Card Authentication
+
+When the PIN Requirement Policy is set to a value other than "Slot defaults", the PIV standard for when the PIN is required for using a particular slot will be overridden.
+
+Non-zero PIN expiration interval causes a timestamp to be written when the PIN is changed, and to force a PIN change after the specified number of days.
+
+If you disable or do not configure this policy setting, slot-specific PIN policy will not be configurable through the UI.</string>
+      <string id="YubiKeyPIVManager_PinPolicy_Select">User-defined</string>
+      <string id="YubiKeyPIVManager_PinPolicy_Default">Slot defaults</string>
+      <string id="YubiKeyPIVManager_PinPolicy_Never">Never</string>
+      <string id="YubiKeyPIVManager_PinPolicy_Once">Once</string>
+      <string id="YubiKeyPIVManager_PinPolicy_Always">Always</string>
+      <string id="YubiKeyPIVManager_ShownOuts">Only display the specified output formats</string>
+      <string id="YubiKeyPIVManager_ShownOuts_Help">This policy setting determines the output formats that are available when generating a key.
+
+If you enable this policy setting, only the specified output formats will be shown. Supported formats are "pk", "ssc", "csr" and "ca".
+
+If you disable or do not configure this policy setting, the "ssc", "csr" and "ca" formats will be available.</string>
+      <string id="YubiKeyPIVManager_ShownSlots">Only display the specified certificate slots</string>
+      <string id="YubiKeyPIVManager_ShownSlots_Help">This policy setting determines the certificate slots that are shown in the UI.
+
+If you enable this policy setting, only the specified certificate slots will be shown in the UI. These values are supported:
+9a - Authentication
+9c - Digital Signature
+9d - Key Management
+9e - Card Authentication
+
+If you disable or do not configure this policy setting, all four certificate slots will be shown.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="YubiKeyPIVManager_TouchPolicy">
+        <multiTextBox refId="YubiKeyPIVManager_TouchPolicySlots_MultiText">Allow the default touch policy to be overriden on these slots:</multiTextBox>
+        <checkBox refId="YubiKeyPIVManager_TouchPolicy_CheckBox" defaultChecked="false">Always require touch on the slots above</checkBox>
+      </presentation>
+      <presentation id="YubiKeyPIVManager_CardReader">
+        <textBox refId="YubiKeyPIVManager_CardReader_TextBox">
+          <label>Card reader name:</label>
+        </textBox>
+      </presentation>
+      <presentation id="YubiKeyPIVManager_Request">
+        <dropdownList refId="YubiKeyPIVManager_Algorithm_DropdownList" defaultItem="0" noSort="true">Cryptographic algorithm to use for key pair generation:</dropdownList>
+        <textBox refId="YubiKeyPIVManager_Subject_TextBox">
+          <label>Subject Distinguished Name:</label>
+          <defaultValue>/CN=%USERNAME%</defaultValue>
+        </textBox>
+        <textBox refId="YubiKeyPIVManager_Template_TextBox">
+          <label>Certificate template name (for certreq.exe):</label>
+        </textBox>
+      </presentation>
+      <presentation id="YubiKeyPIVManager_PinPolicy">
+        <multiTextBox refId="YubiKeyPIVManager_PinPolicySlots_MultiText">Enable PIN Requirement Policy selection for these slots:</multiTextBox>
+        <dropdownList refId="YubiKeyPIVManager_PinPolicy_DropdownList" defaultItem="0" noSort="true">PIN Requirement Policy:</dropdownList>
+        <checkBox refId="YubiKeyPIVManager_ComplexPins_CheckBox" defaultChecked="false">Enforce complex PINs and PUKs</checkBox>
+        <decimalTextBox refId="YubiKeyPIVManager_PinExpiration_TextBox" defaultValue="0">PIN expiration interval (days):</decimalTextBox>
+        <checkBox refId="YubiKeyPIVManager_PinAsKey_CheckBox" defaultChecked="false">Derive the Management Key from PIN</checkBox>
+      </presentation>
+      <presentation id="YubiKeyPIVManager_ShownOuts">
+        <multiTextBox refId="YubiKeyPIVManager_ShownOuts_MultiText">Formats to show:</multiTextBox>
+      </presentation>
+      <presentation id="YubiKeyPIVManager_ShownSlots">
+        <multiTextBox refId="YubiKeyPIVManager_ShownSlots_MultiText">Slots to show in the UI:</multiTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

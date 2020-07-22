@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="CertCheckMode_NoSecurity">No Security</string>
+      <string id="CertCheckMode_WarnButAllow">Warn But Allow</string>
+      <string id="CertCheckMode_FullSecurity">Full Security</string>
+      <string id="EnableTicketSSLAuth_Enable">Enable</string>
+      <string id="EnableTicketSSLAuth_Disable">Disable</string>
+      <string id="EnableTicketSSLAuth_Enforce">Enforce</string>
+      <string id="DesktopLayout_FullScreen">Full Screen</string>
+      <string id="DesktopLayout_WindowLarge">Window - Large</string>
+      <string id="DesktopLayout_WindowSmall">Window - Small</string>
+      <string id="DesktopLayout_MultiMonitor">Multimonitor</string>
+      <string id="AppSessionReconnectBehavior_Ask">Ask to reconnect to open applications</string>
+      <string id="AppSessionReconnectBehavior_Always">Reconnect automatically to open applications</string>
+      <string id="AppSessionReconnectBehavior_Never">Do not ask and do not automatically reconnect</string>
+      <string id="ColorDepth_8bit">8 bit</string>
+      <string id="ColorDepth_15bit">15 bit</string>
+      <string id="ColorDepth_16bit">16 bit</string>
+      <string id="ColorDepth_24bit">24 bit</string>
+      <string id="ColorDepth_32bit">32 bit</string>
+      <string id="AudioRedirectionMode_PlayInVM">Play in VM (needed for VoIP USB Support)</string>
+      <string id="AudioRedirectionMode_RedirectToClient">Redirect to client</string>
+      <string id="AudioRedirectionMode_DisableAudio">Disable audio</string>
+      <string id="KeyboardHookMode_ApplyKeyCombinationsLocal">Apply key combinations locally</string>
+      <string id="KeyboardHookMode_SendKeyCombinationsToVM">Send key combinations to VM</string>
+      <string id="LocalModeExitBehavior_Shutdown">Shutdown</string>
+      <string id="LocalModeExitBehavior_Suspend">Suspend</string>
+      <string id="VMwareViewClientUSB">View USB Configuration</string>
+      <string id="VMwareViewClientOnlySetting">Settings not configurable by Agent</string>
+      <string id="ExcludePath">Exclude Path</string>
+      <string id="ExcludePathExplain">Exclude a device at a specified hub or port path from being forwarded.</string>
+      <string id="IncludePath">Include Path</string>
+      <string id="IncludePathExplain">Include a device at a specified hub or port path that can be forwarded.</string>
+      <string id="SplitExcludeVidPid">Exclude Vid/Pid Device from Split</string>
+      <string id="SplitExcludeVidPidExplain">Exclude the component devices of a composite device specified by its Vendor ID and Product ID from being treated as separate devices for filtering.
+
+Syntax: &lt;vid-&lt;xxxx&gt;_pid-&lt;xxxx|*&gt;&gt;[;...]
+
+For example: vid-0781_pid-554c;vid-0781_pid-9999</string>
+      <string id="SplitVidPid">Split Vid/Pid Device</string>
+      <string id="SplitVidPidExplain">Treat the component devices of a composite device specified by its Vendor and Product ID as separate devices for filtering.
+
+Syntax: &lt;vid-&lt;xxxx&gt;_pid-&lt;xxxx|*&gt;(exintf:xx[;exintf:xx])&gt;[;...]
+
+For example: vid-0781_pid-554c(exintf:01;exintf:02);vid-0781_pid-9999(exintf:02)</string>
+      <string id="ExcludeVidPid">Exclude Vid/Pid Device</string>
+      <string id="ExcludeVidPidExplain">Exclude a device with a specified Vendor ID and Product ID from being forwarded.
+
+Syntax: &lt;vid-&lt;xxxx&gt;_pid-&lt;xxxx | *&gt;&gt;[;...]
+
+For example: vid-0781_pid-554c;vid-0781_pid-9999</string>
+      <string id="IncludeVidPid">Include Vid/Pid Device</string>
+      <string id="IncludeVidPidExplain">Include a device with a specified Vendor ID and Product ID that can be forwarded.
+
+Syntax: &lt;vid-&lt;xxxx&gt;_pid-&lt;xxxx | *&gt;&gt;[;...]
+
+For example: vid-0781_pid-554c;vid-0781_pid-9999</string>
+      <string id="ExcludeFamily">Exclude Device Family</string>
+      <string id="ExcludeFamilyExplain">Exclude a family of devices from being forwarded.
+
+Syntax: &lt;family-name&gt;[;...]
+
+For example: bluetooth;audio-in</string>
+      <string id="IncludeFamily">Include Device Family</string>
+      <string id="IncludeFamilyExplain">Include a family of devices that can be forwarded.
+
+Syntax: &lt;family-name&gt;[;...]
+
+For example: storage;audio-out</string>
+      <string id="ExcludeAllDevices">Exclude All Devices</string>
+      <string id="ExcludeAllDevicesExplain">Block all devices unless they are included via Include filter rule.
+
+Default: Allow all devices</string>
+      <string id="VMwareViewAgentToClientUSB">Client Downloadable only Settings</string>
+      <string id="AllowHID">Allow other input devices</string>
+      <string id="AllowHIDExplain">Allow input devices other than hid-bootable devices, keyboards and mouse device to be forwarded.
+
+Default: Allow Forwarding</string>
+      <string id="AllowHIDBootable">Allow HID-Bootable</string>
+      <string id="AllowHIDBootableExplain">Allow bootable input devices (also known as hid-bootable devices) to be forwarded.
+
+Default: Allow Forwarding</string>
+      <string id="AllowAudioIn">Allow Audio Input Devices</string>
+      <string id="AllowAudioInExplain">Allow audio input devices to be forwarded.
+
+Default: Allow Forwarding</string>
+      <string id="AllowAudioOut">Allow Audio Output Devices</string>
+      <string id="AllowAudioOutExplain">Allow audio output devices to be forwarded.
+
+Default: Block Forwarding</string>
+      <string id="AllowKeyboardMouse">Allow keyboard and Mouse Devices</string>
+      <string id="AllowKeyboardMouseExplain">Allow keyboard and mouse devices to be forwarded.
+
+Default: Block Forwarding</string>
+      <string id="AllowVideo">Allow Video Devices</string>
+      <string id="AllowVideoExplain">Allow video devices to be forwarded
+
+Default: Allow Forwarding</string>
+      <string id="AllowSmartcard">Allow Smart Cards</string>
+      <string id="AllowSmartcardExplain">Allow smart-card devices to be forwarded.
+
+Default: Block Forwarding</string>
+      <string id="AllowAutoDeviceSplitting">Allow Auto Device Splitting</string>
+      <string id="AllowAutoDeviceSplittingExplain">Exclude the component devices of any composite device from being automatically treated as separate devices.</string>
+      <string id="DisableRemoteConfig">Disable Remote Configuration</string>
+      <string id="DisableRemoteConfigExplain">Disable downloads for remote configuration.</string>
+      <string id="AllowDevDescFailsafe">Allow Device Descriptor Failsafe behavior</string>
+      <string id="AllowDevDescFailsafeExplain">Enable Descriptor Failsafe behavior. Devices are not blocked if fetching of descriptor(s) failed</string>
+      <string id="VMwareViewClient">VMware Horizon Client Configuration</string>
+      <string id="AllowDataSharing">Allow data sharing</string>
+      <string id="AllowDataSharingExplain">VMware collects data on client systems to prioritize hardware and software compatibility. If your company participates in the program, VMware will receive anonymous data about your environment.
+This property is enabled by default.</string>
+      <string id="AllowResolutionDpiSync">Save resolution and DPI to server</string>
+      <string id="AllowResolutionDpiSyncExplain">When enabled, Horizon client automatically saves desktop resolution and DPI scaling to the server. With this GPO, every subsequent time the user with custom settings, say her name is Jane, launches the remote desktop, the custom setting is automatically applied. Users who have not set a custom setting will continue to see the default settings, which are to match the resolution and DPI of the local hardware. If the GPO is set on another system with the same monitor configuration, Jane will see her custom settings on that system as well.
+
+This property is disabled by default.</string>
+      <string id="EnableShade">Enable the shade</string>
+      <string id="EnableShadeExplain">Determines if the shade [menu bar] at the top of the Horizon Client window is enabled.
+
+This property is enabled by default.</string>
+      <string id="InitialPinState">Pin the shade</string>
+      <string id="InitialPinStateExplain">Determines if the pin on the shade at the top of the Horizon Client window is enabled, in order to prevent auto-hiding of the menu bar. Note: this property has no effect if the shade is disabled.
+
+This property is enabled by default.</string>
+      <string id="DisableSpanChecks">Don't check monitor alignment on spanning</string>
+      <string id="DisableSpanChecksExplain">By default, the client desktop will not span multiple monitors if the screens do not form an exact rectangle when in combination (that is, identical heights if positioned left and right monitors, or identical widths if positioned top and bottom).
+
+This property overrides this rule and is disabled by default.</string>
+      <string id="EnableMMR">Enable multi-media acceleration</string>
+      <string id="EnableMMRExplain">Specifies if multimedia redirection (MMR) is enabled on the client. MMR is a Microsoft DirectShow filter that forwards multimedia data from specific codecs on the remote system directly through a TCP socket to the client. The data is then decoded directly on the client, where it is played. Administrators can disable MMR if the client has insufficient resources to handle local multimedia decoding.
+
+Note: MMR will not work correctly if the Horizon Client video display hardware does not have overlay support. MMR policy does not apply to Offline Desktop sessions.</string>
+      <string id="AlwaysOnTop">Always on top</string>
+      <string id="AlwaysOnTopExplain">Specifies whether the Horizon Client window is always on top.
+
+This is disabled by default.</string>
+      <string id="AutomaticallyInstallShortcuts">Automatically install shortcuts when configured on the Horizon server</string>
+      <string id="AutomaticallyInstallShortcutsExplain">This policy configures whether shortcuts should be automatically installed on the horizon client when they have been configured on the server. When enabled, the user is not prompted and instead the shortcuts are automatically installed. When disabled, shortcuts are never installed. When not configured, the user is prompted to install shortcuts.</string>
+      <string id="HideClientAfterLaunchSession">Default value of the 'Hide the selector after launching an item' checkbox</string>
+      <string id="HideClientAfterLaunchSessionExplain">Sets whether the 'Hide the selector after launching an item' checkbox is checked by default.
+
+This setting is disabled by default.</string>
+      <string id="VMwareViewClientScripting">Scripting definitions</string>
+      <string id="ServerURL">Server URL</string>
+      <string id="ServerURLExplain">Determines the URL used by Horizon Client during login. For example: https://view1.example.com</string>
+      <string id="UserName">Logon UserName</string>
+      <string id="UserNameExplain">Determines the username used by Horizon Client during login.</string>
+      <string id="DomainName">Logon DomainName</string>
+      <string id="DomainNameExplain">Determines the NETBIOS domain used by Horizon Client during login. For example: EXAMPLE</string>
+      <string id="Password">Logon Password</string>
+      <string id="PasswordExplain">Determines the password used by Horizon Client during login.
+
+Warning: this password is stored in plain text by Active Directory</string>
+      <string id="DesktopName">DesktopName to select</string>
+      <string id="DesktopNameExplain">Determines the default desktop used by Horizon Client during login.</string>
+      <string id="DesktopLayout">DesktopLayout</string>
+      <string id="DesktopLayoutExplain">Determines the display state of the Horizon Client window when the desktop is launched.</string>
+      <string id="FullScreen">FullScreen</string>
+      <string id="Window">Window</string>
+      <string id="MultiMonitor">MultiMonitor</string>
+      <string id="LockedGuestSize">Locked Guest Size</string>
+      <string id="LockedGuestWidth">Locked Guest Width </string>
+      <string id="LockedGuestHeight">Locked Guest Height</string>
+      <string id="LockedGuestSizeExplain">Determines the screen resolution of the remote desktop. Once you have enabled the setting, remote desktop autofit functionality will be disabled. 
+
+Minimum screen size: 640x480 
+Maximum screen size: 4096x4096
+
+Note: this setting does not apply to RDP connections</string>
+      <string id="NonInteractive">Suppress error messages (when fully scripted only)</string>
+      <string id="NonInteractiveExplain">Determines if error messages are displayed during login.
+
+Note: This property is only applied when the login process is fully scripted, that is, when all the requisite login information has been pre-populated beforehand through policy.
+
+Note: If the login fails on account of incorrect login information being entered, the user is not notified and the Horizon Client wswc.exe process will be terminated automatically.</string>
+      <string id="SingleAutoConnect">Automatically connect if only one launch item is entitled</string>
+      <string id="SingleAutoConnectExplain">Automatically connect to the desktop or app if it is the only one entitled for the login user.</string>
+      <string id="VMwareViewClientSecurity">Security Settings</string>
+      <string id="LogInAsCurrentUser_Display">Display option to Log in as current user</string>
+      <string id="LogInAsCurrentUser_DisplayExplain">Determines if the Log in as current user checkbox is visible in the Windows Horizon Client.
+
+This setting is enabled by default.
+
+If this option is set to 'off', the user will not be able to override the 'Default value of Log in as current user checkbox' option.</string>
+      <string id="LogInAsCurrentUser">Default value of the 'Log in as current user' checkbox</string>
+      <string id="LogInAsCurrentUserExplain">Sets whether the 'Log in as current user' checkbox is checked by default.
+
+This setting is disabled by default.</string>
+      <string id="EnableRecursiveUnlock">Unlock remote sessions when the client machine is unlocked</string>
+      <string id="EnableRecursiveUnlockExplain">This policy controls the feature called "Recursive unlock", which unlocks all remote sessions after the client machine has been unlocked. This feature only applies when the user has logged into a View server using the "Login as current user" feature.
+
+This setting is enabled by default.</string>
+      <string id="BrokersTrustedForDelegation">Servers Trusted For Delegation</string>
+      <string id="BrokersTrustedForDelegationExplain">Sets the list of View Connection Servers that are allowed to have credentials delegated to them. This is used with 'Log in as current user'.
+
+By default all servers are trusted.
+
+You can add servers using any of 3 different formats:
+domain\system$
+system$@domain.dom
+SPN (Service Principal Name).</string>
+      <string id="IgnoreRevocation">Ignore certificate revocation problems</string>
+      <string id="IgnoreRevocationExplain">Determines if errors associated with a revoked server certificate are ignored.
+
+These errors occur when the certificate sent by the server has been revoked or the client cannot verify the certificate's revocation status.
+
+This setting is disabled by default.</string>
+      <string id="CertCheckMode">Certificate verification mode</string>
+      <string id="CertCheckModeExplain">Configures the certificate checking behavior of the Horizon Client.
+
+When this property is set to 'No Security', no certificate checking is performed.
+
+When this property is set to 'Warn But Allow', the user is warned but allowed to proceed if the server certificate is self-signed. If the server certificate is self-signed, the certificate name is allowed to not match the server name. This is the default value.
+
+When this property is set to 'Full Security', all certificate errors are reported to the user and they are not allowed to connect to the server.</string>
+      <string id="AllowConnectionViaAnSslProxy">Configures the SSL Proxy certificate checking behavior of the Horizon Client</string>
+      <string id="AllowConnectionViaAnSslProxyExplain">This setting determines whether users can connect to a virtual entitlement through an SSL proxy. When not configured, the end user can change the setting manually. By default the client is set to block SSL proxy connections for Blast and tunnel connections.</string>
+      <string id="EnableSmartCardSSO">Enable Single Sign-On for smart card authentication</string>
+      <string id="EnableSmartCardSSOExplain">Enables Single Sign-On for smart card authentication. This requires the Horizon Client to store the encrypted smart card PIN in memory momentarily before submitting it to the View Connection Server.</string>
+      <string id="EnableJumplist">Enable jump list integration</string>
+      <string id="EnableJumplistExplain">Enables adding a jump list to the Horizon Client icon in the taskbar on Windows 7 and later to allow users to easily connect to recent View Connection Servers and remote desktops. This feature is enabled by default.</string>
+      <string id="AllowCmdLineCredentials">Allow command line credentials</string>
+      <string id="AllowCmdLineCredentialsExplain">Allow credentials such as a password or PIN to be provided via command line parameters.
+
+This setting is enabled by default.</string>
+      <string id="EnableTicketSSLAuth">Enable SSL encrypted framework channel</string>
+      <string id="EnableTicketSSLAuthExplain">Enable SSL encrypted framework channel
+
+Enable: Enable SSL, allow fallback to desktops with no SSL support
+Disable: Disable SSL
+Enforce: Enable SSL, refuse to connect to desktops with no SSL support</string>
+      <string id="SSLCipherList">Configures SSL protocols and cryptographic algorithms</string>
+      <string id="SSLCipherListExplain">Configures cipher list to restrict the use of certain cryptographic algorithms and protocols before establishing an encrypted SSL connection. The cipher list consists of one or more cipher strings separated by colons. Note that all cipher strings are case sensitive.
+
+If the feature is enabled, the default value is:
+   'TLSv1.1:TLSv1.2:!aNULL:kECDH+AESGCM:ECDH+AESGCM:RSA+AESGCM:kECDH+AES:ECDH+AES:RSA+AES'
+
+That means: TLS v1.1 and TLS v1.2 are enabled(SSL v2.0, SSL v3.0 and TLS v1.0 are disabled). Cipher suites using ECDHE, ECDH and RSA with 128 or 256 bit AES, and prefer GCM mode.
+
+SSL v2.0, SSL v3.0 and TLS v1.0 are no longer the approved protocols and will be permanently disabled.
+
+Reference link for the configuration:
+http://www.openssl.org/docs/apps/ciphers.html#</string>
+      <string id="VMwareViewRdpSettings">RDP Settings</string>
+      <string id="VMwareViewBrowserRedirection">VMware Browser Redirection</string>
+      <string id="ColorDepth">Color depth</string>
+      <string id="ColorDepthExplain">Determines the color depth of the remote desktop.
+
+For 24 bit Windows XP systems, ensure that the Limit Maximum Color Depth policy in Computer Configuration/Administrative Templates/Windows Components/Terminal Services is Enabled and 24 bit.</string>
+      <string id="AudioRedirectionMode">Audio redirection</string>
+      <string id="AudioRedirectionModeExplain">Determines how audio information is channelled when played on the remote desktop. When this property is enabled, the available settings are:
+
+  * Disable Audio - no audio
+  * Play in VM (needed for VoIP USB support) - audio plays within the remote desktop (requires a shared USB audio device to provide sound on the client)
+  * Redirect to client - audio is redirected to the client. This is the default mode.
+
+Note: This property only applies to RDP audio ï¿½ audio that is redirected via MMR will play in the client.</string>
+      <string id="KeyboardHookMode">Windows key combination redirection</string>
+      <string id="KeyboardHookModeExplain">Determines where Windows key combinations are applied.</string>
+      <string id="DisableWallpaper">Desktop background</string>
+      <string id="DisableWallpaperExplain">Determines if the desktop background is displayed when clients connect to the remote desktop.</string>
+      <string id="DisableFullWindowDrag">Show contents of window while dragging</string>
+      <string id="DisableFullWindowDragExplain">Determines if folder contents are displayed when users drag a folder to a new location.</string>
+      <string id="DisableMenuAnimations">Menu and window animation</string>
+      <string id="DisableMenuAnimationsExplain">Determines how menus and windows behave when clients connect to the remote computer.</string>
+      <string id="DisableTheming">Themes</string>
+      <string id="DisableThemingExplain">Determines if themes are displayed when clients connect to the remote desktop.</string>
+      <string id="DisableCursorShadow">Cursor shadow</string>
+      <string id="DisableCursorShadowExplain">Determines if a shadow is displayed under the cursor on the remote desktop.</string>
+      <string id="FontSmoothing">Font smoothing</string>
+      <string id="FontSmoothingExplain">(Windows Vista or later) Determines if anti-aliasing is applied to the fonts on the remote desktop.</string>
+      <string id="DesktopComposition">Desktop composition</string>
+      <string id="DesktopCompositionExplain">(Windows Vista or later) Determines if desktop composition is enabled on the remote desktop.
+
+When desktop composition is enabled, individual windows no longer draw directly to the screen or primary display device as they did in previous versions of Microsoft Windows. Instead, their drawing is redirected to off-screen surfaces in video memory, which are then rendered into a desktop image and presented on the display.</string>
+      <string id="RedirectDrives">Redirect drives</string>
+      <string id="RedirectDrivesExplain">Determines if local disk drives are automatically redirected when clients connect to the remote computer.</string>
+      <string id="RedirectPrinters">Redirect printers</string>
+      <string id="RedirectPrintersExplain">Determines if local printers are automatically redirected when clients connect to the remote desktop.</string>
+      <string id="RedirectPorts">Redirect serial ports</string>
+      <string id="RedirectPortsExplain">Determines if local COM ports are automatically redirected when clients connect to the remote desktop.</string>
+      <string id="RedirectSmartcards">Redirect smart cards</string>
+      <string id="RedirectSmartcardsExplain">Determines if local smart cards are automatically redirected when clients connect to the remote desktop.</string>
+      <string id="RedirectClipboard">Redirect clipboard</string>
+      <string id="RedirectClipboardExplain">This setting determines if local clipboard information will be automatically redirected when clients connect to the remote desktop.</string>
+      <string id="RedirectPlugAndPlayDevices">Redirect supported plug-and-play devices</string>
+      <string id="ExplainRedirectPlugAndPlayDevices">Determines if local plug-and-play and point-of-sale devices are automatically redirected when clients connect to the remote desktop. This is distinct from the redirection managed by the USB Redirection component of View Agent.</string>
+      <string id="ShadowBitmap">Shadow bitmaps</string>
+      <string id="ShadowBitmapExplain">Determines if shadow bitmaps should be used.
+
+Note: Shadow bitmaps are always disabled in full-screen mode, therefore this property has no effect when in full-screen mode.</string>
+      <string id="CachePersistenceActive">Bitmap caching / cache persistence active</string>
+      <string id="CachePersistenceActiveExplain">Determines if persistent bitmap caching should be used. Persistent caching can improve performance but requires additional disk space.</string>
+      <string id="EnableCompression">Enable compression</string>
+      <string id="EnableCompressionExplain">Determines if the compression of RDP data is used, and is enabled by default.</string>
+      <string id="BitmapCacheSize">In-memory bitmap cache size in KB for 8bpp bitmaps</string>
+      <string id="BitmapCacheSizeExplain">Specifies the size, in kilobytes, of the RAM bitmap cache to use for the 8 bits per pixel color setting. If ScaleBitmapCachesByBPP is true (default), this cache size will be multiplied by the bytes per pixel to determine the actual RAM cache size.
+
+When this property is enabled, enter a size in KB.</string>
+      <string id="BitmapVirtualCacheSize">Bitmap cache file size in MB for 8bpp bitmaps</string>
+      <string id="BitmapVirtualCacheSizeExplain">Specifies the size, in megabytes, of the persistent bitmap cache file to use for the 8 bits per pixel color setting.
+
+When this property is enabled, enter a file size in MB. The valid values are 1 to 32 inclusive.</string>
+      <string id="BitmapVirtualCache16BppSize">Bitmap cache file size in MB for 16bpp bitmaps</string>
+      <string id="BitmapVirtualCache16BppSizeExplain">Specifies the size, in megabytes, of the persistent bitmap cache file to use for the 15/16 bits per pixel color setting.
+
+When this property is enabled, enter a file size in MB. The valid values are 1 to 32 inclusive.</string>
+      <string id="BitmapVirtualCache24BppSize">Bitmap cache file size in Mb for 24bpp bitmaps</string>
+      <string id="BitmapVirtualCache24BppSizeExplain">Specifies the size, in megabytes, of the persistent bitmap cache file to use for the 24 bits per pixel color setting.
+
+When this property is enabled, enter a file size in MB. The valid values are 1 to 32 inclusive.</string>
+      <string id="BitmapVirtualCache32BppSize">Bitmap cache file size in MB for 32bpp bitmaps</string>
+      <string id="BitmapVirtualCache32BppSizeExplain">Specifies the size, in megabytes, of the persistent bitmap cache file to use for the 32 bits per pixel color setting.
+
+When this property is enabled, enter a file size in MB. The valid values are 1 to 32 inclusive.</string>
+      <string id="noTSCAddins">Disable 3rd-party Terminal Services plugins</string>
+      <string id="noTSCAddinsExplain">When this property is set to true, no checking takes place for 3rd-party Terminal Services plugins installed as normal RDP plugins. This setting does not affect View specific plugins, such as USB redirection. If this policy is not configured, the detection and use of 3rd-party plugins is enabled by default.</string>
+      <string id="DisableTimeZoneForwarding">Disable time zone forwarding</string>
+      <string id="DisableTimeZoneForwardingExplain">Determines if the time zone of the View desktop is synchronized with that of the connected client. When enabled, this property will only apply if the Disable Time Zone Synchronization property of the View Agent Configuration policy is not set to disabled.
+
+This property is disabled by default.</string>
+      <string id="AutomaticInputFocus">Automatic input focus in a virtual desktop window</string>
+      <string id="AutomaticInputFocusExplain">When a virtual desktop window is brought to the forefront, input will automatically be in the virtual desktop. In other words, the focus won't be in the frame of the window and the user won't have to click once inside the desktop window to move focus.</string>
+      <string id="EnableCredSspSupport">Enable Credential Security Service Provider</string>
+      <string id="EnableCredSspSupportExplain">Specifies whether the View desktop connection uses Network Level Authentication (NLA). In Windows Vista, remote desktop connections require NLA by default.
+
+If the guest operating system requires NLA for remote desktop connections, you must enable this setting or Horizon Client will not be able to connect to the View desktop.
+
+In addition to enabling this setting, you must also verify that the following conditions are met:
+   1) Both the client and guest operating systems support NLA.
+   2) Direct client connections are enabled for the View Connection Server instance. Tunneled connections are not supported with NLA.</string>
+      <string id="TunnelProxyBypass">Tunnel proxy bypass address list</string>
+      <string id="TunnelProxyBypassExplain">Do not use proxy server for tunnel addresses beginning with specified string, use semicolon (;) to separate entries.</string>
+      <string id="HelpURL">URL for Horizon Client online help</string>
+      <string id="HelpURLExplain">Specifies an alternate URL from which Horizon Client can retrieve help pages. This property is intended for use in environments that do not possess Internet access and can therefore not retrieve the remotely-hosted help system.</string>
+      <string id="AutoUpdateAllowed">Enable Horizon Client online update</string>
+      <string id="AutoUpdateAllowedExplain">Determines if the online update feature can be used. It is enabled by default from Horizon Client 4.6.</string>
+      <string id="AutoUpdateURL">URL for Horizon Client online update</string>
+      <string id="AutoUpdateURLExplain">Specifies a URL from which Horizon Client can retrieve updates. This property is designed to define a specific update server. If it is not enabled, VMware official update server will be used.</string>
+      <string id="BlockMultipleInstances">Block multiple Horizon Client instances per Windows session</string>
+      <string id="BlockMultipleInstancesExplain">This policy blocks multiple Horizon Client instances per Windows session. When set to "Enabled", Horizon Client runs in singleton instance mode, and the user can not launch multiple Horizon Client instances. When disabled, the user can open multiple Horizon Client instances. This setting is disabled by default.</string>
+      <string id="ListSmartCardCertsOnly">Display only smart card certificates during login</string>
+      <string id="ListSmartCardCertsOnlyExplain">This policy specifies whether to list all certificates from user and system stores or to show only certificates of smart cards. When it is set to Enabled, the certificate selection dialog box will only show smart card certificates, all other certificates will be filtered out. When it is set to Disabled, all types of certificates will be listed in the certificate selection dialog box. This setting is disabled by default.</string>
+      <string id="connectUSBOnStartup">Connect all USB devices to the desktop or remote application on launch</string>
+      <string id="connectUSBOnStartupExplain">Automatically connects all available USB devices on the host to a desktop or remote application when that desktop or remote application is launched.</string>
+      <string id="EnableAutoReconnect">Enable RDP Auto-Reconnect</string>
+      <string id="EnableAutoReconnectExplain">Specifies whether to allow the RDP client component to attempt to reconnect automatically to a desktop in the event of an RDP protocol connection failure. This setting is disabled by default. This setting has no effect when the "Use secure tunnel connection to desktop" option is enabled.</string>
+      <string id="RedirectAudioCapture">Enable audio capture redirection</string>
+      <string id="RedirectAudioCaptureExplain">Specifies whether the default audio input device is redirected from the client to the remote session. The default is off.</string>
+      <string id="connectUSBOnInsert">Connect USB devices to the desktop or remote application when they are plugged in</string>
+      <string id="connectUSBOnInsertExplain">Automatically connects USB devices when they are plugged in to the host to the desktop or remote application with which the user is currently working.</string>
+      <string id="RedirectSmartCardsInLocalMode">Redirect smart card readers in Local Mode</string>
+      <string id="RedirectSmartCardsInLocalModeExplain">Determines if smart card readers are automatically redirected to Local Mode desktops. The readers will be shared with the client machine. This setting is enabled by default.</string>
+      <string id="ReplicationStartupDelay">Delay the start of replications when starting the Horizon Client with Local Mode</string>
+      <string id="ReplicationStartupDelayExplain">Delay all replications by this many seconds after the Horizon Client with Local Mode is started. Replications will continue on their normal schedule after this delay. The default delay is 900 seconds (15 minutes).</string>
+      <string id="LocalModeExitBehavior">Default Exit Behavior For Local Mode Desktops</string>
+      <string id="LocalModeExitBehaviorExplain">Determines the default exit behavior of desktops running in Local Mode. The default exit behavior is to initiate a guest shutdown.</string>
+      <string id="DisableToastNotifications">Disable toast notifications</string>
+      <string id="DisableToastNotificationsExplain">This setting disables the toast notifications from the Horizon Client. Enable this setting if you do not want the user to see toast notifications in the corner of their screen. Note that enabling this GPO will cause the user to not see a 5-minute warning when the Session Timeout functionality is active. This setting is disabled by default.</string>
+      <string id="EnableRelativeMouse">Enable relative mouse</string>
+      <string id="EnableRelativeMouseExplain">This setting enables relative mouse from the Horizon Client for PCoIP desktops. Enable this setting if you want the user to always use relative mouse mode with PCoIP desktops. Relative mouse mode improves mouse behavior for certain graphics applications and games. If the remote desktop does not support relative mouse then this setting will not be used. This setting is disabled by default.</string>
+      <string id="DisableDisconnectMessages">Disable desktop disconnect messages</string>
+      <string id="DisableDisconnectMessagesExplain">Specifies whether messages that are normally shown upon desktop disconnection should be disabled. These messages are shown by default. This setting does not apply to user-initiated disconnection from the Horizon Client UI.</string>
+      <string id="DisallowClientInformationPassthrough">Disallow passing through client information in a nested session</string>
+      <string id="DisallowClientInformationPassthroughExplain">Specifies whether the Horizon Client should be prevented from passing through client information in a nested session. When enabled, if the Horizon Client is running inside of a Horizon session, it will send the actual physical client information instead of the VM device information. This setting applies to the following pieces of client information: device name and domain, client type, IP address, and MAC address. This setting is disabled by default, which means passing through client information in a nested session is allowed by default.</string>
+      <string id="DisableSharing">Disable sharing files and folders</string>
+      <string id="DisableSharingExplain">Disable file and folder sharing between remote sessions and clients.
+
+When set to "Enable", Client will completely hide the client sharing page and will also disable the File Redireciton.
+
+When this setting is not configured, the default value is "Disabled".</string>
+      <string id="AppSessionReconnectBehavior">Disconnected application session resumption behavior</string>
+      <string id="AppSessionReconnectBehaviorExplain">This setting allows you to force specific behavior with respect to the automatic application session resumption feature. The 3 options available for this GPO mirror the options that are available in the Windows client settings page. This setting is disabled by default, meaning that the user is allowed to choose the behavior.</string>
+      <string id="ForceFloatingLanguageBarOff">Always hide the remote floating language (IME) bar for Hosted Apps</string>
+      <string id="ForceFloatingLanguageBarOffExplain">This setting forces the floating language bar off for application sessions. When enabled, the floating language bar is never shown for in a remote application session, regardless of whether the local IME feature is enabled. When disabled, the floating language bar is only shown if the local IME feature is disabled. This value is disabled by default.</string>
+      <string id="DisableFileRedirection">Disable opening local files in hosted applications</string>
+      <string id="DisableFileRedirectionExplain">This setting controls whether the Horizon Client registers local handlers for file extension that are supported by hosted applications. When this policy is enabled, the Horizon Client will not register any file extension handlers and will not allow the user to override the setting. When this policy is disabled, the Horizon Client will always register file extension handlers. By default, file extension handlers are registered but the user can disable the feature through the Horizon Client UI.</string>
+      <string id="KeyboardHotkeys">Display modifier function key</string>
+      <string id="KeyboardHotkeysExplain">When set, this GPO sets the combination of keys that, when grabbed and injecting input in a desktop session(PCoIP or BLAST), will change the display configuration on the client machine. When not set, the end user must ungrab using the mouse or by pressing Ctrl+Alt and then press Windows+P to change the display configuration. This GPO does not apply to application sessions.</string>
+      <string id="DisplaySwitchModifierKey">Display Switch Modifier Key:</string>
+      <string id="DisplaySwitchFunctionKey">Display Switch Function Key:</string>
+      <string id="KEY_NONE">&lt;Disabled&gt;</string>
+      <string id="KEY_SHIFT">Shift</string>
+      <string id="KEY_CTRL">Ctrl</string>
+      <string id="KEY_ALT">Alt</string>
+      <string id="KEY_F1">F1</string>
+      <string id="KEY_F2">F2</string>
+      <string id="KEY_F3">F3</string>
+      <string id="KEY_F4">F4</string>
+      <string id="KEY_F5">F5</string>
+      <string id="KEY_F6">F6</string>
+      <string id="KEY_F7">F7</string>
+      <string id="KEY_F8">F8</string>
+      <string id="KEY_F9">F9</string>
+      <string id="KEY_F10">F10</string>
+      <string id="KEY_F11">F11</string>
+      <string id="KEY_F12">F12</string>
+      <string id="KEY_H">H</string>
+      <string id="KEY_I">I</string>
+      <string id="KEY_J">J</string>
+      <string id="KEY_K">K</string>
+      <string id="KEY_L">L</string>
+      <string id="KEY_M">M</string>
+      <string id="KEY_N">N</string>
+
+      <string id="HotkeyUngrabDesktop">Hotkey combination to release input focus</string>
+      <string id="HotkeyUngrabDesktopExplain">This policy sets a hotkey combination to release input focus for a desktop session using PCoIP or Blast. A hotkey consists of one or two modifier keys and one function key. When this policy is disabled or not configured, the user can ungrab focus by using Ctrl+Alt or clicking outside the desktop window.</string>
+      <string id="UngrabDesktopModifierKey">Modifier key to release input focus:</string>
+      <string id="SecondUngrabDesktopModifierKey">Second modifer key to release input focus:</string>
+      <string id="UngrabDesktopFunctionKey">Function key to release input focus:</string>
+
+      <string id="HotkeyGrabDesktop">Hotkey combination to grab input focus</string>
+      <string id="HotkeyGrabDesktopExplain">This policy sets a hotkey combination to grab input focus for the last used desktop session using PCoIP or Blast. A hotkey consists of one or two modifier keys and one letter key. When this policy is disabled or not configured, the user can grab focus by clicking inside the desktop window</string>
+      <string id="GrabDesktopModifierKey">Modifier key to grab input focus:</string>
+      <string id="SecondGrabDesktopModifierKey">Second modifier key to grab input focus:</string>
+      <string id="GrabDesktopLetterKey">Letter key to grab input focus:</string>
+
+      <string id="HIDE_MENU_YES">Yes</string>
+      <string id="HIDE_MENU_NO">No</string>
+      <string id="HideToolBarMenu">Hide items in the client toolbar menu</string>
+      <string id="HideToolBarMenuExplain">These settings control whether to hide items in the toolbar, the bar that sits at the top of the main client launcher page. By default the policy is disabled and the Horizon Client shows all items.
+
+This GPO is supported by Horizon Client 5.0 and later.</string>
+      <string id="HideDesktopContextMenu">Hide items in desktop context menu</string>
+      <string id="HideDesktopContextMenuExplain">These settings control whether to hide items in the right click contextual menu for desktops from the client launcher page. By default the policy is disabled and the Horizon Client shows all items.
+
+This GPO is supported by Horizon Client 5.0 and later.</string>
+      <string id="HideAppContextMenu">Hide items in application context menu</string>
+      <string id="HideAppContextMenuExplain">These settings control whether to hide items in the right click contextual menu for applications from the client launcher page. By default the policy is disabled and the Horizon Client shows all items.
+
+This GPO is supported by Horizon Client 5.0 and later.</string>
+      <string id="HideDesktopMenu">Hide items in desktop toolbar</string>
+      <string id="HideDesktopMenuExplain">These settings control whether to hide items in the desktop toolbar, the bar appears at the top of a virtual desktop running full screen. By default the policy is disabled and the Horizon Client shows all items.
+
+This GPO is supported by Horizon Client 5.0 and later.</string>
+      <string id="HideNotificationMenu">Hide items in system tray menu</string>
+      <string id="HideNotificationMenuExplain">These settings control whether to hide items in the system tray menu at the bottom of the local Windows screen. By default the policy is disabled and the Horizon Client shows all items.
+
+This GPO is supported by Horizon Client 5.0 and later.</string>
+      <string id="CustomErrorScreenFooter">Custom error screen footer</string>
+      <string id="CustomErrorScreenFooterExplain">Specifies the location of a plain text file. If enabled, the text in the specified file will always display at the bottom of all error messages.
+
+This GPO is supported by Horizon Client 5.0 and later.</string>
+      <string id="UnauthenticatedAccessEnabled">Enable Unauthenticated Access to the server</string>
+      <string id="UnauthenticatedAccessEnabledExplain">This setting controls whether the user is required to enter credentials in order to access their applications using the Horizon Client. When enabled, Unauthenticated Access is always requested from the server, however the client may fall back to other authentication methods if Unauthenticated Access is not available. When disabled, users are always required to enter their credentials to login and access their applications. When not configured, Unauthenticated Access can be enabled by the user in the Horizon Client UI.</string>
+      <string id="ForceUserAffinity">Use existing client instance when connect to same server</string>
+      <string id="ForceUserAffinityExplain">This setting controls whether a connection is added to the existing Horizon Client instance with which the user already connected to the same server specified. This setting is disabled by default when not configured.</string>
+      <string id="UnauthenticatedAccessAccount">Account to use for Unauthenticated Access</string>
+      <string id="UnauthenticatedAccessAccountExplain">This setting sets the account that will be used by the Horizon Client to log in anonymously to the server. When not set, the client will allow the user to choose an account.</string>
+      <string id="ADMXMigrator_UnresolvedString">ADMX Migrator encountered a string that is not present in the source ADM string table.</string>
+      <string id="VDMClient_SupportedOn_Empty"></string>
+      <string id="AllowDisplayScaling">Allow display scaling</string>
+      <string id="AllowDisplayScalingExplain">This setting allows you to configure display scaling for all desktop and application sessions.</string>
+      <string id="AutoSyncToggleKeys">Automatically synchronize the keypad, scroll and caps lock keys</string>
+      <string id="AutoSyncToggleKeysExplain">When enabled, this setting automatically syncs the keypad, scroll and cap locks keys from the physical device to the virtual desktop. When not enabled, the virtual desktop only updates the state of those keys if the user changes them while in the virtual desktop. </string>
+      <string id="AllowHEVC">Allow HEVC Decoding</string>
+      <string id="AllowHEVCExplain">This setting allows you to configure HEVC (also known as H.265) decoding for the Blast protocol. When enabled, HEVC decoding becomes the preferred option. When disabled, HEVC decoding is never used. When not configured, the user is allowed to choose whether to enable the HEVC decoding.</string>
+      <string id="AllowBlastThroughProxy">Allow Blast connections to use operating system proxy settings</string>
+      <string id="AllowBlastThroughProxyExplain">This setting allows you to configure proxy usage for the Blast connection. When enabled, Blast can connect through a proxy. When disabled, the system proxy is not used. When not configured, the user is allowed to choose whether to use system proxy. This property is disabled by default.</string>
+      <string id="BrowserRedirUseCache">Enable cache for browser redirection</string>
+      <string id="BrowserRedirUseCacheExplain">When enabled, browsing history, including cookies, is stored on the client. Disabling this setting does not clear the cache, which will be reused after the setting is enabled again after being disabled.
+
+This property is enabled by default.</string>
+      <string id="BrowserRedirIgnoreCertErrors">Ignore certificate errors for browser redirection</string>
+      <string id="BrowserRedirIgnoreCertErrorsExplain">When enabled, any certificate errors that occur in the redirected page will be ignored and browsing will proceed. This property is disabled by default.</string>
+      <string id="BrowserRedirEnableMediaStream">Enable WebRTC camera and microphone access for browser redirection</string>
+      <string id="BrowserRedirEnableMediaStreamExplain">When enabled, redirected pages using WebRTC will have access to the client's camera and microphone. This property is enabled by default.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="ExcludePath">
+        <textBox refId="ExcludePath">
+          <label>Exclude Path</label>
+        </textBox>
+      </presentation>
+      <presentation id="IncludePath">
+        <textBox refId="IncludePath">
+          <label>Include Path</label>
+        </textBox>
+      </presentation>
+      <presentation id="DisableRemoteConfig" />
+      <presentation id="AllowDevDescFailsafe" />
+      <presentation id="SplitExcludeVidPid">
+        <textBox refId="SplitExcludeVidPid">
+          <label>Exclude Vid/Pid Device from Split</label>
+        </textBox>
+      </presentation>
+      <presentation id="SplitVidPid">
+        <textBox refId="SplitVidPid">
+          <label>Split Vid/Pid Device</label>
+        </textBox>
+      </presentation>
+      <presentation id="ExcludeVidPid">
+        <textBox refId="ExcludeVidPid">
+          <label>Exclude Vid/Pid Device</label>
+        </textBox>
+      </presentation>
+      <presentation id="IncludeVidPid">
+        <textBox refId="IncludeVidPid">
+          <label>Include Vid/Pid Device</label>
+        </textBox>
+      </presentation>
+      <presentation id="ExcludeFamily">
+        <textBox refId="ExcludeFamily">
+          <label>Exclude Device Family</label>
+        </textBox>
+      </presentation>
+      <presentation id="IncludeFamily">
+        <textBox refId="IncludeFamily">
+          <label>Include Device Family</label>
+        </textBox>
+      </presentation>
+      <presentation id="ExcludeAllDevices" />
+      <presentation id="AllowHID" />
+      <presentation id="AllowHIDBootable" />
+      <presentation id="AllowAudioIn" />
+      <presentation id="AllowAudioOut" />
+      <presentation id="AllowKeyboardMouse" />
+      <presentation id="AllowVideo" />
+      <presentation id="AllowSmartcard" />
+      <presentation id="AllowAutoDeviceSplitting" />
+      <presentation id="LogInAsCurrentUser_Display" />
+      <presentation id="LogInAsCurrentUser" />
+      <presentation id="EnableRecursiveUnlock" />
+      <presentation id="BrokersTrustedForDelegation">
+        <listBox refId="BrokersTrustedForDelegation">Servers Trusted For Delegation</listBox>
+      </presentation>
+      <presentation id="IgnoreRevocation" />
+      <presentation id="CertCheckMode">
+        <dropdownList refId="CertCheckMode" defaultItem="1">Certificate verification mode</dropdownList>
+      </presentation>
+      <presentation id="AllowConnectionViaAnSslProxy"/>
+      <presentation id="EnableSmartCardSSO" />
+      <presentation id="EnableJumplist" />
+      <presentation id="AllowCmdLineCredentials" />
+      <presentation id="EnableTicketSSLAuth">
+        <dropdownList refId="EnableTicketSSLAuth" defaultItem="0">Enable SSL encrypted framework channel</dropdownList>
+      </presentation>
+      <presentation id="SSLCipherList">
+        <textBox refId="SSLCipherList">
+          <label>Configures SSL protocols and cryptographic algorithms</label>
+          <defaultValue>TLSv1.1:TLSv1.2:!aNULL:kECDH+AESGCM:ECDH+AESGCM:RSA+AESGCM:kECDH+AES:ECDH+AES:RSA+AES</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="ServerURL">
+        <textBox refId="ServerURL">
+          <label>Server URL</label>
+        </textBox>
+      </presentation>
+      <presentation id="UserName">
+        <textBox refId="UserName">
+          <label>Logon UserName</label>
+        </textBox>
+      </presentation>
+      <presentation id="DomainName">
+        <textBox refId="DomainName">
+          <label>Logon DomainName</label>
+        </textBox>
+      </presentation>
+      <presentation id="Password">
+        <textBox refId="Password">
+          <label>Logon Password</label>
+        </textBox>
+      </presentation>
+      <presentation id="DesktopName">
+        <textBox refId="DesktopName">
+          <label>DesktopName to select</label>
+        </textBox>
+      </presentation>
+      <presentation id="DesktopLayout">
+        <dropdownList refId="DesktopLayout" defaultItem="0">DesktopLayout</dropdownList>
+      </presentation>
+      <presentation id="LockedGuestSize">
+        <decimalTextBox refId="LockedGuestWidth" defaultValue="1600">Locked Guest Width </decimalTextBox>
+        <decimalTextBox refId="LockedGuestHeight" defaultValue="1200">Locked Guest Height</decimalTextBox>
+      </presentation>
+      <presentation id="NonInteractive" />
+      <presentation id="SingleAutoConnect" />
+      <presentation id="noTSCAddins" />
+      <presentation id="connectUSBOnStartup" />
+      <presentation id="connectUSBOnInsert" />
+      <presentation id="AppSessionReconnectBehavior">
+        <dropdownList refId="AppSessionReconnectBehavior" defaultItem="0">Disconnected application session resumption behavior</dropdownList>
+      </presentation>
+      <presentation id="UnauthenticatedAccessEnabled" />
+      <presentation id="ErrorFooterTextFile">
+        <textBox refId="ErrorFooterTextFile">
+          <label>Error footer text file location</label>
+        </textBox>
+      </presentation>
+      <presentation id="UnauthenticatedAccessAccount">
+        <textBox refId="UnauthenticatedAccessAccount">
+          <label>Account to use for Unauthenticated Access</label>
+        </textBox>
+      </presentation>
+      <presentation id="DisableTimeZoneForwarding" />
+      <presentation id="AutomaticInputFocus" />
+      <presentation id="TunnelProxyBypass">
+        <textBox refId="TunnelProxyBypass">
+          <label>Tunnel proxy bypass address list</label>
+        </textBox>
+      </presentation>
+      <presentation id="HelpURL">
+        <textBox refId="HelpURL">
+          <label>URL for Horizon Client online help</label>
+        </textBox>
+      </presentation>
+      <presentation id="AutoUpdateAllowed" />
+      <presentation id="AutoUpdateURL">
+        <textBox refId="AutoUpdateURL">
+          <label>URL for Horizon Client online update</label>
+        </textBox>
+      </presentation>
+      <presentation id="BlockMultipleInstances" />
+      <presentation id="ListSmartCardCertsOnly" />
+      <presentation id="RedirectSmartCardsInLocalMode" />
+      <presentation id="ReplicationStartupDelay">
+        <decimalTextBox refId="ReplicationStartupDelay">Delay the start of replications when starting the Horizon Client with Local Mode</decimalTextBox>
+      </presentation>
+      <presentation id="DisableToastNotifications" />
+      <presentation id="EnableRelativeMouse" />
+      <presentation id="DisableDisconnectMessages" />
+      <presentation id="HideClientAfterLaunchSession" />
+      <presentation id="DisallowClientInformationPassthrough" />
+      <presentation id="ForceFloatingLanguageBarOff" />
+      <presentation id="DisableFileRedirection" />
+      <presentation id="KeyboardHotkeys">
+        <dropdownList refId="DisplaySwitchModifierKey" defaultItem="1">Display Switch Modifier Key:</dropdownList>
+        <dropdownList refId="DisplaySwitchFunctionKey" defaultItem="1">Display Switch Function Key:</dropdownList>
+      </presentation>
+      <presentation id="HotkeyUngrabDesktop">
+        <dropdownList refId="UngrabDesktopModifierKey" defaultItem="0" noSort="true">Modifier key to release input focus:</dropdownList>
+        <dropdownList refId="SecondUngrabDesktopModifierKey" defaultItem="0" noSort="true">Second modifier key to release input focus:</dropdownList>
+        <dropdownList refId="UngrabDesktopFunctionKey" defaultItem="0">Function key to release input focus:</dropdownList>
+      </presentation>
+      <presentation id="HotkeyGrabDesktop">
+        <dropdownList refId="GrabDesktopModifierKey" defaultItem="0" noSort="true">Modifier key to grab input focus:</dropdownList>
+        <dropdownList refId="SecondGrabDesktopModifierKey" defaultItem="0" noSort="true">Second modifier key to grab input focus:</dropdownList>
+        <dropdownList refId="GrabDesktopFunctionKey" defaultItem="0">Letter Key to grab input focus:</dropdownList>
+      </presentation>
+      <presentation id="HideToolBarMenu">
+        <dropdownList refId="HideFavoritesToolbar" defaultItem="0">Hide Favorites Toggle</dropdownList>
+        <dropdownList refId="HideSettingsToolbar" defaultItem="0">Hide Settings Gear</dropdownList>
+      </presentation>
+      <presentation id="HideDesktopContextMenu">
+        <dropdownList refId="HideResetDesktopDesktopContext" defaultItem="0">Hide Reset Desktop</dropdownList>
+        <dropdownList refId="HideRestartDesktopDesktopContext" defaultItem="0">Hide Restart Desktop</dropdownList>
+        <dropdownList refId="HideDisplayDesktopContext" defaultItem="0">Hide Display</dropdownList>
+        <dropdownList refId="HideSettingsDesktopContext" defaultItem="0">Hide Settings</dropdownList>
+        <dropdownList refId="HideCreateShortcutToDesktopDesktopContext" defaultItem="0">Hide Create Shortcut to Desktop</dropdownList>
+        <dropdownList refId="HideAddToStartMenuDesktopContext" defaultItem="0">Hide Add to Start Menu</dropdownList>
+        <dropdownList refId="HideMarkAsFavoriteDesktopContext" defaultItem="0">Hide Mark as Favorite</dropdownList>
+      </presentation>
+      <presentation id="HideAppContextMenu">
+        <dropdownList refId="HideSettingsAppContext" defaultItem="0">Hide Settings</dropdownList>
+        <dropdownList refId="HideCreateShortcutToDesktopAppContext" defaultItem="0">Hide Create Shortcut to Desktop</dropdownList>
+        <dropdownList refId="HideAddToStartMenuAppContext" defaultItem="0">Hide Add to Start Menu</dropdownList>
+        <dropdownList refId="HideMarkAsFavoriteAppContext" defaultItem="0">Hide Mark as Favorite</dropdownList>
+      </presentation>
+      <presentation id="HideDesktopMenu">
+        <dropdownList refId="HideHelpDesktopMenu" defaultItem="0">Hide Help</dropdownList>
+        <dropdownList refId="HideSupportInformationDesktopMenu" defaultItem="0">Hide Support Information</dropdownList>
+        <dropdownList refId="HideEnableRelativeMouseDesktopMenu" defaultItem="0">Hide Enabled Relative Mouse</dropdownList>
+        <dropdownList refId="HideShareFoldersDesktopMenu" defaultItem="0">Hide Share Folders</dropdownList>
+        <dropdownList refId="HideAllowDisplayScalingDesktopMenu" defaultItem="0">Hide Allow Display Scaling</dropdownList>
+        <dropdownList refId="HideResetDesktopDesktopMenu" defaultItem="0">Hide Reset Desktop</dropdownList>
+        <dropdownList refId="HideRestartDesktopDesktopMenu" defaultItem="0">Hide Restart Desktop</dropdownList>
+        <dropdownList refId="HideConnectUSBDeviceDesktopMenu" defaultItem="0">Hide Connect USB Device</dropdownList>
+      </presentation>
+      <presentation id="HideNotificationMenu">
+        <dropdownList refId="HideSharingNotificationMenu" defaultItem="0">Hide Sharing</dropdownList>
+        <dropdownList refId="HideSettingsNotificationMenu" defaultItem="0">Hide Settings</dropdownList>
+      </presentation>
+      <presentation id="ColorDepth">
+        <dropdownList refId="ColorDepth" defaultItem="0">Color depth</dropdownList>
+      </presentation>
+      <presentation id="DisableWallpaper" />
+      <presentation id="DisableFullWindowDrag" />
+      <presentation id="DisableMenuAnimations" />
+      <presentation id="DisableTheming" />
+      <presentation id="DisableCursorShadow" />
+      <presentation id="FontSmoothing" />
+      <presentation id="DesktopComposition" />
+      <presentation id="AudioRedirectionMode">
+        <dropdownList refId="AudioRedirectionMode" defaultItem="0">Audio redirection</dropdownList>
+      </presentation>
+      <presentation id="RedirectDrives" />
+      <presentation id="RedirectPrinters" />
+      <presentation id="RedirectPorts" />
+      <presentation id="RedirectSmartcards" />
+      <presentation id="RedirectClipboard" />
+      <presentation id="RedirectPlugAndPlayDevices" />
+      <presentation id="ShadowBitmap" />
+      <presentation id="CachePersistenceActive" />
+      <presentation id="EnableCompression" />
+      <presentation id="KeyboardHookMode">
+        <dropdownList refId="KeyboardHookMode" defaultItem="0">Windows key combination redirection</dropdownList>
+      </presentation>
+      <presentation id="EnableCredSspSupport" />
+      <presentation id="BitmapCacheSize">
+        <decimalTextBox refId="BitmapCacheSize">In-memory bitmap cache size in KB for 8bpp bitmaps</decimalTextBox>
+      </presentation>
+      <presentation id="BitmapVirtualCacheSize">
+        <decimalTextBox refId="BitmapVirtualCacheSize">Bitmap cache file size in MB for 8bpp bitmaps</decimalTextBox>
+      </presentation>
+      <presentation id="BitmapVirtualCache16BppSize">
+        <decimalTextBox refId="BitmapVirtualCache16BppSize">Bitmap cache file size in MB for 16bpp bitmaps</decimalTextBox>
+      </presentation>
+      <presentation id="BitmapVirtualCache24BppSize">
+        <decimalTextBox refId="BitmapVirtualCache24BppSize">Bitmap cache file size in Mb for 24bpp bitmaps</decimalTextBox>
+      </presentation>
+      <presentation id="BitmapVirtualCache32BppSize">
+        <decimalTextBox refId="BitmapVirtualCache32BppSize">Bitmap cache file size in MB for 32bpp bitmaps</decimalTextBox>
+      </presentation>
+      <presentation id="EnableAutoReconnect" />
+      <presentation id="RedirectAudioCapture" />
+      <presentation id="LogInAsCurrentUser_Display_1" />
+      <presentation id="LogInAsCurrentUser_1" />
+      <presentation id="EnableRecursiveUnlock_1" />
+      <presentation id="EnableTicketSSLAuth_1">
+        <dropdownList refId="EnableTicketSSLAuth" defaultItem="0">Enable SSL encrypted framework channel</dropdownList>
+      </presentation>
+      <presentation id="IgnoreRevocation_1" />
+      <presentation id="SSLCipherList_1">
+        <textBox refId="SSLCipherList">
+          <label>Configures SSL protocols and cryptographic algorithms</label>
+          <defaultValue>TLSv1.1:TLSv1.2:!aNULL:kECDH+AESGCM:ECDH+AESGCM:RSA+AESGCM:kECDH+AES:ECDH+AES:RSA+AES</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="ServerURL_1">
+        <textBox refId="ServerURL">
+          <label>Server URL</label>
+        </textBox>
+      </presentation>
+      <presentation id="UserName_1">
+        <textBox refId="UserName">
+          <label>Logon UserName</label>
+        </textBox>
+      </presentation>
+      <presentation id="DomainName_1">
+        <textBox refId="DomainName">
+          <label>Logon DomainName</label>
+        </textBox>
+      </presentation>
+      <presentation id="Password_1">
+        <textBox refId="Password">
+          <label>Logon Password</label>
+        </textBox>
+      </presentation>
+      <presentation id="DesktopName_1">
+        <textBox refId="DesktopName">
+          <label>DesktopName to select</label>
+        </textBox>
+      </presentation>
+      <presentation id="DesktopLayout_1">
+        <dropdownList refId="DesktopLayout" defaultItem="0">DesktopLayout</dropdownList>
+      </presentation>
+      <presentation id="LockedGuestSize_1">
+        <decimalTextBox refId="LockedGuestWidth" defaultValue="1600">Locked Guest Width </decimalTextBox>
+        <decimalTextBox refId="LockedGuestHeight" defaultValue="1200">Locked Guest Height</decimalTextBox>
+      </presentation>
+      <presentation id="NonInteractive_1" />
+      <presentation id="SingleAutoConnect_1" />
+      <presentation id="noTSCAddins_1" />
+      <presentation id="connectUSBOnStartup_1" />
+      <presentation id="connectUSBOnInsert_1" />
+      <presentation id="AppSessionReconnectBehavior_1">
+        <dropdownList refId="AppSessionReconnectBehavior" defaultItem="0">Disconnected application session resumption behavior</dropdownList>
+      </presentation>
+      <presentation id="UnauthenticatedAccessEnabled_1" />
+      <presentation id="UnauthenticatedAccessAccount_1">
+        <textBox refId="UnauthenticatedAccessAccount">
+          <label>Account to use for Unauthenticated Access</label>
+        </textBox>
+      </presentation>
+      <presentation id="AllowDataSharing" />
+      <presentation id="AllowResolutionDpiSync" />
+      <presentation id="EnableShade" />
+      <presentation id="InitialPinState" />
+      <presentation id="DisableSpanChecks" />
+      <presentation id="EnableMMR" />
+      <presentation id="AlwaysOnTop" />
+      <presentation id="AutomaticallyInstallShortcuts" />
+      <presentation id="LocalModeExitBehavior">
+        <dropdownList refId="LocalModeExitBehavior" defaultItem="0">Default Exit Behavior For Local Mode Desktops</dropdownList>
+      </presentation>
+      <presentation id="AutomaticallyInstallShortcuts_1" />
+      <presentation id="DisableToastNotifications_1" />
+      <presentation id="EnableRelativeMouse_1" />
+      <presentation id="DisableDisconnectMessages_1" />
+      <presentation id="HideClientAfterLaunchSession_1" />
+      <presentation id="DisableSharing" />
+      <presentation id="ForceFloatingLanguageBarOff_1" />
+      <presentation id="AllowDisplayScaling" />
+      <presentation id="AutoSyncToggleKeys" />
+      <presentation id="AllowHEVC" />
+      <presentation id="AllowBlastThroughProxy" />
+      <presentation id="ForceUserAffinity" />
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

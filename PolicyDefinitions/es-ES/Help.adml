@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="HelpQualifiedRootDir_Comp">Restringir funciones de ayuda HTML potencialmente inseguras a las carpetas especificadas</string>
+      <string id="HelpQualifiedRootDir_Help">Esta configuración de directiva le permite restringir ciertos comandos de ayuda HTML para que funcionen solo en archivos de ayuda HTML (.chm) dentro de carpetas específicas y sus subcarpetas. También puede deshabilitar estos comandos en todo el sistema. Se recomienda encarecidamente agregar a esta configuración de directiva solo las carpetas que requieran privilegios administrativos.
+
+        Si habilita esta configuración de directiva, los comandos funcionarán solo para archivos .chm en las carpetas especificadas y sus subcarpetas.
+
+        Para restringir los comandos a una o más carpetas, habilite la configuración de directiva y escriba las carpetas deseadas en el cuadro de texto de la pestaña Configuración del cuadro de diálogo Propiedades de directiva. Use punto y coma para separar las carpetas. Por ejemplo, para restringir los comandos a solo archivos .chm en las carpetas %windir%\help y D:\unacarpeta, escriba la siguiente cadena en el cuadro de edición: "%windir%\help;D:\unacarpeta".
+
+        Nota: se pueden usar variables de entorno, por ejemplo %windir%, siempre y cuando estén definidas en el sistema. Por ejemplo, %programfiles% no está definida en algunas versiones anteriores de Windows.
+
+        El comando "Shortcut" se usa para agregar un vínculo a un tema de Ayuda y ejecutar ejecutables externos al archivo de ayuda. El comando "WinHelp" se usa para agregar un vínculo a un tema de Ayuda y ejecutar archivos de ayuda de WinHLP32.exe (.hlp).
+
+        Para no permitir los comandos "Shortcut" y "WinHelp" en todo el sistema local, habilite la configuración de directiva y deje vacío el cuadro de texto de la pestaña Configuración del cuadro de diálogo Propiedades de directiva.
+
+        Si deshabilita o no establece esta configuración de directiva, estos comandos funcionarán en todos los archivos de ayuda.
+
+        Nota: en esta configuración de directiva solo se pueden especificar carpetas del equipo local. No puede usar esta configuración de directiva para habilitar los comandos "Shortcut" y "WinHelp" para archivos .chm que están almacenados en unidades asignadas o a los que se obtiene acceso mediante rutas de acceso UNC.
+
+        Para obtener opciones adicionales, consulte la directiva "No permitir que estos programas se ejecuten desde la Ayuda".
+      
+      </string>
+      <string id="RestrictRunFromHelp">No permitir que estos programas se ejecuten desde la Ayuda</string>
+      <string id="RestrictRunFromHelp_Comp">No permitir que estos programas se ejecuten desde la Ayuda</string>
+      <string id="RestrictRunFromHelp_Help">
+        
+        Esta configuración de directiva le permite restringir la ejecución de programas desde la ayuda en pantalla.
+        
+        Si habilita esta configuración de directiva, puede impedir que ciertos programas se ejecuten desde la Ayuda. Al habilitar esta configuración de directiva, escriba los nombres de archivo de los programas que desea restringir, separados por comas.
+        
+        Si deshabilita o no establece esta configuración de directiva, los usuarios podrán ejecutar todas las aplicaciones desde la ayuda en pantalla.
+        
+        Nota: también puede impedir que los usuarios ejecuten aplicaciones mediante la configuración de directiva de restricción de software, disponible en Configuración del equipo\Configuración de seguridad.
+        
+        Nota: esta configuración de directiva está disponible en Configuración del equipo y Configuración de usuario. Si se usan ambas configuraciones, los programas enumerados en cualquiera de estas ubicaciones no podrán iniciarse desde la Ayuda.
+      
+      </string>
+        <string id="DisableHHDEP">Desactivar la Prevención de ejecución de datos para ejecutables de ayuda HTML</string>
+        <string id="DisableHHDEPText">Esta configuración de directiva le permite excluir los ejecutables de ayuda HTML de la supervisión por parte de la Prevención de ejecución de datos aplicada por el software.
+
+          La Prevención de ejecución de datos (DEP) se ha diseñado para bloquear código malintencionado que se aprovecha de los mecanismos de control de excepciones de Windows mediante la supervisión de sus programas, a fin de asegurarse de que usen la memoria del sistema de forma segura.
+
+          Si habilita esta configuración de directiva, se desactivará DEP para los ejecutables de ayuda HTML. Esto permitirá que determinados controles ActiveX funcionen sin que DEP cierre los ejecutables de ayuda HTML.
+
+          Si deshabilita o no establece esta configuración de directiva, DEP se activará para los ejecutables de ayuda HTML. Esto proporciona un beneficio de seguridad adicional, pero la ayuda HTML se detendrá si DEP detecta anomalías en la memoria del sistema.
+        
+        </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="HelpQualifiedRootDir_Comp">
+        <textBox refId="HelpQualifiedRootDir_Edit">
+          <label>Escriba los nombres de las carpetas separados por punto y coma:</label>
+        </textBox>
+        <text>Ejemplo: %windir%\Help;%windir%\pchealth;%programfiles%</text>
+      </presentation>
+      <presentation id="RestrictRunFromHelp">
+        <textBox refId="RestrictRunFromHelp_Edit">
+          <label>Escriba los ejecutables separados por comas:</label>
+        </textBox>
+        <text>Ejemplo: calc.exe,paint.exe</text>
+      </presentation>
+      <presentation id="RestrictRunFromHelp_Comp">
+        <textBox refId="RestrictRunFromHelp_Edit">
+          <label>Escriba los ejecutables separados por comas:</label>
+        </textBox>
+        <text>Ejemplo: calc.exe,paint.exe</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

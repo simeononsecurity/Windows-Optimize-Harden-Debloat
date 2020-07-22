@@ -1,0 +1,171 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>Tweaking SCOM 2012 Management Servers</displayName>
+  <description>This policy file was created based on the blog "Tweaking SCOM 2012 Management Servers for large environments"
+by Kevin Holman and "Microsoft System Center Operations Manager Field Experience" book.</description>
+  <resources>
+    <stringTable>
+      <string id="OpsMgr2012">System Center 2012 Operations Manager</string>
+      <string id="OpsMgr2012_HELP">
+      </string>
+      <string id="DataWarehouse">Data Warehouse</string>
+      <string id="DataWarehouse_HELP">
+      </string>
+      <string id="HealthService">Health Service</string>
+      <string id="HealthService_HELP">
+      </string>
+      <string id="ConfigurationService">Configuration Service</string>
+      <string id="ConfigurationService_HELP">The Management Configuration Service is responsible for configuration updates for the Health Service, ensuring that it has the latest changes from the database. The registry key path for this feature is: HKLM\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Config Service
+      </string>
+      <string id="DALInitiateClearPool">Data Access Layer reconnection to SQL Server</string>
+      <string id="DALInitiateClearPool_HELP">This setting enable the automatic recovery feature in System Center 2012 Operations Manager. By default, this automatic recovery feature is disabled. All management servers in a management group should get the registry change.
+The DALInitiateClearPoolSeconds setting controls when the management server drops the current connection pool and when the management server tries to reestablish an SQL connection. We recommend that you set this setting to 60 seconds or more to avoid performance issues. http://support.microsoft.com/kb/2913046/en-us
+
+This policy create REG_DWORD Decimal Values: "DALInitiateClearPool" and "DALInitiateClearPoolSeconds" in registry key: "HKLM\SOFTWARE\Microsoft\System Center\2010\Common\DAL\" .
+SCOM 2012 existing registry value: not present (must create value).
+To delete REG_DWORD value from registry, disable this policy.
+
+Minimum value (in this group policy template) = 5 seconds
+Maximum value (in this group policy template) = 300 seconds (5 minutes)
+Recomended value for large environments: 60 seconds (1 minute)</string>
+      <string id="GroupCalculation">Group Calculation</string>
+      <string id="GroupCalculation_HELP">The Group Calculation module is used by the Health Service (through the Monitoring Host process) to periodically add or remove objects from groups based on the criteria of the group definitions. The registry path for settings belonging to this module is: HKLM\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0</string>
+      <string id="String_SupportedOn_SCOM2012">System Center 2012 Operations Manager</string>
+      <string id="MaxOidsPerRequest">SNMP: Reducing the maximum number of OIDs queried in a single batch</string>
+      <string id="MaxOidsPerRequest_HELP">This setting is used to identify the maximum number of object identifiers (OIDs) that will be queried per batch. If some OID values are too big, the data package with the results might exceed the buffer size. In this situation, you’ll see the following error message on all or some of the management servers in the resource pool(s) responsible for monitoring SNMP devices: Incoming SNMP request (&lt;NUMBER_OF_BYTES&gt; bytes) from IP address &lt;IP_ADDRESS&gt; and &lt;PORT PORT_NUMBER&gt; Interface “inside” exceeds data buffer size, discarding the SNMP request. If this happens, you can decrease the value for this setting, basically make it smaller than the default, until the error message no longer appears. The default value for this setting is 50 (decimal).
+http://blogs.technet.com/b/mihai/archive/2012/05/14/reducing-the-maximum-number-of-oids-queried-in-a-single-batch-in-om-2012.aspx
+
+This policy create REG_DWORD Decimal Value: "MaxOidsPerRequest" in registry key: "HKLM\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Modules\Global\SNMP\".
+SCOM 2012 existing registry value: not present (must create value).
+To delete REG_DWORD value from registry, disable this policy.
+
+Default in code value = 50
+Minimum value (in this group policy template) = 10
+Maximum value (in this group policy template) = 100</string>
+      <string id="GroupCalcPollingIntervalMilliseconds">GroupCalc Polling Interval (Milliseconds)</string>
+      <string id="GroupCalcPollingIntervalMilliseconds_HELP">Group Calculation is a workflow that runs per group. The more groups you have, the more workflows there will be. The more complicated the criteria, the more time and resources it will take for these workflows to finish. This can have a considerable impact on performance. The recommendation is to prefer explicit group membership rules over dynamic group membership rules whenever possible. For dynamic groups, it is also good practice to keep the group calculation criteria as simple as possible. Complex dynamic group calculation criteria rules can have a significant impact on management server performance. A way to tweak this is to set a bigger interval so that the group calculation workflows run less often. This is controlled by the DWORD GroupCalcPollingIntervalMilliseconds setting. Slowing this down will help keep group calculation from consuming all the healthservice and database I/O. The default value is 30000 (decimal); 90000 (decimal) is recommended for environments with many dynamic groups. 
+
+This policy create registry key: "HKLM\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\" and REG_DWORD Decimal Value: "GroupCalcPollingIntervalMilliseconds".
+SCOM 2012 existing registry value: not present (must create value).
+To delete REG_DWORD value from registry, disable this policy.
+
+Default in code value = 30000 milliseconds (30 seconds).
+Minimum value (in this group policy template) = 30000
+Maximum value (in this group policy template) = 900000 milliseconds (15 minutes)
+Recomended value for large environments: 90000 milliseconds (90 seconds)</string>
+      <string id="StateQueueItems">State Queue Items</string>
+      <string id="StateQueueItems_HELP">This important setting for the Health Manager sets the maximum size (in bytes) of the state data queue. If the value is too small or if there are too many workflows running (based on the number of objects being managed), there could be possible state change data loss. The default value for this setting is calculated by the Health Service on startup based on how many objects it needs to manage. For agents in a small environment, this value is set to 1024 (decimal). The value is set to 10240 (decimal) on management servers in a mid-size environment. For large environments, on management servers that manage many objects, the default is 25600 (decimal). The recommendation is to double these default values, depending on where it is needed—for an agent that manages a lot of objects or a management server.
+
+http://blogs.msdn.com/b/rslaten/archive/2008/08/27/event-5206.aspx
+
+This policy create registry key: "HKLM\SYSTEM\CurrentControlSet\services\HealthService\Parameters\" and REG_DWORD Decimal Value: "State Queue Items".
+SCOM 2012 existing registry value: not preset (must create "Data Warehouse" key and value). 
+To delete REG_DWORD value from registry, disable this policy.
+
+Default in code value = 10240 (bytes).
+Minimum value (in this group policy template) = 1024
+Maximum value (in this group policy template) = 25600 seconds</string>
+      <string id="BulkInsertCommandTimeOutSeconds">Bulk Insert Command Time Out Seconds</string>
+      <string id="BulkInsertCommandTimeOutSeconds_HELP">Data warehouse BULK INSERT commands use an unchangeable, default 30-second time-out value that may cause query time-outs.
+The fix for the data warehouse BULK insert commands time out issue that is described in Update Rollup 1 for System Center 2012 R2 Operations Manager (or System Center 2012 Operations Manager SP1 Update Rollup 5) adds a registry key. This key can be used to set the time-out value (in seconds) for the data warehouse BULK insert commands. For example, for a 40-second time-out, set this value to 40.
+
+Recommend changing only to resolve a problem with bulk inserts to the warehouse, which is a RARE condition!
+
+This policy create registry key: "HKLM\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Data Warehouse\" and REG_DWORD Decimal Value: "Bulk Insert Command Time Out Seconds".
+SCOM 2012 existing registry value: not preset (must create "Data Warehouse" key and value). 
+To delete REG_DWORD value from registry, disable this policy.
+
+Default in code value = 30 seconds.
+Minimum value (in this group policy template) = 30
+Maximum value (in this group policy template) = 90 seconds</string>
+      <string id="DeploymentCommandTimeoutSeconds">Deployment Command Timeout Seconds</string>
+      <string id="DeploymentCommandTimeoutSeconds_HELP">All management servers in a management group, this helps with deployment of heavy handed scripts that are applied during version upgrades and cumulative updates. Customers often see blocking on the DW database for creating indexes, and this causes the script not to be able to deployed in the default of 3 hours (10800 seconds). Setting this value to allow for one full day to deploy the script resolves most customer issues. Setting this to a longer value helps reduce the 31552 events you might see with standard database maintenance after a version upgrade or UR deployment. This is a very common issue in large environments are very large warehouse databases.
+
+This policy create registry key: "HKLM\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Data Warehouse\" and REG_DWORD Decimal Value: "Deployment Command Timeout Seconds".
+SCOM 2012 existing registry value: not preset (must create "Data Warehouse" key and value). 
+To delete REG_DWORD value from registry, disable this policy.
+
+Default in code value = 10800 seconds (3 hours).
+Minimum value (in this group policy template) = 10800
+Maximum value (in this group policy template) = 86400 seconds (1 day)
+Recomended value for large environments: 86400</string>
+      <string id="DataWarehouseCommandTimeoutSeconds">Command Timeout Seconds</string>
+      <string id="DataWarehouseCommandTimeoutSeconds_HELP">One of the most important workflows performed using the Data Warehouse module is the StandardDatasetMaintenance workflow. This is performed for each data set (alert, event, performance, state, and custom data sets like the Exchange 2010 management pack creates).
+The StandardDatasetMaintenance workflow transforms the raw data from the Data Warehouse raw data set tables into daily and hourly data (called data aggregation) and stores it in the appropriate tables. This workflow is also responsible for grooming (deleting) the raw data after it is processed (aggregated). The setting that defines the timeout for this workflow is Command Timeout Seconds of type DWORD, and its default value (in seconds) is 300 (decimal). In large environments or environments where a large amount of data is collected for one or more data sets, the default timeout is usually not big enough, so in these cases, the recommended value is 1200 (decimal).
+
+This registry setting helps with dataset maintenance as the default timeout of 10 minutes is often too short. Setting this to a longer value helps reduce the 31552 events you might see with standard database maintenance. This is a very common issue.
+http://blogs.technet.com/b/kevinholman/archive/2010/08/30/the-31552-event-or-why-is-my-data-warehouse-server-consuming-so-much-cpu.aspx
+
+This policy create registry key: "HKLM\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Data Warehouse\" and REG_DWORD Decimal Value: "Command Timeout Seconds".
+SCOM 2012 existing registry value: not preset (must create "Data Warehouse" key and value). 
+To delete REG_DWORD value from registry, disable this policy.
+
+Default in code value = 300 seconds (5 minutes).
+Minimum value (in this group policy template) = 300
+Maximum value (in this group policy template) = 1800 seconds (30 minutes)
+Recomended value for large environments: 900-1200 seconds (10-20 minutes)</string>
+      <string id="PollingIntervalSeconds">Polling Interval Seconds</string>
+      <string id="PollingIntervalSeconds_HELP">This registry setting that controls the frequency of these checks (in seconds) is PollingIntervalSeconds of DWORD type, and its default value is 30 (decimal). This process may have a significant performance impact on large environments with a large type space and frequent configuration changes. In such situations, the recommended value is 120 (decimal).
+This setting can bring a significant improvement in the overall performance, but setting the value too high can mean a delay in changes being loaded into the Health Service on the management servers, and this could cause delays when implementing new workflows, overrides, management packs, or discovered inventory.
+
+This policy create REG_DWORD Decimal Value: "PollingIntervalSeconds" in registry key: "HKLM\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Config Service\".
+SCOM 2012 existing registry value: not preset (must create value). 
+To delete REG_DWORD value from registry, disable this policy.
+
+Default in code value = 30 seconds
+Minimum value (in this group policy template) = 30
+Maximum value (in this group policy template) = 120
+Recomended value for large environments: 120 seconds</string>
+      <string id="CommandTimeoutSeconds">Command Timeout Seconds</string>
+      <string id="CommandTimeoutSeconds_HELP">This registry setting controls the timeout (in seconds) for the delta synchronization process (on configuration updates) and determines how long it runs.
+If the timeout is reached, the process is stopped and the configuration is not updated. In large environments with frequent configuration changes, a longer timeout is recommended. The default value is 30 (decimal), and the recommended value is 120 (decimal).
+This registry setting is only available starting with Update Rollup 3 for Operations Manager 2012 R2.
+
+This policy create REG_DWORD Decimal Value: "CommandTimeoutSeconds" in registry key: "HKLM\SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Config Service\".
+SCOM 2012 existing registry value: not preset (must create value). 
+To delete REG_DWORD value from registry, disable this policy.
+
+Default in code value = 30 seconds
+Minimum value (in this group policy template) = 30
+Maximum value (in this group policy template) = 120
+Recomended value for large environments: 120 seconds</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DeploymentCommandTimeoutSeconds">
+        <decimalTextBox refId="DeploymentCommandTimeoutSeconds_TextBox" spinStep="5">
+        </decimalTextBox>
+      </presentation>
+      <presentation id="BulkInsertCommandTimeOutSeconds">
+        <decimalTextBox refId="BulkInsertCommandTimeOutSeconds_TextBox" spinStep="5">
+        </decimalTextBox>
+      </presentation>
+      <presentation id="StateQueueItems">
+        <decimalTextBox refId="StateQueueItems_TextBox" defaultValue="10240" spinStep="1024">
+        </decimalTextBox>
+      </presentation>
+      <presentation id="GroupCalcPollingIntervalMilliseconds">
+        <decimalTextBox refId="GroupCalcPollingIntervalMilliseconds_TextBox" spin="false">
+        </decimalTextBox>
+      </presentation>
+      <presentation id="DataWarehouseCommandTimeoutSeconds">
+        <decimalTextBox refId="DataWarehouseCommandTimeoutSeconds_TextBox" spin="false">
+        </decimalTextBox>
+      </presentation>
+      <presentation id="DALInitiateClearPool">
+        <decimalTextBox refId="DALInitiateClearPool_TextBox" defaultValue="30" spinStep="5">
+        </decimalTextBox>
+      </presentation>
+      <presentation id="MaxOidsPerRequest">
+        <decimalTextBox refId="MaxOidsPerRequest_TextBox" defaultValue="50">
+        </decimalTextBox>
+      </presentation>
+      <presentation id="PollingIntervalSeconds">
+        <decimalTextBox refId="PollingIntervalSeconds_TextBox" defaultValue="30" spinStep="5">
+        </decimalTextBox>
+      </presentation>
+      <presentation id="CommandTimeoutSeconds">
+        <decimalTextBox refId="CommandTimeoutSeconds_TextBox" defaultValue="30" spinStep="5">
+        </decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

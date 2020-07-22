@@ -1,0 +1,179 @@
+CLASS MACHINE
+ 
+	CATEGORY "Adobe Acrobat DC"
+ 
+		CATEGORY Preferences
+ 
+			CATEGORY General
+				POLICY "Disable PDF handler switching"
+					#if version >= 3
+					EXPLAIN !!EXPLAIN1
+					#endif
+					KEYNAME "SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown"
+					VALUENAME bDisablePDFHandlerSwitching
+					VALUEON NUMERIC 1
+					VALUEOFF NUMERIC 0
+				END POLICY ;Disable PDF handler switching
+
+				POLICY "Disable automatic updates"
+					#if version >= 3
+					EXPLAIN !!EXPLAIN2
+					#endif
+					KEYNAME "SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown"
+					VALUENAME bUpdater
+					VALUEON NUMERIC 1
+					VALUEOFF NUMERIC 0
+				END POLICY ;Disable automatic updates
+
+				POLICY "Turn off user participation in the feedback program"
+					#if version >= 3
+					EXPLAIN !!EXPLAIN3
+					#endif
+					KEYNAME "SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown"
+					VALUENAME bUsageMeasurement
+					VALUEON NUMERIC 1
+					VALUEOFF NUMERIC 0
+				END POLICY ;Turn off user participation in the feedback program
+
+				POLICY "Show messages when I launch Acrobat"
+					#if version >= 3
+					EXPLAIN !!EXPLAIN4
+					#endif
+					KEYNAME "SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown\cIPM"
+					VALUENAME bShowMsgAtLaunch
+					VALUEON NUMERIC 1
+					VALUEOFF NUMERIC 0
+				END POLICY ;Show messages when I launch Acrobat
+
+				POLICY "Auto Complete"
+					#if version >= 3
+					EXPLAIN !!EXPLAIN6
+					#endif
+					KEYNAME "SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown"
+					VALUENAME bAutoFill
+					VALUEON NUMERIC 1
+					VALUEOFF NUMERIC 0
+				END POLICY ;Auto Complete
+
+			END CATEGORY ;General
+ 
+			CATEGORY Startup
+				POLICY "Protected View (Acrobat)"
+					#if version >= 3
+					EXPLAIN !!EXPLAIN7
+					#endif
+					KEYNAME "SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown"
+ 
+					PART ProtectedView DROPDOWNLIST
+						KEYNAME "SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown"
+						VALUENAME iProtectedView
+						REQUIRED 
+						ITEMLIST
+							NAME "Disable Protected View" VALUE NUMERIC  0 
+							NAME "Enable Protected View for unsafe locations" VALUE NUMERIC  1 
+							NAME "Enable Protected View for all files" VALUE NUMERIC  2 
+						END ITEMLIST
+					END PART ;ProtectedView
+				END POLICY ;Protected View (Acrobat)
+
+			END CATEGORY ;Startup
+ 
+			CATEGORY Security
+ 
+				CATEGORY DigitalSignature
+				END CATEGORY ;DigitalSignature
+ 
+				CATEGORY TrustManager
+				END CATEGORY ;TrustManager
+			END CATEGORY ;Security
+		END CATEGORY ;Preferences
+	END CATEGORY ;Adobe Acrobat DC
+
+
+CLASS USER
+ 
+		CATEGORY "Adobe Acrobat DC"
+ 
+			CATEGORY Preferences
+ 
+				CATEGORY General
+
+					POLICY "Display splash screen at launch"
+						#if version >= 3
+						EXPLAIN !!EXPLAIN9
+						#endif
+						KEYNAME "Software\Adobe\Adobe Acrobat\DC\Originals"
+						VALUENAME bDisplayAboutDialog
+						VALUEON NUMERIC 1
+						VALUEOFF NUMERIC 0
+					END POLICY ;Display splash screen at launch
+
+				END CATEGORY ;General
+ 
+				CATEGORY Startup
+				END CATEGORY ;Startup
+ 
+				CATEGORY Security
+					POLICY "Enable Acrobat JavaScript"
+						#if version >= 3
+						EXPLAIN !!EXPLAIN10
+						#endif
+						KEYNAME "Software\Adobe\Adobe Acrobat\DC\JSPrefs"
+						VALUENAME bEnableJS
+						VALUEON NUMERIC 1
+						VALUEOFF NUMERIC 0
+					END POLICY ;Enable Acrobat JavaScript
+
+					POLICY "Ask before installing checkbox"
+						#if version >= 3
+						EXPLAIN !!EXPLAIN11
+						#endif
+						KEYNAME "Software\Adobe\Adobe Acrobat\DC\Security\cDigSig\cAdobeDownload"
+						VALUENAME bAskBeforeInstalling
+						VALUEON NUMERIC 1
+						VALUEOFF NUMERIC 0
+					END POLICY ;Ask before installing checkbox
+
+					POLICY "Load security settings from a server"
+						#if version >= 3
+						EXPLAIN !!EXPLAIN12
+						#endif
+						KEYNAME "Software\Adobe\Adobe Acrobat\DC\Security\cDigSig\cAdobeDownload"
+						VALUENAME bLoadSettingsFromURL
+						VALUEON NUMERIC 1
+						VALUEOFF NUMERIC 0
+					END POLICY ;Load security settings from a server
+
+ 
+					CATEGORY DigitalSignature
+					END CATEGORY ;DigitalSignature
+ 
+					CATEGORY TrustManager
+						POLICY "Automatically trust sites for Win OS security zones"
+							#if version >= 3
+							EXPLAIN !!EXPLAIN13
+							#endif
+							KEYNAME "Software\Adobe\Adobe Acrobat\DC\TrustManager"
+							VALUENAME bTrustOSTrustedSites
+							VALUEON NUMERIC 1
+							VALUEOFF NUMERIC 0
+						END POLICY ;Automatically trust sites for Win OS security zones
+
+					END CATEGORY ;TrustManager
+				END CATEGORY ;Security
+			END CATEGORY ;Preferences
+		END CATEGORY ;Adobe Acrobat DC
+
+[Strings]
+EXPLAIN1 =Disables the ability to change the specified default handler (PDF viewer). \n\nThe UI configuration does not set any key in HKCU. Instead, changing the setting via the UI invokes the installer which sets the key in HKLM. The default application behavior varies depending on what is installed. A value of 1 disables the user's ability to change the default handler. Possible values include: \n0 (or null): Allow the user to change the default viewer. \n1: Don't allow the user to change the default viewer. \n\nGUI mapping - Edit > Preferences > General > Select Default PDF Handler
+EXPLAIN2 =Disables automatic updates and removes associated user interface items.\n\nThis setting interacts with bDeclined.\n0: Disables and locks the Updater. Overrides any bDeclined value. \n1: No effect. \nSetting bUpdater to 0 disables the user interface items Preferences > Updater and Help > Check for updates.
+EXPLAIN3 =Turns off and locks user participation in the feedback program and disables the UI that controls the feature. \n\nPossible values include: \n0: Disable and lock feedback program participation. \n1: Enable feedback program participation. \n \n\n
+EXPLAIN4 =Specifies whether to show messages from Adobe when the product launches.  \n\nDetails: Possible values include: \n0: Don't show messages from Adobe when the product launches. \n1: Show messages from Adobe when the product launches. \n \nGUI mapping: Preferences > General > Show me messages when I launch Acrobat. \n
+EXPLAIN6 =Locks the auto-fill functionality on or off and disables the corresponding user interface item.\n\nPossible values include: \n0: Lock auto-fill. \n1: Don't lock auto-fill. \n \nGUI mapping: Preferences > Forms > Auto Complete drop down list. \n
+EXPLAIN7 =Specifies whether to use Protected View never (default), for files from an untrusted location (recommended), or always.\n\nThe PV preferences were implemented in Acrobat 10.1 and are supported in Reader with 11.0. Possible values include:\n0: (default) Disable Protected View.\n1: (recommended) Enable Protected View for unsafe locations only.\n2: Enable Protected View for all files.\nNote that the Customization Wizard 11 created the preference in an incorrect location at HKLM\SOFTWARE\Policies\Adobe\(product name)\(version)\TrustManager. This bug is fixed in the Wizard DC.\n\nGUI Mapping: Preferences > Security (Enhanced) > Protected View radio buttons.
+EXPLAIN8 =Summary: For Acrobat, caches whether the user has accepted the end user license agreement for the browser-based EULA (Acrobat only).  \n\nDetails: If the EULA is not accepted, the application cannot be used and the Updater is also prevented from running. Possible values include: \n\n0: Show the EULA because it has not been accepted. \n1: Don't show the EULA because it has been accepted. \n \n
+EXPLAIN9 =Specifies whether or not to display the startup splash screen at every launch.\n\nPossible values include: \n0: Don't display the startup splash screen. \n1: Display the startup splash screen at every launch.\n\nGUI mapping: Splash screen
+EXPLAIN10 =Toggles JavaScript execution on and off globally; when off, the PDF cannot execute JavaScript.\n\nWhen the user's ability to create privileged locations is not disabled and locked, end users can bypass disabled JS by choosing Trust once or Trust Always via the Options button on the Yellow Message Bar. Admins can disable and lock JS execution by setting bDisableJavaScript to 0 in HKLM.\n\nGUI mapping: Preferences > JavaScript > JavaScript panel > Enable Acrobat JavaScript
+EXPLAIN11 =Specifies whether trust anchors should be imported silently or Acrobat should ask permission from the user.\n\n0: Enable and Ask before installing.\n1: Enable and Install silently.\n\nGUI mapping: Preferences > Security > Security Settings panel > Ask before installing checkbox
+EXPLAIN12 =Specifies whether or not trust anchors should be periodically downloaded from Adobe.\n\nPossible values include:\n0: Don't load settings from an URL.\n1: Do load settings from an URL.\n\nPreferences > Security > Security Settings panel > Load security settings from a server
+EXPLAIN13 =Elevates locations that Internet Explorer trusts to privileged locations so that they may bypass security restrictions.\n\nPrior to 10.1.1 and 9.4.7, trust was granted to Trusted Sites. With 10.1.2 and 9.5 and later, trust also includes Local Intranet zones. This setting essentially makes IE trust operate as if they were privileged locations. The feature can be disabled with bDisableOSTrustedSites.\n0: Don't automatically trust Windows OS zones.\n1: Do automatically trust Windows OS zones.\n\nGUI mapping: Edit > Preferences > Security (Enhanced) > Automatically trust sites for my Win OS security zones

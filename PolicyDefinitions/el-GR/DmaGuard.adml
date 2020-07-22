@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+
+  <displayName>Προστασία DMA πυρήνα</displayName>
+  <description>Αυτό το αρχείο περιέχει τις επιλογές ρύθμισης παραμέτρων για την προστασία DMA πυρήνα</description>
+  <resources>
+
+    <stringTable>
+      <string id="DmaGuard">Προστασία DMA πυρήνα</string>
+      <string id="DmaGuard_Explain">Πολιτικές για τη ρύθμιση παραμέτρων προστασίας DMA πυρήνα</string>
+      <string id="DmaGuardEnumerationPolicy">Πολιτική απαρίθμησης για εξωτερικές συσκευές μη συμβατές με προστασία DMA πυρήνα</string>
+      <string id="DmaGuardEnumerationPolicy_Explain">Πολιτική απαρίθμησης για εξωτερικές συσκευές με δυνατότητα DMA μη συμβατές με την εκ νέου αντιστοίχιση DMA. Αυτή η πολιτική τίθεται σε ισχύ μόνο όταν η προστασία DMA πυρήνα είναι ενεργοποιημένη και υποστηρίζεται από το σύστημα. Σημείωση: Αυτή η πολιτική δεν ισχύει για συσκευές 1394, PCMCIA ή ExpressCard.</string>
+      <string id="DmaGuardEnumerationPolicy_Options_1">Αποδοχή όλων</string>
+      <string id="DmaGuardEnumerationPolicy_Options_2">Μόνο ενώ είστε συνδεδεμένοι (προεπιλογή)</string>
+      <string id="DmaGuardEnumerationPolicy_Options_3">Αποκλεισμός όλων</string>
+    </stringTable>
+
+    <presentationTable>
+      <presentation id="DmaGuardEnumerationPolicy">
+        <dropdownList refId="DmaGuardEnumerationPolicy_Options" noSort="true" defaultItem="1">Πολιτική απαρίθμησης</dropdownList>
+      </presentation>
+    </presentationTable>
+
+  </resources>
+</policyDefinitionResources>

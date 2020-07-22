@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+<displayName/>
+<description/>
+<resources>
+<stringTable>
+	<string id="MOZILLA_CATEGORY">Mozilla</string>
+	<string id="FIREFOX_CATEGORY">Firefox</string>
+	
+	<string id="cck_config_dontCheckDefaultBrowser">cck.config.dontCheckDefaultBrowser</string>
+	<string id="cck_config_dontCheckDefaultBrowser_EXPLAIN">dontCheckDefaultBrowser.
+
+Enabled=Don't check. Disabled=Do check.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_homePage">cck.config.homePage</string>
+	<string id="cck_config_homePage_EXPLAIN">Home page. (TEXT)
+
+To set multiple home pages (multiple tabs), separate with "|" character.
+</string>
+
+	<string id="cck_config_lockHomePage">cck.config.lockHomePage</string>
+	<string id="cck_config_lockHomePage_EXPLAIN">Lock the home page.
+
+Enabled=Lock the home page. Disabled=Don't lock the home page.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_preferences">cck.config.preferences</string>
+	<string id="cck_config_preferences_EXPLAIN">Browser preferences (about:config settings). (JSON)
+
+List of browser preferences, located in about:config:
+  http://kb.mozillazine.org/About:config_entries
+
+Must be in single-line "minified" JSON format. See example at bottom.
+
+NOTE! If this policy is defined here, all inherited "browser preferences" from a parent policy are lost. To keep all settings from an inherited policy, combine/merge the individual browser preferences from the parent policy into this policy. For example, if you are adding one new preference here and a parent policy already has three other preferences that you want to retain, define this policy with all four preferences in it.
+
+Below is an example of multi-line JSON settings. See conversion details below.
+
+  {
+    "browser.reader.detectedFirstArticle": {"value": true},
+    "pdfjs.enabled": {"value": true}
+  }
+
+Below is an example of the above settings converted to single-line "minified" format and prefixed with "JSON:". This format is required for this policy setting.
+
+  JSON:{"browser.reader.detectedFirstArticle":{"value":true},"pdfjs.enabled":{"value":true}}
+
+You can use various JSON-formatting websites for validation and conversion, such as:
+  http://codebeautify.org/jsonviewer
+</string>
+
+	<string id="cck_config_permissions">cck.config.permissions</string>
+	<string id="cck_config_permissions_EXPLAIN">Site Permissions (popup exceptions, etc) (JSON)
+
+List of site permissions (popup exceptions, etc). Must be in single-line "minified" JSON format. See example at bottom.
+
+NOTE! If this policy is defined here, all inherited "site permissions" from a parent policy are lost. To keep all settings from an inherited policy, combine/merge the individual site permissions from the parent policy into this policy. For example, if you are adding one new site preference here and a parent policy already has three other site permissions that you want to retain, define this policy with all four site permissions in it.
+
+Below is an example of multi-line JSON settings. See conversion details below.
+
+  {
+    "website1.com": {        // *these comments need to be removed*
+      "cookie": 1,           // allow cookies
+      "install": 1,          // allow installing add-ons
+      "plugins": 1           // allow plugins
+      "popup": 1,            // allow popups
+    },
+    "website2.com": {
+      "popup": 2             // disallow popups
+    }
+  }
+
+Below is an example of the above settings converted to single-line "minified" format and prefixed with "JSON:". This format is required for this policy setting.
+
+  JSON:{"website1.com":{"cookie":1,"install":1,"plugins":1,"popup":1},"website2.com":{"popup":2}}
+
+You can use various JSON-formatting websites for validation and conversion, such as:
+  http://codebeautify.org/jsonviewer
+</string>
+
+	<string id="cck_config_noAddonCompatibilityCheck">cck.config.noAddonCompatibilityCheck</string>
+	<string id="cck_config_noAddonCompatibilityCheck_EXPLAIN">noAddonCompatibilityCheck.
+
+Enabled=Don't do Addon Compatibility Check. Disabled=Do Addon Compatibility Check.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+	<string id="cck_config_displayBookmarksToolbar">cck.config.displayBookmarksToolbar</string>
+	<string id="cck_config_displayBookmarksToolbar_EXPLAIN">displayBookmarksToolbar.
+
+Enabled=Display Bookmarks Toolbar. Disabled=Don't display Bookmarks Toolbar.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_dontUseDownloadDir">cck.config.dontUseDownloadDir</string>
+	<string id="cck_config_dontUseDownloadDir_EXPLAIN">dontUseDownloadDir.
+
+Enabled=Prompt for Download Dir every time. Disabled=Autosave to Download Dir.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disableFormFill">cck.config.disableFormFill</string>
+	<string id="cck_config_disableFormFill_EXPLAIN">disableFormFill.
+
+Enabled=Disable form fill. Disabled=Enable form fill.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_dontRememberPasswords">cck.config.dontRememberPasswords</string>
+	<string id="cck_config_dontRememberPasswords_EXPLAIN">dontRememberPasswords.
+
+Enabled=Don't remember passwords. Disabled=Do remember passwords.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disableSync">cck.config.disableSync</string>
+	<string id="cck_config_disableSync_EXPLAIN">disableSync.
+
+Enabled=Disable Sync. Disabled=Enable Sync.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disableCrashReporter">cck.config.disableCrashReporter</string>
+	<string id="cck_config_disableCrashReporter_EXPLAIN">disableCrashReporter.
+
+Enabled=Disable Crash Reporter. Disabled=Enable Crash Reporter.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disableTelemetry">cck.config.disableTelemetry</string>
+	<string id="cck_config_disableTelemetry_EXPLAIN">disableTelemetry.
+
+Enabled=Disable Telemetry. Disabled=Enable Telemetry.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disableFirefoxHealthReportUpload">cck.config.disableFirefoxHealthReportUpload</string>
+	<string id="cck_config_disableFirefoxHealthReportUpload_EXPLAIN">disableFirefoxHealthReportUpload.
+
+Enabled=Disable Firefox Health Report Upload. Disabled=Enable Firefox Health Report Upload.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disableFirefoxHealthReport">cck.config.disableFirefoxHealthReport</string>
+	<string id="cck_config_disableFirefoxHealthReport_EXPLAIN">disableFirefoxHealthReport.
+
+Enabled=Disable Firefox Health Report. Disabled=Enable Firefox Health Report.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disableFirefoxUpdates">cck.config.disableFirefoxUpdates</string>
+	<string id="cck_config_disableFirefoxUpdates_EXPLAIN">disableFirefoxUpdates.
+
+Enabled=Disable Firefox Updates. Disabled=Enable Firefox Updates.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_dontShowRights">cck.config.dontShowRights</string>
+	<string id="cck_config_dontShowRights_EXPLAIN">dontShowRights.
+
+Enabled=Don't Show Rights. Disabled=Show Rights.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_removeSnippets">cck.config.removeSnippets</string>
+	<string id="cck_config_removeSnippets_EXPLAIN">removeSnippets.
+
+Enabled=Remove Snippets. Disabled=Don't remove Snippets.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disableResetFirefox">cck.config.disableResetFirefox</string>
+	<string id="cck_config_disableResetFirefox_EXPLAIN">disableResetFirefox.
+
+Enabled=Disable Reset Firefox. Disabled=Enable Reset Firefox.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disablePDFjs">cck.config.disablePDFjs</string>
+	<string id="cck_config_disablePDFjs_EXPLAIN">disablePDFjs. (internal javascript PDF viewer)
+
+Enabled=Disable PDFjs. Disabled=Enable PDFjs.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disableHello">cck.config.disableHello</string>
+	<string id="cck_config_disableHello_EXPLAIN">disableHello.
+
+Enabled=Disable Hello. Disabled=Enable Hello.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disableForget">cck.config.disableForget</string>
+	<string id="cck_config_disableForget_EXPLAIN">disableForget.
+
+Enabled=Disable Forget. Disabled=Enable Forget.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disableHeartbeat">cck.config.disableHeartbeat</string>
+	<string id="cck_config_disableHeartbeat_EXPLAIN">disableHeartbeat.
+
+Enabled=Disable Heartbeat. Disabled=Enable Heartbeat.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+	<string id="cck_config_disablePocket">cck.config.disablePocket</string>
+	<string id="cck_config_disablePocket_EXPLAIN">disablePocket.
+
+Enabled=Disable Pocket. Disabled=Enable Pocket.
+
+Note: Internally this is stored in the registry as these values:
+  999001: Enabled
+  999009: Disabled
+</string>
+
+
+
+</stringTable>
+<presentationTable>
+	<presentation id="cck_config_dontCheckDefaultBrowser"/>
+	<presentation id="cck_config_homePage"><textBox refId="cck_config_homePage"><label>cck.config.homePage</label></textBox></presentation>
+	<presentation id="cck_config_lockHomePage"/>
+	<presentation id="cck_config_preferences"><textBox refId="cck_config_preferences"><label>cck.config.preferences</label></textBox></presentation>
+	<presentation id="cck_config_permissions"><textBox refId="cck_config_permissions"><label>cck.config.permissions</label></textBox></presentation>
+	<presentation id="cck_config_noAddonCompatibilityCheck"/>
+	<presentation id="cck_config_displayBookmarksToolbar"/>
+	<presentation id="cck_config_dontUseDownloadDir"/>
+	<presentation id="cck_config_disableFormFill"/>
+	<presentation id="cck_config_dontRememberPasswords"/>
+	<presentation id="cck_config_disableSync"/>
+	<presentation id="cck_config_disableCrashReporter"/>
+	<presentation id="cck_config_disableTelemetry"/>
+	<presentation id="cck_config_disableFirefoxHealthReportUpload"/>
+	<presentation id="cck_config_disableFirefoxHealthReport"/>
+	<presentation id="cck_config_disableFirefoxUpdates"/>
+	<presentation id="cck_config_dontShowRights"/>
+	<presentation id="cck_config_removeSnippets"/>
+	<presentation id="cck_config_disableResetFirefox"/>
+	<presentation id="cck_config_disablePDFjs"/>
+	<presentation id="cck_config_disableHello"/>
+	<presentation id="cck_config_disableForget"/>
+	<presentation id="cck_config_disableHeartbeat"/>
+	<presentation id="cck_config_disablePocket"/>
+</presentationTable>
+</resources>
+</policyDefinitionResources>

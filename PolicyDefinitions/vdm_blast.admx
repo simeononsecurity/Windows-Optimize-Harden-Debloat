@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+
+  <policyNamespaces>
+    <target prefix="vdm_blast" namespace="VMware.Policies.vdm_blast" />
+  </policyNamespaces>
+  <supersededAdm fileName="vdm_blast.adm" />
+  <resources minRequiredRevision="1.0" fallbackCulture="en-us"/>
+
+  <supportedOn>
+    <definitions>
+      <definition name="BLAST_SUPPORTEDON_EMPTY" displayName="$(string.BLAST_SUPPORTEDON_EMPTY)" />
+    </definitions>
+  </supportedOn>
+
+  <categories>
+    <category name="BLAST_CAT_LABEL" displayName="$(string.BLAST_CAT_LABEL)" explainText="$(string.BLAST_CAT_EXPLAIN)" />
+  </categories>
+
+  <policies>
+    <policy name="BLAST_MAX_SESSION_BW_LABEL" class="Both" displayName="$(string.BLAST_MAX_SESSION_BW_LABEL)" explainText="$(string.BLAST_MAX_SESSION_BW_EXPLAIN)" presentation="$(presentation.BLAST_MAX_SESSION_BW_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="SUPPORTEDON_NotSpecified" />
+      <elements>
+        <decimal id="BLAST_MAX_SESSION_BW_LABEL" valueName="MaxBandwidthKbps" minValue="256" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_MIN_SESSION_BW_LABEL" class="Both" displayName="$(string.BLAST_MIN_SESSION_BW_LABEL)" explainText="$(string.BLAST_MIN_SESSION_BW_EXPLAIN)" presentation="$(presentation.BLAST_MIN_SESSION_BW_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_MIN_SESSION_BW_LABEL" valueName="MinBandwidthKbps" minValue="128" maxValue="2147483647" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_LABEL" class="Both" displayName="$(string.BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_LABEL)" explainText="$(string.BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_EXPLAIN)" presentation="$(presentation.BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_MAX_BANDWIDTH_KBPS_PER_MEGAPIXEL_SLOPE_LABEL" valueName="MaxBandwidthKbpsPerMegaPixelSlope" minValue="100" maxValue="100000" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_MAX_FPS_LABEL" class="Both" displayName="$(string.BLAST_MAX_FPS_LABEL)" explainText="$(string.BLAST_MAX_FPS_EXPLAIN)" presentation="$(presentation.BLAST_MAX_FPS_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_MAX_FPS_LABEL" valueName="EncoderMaxFPS" minValue="10" maxValue="60" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_UDP_LABEL" class="Machine" displayName="$(string.BLAST_UDP_LABEL)" explainText="$(string.BLAST_UDP_EXPLAIN)" presentation="$(presentation.BLAST_UDP_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="UdpEnabled">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <!-- the ACTIVATE element name is cunningly chosen to sort first among all DSCP policy items -->
+    <policy name="BLAST_DSCP_ACTIVATE_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_ACTIVATE_LABEL)" explainText="$(string.BLAST_DSCP_ACTIVATE_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_ACTIVATE_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="NetworkVVCQoSPolicyEnabled">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="BLAST_DSCP_AGENT_OUT_TCP4_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_AGENT_OUT_TCP4_LABEL)" explainText="$(string.BLAST_DSCP_AGENT_OUT_TCP4_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_AGENT_OUT_TCP4_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_AGENT_OUT_TCP4_LABEL" valueName="QoSPolicyDscpAOutTCPv4" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_AGENT_OUT_UDP4_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_AGENT_OUT_UDP4_LABEL)" explainText="$(string.BLAST_DSCP_AGENT_OUT_UDP4_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_AGENT_OUT_UDP4_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_AGENT_OUT_UDP4_LABEL" valueName="QoSPolicyDscpAOutUDPv4" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_AGENT_OUT_TCP6_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_AGENT_OUT_TCP6_LABEL)" explainText="$(string.BLAST_DSCP_AGENT_OUT_TCP6_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_AGENT_OUT_TCP6_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_AGENT_OUT_TCP6_LABEL" valueName="QoSPolicyDscpAOutTCPv6" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_AGENT_OUT_UDP6_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_AGENT_OUT_UDP6_LABEL)" explainText="$(string.BLAST_DSCP_AGENT_OUT_UDP6_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_AGENT_OUT_UDP6_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_AGENT_OUT_UDP6_LABEL" valueName="QoSPolicyDscpAOutUDPv6" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_CLIENT_OUT_TCP4_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_CLIENT_OUT_TCP4_LABEL)" explainText="$(string.BLAST_DSCP_CLIENT_OUT_TCP4_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_CLIENT_OUT_TCP4_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_CLIENT_OUT_TCP4_LABEL" valueName="QoSPolicyDscpCOutTCPv4" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_CLIENT_OUT_UDP4_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_CLIENT_OUT_UDP4_LABEL)" explainText="$(string.BLAST_DSCP_CLIENT_OUT_UDP4_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_CLIENT_OUT_UDP4_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_CLIENT_OUT_UDP4_LABEL" valueName="QoSPolicyDscpCOutUDPv4" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_CLIENT_OUT_TCP6_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_CLIENT_OUT_TCP6_LABEL)" explainText="$(string.BLAST_DSCP_CLIENT_OUT_TCP6_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_CLIENT_OUT_TCP6_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_CLIENT_OUT_TCP6_LABEL" valueName="QoSPolicyDscpCOutTCPv6" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_CLIENT_OUT_UDP6_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_CLIENT_OUT_UDP6_LABEL)" explainText="$(string.BLAST_DSCP_CLIENT_OUT_UDP6_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_CLIENT_OUT_UDP6_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_CLIENT_OUT_UDP6_LABEL" valueName="QoSPolicyDscpCOutUDPv6" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_BSG_DOWN_TCP4_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_BSG_DOWN_TCP4_LABEL)" explainText="$(string.BLAST_DSCP_BSG_DOWN_TCP4_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_BSG_DOWN_TCP4_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_BSG_DOWN_TCP4_LABEL" valueName="QoSPolicyDscpBDownTCPv4" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_BSG_DOWN_UDP4_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_BSG_DOWN_UDP4_LABEL)" explainText="$(string.BLAST_DSCP_BSG_DOWN_UDP4_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_BSG_DOWN_UDP4_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_BSG_DOWN_UDP4_LABEL" valueName="QoSPolicyDscpBDownUDPv4" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_BSG_DOWN_TCP6_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_BSG_DOWN_TCP6_LABEL)" explainText="$(string.BLAST_DSCP_BSG_DOWN_TCP6_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_BSG_DOWN_TCP6_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_BSG_DOWN_TCP6_LABEL" valueName="QoSPolicyDscpBDownTCPv6" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_BSG_DOWN_UDP6_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_BSG_DOWN_UDP6_LABEL)" explainText="$(string.BLAST_DSCP_BSG_DOWN_UDP6_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_BSG_DOWN_UDP6_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_BSG_DOWN_UDP6_LABEL" valueName="QoSPolicyDscpBDownUDPv6" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_BSG_UP_TCP4_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_BSG_UP_TCP4_LABEL)" explainText="$(string.BLAST_DSCP_BSG_UP_TCP4_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_BSG_UP_TCP4_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_BSG_UP_TCP4_LABEL" valueName="QoSPolicyDscpBUpTCPv4" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_BSG_UP_UDP4_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_BSG_UP_UDP4_LABEL)" explainText="$(string.BLAST_DSCP_BSG_UP_UDP4_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_BSG_UP_UDP4_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_BSG_UP_UDP4_LABEL" valueName="QoSPolicyDscpBUpUDPv4" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_BSG_UP_TCP6_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_BSG_UP_TCP6_LABEL)" explainText="$(string.BLAST_DSCP_BSG_UP_TCP6_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_BSG_UP_TCP6_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_BSG_UP_TCP6_LABEL" valueName="QoSPolicyDscpBUpTCPv6" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DSCP_BSG_UP_UDP6_LABEL" class="Machine" displayName="$(string.BLAST_DSCP_BSG_UP_UDP6_LABEL)" explainText="$(string.BLAST_DSCP_BSG_UP_UDP6_EXPLAIN)" presentation="$(presentation.BLAST_DSCP_BSG_UP_UDP6_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DSCP_BSG_UP_UDP6_LABEL" valueName="QoSPolicyDscpBUpUDPv6" minValue="0" maxValue="63" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_H264_ENCODE_LABEL" class="Both" displayName="$(string.BLAST_H264_ENCODE_LABEL)" explainText="$(string.BLAST_H264_ENCODE_EXPLAIN)" presentation="$(presentation.BLAST_H264_ENCODE_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="EncoderH264Enabled">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="BLAST_HEVC_ENCODE_LABEL" class="Both" displayName="$(string.BLAST_HEVC_ENCODE_LABEL)" explainText="$(string.BLAST_HEVC_ENCODE_EXPLAIN)" presentation="$(presentation.BLAST_HEVC_ENCODE_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="EncoderHEVCEnabled">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="BLAST_PNG_ENCODE_LABEL" class="Both" displayName="$(string.BLAST_PNG_ENCODE_LABEL)" explainText="$(string.BLAST_PNG_ENCODE_EXPLAIN)" presentation="$(presentation.BLAST_PNG_ENCODE_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="EncoderPNGEnabled">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="BLAST_SCREEN_BLANK_LABEL" class="Machine" displayName="$(string.BLAST_SCREEN_BLANK_LABEL)" explainText="$(string.BLAST_SCREEN_BLANK_EXPLAIN)" presentation="$(presentation.BLAST_SCREEN_BLANK_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="BlankScreenEnabled">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="BLAST_COOKIE_CLEANUP_LABEL" class="Machine" displayName="$(string.BLAST_COOKIE_CLEANUP_LABEL)" explainText="$(string.BLAST_COOKIE_CLEANUP_EXPLAIN)" presentation="$(presentation.BLAST_COOKIE_CLEANUP_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_COOKIE_CLEANUP_INTERVAL_LABEL" valueName="CookieCleanupIntervalMsec" minValue="100" maxValue="65535" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_DISPLAY_QUALITY_LABEL" class="Both" displayName="$(string.BLAST_DISPLAY_QUALITY_LABEL)" explainText="$(string.BLAST_DISPLAY_QUALITY_EXPLAIN)" presentation="$(presentation.BLAST_DISPLAY_QUALITY_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_DISPLAY_QUALITY_JPEG_QUAL_LOW" valueName="JpegQualityLow" minValue="10" maxValue="100" storeAsText="true" />
+        <decimal id="BLAST_DISPLAY_QUALITY_JPEG_QUAL_MID" valueName="JpegQualityMid" minValue="10" maxValue="100" storeAsText="true" />
+        <decimal id="BLAST_DISPLAY_QUALITY_JPEG_QUAL_HIGH" valueName="JpegQualityHigh" minValue="10" maxValue="100" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_H264_QUALITY_LABEL" class="Both" displayName="$(string.BLAST_H264_QUALITY_LABEL)" explainText="$(string.BLAST_H264_QUALITY_EXPLAIN)" presentation="$(presentation.BLAST_H264_QUALITY_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_H264_QUALITY_MAX_QP" valueName="H264maxQP" minValue="0" maxValue="51" storeAsText="true" />
+        <decimal id="BLAST_H264_QUALITY_MIN_QP" valueName="H264minQP" minValue="0" maxValue="51" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_H264_COLOR_ACCURACY_LABEL" class="Both" displayName="$(string.BLAST_H264_COLOR_ACCURACY_LABEL)" explainText="$(string.BLAST_H264_COLOR_ACCURACY_EXPLAIN)" presentation="$(presentation.BLAST_H264_COLOR_ACCURACY_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="EncoderH264YUV444">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="BLAST_HEVC_COLOR_ACCURACY_LABEL" class="Both" displayName="$(string.BLAST_HEVC_COLOR_ACCURACY_LABEL)" explainText="$(string.BLAST_HEVC_COLOR_ACCURACY_EXPLAIN)" presentation="$(presentation.BLAST_HEVC_COLOR_ACCURACY_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="EncoderHEVCYUV444">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="BLAST_HTTP_LABEL" class="Machine" displayName="$(string.BLAST_HTTP_LABEL)" explainText="$(string.BLAST_HTTP_EXPLAIN)" presentation="$(presentation.BLAST_HTTP_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <decimal id="BLAST_HTTP_PORTS_SECURE_LABEL" valueName="PortSecure" minValue="1" maxValue="65535" storeAsText="true" />
+      </elements>
+    </policy>
+    <policy name="BLAST_AUDIO_LABEL" class="Both" displayName="$(string.BLAST_AUDIO_LABEL)" explainText="$(string.BLAST_AUDIO_EXPLAIN)" presentation="$(presentation.BLAST_AUDIO_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="AudioEnabled">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="SERVER_CLIPBOARD_STATE" class="Machine" displayName="$(string.SERVER_CLIPBOARD_STATE)" explainText="$(string.SERVER_CLIPBOARD_STATE_EXPLAIN)" presentation="$(presentation.SERVER_CLIPBOARD_STATE)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <enum id="SERVER_CLIPBOARD_STATE" valueName="ClipboardState" required="true">
+          <item displayName="$(string.CLIPBOARD_STATE_DISABLE_BOTH)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.CLIPBOARD_STATE_ENABLE_BOTH)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.CLIPBOARD_STATE_ENABLE_CLIENT_2_SERVER)">
+            <value>
+              <string>2</string>
+            </value>
+          </item>
+          <item displayName="$(string.CLIPBOARD_STATE_ENABLE_SERVER_2_CLIENT)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="SERVER_CLIPBOARD_SIZE" class="Machine" displayName="$(string.SERVER_CLIPBOARD_SIZE)" explainText="$(string.SERVER_CLIPBOARD_SIZE_EXPLAIN)" presentation="$(presentation.SERVER_CLIPBOARD_SIZE)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <enum id="Policy_DropList_Clipboard_Fine_Grained" valueName="ClipboardFineGrainedSizeState" required="true" >
+                    <item displayName="$(string.String_Policy_DropList_Select_clipboard_size_unit_kilobytes)" >
+                        <value >
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.String_Policy_DropList_Select_clipboard_size_unit_bytes)" >
+                        <value >
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                </enum>
+        <decimal id="SERVER_CLIPBOARD_SIZE" valueName="ClipboardSize" minValue="1" maxValue="16384" />
+      </elements>
+    </policy>
+    <policy name="SERVER_CLIPBOARD_AUDIT" class="Machine" displayName="$(string.SERVER_CLIPBOARD_AUDIT)" explainText="$(string.SERVER_CLIPBOARD_AUDIT_EXPLAIN)" presentation="$(presentation.SERVER_CLIPBOARD_AUDIT)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <enum id="SERVER_CLIPBOARD_AUDIT" valueName="ClipboardAuditState" required="true">
+          <item displayName="$(string.CLIPBOARD_AUDIT_DISABLE_BOTH)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.CLIPBOARD_AUDIT_ENABLE_ONLY_SERVER_TO_CLIENT)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.CLIPBOARD_AUDIT_ENABLE_ONLY_CLIENT_TO_SERVER)">
+            <value>
+              <string>2</string>
+            </value>
+          </item>
+          <item displayName="$(string.CLIPBOARD_AUDIT_ENABLE_BOTH)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="SERVER_CLIPBOARD_AUDIT_BLOCK_CLIPBOARD" class="Machine" displayName="$(string.SERVER_CLIPBOARD_AUDIT_BLOCK_CLIPBOARD)" explainText="$(string.SERVER_CLIPBOARD_AUDIT_BLOCK_CLIPBOARD_EXPLAIN)" presentation="$(presentation.SERVER_CLIPBOARD_AUDIT_BLOCK_CLIPBOARD)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <enum id="Policy_DropList_Element_Configure_clipboard" valueName="ClipboardRedirectionAllowedByAudit"  required="true">
+            <item displayName="$(string.String_Policy_DropList_Select_Configure_clipboard_Audit_Pass_Through)">
+                <value>
+                    <decimal value="1" />
+                </value>
+            </item>
+            <item displayName="$(string.String_Policy_DropList_Select_Configure_clipboard_Audit_Block)">
+                <value>
+                    <decimal value="0" />
+                </value>
+            </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="SERVER_DND_STATE" class="Machine" displayName="$(string.SERVER_DND_STATE)" explainText="$(string.SERVER_DND_STATE_EXPLAIN)" presentation="$(presentation.SERVER_DND_STATE)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <enum id="SERVER_DND_STATE" valueName="DnDState" required="true">
+          <item displayName="$(string.DND_STATE_DISABLE_BOTH)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_CLIENT_2_SERVER)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_SERVER_2_CLIENT)">
+            <value>
+              <string>2</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_BOTH)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="SERVER_DND_FORMAT_STATE" class="Machine" displayName="$(string.SERVER_DND_FORMAT_STATE)" explainText="$(string.SERVER_DND_FORMAT_STATE_EXPLAIN)" presentation="$(presentation.SERVER_DND_FORMAT_STATE)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <enum id="SERVER_DND_FILE_STATE" valueName="DnDFileState" required="true">
+          <item displayName="$(string.DND_STATE_DISABLE_BOTH)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_CLIENT_2_SERVER)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_SERVER_2_CLIENT)">
+            <value>
+              <string>2</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_BOTH)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="SERVER_DND_TEXT_STATE" valueName="DnDTextState" required="true">
+          <item displayName="$(string.DND_STATE_DISABLE_BOTH)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_CLIENT_2_SERVER)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_SERVER_2_CLIENT)">
+            <value>
+              <string>2</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_BOTH)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="SERVER_DND_RTF_STATE" valueName="DnDRTFState" required="true">
+          <item displayName="$(string.DND_STATE_DISABLE_BOTH)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_CLIENT_2_SERVER)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_SERVER_2_CLIENT)">
+            <value>
+              <string>2</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_BOTH)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="SERVER_DND_IMAGE_STATE" valueName="DnDImageState" required="true">
+          <item displayName="$(string.DND_STATE_DISABLE_BOTH)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_CLIENT_2_SERVER)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_SERVER_2_CLIENT)">
+            <value>
+              <string>2</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_BOTH)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="SERVER_DND_HTML_STATE" valueName="DnDHTMLState" required="true">
+          <item displayName="$(string.DND_STATE_DISABLE_BOTH)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_CLIENT_2_SERVER)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_SERVER_2_CLIENT)">
+            <value>
+              <string>2</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_BOTH)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+        <enum id="SERVER_DND_FILE_CONTENT_STATE" valueName="DnDFileContentState" required="true">
+          <item displayName="$(string.DND_STATE_DISABLE_BOTH)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_CLIENT_2_SERVER)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_SERVER_2_CLIENT)">
+            <value>
+              <string>2</string>
+            </value>
+          </item>
+          <item displayName="$(string.DND_STATE_ENABLE_BOTH)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="SERVER_DND_SIZE" class="Machine" displayName="$(string.SERVER_DND_SIZE)" explainText="$(string.SERVER_DND_SIZE_EXPLAIN)" presentation="$(presentation.SERVER_DND_SIZE)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <enum id="Policy_DropList_DnD_Size_Unit" valueName="DnDSizeUnit" required="true" >
+                    <item displayName="$(string.String_Policy_DropList_Select_DnD_size_unit_bytes)" >
+                        <value >
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.String_Policy_DropList_Select_DnD_size_unit_kilobytes)" >
+                        <value >
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.String_Policy_DropList_Select_DnD_size_unit_megabytes)" >
+                        <value >
+                            <decimal value="2" />
+                        </value>
+                    </item>
+                </enum>
+        <decimal id="SERVER_DND_SIZE" valueName="DnDSize" minValue="1" maxValue="1023" />
+      </elements>
+    </policy>
+    <policy name="KEYBOARD_LOCALE_SYNC_LABEL" class="Machine" displayName="$(string.KEYBOARD_LOCALE_SYNC_LABEL)" explainText="$(string.KEYBOARD_LOCALE_SYNC_EXPLAIN)" presentation="$(presentation.KEYBOARD_LOCALE_SYNC_LABEL)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="KeyboardLocaleSyncEnabled">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="SERVER_FILE_TRANSFER_STATE" class="Machine" displayName="$(string.SERVER_FILE_TRANSFER_STATE)" explainText="$(string.SERVER_FILE_TRANSFER_STATE_EXPLAIN)" presentation="$(presentation.SERVER_FILE_TRANSFER_STATE)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <elements>
+        <enum id="SERVER_FILE_TRANSFER_STATE" valueName="FileTransferState" required="true">
+          <item displayName="$(string.FILE_TRANSFER_STATE_DISABLE_BOTH)">
+            <value>
+              <string>0</string>
+            </value>
+          </item>
+          <item displayName="$(string.FILE_TRANSFER_STATE_ENABLE_BOTH)">
+            <value>
+              <string>1</string>
+            </value>
+          </item>
+          <item displayName="$(string.FILE_TRANSFER_STATE_ENABLE_UPLOAD)">
+            <value>
+              <string>2</string>
+            </value>
+          </item>
+          <item displayName="$(string.FILE_TRANSFER_STATE_ENABLE_DOWNLOAD)">
+            <value>
+              <string>3</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_TEXT_IN" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_TEXT_IN)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_TEXT_IN_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_TEXT_IN)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterIncomingText">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_RTF_IN" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_RTF_IN)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_RTF_IN_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_RTF_IN)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterIncomingRTF">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_IMAGE_IN" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_IMAGE_IN)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_IMAGE_IN_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_IMAGE_IN)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterIncomingImage">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_IN" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_IN)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_IN_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_IN)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterIncomingMSOfficeText">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_IN" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_CHART_IN)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_CHART_IN_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_MSO_CHART_IN)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterIncomingMSOfficeChart">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_IN" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_IN)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_IN_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_IN)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterIncomingMSOfficeTextEffects">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_TEXT_OUT" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_TEXT_OUT)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_TEXT_OUT_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_TEXT_OUT)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterOutgoingText">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_RTF_OUT" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_RTF_OUT)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_RTF_OUT_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_RTF_OUT)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterOutgoingRTF">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_IMAGE_OUT" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_IMAGE_OUT)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_IMAGE_OUT_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_IMAGE_OUT)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterOutgoingImage">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_OUT" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_OUT)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_OUT_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_OUT)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterOutgoingMSOfficeText">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_MSO_CHART_OUT" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_CHART_OUT)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_CHART_OUT_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_MSO_CHART_OUT)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterOutgoingMSOfficeChart">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+    <policy name="CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_OUT" class="Machine" displayName="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_OUT)" explainText="$(string.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_OUT_EXPLAIN)" presentation="$(presentation.CLIPBOARD_FORMAT_FILTERING_MSO_TEXT_EFFECTS_OUT)" key="SOFTWARE\Policies\VMware, Inc.\VMware Blast\Config" valueName="ClipboardFilterOutgoingMSOfficeTextEffects">
+      <parentCategory ref="BLAST_CAT_LABEL" />
+      <supportedOn ref="BLAST_SUPPORTEDON_EMPTY" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

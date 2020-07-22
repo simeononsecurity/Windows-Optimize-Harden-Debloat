@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="storagesense" namespace="Microsoft.Policies.StorageSense" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="StorageSense" displayName="$(string.StorageSense)">
+      <parentCategory ref="windows:System" />
+    </category>
+  </categories>
+  <policies>
+    <policy
+        name="SS_AllowStorageSenseGlobal"
+        displayName="$(string.SS_AllowStorageSenseGlobal)"
+        class="Machine"
+        explainText="$(string.SS_AllowStorageSenseGlobal_Explain)"
+        key="Software\Policies\Microsoft\Windows\StorageSense"
+        valueName="AllowStorageSenseGlobal">
+      <parentCategory ref="StorageSense" />
+      <supportedOn ref="windows:SUPPORT_WINDOWS_10_0_RS6" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy
+        name="SS_ConfigStorageSenseGlobalCadence"
+        displayName="$(string.SS_ConfigStorageSenseGlobalCadence)"
+        class="Machine"
+        explainText="$(string.SS_ConfigStorageSenseGlobalCadence_Explain)"
+        presentation="$(presentation.SS_ConfigStorageSenseGlobalCadence_Presentation)"
+        key="Software\Policies\Microsoft\Windows\StorageSense"
+        valueName="ConfigStorageSenseGlobalCadence">
+      <parentCategory ref="StorageSense" />
+      <supportedOn ref="windows:SUPPORT_WINDOWS_10_0_RS6" />
+      <elements>
+        <enum id="StorageSenseGlobalCadence" valueName="ConfigStorageSenseGlobalCadence" required="true">
+          <item displayName="$(string.SS_StorageSenseGlobalCadence_Daily)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.SS_StorageSenseGlobalCadence_Weekly)">
+            <value>
+              <decimal value="7" />
+            </value>
+          </item>
+          <item displayName="$(string.SS_StorageSenseGlobalCadence_Monthly)">
+            <value>
+              <decimal value="30" />
+            </value>
+          </item>
+          <item displayName="$(string.SS_StorageSenseGlobalCadence_DuringLowFreeDiskSpace)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy
+        name="SS_AllowStorageSenseTemporaryFilesCleanup"
+        displayName="$(string.SS_AllowStorageSenseTemporaryFilesCleanup)"
+        class="Machine"
+        explainText="$(string.SS_AllowStorageSenseTemporaryFilesCleanup_Explain)"
+        key="Software\Policies\Microsoft\Windows\StorageSense"
+        valueName="AllowStorageSenseTemporaryFilesCleanup">
+      <parentCategory ref="StorageSense" />
+      <supportedOn ref="windows:SUPPORT_WINDOWS_10_0_RS6" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy
+        name="SS_ConfigStorageSenseRecycleBinCleanupThreshold"
+        displayName="$(string.SS_ConfigStorageSenseRecycleBinCleanupThreshold)"
+        class="Machine"
+        explainText="$(string.SS_ConfigStorageSenseRecycleBinCleanupThreshold_Explain)"
+        presentation="$(presentation.SS_ConfigStorageSenseRecycleBinCleanupThreshold_Presentation)"
+        key="Software\Policies\Microsoft\Windows\StorageSense"
+        valueName="ConfigStorageSenseRecycleBinCleanupThreshold">
+      <parentCategory ref="StorageSense" />
+      <supportedOn ref="windows:SUPPORT_WINDOWS_10_0_RS6" />
+      <elements>
+        <decimal id="StorageSenseRecycleBinCleanupThreshold" valueName="ConfigStorageSenseRecycleBinCleanupThreshold" minValue="0" maxValue="365" />
+      </elements>
+    </policy>
+    <policy
+        name="SS_ConfigStorageSenseDownloadsCleanupThreshold"
+        displayName="$(string.SS_ConfigStorageSenseDownloadsCleanupThreshold)"
+        class="Machine"
+        explainText="$(string.SS_ConfigStorageSenseDownloadsCleanupThreshold_Explain)"
+        presentation="$(presentation.SS_ConfigStorageSenseDownloadsCleanupThreshold_Presentation)"
+        key="Software\Policies\Microsoft\Windows\StorageSense"
+        valueName="ConfigStorageSenseDownloadsCleanupThreshold">
+      <parentCategory ref="StorageSense" />
+      <supportedOn ref="windows:SUPPORT_WINDOWS_10_0_RS6" />
+      <elements>
+        <decimal id="StorageSenseDownloadsCleanupThreshold" valueName="ConfigStorageSenseDownloadsCleanupThreshold" minValue="0" maxValue="365" />
+      </elements>
+    </policy>
+    <policy
+        name="SS_ConfigStorageSenseCloudContentDehydrationThreshold"
+        displayName="$(string.SS_ConfigStorageSenseCloudContentDehydrationThreshold)"
+        class="Machine"
+        explainText="$(string.SS_ConfigStorageSenseCloudContentDehydrationThreshold_Explain)"
+        presentation="$(presentation.SS_ConfigStorageSenseCloudContentDehydrationThreshold_Presentation)"
+        key="Software\Policies\Microsoft\Windows\StorageSense"
+        valueName="ConfigStorageSenseCloudContentDehydrationThreshold">
+      <parentCategory ref="StorageSense" />
+      <supportedOn ref="windows:SUPPORT_WINDOWS_10_0_RS6" />
+      <elements>
+        <decimal id="StorageSenseCloudContentDehydrationThreshold" valueName="ConfigStorageSenseCloudContentDehydrationThreshold" minValue="0" maxValue="365" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

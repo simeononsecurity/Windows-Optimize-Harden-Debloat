@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policyDefinitions xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
+   <policyNamespaces>
+      <target prefix="SpybotAntiBeacon" namespace="SaferNetworking.Policies.SaferNetworking.SpybotAntiBeacon" />
+      <using prefix="SaferNetworking" namespace="SaferNetworking.Policies.SaferNetworking" />
+   </policyNamespaces>
+   <resources minRequiredRevision="1.3" />
+   <supportedOn>
+      <definitions>
+         <definition name="supported_antibeacon_1b5" displayName="$(string.supported_spybotantibeacon_1b5)" />
+      </definitions>
+   </supportedOn>
+   <categories>
+      <category name="SpybotAntiBeacon" 
+         displayName="$(string.SpybotAntiBeacon)" 
+         explainText="$(string.SpybotAntiBeacon_Help)">
+         <parentCategory ref="SaferNetworking:SaferNetworking_Ltd" />
+      </category>
+      <category name="Update" 
+         displayName="$(string.Update)" 
+         explainText="$(string.Update_Help)">
+         <parentCategory ref="SpybotAntiBeacon" />
+      </category>
+      <category name="Hosts" 
+         displayName="$(string.Hosts)" 
+         explainText="$(string.Hosts_Help)">
+         <parentCategory ref="SpybotAntiBeacon" />
+      </category>
+   </categories>
+   <policies>
+      <policy name="Disable_SpybotAntiBeacon_UpdateCheck" class="Both" 
+       displayName="$(string.Disable_SpybotAntiBeacon_UpdateCheck)" 
+       explainText="$(string.Disable_SpybotAntiBeacon_UpdateCheck_Help)" 
+       key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Update" valueName="DisableCheck">
+         <parentCategory ref="Update" />
+         <supportedOn ref="supported_antibeacon_1b5" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+            <decimal value="0" />
+         </disabledValue>
+      </policy>
+      <policy name="Enable_SpybotAntiBeacon_HostsFileReadOnlyFlag" class="Both" 
+       displayName="$(string.Enable_SpybotAntiBeacon_HostsFileReadOnlyFlag)" 
+       explainText="$(string.Enable_SpybotAntiBeacon_HostsFileReadOnlyFlag_Help)" 
+       key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Hosts" valueName="EnableReadOnlyFileAttribute">
+         <parentCategory ref="Hosts" />
+         <supportedOn ref="supported_antibeacon_1b5" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+            <decimal value="0" />
+         </disabledValue>
+      </policy>
+      <policy name="SpybotAntiBeacon_HostsFileBlockIP" class="Both" 
+       displayName="$(string.SpybotAntiBeacon_HostsFileBlockIP)" 
+       explainText="$(string.SpybotAntiBeacon_HostsFileBlockIP_Help)"
+       presentation="$(presentation.SpybotAntiBeacon_HostsFileBlockIP)"  
+       key="Software\Policies\Safer-Networking Ltd.\Spybot Anti-Beacon\Hosts" valueName="CustomBlockIP">
+         <parentCategory ref="Hosts" />
+         <supportedOn ref="supported_antibeacon_1b5" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <text id="SpybotAntiBeacon_HostsFileBlockIPAddress" valueName="BlockIP" required="true" />
+      </elements>
+      </policy>
+   </policies>
+</policyDefinitions>

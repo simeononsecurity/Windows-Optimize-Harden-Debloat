@@ -1,0 +1,159 @@
+; Last Updated 01/07/2015
+;
+; Allows Cjwdev AD Account Reset Tool options to be configured via Group Policy
+;
+
+
+;
+; — USER POLICIES –
+;
+
+CLASS USER
+
+CATEGORY "Cjwdev"
+
+CATEGORY "AD Account Reset Tool"
+
+KEYNAME "Software\Policies\Cjwdev\AccountReset"
+
+
+POLICY "Domain to connect to"
+
+  EXPLAIN !!DomainExplain
+  PART "Domain: "EDITTEXT
+    VALUENAME "Domain"
+  END PART
+  #if version >= 4
+    SUPPORTED !!Version1-3-0
+  #endif
+  
+END POLICY
+
+POLICY "Always use specific domain controller"
+
+  EXPLAIN !!DomainControllerExplain
+  PART "Domain controller name: "EDITTEXT
+    VALUENAME "DomainController"
+  END PART
+  #if version >= 4
+    SUPPORTED !!Version1-3-0
+  #endif
+ 
+END POLICY
+
+POLICY "Pre load usernames"
+
+  EXPLAIN !!PreloadUsernamesExplain
+  VALUENAME "PreLoadUsernames"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-3-0
+  #endif
+ 
+END POLICY
+
+POLICY "Only pre load usernames from specific OU"
+
+  EXPLAIN !!PreloadOuExplain
+  PART "OU to load usernames from: "EDITTEXT
+    VALUENAME "PreloadUsernamesOu"
+  END PART
+  #if version >= 4
+    SUPPORTED !!Version1-3-0
+  #endif
+ 
+END POLICY
+
+POLICY "Always set password to be changed at next logon"
+
+  EXPLAIN !!ForcePasswordChangeAtLogonExplain
+  VALUENAME "ForceMustChangePasswordAtLogon"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-3-0
+  #endif
+  
+END POLICY
+
+POLICY "Always unlock accounts"
+
+  EXPLAIN !!ForceUnlockExplain
+  VALUENAME "ForceUnlock"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-3-0
+  #endif
+ 
+END POLICY
+
+POLICY "Always enable/disable accounts"
+
+  EXPLAIN !!AlwaysEnableExplain
+  VALUENAME "ForceEnable"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-4-3
+  #endif
+ 
+END POLICY
+
+POLICY "Remove option to enable/disable accounts"
+
+  EXPLAIN !!RemoveEnableDisableExplain
+  VALUENAME "RemoveDisableOption"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-4-3
+  #endif
+ 
+END POLICY
+
+POLICY "Remove option to set account expiration date"
+
+  EXPLAIN !!RemoveExpireExplain
+  VALUENAME "RemoveExpireOption"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-4-3
+  #endif
+ 
+END POLICY
+
+POLICY "Require new passwords to be confirmed"
+
+  EXPLAIN !!ConfirmPasswordsExplain
+  VALUENAME "ConfirmPasswords"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-4-4
+  #endif
+ 
+END POLICY
+
+
+
+END CATEGORY
+
+END CATEGORY
+
+[strings]
+Version1-3-0="At least AD Account Reset Tool version 1.3.0"
+Version1-4-3="At least AD Account Reset Tool version 1.4.3"
+Version1-4-4="At least AD Account Reset Tool version 1.4.4"
+DomainExplain="If this setting is enabled then the user will always be connecting to the specified domain and will not be able to select another domain.\n \nIf this setting is disabled or not configured then the domain that the user has configured in the options window will take effect and they will be able to select other domains."
+DomainControllerExplain="If this setting is enabled then the user will always be performing actions against the specified domain controller. This can be used to ensure the user is connecting to a local domain controller that is in the same location as the user that is attempting to use their account once it has been unlocked.\n \nIf this setting is disabled or not configured, the user will be able to specify a domain controller in the options window or not specify a domain controller and let Windows locate a suitable domain controller on its own."
+PreloadUsernamesExplain="If this setting is enabled then when the program is launched it will attempt to load all available usernames in to the username drop down list on the main window and the user will not be able to disable this feature from the options window. If you enable this policy then you can optionally also use the Only Pre Load Usernames From Specific OU policy to avoid loading every username in the domain.\n \nIf this setting is disabled then the program will not load usernames in to the drop down list when it is launched and the user will not be able to enable this from the options window.\n \n If this setting is not configured, the setting that the user has configured in the options window will take effect."
+PreloadOuExplain="NOTE: This policy only applies if the Pre Load Usernames policy has been enabled as well. If this setting is enabled then when the program loads usernames in to the username drop down box on launch, it will only load usernames from the specified OU (and sub OUs). The OU path should be specified in Distinguished Name format - e.g OU=Example Sub,OU=Example Parent,DC=domain,DC=local . You can find the distinguished name for a particular OU by using the Browse OU button in the options window of the AD Account Reset Tool.\n \nIf this setting is disabled or not configured, the setting that the user has configured in the options window will take effect."
+ForcePasswordChangeAtLogonExplain="If this setting is enabled then the option to force password change at next logon for the selected account will always be enabled and the user will not be able to disable it.\n \nIf this setting is disabled or not configured then the user will be able to choose whether or not to force password change at next logon for the account they are resetting."
+AlwaysEnableExplain="If this setting is enabled then the option to enable accounts will be set and the user will not be able to change it, so accounts will always be enabled when the user resets an account.\n \nIf this setting is disabled then the option to disable accounts will always be set and the user will not be able to change it, so accounts will always be disabled when the user resets an account.\n \nIf this setting is set to Not Configured then the user can decide if they want to enable or disable accounts (or not change the account state at all) when they reset accounts.\n NOTE: This policy is ignored if the policy named Remove Option To Enable/Disable Accounts has been enabled."
+RemoveEnableDisableExplain="If this setting is enabled then the user will not see the option to enabled or disable accounts when they reset an account.\n \nIf this setting is disabled or not configured then the user will see the option and be able to enable or disable an account."
+RemoveExpireExplain="If this setting is enabled then the user will not see the option to set an account's expiration date when they reset an account.\n \nIf this setting is disabled or not configured then the user will see the option and can change an account's expiration date."
+ConfirmPasswordsExplain="If this setting is enabled then when the user resets a user's password, they will have to enter the password twice for confirmation.\n \nIf this setting is disabled then the user will only have to enter the new password once when resetting a user's password.\n \n If this setting is not configured, the setting that the user has configured in the options window will take effect."
+ForceUnlockExplain="If this setting is enabled then the option to unlock the selected account will always be enabled and the user will not be able to disable it.\n \nIf this setting is disabled or not configured then the user will be able to choose whether or not to unlock the account they are resetting."

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2011 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escribir aquí el nombre para mostrar</displayName>
+  <description>escribir aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_OpsMgr">System Center - Operations Manager</string>
+      <string id="Pol_LogonTypePolicy">Tipo de inicio de sesión de cuenta de acción de supervisión</string>
+      <string id="Pol_LogonTypePolicy_Help">Esta directiva controla el tipo de inicio de sesión de cuentas de acción o cuentas de ejecución, usadas por procesos de trabajo (MonitoringHost.exe) iniciados por el servicio de administración de System Center.
+
+En situaciones en las que la configuración de seguridad del servidor supervisado es “Inicio de sesión interactivo: requerir tarjeta inteligente” en su directiva de seguridad local, el servicio de administración de System Center que se ejecuta en ese servidor no podrá iniciar sesión en los procesos de trabajo que usan cuentas de acción o de ejecución (que contienen la credencial de una cuenta de dominio) porque tiene acceso a la tarjeta inteligente. Cambiando a un tipo de inicio de sesión de Servicio, este problema puede evitarse. Sin embargo, es posible que algunas actividades de supervisión que obtienen acceso a recursos del sistema requiriendo privilegios de inicio de sesión interactivos o de administrador no se ejecuten correctamente.
+
+El tipo de inicio de sesión predeterminado es Interactivo.
+      </string>
+      <string id="Lbl_LogonTypePolicyCombo">Tipo de inicio de sesión</string>
+      <string id="Lbl_LogonTypeInteractive">Interactivo</string>
+      <string id="Lbl_LogonTypeBatch">Lote</string>
+      <string id="Lbl_LogonTypeService">Servicio</string>
+      <string id="Pol_RuntimeClrGarbageCollectorType">Tipo de recolector de elementos no utilizados de .Net de procesos de trabajo</string>
+      <string id="Pol_RuntimeClrGarbageCollectorType_Help">Esta directiva controla en qué modo se ejecuta el recolector de elementos no utilizados de Microsoft .Net.
+ 
+ El recolector de elementos no utilizados de la estación de trabajo consumirá menos memoria, pero si se somete a una carga elevada puede tener mayor uso de CPU.  El recolector de elementos no utilizados del servidor consumirá más memoria, pero si se somete a una carga elevada puede tener menor uso de CPU.
+ 
+ El valor predeterminado es usar el recolector de elementos no utilizados de la estación de trabajo para agentes y el recolector de elementos no utilizados del servidor para servidores de administración.</string>
+      <string id="Pol_RuntimeClrGarbageCollectorTypeChoice">Modo de recolector de elementos no utilizados</string>
+      <string id="Pol_RuntimeClrGarbageCollectorUseConcurrent">Modo de simultaneidad de recolector de elementos no utilizados de .Net de procesos de trabajo</string>
+      <string id="Pol_RuntimeClrGarbageCollectorUseConcurrent_Help">
+        Esta directiva controla qué modo de simultaneidad usa el recolector de elementos no utilizados de Microsoft .Net.
+
+        La recopilación simultánea de elementos no utilizados habilita la ejecución simultánea de subprocesos con un subproceso dedicado que realiza la recopilación de elementos no utilizados durante la mayor parte de la recopilación. Esta opción solo afecta a recopilaciones de elementos no utilizados en generación 2; las generaciones 0 y 1 nunca son simultáneas porque finalizan rápidamente.
+
+        Esta es una opción de ajuste avanzada que normalmente no debería modificarse.
+
+        El valor predeterminado es usar una recopilación de elementos no utilizados no simultánea.
+      </string>
+      <string id="Pol_RuntimeClrGarbageCollectorUseConcurrentChoice">Modo de simultaneidad de recopilación de elementos no utilizados</string>
+      <string id="Pol_RuntimeClrVersion">Versión de Microsoft .Net Framework de procesos de trabajo</string>
+      <string id="Pol_RuntimeClrVersion_Help">Esta directiva controla qué versión de Microsoft .Net Framework se usa para hospedar código administrado en procesos de trabajo iniciados por el servicio de administración de System Center.
+      
+Esta directiva solo se aplica a agentes, no a servidores de administración.  Es posible que en los servidores de administración no se haya modificado la configuración de la versión de .Net Framework.
+
+El valor predeterminado si no se especifica esta directiva es usar Microsoft .Net Framework 2.0 si el agente se está ejecutando en un sistema operativo Windows 7 o anterior.  Si se usa una versión de Windows más nueva que Windows 7, Microsoft .Net Framework 4.0 es el valor predeterminado.</string>
+      <string id="Lbl_RuntimeClrVersionCombo">Versión de Framework</string>
+      <string id="Lbl_RuntimeClrVersion20">2.0</string>
+      <string id="Lbl_RuntimeClrVersion40">4.0</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_LogonTypePolicy">
+        <text>Especifique el tipo de inicio de sesión, para cuentas de acción o cuentas de ejecución, usado por procesos de trabajo (MonitoringHost.exe) creados por el servicio de administración de System Center.</text>
+        <text> </text>
+        <text>Nota: usando un tipo de inicio de sesión de Servicio o Lote, es posible que algunas actividades de supervisión que obtienen acceso a recursos del sistema que requieren privilegios de inicio de sesión interactivos o de administrador no se ejecuten correctamente.</text>
+        <text> </text>
+        <dropdownList refId="Lbl_LogonTypePolicyCombo" defaultItem="1">Tipo de inicio de sesión: </dropdownList>
+        <text> </text>
+        <text>Lote = El inicio de sesión corresponde a un proceso por lotes.</text>
+        <text>Interactivo = Use el tipo de inicio de sesión interactivo.  Es el mismo que el inicio de sesión de usuario normal.</text>
+        <text>Servicio = El tipo de inicio de sesión corresponde a una cuenta de servicio.</text>
+      </presentation>
+      <presentation id="Pol_RuntimeClrGarbageCollectorType">
+        <text>Especifique en qué modo debe funcionar el recolector de elementos no utilizados de Microsoft .Net Framework para procesos de trabajo creados por el servicio de administración de System Center.</text>
+        <checkBox refId="Pol_RuntimeClrGarbageCollectorTypeChoice" defaultChecked="true">Use el recolector de elementos no utilizados de la estación de trabajo.</checkBox>
+        <text>Activado = Use el recolector de elementos no utilizados de la estación de trabajo</text>
+        <text>Desactivado = Use el recolector de elementos no utilizados del servidor</text>
+      </presentation>
+      <presentation id="Pol_RuntimeClrGarbageCollectorUseConcurrent">
+        <text>Especifique en qué modo de simultaneidad debe funcionar el recolector de elementos no utilizados de Microsoft .Net Framework para procesos de trabajo creados por el servicio de administración de System Center.</text>
+        <checkBox refId="Pol_RuntimeClrGarbageCollectorUseConcurrentChoice" defaultChecked="false">Use una recopilación de elementos no utilizados simultánea.</checkBox>
+        <text>Desactivado = Use la recopilación de elementos no utilizados simultánea</text>
+        <text>Desactivado = Use la recopilación de elementos no utilizados no simultánea</text>
+      </presentation>
+      <presentation id="Pol_RuntimeClrVersion">
+        <text>Especifique qué versión de Microsoft .Net Framework deben usar los procesos de trabajo creados por el servicio de administración de System Center.</text>
+        <text> </text>
+        <dropdownList refId="Lbl_RuntimeClrVersionCombo" defaultItem="0">Versión de Framework: </dropdownList>
+        <text> </text>
+        <text>2.0 = Use el motor de tiempo de ejecución de Microsoft .Net Framework 2.0.  Esto incluye las versiones 3.0 o 3.5 si están instaladas en el sistema.</text>
+        <text>4.0 = Use el motor de tiempo de ejecución de Microsoft .Net Framework 4.</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

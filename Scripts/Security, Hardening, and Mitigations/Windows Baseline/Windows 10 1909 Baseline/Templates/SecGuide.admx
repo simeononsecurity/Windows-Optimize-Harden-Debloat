@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   revision="1.0"
+                   schemaVersion="1.0"
+                   xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+
+    <policyNamespaces>
+        <target prefix="SecGuide" namespace="Microsoft.Policies.SecGuide" />
+        <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+    </policyNamespaces>
+
+    <resources minRequiredRevision="1.0" />
+
+    <supportedOn>
+        <definitions>
+            <definition name="SUPPORTED_preWin81_2012R2" displayName="$(string.SUPPORTED_preWin81_2012R2)" />
+            <definition name="SUPPORTED_WindowsServer2008AndNewer" displayName="$(string.SUPPORTED_WindowsServer2008AndNewer)" />
+        </definitions>
+    </supportedOn>
+
+    <categories>
+        <category name="Cat_SecGuide" displayName="$(string.Cat_SecGuide)"/>
+    </categories>
+
+    <policies>
+
+        <!-- Configure SMBv1 -->
+
+        <policy name="Pol_SecGuide_0001_SMBv1_Server"
+                class="Machine"
+                displayName="$(string.Pol_SecGuide_SMBv1Server)"
+                explainText="$(string.Pol_SecGuide_SMBv1Server_Help)"
+                key="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters"
+                valueName="SMB1"
+                >
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+
+        <policy name="Pol_SecGuide_0002_SMBv1_ClientDriver"
+            class="Machine"
+            displayName="$(string.Pol_SecGuide_SMBv1ClientDriver)"
+            explainText="$(string.Pol_SecGuide_SMBv1ClientDriver_Help)"
+            key="SYSTEM\CurrentControlSet\Services\MrxSmb10"
+            presentation="$(presentation.Pol_SecGuide_SMBv1ClientDriver)"
+                >
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+            <elements>
+                <enum id="Pol_SecGuide_SMB1ClientDriver" key="SYSTEM\CurrentControlSet\Services\MrxSmb10" valueName="Start">
+                    <item displayName="$(string.SMB1DriverDisable)">
+                        <value>
+                            <decimal value="4"/>
+                        </value>
+                    </item>
+                    <item displayName="$(string.SMB1DriverManualStart)">
+                        <value>
+                            <decimal value="3"/>
+                        </value>
+                    </item>
+                    <item displayName="$(string.SMB1DriverAutomaticStart)">
+                        <value>
+                            <decimal value="2"/>
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+
+        <policy name="Pol_SecGuide_0003_SMBv1_ClientLMWkstaDepends"
+            class="Machine"
+            displayName="$(string.Pol_SecGuide_SMBv1ClientLMWkstaDepends)"
+            explainText="$(string.Pol_SecGuide_SMBv1ClientLMWkstaDepends_Help)"
+            key="SYSTEM\CurrentControlSet\Services\LanmanWorkstation"
+            presentation="$(presentation.Pol_SecGuide_SMBv1ClientWin7)"
+                >
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="SUPPORTED_preWin81_2012R2" />
+            <elements>
+                <multiText id="Pol_SecGuide_SMB1Win7LMSDepends" valueName="DependOnService"/>
+            </elements>
+        </policy>
+
+
+        <!-- NetBT NodeType configuration -->
+        <policy name="Pol_SecGuide_0050_NetbtNodeTypeConfig"
+            class="Machine"
+            displayName="$(string.Pol_SecGuide_NetbtNodeTypeCfg)"
+            explainText="$(string.Pol_SecGuide_NetbtNodeTypeCfg_Help)"
+            key="SYSTEM\CurrentControlSet\Services\NetBT\Parameters"
+            presentation="$(presentation.Pol_SecGuide_NetbtNodeTypeCfg)"
+                >
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+            <elements>
+                <enum id="Pol_SecGuide_SecGuide_NetbtNodeTypeCfg" key="SYSTEM\CurrentControlSet\Services\NetBT\Parameters" valueName="NodeType">
+                    <item displayName="$(string.NetBtNodeTypeB)">
+                        <value>
+                            <decimal value="1"/>
+                        </value>
+                    </item>
+                    <item displayName="$(string.NetBtNodeTypeP)">
+                        <value>
+                            <decimal value="2"/>
+                        </value>
+                    </item>
+                    <item displayName="$(string.NetBtNodeTypeM)">
+                        <value>
+                            <decimal value="4"/>
+                        </value>
+                    </item>
+                    <item displayName="$(string.NetBtNodeTypeH)">
+                        <value>
+                            <decimal value="8"/>
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+
+
+
+        <!-- LdapEnforceChannelBinding (DC only) -->
+        <policy name="Pol_SecGuide_0100_LdapEnforceChannelBinding"
+                class="Machine"
+                displayName="$(string.Pol_SecGuide_LdapEnforceChannelBinding)"
+                explainText="$(string.Pol_SecGuide_LdapEnforceChannelBinding_Help)"
+                key="System\CurrentControlSet\Services\NTDS\Parameters"
+                valueName="LdapEnforceChannelBinding"
+                presentation="$(presentation.Pol_SecGuide_LdapEnforceChannelBinding)"
+                >
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="SUPPORTED_WindowsServer2008AndNewer" />
+            <elements>
+                <enum id="Pol_SecGuide_LdapEnforceChannelBinding" key="System\CurrentControlSet\Services\NTDS\Parameters" valueName="LdapEnforceChannelBinding">
+                    <item displayName="$(string.LdapEnforce_Always)">
+                        <value>
+                            <decimal value="2"/>
+                        </value>
+                    </item>
+                    <item displayName="$(string.LdapEnforce_WhenSupported)">
+                        <value>
+                            <decimal value="1"/>
+                        </value>
+                    </item>
+                    <item displayName="$(string.LdapEnforce_Disabled)">
+                        <value>
+                            <decimal value="0"/>
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+
+        </policy>
+
+
+        <!-- Windows Defender PUA -->
+        <policy name="Pol_SecGuide_0101_WDPUA"
+                class="Machine"
+                displayName="$(string.Pol_SecGuide_WDPUA)"
+                explainText="$(string.Pol_SecGuide_WDPUA_Help)"
+                key="Software\Policies\Microsoft\Windows Defender\MpEngine"
+                valueName="MpEnablePus">
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+
+        <!-- SEHOP -->
+        <policy name="Pol_SecGuide_0102_SEHOP"
+                class="Machine"
+                displayName="$(string.Pol_SecGuide_SEHOP)"
+                explainText="$(string.Pol_SecGuide_SEHOP_Help)"
+                key="SYSTEM\CurrentControlSet\Control\Session Manager\kernel"
+                valueName="DisableExceptionChainValidation">
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+            <enabledValue>
+                <decimal value="0" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="1" />
+            </disabledValue>
+        </policy>
+
+        <!-- Credential theft protections -->
+
+        <policy name="Pol_SecGuide_0201_LATFP"
+                class="Machine"
+                displayName="$(string.Pol_SecGuide_LATFP)"
+                explainText="$(string.Pol_SecGuide_LATFP_Help)"
+                key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+                valueName="LocalAccountTokenFilterPolicy">
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+            <enabledValue>
+                <decimal value="0" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="1" />
+            </disabledValue>
+        </policy>
+        <policy name="Pol_SecGuide_0202_WDigestAuthn"
+                class="Machine"
+                displayName="$(string.Pol_SecGuide_WDigestAuthn)"
+                explainText="$(string.Pol_SecGuide_WDigestAuthn_Help)"
+                key="SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest"
+                valueName="UseLogonCredential">
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="Pol_SecGuide_0203_LsassAudit"
+                class="Machine"
+                displayName="$(string.Pol_SecGuide_LsassAudit)"
+                explainText="$(string.Pol_SecGuide_LsassAudit_Help)"
+                key="SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe"
+                valueName="AuditLevel">
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+            <enabledValue>
+                <decimal value="8" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="Pol_SecGuide_0204_LsassRunAsPPL"
+                class="Machine"
+                displayName="$(string.Pol_SecGuide_LsassRunAsPPL)"
+                explainText="$(string.Pol_SecGuide_LsassRunAsPPL_Help)"
+                key="SYSTEM\CurrentControlSet\Control\Lsa"
+                valueName="RunAsPPL">
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+
+        <!-- Disable same-desktop credential exposure -->
+        <policy name="Pol_SecGuide_0301_RemoveRunasdifferentuser"
+                class="Machine"
+                displayName="$(string.Pol_SecGuide_RemoveRunasdifferentuser)"
+                explainText="$(string.Pol_SecGuide_RemoveRunasdifferentuser_Help)"
+                key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" >
+                >
+            <parentCategory ref="Cat_SecGuide" />
+            <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+            <enabledList>
+              <item key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" valueName="NoStartBanner">
+                <value>
+                  <decimal value="1" />
+                </value>
+              </item>
+              <item key="SOFTWARE\Classes\batfile\shell\runasuser" valueName="SuppressionPolicy">
+                <value>
+                  <!-- 4096 == 0x1000 == REST_STARTBANNER -->
+                  <decimal value="4096" />
+                </value>
+              </item>
+              <item key="SOFTWARE\Classes\cmdfile\shell\runasuser" valueName="SuppressionPolicy">
+                <value>
+                  <!-- 4096 == 0x1000 == REST_STARTBANNER -->
+                  <decimal value="4096" />
+                </value>
+              </item>
+              <item key="SOFTWARE\Classes\exefile\shell\runasuser" valueName="SuppressionPolicy">
+                <value>
+                  <!-- 4096 == 0x1000 == REST_STARTBANNER -->
+                  <decimal value="4096" />
+                </value>
+              </item>
+              <item key="SOFTWARE\Classes\mscfile\shell\runasuser" valueName="SuppressionPolicy">
+                <value>
+                  <!-- 4096 == 0x1000 == REST_STARTBANNER -->
+                  <decimal value="4096" />
+                </value>
+              </item>
+            </enabledList>
+            <disabledList>
+              <item key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" valueName="NoStartBanner">
+                <value>
+                  <delete />
+                </value>
+              </item>
+              <item key="SOFTWARE\Classes\batfile\shell\runasuser" valueName="SuppressionPolicy">
+                <value>
+                  <delete />
+                </value>
+              </item>
+              <item key="SOFTWARE\Classes\cmdfile\shell\runasuser" valueName="SuppressionPolicy">
+                <value>
+                  <delete />
+                </value>
+              </item>
+              <item key="SOFTWARE\Classes\exefile\shell\runasuser" valueName="SuppressionPolicy">
+                <value>
+                  <delete />
+                </value>
+              </item>
+              <item key="SOFTWARE\Classes\mscfile\shell\runasuser" valueName="SuppressionPolicy">
+                <value>
+                  <delete />
+                </value>
+              </item>
+            </disabledList>
+        </policy>
+
+        <!-- Block Flash in Office documents using Office "kill bit" feature -->
+        <policy name="Pol_SecGuide_A001_Block_Flash"
+            class="Machine"
+            displayName="$(string.Pol_SecGuide_Block_Flash)"
+            explainText="$(string.Pol_SecGuide_Block_Flash_Help)"
+            presentation="$(presentation.Pol_SecGuide_Block_Flash)"
+            key="SOFTWARE\Microsoft\Office\Common\COM Compatibility"
+        >
+            <parentCategory ref="Cat_SecGuide"/>
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+
+            <elements>
+                <enum id="Pol_SecGuide_Block_Flash" key="SOFTWARE\Microsoft\Office\Common\COM Compatibility" valueName="Comment">
+                    <item displayName="$(string.BlockFlash_BlockActivation)">
+                        <value><string>Block all Flash activation</string></value>
+                        <valueList>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                        </valueList>
+                    </item>
+                    <item displayName="$(string.BlockFlash_BlockEmbedded)">
+                        <value><string>Block embedded Flash activation only</string></value>
+                        <valueList>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="1024"/> <!-- hex 400 --> </value>
+                            </item>
+                        </valueList>
+                    </item>
+                    <item displayName="$(string.BlockFlash_AllowAll)">
+                        <value><string>Allow all Flash activation</string></value>
+                        <valueList>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="ActivationFilterOverride">
+                                <value> <decimal value="1"/> </value>
+                            </item>
+                            <item key="SOFTWARE\WOW6432Node\Microsoft\Office\16.0\Common\COM Compatibility\{D27CDB70-AE6D-11CF-96B8-444553540000}" valueName="Compatibility Flags">
+                                <value> <decimal value="0"/> </value>
+                            </item>
+                        </valueList>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+
+    </policies>
+</policyDefinitions>

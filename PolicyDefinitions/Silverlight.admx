@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<policyDefinitions
+
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+    revision="1.1" schemaVersion="1.0"
+
+    xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+
+  <policyNamespaces>
+
+    <target prefix="silverlight" namespace="Microsoft.Policies.Silverlight" />
+
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+
+    <using prefix="products" namespace="Microsoft.Policies.Products" />
+
+  </policyNamespaces>
+
+  <supersededAdm fileName="SL_PARAMS.adm" />
+
+  <supersededAdm fileName="Silverlight.adm" />
+
+  <resources minRequiredRevision="1.1" />
+
+    <supportedOn>
+
+        <definitions>
+
+           <definition name="SUPPORTED_WindowsXP_SP2_W2K_SP4_NETSERVER"
+
+               displayName="$(string.SUPPORTED_WindowsXP_SP2_W2K_SP4_NETSERVER)">
+
+              <or>
+
+                 <range ref="products:MicrosoftWindows2000" minVersionIndex="4"/>
+
+                 <range ref="products:MicrosoftWindowsXP" minVersionIndex="2"/>
+
+                 <range ref="products:MicrosoftWindows" minVersionIndex="3"/>
+
+              </or>
+
+           </definition>
+
+        </definitions>
+
+    </supportedOn>
+
+  <categories>
+
+      <category name="SL_CAT" displayName="$(string.SL_CAT)" explainText="$(string.SL_CAT_HELP)"/>
+
+  </categories>
+
+  <policies>
+
+      <policy name="SET_AUPDATE" class="Machine" displayName="$(string.SET_AUPDATE)"
+
+          explainText="$(string.AUPDATE_HELP)" key="Software\Microsoft\Silverlight" valueName="UpdateMode">
+
+          <parentCategory ref="SL_CAT" />
+
+          <supportedOn ref="SUPPORTED_WindowsXP_SP2_W2K_SP4_NETSERVER" />
+
+          <enabledValue>
+
+             <decimal value="2" />
+
+          </enabledValue>
+
+          <disabledValue>
+
+             <decimal value="0" />
+
+          </disabledValue>
+
+      </policy>
+
+      <policy name="SET_DRM" class="User" displayName="$(string.SET_DRM)"
+
+          explainText="$(string.DRM_HELP)" key="Software\Microsoft\Silverlight" valueName="DRMEnabled">
+
+      <parentCategory ref="SL_CAT" />
+
+        <supportedOn ref="SUPPORTED_WindowsXP_SP2_W2K_SP4_NETSERVER" />
+
+        <enabledValue>
+
+          <decimal value="0" />
+
+        </enabledValue>
+
+        <disabledValue>
+
+           <decimal value="1" />
+
+        </disabledValue>
+
+      </policy>
+
+      <policy name="SET_ALLOW_WEBCAM" class="User" displayName="$(string.SET_ALLOW_WEBCAM)"
+
+          explainText="$(string.ALLOW_WEBCAM_HELP)" key="Software\Microsoft\Silverlight" valueName="AllowWebcam">
+
+      <parentCategory ref="SL_CAT" />
+
+        <supportedOn ref="SUPPORTED_WindowsXP_SP2_W2K_SP4_NETSERVER" />
+
+        <enabledValue>
+
+          <decimal value="1" />
+
+        </enabledValue>
+
+        <disabledValue>
+
+           <decimal value="0" />
+
+        </disabledValue>
+
+      </policy>
+
+    <policy name="SET_ALLOW_INSTALL_TRUSTED_APPS" class="Machine" displayName="$(string.SET_ALLOW_INSTALL_TRUSTED_APPS)"
+
+        explainText="$(string.ALLOW_INSTALL_TRUSTED_APPS_HELP)" key="Software\Microsoft\Silverlight" valueName="AllowInstallOfElevatedTrustApps">
+
+      <parentCategory ref="SL_CAT" />
+
+      <supportedOn ref="SUPPORTED_WindowsXP_SP2_W2K_SP4_NETSERVER" />
+
+      <enabledValue>
+
+        <decimal value="1" />
+
+      </enabledValue>
+
+      <disabledValue>
+
+        <decimal value="0" />
+
+      </disabledValue>
+
+    </policy>
+
+    <policy name="SET_ALLOW_LAUNCH_TRUSTED_APPS" class="Machine" displayName="$(string.SET_ALLOW_LAUNCH_TRUSTED_APPS)"
+
+        explainText="$(string.ALLOW_LAUNCH_TRUSTED_APPS_HELP)" key="Software\Microsoft\Silverlight" valueName="AllowLaunchOfElevatedTrustApps">
+
+      <parentCategory ref="SL_CAT" />
+
+      <supportedOn ref="SUPPORTED_WindowsXP_SP2_W2K_SP4_NETSERVER" />
+
+      <enabledValue>
+
+        <decimal value="1" />
+
+      </enabledValue>
+
+      <disabledValue>
+
+        <decimal value="0" />
+
+      </disabledValue>
+
+    </policy>
+
+    <policy name="SET_ALLOW_UDP_MULTICAST_API" class="Machine" displayName="$(string.SET_ALLOW_UDP_MULTICAST_API)"
+
+        explainText="$(string.ALLOW_UDP_MULTICAST_API_HELP)" key="Software\Microsoft\Silverlight" valueName="AllowUdpMulticastClientApi">
+
+      <parentCategory ref="SL_CAT" />
+
+      <supportedOn ref="SUPPORTED_WindowsXP_SP2_W2K_SP4_NETSERVER" />
+
+      <enabledValue>
+
+        <decimal value="1" />
+
+      </enabledValue>
+
+      <disabledValue>
+
+        <decimal value="0" />
+
+      </disabledValue>
+
+    </policy>
+
+    <policy name="SET_ALLOW_MAXIMUM_ISOLATED_STORAGE" class="Machine" displayName="$(string.SET_ALLOW_MAXIMUM_ISOLATED_STORAGE)"
+
+        explainText="$(string.ALLOW_MAXIMUM_ISOLATED_STORAGE_HELP)" key="Software\Microsoft\Silverlight" valueName="AllowMaximumIsolatedStorage ">
+
+      <parentCategory ref="SL_CAT" />
+
+      <supportedOn ref="SUPPORTED_WindowsXP_SP2_W2K_SP4_NETSERVER" />
+
+      <enabledValue>
+
+        <decimal value="1" />
+
+      </enabledValue>
+
+      <disabledValue>
+
+        <decimal value="0" />
+
+      </disabledValue>
+
+    </policy>
+
+  </policies>
+
+</policyDefinitions>

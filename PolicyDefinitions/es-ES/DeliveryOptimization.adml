@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
+  <displayName>Directiva de grupo de Optimización de distribución</displayName>
+  <description>Este archivo describe la configuración de directiva de grupo de Optimización de distribución</description>
+  <resources>
+    <stringTable>
+      <string id="DeliveryOptimizationCat">Optimización de entrega</string>
+      <string id="DownloadMode">Modo de descarga</string>
+      <string id="DownloadMode_Help">Especifica el método de descarga que el servicio Optimización de distribución puede usar al descargar actualizaciones de Windows, aplicaciones y actualizaciones de aplicaciones.
+      
+En la siguiente lista encontrarás los valores admitidos:
+
+0 = Solo HTTP, sin emparejamiento.
+      
+1 = HTTP combinado con emparejamiento en la misma NAT.
+
+2 = HTTP combinado con emparejamiento en un grupo privado. El emparejamiento se lleva a cabo de manera predeterminada en los dispositivos del mismo sitio de Active Directory (si existiera) o del mismo dominio. Cuando selecciones esta opción, el emparejamiento cruzará las NAT. Si quieres crear un grupo personalizado, usa el id. de grupo junto con el modo 2.
+      
+3 = HTTP combinado con el emparejamiento de Internet. 
+
+99 = Modo de descarga simple sin emparejamiento. El servicio Optimización de distribución realiza las descargas mediante Solo HTTP y no intenta ponerse en contacto con los servicios en la nube de Optimización de distribución.
+      
+100 = Modo omisión. No uses el servicio Optimización de distribución; en su lugar, usa BITS.</string>
+      <string id="DownloadMode_CdnOnly">Solo HTTP (0)</string>
+      <string id="DownloadMode_Lan">LAN (1)</string>
+      <string id="DownloadMode_Group">Grupo (2)</string>
+      <string id="DownloadMode_Internet">Internet (3)</string>
+      <string id="DownloadMode_Simple">Simple (99)</string>
+      <string id="DownloadMode_Bypass">Omitir (100)</string>
+      <string id="GroupId">Id. de grupo</string>
+      <string id="GroupId_Help">Debes establecer el id. de grupo como un GUID. Esta directiva especifica un id. de grupo arbitrario al que pertenece el dispositivo.
+      
+Puedes usarlo si necesitas crear un solo grupo de emparejamiento de red local para aquellas ramas que estén en dominios diferentes o que no estén en la misma red LAN.
+      
+Nota: Este es la mejor intento de optimización, por lo que no debes confiar en ella para autenticar una identidad.</string>
+      <string id="MaxUploadBandwidth">Ancho de banda de carga máximo (en KB/s)</string>
+      <string id="MaxUploadBandwidth_Help">Especifica, en kilobytes/segundo, el ancho de banda de carga máximo que usa el servicio Optimización de distribución en todas las actividades simultáneas de carga.
+      
+El valor predeterminado 0 (cero) permite usar esta opción sin límites. Además, las cargas se optimizarán de forma dinámica para que usen el mínimo de ancho de banda de carga.</string>
+      <string id="MaxCacheSize">Tamaño de caché máximo (porcentaje)</string>
+      <string id="MaxCacheSize_Help">Especifica el tamaño máximo de la memoria caché que usa el servicio Optimización de distribución. Para ello, se usa un porcentaje que indica el tamaño en disco disponible (1-100).</string>
+      <string id="AbsoluteMaxCacheSize">Tamaño de caché máximo absoluto (en GB)</string>
+      <string id="AbsoluteMaxCacheSize_Help">Especifica, en GB, el tamaño máximo de la memoria caché del servicio Optimización de distribución.
+      
+Esta directiva invalida la directiva DOMaxCacheSize.
+      
+El valor 0 (cero) significa una memoria caché "sin límite", por lo que el servicio Optimización de distribución borrará la memoria caché cuando el dispositivo tenga poco espacio en disco.</string>
+      <string id="MaxCacheAge">Antigüedad máxima de la memoria caché (en segundos)</string>
+      <string id="MaxCacheAge_Help">Especifica, en segundos, el tiempo máximo que cada archivo se retiene en la memoria caché del servicio Optimización de distribución después de descargarse correctamente.
+      
+El valor 0 (cero) significa "sin límite". Con este valor, el servicio Optimización de distribución mantendrá los archivos en la memoria caché más tiempo y se encargará de que estén disponibles para cargarlos en otros dispositivos (siempre y cuando no se supere el tamaño de la memoria caché).</string>
+      <string id="MonthlyUploadDataCap">Capacidad de carga de datos mensual (en GB)</string>
+      <string id="MonthlyUploadDataCap_Help">Especifica, en GB, el máximo de total de bytes que el servicio Optimización de distribución puede cargar en sus nodos de Internet del mismo nivel cada mes. 
+      
+El valor 0 (cero) indica "sin límites". Ten en cuenta que no se aplicará un límite de carga mensual si se establece el valor 0.</string>
+      <string id="MinBackgroundQos">QoS mínima en segundo plano (en KB/s)</string>
+      <string id="MinBackgroundQos_Help">Especifica, en kilobytes/segundo, la calidad del servicio (QoS) o la velocidad de descarga mínima para realizar descargas en segundo plano. 
+      
+Esta directiva afecta a la combinación de los orígenes del mismo nivel y de HTTP. El servicio Optimización de distribución complementa la descarga del origen HTTP para alcanzar el valor mínimo de QoS establecido.</string>
+      <string id="ModifyCacheDrive">Modificar la unidad de caché</string>
+      <string id="ModifyCacheDrive_Help">Especifica la unidad que el servicio Optimización de distribución debe usar para su caché. 
+      
+De manera predeterminada, se usa %SystemDrive% para almacenar la memoria caché. Puedes especificar la ubicación de la unidad mediante variables de entorno, una letra de unidad o una ruta de acceso completa.</string>
+      <string id="MaxDownloadBandwidth">Ancho de banda de descarga máximo (en KB/s)</string>
+      <string id="MaxDownloadBandwidth_Help">Especifica, en kilobytes/segundo, el ancho de banda de descarga máximo que el dispositivo puede usar en todas las actividades de descarga simultáneas mediante el servicio Optimización de distribución. 
+      
+El valor predeterminado 0 (cero) significa que el servicio de Optimización de distribución se ajusta de forma dinámica para usar el ancho de banda disponible para realizar las descargas.</string>
+      <string id="PercentageMaxDownloadBandwidth">Ancho de banda máximo de descarga (porcentaje)</string>
+      <string id="PercentageMaxDownloadBandwidth_Help">Especifica el ancho de banda de descarga máximo que usa el servicio Optimización de distribución en todas las actividades simultáneas de descarga, expresado como un porcentaje del ancho de banda de descarga disponible. 
+      
+El valor predeterminado 0 (cero) significa que Optimización de distribución se ajusta automáticamente para usar el ancho de banda disponible para las descargas.
+
+Esta directiva está en desuso y se quitará en la próxima versión. En su lugar, usa Ancho de banda máximo para descargas en primer plano (porcentaje) o Ancho de banda máximo para descargas en segundo plano (porcentaje).</string>
+      <string id="PercentageMaxBackgroundBandwidth">Ancho de banda máximo para descargas en segundo plano (porcentaje)</string>
+      <string id="PercentageMaxBackgroundBandwidth_Help">Especifica el ancho de banda de descarga en segundo plano máximo que usa el servicio Optimización de distribución en todas las actividades simultáneas de descarga, expresado como un porcentaje del ancho de banda de descarga disponible. 
+      
+El valor predeterminado 0 (cero) significa que el servicio Optimización de distribución se ajusta automáticamente para usar el ancho de banda que haya disponible para realizar las descargas en segundo plano.</string>
+      <string id="PercentageMaxForegroundBandwidth">Ancho de banda máximo para descargas en primer plano (porcentaje)</string>
+      <string id="PercentageMaxForegroundBandwidth_Help">Especifica el ancho de banda de descarga en primer plano máximo que usa el servicio Optimización de distribución en todas las actividades simultáneas de descarga, expresado como un porcentaje del ancho de banda de descarga disponible.
+      
+El valor predeterminado 0 (cero) significa que el servicio Optimización de distribución se ajusta automáticamente para usar el ancho de banda que haya disponible para realizar las descargas en primer plano.</string>
+      <string id="MinFileSizeToCache">Tamaño mínimo de archivo de contenido de caché de sistemas de mismo nivel (en MB)</string>
+      <string id="MinFileSizeToCache_Help">Especifica, en MB, el tamaño mínimo del archivo de contenido que está habilitado para usar la caché de sistemas de mismo nivel. 
+      
+Valores recomendados: de 1 MB a 100 000 MB.</string>
+      <string id="AllowVPNPeerCaching">Habilitar la caché de sistemas de mismo nivel mientras el dispositivo se conecta a través de VPN</string>
+      <string id="AllowVPNPeerCaching_Help">Si se especifica como "verdadero", el dispositivo participará en la caché de sistemas de mismo nivel al conectarse a través de una VPN a la red de dominios.
+      
+Esto significa que el dispositivo puede usar dispositivos de otra red de dominios para realizar cargas o descargas, ya sea mediante la VPN o la red de dominios corporativa.</string>
+      <string id="MinRAMAllowedToPeer">Capacidad mínima de RAM (valor incluido) necesaria para habilitar el uso de la caché de sistemas de mismo nivel (en GB)</string>
+      <string id="MinRAMAllowedToPeer_Help">Especifica, en GB, el tamaño mínimo de RAM necesario para usar la caché de sistemas de mismo nivel. 
+      
+Por ejemplo, si se establece el valor mínimo en 1 GB, los dispositivos con 1 GB o más de RAM disponible podrán usar la caché de sistemas de mismo nivel. 
+      
+Valores recomendados: de 1 GB a 4 GB.</string>
+      <string id="MinDiskSizeAllowedToPeer">Tamaño de disco mínimo permitido para usar la caché de sistema de mismo nivel (en GB)</string>
+      <string id="MinDiskSizeAllowedToPeer_Help">Especifica el tamaño mínimo de disco requerido (capacidad en GB) para que el dispositivo pueda usar la caché de sistemas de mismo nivel. Se usará el valor predeterminado establecido en el servicio en la nube. 
+      
+Valores recomendados: de 64 GB a 256 GB. 
+      
+Nota: Si se establece la directiva DOModifyCacheDrive, la comprobación del tamaño de disco se aplicará al nuevo directorio de trabajo especificado por la directiva.</string>
+      <string id="MinBatteryPercentageAllowedToUpload">Permitir cargas mientras el dispositivo está en batería con el nivel de batería establecido (porcentaje)</string>
+      <string id="MinBatteryPercentageAllowedToUpload_Help">Especifica un valor entre 1 y 100 (en porcentaje) para permitir al dispositivo cargar datos a una LAN y a grupos del mismo nivel mientras tiene alimentación de CC (batería). 
+      
+El valor recomendado que debes establecer si permites las cargas mientras se usa la batería es 40 (es decir, 40 %). El dispositivo puede descargar desde los nodos del mismo nivel cuando se usa la batería, independientemente de esta directiva. 
+      
+El valor 0 significa "sin límites". Se usará el valor predeterminado establecido del servicio en la nube.</string>
+      <string id="CacheHost">[reservado para uso futuro] Nombre de host del servidor de caché</string>
+      <string id="CacheHost_Help">[Reservado para uso futuro]</string>
+      <string id="GroupIdSource">Seleccionar el origen de los id. de grupo</string>
+      <string id="GroupIdSource_Help">Establece esta directiva para restringir la selección del mismo nivel a un origen específico. 
+      
+Las opciones disponibles son: 
+
+1 = Sitio de AD.
+
+2 = SID de dominio autenticado.
+
+3 = Id. de opción de DHCP.
+
+4 = Sufijo DNS. 
+
+5 = Id. de inquilino de AAD. 
+
+Cuando se establece, el id. de grupo se asigna automáticamente desde el origen seleccionado. Si estableces esta directiva, se ignora la directiva GroupID. 
+      
+Las opciones establecidas en esta directiva solo se aplican al modo de descarga Grupo (2). Si Grupo (2) no está definido como el modo de descarga, se ignorará esta directiva. 
+
+Para la opción 3 (id. de opción de DHCP), el cliente consultará el id. de opción de DHCP 234 y usará el valor GUID devuelto como id. de grupo.</string>
+      <string id="GroupIdSource_Unset">Anular (0)</string>
+      <string id="GroupIdSource_AD">Sitio de AD (1)</string>
+      <string id="GroupIdSource_SID">SID de dominio autenticado (2)</string>
+      <string id="GroupIdSource_DHCP">Id. de opción de DHCP (3)</string>
+      <string id="GroupIdSource_DNS">Sufijo DNS (4)</string>
+      <string id="GroupIdSource_AAD">Id. de inquilino de AAD (5)</string>
+      <string id="DelayBackgroundDownloadFromHttp">Retrasar descarga en segundo plano de HTTP (en segundos)</string>
+      <string id="DelayBackgroundDownloadFromHttp_Help">Esta directiva permite retrasar el uso de un origen HTTP en una descarga en segundo plano que puede usar P2P.
+      
+Una vez alcanzado el retraso máximo, se reanudará la descarga mediante HTTP, ya sea descargando la carga útil completa o complementando los bytes que no se pudieron descargar de los nodos del mismo nivel.
+      
+Ten en cuenta que una descarga en espera de orígenes del mismo nivel se mostrará bloqueada para el usuario final.
+      
+El valor recomendado es 1 hora (3600).</string>
+      <string id="DelayForegroundDownloadFromHttp">Retrasar descarga en primer plano de HTTP (en segundos)</string>
+      <string id="DelayForegroundDownloadFromHttp_Help">Esta directiva permite retrasar el uso de un origen HTTP en una descarga en primer plano (interactiva) que puede usar P2P.
+      
+Una vez alcanzado el retraso máximo, se reanudará la descarga mediante HTTP, ya sea descargando la carga útil completa o complementando los bytes que no se pudieron descargar de los nodos del mismo nivel.
+      
+Ten en cuenta que una descarga en espera de orígenes del mismo nivel se mostrará bloqueada para el usuario final.
+      
+El valor recomendado es 1 minuto (60).</string>
+      <string id="DelayCacheServerFallbackBackground">Retrasar la reserva del servidor de caché en la descarga de segundo plano (en segundos)</string>
+      <string id="DelayCacheServerFallbackBackground_Help">Puedes establecer esta directiva para retrasar durante X segundos la reserva del servidor de caché en el origen HTTP de una descarga de contenido en segundo plano. 
+
+Nota: Si estableces la directiva para retrasar la descarga en segundo plano en HTTP, esta se aplicará primero para permitir descargas desde los equipos del mismo nivel.</string>
+      <string id="DelayCacheServerFallbackForeground">Retrasar la reserva del servidor de caché en la descarga de primer plano (en segundos)</string>
+      <string id="DelayCacheServerFallbackForeground_Help">Puedes establecer esta directiva para retrasar durante X segundos la reserva del servidor de caché en el origen HTTP de una descarga de contenido en primer plano. 
+
+Nota: Si estableces la directiva para retrasar la descarga en primer plano en HTTP, esta se aplicará primero para permitir descargas desde los equipos del mismo nivel.</string>
+      <string id="RestrictPeerSelectionBy">Seleccionar un método para restringir la selección de pares</string>
+      <string id="RestrictPeerSelectionBy_Help">Establece esta directiva para limitar la selección de nodos del mismo nivel a través de la opción seleccionada. 
+      
+Las opciones disponibles son: 
+1 = Máscara de subred (se agregarán más opciones en una versión futura). 
+      
+La opción 1 (Máscara de subred) se aplica a ambos modos de descarga: LAN (1) y grupo (2).</string>
+      <string id="RestrictPeerSelectionBy_None">Ninguno</string>
+      <string id="RestrictPeerSelectionBy_Subnet">Subred</string>
+      <string id="SetHoursToLimitBackgroundDownloadBandwidth">Establecer el horario comercial para limitar el ancho de banda de descarga en segundo plano</string>
+      <string id="SetHoursToLimitBackgroundDownloadBandwidth_Help">Especifica el ancho de banda de descarga en segundo plano máximo que usa Optimización de distribución durante el horario comercial y fuera de este en todas las actividades de descarga simultáneas como un porcentaje de ancho de banda de descarga disponible.</string>
+      <string id="SetHoursToLimitForegroundDownloadBandwidth">Establecer el horario comercial para limitar el ancho de banda de descarga en primer plano</string>
+      <string id="SetHoursToLimitForegroundDownloadBandwidth_Help">Especifica el ancho de banda de descarga en primer plano máximo que usa Optimización de distribución durante el horario comercial y fuera de este en todas las actividades de descarga simultáneas como un porcentaje de ancho de banda de descarga disponible.</string>
+      <string id="Time1AM">01:00 h</string>
+      <string id="Time1PM">13:00 h</string>
+      <string id="Time2AM">02:00 h</string>
+      <string id="Time2PM">14:00 h</string>
+      <string id="Time3AM">03:00 h</string>
+      <string id="Time3PM">15:00 h</string>
+      <string id="Time4AM">04:00 h</string>
+      <string id="Time4PM">16:00 h</string>
+      <string id="Time5AM">05:00 h</string>
+      <string id="Time5PM">17:00 h</string>
+      <string id="Time6AM">06:00 h</string>
+      <string id="Time6PM">18:00 h</string>
+      <string id="Time7AM">07:00 h</string>
+      <string id="Time7PM">19:00 h</string>
+      <string id="Time8AM">08:00 h</string>
+      <string id="Time8PM">20:00 h</string>
+      <string id="Time9AM">09:00 h</string>
+      <string id="Time9PM">21:00 h</string>
+      <string id="Time10AM">10:00 h</string>
+      <string id="Time10PM">22:00 h</string>
+      <string id="Time11AM">11:00 h</string>
+      <string id="Time11PM">23:00 h</string>
+      <string id="Time12AM">00:00 h</string>
+      <string id="Time12PM">12:00 h</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DownloadMode">
+        <dropdownList defaultItem="1" noSort="true" refId="DownloadMode">Modo de descarga:</dropdownList>
+      </presentation>
+      <presentation id="GroupId">
+        <textBox refId="GroupId">
+          <label>Id. de grupo:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxUploadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">Ancho de banda de carga máximo (en KB/s):</decimalTextBox>
+        <text>El valor predeterminado es 0 (ilimitado).</text>
+      </presentation>
+      <presentation id="MaxCacheSize">
+        <decimalTextBox defaultValue="20" refId="MaxCacheSize">Tamaño de caché máximo (porcentaje):</decimalTextBox>
+        <text>El valor predeterminado es 20 %.</text>
+      </presentation>
+      <presentation id="AbsoluteMaxCacheSize">
+        <decimalTextBox defaultValue="10" refId="AbsoluteMaxCacheSize">Tamaño de caché máximo absoluto (en GB):</decimalTextBox>
+        <text>El valor predeterminado es 10 GB.</text>
+      </presentation>
+      <presentation id="MaxCacheAge">
+        <decimalTextBox defaultValue="259200" refId="MaxCacheAge">Antigüedad máxima de la memoria caché (en segundos):</decimalTextBox>
+        <text>El valor predeterminado es 3 días.</text>
+      </presentation>
+      <presentation id="MonthlyUploadDataCap">
+        <decimalTextBox defaultValue="20" refId="MonthlyUploadDataCap">Capacidad de carga de datos mensual (en GB):</decimalTextBox>
+        <text>El valor predeterminado es 20 GB.</text>
+      </presentation>
+      <presentation id="MinBackgroundQos">
+        <decimalTextBox defaultValue="500" refId="MinBackgroundQos">QoS mínima en segundo plano (en KB/s):</decimalTextBox>
+        <text>El valor predeterminado es 500 KB/s.</text>
+      </presentation>
+      <presentation id="ModifyCacheDrive">
+        <textBox refId="ModifyCacheDrive">
+          <label>Modificar la unidad de caché:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">Ancho de banda de descarga máximo (en KB/s):</decimalTextBox>
+        <text>El valor predeterminado es 0 (ilimitado).</text>
+      </presentation>
+      <presentation id="PercentageMaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">Ancho de banda de descarga máximo (porcentaje):</decimalTextBox>
+        <text>El valor predeterminado es 0 (ilimitado).</text>
+      </presentation>
+      <presentation id="PercentageMaxBackgroundBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxBackgroundBandwidth">Ancho de banda máximo para descargas en segundo plano (porcentaje):</decimalTextBox>
+        <text>El valor predeterminado es 0 (ilimitado).</text>
+      </presentation>
+      <presentation id="PercentageMaxForegroundBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxForegroundBandwidth">Ancho de banda máximo para descargas en primer plano (porcentaje):</decimalTextBox>
+        <text>El valor predeterminado es 0 (ilimitado).</text>
+      </presentation>
+      <presentation id="MinFileSizeToCache">
+        <decimalTextBox defaultValue="100" refId="MinFileSizeToCache">Tamaño mínimo de archivo de contenido de caché de sistemas de mismo nivel (en MB):</decimalTextBox>
+        <text>El valor predeterminado es 100 MB.</text>
+      </presentation>
+      <presentation id="AllowVPNPeerCaching">
+        <checkBox defaultChecked="false" refId="AllowVPNPeerCaching">Habilitar la caché de sistemas de mismo nivel mientras el dispositivo se conecta a través de VPN</checkBox>
+      </presentation>
+      <presentation id="MinRAMAllowedToPeer">
+        <decimalTextBox defaultValue="4" refId="MinRAMAllowedToPeer">Capacidad mínima de RAM (valor incluido) necesaria para habilitar el uso de la caché de sistemas de mismo nivel (en GB):</decimalTextBox>
+        <text>El valor predeterminado es 4 GB.</text>
+      </presentation>
+      <presentation id="MinDiskSizeAllowedToPeer">
+        <decimalTextBox defaultValue="32" refId="MinDiskSizeAllowedToPeer">Tamaño de disco mínimo permitido para usar la caché de sistema de mismo nivel (en GB):</decimalTextBox>
+        <text>El valor predeterminado es 32 GB.</text>
+      </presentation>
+      <presentation id="MinBatteryPercentageAllowedToUpload">
+        <decimalTextBox defaultValue="0" refId="MinBatteryPercentageAllowedToUpload">Nivel mínimo de batería (porcentaje):</decimalTextBox>
+        <text>El valor predeterminado es 0 (ilimitado)</text>
+      </presentation>
+      <presentation id="CacheHost">
+        <textBox refId="CacheHost">
+          <label>Servidor de caché:</label>
+        </textBox>
+      </presentation>
+      <presentation id="GroupIdSource">
+        <dropdownList defaultItem="0" noSort="true" refId="GroupIdSource">Origen de los id. de grupo:</dropdownList>        
+      </presentation>
+      <presentation id="DelayBackgroundDownloadFromHttp">
+        <decimalTextBox defaultValue="0" refId="DelayBackgroundDownloadFromHttp">Retrasar descarga en segundo plano de HTTP (en segundos):</decimalTextBox>
+        <text>El valor predeterminado es 0 (sin retraso)</text>
+      </presentation>
+      <presentation id="DelayForegroundDownloadFromHttp">
+        <decimalTextBox defaultValue="0" refId="DelayForegroundDownloadFromHttp">Retrasar descarga en primer plano de HTTP (en segundos):</decimalTextBox>
+        <text>El valor predeterminado es 0 (sin retraso)</text>
+      </presentation>
+      <presentation id="DelayCacheServerFallbackBackground">
+        <decimalTextBox defaultValue="0" refId="DelayCacheServerFallbackBackground">Retrasar la reserva del servidor de caché en la descarga de segundo plano (en segundos):</decimalTextBox>
+        <text>El valor predeterminado es 0 (sin retraso)</text>
+      </presentation>
+      <presentation id="DelayCacheServerFallbackForeground">
+        <decimalTextBox defaultValue="0" refId="DelayCacheServerFallbackForeground">Retrasar la reserva del servidor de caché en la descarga de primer plano (en segundos):</decimalTextBox>
+        <text>El valor predeterminado es 0 (sin retraso)</text>
+      </presentation>
+      <presentation id="RestrictPeerSelectionBy">
+        <dropdownList defaultItem="0" noSort="true" refId="RestrictPeerSelectionBy">Limitar la selección de pares a:</dropdownList>
+      </presentation>
+      <presentation id="SetHoursToLimitBackgroundDownloadBandwidth">
+        <text/>
+        <text>Establecer el horario comercial para limitar el ancho de banda de descarga en segundo plano:</text>
+        <dropdownList defaultItem="8" noSort="true" refId="SetHoursToLimitBackgroundDownloadBandwidthFrom">De:</dropdownList>
+        <dropdownList defaultItem="17" noSort="true" refId="SetHoursToLimitBackgroundDownloadBandwidthTo">A:</dropdownList>
+        <text/>
+        <text>Ancho de banda de descarga en segundo plano máximo (porcentaje) durante el horario comercial:</text>
+        <decimalTextBox defaultValue="0" refId="SetHoursToLimitBackgroundDownloadBandwidthIn"/>
+        <text>El valor predeterminado es 0 (ilimitado)</text>
+        <text/>
+        <text>Ancho de banda de descarga en segundo plano máximo (porcentaje) fuera del horario comercial:</text>
+        <decimalTextBox defaultValue="0" refId="SetHoursToLimitBackgroundDownloadBandwidthOut"/>
+        <text>El valor predeterminado es 0 (ilimitado)</text>
+      </presentation>
+      <presentation id="SetHoursToLimitForegroundDownloadBandwidth">
+        <text/>
+        <text>Establecer el horario comercial para limitar el ancho de banda de descarga en primer plano:</text>
+        <dropdownList defaultItem="8" noSort="true" refId="SetHoursToLimitForegroundDownloadBandwidthFrom">De:</dropdownList>
+        <dropdownList defaultItem="17" noSort="true" refId="SetHoursToLimitForegroundDownloadBandwidthTo">A:</dropdownList>
+        <text/>
+        <text>Ancho de banda de descarga en primer plano máximo (porcentaje) durante el horario comercial:</text>
+        <decimalTextBox defaultValue="0" refId="SetHoursToLimitForegroundDownloadBandwidthIn"/>
+        <text>El valor predeterminado es 0 (ilimitado)</text>
+        <text/>
+        <text>Ancho de banda de descarga en primer plano máximo (porcentaje) fuera del horario comercial:</text>
+        <decimalTextBox defaultValue="0" refId="SetHoursToLimitForegroundDownloadBandwidthOut"/>
+        <text>El valor predeterminado es 0 (ilimitado)</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

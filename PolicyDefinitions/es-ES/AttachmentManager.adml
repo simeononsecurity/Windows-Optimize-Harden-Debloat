@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="AM_AM">Administrador de datos adjuntos</string>
+      <string id="AM_CallIOfficeAntiVirus">Notificar a los programas antivirus cuando se abren datos adjuntos</string>
+      <string id="AM_EstimateFileHandlerRisk">Confiar en la lógica de datos adjuntos de archivos</string>
+      <string id="AM_ExplainCallIOfficeAntiVirus">Esta directiva le permite administrar el comportamiento de la notificación a programas antivirus registrados. Se notificará a todos los programas que estén registrados. Si el programa antivirus registrado ya realiza comprobaciones de acceso o examina archivos cuando llegan al servidor de correo electrónico del equipo, las llamadas posteriores serán redundantes. 
+
+Si habilita esta configuración de directiva, Windows indica al programa antivirus registrado que examine el archivo cuando un usuario abra los datos adjuntos de un archivo. Si se produce un error en el programa antivirus, se bloquea la apertura de los datos adjuntos.
+
+Si deshabilita esta configuración de directiva, Windows no llama a los programas antivirus registrados cuando se abren datos adjuntos de archivo.
+
+Si no establece esta configuración de directiva, Windows no llama a los programas antivirus registrados cuando se abren datos adjuntos de archivo.</string>
+      <string id="AM_ExplainEstimateFileHandlerRisk">Este valor de directiva permite configurar la lógica que Windows usa para determinar el riesgo de los datos adjuntos de archivo.
+
+Al preferir el controlador de archivo, se indica a Windows que use los datos de controlador de archivo en lugar de los datos de tipo de archivo. Por ejemplo, puede confiar en notepad.exe, pero no en archivos .txt.
+
+Al preferir el tipo de archivo, se indica a Windows que use los datos de tipo de archivo en lugar de los datos de controlador de archivo. Por ejemplo, debe confiar en archivos .txt, independientemente del controlador de archivo.
+
+El uso de los datos del controlador y del tipo de archivo a la vez es la opción más restrictiva. Windows elige la recomendación más restrictiva, lo que supone que se presentarán a los usuarios más mensajes relativos a la confianza que con las otras opciones.
+
+Si habilita esta configuración de directiva, puede elegir el orden en que Windows procesa los datos de evaluación de riesgos.
+
+Si deshabilita esta configuración de directiva, Windows usa la lógica de confianza predeterminada que prefiere el controlador de archivo al tipo de archivo.
+
+Si no establece esta configuración de directiva, Windows usa la lógica de confianza predeterminada que prefiere el controlador de archivo al tipo de archivo.</string>
+      <string id="AM_ExplainMarkZoneOnSavedAtttachments">Esta configuración de directiva permite controlar si Windows marca los datos adjuntos de archivo con información acerca de su zona de origen (como restringida, Internet, intranet, local). Para ello, se requiere NTFS para un correcto funcionamiento; se producirán errores sin advertencias en FAT32. Si no se conserva la información de zona, Windows no puede realizar una evaluación de riesgos adecuada.
+
+Si habilita esta configuración de directiva, Windows no marca los datos adjuntos de archivo con la información de zona.
+
+Si deshabilita esta configuración de directiva, Windows marca los datos adjuntos de archivo con la información de zona.
+
+Si no establece esta configuración de directiva, Windows marca los datos adjuntos de archivo con la información de zona.</string>
+      <string id="AM_ExplainRemoveZoneInfo">Esta configuración de directiva permite controlar si los usuarios pueden quitar manualmente la información de zona de datos adjuntos de archivo guardados haciendo clic en el botón Desbloquear, en la hoja de propiedades del archivo o mediante una casilla en el cuadro de diálogo de advertencia de seguridad. Si se quita la información de zona, los usuarios podrán abrir datos adjuntos de archivo potencialmente peligrosos aunque Windows haya bloqueado su apertura.
+
+Si habilita esta configuración de directiva, Windows oculta la casilla y el botón Desbloquear.
+
+Si deshabilita esta configuración de directiva, Windows muestra la casilla y el botón Desbloquear.
+
+Si no establece esta configuración de directiva, Windows oculta la casilla y el botón Desbloquear.</string>
+      <string id="AM_ExplainSetFileRiskLevel">Esta configuración de directiva permite administrar el nivel de riesgo predeterminado para tipos de archivo. Para personalizar completamente el nivel de riesgo para datos adjuntos de archivo, también debe configurar la lógica de confianza para dichos datos.
+
+Alto riesgo: si los datos adjuntos están en la lista de tipos de archivo de alto riesgo y proceden de una zona restringida, Windows impide que el usuario tenga acceso al archivo. Si el archivo está en la zona de Internet, Windows avisa al usuario antes de que tenga acceso al archivo.
+
+Riesgo moderado: si los datos adjuntos están en la lista de tipos de archivo de riesgo moderado y proceden de una zona restringida o de Internet, Windows avisará al usuario antes de que tenga acceso al archivo.
+
+Bajo riesgo: si los datos adjuntos están en la lista de tipos de archivo de bajo riesgo, Windows no avisará al usuario antes de que tenga acceso al archivo, independientemente de la información de zona del archivo.
+
+Si habilita esta configuración de directiva, puede especificar el nivel de riesgo predeterminado para tipos de archivo.
+
+Si deshabilita esta configuración de directiva, Windows establece el nivel de riesgo predeterminado en moderado.
+
+Si no configura esta configuración de directiva, Windows establece el nivel de riesgo predeterminado en moderado.</string>
+      <string id="AM_ExplainSetHighRiskInclusion">Esta configuración de directiva permite configurar la lista de tipos de archivos de alto riesgo. Si los datos adjuntos de archivo están en la lista de tipos de archivo de alto riesgo y proceden de una zona restringida, Windows impide que el usuario tenga acceso al archivo. Si el archivo está en la zona de Internet, Windows avisa al usuario antes de que tenga acceso al archivo. Esta lista de inclusión tiene preferencia sobre las listas de inclusión de riesgo bajo y moderado (cuando una extensión aparece en más de una lista de inclusión).
+
+Si habilita esta configuración de directiva, puede crear una lista personalizada de tipos de archivo de alto riesgo.
+
+Si deshabilita esta configuración de directiva, Windows usa la lista integrada de tipos de archivo que presentan un alto riesgo.
+
+Si no establece esta configuración de directiva, Windows usa la lista integrada de tipos de archivo de alto riesgo.</string>
+      <string id="AM_ExplainSetLowRiskInclusion">Esta configuración de directiva permite configurar la lista de tipos de archivos de bajo riesgo. Si los datos adjuntos están en la lista de tipos de archivo de bajo riesgo, Windows no avisará al usuario antes de que tenga acceso al archivo, independientemente de la información de zona del archivo. Esta lista de inclusión invalida la lista de tipos de archivo de alto riesgo integrada en Windows y tiene menos preferencia que las listas de inclusión de riesgo moderado o alto (cuando una extensión aparece en más de una lista de inclusión).
+
+Si habilita esta configuración de directiva, puede especificar los tipos de archivo que presentan un riesgo bajo.
+
+Si deshabilita esta configuración de directiva, Windows usa la lógica de confianza predeterminada.
+
+Si no establece esta configuración de directiva, Windows usa la lógica de confianza predeterminada.</string>
+      <string id="AM_ExplainSetModRiskInclusion">Esta configuración de directiva permite configurar la lista de tipos de archivos de riesgo moderado. Si los datos adjuntos están en la lista de tipos de archivo de riesgo moderado y proceden de una zona restringida o de Internet, Windows avisará al usuario antes de que tenga acceso al archivo. Esta lista de inclusión invalida la lista de tipos de archivo potencialmente de alto riesgo integrada en Windows y tiene preferencia sobre la lista de inclusión de bajo riesgo, aunque no sobre la lista de inclusión de alto riesgo (cuando una extensión aparece en más de una lista de inclusión).
+
+Si habilita esta configuración de directiva, puede especificar los tipos de archivo que presentan un riesgo moderado.
+
+Si deshabilita esta configuración de directiva, Windows usa la lógica de confianza predeterminada.
+
+Si no establece esta configuración de directiva, Windows usa la lógica de confianza predeterminada.</string>
+      <string id="AM_HandlerBased">Preferir controlador de archivo</string>
+      <string id="AM_HandlerDisabled">Preferir tipo de archivo</string>
+      <string id="AM_HandlerMostSecure">Examinar controlador y tipo de archivo</string>
+      <string id="AM_HighRisk">Alto riesgo</string>
+      <string id="AM_LowRisk">Bajo riesgo</string>
+      <string id="AM_MarkZoneOnSavedAtttachments">No conservar la información de zona en los datos adjuntos de archivo</string>
+      <string id="AM_ModRisk">Riesgo moderado</string>
+      <string id="AM_RemoveZoneInfo">Ocultar mecanismos para eliminar la información de zona</string>
+      <string id="AM_SetFileRiskLevel">Nivel de riesgo predeterminado de los datos adjuntos de archivo</string>
+      <string id="AM_SetHighRiskInclusion">Lista de inclusión de tipos de archivo de alto riesgo</string>
+      <string id="AM_SetLowRiskInclusion">Lista de inclusión de tipos de archivo de bajo riesgo</string>
+      <string id="AM_SetModRiskInclusion">Lista de inclusión de tipos de archivo de riesgo moderado</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AM_EstimateFileHandlerRisk">
+        <dropdownList refId="AM_TrustLogicSetting" defaultItem="0">Determinar riesgo mediante esta lógica</dropdownList>
+      </presentation>
+      <presentation id="AM_SetFileRiskLevel">
+        <dropdownList refId="AM_RiskLevel" defaultItem="1">Establecer el nivel de riesgo predeterminado</dropdownList>
+      </presentation>
+      <presentation id="AM_SetHighRiskInclusion">
+        <textBox refId="AM_InstructHighRiskInclusionList">
+          <label>Especificar extensiones de alto riesgo (incluir punto inicial, por ejemplo, .cmd o .exe).</label>
+        </textBox>
+      </presentation>
+      <presentation id="AM_SetLowRiskInclusion">
+        <textBox refId="AM_InstructLowRiskInclusionList">
+          <label>Especificar extensiones de bajo riesgo (incluir punto inicial, por ejemplo, .bmp o .gif).</label>
+        </textBox>
+      </presentation>
+      <presentation id="AM_SetModRiskInclusion">
+        <textBox refId="AM_InstructModRiskInclusionList">
+          <label>Especificar extensiones de riesgo moderado (incluir punto inicial, por ejemplo, .doc o .pdf).</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

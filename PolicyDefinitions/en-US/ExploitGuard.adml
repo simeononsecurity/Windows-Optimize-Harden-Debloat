@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>enter display name here</displayName>
+  <description>enter description here</description>
+  <resources>
+    <stringTable>
+      <string id="WindowsDefenderExploitGuard">Microsoft Defender Exploit Guard</string>
+      <string id="ExploitProtection">Exploit Protection</string>
+      <string id="ExploitProtection_Name">Use a common set of exploit protection settings</string>
+      <string id="ExploitProtection_Help">Specify a common set of Microsoft Defender Exploit Guard system and application mitigation settings that can be applied to all endpoints that have this GP setting configured.
+
+There are some prerequisites before you can enable this setting:
+- Manually configure a device's system and application mitigation settings using the Set-ProcessMitigation PowerShell cmdlet, the ConvertTo-ProcessMitigationPolicy PowerShell cmdlet, or directly in Windows Security.
+- Generate an XML file with the settings from the device by running the Get-ProcessMitigation PowerShell cmdlet or using the Export button at the bottom of the Exploit Protection area in Windows Security.
+- Place the generated XML file in a shared or local path. 
+
+Note: Endpoints that have this GP setting set to Enabled must be able to access the XML file, otherwise the settings will not be applied.
+
+Enabled
+Specify the location of the XML file in the Options section. You can use a local (or mapped) path, a UNC path, or a URL, such as the following:
+- C:\MitigationSettings\Config.XML
+- \\Server\Share\Config.xml
+- https://localhost:8080/Config.xml
+
+The settings in the XML file will be applied to the endpoint.
+
+Disabled
+Common settings will not be applied, and the locally configured settings will be used instead.
+
+Not configured
+Same as Disabled.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="ExploitProtection_Name">
+        <textBox refId="ExploitProtection_Name">
+          <label>Type the location (local path, UNC path, or URL) of the  mitigation settings configuration XML file:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

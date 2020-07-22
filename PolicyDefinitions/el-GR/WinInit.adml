@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>πληκτρολογήστε εδώ το εμφανιζόμενο όνομα</displayName>
+  <description>πληκτρολογήστε εδώ την περιγραφή</description>
+  <resources>
+    <stringTable>
+      <string id="DisableNamedPipeShutdownPolicyDescription">Απενεργοποίηση διασύνδεσης απομακρυσμένου τερματισμού παλαιού τύπου</string>
+      <string id="DisableNamedPipeShutdownPolicyDescription_Help">Αυτή η ρύθμιση πολιτικής ελέγχει τη διασύνδεση απομακρυσμένου τερματισμού παλαιού τύπου (επώνυμη διοχέτευση). Η διασύνδεση απομακρυσμένου τερματισμού επώνυμης διοχέτευσης απαιτείται για τον τερματισμό αυτού του συστήματος από ένα απομακρυσμένο σύστημα Windows XP ή Windows Server 2003.
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, το σύστημα δεν δημιουργεί τη διασύνδεση απομακρυσμένου τερματισμού επώνυμης διοχέτευσης.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή αν δεν ορίσετε τις παραμέτρους της, το σύστημα δημιουργεί τη διασύνδεση απομακρυσμένου τερματισμού επώνυμης διοχέτευσης.</string>
+      <string id="ShutdownOptions">Επιλογές τερματισμού</string>
+      <string id="ShutdownTimeoutHungSessionsDescription">Χρονικό όριο για περιόδους λειτουργίας σύνδεσης που δεν ανταποκρίνονται κατά τον τερματισμό</string>
+      <string id="ShutdownTimeoutHungSessionsDescription_Help">Αυτή η ρύθμιση πολιτικής ορίζει τον αριθμό των λεπτών που θα περιμένει το σύστημα για τις περιόδους λειτουργίας σύνδεσης που δεν ανταποκρίνονται πριν προχωρήσει στον τερματισμό του συστήματος.
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, το σύστημα θα περιμένει τις περιόδους λειτουργίας σύνδεσης που δεν ανταποκρίνονται για τον καθορισμένο αριθμό λεπτών.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή αν δεν ρυθμίσετε τις παραμέτρους της, η προεπιλεγμένη τιμή χρονικού ορίου είναι 3 λεπτά για τους σταθμούς εργασίας και 15 λεπτά για τους διακομιστές.</string>
+       <string id="Shutdown">Τερματισμός</string>
+       <string id="Hiberboot">Να απαιτείται χρήση της γρήγορης εκκίνησης</string>
+       <string id="Hiberboot_Help">Αυτή η ρύθμιση πολιτικής ελέγχει τη χρήση της γρήγορης εκκίνησης.  
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, το σύστημα θα απαιτεί να είναι ενεργοποιημένη η Αδρανοποίηση.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή αν δεν ρυθμίσετε τις παραμέτρους της, θα χρησιμοποιείται η ρύθμιση του τοπικού υπολογιστή.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="ShutdownTimeoutHungSessionsDescription">
+        <decimalTextBox refId="ShutdownSessionTimeout_Time" defaultValue="9999">Χρονικό όριο περιόδου λειτουργίας που δεν ανταποκρίνεται σε λεπτά:</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

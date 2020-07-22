@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="11.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="OOBE" namespace="Microsoft.Policies.OOBE  " />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="OOBECategory" displayName="$(string.OOBECategory_DisplayName)" explainText="$(string.OOBECategory_Explain)">
+      <parentCategory ref="windows:WindowsComponents" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="DisablePrivacyExperience"
+            class="Both"
+            displayName="$(string.DisablePrivacyExperience)"
+            explainText="$(string.DisablePrivacyExperience_Explain)"
+            key="Software\Policies\Microsoft\Windows\OOBE"
+            valueName="DisablePrivacyExperience"
+            >
+      <parentCategory ref="OOBECategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS5" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

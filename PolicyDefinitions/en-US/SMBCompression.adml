@@ -1,0 +1,20 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+<displayName>SMB Compression Support</displayName>
+  <description>SMB Compression Support</description>
+  <resources>
+    <stringTable>
+      <string id="SMBComp">SMB Compression Support</string>
+
+      <string id="DisableCompression">Disables SMB Compression</string>
+      <string id="DisableCompression_Help">Disables SMB Compression from being used when client connect to this server. Note outbound clients from this machine may still use compression.</string>
+
+      <string id="Enabled">Prevents SMB Compression</string>
+      <string id="Disabled">Allows SMB Compression (default)</string>
+    </stringTable>
+      <presentationTable>
+          <presentation id="SMBCompdropdown">
+              <dropdownList refId="SMBCompdropdown" noSort="true" defaultItem="0">Configure SMB Compression</dropdownList>
+          </presentation>
+      </presentationTable>
+  </resources>
+</policyDefinitionResources>

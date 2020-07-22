@@ -1,0 +1,89 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="fullarmor" namespace="FullArmor.Policies.5261D7E5_C4B3_4AF0_932A_F58A143447B3"/>
+    <using namespace="Google.Policies" prefix="Google"/>
+    <using prefix="windows" namespace="Microsoft.Policies.Windows"/>
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0"/>
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_WINXPSP2" displayName="$(string.SUPPORTED_WINXPSP2)"/>
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="Cat_LegacyBrowserSupport" displayName="$(string.Cat_LegacyBrowserSupport)">
+      <parentCategory ref="Google:Cat_Google"/>
+    </category>
+  </categories>
+  <policies>
+    <policy name="AlternativeBrowserPath" class="Machine" displayName="$(string.AlternativeBrowserPath)" explainText="$(string.AlternativeBrowserPath_Explain)" presentation="$(presentation.AlternativeBrowserPath)" key="Software\Policies\Google\Chrome\3rdparty\Extensions\heildphpnddilhkemkielfhnkaagiabh\policy">
+      <parentCategory ref="Cat_LegacyBrowserSupport"/>
+      <supportedOn ref="SUPPORTED_WINXPSP2"/>
+      <elements>
+        <text id="AlternativeBrowserPath_Part" valueName="alternative_browser_path"/>
+      </elements>
+    </policy>
+    <policy name="AlternativeBrowserArguments" class="Machine" displayName="$(string.AlternativeBrowserArguments)" explainText="$(string.AlternativeBrowserArguments_Explain)" presentation="$(presentation.AlternativeBrowserArguments)" key="Software\Policies\Google\Chrome\3rdparty\Extensions\heildphpnddilhkemkielfhnkaagiabh\policy">
+      <parentCategory ref="Cat_LegacyBrowserSupport"/>
+      <supportedOn ref="SUPPORTED_WINXPSP2"/>
+      <elements>
+        <text id="AlternativeBrowserArguments_Part" valueName="alternative_browser_arguments"/>
+      </elements>
+    </policy>
+    <policy name="ChromePath" class="Machine" displayName="$(string.ChromePath)" explainText="$(string.ChromePath_Explain)" presentation="$(presentation.ChromePath)" key="Software\Policies\Google\Chrome\3rdparty\Extensions\heildphpnddilhkemkielfhnkaagiabh\policy">
+      <parentCategory ref="Cat_LegacyBrowserSupport"/>
+      <supportedOn ref="SUPPORTED_WINXPSP2"/>
+      <elements>
+        <text id="ChromePath_Part" valueName="chrome_path"/>
+      </elements>
+    </policy>
+    <policy name="ChromeArguments" class="Machine" displayName="$(string.ChromeArguments)" explainText="$(string.ChromeArguments_Explain)" presentation="$(presentation.ChromeArguments)" key="Software\Policies\Google\Chrome\3rdparty\Extensions\heildphpnddilhkemkielfhnkaagiabh\policy">
+      <parentCategory ref="Cat_LegacyBrowserSupport"/>
+      <supportedOn ref="SUPPORTED_WINXPSP2"/>
+      <elements>
+        <text id="ChromeArguments_Part" valueName="chrome_arguments"/>
+      </elements>
+    </policy>
+    <policy name="URLList_Policy" class="Machine" displayName="$(string.URLList_Policy)" explainText="$(string.URLList_Explain)" presentation="$(presentation.URLList_Policy)" key="Software\Policies\Google\Chrome\3rdparty\Extensions\heildphpnddilhkemkielfhnkaagiabh\policy">
+      <parentCategory ref="Cat_LegacyBrowserSupport"/>
+      <supportedOn ref="SUPPORTED_WINXPSP2"/>
+      <elements>
+        <list id="URLList_Part" key="Software\Policies\Google\Chrome\3rdparty\Extensions\heildphpnddilhkemkielfhnkaagiabh\policy\url_list" valuePrefix=""/>
+      </elements>
+    </policy>
+    <policy name="URLGreyList_Policy" class="Machine" displayName="$(string.URLGreyList_Policy)" explainText="$(string.URLGreyList_Explain)" presentation="$(presentation.URLGreyList_Policy)" key="Software\Policies\Google\Chrome\3rdparty\Extensions\heildphpnddilhkemkielfhnkaagiabh\policy">
+      <parentCategory ref="Cat_LegacyBrowserSupport"/>
+      <supportedOn ref="SUPPORTED_WINXPSP2"/>
+      <elements>
+        <list id="URLGreyList_Part" key="Software\Policies\Google\Chrome\3rdparty\Extensions\heildphpnddilhkemkielfhnkaagiabh\policy\url_greylist" valuePrefix=""/>
+      </elements>
+    </policy>
+    <policy name="KeepLastChromeTab_Policy" class="Machine" displayName="$(string.KeepLastChromeTab_Policy)" explainText="$(string.KeepLastChromeTab_Explain)" presentation="$(presentation.KeepLastChromeTab_Policy)" key="Software\Policies\Google\Chrome\3rdparty\Extensions\heildphpnddilhkemkielfhnkaagiabh\policy" valueName="keep_last_chrome_tab">
+      <parentCategory ref="Cat_LegacyBrowserSupport"/>
+      <supportedOn ref="SUPPORTED_WINXPSP2"/>
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="ShowTransitionScreen_Policy" class="Machine" displayName="$(string.ShowTransitionScreen_Policy)" explainText="$(string.ShowTransitionScreen_Explain)" presentation="$(presentation.ShowTransitionScreen_Policy)" key="Software\Policies\Google\Chrome\3rdparty\Extensions\heildphpnddilhkemkielfhnkaagiabh\policy">
+      <parentCategory ref="Cat_LegacyBrowserSupport"/>
+      <supportedOn ref="SUPPORTED_WINXPSP2"/>
+      <elements>
+        <decimal id="ShowTransitionScreen_Part" maxValue="60" valueName="show_transition_screen"/>
+      </elements>
+    </policy>
+    <policy name="UseIeSiteList_Policy" class="Machine" displayName="$(string.UseIeSiteList_Policy)" explainText="$(string.UseIeSiteList_Explain)" presentation="$(presentation.UseIeSiteList_Policy)" key="Software\Policies\Google\Chrome\3rdparty\Extensions\heildphpnddilhkemkielfhnkaagiabh\policy" valueName="use_ie_site_list">
+      <parentCategory ref="Cat_LegacyBrowserSupport"/>
+      <supportedOn ref="SUPPORTED_WINXPSP2"/>
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

@@ -1,0 +1,204 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>
+  </displayName>
+  <description>
+  </description>
+  <resources>
+    <stringTable>
+      <string id="Root_CatName">Scanner Redirection</string>
+      <string id="DisableFunctionality_PolicyName">Disable functionality</string>
+      <string id="DisableFunctionality_PolicyExplain">This policy setting is used for disabling scanner redirection functionality.
+
+If this policy setting is enabled, scanners cannot be redirected and do not appear in the scanner menu.
+
+If this policy setting is disabled or not configured, scanner redirection works and scanners appear in the scanner menu.</string>
+      <string id="LockConfig_PolicyName">Lock Config</string>
+      <string id="LockConfig_PolicyExplain">This policy setting is used for locking the settings user interface of the program.
+
+If this policy setting is enabled, the user interface containing the program settings is locked and the user can't change settings in the tray menu.
+
+If this policy setting is disabled or not configured, the user interface containing the program settings is accessible for users.</string>
+      <string id="HideWebcam_PolicyName">Hide Webcam</string>
+      <string id="HideWebcam_PolicyExplain_COMP">Currently webcams can be redirected to VMware Agent side and be used as a virtual scanner for capturing images.
+This policy setting prevents webcams from appearing in scanner selection menu of user interface.
+
+If this policy setting is enabled, webcam hide mode will be enabled for all users of this computer.
+
+If this policy setting is disabled, webcam hide mode will be disabled for all users of this computer.
+
+Also this policy setting overrides similar policy setting for all users of this computer and users will not be able to change webcam hide mode via the settings interface.
+
+If this policy setting is not configured, the webcam hide mode is determined by the similar user policy setting or via the settings interface.</string>
+      <string id="HideWebcam_PolicyExplain_USER">Currently webcams can be redirected to VMware Agent side and be used as a virtual scanner for capturing images.
+This policy setting prevents webcams from appearing in scanner selection menu of user interface.
+
+If this policy setting is enabled, webcam hide mode for users will be assigned by this policy setting.
+
+If this policy setting is disabled or not configured, webcam hide mode will be disabled.
+
+The user has the possibility to change the webcam hide mode at any time via the settings interface, even if the policy setting is enabled.
+
+If this policy setting is used for the computer, it overrides the policy setting for all users of this computer. In this case the user won't have the possibility to change the webcam hide mode via the settings interface.</string>
+      <string id="DefaultColorMode_PolicyName">Default Color Mode</string>
+      <string id="DefaultColorMode_PolicyExplain">This policy allows to override default scanning color mode (e.g. Color or Grayscale).
+This is really useful in cases if scanning application scans without displaying Scanning Preferences dialog and does not allow to configure color mode internally also.
+      </string>
+      <string id="DefaultColorMode_DropDownListName">Color mode:</string>
+      <string id="DefaultColorMode_BlackAndWhite">Black and White</string>
+      <string id="DefaultColorMode_Grayscale">Grayscale</string>
+      <string id="DefaultColorMode_Color">Color</string>
+      <string id="DefaultDuplex_PolicyName">Default Duplex</string>
+      <string id="DefaultDuplex_PolicyExplain">This policy allows to override default scanning mode (Simplex or Duplex).
+Pay attention when setting up "Duplex" since scanning application should support Duplex scanning and request two pages from scanner.
+      </string>
+      <string id="DefaultDuplex_DropDownListName">Duplex mode:</string>
+      <string id="DefaultDuplex_Simplex">Simplex</string>
+      <string id="DefaultDuplex_Duplex">Duplex</string>
+      <string id="DefaultScanner_PolicyName">Default Scanner</string>
+      <string id="DefaultScanners_PolicyExplain_COMP">This policy setting is used for centralized management of scanner autoselection.
+The following autoselection modes are used:
+"None" - do not select scanners automatically;
+"Autoselect" - automatically select the plugged scanner;
+"Last used" - automatically select the last used scanner;
+"Specified" - the selected scanner is determined by the contents of the "Specified scanner" field.
+
+If this policy setting is enabled, the scanner autoselection mode for all users of this computer will be overridden by this policy setting and users won't be able to change the autoselection mode via the settings interface.
+Also this policy setting overrides the similar policy setting for all users of this computer.
+
+If this policy setting is disabled or not configured, the autoselection mode is determined via the similar policy setting for the user, or via the settings interface.</string>
+      <string id="DefaultScanners_PolicyExplain_USER">This policy setting is used for centralized management of scanner autoselection.
+The following autoselection modes are used:
+"None" - do not select scanners automatically;
+"Autoselect" - automatically select the plugged scanner;
+"Last used" - automatically select the last used plugged scanner;
+"Specified" - the selected scanner is determined by the contents of the "Specified scanner" field.
+
+If this policy setting is enabled, the scanner autoselection mode for the user will be set by this policy setting.
+
+If this policy setting is disabled or not configured, the "Autoselect" mode will be used.
+
+The user has the possibility to change the autoselection mode at any time via the settings interface, even if the policy setting is enabled.
+
+If this policy setting is used for the computer, it overrides the policy setting for all users of this computer. In this case the user won't have the possibility to change the autoselection mode via the settings interface.</string>
+      <string id="TWAINScanners_Caption">For TWAIN Scanners:
+
+</string>
+      <string id="WIAScanners_Caption">For WIA Scanners:
+
+</string>
+      <string id="Scanners_SelectionMode_DropDownListName">Selection mode:</string>
+      <string id="Scanners_SelectionMode_None">None</string>
+      <string id="Scanners_SelectionMode_Auto">Autoselect</string>
+      <string id="Scanners_SelectionMode_Last">Last used</string>
+      <string id="Scanners_SelectionMode_Specified">Specified</string>
+      <string id="Scanners_Specified_EditName">Specified scanner:</string>
+      <string id="Compression_PolicyName">Compression</string>
+      <string id="Compression_PolicyExplain">This policy setting is used for setting image compression rate during its transfer to the agent side.
+The following compression modes are used:
+"Disable" - image compression is disabled;
+"Lossless" - lossless(zlib) compresison is used without loss of image quality;
+"JPEG" - JPEG compression is used with loss of quality. The level of image quality is specified in the "JPEG compression quality" field.
+
+If this policy setting is enabled, the compression mode for the user will be set by this policy setting.
+
+If this policy setting is disabled or not configured, the "JPEG" compression mode will be used.
+
+The user has the possibility to change the compression mode at any time via the settings interface, even if the policy setting is enabled.</string>
+      <string id="Compression_Mode_DropDownListName">Compression mode:</string>
+      <string id="Compression_Mode_Disable">Disable</string>
+      <string id="Compression_Mode_Lossless">Lossless</string>
+      <string id="Compression_Mode_JPEG">JPEG</string>
+      <string id="Compression_JPEGQuality_NumericName">JPEG compression quality:</string>
+      <string id="ADMXMigrator_UnresolvedString">ADMX Migrator encountered a string that is not present in the source ADM string table.</string>
+      <string id="ADMXMigrator_NoSupportedOn">ADMX Migrator encountered a policy that does not have a supportedOn value.</string>
+      <string id="SUPPORTED_WindowsXP">At least Microsoft Windows XP Professional or Windows Server 2003 family</string>
+	  <string id="BandwidthLimit_PolicyName">BandwidthLimit</string>
+	  <string id="BandwidthLimit_PolicyExplain">This policy setting specifies the maximum allowed bandwidth, in KiloBytes per second, for transferring scanned data to a user session. 
+If zero or not specified, no limitation.</string>
+	  <string id="BandwidthLimit_NumericName">Limit KBytes/sec:</string>
+	  <string id="UseVendorUI_PolicyName">TWAIN Scanner Properties dialog location</string>
+      <string id="UseVendorUI_PolicyExplain">This policy allows to specify if the TWAIN Scanning Properties dialog will appear on Agent side or Client side.
+If Agent, VMware Scanner Properties dialog appears on Agent side.
+If Client, native vendor scanner TWAIN dialog appears on Client side.
+      </string>
+      <string id="UseVendorUI_DropDownListName">TWAIN Scanner Properties dialog location:</string>
+      <string id="UseVendorUI_Server">Agent</string>
+      <string id="UseVendorUI_Wks">Client</string>
+	  <string id="ForceTwainDialog_PolicyName">Force the TWAIN Scanning Properties dialog</string>
+      <string id="ForceTwainDialog_PolicyExplain_USER">This policy allows to force displaying the TWAIN Scanning Properties dialog even if a scanning application does not display the scanning dialog.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DisableFunctionality_PolicyName" />
+      <presentation id="LockConfig_PolicyName" />
+      <presentation id="HideWebcam_PolicyName" />
+      <presentation id="DefaultColorMode_PolicyName">
+        <dropdownList refId="DefaultColorMode_DropDownListName" noSort="true" defaultItem="2">Color mode:</dropdownList>
+      </presentation>
+      <presentation id="DefaultDuplex_PolicyName">
+        <dropdownList refId="DefaultDuplex_DropDownListName" noSort="true" defaultItem="1">Duplex mode:</dropdownList>
+      </presentation>
+      <presentation id="DefaultScanner_PolicyName">
+        <text>For TWAIN Scanners:
+
+</text>
+        <dropdownList refId="Scanners_SelectionMode_DropDownListName" noSort="true" defaultItem="1">Selection mode:</dropdownList>
+        <textBox refId="Scanners_Specified_EditName">
+          <label>Specified scanner:</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+        <text>
+        </text>
+        <text>For WIA Scanners:
+
+</text>
+        <dropdownList refId="Scanners_SelectionMode_DropDownListName_1" noSort="true" defaultItem="1">Selection mode:</dropdownList>
+        <textBox refId="Scanners_Specified_EditName_1">
+          <label>Specified scanner:</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="Compression_PolicyName">
+        <dropdownList refId="Compression_Mode_DropDownListName" noSort="true" defaultItem="2">Compression mode:</dropdownList>
+        <decimalTextBox refId="Compression_JPEGQuality_NumericName" defaultValue="80">JPEG compression quality:</decimalTextBox>
+      </presentation>
+      <presentation id="HideWebcam_PolicyName_1" />
+      <presentation id="DefaultColorMode_PolicyName_1">
+        <dropdownList refId="DefaultColorMode_DropDownListName" noSort="true" defaultItem="2">Color mode:</dropdownList>
+      </presentation>
+      <presentation id="DefaultDuplex_PolicyName_1">
+        <dropdownList refId="DefaultDuplex_DropDownListName" noSort="true" defaultItem="1">Duplex mode:</dropdownList>
+      </presentation>
+      <presentation id="DefaultScanner_PolicyName_1">
+        <text>For TWAIN Scanners:
+
+</text>
+        <dropdownList refId="Scanners_SelectionMode_DropDownListName" noSort="true" defaultItem="1">Selection mode:</dropdownList>
+        <textBox refId="Scanners_Specified_EditName">
+          <label>Specified scanner:</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+        <text>
+        </text>
+        <text>For WIA Scanners:
+
+</text>
+        <dropdownList refId="Scanners_SelectionMode_DropDownListName_1" noSort="true" defaultItem="1">Selection mode:</dropdownList>
+        <textBox refId="Scanners_Specified_EditName_1">
+          <label>Specified scanner:</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+      </presentation>
+	   <presentation id="BandwidthLimit_PolicyName">
+        <decimalTextBox refId="BandwidthLimit_NumericName" defaultValue="0">Limit KBytes/sec:</decimalTextBox>
+      </presentation>
+	  <presentation id="UseVendorUI_PolicyName">
+        <dropdownList refId="UseVendorUI_DropDownListName" noSort="true" defaultItem="0">Dialog location:</dropdownList>
+      </presentation>
+	  <presentation id="ForceTwainDialog_PolicyName" />
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

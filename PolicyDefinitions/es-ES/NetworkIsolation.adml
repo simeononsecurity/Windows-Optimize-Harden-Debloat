@@ -1,0 +1,157 @@
+<!--  (c) 2011 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Aislamiento de red  </displayName>
+  <description>Configura las opciones de aislamiento de red para aplicaciones  </description>
+  <resources>
+    <stringTable>
+      	<string id="WF_Isolation">Aislamiento de red</string>
+		
+
+<!--Define server addresses that proxy to the Internet -->	
+	<string id="WF_NetIsolation_Domain_Proxies">Servidores proxy de Internet para aplicaciones</string>  
+	<string id="WF_NetIsolation_Domain_Proxies_Help">  Esta configuración no se aplica a las aplicaciones de escritorio.
+	
+Una lista separada por punto y coma de direcciones IP de servidores proxy de Internet. El aislamiento de red de Windows clasifica estas direcciones como Internet y las aplicaciones con funcionalidad de cliente Internet o cliente y servidor Internet pueden acceder a ellas.
+
+Si habilita esta configuración de directiva, las aplicaciones ubicadas en redes con proxy pueden acceder a Internet sin basarse en la funcionalidad de red privada. Sin embargo, en la mayoría de los casos, el aislamiento de red de Windows podrá detectar los proxy correctamente. De manera predeterminada, los proxy establecidos con esta configuración se combinan con los que se detectan automáticamente. Para que esta configuración de directiva sea la única lista de proxy permitidos, habilite la configuración "Las definiciones de proxy son autoritativas".
+
+Si deshabilita o no establece esta configuración de directiva, las aplicaciones usarán los proxy de Internet detectados automáticamente o el aislamiento de red de Windows.
+
+Ejemplo: [3efe:3022::1000];18.0.0.1;18.0.0.2 
+
+Para obtener más información, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string> 
+
+
+<!--Define server addresses that proxy to a private network (intranet) -->	
+	<string id="WF_NetIsolation_Intranet_Proxies">Servidores proxy de intranet para aplicaciones</string>
+	<string id="WF_NetIsolation_Intranet_Proxies_Help">  Esta configuración no se aplica a las aplicaciones de escritorio.
+	
+Una lista separada por punto y coma de direcciones IP de servidores proxy de intranet. El aislamiento de red de Windows clasifica estas direcciones como privadas y las aplicaciones con funcionalidad de redes domésticas o de trabajo pueden acceder a ellas.
+
+Si habilita esta configuración de directiva, los administradores podrán configurar un conjunto de proxy que proporcionan acceso a recursos de intranet.
+
+Si deshabilita o no establece esta configuración de directiva, el aislamiento de red de Windows intenta detectar los proxy y los configura como nodos de Internet.
+  
+Esta configuración NO debe usarse para configurar los proxy de Internet.
+
+Ejemplo: [3efe:3022::1000]; 18.0.0.1; 18.0.0.2
+
+Para obtener más información, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define subnet addresses-->	
+	<string id="WF_NetIsolation_PrivateSubnet">Intervalos de red privada para aplicaciones</string>
+	<string id="WF_NetIsolation_PrivateSubnet_Help"> Esta configuración no se aplica a las aplicaciones de escritorio.
+				
+Una lista separada por comas de intervalos de direcciones IP que se encuentran en la red corporativa.
+
+Si habilita esta configuración de directiva, se asegura de que las aplicaciones con funcionalidad de redes domésticas o de trabajo tengan un acceso adecuado a la red corporativa. Las aplicaciones pueden acceder a estas direcciones solo si la aplicación declaró la funcionalidad de redes domésticas o de trabajo.
+
+El aislamiento de red de Windows intenta detectar automáticamente los host de red privada. De manera predeterminada, las direcciones establecidas con esta configuración de directiva se combinan con los host que se declaran como privados a través de la detección automática.
+
+Para asegurarse de que estas direcciones sean las únicas que se clasifiquen como privadas, habilite la configuración de directiva "Las definiciones de subred son autoritativas".
+
+Si deshabilita o no establece esta configuración de directiva, el aislamiento de red de Windows intenta detectar automáticamente los host de red privada.
+
+Ejemplo: 3efe:1092::/96,18.1.1.1/10 
+
+Para obtener más información, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Proxy definitions are authoritative-->	
+	<string id="WF_NetIsolation_Authoritative_Proxy">Las definiciones de proxy son autoritativas</string>
+	<string id="WF_NetIsolation_Authoritative_Proxy_Help"> Esta configuración no se aplica a las aplicaciones de escritorio.
+				
+Desactiva la detección automática de proxy del aislamiento de red de Windows en el entorno corporativo del dominio.
+
+Si habilita esta configuración de directiva, se desactiva la detección automática de proxy del aislamiento de red de Windows en el entorno corporativo del dominio. Solo los proxy configurados con directiva de grupo son autoritativos. Esto se aplica a los proxy de Internet e intranet.
+
+Si deshabilita o no establece esta configuración de directiva, el aislamiento de red de Windows intenta detectar automáticamente las direcciones de servidores proxy.  
+
+Para obtener más información, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Subnet definitions are authoritative-->	
+	<string id="WF_NetIsolation_Authoritative_Subnet">Las definiciones de subred son autoritativas</string>
+	<string id="WF_NetIsolation_Authoritative_Subnet_Help"> Esta configuración no se aplica a las aplicaciones de escritorio.
+				
+Desactiva la detección automática de host de red privada del aislamiento de red de Windows en el entorno corporativo del dominio.
+
+Si habilita esta configuración de directiva, se desactiva la detección automática de host de red privada del aislamiento de red de Windows en el entorno corporativo del dominio. Solo los host de red comprendidos dentro del intervalo de direcciones configurado a través de directiva de grupo se clasificarán como privados.
+
+Si deshabilita o no establece esta configuración de directiva, el aislamiento de red de Windows intenta detectar automáticamente los host de red privada en el entorno corporativo del dominio. 
+				
+Para obtener más información, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+
+<!--Define cloud resources-->
+  <string id="WF_NetIsolation_EnterpriseCloudResources">Dominios de recursos de empresa hospedados en la nube</string>
+  <string id="WF_NetIsolation_EnterpriseCloudResources_Help"> Esta configuración no se aplica a las aplicaciones de escritorio.
+
+Una lista separada de recursos de la nube de dominio. Todos los recursos de nube también pueden estar emparejados opcionalmente con un servidor proxy interno utilizando una coma agregada seguida de la dirección de proxy.
+
+Contiene una lista de dominios de recursos de empresa hospedada en la nube. Las conexiones a estos recursos se consideran conexiones a redes de empresa.
+
+Si un proxy se empareja con un recurso de la nube, el tráfico al recurso en la nube se enrutará a través de la red de empresa mediante el servidor proxy señalado (en el puerto 80). Un servidor proxy que se use para este propósito también debe configurarse con los servidores proxy de Intranet para la directiva de aplicaciones.
+
+Ejemplo: [cloudresource]|[cloudresource]|[cloudresource],[proxy]|[cloudresource]|[cloudresource],[proxy]|
+
+Para obtener más información, consulta: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define neutral resources-->
+    <string id="WF_NetIsolation_NeutralResources">Dominios clasificados como personales y de trabajo</string>
+    <string id="WF_NetIsolation_NeutralResources_Help"> Esta configuración no se aplica a las aplicaciones de escritorio.
+
+Una lista separada por comas de nombres de dominio que se puede usar como recurso de trabajo o personal.
+
+Para obtener más información, consulta: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+    </stringTable>
+ 
+ <!--Start of Presentation Table-->	
+ 
+ <presentationTable>
+
+	<presentation id="WF_NetIsolation_Domain_Proxies">
+        <textBox refId="WF_NetIsolation_Domain_ProxiesBox">
+          <label>Proxy de dominio  </label>
+        </textBox>
+      </presentation>
+
+	<presentation id="WF_NetIsolation_Intranet_Proxies">
+        <textBox refId="WF_NetIsolation_Intranet_ProxiesBox">
+          <label>Escribir una dirección IP de servidor proxy para intranet</label>
+        </textBox>
+      </presentation>
+
+	<presentation id="WF_NetIsolation_PrivateSubnet">
+        <textBox refId="WF_NetIsolation_PrivateSubnetBox">
+          <label>Subredes privadas  </label>
+        </textBox>
+      </presentation>
+
+  <presentation id="WF_NetIsolation_Authoritative_Proxies">
+      </presentation>
+	
+	<presentation id="WF_NetIsolation_Authoritative_Subnets">
+      </presentation>
+
+   <presentation id="WF_NetIsolation_EnterpriseCloudResources">
+     <textBox refId="WF_NetIsolation_EnterpriseCloudResourcesBox">
+       <label>Recursos de la nube de empresa </label>
+     </textBox>
+   </presentation>
+
+   <presentation id="WF_NetIsolation_NeutralResources">
+     <textBox refId="WF_NetIsolation_NeutralResourcesBox">
+       <label>Recursos neutrales </label>
+     </textBox>
+   </presentation>
+
+ </presentationTable>
+
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>πληκτρολογήστε εδώ το εμφανιζόμενο όνομα</displayName>
+  <description>πληκτρολογήστε εδώ την περιγραφή</description>
+  <resources>
+    <stringTable>
+      <string id="AllowRemoteShellAccess">Να επιτρέπεται η απομακρυσμένη πρόσβαση στο κέλυφος</string>
+      <string id="AllowRemoteShellAccess_Help">Αυτή η ρύθμιση πολιτικής ρυθμίζει τις παραμέτρους για την πρόσβαση σε απομακρυσμένα κελύφη.
+
+Αν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή δεν ρυθμίσετε τις παραμέτρους της, οι νέες συνδέσεις απομακρυσμένου κελύφους θα γίνονται αποδεκτές από το διακομιστή.
+
+Αν θέσετε αυτήν τη ρύθμιση πολιτικής στην επιλογή "απενεργοποιημένη", οι νέες συνδέσεις απομακρυσμένου κελύφους θα απορρίπτονται από το διακομιστή.</string>
+      <string id="IdleTimeout">Καθορισμός χρονικού ορίου αδράνειας</string>
+      <string id="IdleTimeout_Help">Αυτή η ρύθμιση πολιτικής ορίζει το μέγιστο χρονικό διάστημα σε χιλιοστά του δευτερολέπτου, κατά το οποίο το απομακρυσμένο κέλυφος θα παραμένει ανοικτό χωρίς δραστηριότητα χρήστη ώσπου να διαγραφεί αυτόματα.
+
+Μπορείτε να ορίσετε οποιαδήποτε τιμή μεταξύ 0 και 0x7FFFFFFF. Για μικρότερες τιμές, θα χρησιμοποιούνται τα 60000 χιλιοστά του δευτερολέπτου (1 λεπτό) ως ελάχιστη τιμή.
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, ο διακομιστής θα περιμένει για το συγκεκριμένο χρονικό διάστημα, από τη στιγμή που λαμβάνεται το τελευταίο μήνυμα από το πρόγραμμα-πελάτη, πριν τερματίσει το ανοικτό κέλυφος.
+
+Εάν δεν ρυθμίσετε τις παραμέτρους αυτής της ρύθμισης πολιτικής ή αν την απενεργοποιήσετε, θα χρησιμοποιείται η προεπιλεγμένη τιμή των 900000 ή 15 λεπτών.</string>
+      <string id="MaxConcurrentUsers">MaxConcurrentUsers</string>
+      <string id="MaxConcurrentUsers_Help">Αυτή η ρύθμιση πολιτικής ορίζει τις παραμέτρους του μέγιστου πλήθους χρηστών που έχουν τη δυνατότητα να εκτελούν ταυτόχρονα απομακρυσμένες εργασίες κελύφους στο σύστημα.
+
+Η τιμή μπορεί να είναι οποιοσδήποτε αριθμός μεταξύ 1 και 100.
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, οι νέες συνδέσεις κελύφους θα απορρίπτονται, εάν υπερβαίνουν το καθορισμένο όριο.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή αν δεν ρυθμίσετε τις παραμέτρους της, το προεπιλεγμένο πλήθος θα είναι πέντε χρήστες.</string>
+      <string id="MaxMemoryPerShellMB">Καθορισμός μέγιστης ποσότητας μνήμης σε ΜΒ ανά κέλυφος</string>
+      <string id="MaxMemoryPerShellMB_Help">Αυτή η ρύθμιση πολιτικής ορίζει τη μέγιστη συνολική ποσότητα μνήμης σε megabyte που μπορεί να εκχωρηθεί από οποιοδήποτε ενεργό απομακρυσμένο κέλυφος και όλες τις θυγατρικές διεργασίες του.
+
+Μπορεί να οριστεί οποιαδήποτε τιμή μεταξύ 0 και 0x7FFFFFFF, όπου το 0 σημαίνει απεριόριστη μνήμη, το οποίο σημαίνει ότι η ικανότητα των απομακρυσμένων εργασιών να εκχωρούν μνήμη περιορίζεται μόνο από τη διαθέσιμη εικονική μνήμη.
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, η απομακρυσμένη λειτουργία θα τερματίζεται, εάν η εκχώρηση υπερβαίνει το καθορισμένο όριο.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή αν δεν ρυθμίσετε τις παραμέτρους της, θα χρησιμοποιείται η τιμή 150 από προεπιλογή.</string>
+      <string id="MaxProcessesPerShell">Καθορισμός μέγιστου αριθμού διεργασιών ανά κέλυφος</string>
+      <string id="MaxProcessesPerShell_Help">Αυτή η ρύθμιση πολιτικής ορίζει το μέγιστο αριθμό διεργασιών που επιτρέπεται να εκκινήσει ένα απομακρυσμένο κέλυφος.
+
+Αν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, μπορείτε να καθορίσετε οποιονδήποτε αριθμό από 0 έως 0x7FFFFFFF για να ορίσετε τον μέγιστο αριθμό διεργασιών ανά κέλυφος. Το μηδέν (0) σημαίνει απεριόριστο αριθμό διεργασιών.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή αν δεν ρυθμίσετε τις παραμέτρους της, το όριο θα είναι πέντε διεργασίες ανά κέλυφος.</string>
+      <string id="ShellTimeOut">Καθορισμός χρονικού ορίου κελύφους</string>
+      <string id="ShellTimeOut_Help">
+
+Αυτή η ρύθμιση πολιτικής έχει αποσυρθεί και δεν θα έχει καμία επίδραση σε όποια κατάσταση κι αν οριστεί: Ενεργοποιημένη, Απενεργοποιημένη ή Χωρίς ρύθμιση παραμέτρων.
+      
+      </string>
+      <string id="MaxShellsPerUser">Καθορισμός μέγιστου αριθμού απομακρυσμένων κελυφών ανά χρήστη</string>
+      <string id="MaxShellsPerUser_Help">Αυτή η ρύθμιση πολιτικής ορίζει τον μέγιστο αριθμό ταυτόχρονων κελυφών που μπορεί να ανοίξει απομακρυσμένα ένας χρήστης στο ίδιο σύστημα.
+
+Μπορείτε να ορίσετε οποιονδήποτε αριθμό μεταξύ 0 και 0x7FFFFFFF, όπου το 0 υποδηλώνει απεριόριστο αριθμό κελυφών.
+
+Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, ο χρήστης δεν θα μπορεί να ανοίγει νέα απομακρυσμένα κελύφη, εάν το πλήθος τους υπερβαίνει το καθορισμένο όριο.
+
+Εάν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή αν δεν ρυθμίσετε τις παραμέτρους της, το όριο θα ορίζεται από προεπιλογή στα δύο απομακρυσμένα κελύφη ανά χρήστη.
+      
+      </string>
+      <string id="WinRS">Απομακρυσμένο κέλυφος των Windows</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowRemoteShellAccess">
+        <decimalTextBox refId="AllowRemoteShellAccess" defaultValue="1">AllowRemoteShellAccess</decimalTextBox>
+      </presentation>
+      <presentation id="IdleTimeout">
+        <decimalTextBox refId="IdleTimeout" defaultValue="900000">IdleTimeout</decimalTextBox>
+      </presentation>
+      <presentation id="MaxConcurrentUsers">
+        <decimalTextBox refId="MaxConcurrentUsers" defaultValue="5">MaxConcurrentUsers</decimalTextBox>
+      </presentation>
+      <presentation id="MaxMemoryPerShellMB">
+        <decimalTextBox refId="MaxMemoryPerShellMB" defaultValue="150">MaxMemoryPerShellMB</decimalTextBox>
+      </presentation>
+      <presentation id="MaxProcessesPerShell">
+        <decimalTextBox refId="MaxProcessesPerShell" defaultValue="5">MaxProcessesPerShell</decimalTextBox>
+      </presentation>
+      <presentation id="ShellTimeOut">
+        <decimalTextBox refId="ShellTimeOut" defaultValue="2147483647">ShellTimeOut</decimalTextBox>
+      </presentation>
+      <presentation id="MaxShellsPerUser">
+        <decimalTextBox refId="MaxShellsPerUser" defaultValue="2">MaxShellsPerUser</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

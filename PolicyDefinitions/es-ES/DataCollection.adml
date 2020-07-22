@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Permitir telemetría</string>
+      <string id="AllowTelemetry_0">0: seguridad [solo empresas]</string>
+      <string id="AllowTelemetry_1">1: básico</string>
+      <string id="AllowTelemetry_2">2: mejorado</string>
+      <string id="AllowTelemetry_3">3: completo</string>
+      <string id="AllowTelemetry_Explain">Esta configuración de directiva determina el nivel más alto de datos de diagnóstico de Windows enviados a Microsoft. Al configurar este ajuste, no evitas que las personas cambien su configuración de telemetría; sin embargo, les impides elegir un nivel superior al que estableciste para la organización. La configuración de datos de diagnóstico de Windows 10 solo se aplica al sistema operativo Windows y a las aplicaciones incluidas con Windows. Estos ajustes no se aplican a aplicaciones de terceros que se ejecutan en Windows 10.
+
+Si habilitas esta configuración, puedes decidir qué nivel de datos de diagnóstico enviar a Microsoft, incluidos los siguientes:
+
+  - 0 (Seguridad). Envía solo una cantidad mínima de datos a Microsoft que se necesitan para mantener Windows protegido. Los componentes de seguridad de Windows, como la Herramienta de eliminación de software malintencionado (MSRT) y Windows Defender, pueden enviar datos a Microsoft en este nivel, si está habilitado. Si estableces un valor de 0, solo se aplica a los dispositivos que ejecutan las ediciones Enterprise, Education, IoT o Windows Server. Si estableces un valor de 0 para otras ediciones, equivale a establecer un valor de 1.
+  - 1 (Básico). Envía los mismos datos que un valor de 0, además de una cantidad muy limitada de datos de diagnóstico, como información básica del dispositivo, datos relacionados con la calidad e información de compatibilidad de aplicaciones. Ten en cuenta que establecer los valores 0 o 1 degradará ciertas experiencias en el dispositivo.
+  - 2 (Mejorado). Envía los mismos datos que un valor de 1, además de datos adicionales, por ejemplo, cómo se usan Windows, Windows Server, System Center y las aplicaciones, cómo funcionan y datos de confiabilidad avanzados.
+  - 3 (Completo). Envía los mismos datos que un valor de 2, además de los datos de diagnóstico avanzados que se usan para diagnosticar y solucionar problemas con dispositivos, incluidos los archivos y el contenido que pudieran haber provocado un problema con el dispositivo.
+
+Si deshabilitas o no estableces esta configuración de directiva, los usuarios pueden configurar el nivel de telemetría en Configuración.
+      </string>
+
+      <string id="TelemetryProxy">Configurar Experiencia del usuario y telemetría asociadas</string>
+      <string id="TelemetryProxy_Explain">Con esta configuración de directiva, puedes reenviar solicitudes de Experiencia del usuario y telemetría asociadas a un servidor proxy.
+
+Si habilitas esta configuración de directiva, puedes especificar el FQDN o la dirección IP del dispositivo de destino dentro de la red de tu organización (y, opcionalmente, un número de puerto, si lo prefieres). La conexión se establecerá mediante una conexión de capa de sockets seguros (SSL). Si se produce un error en el proxy con nombre o si deshabilitas o no estableces esta configuración de directiva, los datos de Experiencia del usuario y telemetría asociadas se enviarán a Microsoft mediante la configuración de proxy predeterminada.
+
+El formato de esta configuración es &lt;servidor&gt;:&lt;puerto&gt;. 
+      </string>
+
+      <string id="CommercialId">Configurar el Id. comercial</string>
+      <string id="CommercialId_Explain">Esta configuración de directiva define el identificador usado de forma única para asociar los datos de telemetría de este dispositivo como pertenecientes a una organización determinada. Si tu organización está participando en un programa que necesita que este dispositivo esté identificado como perteneciente a tu organización, usa esta opción para proporcionar la identificación. Microsoft proporcionará el valor de esta configuración como parte del proceso de implementación del programa. 
+
+Si deshabilitas o no configuras esta configuración de directiva, Microsoft no podrá usar este identificador para asociar este equipo y sus datos de telemetría con tu organización.
+      </string>
+
+      <string id="DisableEnterpriseAuthProxy">Configurar el uso del proxy autenticado para el servicio de Experiencia del usuario y telemetría asociadas</string>
+      <string id="DisableEnterpriseAuthProxy_1">Habilitar el uso del proxy autenticado</string>
+      <string id="DisableEnterpriseAuthProxy_2">Deshabilitar el uso del proxy autenticado</string>
+      <string id="DisableEnterpriseAuthProxy_Explain">Esta configuración de directiva bloquea el servicio de Experiencia del usuario y telemetría asociadas para evitar que use automáticamente un proxy autenticado para enviar datos de vuelta a Microsoft en Windows 10. Si se deshabilita o no se establece esta configuración de directiva, el servicio de Experiencia del usuario y telemetría asociadas usará automáticamente un proxy autenticado para enviar datos de vuelta a Microsoft. Si se habilita esta directiva, se bloqueará el servicio de Experiencia del usuario y telemetría asociadas para evitar que use un proxy autenticado.</string>
+
+      <string id="LimitEnhancedDiagnosticDataWindowsAnalytics">Limitar los datos de diagnóstico de nivel Mejorado al valor mínimo requerido por Windows Analytics</string>
+      <string id="LimitEnhancedDiagnosticDataWindowsAnalytics_1">Habilitar la recopilación de análisis de Windows</string>
+      <string id="LimitEnhancedDiagnosticDataWindowsAnalytics_2">Deshabilitar la recopilación de análisis de Windows</string>
+      <string id="LimitEnhancedDiagnosticDataWindowsAnalytics_Explain">Esta configuración de directiva, en combinación con la configuración de directiva Permitir telemetría, hacen posible que las organizaciones envíen a Microsoft un conjunto específico de datos de diagnóstico para disponer de información detallada de TI a través de los servicios de Windows Analytics. Al configurar este ajuste, no evitas que las personas cambien su configuración de telemetría; sin embargo, les impides elegir un nivel superior al que estableciste para la organización.
+
+Para habilitar este comportamiento, debes completar dos pasos:
+
+    1. Habilitar esta configuración de directiva
+    2. Establecer Permitir telemetría en el nivel 2 (Mejorado)
+
+Si estableces ambas configuraciones de directiva en conjunto, se enviarán a Microsoft los datos de diagnóstico del nivel Básico, además de cualquier evento adicional que se requiera para Windows Analytics. Los eventos adicionales se documentan aquí: https://go.Microsoft.com/fwlink/?linked=847594.
+
+Si habilitas los datos de diagnóstico de nivel Mejorado en la configuración de directiva Permitir telemetría, pero no defines esta configuración de directiva, se enviarán a Microsoft los eventos requeridos para Windows Analytics, además de cualquier dato adicional de telemetría correspondiente al nivel Mejorado. Este ajuste no tiene efecto alguno en los equipos configurados para enviar a Microsoft datos de diagnóstico de los niveles Completo, Básico o Seguridad.
+
+Si deshabilitas o no estableces esta configuración de directiva, los datos de diagnóstico enviados a Microsoft se determinan mediante la configuración de directiva Permitir telemetría.
+      </string>
+
+      <string id="AllowDeviceNameInDiagnosticData">Permitir que el nombre del dispositivo se envíe junto a los datos de diagnóstico de Windows</string>
+      <string id="AllowDeviceNameInDiagnosticData_Explain">Esta directiva permite que el nombre del dispositivo se envíe a Microsoft como parte de los datos de diagnóstico de Windows.
+
+Si deshabilitas o no estableces esta configuración de directiva, el nombre del dispositivo no se enviará a Microsoft como parte de los datos de diagnóstico de Windows.
+      </string>
+
+      <string id="ConfigureTelemetryOptInSettingsUx">Define la interfaz de usuario para configurar la participación en telemetría.</string>
+      <string id="ConfigureTelemetryOptInSettingsUx_1">Deshabilitar configuración de participación en telemetría</string>
+      <string id="ConfigureTelemetryOptInSettingsUx_2">Habilitar configuración de participación en telemetría</string>
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Esta configuración de directiva determina si las personas pueden cambiar sus propios niveles de telemetría en Configuración. Este ajuste debe usarse junto con la el ajuste Permitir telemetría.
+
+Si estableces esta configuración de directiva en "Deshabilitar configuración de participación en telemetría", los niveles de telemetría se deshabilitan en Configuración, lo que impide que las personas los modifiquen.
+
+Si estableces esta configuración de directiva en "Habilitar configuración de participación en telemetría" o no estableces esta configuración de directiva, las personas pueden cambiar sus propios niveles de telemetría en Configuración.
+
+Nota:
+Establece la configuración de directiva Permitir telemetría para evitar que las personas envíen datos de diagnóstico a Microsoft más allá del límite de la organización.
+      </string>
+
+      <string id="ConfigureTelemetryOptInChangeNotification">Configura las notificaciones de cambio de la participación en telemetría.</string>
+      <string id="ConfigureTelemetryOptInChangeNotification_1">Deshabilitar notificaciones de cambio de telemetría</string>
+      <string id="ConfigureTelemetryOptInChangeNotification_2">Habilitar notificaciones de cambio de telemetría</string>
+      <string id="ConfigureTelemetryOptInChangeNotification_Explain">
+          Esta configuración de directiva controla si un dispositivo muestra notificaciones sobre los niveles de telemetría cuando los usuarios inician sesión por primera vez, o cuando se producen cambios en la configuración. 
+          Si estableces esta configuración de directiva en "Deshabilitar notificaciones de cambio de telemetría", las notificaciones de nivel de telemetría dejarán de mostrarse.
+          Si estableces esta configuración de directiva en "Habilitar notificaciones de cambio de telemetría" o no defines esta configuración de directiva, las notificaciones de telemetría aparecerán en el primer inicio de sesión y cuando se produzcan cambios en la configuración.
+      </string>
+
+      <string id="DisableDeviceDelete">Deshabilitar la eliminación de datos de diagnóstico </string>
+      <string id="DisableDeviceDelete_Explain">
+          Esta configuración de directiva controla si el botón para eliminar datos de diagnóstico está habilitado en la página Configuración de diagnóstico y comentarios.
+          Si habilitas esta configuración de directiva, el botón para eliminar datos de diagnóstico se deshabilitará en la página Configuración y evitará que el dispositivo elimine los datos de diagnóstico que recopiló Microsoft. 
+          Si deshabilitas o no configuras esta configuración de directiva, el botón Eliminar datos de diagnóstico se habilitará en la página Configuración, lo que permite a los usuarios borrar todos los datos de diagnóstico que recopile Microsoft de dicho dispositivo.
+      </string>
+
+      <string id="DisableDiagnosticDataViewer">Deshabilitar el Visor de datos de diagnóstico. </string>
+      <string id="DisableDiagnosticDataViewer_Explain">
+          Esta configuración de directiva controla si los usuarios pueden activar y ejecutar el Visor de datos de diagnóstico desde la página Configuración de diagnóstico y comentarios.
+          Si habilitas esta configuración de directiva, el Visor de datos de diagnóstico no se habilitará en la página Configuración y evitará que el visor muestre los datos de diagnóstico que recopiló Microsoft desde el dispositivo.  
+          Si deshabilitas o no configuras estas opciones de directiva, el Visor de datos de diagnóstico se habilitará en la página Configuración.
+      </string>
+
+      <string id="ConfigureMicrosoft365UploadEndpoint">Configurar el punto de conexión de carga de datos de diagnóstico para Análisis de escritorio</string>
+      <string id="ConfigureMicrosoft365UploadEndpoint_Explain">
+          Esta directiva establece el punto de conexión de carga para los datos de diagnóstico de este dispositivo como parte del programa Análisis de escritorio.
+          Si la organización participa en el programa y se le ha indicado que configure un punto de conexión de carga personalizado, use esta opción para definir dicho punto de conexión.
+          Microsoft proporcionará el valor de esta configuración como parte del proceso de incorporación del programa. 
+      </string>
+
+      <string id="AllowCommercialDataPipeline">Permitir canalización de datos comerciales</string>
+      <string id="AllowCommercialDataPipeline_Explain">
+          AllowCommercialDataPipeline permite que el dispositivo participe en la canalización de datos empresariales de Windows.
+          Si habilita esta opción, los datos recopilados del dispositivo participarán en la canalización de datos empresariales de Windows.
+          Si deshabilitas o no estableces esta configuración, todos los datos del dispositivo se recopilarán y procesarán de acuerdo con nuestras directivas para la canalización de datos estándar de Windows.
+          Si estableces esta configuración, no se cambiará el nivel de re colección de datos de telemetría ni la capacidad del usuario de cambiar el nivel. Esta configuración solo se aplica al sistema operativo Windows y a las aplicaciones incluidas con Windows, no a las aplicaciones o servicios de terceros que se ejecutan en Windows 10.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="TelemetryProxy">
+        <textBox refId="TelemetryProxyName">
+          <label>Nombre de servidor proxy:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CommercialID">
+        <textBox refId="CommercialIdValue">
+          <label>Id. comercial:</label>
+        </textBox>
+      </presentation>
+      <presentation id="DisableEnterpriseAuthProxy">
+        <dropdownList refId="DisableEnterpriseAuthProxy" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="LimitEnhancedDiagnosticDataWindowsAnalytics">
+        <dropdownList refId="LimitEnhancedDiagnosticDataWindowsAnalytics" noSort="true" defaultItem="0"></dropdownList>
+      </presentation>
+      <presentation id="ConfigureTelemetryOptInSettingsUx">
+        <dropdownList refId="ConfigureTelemetryOptInSettingsUx" noSort="true" defaultItem="0"></dropdownList>
+      </presentation>
+      <presentation id="ConfigureTelemetryOptInChangeNotification">
+        <dropdownList refId="ConfigureTelemetryOptInChangeNotification" noSort="true" defaultItem="0"></dropdownList>
+      </presentation>
+      <presentation id="ConfigureMicrosoft365UploadEndpoint">
+        <textBox refId="ConfigureMicrosoft365UploadEndpointValue">
+          <label>Punto de conexión de carga personalizado de Análisis de escritorio:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

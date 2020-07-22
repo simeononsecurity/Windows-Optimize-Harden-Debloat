@@ -1,0 +1,202 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="VMwareUEMFlexEngine" namespace="VMwareUEM.Policies.FlexEngine.8.6" />
+    <using prefix="VMwareUEM" namespace="VMwareUEM.Policies.Root" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="PlatformSupport" displayName="$(string.PlatformSupport)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="Cat_FlexPlus" displayName="$(string.Cat_FlexPlus)" explainText="$(string.Cat_FlexPlus_Help)">
+      <parentCategory ref="VMwareUEM:Cat_Immidio"/>
+    </category>
+  </categories>
+  <policies>
+    <policy name="FlexConfigFilesPath" class="User" displayName="$(string.FlexConfigFilesPath)" explainText="$(string.FlexConfigFilesPath_Help)" presentation="$(presentation.FlexConfigFilesPath)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <text id="Txt_FlexConfigFilesPath" valueName="IniFilePath" required="true" expandable="true"/>
+        <boolean id="Chk_FlexConfigFilesPath" valueName="Recursive">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><decimal value="0" /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="ProfileArchivePath" class="User" displayName="$(string.ProfileArchivePath)" explainText="$(string.ProfileArchivePath_Help)" presentation="$(presentation.ProfileArchivePath)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <text id="Txt_ProfileArchivePath" valueName="ProfileArchivePath" required="true" expandable="true" />
+        <boolean id="Chk_HideProfileArchiveFolder" valueName="HideProfileArchiveFolder">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_ProfileArchiveCompression" valueName="CompressArchives">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><decimal value="0" /></falseValue>
+        </boolean>
+        <boolean id="Chk_RetainFileModificationDates" valueName="RestoreLastModified">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="ProfileArchiveBackups" class="User" displayName="$(string.ProfileArchiveBackups)" explainText="$(string.ProfileArchiveBackups_Help)" presentation="$(presentation.ProfileArchiveBackups)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <text id="Txt_ProfileArchiveBackups" valueName="BackupPath" required="true" expandable="true" />
+        <boolean id="Chk_HideBackupFolder" valueName="HideBackupFolder">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <decimal id="Dec_ProfileArchiveBackupCount" valueName="BackupCount" required="true" />
+        <boolean id="Chk_BackupDaily" valueName="BackupDaily">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="FlexEngineGPExt" clientExtension="{007F7799-28F8-4c22-AF9D-C80E8555723E}" class="User" displayName="$(string.FlexEngineGPExt)" explainText="$(string.FlexEngineGPExt_Help)" key="Software\Policies\Immidio\Flex Profiles\Arguments" valueName="GPClientSideExtension">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="FlexEngineLogFile" class="User" displayName="$(string.FlexEngineLogFile)" explainText="$(string.FlexEngineLogFile_Help)" presentation="$(presentation.FlexEngineLogFile)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <text id="Txt_FlexEngineLogFile" valueName="LogFileName" required="true" expandable="true" />
+        <enum id="List_FlexEngineLogLevel" valueName="LogLevel" required="true">
+          <item displayName="$(string.Item_LogLevelDebug)"><value><decimal value="0" /></value></item>
+          <item displayName="$(string.Item_LogLevelInfo)"><value><decimal value="1" /></value></item>
+          <item displayName="$(string.Item_LogLevelWarn)"><value><decimal value="2" /></value></item>
+          <item displayName="$(string.Item_LogLevelError)"><value><decimal value="3" /></value></item>
+          <item displayName="$(string.Item_LogLevelFatal)"><value><decimal value="4" /></value></item>
+        </enum>
+        <decimal id="Dec_MaxLogFileSize" valueName="MaximumLogFileSize" required="true" maxValue="2147483647" />
+        <boolean id="Chk_LogProfileArchiveFolderSize" valueName="LogProfileArchiveFolderSize">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="DirectFlex" class="User" displayName="$(string.DirectFlex)" explainText="$(string.DirectFlex_Help)" presentation="$(presentation.DirectFlex)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlus"/>
+      <supportedOn ref="PlatformSupport"/>
+      <elements>
+        <boolean id="Chk_OnlyExportAtLogoff" valueName="OnlyExportAtLogoff">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_ShowDirectFlexNotifications" valueName="DirectFlexNotification">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <decimal id="Dec_NotificationDelay" valueName="DirectFlexNotificationDelay" required="true" />
+        <boolean id="Chk_HideExitNotification" valueName="DirectFlexHideExitNotification">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="ShowProgressInformation" class="User" displayName="$(string.ShowProgressInformation)" explainText="$(string.ShowProgressInformation_Help)" key="Software\Policies\Immidio\Flex Profiles\Arguments" valueName="Verbose">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="SiloSpecific" class="User" displayName="$(string.SiloSpecific)" explainText="$(string.SiloSpecific_Help)" presentation="$(presentation.SiloSpecific)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <text id="Txt_SiloIniFilePath" valueName="SiloIniFilePath" required="true" expandable="true" />
+        <text id="Txt_SiloSuffix" valueName="SiloSuffix" />
+      </elements>
+    </policy>
+    <policy name="CertificateSupport" class="User" displayName="$(string.CertificateSupport)" explainText="$(string.CertificateSupport_Help)" key="Software\Policies\Immidio\Flex Profiles\Arguments" valueName="CertificateSupport">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="RefreshSettings" class="User" displayName="$(string.RefreshSettings)" explainText="$(string.RefreshSettings_Help)" presentation="$(presentation.RefreshSettings)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <boolean id="Chk_RefreshWindowsAppearance" valueName="RefreshWindowsAppearance">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_RefreshMouseSettings" valueName="RefreshMouseSettings">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_RefreshKeyboardSettings" valueName="RefreshKeyboardSettings">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="EventLog" class="User" displayName="$(string.EventLog)" explainText="$(string.EventLog_Help)" presentation="$(presentation.EventLog)" key="Software\Policies\Immidio\Flex Profiles\Arguments" valueName="EventLog">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <boolean id="Chk_EventLogAsync" valueName="EventLogAsync">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_EventLogDirectFlexRefresh" valueName="EventLogDirectFlexRefresh">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <boolean id="Chk_EventLogUEMRefresh" valueName="EventLogUEMRefresh">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+        <decimal id="Dec_EventLogMaxFileSize" valueName="EventLogMaxFileSize" maxValue="2147483647" />
+        <decimal id="Dec_EventLogMaxFolderSize" valueName="EventLogMaxFolderSize" maxValue="2147483647" />
+        <boolean id="Chk_EventLogIncludeBackupFolder" valueName="EventLogIncludeBackupFolder">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><delete /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="SelfSupport" class="User" displayName="$(string.SelfSupport)" explainText="$(string.SelfSupport_Help)" key="Software\Policies\Immidio\Flex Profiles\Self-Support Tool" valueName="Disallowed">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="MissingPathsAtLogon" class="User" displayName="$(string.MissingPathsAtLogon)" explainText="$(string.MissingPathsAtLogon_Help)" presentation="$(presentation.MissingPathsAtLogon)" key="Software\Policies\Immidio\Flex Profiles\Arguments">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <enum id="List_ConfigPathMissing" valueName="ConfigPathMissingAction" required="true">
+          <item displayName="$(string.Item_MissingPathSkip)"><value><decimal value="0" /></value></item>
+          <item displayName="$(string.Item_MissingPathLogoff)"><value><decimal value="1000" /></value></item>
+        </enum>
+        <text id="Txt_ConfigPathMissing" valueName="ConfigPathMissingMessage" required="false" expandable="true" />
+        <decimal id="Dec_ConfigPathMissingMessageTimeout" valueName="ConfigPathMissingMessageTimeout" required="false" maxValue="10000" />
+        <enum id="List_ArchivePathMissing" valueName="ArchivePathMissingAction" required="true">
+          <item displayName="$(string.Item_MissingPathSkip)"><value><decimal value="0" /></value></item>
+          <item displayName="$(string.Item_MissingPathUem)"><value><decimal value="1" /></value></item>
+          <item displayName="$(string.Item_MissingPathLogoff)"><value><decimal value="1000" /></value></item>
+        </enum>
+        <text id="Txt_ArchivePathMissing" valueName="ArchivePathMissingMessage" required="false" expandable="true" />
+        <decimal id="Dec_ArchivePathMissingMessageTimeout" valueName="ArchivePathMissingMessageTimeout" required="false" maxValue="10000" />
+      </elements>
+    </policy>
+    <policy name="ApplicationBlockingLog" class="User" displayName="$(string.ApplicationBlockingLog)" explainText="$(string.ApplicationBlockingLog_Help)" key="Software\Policies\Immidio\Flex Profiles\Arguments" valueName="AppBlockingEventLog">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="PrivilegeElevationLog" class="User" displayName="$(string.PrivilegeElevationLog)" explainText="$(string.PrivilegeElevationLog_Help)" presentation="$(presentation.PrivilegeElevationLog)" key="Software\Policies\Immidio\Flex Profiles\Arguments" valueName="PrivilegeElevationEventLog">
+      <parentCategory ref="Cat_FlexPlus" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <boolean id="Chk_DeElevationEventLog" valueName="DeElevationEventLog">
+          <trueValue><decimal value="1" /></trueValue>
+          <falseValue><decimal value="0" /></falseValue>
+        </boolean>
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

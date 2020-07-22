@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="vdm_printerRedirtion" namespace="VMware.Policies.vdm_printerRedirtion" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_NotSpecified" displayName="$(string.SUPPORTED_NotSpecified)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="VMwarePrintRedirection" displayName="$(string.print_redir)" />
+  </categories>
+  <policies>
+    <policy name="PersistenceSetting" class="Machine" displayName="$(string.persistence_setting)" explainText="$(string.persistence_setting_detail)" key="Software\Policies\VMware, Inc.\VMware VDM\PrintRedir" valueName="DisablePersistence">
+      <parentCategory ref="VMwarePrintRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+    </policy>
+    <policy name="NonDesktopClientSetting" class="Machine" displayName="$(string.nondesktopclient_setting)" explainText="$(string.nondesktopclient_setting_detail)" key="Software\Policies\VMware, Inc.\VMware VDM\PrintRedir" valueName="DisableNonDesktopClient">
+      <parentCategory ref="VMwarePrintRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+    </policy>
+    <policy name="LBPSetting" class="Machine" displayName="$(string.lbp_setting)" explainText="$(string.lbp_setting_detail)" key="Software\Policies\VMware, Inc.\VMware VDM\PrintRedir" valueName="DisableLBP">
+      <parentCategory ref="VMwarePrintRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+    </policy>
+    <policy name="PrinterCreationSetting" class="Machine" displayName="$(string.printer_creation_setting)" explainText="$(string.printer_creation_setting_detail)" presentation="$(presentation.PrinterCreationSetting)" key="Software\Policies\VMware, Inc.\VMware VDM\PrintRedir">
+      <parentCategory ref="VMwarePrintRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="printer_creation_setting_list" valueName="PrinterCreationSetting" required="true">
+          <item displayName="$(string.printer_creation_setting_npd)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.printer_creation_setting_upd)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.printer_creation_setting_npd_upd)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.printer_creation_setting_upd_npd)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+   </policy>
+    <policy name="printer_filter" class="Machine" displayName="$(string.printer_filter)"
+            explainText="$(string.printer_filter_desc)"
+            key="Software\Policies\VMware, Inc.\VMware VDM\PrintRedir"
+            presentation="$(presentation.printer_filter)">
+      <parentCategory ref="VMwarePrintRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text valueName="PrinterFilterString" id="printer_filter_textbox" />
+      </elements>
+    </policy>
+    <policy name="PrintPreviewSetting" class="Machine" displayName="$(string.print_preview_setting)" explainText="$(string.print_preview_setting_detail)" presentation="$(presentation.PrintPreviewSetting)" key="Software\Policies\VMware, Inc.\VMware VDM\PrintRedir" >
+      <parentCategory ref="VMwarePrintRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <boolean id="disable_print_choice" valueName="DisablePrintChoice">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <enum id="default_choice_list" valueName="DefaultChoice" required="true">
+          <item displayName="$(string.print_directly)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.print_to_preview)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="PrinterNameSchema" class="Machine" displayName="$(string.printer_name_schema)"
+            explainText="$(string.printer_name_schema_desc)"
+            key="Software\Policies\VMware, Inc.\VMware VDM\PrintRedir"
+            presentation="$(presentation.printer_name_schema)">
+      <parentCategory ref="VMwarePrintRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text valueName="PrinterNameSchema" id="printer_name_schema_textbox" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2014-2018 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>MS Security Guide</displayName>
+  <description>MS Security Guide mitigations</description>
+  <resources>
+    <stringTable>
+
+      <string id="SUPPORTED_preWin81_2012R2">Only Windows 7, Windows Server 2008, Windows Server 2008R2, Windows Server 2012</string>
+      <string id="SUPPORTED_WindowsServer2008AndNewer">Windows Server 2008 and newer</string>
+
+      <string id="Cat_SecGuide">MS Security Guide</string>
+      <string id="Pol_SecGuide_LATFP">Apply UAC restrictions to local accounts on network logons</string>
+      <string id="Pol_SecGuide_LATFP_Help">This setting controls whether local accounts can be used for remote administration via network logon (e.g., NET USE, connecting to C$, etc.). Local accounts are at high risk for credential theft when the same account and password is configured on multiple systems.  Enabling this policy significantly reduces that risk.
+
+Enabled (recommended): Applies UAC token-filtering to local accounts on network logons. Membership in powerful group such as Administrators is disabled and powerful privileges are removed from the resulting access token. This configures the LocalAccountTokenFilterPolicy registry value to 0. This is the default behavior for Windows.
+
+Disabled: Allows local accounts to have full administrative rights when authenticating via network logon, by configuring the LocalAccountTokenFilterPolicy registry value to 1.
+
+For more information about local accounts and credential theft, see "Mitigating Pass-the-Hash (PtH) Attacks and Other Credential Theft Techniques": http://www.microsoft.com/en-us/download/details.aspx?id=36036.
+
+For more information about LocalAccountTokenFilterPolicy, see http://support.microsoft.com/kb/951016.
+      </string>
+      <string id="Pol_SecGuide_WDigestAuthn">WDigest Authentication (disabling may require KB2871997)</string>
+      <string id="Pol_SecGuide_WDigestAuthn_Help">When WDigest authentication is enabled, Lsass.exe retains a copy of the user's plaintext password in memory, where it can be at risk of theft. Microsoft recommends disabling WDigest authentication unless it is needed.
+
+If this setting is not configured, WDigest authentication is disabled in Windows 8.1 and in Windows Server 2012 R2; it is enabled by default in earlier versions of Windows and Windows Server.
+
+Update KB2871997 must first be installed to disable WDigest authentication using this setting in Windows 7, Windows 8, Windows Server 2008 R2 and Windows Server 2012.
+
+Enabled: Enables WDigest authentication.
+
+Disabled (recommended): Disables WDigest authentication. For this setting to work on Windows 7, Windows 8, Windows Server 2008 R2 or Windows Server 2012, KB2871997 must first be installed.
+
+For more information, see http://support.microsoft.com/kb/2871997 and http://blogs.technet.com/b/srd/archive/2014/06/05/an-overview-of-kb2871997.aspx .
+      </string>
+      <string id="Pol_SecGuide_LsassAudit">Lsass.exe audit mode</string>
+      <string id="Pol_SecGuide_LsassAudit_Help">Enable auditing of Lsass.exe to evaluate feasibility of enabling LSA protection. For more information, see http://technet.microsoft.com/en-us/library/dn408187.aspx</string>
+      <string id="Pol_SecGuide_LsassRunAsPPL">LSA Protection</string>
+      <string id="Pol_SecGuide_LsassRunAsPPL_Help">Enable LSA protection. For more information, see http://technet.microsoft.com/en-us/library/dn408187.aspx</string>
+      <string id="Pol_SecGuide_RemoveRunasdifferentuser">Remove "Run As Different User" from context menus</string>
+      <string id="Pol_SecGuide_RemoveRunasdifferentuser_Help">This setting controls whether "Run As Different User" appears on the Shift+RightClick context menu for .bat, .cmd, .exe, and .msc files.
+
+Enabled (recommended): Keeps "Run As Different User" from appearing in the context menu when the user holds Shift while right-clicking on a .bat, .cmd, .exe, or .msc file in Explorer.
+
+Disabled: Restores the Windows default behavior for "Run As Different User."
+      </string>
+
+      <string id="Pol_SecGuide_WDPUA">Turn on Windows Defender protection against Potentially Unwanted Applications (DEPRECATED)</string>
+      <string id="Pol_SecGuide_WDPUA_Help">If this setting is enabled, Windows Defender protects against Potentially Unwanted Applications. For more information, see https://blogs.technet.microsoft.com/mmpc/2015/11/25/shields-up-on-potentially-unwanted-applications-in-your-enterprise/.
+
+If this setting is disabled or not configured, Potentially Unwanted Application protection is disabled.
+
+Beginning with Windows 10 v1809 and Windows Server 2019, this functionality should instead be configured through the following Group Policy setting:
+Computer Configuration\Administrative Templates\Windows Components\Windows Defender Antivirus, Configure detection for potentially unwanted applications.
+</string>
+
+      <string id="Pol_SecGuide_SEHOP">Enable Structured Exception Handling Overwrite Protection (SEHOP)</string>
+      <string id="Pol_SecGuide_SEHOP_Help">If this setting is enabled, SEHOP is enforced. For more information, see https://support.microsoft.com/en-us/help/956607/how-to-enable-structured-exception-handling-overwrite-protection-sehop-in-windows-operating-systems.
+
+If this setting is disabled or not configured, SEHOP is not enforced for 32-bit processes.
+</string>
+      <string id="Pol_SecGuide_SMBv1Server">Configure SMB v1 server</string>
+      <string id="Pol_SecGuide_SMBv1Server_Help">Disabling this setting disables server-side processing of the SMBv1 protocol. (Recommended.)
+
+Enabling this setting enables server-side processing of the SMBv1 protocol. (Default.)
+
+Changes to this setting require a reboot to take effect.
+
+For more information, see https://support.microsoft.com/kb/2696547
+      </string>
+      <string id="Pol_SecGuide_SMBv1ClientDriver">Configure SMB v1 client driver</string>
+      <string id="Pol_SecGuide_SMBv1ClientDriver_Help">Configures the SMB v1 client driver's start type.
+
+To disable client-side processing of the SMBv1 protocol, select the "Enabled" radio button, then select "Disable driver" from the dropdown.
+WARNING: DO NOT SELECT THE "DISABLED" RADIO BUTTON UNDER ANY CIRCUMSTANCES!
+
+For Windows 7 and Servers 2008, 2008R2, and 2012, you must also configure the "Configure SMB v1 client (extra setting needed for pre-Win8.1/2012R2)" setting.
+
+To restore default SMBv1 client-side behavior, select "Enabled" and choose the correct default from the dropdown:
+* "Manual start" for Windows 7 and Windows Servers 2008, 2008R2, and 2012;
+* "Automatic start" for Windows 8.1 and Windows Server 2012R2 and newer.
+
+Changes to this setting require a reboot to take effect.
+
+For more information, see https://support.microsoft.com/kb/2696547 
+      </string>
+      <string id="Pol_SecGuide_SMBv1ClientLMWkstaDepends">Configure SMB v1 client (extra setting needed for pre-Win8.1/2012R2)</string>
+      <string id="Pol_SecGuide_SMBv1ClientLMWkstaDepends_Help">APPLIES ONLY TO: Windows 7 and Windows Servers 2008, 2008R2 and 2012 (NOT 2012R2):
+
+To disable client-side processing of the SMBv1 protocol (recommended), do ALL of the following:
+* Set the SMBv1 client driver to "Disable driver" using the "Configure SMB v1 client driver" setting;
+* Enable this setting;
+* In the "Configure LanmanWorkstation dependencies" text box, enter the following three lines of text:
+Bowser
+MRxSmb20
+NSI
+
+To restore the default behavior for client-side SMBv1 protocol processing, do ALL of the following:
+* Set the SMBv1 client driver to "Manual start" using the "Configure SMB v1 client driver" setting;
+* Enable this setting;
+* In the "Configure LanmanWorkstation dependencies" text box, enter the following four lines of text:
+Bowser
+MRxSmb10
+MRxSmb20
+NSI
+
+WARNING: DO NOT SELECT THE "DISABLED" RADIO BUTTON UNDER ANY CIRCUMSTANCES!
+
+Changes to this setting require a reboot to take effect.
+
+For more information, see https://support.microsoft.com/kb/2696547
+</string>
+      <string id="SMB1DriverDisable">Disable driver (recommended)</string>
+      <string id="SMB1DriverManualStart">Manual start (default for Win7/2008/2008R2/2012)</string>
+      <string id="SMB1DriverAutomaticStart">Automatic start (default for Win8.1/2012R2/newer)</string>
+
+
+<!-- NetBT NodeTYpe -->
+<string id="Pol_SecGuide_NetbtNodeTypeCfg">NetBT NodeType configuration</string>
+<string id="Pol_SecGuide_NetbtNodeTypeCfg_Help">The NetBT NodeType setting determines what methods NetBT uses to register and resolve names:
+* A B-node computer uses broadcasts.
+* A P-node computer uses only point-to-point name queries to a name server (WINS).
+* An M-node computer broadcasts first, and then queries the name server.
+* An H-node computer queries the name server first, and then broadcasts.
+Resolution through LMHOSTS or DNS follows these methods. If the NodeType value is present, it overrides any DhcpNodeType value.
+If neither NodeType nor DhcpNodeType is present, the computer uses B-node if there are no WINS servers configured for the network, or H-node if there is at least one WINS server configured.
+</string>
+<string id="NetBtNodeTypeB">B-node</string>
+<string id="NetBtNodeTypeP">P-node (recommended)</string>
+<string id="NetBtNodeTypeM">M-node</string>
+<string id="NetBtNodeTypeH">H-node</string>
+
+
+<!-- LdapEnforceChannelBinding -->
+<string id="Pol_SecGuide_LdapEnforceChannelBinding">Extended Protection for LDAP Authentication (Domain Controllers only)</string>
+<string id="Pol_SecGuide_LdapEnforceChannelBinding_Help">Configures the LdapEnforceChannelBinding registry value to increase protection against "man-in-the-middle" attack.
+For more information, see https://support.microsoft.com/help/4034879 . Some important points:
+* Before configuring this setting to "Enabled, always," all clients must have installed the security update described in CVE-2017-8563 (https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2017-8563).
+* See additional support requirements for Windows Server 2008 in linked pages.
+</string>
+<string id="LdapEnforce_Always">Enabled, always (recommended)</string>
+<string id="LdapEnforce_WhenSupported">Enabled, when supported</string>
+<string id="LdapEnforce_Disabled">Disabled</string>
+
+
+      <string id="Pol_SecGuide_Block_Flash">Block Flash activation in Office documents</string>
+      <string id="Pol_SecGuide_Block_Flash_Help">This policy setting controls whether the Adobe Flash control can be activated by Office documents. Note that activation blocking applies only within Office processes.
+
+If you enable this policy setting, you can choose from three options to control whether and how Flash is blocked from activation:
+
+1. "Block all activation" prevents the Flash control from being loaded, whether directly referenced by the document or indirectly by another embedded object.
+
+2. "Block embedding/linking, allow other activation" prevents the Flash control from being loaded when directly referenced by the document, but does not prevent activation through another object.
+
+3. "Allow all activation" restores Office's default behavior, allowing the Flash control to be activated.
+
+Because this setting is not a true Group Policy setting and "tattoos" the registry, enabling the "Allow all activation" option is the only way to restore default behavior after either of the "Block" options has been applied. We do not recommend configuring this setting to "Disabled," nor to "Not Configured" after it has been enabled.
+</string>
+      <string id="BlockFlash_BlockActivation">Block all activation</string>
+      <string id="BlockFlash_BlockEmbedded">Block embedding/linking, allow other activation</string>
+      <string id="BlockFlash_AllowAll">Allow all activation</string>
+    </stringTable>
+
+      <presentationTable>
+          <presentation id="Pol_SecGuide_SMBv1ClientDriver">
+              <dropdownList refId="Pol_SecGuide_SMB1ClientDriver" noSort="true" defaultItem="0">Configure MrxSmb10 driver</dropdownList>
+          </presentation>
+          <presentation id="Pol_SecGuide_SMBv1ClientWin7">
+              <multiTextBox refId="Pol_SecGuide_SMB1Win7LMSDepends">Configure LanmanWorkstation dependencies</multiTextBox>
+          </presentation>
+          <presentation id="Pol_SecGuide_NetbtNodeTypeCfg">
+              <dropdownList refId="Pol_SecGuide_SecGuide_NetbtNodeTypeCfg" noSort="true" defaultItem="0">Configure NetBT NodeType</dropdownList>
+          </presentation>
+          <presentation id="Pol_SecGuide_LdapEnforceChannelBinding">
+              <dropdownList refId="Pol_SecGuide_LdapEnforceChannelBinding" noSort="true" defaultItem="0">Configure LdapEnforceChannelBinding</dropdownList>
+          </presentation>
+          <presentation id="Pol_SecGuide_Block_Flash">
+              <dropdownList refId="Pol_SecGuide_Block_Flash" noSort="true" defaultItem="0">Block Flash player in Office</dropdownList>
+          </presentation>
+      </presentationTable>
+
+  </resources>
+
+</policyDefinitionResources>

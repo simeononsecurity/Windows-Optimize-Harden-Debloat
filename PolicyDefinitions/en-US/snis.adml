@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>enter display name here</displayName>
+  <description>enter description here</description>
+  <resources>
+    <stringTable>
+      <string id="Snis">Server for NIS</string>
+      <string id="Snis_LoggingLevel">Turn on extensive logging for Active Directory Domain Services domain controllers that are running Server for NIS</string>
+      <string id="Snis_LoggingLevel_Help">This policy setting allows an administrator to configure extensive logging for computers that are running Server for Network Information Service (NIS).
+
+If you enable this policy setting, intermediate steps of NIS map updates or propagations, and whether map updates are successful, are logged for all affected computers that are running Server for NIS.
+
+If you disable or do not configure this policy setting, individual computers that are running the Server for NIS log steps of map propagations based upon how the "NIS map propagation logging" policy setting on the Logging tab of the Server for NIS Properties dialog box is configured.</string>
+      <string id="Snis_PushInterval">Set the map update interval for NIS subordinate servers</string>
+      <string id="Snis_PushInterval_Help">This policy setting allows a Server for NIS administrator to configure an update interval for pushing Network Information Service (NIS) maps to NIS subordinate servers.
+
+If you enable this policy setting, the map update interval specified in this policy setting is applied to all affected domain controllers that are running Server for NIS.
+
+If you disable or do not configure this policy setting, individual computers that are running Server for NIS use the map update interval specified on the General tab of the Server for NIS Properties dialog box.
+
+Note: Valid values for intervals are whole numbers in the following ranges: days, 0 through 99999; hours, 0 through 23; minutes, 0 through 59. The default value, if the policy setting is enabled, is one day.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Snis_PushInterval">
+        <decimalTextBox refId="Snis_PushInterval" defaultValue="1440">Set update interval for NIS subordinate servers</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

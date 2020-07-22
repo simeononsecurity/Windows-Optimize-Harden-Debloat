@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="ospolicy" namespace="Microsoft.Policies.OSPolicy" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="PolicyPolicies" displayName="$(string.PolicyPolicies)">
+      <parentCategory ref="windows:System" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="EnableActivityFeed" class="Machine" displayName="$(string.EnableActivityFeed)" explainText="$(string.EnableActivityFeed_Help)" key="Software\Policies\Microsoft\Windows\System" valueName="EnableActivityFeed">
+      <parentCategory ref="PolicyPolicies" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="PublishUserActivities" class="Machine" displayName="$(string.PublishUserActivities)" explainText="$(string.PublishUserActivities_Help)" key="Software\Policies\Microsoft\Windows\System" valueName="PublishUserActivities">
+      <parentCategory ref="PolicyPolicies" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="UploadUserActivities" class="Machine" displayName="$(string.UploadUserActivities)" explainText="$(string.UploadUserActivities_Help)" key="Software\Policies\Microsoft\Windows\System" valueName="UploadUserActivities">
+      <parentCategory ref="PolicyPolicies" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="AllowCrossDeviceClipboard" class="Machine" displayName="$(string.AllowCrossDeviceClipboard)" explainText="$(string.AllowCrossDeviceClipboard_Help)" key="Software\Policies\Microsoft\Windows\System" valueName="AllowCrossDeviceClipboard">
+      <parentCategory ref="PolicyPolicies" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="AllowClipboardHistory" class="Machine" displayName="$(string.AllowClipboardHistory)" explainText="$(string.AllowClipboardHistory_Help)" key="Software\Policies\Microsoft\Windows\System" valueName="AllowClipboardHistory">
+      <parentCategory ref="PolicyPolicies" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

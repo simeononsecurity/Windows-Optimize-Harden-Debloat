@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="perfcentercpl" namespace="Microsoft.Policies.PerfCenterCPL" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="PERF" displayName="$(string.PERF)">
+      <parentCategory ref="windows:System" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="PerfCpl" class="Both" displayName="$(string.PerfCpl)" explainText="$(string.PerfCplEnabledDescription_Help)" key="Software\Policies\Microsoft\Windows\Control Panel\Performance Control Panel" valueName="PerfCplEnabled">
+      <parentCategory ref="PERF" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+    <policy name="PerfSolutions" class="Both" displayName="$(string.PerfSolutions)" explainText="$(string.PerfSolutionsEnabledDescription_Help)" key="Software\Policies\Microsoft\Windows\Control Panel\Performance Control Panel" valueName="SolutionsEnabled">
+      <parentCategory ref="PERF" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+    <policy name="Upsell" class="Both" displayName="$(string.Upsell)" explainText="$(string.UpsellEnabledDescription_Help)" key="Software\Policies\Microsoft\Windows\Control Panel\Performance Control Panel" valueName="UpsellEnabled">
+      <parentCategory ref="PERF" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Directiva de grupo de licencias</displayName>
+  <description>Directiva de grupo de licencias</description>
+  <resources>
+    <stringTable>
+        <string id="NoAcquireGT">Desactivar validación AVS en línea del cliente KMS</string>
+        <string id="NoAcquireGT_Help"> 
+    Esta configuración de directiva permite dejar de enviar datos de activación del cliente KMS a Microsoft automáticamente. Si habilita esta opción, se impide al PC enviar datos a Microsoft en relación con su estado de activación.
+    Si deshabilita o no establece esta configuración de directiva, los datos de activación del cliente KMS se enviarán a los servicios Microsoft cuando se active el dispositivo. 
+    Opciones de directiva: 
+        -   No configurado (valor predeterminado, los datos se enviarán automáticamente a Microsoft)
+        -   Deshabilitado (los datos se enviarán automáticamente a Microsoft)
+        -   Habilitado (los datos no se enviarán a Microsoft)
+        </string>
+        <string id="AllowWindowsEntitlementReactivation">Controlar la reactivación de dispositivos comerciales</string>
+        <string id="AllowWindowsEntitlementReactivation_Help"> 
+            Esta configuración de directiva controla si un dispositivo puede reactivar el registro del sistema operativo. 
+            Opciones de directiva: 
+                -   No configurada (valor predeterminado, se permiten el registro y la reactivación de Windows)
+                -   Deshabilitada (no se permiten el registro ni la reactivación de Windows)
+                -   Habilitada (se permite el registro de Windows)
+        </string>
+      <string id="SoftwareProtectionPlatform">Plataforma de protección de software</string>
+   </stringTable>
+  </resources>
+</policyDefinitionResources>

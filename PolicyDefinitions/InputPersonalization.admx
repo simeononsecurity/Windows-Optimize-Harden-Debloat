@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="inputpersonalization" namespace="Microsoft.Policies.InputPersonalization" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="InputPersonalization" displayName="$(string.InputPersonalization)">
+      <parentCategory ref="windows:TabletPC" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="ImplicitDataCollectionOff_1" class="User" displayName="$(string.ImplicitDataCollectionOff)" explainText="$(string.ImplicitDataCollectionOff_Help)" key="SOFTWARE\Policies\Microsoft\InputPersonalization">
+      <parentCategory ref="InputPersonalization" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledList>
+        <item key="SOFTWARE\Policies\Microsoft\InputPersonalization" valueName="RestrictImplicitTextCollection">
+          <value>
+            <decimal value="1" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\Microsoft\InputPersonalization" valueName="RestrictImplicitInkCollection">
+          <value>
+            <decimal value="1" />
+          </value>
+        </item>
+      </enabledList>
+      <disabledList>
+        <item key="SOFTWARE\Policies\Microsoft\InputPersonalization" valueName="RestrictImplicitTextCollection">
+          <value>
+            <decimal value="0" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\Microsoft\InputPersonalization" valueName="RestrictImplicitInkCollection">
+          <value>
+            <decimal value="0" />
+          </value>
+        </item>
+      </disabledList>
+    </policy>
+    <policy name="ImplicitDataCollectionOff_2" class="Machine" displayName="$(string.ImplicitDataCollectionOff)" explainText="$(string.ImplicitDataCollectionOff_Help)" key="SOFTWARE\Policies\Microsoft\InputPersonalization">
+      <parentCategory ref="InputPersonalization" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledList>
+        <item key="SOFTWARE\Policies\Microsoft\InputPersonalization" valueName="RestrictImplicitTextCollection">
+          <value>
+            <decimal value="1" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\Microsoft\InputPersonalization" valueName="RestrictImplicitInkCollection">
+          <value>
+            <decimal value="1" />
+          </value>
+        </item>
+      </enabledList>
+      <disabledList>
+        <item key="SOFTWARE\Policies\Microsoft\InputPersonalization" valueName="RestrictImplicitTextCollection">
+          <value>
+            <decimal value="0" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\Microsoft\InputPersonalization" valueName="RestrictImplicitInkCollection">
+          <value>
+            <decimal value="0" />
+          </value>
+        </item>
+      </disabledList>
+    </policy>
+  </policies>
+</policyDefinitions>

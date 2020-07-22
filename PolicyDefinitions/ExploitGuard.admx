@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2008 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="expguard" namespace="Microsoft.Policies.ExploitGuard" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="WindowsDefenderExploitGuard" displayName="$(string.WindowsDefenderExploitGuard)">
+      <parentCategory ref="windows:WindowsComponents" />
+    </category>
+    <category name="ExploitProtection" displayName="$(string.ExploitProtection)">
+      <parentCategory ref="WindowsDefenderExploitGuard" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="ExploitProtection_Name" class="Machine" displayName="$(string.ExploitProtection_Name)" explainText="$(string.ExploitProtection_Help)" key="Software\Policies\Microsoft\Windows Defender ExploitGuard\Exploit Protection" presentation="$(presentation.ExploitProtection_Name)">
+      <parentCategory ref="ExploitProtection" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+        <elements>
+          <text id="ExploitProtection_Name" valueName="ExploitProtectionSettings" required="true" maxLength="65535" />
+        </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

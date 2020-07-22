@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   revision="1.0"
+                   schemaVersion="1.0"
+                   xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+  <!-- Copyright 2005-2016 VMware, Inc.  All rights reserved. -->
+
+  <policyNamespaces >
+    <target prefix="ViewPM" namespace="VMware.Policies.ViewPM" />
+    <using prefix="vdm_agent_base" namespace="VMware.Policies.vdm_agent_base" />
+  </policyNamespaces>
+  <supersededAdm fileName="ViewPM.adm" />
+  <resources minRequiredRevision="1.0" fallbackCulture="en-us" />
+
+  <categories ><!--Storage for Category Definitions-->
+    <category name="Category_Persona_Management" displayName="$(string.String_Category_Persona_Management)" >
+      <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+    </category>
+    <category name="Category_Roaming_Synchronization" displayName="$(string.String_Category_Roaming_Synchronization)" >
+      <parentCategory ref="Category_Persona_Management" />
+    </category>
+    <category name="Category_Folder_Redirection" displayName="$(string.String_Category_Folder_Redirection)" >
+      <parentCategory ref="Category_Persona_Management" />
+    </category>
+    <category name="Category_Desktop_UI" displayName="$(string.String_Category_Desktop_UI)" >
+      <parentCategory ref="Category_Persona_Management" />
+    </category>
+    <category name="Category_Logging" displayName="$(string.String_Category_Logging)" >
+      <parentCategory ref="Category_Persona_Management" />
+    </category>
+  </categories>
+  <policies ><!--Storage for Policy Definitions-->
+
+    <policy name="Policy_Hide_local_offline"
+            class="Machine"
+            displayName="$(string.String_Policy_Hide_local_offline)"
+            explainText="$(string.String_Explain_Hide_local_offline)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+            valueName="HideOfflineIcon (0x00000001)"
+            presentation="$(presentation.Present_Hide_local_offline)" >
+      <parentCategory ref="Category_Desktop_UI" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="Policy_Show_progress"
+            class="Machine"
+            displayName="$(string.String_Policy_Show_progress)"
+            explainText="$(string.String_Explain_Show_progress)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Helper Flags"
+            valueName="HideFileCopyProgress (0x00000008)"
+            presentation="$(presentation.Present_Show_progress)" >
+      <parentCategory ref="Category_Desktop_UI" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="8" />
+      </disabledValue>
+      <elements >
+        <decimal id="Policy_Numeric_Show_progress"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+                 valueName="FileCopyMinSize"
+                 required="true"
+                 maxValue="4294967295"
+                 minValue="0" />
+      </elements>
+    </policy>
+    <policy name="Policy_Show_critical_errors"
+            class="Machine"
+            displayName="$(string.String_Policy_Show_critical_errors)"
+            explainText="$(string.String_Explain_Show_critical_errors)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Helper Flags"
+            valueName="EnableTrayIconErrorAlerts (0x00000001)"
+            presentation="$(presentation.Present_Show_critical_errors)" >
+      <parentCategory ref="Category_Desktop_UI" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="Policy_Add_the_administrators"
+            class="Machine"
+            displayName="$(string.String_Policy_Add_the_administrators)"
+            explainText="$(string.String_Explain_Add_the_administrators)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+            valueName="AddAdminGroup (0x40000000)"
+            presentation="$(presentation.Present_Add_the_administrators)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="1073741824" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="Policy_Files_and_folders_excluded_from_redirection"
+            class="Machine"
+            displayName="$(string.String_Policy_Files_and_folders_excluded_from_redirection)"
+            explainText="$(string.String_Explain_Files_and_folders_excluded_from_redirection)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+            presentation="$(presentation.Present_Files_and_folders_excluded_from_redirection)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <list id="Present_ListBox_Files_and_folders_excluded_from_redirection"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\FRExclusions" />
+      </elements>
+    </policy>
+    <policy name="Policy_Files_and_folders_excluded_from_redirection_exception"
+            class="Machine"
+            displayName="$(string.String_Policy_Files_and_folders_excluded_from_redirection_exception)"
+            explainText="$(string.String_Explain_Files_and_folders_excluded_from_redirection_exception)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+            presentation="$(presentation.Present_Files_and_folders_excluded_from_redirection_exception)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <list id="Present_ListBox_Policy_Files_and_folders_excluded_from_redirection_exception"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\FRExclusionsExceptions" />
+      </elements>
+    </policy>
+    <policy name="Policy_Application_Data"
+            class="Machine"
+            displayName="$(string.String_Policy_Application_Data)"
+            explainText="$(string.String_Explain_Application_Data)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Application_Data)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Application_Data"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="AppData" />
+      </elements>
+    </policy>
+    <policy name="Policy_Contacts"
+            class="Machine"
+            displayName="$(string.String_Policy_Contacts)"
+            explainText="$(string.String_Explain_Contacts)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Contacts)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Policy_Contacts"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="{56784854-C6CB-462B-8169-88E350ACB882}" />
+      </elements>
+    </policy>
+    <policy name="Policy_Cookies"
+            class="Machine"
+            displayName="$(string.String_Policy_Cookies)"
+            explainText="$(string.String_Explain_Cookies)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Cookies)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Cookies"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="Cookies" />
+      </elements>
+    </policy>
+    <policy name="Policy_Desktop"
+            class="Machine"
+            displayName="$(string.String_Policy_Desktop)"
+            explainText="$(string.String_Explain_Desktop)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Desktop)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Desktop"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="Desktop" />
+      </elements>
+    </policy>
+    <policy name="Policy_Downloads"
+            class="Machine"
+            displayName="$(string.String_Policy_Downloads)"
+            explainText="$(string.String_Explain_Downloads)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Downloads)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Downloads"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="{374DE290-123F-4565-9164-39C4925E467B}" />
+      </elements>
+    </policy>
+    <policy name="Policy_Favorites"
+            class="Machine"
+            displayName="$(string.String_Policy_Favorites)"
+            explainText="$(string.String_Explain_Favorites)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Favorites)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Favorites"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="Favorites" />
+      </elements>
+    </policy>
+    <policy name="Policy_History"
+            class="Machine"
+            displayName="$(string.String_Policy_History)"
+            explainText="$(string.String_Explain_History)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_History)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_History"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="History" />
+      </elements>
+    </policy>
+    <policy name="Policy_Links"
+            class="Machine"
+            displayName="$(string.String_Policy_Links)"
+            explainText="$(string.String_Explain_Links)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Links)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Links"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="{BFB9D5E0-C6A9-404C-B2B2-AE6DB6AF4968}" />
+      </elements>
+    </policy>
+    <policy name="Policy_My_Documents"
+            class="Machine"
+            displayName="$(string.String_Policy_My_Documents)"
+            explainText="$(string.String_Explain_My_Documents)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_My_Documents)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_My_Documents"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="Personal" />
+      </elements>
+    </policy>
+    <policy name="Policy_My_Music"
+            class="Machine"
+            displayName="$(string.String_Policy_My_Music)"
+            explainText="$(string.String_Explain_My_Music)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_My_Music)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_My_Music"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="My Music" />
+      </elements>
+    </policy>
+    <policy name="Policy_My_Pictures"
+            class="Machine"
+            displayName="$(string.String_Policy_My_Pictures)"
+            explainText="$(string.String_Explain_My_Pictures)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_My_Pictures)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_My_Pictures"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="My Pictures" />
+      </elements>
+    </policy>
+    <policy name="Policy_My_Videos"
+            class="Machine"
+            displayName="$(string.String_Policy_My_Videos)"
+            explainText="$(string.String_Explain_My_Videos)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_My_Videos)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_My_Videos"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="My Video" />
+      </elements>
+    </policy>
+    <policy name="Policy_Network_Neighborhood"
+            class="Machine"
+            displayName="$(string.String_Policy_Network_Neighborhood)"
+            explainText="$(string.String_Explain_Network_Neighborhood)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Network_Neighborhood)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Network_Neighborhood"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="NetHood" />
+      </elements>
+    </policy>
+    <policy name="Policy_Printer_Neighborhood"
+            class="Machine"
+            displayName="$(string.String_Policy_Printer_Neighborhood)"
+            explainText="$(string.String_Explain_Printer_Neighborhood)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Printer_Neighborhood)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Printer_Neighborhood"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="PrintHood" />
+      </elements>
+    </policy>
+    <policy name="Policy_Recent_Items"
+            class="Machine"
+            displayName="$(string.String_Policy_Recent_Items)"
+            explainText="$(string.String_Explain_Recent_Items)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Recent_Items)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Recent_Items"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="Recent" />
+      </elements>
+    </policy>
+    <policy name="Policy_Saved_Games"
+            class="Machine"
+            displayName="$(string.String_Policy_Saved_Games)"
+            explainText="$(string.String_Explain_Saved_Games)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Saved_Games)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Saved_Games"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="{4C5C32FF-BB9D-43B0-B5B4-2D72E54EAAA4}" />
+      </elements>
+    </policy>
+    <policy name="Policy_Searches"
+            class="Machine"
+            displayName="$(string.String_Policy_Searches)"
+            explainText="$(string.String_Explain_Searches)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Searches)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Searches"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="{7D1D3A04-DEBB-4115-95CF-2F29DA2920DA}" />
+      </elements>
+    </policy>
+    <policy name="Policy_Send_To"
+            class="Machine"
+            displayName="$(string.String_Policy_Send_To)"
+            explainText="$(string.String_Explain_Send_To)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Send_To)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Send_To"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="SendTo" />
+      </elements>
+    </policy>
+    <policy name="Policy_Start_Menu"
+            class="Machine"
+            displayName="$(string.String_Policy_Start_Menu)"
+            explainText="$(string.String_Explain_Start_Menu)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Start_Menu)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Start_Menu"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="Start Menu" />
+      </elements>
+    </policy>
+    <policy name="Policy_Startup_Items"
+            class="Machine"
+            displayName="$(string.String_Policy_Startup_Items)"
+            explainText="$(string.String_Explain_Startup_Items)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Startup_Items)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Startup_Items"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="Startup" />
+      </elements>
+    </policy>
+    <policy name="Policy_Templates"
+            class="Machine"
+            displayName="$(string.String_Policy_Templates)"
+            explainText="$(string.String_Explain_Templates)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Templates)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Templates"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="Templates" />
+      </elements>
+    </policy>
+    <policy name="Policy_Temporary_Internet"
+            class="Machine"
+            displayName="$(string.String_Policy_Temporary_Internet)"
+            explainText="$(string.String_Explain_Temporary_Internet)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+            presentation="$(presentation.Present_Temporary_Internet)" >
+      <parentCategory ref="Category_Folder_Redirection" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Temporary_Internet"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Redirected Folders"
+              valueName="Cache" />
+      </elements>
+    </policy>
+    <policy name="Policy_Logging_filename"
+            class="Machine"
+            displayName="$(string.String_Policy_Logging_filename)"
+            explainText="$(string.String_Explain_Logging_filename)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+            presentation="$(presentation.Present_Logging_filename)" >
+      <parentCategory ref="Category_Logging" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Logging_filename"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+              valueName="Log Path"
+              required="true" />
+      </elements>
+    </policy>
+    <policy name="Policy_Logging_destination"
+            class="Machine"
+            displayName="$(string.String_Policy_Logging_destination)"
+            explainText="$(string.String_Explain_Logging_destination)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugDestination"
+            presentation="$(presentation.Present_Logging_destination)" >
+      <parentCategory ref="Category_Logging" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <boolean id="Present_CheckBox_Logging_destination_file"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugDestination"
+                 valueName="LogToFile (0x00000002)" >
+          <trueValue >
+            <decimal value="2" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="Present_CheckBox_Logging_destination_port"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DebugDestination"
+                 valueName="LogToDebugPort (0x00000001)" >
+          <trueValue >
+            <decimal value="1" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="Policy_Logging_flags"
+            class="Machine"
+            displayName="$(string.String_Policy_Logging_flags)"
+            explainText="$(string.String_Explain_Logging_flags)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+            presentation="$(presentation.Present_Logging_flags)" >
+      <parentCategory ref="Category_Logging" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <enum id="Present_DropList_Logging_flags"
+              valueName="Log Levels"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+              required="true" >
+          <item displayName="$(string.String_Policy_DropList_Select_Logging_flags)" >
+            <value >
+              <decimal value="7" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="Policy_Log_History_Depth"
+            class="Machine"
+            displayName="$(string.String_Policy_Log_History_Depth)"
+            explainText="$(string.String_Explain_Log_History_Depth)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+            presentation="$(presentation.Present_Log_History_Depth)" >
+      <parentCategory ref="Category_Logging" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <decimal id="Present_Numeric_Log_History_Depth"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+                 valueName="LogHistoryDepth"
+                 required="true"
+                 maxValue="10"
+                 minValue="1" />
+      </elements>
+    </policy>
+    <policy name="Policy_Log_File_Size"
+            class="Machine"
+            displayName="$(string.String_Policy_Log_File_Size)"
+            explainText="$(string.String_Explain_Log_File_Size)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+            presentation="$(presentation.Present_Log_File_Size)" >
+      <parentCategory ref="Category_Logging" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <decimal id="Present_Numeric_Log_File_Size"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+                 valueName="LogFileSize"
+                 required="true"
+                 maxValue="1024"
+                 minValue="10" />
+      </elements>
+    </policy>
+    <policy name="Policy_Upload_log_to_network"
+            class="Machine"
+            displayName="$(string.String_Policy_Upload_log_to_network)"
+            explainText="$(string.String_Explain_Upload_log_to_network)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+            valueName="EnableUploadLogToNetwork (0x80000000)"
+            presentation="$(presentation.Present_Upload_log_to_network)" >
+      <parentCategory ref="Category_Logging" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="2147483648" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+      <elements >
+        <text id="Present_TextBox_Upload_log_to_network"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+              valueName="RemoteLogPath" />
+      </elements>
+    </policy>
+    <policy name="Policy_Manage_user_persona"
+            class="Machine"
+            displayName="$(string.String_Policy_Manage_user_persona)"
+            explainText="$(string.String_Explain_Manage_user_persona)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+            valueName="VPEnabled"
+            presentation="$(presentation.Present_Manage_user_persona)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+      <elements >
+        <decimal id="Present_Numeric_Manage_user_persona"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+                 valueName="UploadProfileInterval"
+                 required="true"
+                 minValue="1" />
+      </elements>
+    </policy>
+    <policy name="Policy_Persona_repository"
+            class="Machine"
+            displayName="$(string.String_Policy_Persona_repository)"
+            explainText="$(string.String_Explain_Persona_repository)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+            presentation="$(presentation.Present_Persona_repository)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <text id="Present_TextBox_Persona_repository"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+              valueName="CentralProfileStore"
+              required="true" />
+        <boolean id="Present_CheckBox_Persona_repository"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service"
+                 valueName="CentralProfileOverride" >
+          <trueValue >
+            <decimal value="1" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="Policy_Remove_local_persona"
+            class="Machine"
+            displayName="$(string.String_Policy_Remove_local_persona)"
+            explainText="$(string.String_Explain_Remove_local_persona)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+            valueName="DeleteLocalProfile (0x00000002)"
+            presentation="$(presentation.Present_Remove_local_persona)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="2" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+      <elements >
+        <boolean id="Present_CheckBox_Remove_local_persona"
+                 key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+                 valueName="DeleteLocalSettings (0x00001000)" >
+          <trueValue >
+            <decimal value="4096" />
+          </trueValue>
+          <falseValue >
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="Policy_Roam_local_settings"
+            class="Machine"
+            displayName="$(string.String_Policy_Roam_local_settings)"
+            explainText="$(string.String_Explain_Roam_local_settings)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+            presentation="$(presentation.Present_Roam_local_settings)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <enabledList >
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+              valueName="RoamLocalSettings (0x00004000)" >
+          <value >
+            <decimal value="16384" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+              valueName="RoamLocalSettings (0x00004000)" >
+          <value >
+            <decimal value="16384" />
+          </value>
+        </item>
+      </enabledList>
+      <disabledList >
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+              valueName="RoamLocalSettings (0x00004000)" >
+          <value >
+            <decimal value="0" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+              valueName="RoamLocalSettings (0x00004000)" >
+          <value >
+            <decimal value="0" />
+          </value>
+        </item>
+      </disabledList>
+    </policy>
+    <policy name="Policy_Files_and_folders_preload"
+            class="Machine"
+            displayName="$(string.String_Policy_Files_and_folders_preload)"
+            explainText="$(string.String_Explain_Files_and_folders_preload)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+            presentation="$(presentation.Present_Files_and_folders_preload)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <enabledList >
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+              valueName="DynamicRoamingFiles (0x00080000)" >
+          <value >
+            <decimal value="524288" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+              valueName="DynamicRoamingFiles (0x00080000)" >
+          <value >
+            <decimal value="524288" />
+          </value>
+        </item>
+      </enabledList>
+      <disabledList >
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+              valueName="DynamicRoamingFiles (0x00080000)" >
+          <value >
+            <decimal value="0" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+              valueName="DynamicRoamingFiles (0x00080000)" >
+          <value >
+            <decimal value="0" />
+          </value>
+        </item>
+      </disabledList>
+      <elements >
+        <list id="Present_ListBox_Files_and_folders_preload"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\ExcludedFiles" />
+      </elements>
+    </policy>
+    <policy name="Policy_Files_and_folders_preload_exceptions"
+            class="Machine"
+            displayName="$(string.String_Policy_Files_and_folders_preload_exceptions)"
+            explainText="$(string.String_Explain_Files_and_folders_preload_exceptions)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+            presentation="$(presentation.Present_Files_and_folders_preload_exceptions)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <list id="Present_ListBox_Files_and_folders_preload_exceptions"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\ExcludedFilesExclusions" />
+      </elements>
+    </policy>
+    <policy name="Policy_Windows_roaming"
+            class="Machine"
+            displayName="$(string.String_Policy_Windows_roaming)"
+            explainText="$(string.String_Explain_Windows_roaming)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+            presentation="$(presentation.Present_Windows_roaming)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <enabledList >
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+              valueName="BasicRoamingFiles (0x00040000)" >
+          <value >
+            <decimal value="262144" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+              valueName="BasicRoamingFiles (0x00040000)" >
+          <value >
+            <decimal value="262144" />
+          </value>
+        </item>
+      </enabledList>
+      <disabledList >
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+              valueName="BasicRoamingFiles (0x00040000)" >
+          <value >
+            <decimal value="0" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+              valueName="BasicRoamingFiles (0x00040000)" >
+          <value >
+            <decimal value="0" />
+          </value>
+        </item>
+      </disabledList>
+      <elements >
+        <list id="Present_ListBox_Windows_roaming"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\IgnoredDirs" />
+      </elements>
+    </policy>
+    <policy name="Policy_Windows_roaming_exceptions"
+            class="Machine"
+            displayName="$(string.String_Policy_Windows_roaming_exceptions)"
+            explainText="$(string.String_Explain_Windows_roaming_exceptions)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+            presentation="$(presentation.Present_Windows_roaming_exceptions)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <list id="Present_ListBox_Windows_roaming_exceptions"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\IgnoredDirsExclusions" />
+      </elements>
+    </policy>
+    <policy name="Policy_Files_and_folders_excluded_from_roaming"
+            class="Machine"
+            displayName="$(string.String_Policy_Files_and_folders_excluded_from_roaming)"
+            explainText="$(string.String_Explain_Files_and_folders_excluded_from_roaming)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+            presentation="$(presentation.Present_Files_and_folders_excluded_from_roaming)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <enabledList >
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+              valueName="DontRoamFiles (0x00200000)" >
+          <value >
+            <decimal value="2097152" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+              valueName="DontRoamFiles (0x00200000)" >
+          <value >
+            <decimal value="2097152" />
+          </value>
+        </item>
+      </enabledList>
+      <disabledList >
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+              valueName="DontRoamFiles (0x00200000)" >
+          <value >
+            <decimal value="0" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+              valueName="DontRoamFiles (0x00200000)" >
+          <value >
+            <decimal value="0" />
+          </value>
+        </item>
+      </disabledList>
+      <elements >
+        <list id="Present_ListBox_Files_and_folders_excluded_from_roaming"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\DontRoamFiles" />
+      </elements>
+    </policy>
+    <policy name="Policy_Files_and_folders_excluded_from_roaming_exceptions"
+            class="Machine"
+            displayName="$(string.String_Policy_Files_and_folders_excluded_from_roaming_exceptions)"
+            explainText="$(string.String_Explain_Files_and_folders_excluded_from_roaming_exceptions)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+            presentation="$(presentation.Present_Files_and_folders_excluded_from_roaming_exceptions)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <list id="Present_ListBox_Files_and_folders_excluded_from_roaming_exceptions"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\RoamedFiles" />
+      </elements>
+    </policy>
+    <policy name="Policy_Enable_background_download"
+            class="Machine"
+            displayName="$(string.String_Policy_Enable_background_download)"
+            explainText="$(string.String_Explain_Enable_background_download)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Helper Flags"
+            valueName="EnableBackgroundDownload (0x4000)"
+            presentation="$(presentation.Present_Enable_background_download)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="16384" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="Policy_Folders_to_background"
+            class="Machine"
+            displayName="$(string.String_Policy_Folders_to_background)"
+            explainText="$(string.String_Explain_Folders_to_background)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+            presentation="$(presentation.Present_Folders_to_background)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <enabledList >
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+              valueName="BackgroundLoadFolders (0x04000000)" >
+          <value >
+            <decimal value="67108864" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+              valueName="BackgroundLoadFolders (0x04000000)" >
+          <value >
+            <decimal value="67108864" />
+          </value>
+        </item>
+      </enabledList>
+      <disabledList >
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+              valueName="BackgroundLoadFolders (0x04000000)" >
+          <value >
+            <decimal value="0" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+              valueName="BackgroundLoadFolders (0x04000000)" >
+          <value >
+            <decimal value="0" />
+          </value>
+        </item>
+      </disabledList>
+      <elements >
+        <list id="Present_ListBox_Folders_to_background"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\BackgroundFolders" />
+      </elements>
+    </policy>
+    <policy name="Policy_Folders_to_background_exceptions"
+            class="Machine"
+            displayName="$(string.String_Policy_Folders_to_background_exceptions)"
+            explainText="$(string.String_Explain_Folders_to_background_exceptions)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\OperationFlags"
+            presentation="$(presentation.Present_Folders_to_background_exceptions)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <list id="Present_ListBox_Folders_to_background_exceptions"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\BackgroundFoldersExclusions" />
+      </elements>
+    </policy>
+    <policy name="Policy_Excluded_Processes"
+            class="Machine"
+            displayName="$(string.String_Policy_Excluded_Processes)"
+            explainText="$(string.String_Explain_Excluded_processes)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\ExcludedProcesses"
+            presentation="$(presentation.Present_Excluded_Processes)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <elements >
+        <list id="Present_ListBox_Element_Excluded_Processes"
+              key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Driver\ExcludedProcesses" />
+      </elements>
+    </policy>
+    <policy name="Policy_Cleanup_CLFS_Files"
+            class="Machine"
+            displayName="$(string.String_Policy_Cleanup_CLFS_Files)"
+            explainText="$(string.String_Explain_Cleanup_CLFS_Files)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+            valueName="CleanupCLFSFiles (0x00020000)"
+            presentation="$(presentation.Present_Cleanup_CLFS_Files)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="131072" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+
+    <policy name="Enforce_AD_Wallpaper"
+            class="Machine"
+            displayName="$(string.Enforce_AD_Wallpaper)"
+            explainText="$(string.Enforce_AD_Wallpaper_Desc)"
+            clientExtension="{13334EA7-F4F6-4382-9493-CF7717811A23}"
+            key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\Persona Management\Service\Operation Flags"
+            valueName="EnforceADWallpaper (0x00000008)"
+            presentation="$(presentation.Enforce_AD_Wallpaper)" >
+      <parentCategory ref="Category_Roaming_Synchronization" />
+      <supportedOn ref="SupportedOn" />
+      <enabledValue >
+        <decimal value="8" />
+      </enabledValue>
+      <disabledValue >
+        <decimal value="0" />
+      </disabledValue>
+    </policy>  </policies>
+</policyDefinitions>

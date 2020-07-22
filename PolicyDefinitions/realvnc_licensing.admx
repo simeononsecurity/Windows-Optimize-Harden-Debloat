@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Version 6.7.2 -->
+<policyDefinitions revision="501.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="licensing" namespace="RealVNC.Policies.licensing" />
+    <using prefix="realvnc" namespace="RealVNC.Policies.realvnc" />
+  </policyNamespaces>
+  <resources minRequiredRevision="501.0" />
+  <categories>
+    <category name="Licensing" displayName="$(string.RealVNC_licensing_category)" explainText="$(string.RealVNC_licensing_category_help)">
+      <parentCategory ref="realvnc:RealVNC" />
+    </category>
+    <category name="Restrictions" displayName="$(string.RealVNC_restrictions_category)" explainText="$(string.RealVNC_restrictions_category_help)">
+      <parentCategory ref="realvnc:RealVNC" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="RealVNC_vncserver_Machine_vncserverlicense" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_vncserverlicense)" explainText="$(string.RealVNC_vncserver_Machine_vncserverlicense_help)" presentation="$(presentation.RealVNC_vncserver_Machine_vncserverlicense)" key="Software\Policies\RealVNC">
+      <parentCategory ref="Licensing" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="vncserver_license" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_extensiblelicense_01" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_extensiblelicense_slot_01)" explainText="$(string.RealVNC_vncserver_Machine_extensiblelicense_help)" presentation="$(presentation.RealVNC_vncserver_Machine_extensiblelicense)" key="Software\Policies\RealVNC\licensekeys\vncserver">
+      <parentCategory ref="Licensing" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="License Key: Slot 01" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_extensiblelicense_02" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_extensiblelicense_slot_02)" explainText="$(string.RealVNC_vncserver_Machine_extensiblelicense_help)" presentation="$(presentation.RealVNC_vncserver_Machine_extensiblelicense)" key="Software\Policies\RealVNC\licensekeys\vncserver">
+      <parentCategory ref="Licensing" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="License Key: Slot 02" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_extensiblelicense_03" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_extensiblelicense_slot_03)" explainText="$(string.RealVNC_vncserver_Machine_extensiblelicense_help)" presentation="$(presentation.RealVNC_vncserver_Machine_extensiblelicense)" key="Software\Policies\RealVNC\licensekeys\vncserver">
+      <parentCategory ref="Licensing" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="License Key: Slot 03" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_extensiblelicense_04" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_extensiblelicense_slot_04)" explainText="$(string.RealVNC_vncserver_Machine_extensiblelicense_help)" presentation="$(presentation.RealVNC_vncserver_Machine_extensiblelicense)" key="Software\Policies\RealVNC\licensekeys\vncserver">
+      <parentCategory ref="Licensing" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="License Key: Slot 04" />
+      </elements>
+    </policy>
+        <policy name="RealVNC_vncserver_Machine_extensiblelicense_05" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_extensiblelicense_slot_05)" explainText="$(string.RealVNC_vncserver_Machine_extensiblelicense_help)" presentation="$(presentation.RealVNC_vncserver_Machine_extensiblelicense)" key="Software\Policies\RealVNC\licensekeys\vncserver">
+      <parentCategory ref="Licensing" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="License Key: Slot 05" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_extensiblelicense_06" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_extensiblelicense_slot_06)" explainText="$(string.RealVNC_vncserver_Machine_extensiblelicense_help)" presentation="$(presentation.RealVNC_vncserver_Machine_extensiblelicense)" key="Software\Policies\RealVNC\licensekeys\vncserver">
+      <parentCategory ref="Licensing" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="License Key: Slot 06" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_extensiblelicense_07" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_extensiblelicense_slot_07)" explainText="$(string.RealVNC_vncserver_Machine_extensiblelicense_help)" presentation="$(presentation.RealVNC_vncserver_Machine_extensiblelicense)" key="Software\Policies\RealVNC\licensekeys\vncserver">
+      <parentCategory ref="Licensing" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="License Key: Slot 07" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_extensiblelicense_08" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_extensiblelicense_slot_08)" explainText="$(string.RealVNC_vncserver_Machine_extensiblelicense_help)" presentation="$(presentation.RealVNC_vncserver_Machine_extensiblelicense)" key="Software\Policies\RealVNC\licensekeys\vncserver">
+      <parentCategory ref="Licensing" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="License Key: Slot 08" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_extensiblelicense_09" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_extensiblelicense_slot_09)" explainText="$(string.RealVNC_vncserver_Machine_extensiblelicense_help)" presentation="$(presentation.RealVNC_vncserver_Machine_extensiblelicense)" key="Software\Policies\RealVNC\licensekeys\vncserver">
+      <parentCategory ref="Licensing" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="License Key: Slot 09" />
+      </elements>
+    </policy>
+    <policy name="RealVNC_vncserver_Machine_extensiblelicense_10" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_extensiblelicense_slot_10)" explainText="$(string.RealVNC_vncserver_Machine_extensiblelicense_help)" presentation="$(presentation.RealVNC_vncserver_Machine_extensiblelicense)" key="Software\Policies\RealVNC\licensekeys\vncserver">
+      <parentCategory ref="Licensing" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <elements>
+        <text id="Value" valueName="License Key: Slot 10" />
+      </elements>
+    </policy>    
+    <policy name="RealVNC_vncserver_Machine_blocknonpolicyservers" class="Machine" displayName="$(string.RealVNC_vncserver_Machine_blocknonpolicyservers)" explainText="$(string.RealVNC_vncserver_Machine_blocknonpolicyservers_help)" presentation="$(presentation.RealVNC_vncserver_Machine_blocknonpolicyservers)" key="Software\Policies\RealVNC\restrictions" valueName="BlockNonPolicyServers">
+      <parentCategory ref="Restrictions" />
+      <supportedOn ref="SUPPORTED_ProductOnly" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>0</string>
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>
+      

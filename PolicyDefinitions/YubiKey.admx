@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2017 Michael Grafnetter  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions"  xsi:schemaLocation="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions ../Schema/PolicyDefinitionFiles.xsd">
+  <policyNamespaces>
+    <target prefix="yubikey" namespace="Yubico.YubiKey.Policies.PIV.Manager" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="YubiKeyPIVManager" displayName="$(string.YubiKeyPIVManager)" />
+  </categories>
+  <policies>
+    <policy name="YubiKeyPIVManager_TouchPolicy" class="User" displayName="$(string.YubiKeyPIVManager_TouchPolicy)" explainText="$(string.YubiKeyPIVManager_TouchPolicy_Help)" presentation="$(presentation.YubiKeyPIVManager_TouchPolicy)" key="Software\Yubico\YubiKey PIV Manager">
+      <parentCategory ref="YubiKeyPIVManager" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <multiText id="YubiKeyPIVManager_TouchPolicySlots_MultiText" valueName="touch_policy_slots" maxLength="2" maxStrings="4" />
+        <boolean id="YubiKeyPIVManager_TouchPolicy_CheckBox" valueName="touch_policy">
+          <trueValue>
+            <string>true</string>
+          </trueValue>
+          <falseValue>
+            <delete />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="YubiKeyPIVManager_PinPolicy" class="User" displayName="$(string.YubiKeyPIVManager_PinPolicy)" explainText="$(string.YubiKeyPIVManager_PinPolicy_Help)" presentation="$(presentation.YubiKeyPIVManager_PinPolicy)" key="Software\Yubico\YubiKey PIV Manager">
+      <parentCategory ref="YubiKeyPIVManager" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <multiText id="YubiKeyPIVManager_PinPolicySlots_MultiText" valueName="pin_policy_slots" maxLength="2" maxStrings="4" />
+        <enum id="YubiKeyPIVManager_PinPolicy_DropdownList" valueName="pin_policy" required="true">
+          <item displayName="$(string.YubiKeyPIVManager_PinPolicy_Select)">
+            <value>
+              <delete />
+            </value>
+          </item>
+          <item displayName="$(string.YubiKeyPIVManager_PinPolicy_Default)">
+            <value>
+              <string>default</string>
+            </value>
+          </item>
+          <item displayName="$(string.YubiKeyPIVManager_PinPolicy_Never)">
+            <value>
+              <string>never</string>
+            </value>
+          </item>
+          <item displayName="$(string.YubiKeyPIVManager_PinPolicy_Once)">
+            <value>
+              <string>once</string>
+            </value>
+          </item>
+          <item displayName="$(string.YubiKeyPIVManager_PinPolicy_Always)">
+            <value>
+              <string>always</string>
+            </value>
+          </item>
+        </enum>
+        <boolean id="YubiKeyPIVManager_ComplexPins_CheckBox" valueName="complex_pins">
+          <trueValue>
+            <string>true</string>
+          </trueValue>
+          <falseValue>
+            <string>false</string>
+          </falseValue>
+        </boolean>
+        <decimal id="YubiKeyPIVManager_PinExpiration_TextBox" valueName="pin_expiration" required="true" maxValue="1096" />
+        <boolean id="YubiKeyPIVManager_PinAsKey_CheckBox" valueName="pin_as_key">
+          <trueValue>
+            <string>true</string>
+          </trueValue>
+          <falseValue>
+            <string>false</string>
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="YubiKeyPIVManager_CardReader" class="User" displayName="$(string.YubiKeyPIVManager_CardReader)" explainText="$(string.YubiKeyPIVManager_CardReader_Help)" presentation="$(presentation.YubiKeyPIVManager_CardReader)" key="Software\Yubico\YubiKey PIV Manager">
+      <parentCategory ref="YubiKeyPIVManager" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <text id="YubiKeyPIVManager_CardReader_TextBox" valueName="card_reader" required="true" maxLength="256" />
+      </elements>
+    </policy>
+    <policy name="YubiKeyPIVManager_Request" class="User" displayName="$(string.YubiKeyPIVManager_Request)" explainText="$(string.YubiKeyPIVManager_Request_Help)" presentation="$(presentation.YubiKeyPIVManager_Request)" key="Software\Yubico\YubiKey PIV Manager">
+      <parentCategory ref="YubiKeyPIVManager" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <enum id="YubiKeyPIVManager_Algorithm_DropdownList" valueName="algorithm" required="true">
+          <item displayName="$(string.YubiKeyPIVManager_Algorithm_Select)">
+            <value>
+              <delete />
+            </value>
+          </item>
+          <item displayName="$(string.YubiKeyPIVManager_Algorithm_RSA1024)">
+            <value>
+              <string>RSA1024</string>
+            </value>
+          </item>
+          <item displayName="$(string.YubiKeyPIVManager_Algorithm_RSA2048)">
+            <value>
+              <string>RSA2048</string>
+            </value>
+          </item>
+          <item displayName="$(string.YubiKeyPIVManager_Algorithm_ECC256)">
+            <value>
+              <string>ECC256</string>
+            </value>
+          </item>
+          <item displayName="$(string.YubiKeyPIVManager_Algorithm_ECC384)">
+            <value>
+              <string>ECC384</string>
+            </value>
+          </item>
+        </enum>
+        <text id="YubiKeyPIVManager_Subject_TextBox" valueName="subject" required="true" maxLength="256" />
+        <text id="YubiKeyPIVManager_Template_TextBox" valueName="certreq_template" required="false" maxLength="256" />
+      </elements>
+    </policy>    
+    <policy name="YubiKeyPIVManager_DisableImport" class="User" displayName="$(string.YubiKeyPIVManager_DisableImport)" explainText="$(string.YubiKeyPIVManager_DisableImport_Help)" key="Software\Yubico\YubiKey PIV Manager" valueName="enable_import">
+      <parentCategory ref="YubiKeyPIVManager" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue><string>false</string></enabledValue>
+      <disabledValue><string>true</string></disabledValue>
+    </policy>    
+    <policy name="YubiKeyPIVManager_ShownOuts" class="User" displayName="$(string.YubiKeyPIVManager_ShownOuts)" explainText="$(string.YubiKeyPIVManager_ShownOuts_Help)" presentation="$(presentation.YubiKeyPIVManager_ShownOuts)" key="Software\Yubico\YubiKey PIV Manager">
+      <parentCategory ref="YubiKeyPIVManager" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <multiText id="YubiKeyPIVManager_ShownOuts_MultiText" valueName="shown_outs" maxLength="3" maxStrings="4" />
+      </elements>
+    </policy>
+    <policy name="YubiKeyPIVManager_ShownSlots" class="User" displayName="$(string.YubiKeyPIVManager_ShownSlots)" explainText="$(string.YubiKeyPIVManager_ShownSlots_Help)" presentation="$(presentation.YubiKeyPIVManager_ShownSlots)" key="Software\Yubico\YubiKey PIV Manager">
+      <parentCategory ref="YubiKeyPIVManager" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <multiText id="YubiKeyPIVManager_ShownSlots_MultiText" valueName="shown_slots" maxLength="2" maxStrings="4" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

@@ -1,0 +1,1699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+
+   <policyNamespaces>
+      <target prefix="vdm_agent" namespace="VMware.Policies.vdm_agent" />
+         <using prefix="vdm_agent_base" namespace="VMware.Policies.vdm_agent_base" />
+   </policyNamespaces>
+   <supersededAdm fileName="vdm_agent.adm" />
+   <resources minRequiredRevision="1.0" fallbackCulture="en-us" />
+
+   <supportedOn>
+      <definitions>
+         <definition name="SUPPORTED_Windows10_1607_VM" displayName="$(string.SUPPORTED_Windows10_1607_VM)"/>
+      </definitions>
+   </supportedOn>
+
+   <categories>
+
+      <category name="Agent_Configuration" displayName="$(string.Agent_Configuration)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="Collaboration" displayName="$(string.Collaboration)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="Agent_Security" displayName="$(string.Agent_Security)" key="Software\Policies\VMware, Inc.\VMware VDM\Security">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="Unity_Touch_Hosted_Apps" displayName="$(string.Unity_Touch_Hosted_Apps)" key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="Smartcard_Redirection" displayName="$(string.Smartcard_Redirection)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\SmartcardRedirection">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="Local_Reader_Access" displayName="$(string.Local_Reader_Access)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\SmartcardRedirection">
+         <parentCategory ref="Smartcard_Redirection" />
+      </category>
+
+      <category name="True_SSO_Configuration" displayName="$(string.True_SSO_Configuration)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="Unity_Touch_Hosted_Apps_2" displayName="$(string.Unity_Touch_Hosted_Apps)" key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity">
+         <parentCategory ref="Agent_Security" />
+      </category>
+
+      <category name="View_USB_Configuration" displayName="$(string.View_USB_Configuration)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="Client_Downloadable_only_settings" displayName="$(string.Client_Downloadable_only_settings)" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB">
+         <parentCategory ref="View_USB_Configuration" />
+      </category>
+
+      <category name="VMware_CIT" displayName="$(string.VMware_CIT)" key="Software\Policies\VMware, Inc.\VMware CIT">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="VMware_FlashMMR" displayName="$(string.VMware_FlashMMR)" key="Software\Policies\VMware, Inc.\VMware FlashMMR">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="VMware_MediaProviderProxy" displayName="$(string.VMware_MediaProviderProxy)" key="Software\Policies\VMware, Inc.\Agent\VMWMediaProviderProxy">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="VMware_HTML5_FEATURES" displayName="$(string.VMware_HTML5_FEATURES)" key="Software\Policies\VMware, Inc.\VMware HTML5SERVER">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="VMware_HTML5MMR" displayName="$(string.VMware_HTML5MMR)" key="Software\Policies\VMware, Inc.\VMware HTML5MMR">
+         <parentCategory ref="VMware_HTML5_FEATURES" />
+      </category>
+
+      <category name="VMware_GEO_REDIR" displayName="$(string.VMware_GEO_REDIR)" key="Software\Policies\VMware, Inc.\VMware GEOREDIR">
+         <parentCategory ref="VMware_HTML5_FEATURES" />
+      </category>
+
+      <category name="VMware_BROWSER_REDIR" displayName="$(string.VMware_BROWSER_REDIR)" key="Software\Policies\VMware, Inc.\VMware BROWSERREDIR">
+         <parentCategory ref="VMware_HTML5_FEATURES" />
+      </category>
+
+      <category name="VMware_WebRTC_REDIR_FEATURES" displayName="$(string.VMware_WebRTC_REDIR_FEATURES)" key="Software\Policies\VMware, Inc.\VMware WebRTCRedir">
+         <parentCategory ref="VMware_HTML5_FEATURES" />
+      </category>
+
+      <category name="VMware_DeviceBridge" displayName="$(string.VMware_DeviceBridge)" key="Software\Policies\VMware, Inc.\VMware DeviceBridge">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+      <category name="VMware_AppTap_Config" displayName="$(string.VMware_AppTap_Config)" key="Software\Policies\VMware, Inc.\VMware AppTap\Config">
+         <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+      </category>
+
+   </categories>
+
+   <policies>
+
+      <policy
+         name="Recursive_Domain_Enumeration" class="Machine" displayName="$(string.Recursive_Domain_Enumeration)" explainText="$(string.Recursive_Domain_Enumeration_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM" valueName="RecursiveDomainEnum">
+            <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Force_MMR_to_use_overlay" class="Machine" displayName="$(string.Force_MMR_to_use_overlay)" explainText="$(string.Force_MMR_to_use_overlay_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="ForceMMRToUseSoftwareOverlay">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Enable_multi_media_acceleration" class="Machine" displayName="$(string.Enable_multi_media_acceleration)" explainText="$(string.Enable_multi_media_acceleration_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="EnableMMR">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="AllowDirectRDP" class="Machine" displayName="$(string.AllowDirectRDP)" explainText="$(string.AllowDirectRDP_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="AllowDirectRDP">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="AllowSingleSignon" class="Machine" displayName="$(string.AllowSingleSignon)" explainText="$(string.AllowSingleSignon_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="AllowSingleSignon">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="ConnectionTicketTimeout" class="Machine" displayName="$(string.ConnectionTicketTimeout)" explainText="$(string.ConnectionTicketTimeout_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" presentation="$(presentation.ConnectionTicketTimeout)">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <decimal id="ConnectionTicketTimeout_DB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="VdmConnectionTicketTimeout" required="true" maxValue="900" minValue="30" />
+               </elements>
+      </policy>
+
+      <policy
+         name="CredentialFilterExceptions" class="Machine" displayName="$(string.CredentialFilterExceptions)" explainText="$(string.CredentialFilterExceptions_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" presentation="$(presentation.CredentialFilterExceptions)">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="CredentialFilterExceptions_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="CredentialFilterExceptions" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Disable_Time_Zone_sync" class="Machine" displayName="$(string.Disable_Time_Zone_sync)" explainText="$(string.Disable_Time_Zone_sync_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="DisableTimeZoneSynchronization">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Toggle_Display_Settings_Control" class="Machine" displayName="$(string.Toggle_Display_Settings_Control)" explainText="$(string.Toggle_Display_Settings_Control_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="ToggleDisplaySettingsControl">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="DpiSync" class="Machine" displayName="$(string.DpiSync)" explainText="$(string.DpiSync_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="DpiSync">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <decimal value="1" />
+               </enabledValue>
+               <disabledValue>
+                  <decimal value="0" />
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="DpiSyncPerConnection" class="Machine" displayName="$(string.DpiSyncPerConnection)" explainText="$(string.DpiSyncPerConnection_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="DpiSyncPerConnection">
+         <parentCategory ref="Agent_Configuration" />
+         <supportedOn ref="SUPPORTED_Windows10_1607_VM" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+            <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="UnAuthenticatedAccessEnabled" class="Machine" displayName="$(string.UnAuthenticatedAccessEnabled)" explainText="$(string.UnAuthenticatedAccessEnabled_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="UnAuthenticatedAccessEnabled">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <decimal value="1" />
+               </enabledValue>
+               <disabledValue>
+                  <decimal value="0" />
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="CommandsToRunOnConnect" class="Machine" displayName="$(string.CommandsToRunOnConnect)" explainText="$(string.CommandsToRunOnConnect_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\CommandsToRunOnConnect" presentation="$(presentation.CommandsToRunOnConnect)">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <list id="CommandsToRunOnConnect_list" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\CommandsToRunOnConnect" valuePrefix="Command" />
+               </elements>
+      </policy>
+
+      <policy
+         name="CommandsToRunOnReconnect" class="Machine" displayName="$(string.CommandsToRunOnReconnect)" explainText="$(string.CommandsToRunOnReconnect_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\CommandsToRunOnReconnect" presentation="$(presentation.CommandsToRunOnReconnect)">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <list id="CommandsToRunOnReconnect_list" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\CommandsToRunOnReconnect" valuePrefix="Command" />
+               </elements>
+      </policy>
+
+      <policy
+         name="CommandsToRunOnDisconnect" class="Machine" displayName="$(string.CommandsToRunOnDisconnect)" explainText="$(string.CommandsToRunOnDisconnect_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\CommandsToRunOnDisconnect" presentation="$(presentation.CommandsToRunOnDisconnect)">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <list id="CommandsToRunOnDisconnect_list" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\CommandsToRunOnDisconnect" valuePrefix="Command" />
+               </elements>
+      </policy>
+
+      <policy
+         name="ShowDiskActivityIcon" class="Machine" displayName="$(string.ShowDiskActivityIcon)" explainText="$(string.ShowDiskActivityIcon_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="ShowDiskActivityIcon">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="SSO_retry_timeout" class="Machine" displayName="$(string.SSO_retry_timeout)" explainText="$(string.SSO_retry_timeout_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" presentation="$(presentation.SSO_retry_timeout)">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <decimal id="SSO_retry_timeout_DB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="SSORetryTimeout" maxValue="30000" minValue="0" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Accept_SSL_encr_framework_channel" class="Machine" displayName="$(string.Accept_SSL_encr_framework_channel)" explainText="$(string.Accept_SSL_encr_framework_channel_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Security" presentation="$(presentation.Accept_SSL_encr_framework_channel)">
+            <parentCategory ref="Agent_Security" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="Accept_SSL_encr_framework_channel_DDL" valueName="AcceptTicketSSLAuth" key="Software\Policies\VMware, Inc.\VMware VDM\Security" required="true">
+                     <item displayName="$(string.Enable)">
+                        <value>
+                           <string>1</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable)">
+                        <value>
+                           <string>0</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Enforce)">
+                        <value>
+                           <string>3</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="VDI_idle_time_till_disconnect" class="Machine" displayName="$(string.VDI_idle_time_till_disconnect)" explainText="$(string.VDI_idle_time_till_disconnect_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="VDIIdleTimeout" presentation="$(presentation.VDI_idle_time_till_disconnect)">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+              <disabledList>
+                <item key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="VDIIdleTimeout">
+                  <value>
+                    <string>0</string>
+                  </value>
+                </item>
+              </disabledList>
+              <elements>
+                <enum id="VDI_idle_time_till_disconnect_minutes" valueName="VDIIdleTimeout">
+                  <item displayName="$(string.TIME_NEVER)">
+                    <value>
+                      <decimal value="0" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_1MIN)">
+                    <value>
+                      <decimal value="1" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_5MIN)">
+                    <value>
+                      <decimal value="5" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_10MIN)">
+                    <value>
+                      <decimal value="10" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_15MIN)">
+                    <value>
+                      <decimal value="15" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_30MIN)">
+                    <value>
+                      <decimal value="30" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_1HR)">
+                    <value>
+                      <decimal value="60" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_2HR)">
+                    <value>
+                      <decimal value="120" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_3HR)">
+                    <value>
+                      <decimal value="180" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_6HR)">
+                    <value>
+                      <decimal value="360" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_8HR)">
+                    <value>
+                      <decimal value="480" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_10HR)">
+                    <value>
+                      <decimal value="600" />
+                    </value>
+                  </item>
+                </enum>
+              </elements>
+      </policy>
+
+      <policy
+         name="VDI_disconnect_time_till_logoff" class="Machine" displayName="$(string.VDI_disconnect_time_till_logoff)" explainText="$(string.VDI_disconnect_time_till_logoff_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="VDIDisconnectTimeout" presentation="$(presentation.VDI_disconnect_time_till_logoff)">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+              <disabledList>
+                <item key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="VDIDisconnectTimeout">
+                  <value>
+                    <string>0</string>
+                  </value>
+                </item>
+              </disabledList>
+              <elements>
+                <enum id="VDI_disconnect_time_till_logoff_minutes" valueName="VDIDisconnectTimeout">
+                <item displayName="$(string.TIME_NEVER)">
+                    <value>
+                      <decimal value="0" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_IMMEDIATELY)">
+                    <value>
+                        <decimal value="4294967295" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_1MIN)">
+                    <value>
+                      <decimal value="1" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_5MIN)">
+                    <value>
+                      <decimal value="5" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_10MIN)">
+                    <value>
+                      <decimal value="10" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_15MIN)">
+                    <value>
+                      <decimal value="15" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_30MIN)">
+                    <value>
+                      <decimal value="30" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_1HR)">
+                    <value>
+                      <decimal value="60" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_2HR)">
+                    <value>
+                      <decimal value="120" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_3HR)">
+                    <value>
+                      <decimal value="180" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_6HR)">
+                    <value>
+                      <decimal value="360" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_8HR)">
+                    <value>
+                      <decimal value="480" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_10HR)">
+                    <value>
+                      <decimal value="600" />
+                    </value>
+                  </item>
+                </enum>
+              </elements>
+      </policy>
+
+      <policy
+         name="Prewarm_disconnect_time_till_logoff" class="Machine" displayName="$(string.Prewarm_disconnect_time_till_logoff)" explainText="$(string.Prewarm_disconnect_time_till_logoff_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="PrewarmDisconnectTimeout" presentation="$(presentation.Prewarm_disconnect_time_till_logoff)">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+              <disabledList>
+                <item key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="PrewarmDisconnectTimeout">
+                  <value>
+                    <string>30</string>
+                  </value>
+                </item>
+              </disabledList>
+              <elements>
+                <enum id="Prewarm_disconnect_time_till_logoff_minutes" valueName="PrewarmDisconnectTimeout">
+                  <item displayName="$(string.TIME_NEVER)">
+                    <value>
+                      <decimal value="0" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_1MIN)">
+                    <value>
+                      <decimal value="1" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_5MIN)">
+                    <value>
+                      <decimal value="5" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_10MIN)">
+                    <value>
+                      <decimal value="10" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_15MIN)">
+                    <value>
+                      <decimal value="15" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_30MIN)">
+                    <value>
+                      <decimal value="30" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_1HR)">
+                    <value>
+                      <decimal value="60" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_2HR)">
+                    <value>
+                      <decimal value="120" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_3HR)">
+                    <value>
+                      <decimal value="180" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_6HR)">
+                    <value>
+                      <decimal value="360" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_8HR)">
+                    <value>
+                      <decimal value="480" />
+                    </value>
+                  </item>
+                  <item displayName="$(string.TIME_10HR)">
+                    <value>
+                      <decimal value="600" />
+                    </value>
+                  </item>
+                </enum>
+              </elements>
+      </policy>
+
+      <policy
+         name="Allow_smartcard_local_access" class="Machine" displayName="$(string.Allow_smartcard_local_access)" explainText="$(string.Allow_smartcard_local_access_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\SmartcardRedirection" valueName="AllowLocalAccess">
+            <parentCategory ref="Local_Reader_Access" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Local_Reader_Name" class="Machine" displayName="$(string.Local_Reader_Name)" explainText="$(string.Local_Reader_Name_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\SmartcardRedirection" presentation="$(presentation.Local_Reader_Name)">
+            <parentCategory ref="Local_Reader_Access" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Local_Reader_Name_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\SmartcardRedirection" valueName="LocalReaderName" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Require_an_inserted_smart_card" class="Machine" displayName="$(string.Require_an_inserted_smart_card)" explainText="$(string.Require_an_inserted_smart_card_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\SmartcardRedirection" valueName="EnableLocalAccessAtCardInsert">
+            <parentCategory ref="Local_Reader_Access" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Disable_true_SSO" class="Machine" displayName="$(string.Disable_true_SSO)" explainText="$(string.Disable_true_SSO_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO" valueName="DisableCertSSO">
+            <parentCategory ref="True_SSO_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Cert_wait_timeout" class="Machine" displayName="$(string.Cert_wait_timeout)" explainText="$(string.Cert_wait_timeout_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO" presentation="$(presentation.Cert_wait_timeout)">
+            <parentCategory ref="True_SSO_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <decimal id="Cert_wait_timeout_DB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO" valueName="CertSSOCertificateTimeoutSec" maxValue="120" minValue="10" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Min_key_size" class="Machine" displayName="$(string.Min_key_size)" explainText="$(string.Min_key_size_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO" presentation="$(presentation.Min_key_size)">
+            <parentCategory ref="True_SSO_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <decimal id="Min_key_size_DB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO" valueName="MinKeySize" maxValue="8192" minValue="1024" />
+               </elements>
+      </policy>
+
+      <policy
+         name="All_key_sizes" class="Machine" displayName="$(string.All_key_sizes)" explainText="$(string.All_key_sizes_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO" presentation="$(presentation.All_key_sizes)">
+            <parentCategory ref="True_SSO_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="All_key_sizes_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO" valueName="KeySizes" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Keys_to_precreate" class="Machine" displayName="$(string.Keys_to_precreate)" explainText="$(string.Keys_to_precreate_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO" presentation="$(presentation.Keys_to_precreate)">
+            <parentCategory ref="True_SSO_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <decimal id="Keys_to_precreate_DB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO" valueName="KeyCount" maxValue="100" minValue="1" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Cert_min_validity" class="Machine" displayName="$(string.Cert_min_validity)" explainText="$(string.Cert_min_validity_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO" presentation="$(presentation.Cert_min_validity)">
+            <parentCategory ref="True_SSO_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <decimal id="Cert_min_validity_DB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\CertSSO" valueName="ValidityPeriodAtReconnect" minValue="5" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Enable_Unity_Touch" class="Machine" displayName="$(string.Enable_Unity_Touch)" explainText="$(string.Enable_Unity_Touch_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity" valueName="EnableUnityTouch"
+         presentation="$(presentation.Enable_Unity_Touch)">
+            <parentCategory ref="Unity_Touch_Hosted_Apps" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+            <elements>
+               <boolean id="Enabled_UWP_For_UnityTouch_CB"
+                        key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity"
+                        valueName="EnableUWPForUnityTouch">
+                  <trueValue>
+                     <string>true</string>
+                  </trueValue>
+                  <falseValue>
+                     <string>false</string>
+                  </falseValue>
+               </boolean>
+            </elements>
+      </policy>
+
+      <policy
+         name="Unity_Filter" class="Machine" displayName="$(string.Unity_Filter)" explainText="$(string.Unity_Filter_Rules_Desc)"
+         presentation="$(presentation.UnityFilterRules_Filter)" key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity\Filters">
+         <parentCategory ref="Unity_Touch_Hosted_Apps" />
+         <supportedOn ref="SupportedOn" />
+         <elements>
+            <list id="UnityFilterRules_FilterList" />
+         </elements>
+      </policy>
+
+      <policy
+         name="Enable_system_tray_redir" class="Machine" displayName="$(string.Enable_system_tray_redir)" explainText="$(string.Enable_system_tray_redir_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity" valueName="EnableSystemTrayRedirection">
+            <parentCategory ref="Unity_Touch_Hosted_Apps" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Enable_user_prof_customization" class="Machine" displayName="$(string.Enable_user_prof_customization)" explainText="$(string.Enable_user_prof_customization_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity" valueName="CustomizeUserProfile">
+            <parentCategory ref="Unity_Touch_Hosted_Apps" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="AllowTinyOrOffscreenWindows" class="Machine" displayName="$(string.AllowTinyOrOffscreenWindows)" explainText="$(string.AllowTinyOrOffscreenWindows_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity" valueName="AllowTinyOrOffscreenWindows">
+            <parentCategory ref="Unity_Touch_Hosted_Apps" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="MinimalHookingModeEnabled" class="Machine" displayName="$(string.MinimalHookingModeEnabled)" explainText="$(string.MinimalHookingModeEnabled_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity" valueName="MinimalHookingModeEnabled">
+            <parentCategory ref="Unity_Touch_Hosted_Apps" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="LaunchAppWhenArgsAreDifferent" class="Machine" displayName="$(string.LaunchAppWhenArgsAreDifferent)" explainText="$(string.LaunchAppWhenArgsAreDifferent_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity" valueName="LaunchAppWhenArgsAreDifferent">
+            <parentCategory ref="Unity_Touch_Hosted_Apps" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Exclude_Vid_Pid" class="Machine" displayName="$(string.Exclude_Vid_Pid)" explainText="$(string.Exclude_Vid_Pid_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Exclude_Vid_Pid)">
+            <parentCategory ref="View_USB_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Exclude_Vid_Pid_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" valueName="ExcludeVidPid" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Include_Vid_Pid" class="Machine" displayName="$(string.Include_Vid_Pid)" explainText="$(string.Include_Vid_Pid_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Include_Vid_Pid)">
+            <parentCategory ref="View_USB_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Include_Vid_Pid_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" valueName="IncludeVidPid" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Exclude_device_family" class="Machine" displayName="$(string.Exclude_device_family)" explainText="$(string.Exclude_device_family_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Exclude_device_family)">
+            <parentCategory ref="View_USB_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Exclude_device_family_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" valueName="ExcludeFamily" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Include_device_family" class="Machine" displayName="$(string.Include_device_family)" explainText="$(string.Include_device_family_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Include_device_family)">
+            <parentCategory ref="View_USB_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Include_device_family_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" valueName="IncludeFamily" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Exclude_all" class="Machine" displayName="$(string.Exclude_all)" explainText="$(string.Exclude_all_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" valueName="ExcludeAllDevices">
+            <parentCategory ref="View_USB_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Exclude_Vid_Pid_from_Split" class="Machine" displayName="$(string.Exclude_Vid_Pid_from_Split)" explainText="$(string.Exclude_Vid_Pid_from_Split_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Exclude_Vid_Pid_from_Split)">
+            <parentCategory ref="Client_Downloadable_only_settings" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Exclude_Vid_Pid_from_Split_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" valueName="SplitExcludeVidPid" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Split_Vid_Pid_Device" class="Machine" displayName="$(string.Split_Vid_Pid_Device)" explainText="$(string.Split_Vid_Pid_Device_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Split_Vid_Pid_Device)">
+            <parentCategory ref="Client_Downloadable_only_settings" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Split_Vid_Pid_Device_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" valueName="SplitVidPid" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Allow_other_input_devices" class="Machine" displayName="$(string.Allow_other_input_devices)" explainText="$(string.Allow_other_input_devices_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Allow_other_input_devices)">
+            <parentCategory ref="Client_Downloadable_only_settings" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="Allow_other_input_devices_DDL" valueName="AllowHID" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" required="true">
+                     <item displayName="$(string.Allow_Default)">
+                        <value>
+                           <string>d:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Allow_Override)">
+                        <value>
+                           <string>o:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Default)">
+                        <value>
+                           <string>d:false</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Override)">
+                        <value>
+                           <string>o:false</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="Allow_HID_Bootable" class="Machine" displayName="$(string.Allow_HID_Bootable)" explainText="$(string.Allow_HID_Bootable_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Allow_HID_Bootable)">
+            <parentCategory ref="Client_Downloadable_only_settings" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="Allow_HID_Bootable_DDL" valueName="AllowHIDBootable" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" required="true">
+                     <item displayName="$(string.Allow_Default)">
+                        <value>
+                           <string>d:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Allow_Override)">
+                        <value>
+                           <string>o:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Default)">
+                        <value>
+                           <string>d:false</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Override)">
+                        <value>
+                           <string>o:false</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="Allow_Audio_Input_devices" class="Machine" displayName="$(string.Allow_Audio_Input_devices)" explainText="$(string.Allow_Audio_Input_devices_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Allow_Audio_Input_devices)">
+            <parentCategory ref="Client_Downloadable_only_settings" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="Allow_Audio_Input_devices_DDL" valueName="AllowAudioIn" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" required="true">
+                     <item displayName="$(string.Allow_Default)">
+                        <value>
+                           <string>d:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Allow_Override)">
+                        <value>
+                           <string>o:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Default)">
+                        <value>
+                           <string>d:false</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Override)">
+                        <value>
+                           <string>o:false</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="Allow_Audio_Output_devices" class="Machine" displayName="$(string.Allow_Audio_Output_devices)" explainText="$(string.Allow_Audio_Output_devices_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Allow_Audio_Output_devices)">
+            <parentCategory ref="Client_Downloadable_only_settings" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="Allow_Audio_Output_devices_DDL" valueName="AllowAudioOut" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" required="true">
+                     <item displayName="$(string.Allow_Default)">
+                        <value>
+                           <string>d:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Allow_Override)">
+                        <value>
+                           <string>o:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Default)">
+                        <value>
+                           <string>d:false</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Override)">
+                        <value>
+                           <string>o:false</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="Allow_keyboard_mouse" class="Machine" displayName="$(string.Allow_keyboard_mouse)" explainText="$(string.Allow_keyboard_mouse_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Allow_keyboard_mouse)">
+            <parentCategory ref="Client_Downloadable_only_settings" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="Allow_keyboard_mouse_DDL" valueName="AllowKeyboardMouse" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" required="true">
+                     <item displayName="$(string.Allow_Default)">
+                        <value>
+                           <string>d:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Allow_Override)">
+                        <value>
+                           <string>o:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Default)">
+                        <value>
+                           <string>d:false</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Override)">
+                        <value>
+                           <string>o:false</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="Allow_Video_Devices" class="Machine" displayName="$(string.Allow_Video_Devices)" explainText="$(string.Allow_Video_Devices_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Allow_Video_Devices)">
+            <parentCategory ref="Client_Downloadable_only_settings" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="Allow_Video_Devices_DDL" valueName="AllowVideo" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" required="true">
+                     <item displayName="$(string.Allow_Default)">
+                        <value>
+                           <string>d:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Allow_Override)">
+                        <value>
+                           <string>o:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Default)">
+                        <value>
+                           <string>d:false</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Override)">
+                        <value>
+                           <string>o:false</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="Allow_Smart_Cards" class="Machine" displayName="$(string.Allow_Smart_Cards)" explainText="$(string.Allow_Smart_Cards_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Allow_Smart_Cards)">
+            <parentCategory ref="Client_Downloadable_only_settings" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="Allow_Smart_Cards_DDL" valueName="AllowSmartcard" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" required="true">
+                     <item displayName="$(string.Allow_Default)">
+                        <value>
+                           <string>d:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Allow_Override)">
+                        <value>
+                           <string>o:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Default)">
+                        <value>
+                           <string>d:false</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Override)">
+                        <value>
+                           <string>o:false</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="Allow_Auto_Device_Splitting" class="Machine" displayName="$(string.Allow_Auto_Device_Splitting)" explainText="$(string.Allow_Auto_Device_Splitting_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" presentation="$(presentation.Allow_Auto_Device_Splitting)">
+            <parentCategory ref="Client_Downloadable_only_settings" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="Allow_Auto_Device_Splitting_DDL" valueName="AllowAutoDeviceSplitting" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\USB" required="true">
+                     <item displayName="$(string.Allow_Default)">
+                        <value>
+                           <string>d:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Allow_Override)">
+                        <value>
+                           <string>o:true</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Default)">
+                        <value>
+                           <string>d:false</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable_Override)">
+                        <value>
+                           <string>o:false</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="Enable_CIT" class="Machine" displayName="$(string.Enable_CIT)" explainText="$(string.Enable_CIT_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware CIT" valueName="enabled">
+            <parentCategory ref="VMware_CIT" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <decimal value="1" />
+               </enabledValue>
+               <disabledValue>
+                  <decimal value="0" />
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Proxy_default_ie_autodetect" class="Machine" displayName="$(string.Proxy_default_ie_autodetect)" explainText="$(string.Proxy_default_ie_autodetect_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware CIT" valueName="proxy_default_ie_autodetect">
+         <parentCategory ref="VMware_CIT" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <decimal value="1" />
+               </enabledValue>
+               <disabledValue>
+                  <decimal value="0" />
+               </disabledValue>
+      </policy>
+
+      <policy
+            name="Default_proxy_server" class="Machine" displayName="$(string.Default_proxy_server)" explainText="$(string.Default_proxy_server_Desc)"
+            key="Software\Policies\VMware, Inc.\VMware CIT" presentation="$(presentation.Default_proxy_server)">
+            <parentCategory ref="VMware_CIT" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Default_proxy_server_TB" key="Software\Policies\VMware, Inc.\VMware CIT" valueName="proxy_default_ie_proxyserver" />
+               </elements>
+      </policy>
+
+      <policy
+            name="Update_Java_Proxy" class="Machine" displayName="$(string.Update_Java_Proxy)" explainText="$(string.Update_Java_Proxy_Desc)"
+            key="Software\Policies\VMware, Inc.\VMware CIT" presentation="$(presentation.Update_Java_Proxy)">
+            <parentCategory ref="VMware_CIT" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="Update_Java_Proxy_DDL" valueName="update_java_proxy" key="Software\Policies\VMware, Inc.\VMware CIT" required="true">
+                     <item displayName="$(string.Use_Client_IP)">
+                        <value>
+                           <string>client</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Use_Direct_Connect)">
+                        <value>
+                           <string>direct</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Use_Default)">
+                        <value>
+                           <string>default</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="Enable_flash_MMR" class="Machine" displayName="$(string.Enable_flash_MMR)" explainText="$(string.Enable_flash_MMR_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware FlashMMR" valueName="FlashRedirection">
+            <parentCategory ref="VMware_FlashMMR" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <decimal value="1" />
+               </enabledValue>
+               <disabledValue>
+                  <decimal value="0" />
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Min_rect_size_to_enable_flash_MMR" class="Machine" displayName="$(string.Min_rect_size_to_enable_flash_MMR)" explainText="$(string.Min_rect_size_to_enable_flash_MMR_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware FlashMMR" presentation="$(presentation.Min_rect_size_to_enable_flash_MMR)">
+            <parentCategory ref="VMware_FlashMMR" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="Min_rect_size_to_enable_flash_MMR_TB" key="Software\Policies\VMware, Inc.\VMware FlashMMR" valueName="flashmmr.minimumRectSize" />
+               </elements>
+      </policy>
+
+      <policy
+         name="Enable_HTML5_FEATURES" class="Machine" displayName="$(string.Enable_HTML5_FEATURES)" explainText="$(string.Enable_HTML5_FEATURES_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware HTML5SERVER" valueName="enabled">
+         <parentCategory ref="VMware_HTML5_FEATURES" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+            <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="HTML5FEATURES_Disable_AudoDetect_Intranet" class="Machine" displayName="$(string.HTML5FEATURES_Disable_AudoDetect_Intranet)" explainText="$(string.HTML5FEATURES_Disable_AudoDetect_Intranet_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware HTML5SERVER" valueName="disable_autodetect_intranet">
+         <parentCategory ref="VMware_HTML5_FEATURES" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+            <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+     <policy
+        name="Enable_HTML5_MMR" class="Machine" displayName="$(string.Enable_HTML5_MMR)" explainText="$(string.Enable_HTML5_MMR_Desc)"
+        key="Software\Policies\VMware, Inc.\VMware HTML5MMR" valueName="enabled">
+       <parentCategory ref="VMware_HTML5MMR" />
+       <supportedOn ref="SupportedOn" />
+       <enabledValue>
+         <decimal value="1" />
+       </enabledValue>
+       <disabledValue>
+         <decimal value="0" />
+       </disabledValue>
+     </policy>
+
+      <policy
+         name="HTML5MMR_Enable_Chrome" class="Machine" displayName="$(string.HTML5MMR_Enable_Chrome)" explainText="$(string.HTML5MMR_Enable_Chrome_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware HTML5MMR" valueName="chrome_enabled">
+         <parentCategory ref="VMware_HTML5MMR" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+            <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="HTML5MMR_Enable_Edge" class="Machine" displayName="$(string.HTML5MMR_Enable_Edge)" explainText="$(string.HTML5MMR_Enable_Edge_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware HTML5MMR" valueName="edge_enabled">
+         <parentCategory ref="VMware_HTML5MMR" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+            <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="HTML5MMRUrlList" class="Machine" displayName="$(string.HTML5MMRUrlList)" explainText="$(string.HTML5MMRUrlList_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware HTML5MMR\UrlWhiteList" presentation="$(presentation.HTML5MMRUrlList)">
+         <parentCategory ref="VMware_HTML5MMR" />
+         <supportedOn ref="SupportedOn" />
+         <elements>
+            <list id="HTML5MMRUrlList_list" key="Software\Policies\VMware, Inc.\VMware HTML5MMR\UrlWhiteList" explicitValue="true" />
+         </elements>
+      </policy>
+
+      <policy
+         name="Enable_GEO_REDIR" class="Machine" displayName="$(string.Enable_GEO_REDIR)" explainText="$(string.Enable_GEO_REDIR_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware GEOREDIR" valueName="enabled">
+         <parentCategory ref="VMware_GEO_REDIR" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+         <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="GeoRedirUrlList" class="Machine" displayName="$(string.GeoRedirUrlList)" explainText="$(string.GeoRedirUrlList_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware GEOREDIR\UrlWhiteList" presentation="$(presentation.GeoRedirUrlList)">
+         <parentCategory ref="VMware_GEO_REDIR" />
+         <supportedOn ref="SupportedOn" />
+         <elements>
+            <list id="GeoRedirUrlList_list" key="Software\Policies\VMware, Inc.\VMware GEOREDIR\UrlWhiteList" explicitValue="true" />
+         </elements>
+      </policy>
+
+      <policy
+         name="GeoRedirDistanceDelta" class="Machine" displayName="$(string.GeoRedirDistanceDelta)" explainText="$(string.GeoRedirDistanceDelta_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware GEOREDIR" presentation="$(presentation.GeoRedirDistanceDelta)">
+         <parentCategory ref="VMware_GEO_REDIR" />
+         <supportedOn ref="SupportedOn" />
+         <elements>
+            <text id="GeoRedirDistanceDelta_value" key="Software\Policies\VMware, Inc.\VMware GEOREDIR" valueName="geoDistanceDelta" />
+         </elements>
+      </policy>
+
+      <policy
+         name="Enable_BROWSER_REDIR" class="Machine" displayName="$(string.Enable_BROWSER_REDIR)" explainText="$(string.Enable_BROWSER_REDIR_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware BROWSERREDIR" valueName="enabled">
+         <parentCategory ref="VMware_BROWSER_REDIR" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+         <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="Enable_Teams_Redir" class="Machine" displayName="$(string.Enable_Teams_Redir)" explainText="$(string.Enable_Teams_Redir_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware WebRTCRedir" valueName="teamsEnabled">
+         <parentCategory ref="VMware_WebRTC_REDIR_FEATURES" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+         <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="Enable_AEC_Teams_Redir" class="Machine" displayName="$(string.Enable_AEC_Teams_Redir)" explainText="$(string.Enable_AEC_Teams_Redir_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware WebRTCRedir" valueName="enableAEC">
+         <parentCategory ref="VMware_WebRTC_REDIR_FEATURES" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+         <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="BrowserRedirUrlList" class="Machine" displayName="$(string.BrowserRedirUrlList)" explainText="$(string.BrowserRedirUrlList_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware BROWSERREDIR\UrlWhiteList" presentation="$(presentation.BrowserRedirUrlList)">
+         <parentCategory ref="VMware_BROWSER_REDIR" />
+         <supportedOn ref="SupportedOn" />
+         <elements>
+            <list id="BrowserRedirUrlList_list" key="Software\Policies\VMware, Inc.\VMware BROWSERREDIR\UrlWhiteList" explicitValue="true" />
+         </elements>
+      </policy>
+
+      <policy
+         name="BrowserRedirNavUrlList" class="Machine" displayName="$(string.BrowserRedirNavUrlList)" explainText="$(string.BrowserRedirNavUrlList_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware BROWSERREDIR\NavUrlWhiteList" presentation="$(presentation.BrowserRedirNavUrlList)">
+         <parentCategory ref="VMware_BROWSER_REDIR" />
+         <supportedOn ref="SupportedOn" />
+         <elements>
+            <list id="BrowserRedirNavUrlList_list" key="Software\Policies\VMware, Inc.\VMware BROWSERREDIR\NavUrlWhiteList" explicitValue="true" />
+         </elements>
+      </policy>
+
+      <policy
+         name="BrowserRedirFallbackWhitelistErr" class="Machine" displayName="$(string.BrowserRedirFallbackWhitelistErr)" explainText="$(string.BrowserRedirFallbackWhitelistErr_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware BROWSERREDIR" valueName="autoFallbackOnWhitelistError">
+         <parentCategory ref="VMware_BROWSER_REDIR" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+            <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="BrowserRedirShowErrPage" class="Machine" displayName="$(string.BrowserRedirShowErrPage)" explainText="$(string.BrowserRedirShowErrPage_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware BROWSERREDIR" valueName="showErrorPage">
+         <parentCategory ref="VMware_BROWSER_REDIR" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+            <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="Disable_Time_Zone_sync_2" class="User" displayName="$(string.Disable_Time_Zone_sync)" explainText="$(string.Disable_Time_Zone_sync_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="DisableTimeZoneSynchronization">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="DpiSync_2" class="User" displayName="$(string.DpiSync)" explainText="$(string.DpiSync_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="DpiSync">
+            <parentCategory ref="Agent_Configuration" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <decimal value="1" />
+               </enabledValue>
+               <disabledValue>
+                  <decimal value="0" />
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="DpiSyncPerConnection_2" class="User" displayName="$(string.DpiSyncPerConnection)" explainText="$(string.DpiSyncPerConnection_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="DpiSyncPerConnection">
+         <parentCategory ref="Agent_Configuration" />
+         <supportedOn ref="SUPPORTED_Windows10_1607_VM" />
+         <enabledValue>
+            <decimal value="1" />
+         </enabledValue>
+         <disabledValue>
+            <decimal value="0" />
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="DisallowCollaboration" class="Machine" displayName="$(string.DisallowCollaboration)" explainText="$(string.DisallowCollaboration_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="AllowCollaboration">
+         <parentCategory ref="Collaboration" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <string>false</string>
+         </enabledValue>
+         <disabledValue>
+            <string>true</string>
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="AllowCollaborationInviteByIM" class="Machine" displayName="$(string.AllowCollaborationInviteByIM)" explainText="$(string.AllowCollaborationInviteByIM_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="AllowCollaborationInviteByIM">
+         <parentCategory ref="Collaboration" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <string>true</string>
+         </enabledValue>
+         <disabledValue>
+            <string>false</string>
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="AllowCollaborationInviteByEmail" class="Machine" displayName="$(string.AllowCollaborationInviteByEmail)" explainText="$(string.AllowCollaborationInviteByEmail_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="AllowCollaborationInviteByEmail">
+         <parentCategory ref="Collaboration" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <string>true</string>
+         </enabledValue>
+         <disabledValue>
+            <string>false</string>
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="AllowCollaborationControlPassing" class="Machine" displayName="$(string.AllowCollaborationControlPassing)" explainText="$(string.AllowCollaborationControlPassing_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="AllowCollaborationControlPassing">
+         <parentCategory ref="Collaboration" />
+         <supportedOn ref="SupportedOn" />
+         <enabledValue>
+            <string>true</string>
+         </enabledValue>
+         <disabledValue>
+            <string>false</string>
+         </disabledValue>
+      </policy>
+
+      <policy
+         name="MaxCollaboratorCount" class="Machine" displayName="$(string.MaxCollaboratorCount)" explainText="$(string.MaxCollaboratorCount_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" presentation="$(presentation.MaxCollaboratorCount)">
+         <parentCategory ref="Collaboration" />
+         <supportedOn ref="SupportedOn" />
+         <elements>
+            <decimal id="MaxCollaboratorCount_DB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="MaxCollaboratorCount" maxValue="10" minValue="1" storeAsText="true" />
+         </elements>
+      </policy>
+
+      <policy
+         name="CollaborationEmailInviteDelimiter" class="Machine" displayName="$(string.CollaborationEmailInviteDelimiter)" explainText="$(string.CollaborationEmailInviteDelimiter_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" presentation="$(presentation.CollaborationEmailInviteDelimiter)">
+         <parentCategory ref="Collaboration" />
+         <supportedOn ref="SupportedOn" />
+         <elements>
+            <text id="CollaborationEmailInviteDelimiter_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="CollaborationEmailInviteDelimiter" />
+         </elements>
+      </policy>
+
+      <policy
+         name="CollaborationServerURLs" class="Machine" displayName="$(string.CollaborationServerURLs)" explainText="$(string.CollaborationServerURLs_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\CollaborationServerURLs" presentation="$(presentation.CollaborationServerURLs)">
+         <parentCategory ref="Collaboration" />
+         <supportedOn ref="SupportedOn" />
+         <elements>
+            <list id="CollaborationServerURLs_list" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration\CollaborationServerURLs" explicitValue="true" />
+         </elements>
+      </policy>
+
+      <policy
+         name="Accept_SSL_encr_framework_channel_2" class="User" displayName="$(string.Accept_SSL_encr_framework_channel)" explainText="$(string.Accept_SSL_encr_framework_channel_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Security" presentation="$(presentation.Accept_SSL_encr_framework_channel_2)">
+            <parentCategory ref="Agent_Security" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="Accept_SSL_encr_framework_channel_2_DDL" valueName="AcceptTicketSSLAuth" key="Software\Policies\VMware, Inc.\VMware VDM\Security" required="true">
+                     <item displayName="$(string.Enable)">
+                        <value>
+                           <string>1</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Disable)">
+                        <value>
+                           <string>0</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Enforce)">
+                        <value>
+                           <string>3</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="Enable_user_prof_customization_2" class="User" displayName="$(string.Enable_user_prof_customization)" explainText="$(string.Enable_user_prof_customization_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity" valueName="CustomizeUserProfile">
+            <parentCategory ref="Unity_Touch_Hosted_Apps_2" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="LaunchAppWhenArgsAreDifferent_2" class="User" displayName="$(string.LaunchAppWhenArgsAreDifferent)" explainText="$(string.LaunchAppWhenArgsAreDifferent_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity" valueName="LaunchAppWhenArgsAreDifferent">
+            <parentCategory ref="Unity_Touch_Hosted_Apps_2" />
+            <supportedOn ref="SupportedOn" />
+            <enabledValue>
+               <string>true</string>
+            </enabledValue>
+            <disabledValue>
+               <string>false</string>
+            </disabledValue>
+      </policy>
+
+      <policy
+            name="FlashMMRUrlListEnableType" class="User" displayName="$(string.FlashMMRUrlListEnableType)" explainText="$(string.FlashMMRUrlListEnableType_Desc)"
+            key="Software\Policies\VMware, Inc.\VMware FlashMMR" presentation="$(presentation.FlashMMRUrlListEnableType)">
+            <parentCategory ref="VMware_FlashMMR" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <enum id="FlashMMRUrlListEnableType_DDL" valueName="UrlListEnableType" key="Software\Policies\VMware, Inc.\VMware FlashMMR" required="true">
+                     <item displayName="$(string.Enable_white_list)">
+                        <value>
+                           <string>0</string>
+                        </value>
+                     </item>
+                     <item displayName="$(string.Enable_black_list)">
+                        <value>
+                           <string>1</string>
+                        </value>
+                     </item>
+                  </enum>
+               </elements>
+      </policy>
+
+      <policy
+         name="FlashMMRUrlList" class="User" displayName="$(string.FlashMMRUrlList)" explainText="$(string.FlashMMRUrlList_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware FlashMMR\UrlWhiteList" presentation="$(presentation.FlashMMRUrlList)">
+            <parentCategory ref="VMware_FlashMMR" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <list id="FlashMMRUrlList_list" key="Software\Policies\VMware, Inc.\VMware FlashMMR\UrlWhiteList" explicitValue="true" />
+               </elements>
+      </policy>
+
+      <policy
+         name="ShowIcon" class="Machine" displayName="$(string.ShowVMWMediaProviderProxyIcon)" explainText="$(string.ShowVMWMediaProviderProxyIcon_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\VMWMediaProviderProxy" valueName="ShowIcon">
+            <parentCategory ref="VMware_MediaProviderProxy" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <decimal value="1" />
+               </enabledValue>
+               <disabledValue>
+                  <decimal value="0" />
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="ShowMessages" class="Machine" displayName="$(string.ShowVMWMediaProviderProxyMessages)" explainText="$(string.ShowVMWMediaProviderProxyMessages_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\VMWMediaProviderProxy" valueName="ShowMessages">
+            <parentCategory ref="VMware_MediaProviderProxy" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <decimal value="1" />
+               </enabledValue>
+               <disabledValue>
+                  <decimal value="0" />
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="SetForceNonOptimizedEnvVar" class="Machine" displayName="$(string.SetVMWMediaProviderProxyForceNonOptimizedEnvVar)" explainText="$(string.SetVMWMediaProviderProxyForceNonOptimizedEnvVar_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\VMWMediaProviderProxy" presentation="$(presentation.SetForceNonOptimizedEnvVar)">
+            <parentCategory ref="VMware_MediaProviderProxy" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <text id="SetForceNonOptimizedEnvVar_TB" key="Software\Policies\VMware, Inc.\VMware VDM\Agent\VMWMediaProviderProxy" valueName="SetForceNonOptimizedEnvVar" />
+               </elements>
+      </policy>
+
+      <policy
+         name="EnableDetectProxySettings" class="Machine" displayName="$(string.EnableDetectProxySettings)" explainText="$(string.EnableDetectProxySettings_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\VMWMediaProviderProxy" valueName="EnableDetectProxySettings">
+            <parentCategory ref="VMware_MediaProviderProxy" />
+             <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <decimal value="1" />
+               </enabledValue>
+               <disabledValue>
+                  <decimal value="0" />
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="SuppressMinorVersionMismatchWarning" class="Machine" displayName="$(string.SuppressMinorVersionMismatchWarning)" explainText="$(string.SuppressMinorVersionMismatchWarning_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\VMWMediaProviderProxy" valueName="SuppressMinorVersionMismatchWarning">
+            <parentCategory ref="VMware_MediaProviderProxy" />
+             <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <decimal value="1" />
+               </enabledValue>
+               <disabledValue>
+                  <decimal value="0" />
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="DisableAECExtendedFilter" class="Machine" displayName="$(string.DisableAECExtendedFilter)" explainText="$(string.DisableAECExtendedFilter_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware VDM\Agent\VMWMediaProviderProxy" valueName="DisableAECExtendedFilter">
+            <parentCategory ref="VMware_MediaProviderProxy" />
+             <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <decimal value="1" />
+               </enabledValue>
+               <disabledValue>
+                  <decimal value="0" />
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="Disable_DeviceBridge_BAS" class="Machine" displayName="$(string.Disable_DeviceBridge_BAS)" explainText="$(string.Disable_DeviceBridge_BAS_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware DeviceBridge" valueName="DisableBASPlugin">
+            <parentCategory ref="VMware_DeviceBridge" />
+            <supportedOn ref="SupportedOn" />
+               <enabledValue>
+                  <string>true</string>
+               </enabledValue>
+               <disabledValue>
+                  <string>false</string>
+               </disabledValue>
+      </policy>
+
+      <policy
+         name="ProcessIgnoreList" class="Machine" displayName="$(string.ProcessIgnoreList)" explainText="$(string.ProcessIgnoreList_Desc)"
+         key="Software\Policies\VMware, Inc.\VMware AppTap\Config" presentation="$(presentation.ProcessIgnoreList)">
+            <parentCategory ref="VMware_AppTap_Config" />
+            <supportedOn ref="SupportedOn" />
+               <elements>
+                  <multiText id="ProcessIgnoreList_TB" key="Software\Policies\VMware, Inc.\VMware AppTap\Config" valueName="ProcessIgnoreList" />
+               </elements>
+      </policy>
+
+     <policy
+        name="EnableUWPOnRDSH" class="Machine" displayName="$(string.EnableUWPOnRDSH)" explainText="$(string.EnableUWPOnRDSH_Desc)"
+        key="Software\Policies\VMware, Inc.\VMware VDM\VMware Unity" valueName="EnableUWPOnRDSH">
+           <parentCategory ref="Unity_Touch_Hosted_Apps" />
+           <supportedOn ref="SupportedOn" />
+              <enabledValue>
+                 <string>true</string>
+              </enabledValue>
+              <disabledValue>
+                 <string>false</string>
+              </disabledValue>
+     </policy>
+
+     <policy
+        name="EnableBatStatRedir" class="Machine" displayName="$(string.EnableBatStatRedir)" explainText="$(string.EnableBatStatRedir_Desc)"
+        key="Software\Policies\VMware, Inc.\VMware VDM\Agent\Configuration" valueName="EnableBatStatRedir">
+           <parentCategory ref="Agent_Configuration" />
+           <supportedOn ref="SupportedOn" />
+              <enabledValue>
+                 <string>true</string>
+              </enabledValue>
+              <disabledValue>
+                 <string>false</string>
+              </disabledValue>
+     </policy>
+
+   </policies>
+</policyDefinitions>

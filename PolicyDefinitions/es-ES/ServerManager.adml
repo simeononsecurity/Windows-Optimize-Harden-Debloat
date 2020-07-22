@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="SUPPORTED_WindowsServer2008OrWindowsServer2008R2Only">Solo los sistemas operativos Windows Server 2008 y Windows Server 2008 R2</string>
+      <string id="DoNotLaunchServerManager">No mostrar el Administrador del servidor automáticamente al iniciar sesión</string>
+      <string id="DoNotLaunchServerManagerHelp">Esta configuración de directiva permite desactivar la presentación automática del Administrador del servidor al iniciar sesión.
+
+Si habilita esta configuración de directiva, el Administrador del servidor no se mostrará automáticamente cuando un usuario inicie sesión en el servidor.
+
+Si deshabilita esta configuración de directiva, el Administrador del servidor se mostrará automáticamente cuando un usuario inicie sesión en el servidor.
+
+Si no define esta configuración de directiva, el Administrador del servidor se mostrará cuando un usuario inicie sesión en el servidor. Sin embargo, si está seleccionada la opción "No mostrar esta consola al iniciar sesión" (Windows Server 2008 y Windows Server 2008 R2) o “No iniciar el Administrador del servidor automáticamente al iniciar sesión” (Windows Server 2012), la consola no se mostrará automáticamente al iniciar sesión.
+
+Nota: independientemente del estado de esta configuración de directiva, el Administrador del servidor estará disponible en el menú Inicio o en la barra de tareas de Windows.
+
+</string>
+      <string id="ServerManagerAutoRefreshRate">Configurar el intervalo de actualización para el Administrador del servidor</string>
+      <string id="ServerManagerAutoRefreshRateHelp">Esta configuración de directiva permite establecer el intervalo de actualización del Administrador del servidor. Cada actualización le proporciona al Administrador del servidor información actualizada sobre los roles y las características que están instalados en los servidores que está administrando a través del Administrador del servidor. El Administrador del servidor también supervisa el estado de las características y los roles instalados en los servidores administrados.
+
+Si habilita esta configuración de directiva, el Administrador del servidor usa el intervalo de actualización especificado en la configuración de directiva en lugar de la configuración de "Configurar intervalo de actualización" (en Windows Server 2008 y Windows Server 2008 R2) o la configuración de “Actualizar los datos mostrados en el Administrador del servidor cada [x] [minutos/horas/días]” (en Windows Server 2012) que está establecida en la consola del Administrador del servidor.
+
+Si deshabilita esta configuración de directiva, el Administrador del servidor no se actualizará automáticamente. Si no define esta configuración de directiva, el Administrador del servidor utiliza la configuración del intervalo de actualización que está especificada en la consola del Administrador del servidor.
+
+Nota: el intervalo de actualización predeterminado para el Administrador del servidor es de dos minutos en Windows Server 2008 y Windows Server 2008 R2, o de 10 minutos en Windows Server 2012.
+
+</string>
+      <string id="Do_not_display_Manage_Your_Server_page">No mostrar la página Administre su servidor al iniciar sesión</string>
+      <string id="Do_not_display_Manage_Your_Server_page_Explain">Esta configuración de directiva permite desactivar la presentación automática de la página Administre su servidor. 
+
+Si habilita esta configuración de directiva, la página Administre su servidor no se mostrará cada vez que un administrador inicie sesión en el servidor. 
+
+Si deshabilita o no define esta configuración de directiva, la página Administre su servidor se mostrará cada vez que un administrador inicie sesión en el servidor. No obstante, si el administrador seleccionó la opción "No mostrar esta página al iniciar sesión" de la parte inferior de la página Administre su servidor, no se mostrará la página.
+
+</string>
+      <string id="DoNotLaunchInitialConfigurationTasks">No mostrar la ventana Tareas de configuración inicial automáticamente al iniciar sesión</string>
+      <string id="DoNotLaunchInitialConfigurationTasksHelp">Esta configuración de directiva permite desactivar la visualización automática de la ventana Tareas de configuración inicial al iniciar sesión en Windows Server 2008 y Windows Server 2008 R2. 
+
+Si habilita esta configuración de directiva, la ventana Tareas de configuración inicial no se mostrará cuando un administrador inicie sesión en el servidor. 
+
+Si deshabilita esta configuración de directiva, la ventana se mostrará cuando un administrador inicie sesión en el servidor.
+
+Si no define esta configuración de directiva, la ventana Tareas de configuración inicial se mostrará cuando un administrador inicie sesión en el servidor. No obstante, si un administrador selecciona la opción "No mostrar esta ventana al iniciar sesión", la ventana no se mostrará en los inicios de sesión posteriores.
+
+</string>
+      <string id="ServerManager">Administrador del servidor</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="ServerManagerAutoRefreshRate">
+        <decimalTextBox refId="RefreshRate" defaultValue="2">Minutos:</decimalTextBox>
+        <text>El intervalo es de 1 a 34560</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Directivas de grupo de Microsoft Edge</displayName>
+  <description>Las directivas definidas para administrar la configuración de Microsoft Edge a través de los servicios Administración de directivas de grupo.</description>
+  <resources>
+    <stringTable>
+      <!-- Product -->
+      <string id="SUPPORTED_INTERNET_BROWSER_1_DisplayName">Solo Microsoft Edge 1.0</string>
+      <string id="SUPPORTED_INTERNET_BROWSER_WIN10_DisplayName">Microsoft Edge en Windows 10 o posterior</string>
+      <string id="SUPPORTED_INTERNET_BROWSER_WIN10V1511_DisplayName">Microsoft Edge en Windows 10; versión 1511 o posterior</string>
+      <string id="SUPPORTED_INTERNET_BROWSER_WIN10V1607_DisplayName">Microsoft Edge en Windows 10; versión 1607 o posterior</string>
+      <string id="SUPPORTED_INTERNET_BROWSER_WIN10V1703_DisplayName">Microsoft Edge en Windows 10; versión 1703 o posterior</string>
+      <string id="SUPPORTED_INTERNET_BROWSER_WIN10RS3RELEASE_DisplayName">Microsoft Edge en Windows 10, versión 1709 o posterior</string>
+      <string id="SUPPORTED_INTERNET_BROWSER_RS3_DisplayName">Microsoft Edge en Windows 10, versión 1708 o posterior</string>
+      <string id="SUPPORTED_INTERNET_BROWSER_RS4_DisplayName">Microsoft Edge en Windows 10, versión 1803 o posterior</string>
+      <string id="SUPPORTED_INTERNET_BROWSER_RS5_DisplayName">Microsoft Edge en Windows 10, versión 1809 o posterior</string>
+      <string id="InternetBrowser_DisplayName">Microsoft Edge</string>
+      <string id="InternetBrowser_ExplainCat">Categoría de Microsoft Edge</string>
+
+      <!-- Categories -->
+
+      <!-- NOTE: Please try to keep this list sorted by the string id="" field -->
+      <!-- Policies -->
+      <string id="HomePages">Configurar páginas de inicio</string>
+      <string id="HomePages_Explain">Cuando la directiva Configurar Abrir Microsoft Edge con está activada, puedes configurar una o más páginas de inicio. Si habilitas esta directiva, los usuarios no pueden realizar cambios en sus páginas de inicio.
+
+Si se habilita esta directiva, debes incluir URLs en las páginas, separando las distintas páginas mediante corchetes angulares con el siguiente formato:
+
+      &lt;support.contoso.com&gt;&lt;support.microsoft.com&gt;
+
+Si deshabilitas o no configuras esta directiva, las páginas web especificadas en la configuración de aplicaciones se cargan como páginas de inicio predeterminadas.
+
+Versión 1703 o posterior:
+Si no quieres enviar tráfico a Microsoft, habilita esta directiva y usa el valor &lt;about:blank&gt;, que se respeta los dispositivos unidos a un dominio Página de nueva pestaña o la Página anterior en la directiva Configuración Abrir Microsoft Edge con, Microsoft Edge omite la directiva Configurar páginas de inicio. Si no la configuras o si estableces la directiva Configuración Abrir Microsoft Edge con en una página o páginas específicas, Microsoft Edge usa la directiva Configurar páginas de inicio.
+
+Dispositivos compatibles: unidos a un dominio o inscritos en MDM
+Directiva relacionada:
+-Configurar Abrir Microsoft Edge con
+-Desactivar bloqueo de páginas de inicio</string>
+      <string id="DisableLockdownOfStartPages">Desactivar bloqueo de páginas de inicio</string>
+      <string id="DisableLockdownOfStartPages_Explain">Puedes configurar Microsoft Edge para desactivar el bloqueo de las páginas de inicio que permiten que los usuarios cambien o personalicen sus páginas de inicio. Para ello, también debes habilitar la directiva Configurar páginas de inicio o Configure Open Microsoft with. Si la habilitas, todas las páginas de inicio configuradas serán editables. Las páginas de inicio configuradas con la directiva Configurar páginas de inicio no se bloquean, lo que permite que los usuarios editen sus páginas de inicio.
+
+Si la deshabilitas o no la configuras, las páginas de inicio configuradas en la directiva Configurar páginas de inicio no se pueden cambiar y permanecen bloqueadas.
+
+Dispositivos compatibles: dispositivos unidos a un dominio o inscritos en MDM
+Directiva relacionada:
+-Configurar páginas de inicio
+-Configurar Abrir Microsoft Edge con</string>
+      <string id="LockdownFavorites">Impedir cambios en Favoritos en Microsoft Edge</string>
+      <string id="LockdownFavorites_Explain">Esta configuración de directiva te permite decidir qué empleados pueden agregar, importar, ordenar y editar la lista de favoritos de Microsoft Edge.
+
+Si habilitas esta opción de configuración, los empleados no podrán agregar, importar ni cambiar nada en la lista de favoritos. Además, como parte de esto, se desactivarán las opciones para guardar un favorito e importar configuración, así como los elementos de menús contextuales.
+
+Importante
+No actives al mismo tiempo esta opción de configuración y la opción Mantener sincronizados los favoritos entre Internet Explorer y Microsoft Edge, ya que esto impediría que los empleados pudieran sincronizar sus favoritos entre Internet Explorer y Microsoft Edge.
+
+Si desactivas o no configuras esta opción de configuración (valor predeterminado), los empleados pueden agregar, importar y realizar cambios en la lista de favoritos.</string>
+      <string id="PreventCertErrorOverrides">Impedir invalidaciones de error de certificado</string>
+      <string id="PreventCertErrorOverrides_Explain">Los certificados de seguridad web se usan para garantizar que un sitio que visitan tus usuarios es legítimo y, en algunas circunstancias, cifran los datos. Con esta directiva, puedes especificar si se debe evitar que los usuarios pasen por alto la advertencia de seguridad de sitios que presentan errores SSL.
+
+Si se habilita, no se pueden invalidar los errores de certificado.
+
+Si se deshabilita o no se configura, se permite la invalidación de los errores de certificado.</string>
+      <string id="AllowAddressBarDropdown">Permitir sugerencias en la lista desplegable de la barra de direcciones</string>
+      <string id="AllowAddressBarDropdown_Explain">Esta configuración de directiva te permite decidir si la funcionalidad de lista desplegable de la barra de direcciones está disponible en Microsoft Edge. Se recomienda deshabilitar esta configuración si deseas reducir las conexiones de red de Microsoft Edge a los servicios Microsoft.
+
+        Nota: si se deshabilita esta configuración, se desactiva la funcionalidad de lista desplegable de la barra de direcciones. Por lo tanto, como las sugerencias de búsqueda se muestran en la lista desplegable, esta configuración tiene prioridad sobre la opción "Configurar sugerencias de búsqueda en la barra de direcciones".
+
+        Si habilitas o no estableces esta configuración, los empleados pueden ver la funcionalidad de lista desplegable de la barra de direcciones de Microsoft Edge.
+
+        Si deshabilitas esta configuración, los empleados no verán la funcionalidad de lista desplegable de la barra de direcciones de Microsoft Edge. Esta configuración también deshabilita la configuración definida por el usuario "Mostrar sugerencias de búsqueda y sitios al escribir".</string>
+      <string id="AllowAutofill">Configurar Autorrellenar</string>
+      <string id="AllowAutofill_Explain">Esta configuración de directiva te permite decidir si los empleados pueden usar Autorrellenar para rellenar automáticamente los campos de formulario al usar Microsoft Edge. De manera predeterminada, los empleados pueden elegir si usan Autorrellenar.
+
+Si habilitas esta configuración, los empleados pueden usar Autorrellenar para rellenar automáticamente formularios al usar Microsoft Edge.
+
+Si deshabilitas esta configuración, los empleados no pueden usar Autorrellenar para rellenar automáticamente formularios al usar Microsoft Edge.
+
+Si no estableces esta configuración, los empleados pueden elegir si usan Autorrellenar para rellenar automáticamente formularios al usar Microsoft Edge.</string>
+      <string id="AllowDeveloperTools">Permitir Herramientas de desarrollo</string>
+      <string id="AllowDeveloperTools_Explain">Esta configuración de directiva te permite decidir si las Herramientas de desarrollo F12 están disponibles en Microsoft Edge.
+
+Si habilitas o no estableces esta configuración, las Herramientas de desarrollo F12 están disponibles en Microsoft Edge.
+
+Si deshabilitas esta configuración, las Herramientas de desarrollo F12 no están disponibles en Microsoft Edge.</string>
+      <string id="AllowDoNotTrack">Configurar No realizar seguimiento</string>
+      <string id="AllowDoNotTrack_Explain">Esta configuración de directiva te permite decidir si los empleados pueden enviar solicitudes de No realizar seguimiento a sitios web que pidan información de seguimiento. De manera predeterminada, no se envían solicitudes de No realizar seguimiento, pero los empleados pueden elegir activar y enviar solicitudes.
+
+Si habilitas esta configuración, las solicitudes de No realizar seguimiento siempre se envían a los sitios web que pidan información de seguimiento.
+
+Si deshabilitas esta configuración, no se envían nunca las solicitudes de No realizar seguimiento a sitios web que pidan información de seguimiento.
+
+Si no estableces esta configuración, los empleados pueden elegir si envían las solicitudes de No realizar seguimiento a sitios web que pidan información de seguimiento.</string>
+      <string id="AllowFullScreenMode">Permitir modo de pantalla completa</string>
+      <string id="AllowFullScreenMode_Explain">Con esta Directiva, puedes especificar si quieres permitir el modo de pantalla completa, que muestra solo el contenido web y oculta la interfaz de usuario de Microsoft Edge.
+
+Si se habilita o no está configurado, el modo de pantalla completa está disponible para su uso en Microsoft Edge. Los usuarios y las extensiones deben tener los permisos apropiados.
+
+Si se deshabilita, el modo de pantalla completa no está disponible para su uso en Microsoft Edge.</string>
+      <string id="AllowInPrivate">Permitir la exploración en InPrivate</string>
+      <string id="AllowInPrivate_Explain">Esta configuración de directiva te permite decidir si los empleados pueden explorar usando la exploración de sitios web de InPrivate.
+
+Si habilitas o no estableces esta configuración, los empleados pueden usar la exploración de sitios web de InPrivate.
+
+Si deshabilitas esta configuración, los empleados no pueden usar la exploración de sitios web de InPrivate.</string>
+      <string id="AllowPasswordManager">Configurar el administrador de contraseñas</string>
+      <string id="AllowPasswordManager_Explain">Esta configuración de directiva te permite decidir si los empleados pueden guardar sus contraseñas localmente, mediante el administrador de contraseñas. De manera predeterminada, el administrador de contraseñas está activado.
+
+Si habilitas esta configuración, los empleados pueden usar el administrador de contraseñas para guardar sus contraseñas localmente.
+
+Si deshabilitas esta configuración, los empleados no pueden usar el administrador de contraseñas para guardar sus contraseñas localmente.
+
+Si no estableces esta configuración, los empleados pueden elegir si usan el administrador de contraseñas para guardar sus contraseñas localmente.</string>
+      <string id="AllowPopups">Configurar el bloqueador de elementos emergentes</string>
+      <string id="AllowPopups_Explain">Esta configuración de directiva te permite decidir si se debe activar el bloqueador de elementos emergentes. De manera predeterminada, el bloqueador de elementos emergentes está activado.
+
+Si habilitas esta configuración, se activa el bloqueador de elementos emergentes y evita que se muestren ventanas emergentes.
+
+Si deshabilitas esta configuración, el bloqueador de elementos emergentes estará desactivado, lo que permite que se muestren ventanas emergentes.
+
+Si no estableces esta configuración, los empleados pueden elegir si usan el bloqueador de elementos emergentes.</string>
+      <string id="AllowPrinting">Permitir impresión</string>
+      <string id="AllowPrinting_Explain">Con esta directiva, puedes restringir si se permite imprimir contenido web en Microsoft Edge.
+
+Si se habilita esta directiva, se permite la impresión.
+
+Si se deshabilita, no se permite la impresión.</string>
+      <string id="AllowMixedModePrintingInPdf">Para archivos PDF que tengan páginas horizontales y verticales, imprime cada una en su propia orientación.</string>
+      <string id="AllowMixedModePrintingInPdf_Explain">Con esta directiva, puedes imprimir archivos PDF basados en la orientación por página en Microsoft Edge.
+
+Si se habilita la directiva, se permite la impresión en modo mixto.
+
+Si se deshabilita, no se permite la impresión en modo mixto.</string>
+      <string id="AllowSavingHistory">Permitir guardar el historial</string>
+      <string id="AllowSavingHistory_Explain">Microsoft Edge guarda el historial de exploración de los usuarios, que se compone de información sobre los sitios web que visitan, en sus dispositivos.
+
+Si se habilita o no se configura esta directiva, el historial de exploración se guarda y se muestra en el panel Historial.
+
+Si se deshabilita, el historial de exploración deja de guardarse y no se muestra en el panel Historial. Si el historial de exploración existe antes de que se deshabilite esta directiva, el historial de exploración anterior permanece visible en el panel Historial. Esta directiva, cuando está desactivada, no deja de mover el historial existente o el historial proveniente de otros dispositivos movidos.</string>
+      <string id="AllowSearchEngineCustomization">Permitir personalización del motor de búsqueda</string>
+      <string id="AllowSearchEngineCustomization_Explain">Esta configuración de directiva te permite decidir si los usuarios pueden cambiar su motor de búsqueda. Si deshabilitas esta configuración, los usuarios no pueden agregar nuevos motores de búsqueda ni cambiar el valor predeterminado usado en la barra de direcciones.
+
+Importante
+Esta configuración solo se puede usar con dispositivos unidos al dominio o inscritos en MDM. Para obtener más información, consulta la política de extensión del navegador de Microsoft (aka.ms/browserpolicy).
+
+Si habilitas o no configuras esta directiva, los usuarios pueden agregar nuevos motores de búsqueda y cambiar el valor predeterminado usado en la barra de direcciones desde Configuración de Microsoft Edge.
+
+Si deshabilitas esta configuración, los usuarios no pueden agregar motores de búsqueda ni cambiar el valor predeterminado usado en la barra de direcciones.</string>
+      <string id="AllowSearchSuggestionsinAddressBar">Configurar sugerencias de búsqueda en la barra de direcciones</string>
+      <string id="AllowSearchSuggestionsinAddressBar_Explain">Esta configuración de directiva te permite decidir si las sugerencias de búsqueda se muestran en la barra de direcciones de Microsoft Edge. De manera predeterminada, los empleados pueden elegir si las sugerencias de búsqueda se muestran en la barra de direcciones de Microsoft Edge
+
+Si habilitas esta configuración, los empleados pueden ver sugerencias de búsqueda en la barra de direcciones de Microsoft Edge.
+
+Si deshabilitas esta configuración, los empleados no pueden ver sugerencias de búsqueda en la barra de direcciones de Microsoft Edge.
+
+Si no estableces esta configuración, los empleados pueden elegir si las sugerencias de búsqueda se muestran en la barra de direcciones de Microsoft Edge.</string>
+      <string id="AllowSideloadingOfExtensions">Permitir instalación de prueba de la extensión</string>
+      <string id="AllowSideloadingOfExtensions_Explain">Con la instalación de prueba se instalan y ejecutan extensiones no comprobadas en Microsoft Edge. Con esta directiva, puedes especificar si se puede realizar una instalación de prueba de las extensiones no comprobadas en Microsoft Edge.
+
+Si se habilita o no está configurada, la instalación de prueba de extensiones no comprobadas en Microsoft Edge se permite.
+
+Si se deshabilita, la instalación de prueba de extensiones no comprobadas en Microsoft Edge no se permite. Las extensiones se pueden instalar solo a través de Microsoft Store (incluyendo una tienda para empresas), el escaparate para empresas (como el Portal de empresa) o PowerShell (con Add-AppxPackage). Si se deshabilita, esta directiva no impide la instalación de prueba de extensiones mediante Add-AppxPackage a través de PowerShell. Para evitarlo, en el editor de directivas de grupo, habilita Permitir el desarrollo de aplicaciones de la Tienda Windows y su instalación desde un entorno de desarrollo integrado (IDE), que se encuentra en:
+
+Configuración del equipo &gt; Plantillas administrativas &gt; Componentes de Windows &gt; Implementación de paquetes de la aplicación
+
+Versiones compatibles: Microsoft Edge en Windows 10, versión 1809
+Configuración predeterminada: Deshabilitada o No configurada
+Directivas relacionadas:
+- Permitir el desarrollo de aplicaciones de la Tienda Windows y su instalación desde un entorno de desarrollo integrado (IDE)
+- Permitir la instalación de todas las aplicaciones de confianza</string>
+      <string id="AllowSmartScreen">Configurar SmartScreen de Windows Defender</string>
+      <string id="AllowSmartScreen_Explain">Esta configuración de directiva te permite configurar si se debe activar SmartScreen de Windows Defender. SmartScreen de Windows Defender proporciona mensajes de advertencia que ayudan a proteger a los empleados contra posibles estafas de suplantación de identidad (phishing) y software malintencionado. De manera predeterminada, SmartScreen de Windows Defender está activado.
+
+Si habilitas esta configuración, SmartScreen de Windows Defender se activará y los empleados no podrán desactivarlo.
+
+Si deshabilitas esta configuración, SmartScreen de Windows Defender se desactivará y los empleados no podrán activarlo.
+
+Si no defines esta configuración, los empleados podrán elegir si usar SmartScreen de Windows Defender o no.</string>
+      <string id="AllowWebContentOnNewTabPage">Permitir contenido web en la página Nueva pestaña</string>
+      <string id="AllowWebContentOnNewTabPage_Explain">Esta configuración de directiva te permite configurar qué se muestra cuando Microsoft Edge abre una nueva pestaña. De manera predeterminada, Microsoft Edge abre la página Nueva pestaña.
+
+Si habilitas esta configuración, Microsoft Edge abre una nueva pestaña con la página Nueva pestaña.
+
+Si deshabilitas esta configuración, Microsoft Edge abre una nueva pestaña con una página en blanco. Si usas esta configuración, los empleados no pueden cambiarla.
+
+Si no estableces esta configuración, los empleados pueden elegir cómo se muestran las nuevas pestañas.</string>
+      <string id="ConfiguredFavorites">Aprovisionar favoritos</string>
+      <string id="ConfiguredFavorites_Explain">Esta configuración de directiva te permite configurar un conjunto predeterminado de favoritos, que se mostrará a los empleados. Los empleados no pueden modificar, ordenar, mover, exportar ni eliminar estos favoritos aprovisionados.
+
+Si habilitas esta opción de configuración, puedes configurar una URL favorita y carpetas favoritas para que aparezcan al principio de lista de favoritos de los usuarios (tanto en el concentrador como en la barra de favoritos). Los favoritos del usuario aparecerán una vez que dichos favoritos se aprovisionen.
+
+Importante
+No actives al mismo tiempo esta opción de configuración y la opción Mantener sincronizados los favoritos entre Internet Explorer y Microsoft Edge, ya que esto impediría que los empleados pudieran sincronizar sus favoritos entre Internet Explorer y Microsoft Edge.
+
+Si desactivas o no configuras esta opción de configuración, los empleados podrán ver los favoritos que configuren en el hub y en la barra de favoritos.</string>
+      <string id="ConfigureFavoritesBar">Configurar barra de favoritos</string>
+      <string id="ConfigureFavoritesBar_Explain">La barra de favoritos muestra los vínculos del usuario con los sitios que ha agregado a ella. Con esta directiva, puedes especificar si quieres establecer la barra de favoritos para que esté siempre visible u oculta en cualquier página.
+
+Si se habilita, la barra de favoritos siempre está visible en cualquier página y el estado de su botón de alternancia en Configuración se establece en Activado, pero se deshabilita para evitar que los usuarios hagan cambios. Además, en la parte superior del panel de configuración aparece un mensaje de error para indicar que la organización administra algunos ajustes. La opción Mostrar barra u ocultar barra está oculta en el menú contextual.
+
+Si se deshabilita, la barra de favoritos se oculta y el estado de su botón de alternancia en Configuración se establece en Desactivado, pero se deshabilita para evitar que los usuarios hagan cambios. Además, en la parte superior del panel de configuración aparece un mensaje de error para indicar que la organización administra algunos ajustes.
+
+Si no se configura, la barra de favoritos se oculta, pero se muestra en las páginas Inicio y Nueva pestaña, y el estado de su botón de alternancia en Configuración se establece en Desactivado, pero se habilita para permitir que los usuarios hagan cambios.</string>
+      <string id="ConfigureHomeButton">Configurar el botón Inicio</string>
+      <string id="ConfigureHomeButton_Explain">El botón Inicio carga la página de inicio predeterminada, la página Nueva pestaña o una dirección URL definida en la directiva Establecer dirección URL del botón Inicio.
+
+De forma predeterminada, esta directiva está deshabilitada o no configurada y, al hacer clic en el botón Inicio, se carga la página de inicio predeterminada.
+
+Cuando está habilitada, el botón Inicio se bloquea y no permite que los usuarios realicen cambios en la configuración de la IU de Microsoft Edge. Para permitir que los usuarios cambien la configuración de la IU de Microsoft Edge, habilita la directiva Desbloquear el botón Inicio.
+
+Si la habilitas Y:
+-Seleccionas la opción Mostrar el botón Inicio y establecer en la página de inicio, al hacer clic en el botón Inicio, se carga la página de inicio.
+-Seleccionas la opción Mostrar el botón Inicio y establecer en la página Nueva pestaña, al hacer clic en el botón Inicio, se carga la página Nueva pestaña.
+-Seleccionas la opción  Mostrar el botón Inicio y establecer una página específica, al hacer clic en el botón Inicio, se carga la URL especificada en la directiva Establecer dirección URL del botón Inicio.
+-Seleccionas Ocultar el botón Inicio, el botón Inicio está oculto en Microsoft Edge.
+
+Configuración predeterminada: deshabilitada o sin configurar
+Directivas relacionadas:
+-Establecer dirección URL del botón Inicio
+-Desbloquear botón Inicio</string>
+      <string id="ConfigureHomeButton_StartPage">Mostrar botón Inicio y establecer en la página de inicio</string>
+      <string id="ConfigureHomeButton_NewTabPage">Mostrar botón Inicio y establecer en la página Nueva pestaña</string>
+      <string id="ConfigureHomeButton_SpecificPage">Mostrar botón de Inicio y establecer una página específica</string>
+      <string id="ConfigureHomeButton_HideHomeButton">Ocultar el botón Inicio</string>
+      <string id="ConfigureOpenEdgeWith">Configurar Abrir Microsoft Edge con</string>
+      <string id="ConfigureOpenEdgeWith_Explain">Puedes configurar Microsoft Edge para bloquear la página de inicio y evitar que los usuarios la modifiquen o personalicen.
+
+Si está activada, puedes elegir una de las siguientes opciones:
+-Página de Inicio: la página de inicio se carga e ignora la directiva configurar páginas de inicio.
+-Página de nueva pestaña: la página de nueva pestaña se carga e ignora la directiva Configurar páginas de inicio.
+-Páginas anteriores: todas las pestañas que el usuario tenía abiertas cuando Microsoft Edge se cerró por última vez se cargan e ignoran la directiva Configurar páginas de inicio.
+-Una página o páginas específicas: las URL especificadas con la directiva Configuración de páginas de inicio se carga. Si la seleccionas, debes especificar al menos una URL en configurar páginas de inicio; de lo contrario, esta directiva se ignora.
+
+Cuando está habilitada, y deseas realizar cambios, primero debes establecer la opción Deshabilitar el bloqueo de las páginas de inicio para no configurado, debes realizar los cambios en la directiva Configurar Abrir Edge con y luego activar la directiva Deshabilitar bloqueo de páginas de inicio.
+
+Si está deshabilitada o no configurada, y habilitas la directiva Deshabilitar bloqueo de páginas de inicio, los usuarios podrán cambiar o personalizar la página de inicio.
+
+Configuración predeterminada: una página o páginas específicas (por defecto)
+Directivas relacionadas:
+-Deshabilitar el bloqueo de las páginas de inicio
+-Configurar las páginas de inicio</string>
+      <string id="ConfigureOpenEdgeWithList_EdgeStartPage">Página de inicio</string>
+      <string id="ConfigureOpenEdgeWithList_NewTabPage">Página de nueva pestaña</string>
+      <string id="ConfigureOpenEdgeWithList_PreviousPages">Páginas anteriores</string>
+      <string id="ConfigureOpenEdgeWithList_ProvisionedHomePages">Página o páginas específicas (predeterminado)</string>
+      <string id="AlwaysEnableBooksLibrary">Mostrar siempre la biblioteca libros en Microsoft Edge</string>
+      <string id="AlwaysEnableBooksLibrary_Explain">Esta configuración de directiva te ayuda a decidir si quieres que la pestaña Libros sea visible, independientemente de la configuración de país o región de un dispositivo, según esté configurado en el área País o región de la configuración de Windows.
+
+Si habilitas esta opción, Microsoft Edge muestra la biblioteca de libros, independientemente del país o región del dispositivo.
+
+Si deshabilitas o no configuras esta opción, Microsoft Edge muestra la biblioteca de libros solo en países o regiones donde se admita.</string>
+      <string id="EnableExtendedBooksTelemetry">Permitir telemetría extendida para la pestaña Libros</string>
+      <string id="EnableExtendedBooksTelemetry_Explain">Esta configuración de directiva te permite decidir la cantidad de datos que se envían a Microsoft sobre el libro que estás leyendo en la pestaña Libros de Microsoft Edge.
+
+Si habilitas esta configuración, Microsoft Edge envía datos de telemetría adicionales, además de los datos de telemetría básicos, desde la pestaña Libros.
+
+Si deshabilitas o no estableces esta configuración, Microsoft Edge solo envía datos de telemetría básicos, según la configuración del dispositivo.</string>
+      <string id="UseSharedFolderForBooks">Permitir una carpeta compartida de libros</string>
+      <string id="UseSharedFolderForBooks_Explain">Esta configuración de directiva te permite decidir si Microsoft Edge almacena los libros de la pestaña Libros en una carpeta compartida predeterminada de Windows.
+
+Si habilitas esta configuración, Microsoft Edge descarga automáticamente los archivos de libro en una carpeta compartida común e impide que los estudiantes y los docentes quiten el libro de la pestaña Libros. Para que esto funcione correctamente, los estudiantes y los docentes deben iniciar sesión con una cuenta educativa.
+
+Si deshabilitas o no estableces esta configuración, Microsoft Edge descarga los archivos de libro en una carpeta por usuario para cada estudiante o docente.</string>
+      <string id="AllowConfigurationUpdateForBooksLibrary">Permitir actualizaciones de la configuración de la biblioteca de libros</string>
+      <string id="AllowConfigurationUpdateForBooksLibrary_Explain">Esta configuración de directiva permite decidir si Microsoft Edge puede actualizar automáticamente los datos de configuración de la biblioteca de libros.
+
+Si se habilita (predeterminado) o no establece esta configuración, Microsoft Edge actualiza automáticamente los datos de configuración de la biblioteca de libros.
+
+Si deshabilita esta configuración, Microsoft Edge no descargará automáticamente los datos de configuración actualizada de la biblioteca de libros.</string>
+      <string id="Cookies">Configurar cookies</string>
+      <string id="Cookies_Explain">Esta configuración te permite configurar la manera de tratar las cookies.
+
+Si activas esta configuración, también debes decidir lo siguiente:
+     Permitir todas las cookies (predeterminado): se permiten todas las cookies de todos los sitios web.
+     Bloquear todas las cookies: se bloquean todas las cookies de todos los sitios web.
+     Bloquear solo cookies de terceros: se bloquean solo las cookies de sitios web de terceros.
+
+Si desactivas o no estableces esta configuración, se permiten todas las cookies de todos los sitios web.</string>
+      <string id="CookiesList_Block_None">Permitir todas las cookies (predeterminado)</string>
+      <string id="CookiesList_Block_ThirdParty">Bloquear solo cookies de terceros</string>
+      <string id="CookiesList_Block_All">Bloquear todas las cookies</string>
+      <string id="EnterpriseModeSiteList">Configurar la lista de sitios de modo de empresa</string>
+      <string id="EnterpriseModeSiteList_Explain">Esta configuración de directiva te permite configurar el uso del Modo de empresa y la lista de sitios del Modo de empresa para resolver los problemas comunes de compatibilidad con las aplicaciones heredadas.
+
+Si activas esta configuración, Microsoft Edge busca el archivo XML de la lista de sitios del Modo de empresa. En este archivo se incluyen los sitios y dominios que se deben visualizar con Internet Explorer 11 y el Modo de empresa.
+
+Si desactivas o no estableces esta configuración, Microsoft Edge no usará el archivo XML de la lista de sitios del Modo de empresa. En este caso, es posible que los empleados experimenten problemas de compatibilidad al usar aplicaciones heredadas.</string>
+      <string id="AllowExtensions">Permitir extensiones</string>
+      <string id="AllowExtensions_Explain">Esta configuración te permite decidir si los empleados pueden cargar extensiones en Microsoft Edge.
+
+Si habilitas o no configuras esta opción, los empleados pueden utilizar extensiones de Microsoft Edge.
+
+Si deshabilitas esta opción, los empleados no pueden utilizar extensiones de Microsoft Edge.</string>
+        <string id="PreventTurningOffRequiredExtensions">Impedir la desactivación de extensiones necesarias</string>
+        <string id="PreventTurningOffRequiredExtensions_Explain">Puedes definir una lista de extensiones en Microsoft Edge que los usuarios no pueden desactivar. Debes implementar extensiones a través de cualquier canal de implementación empresarial disponible, como Microsoft Intune. Al habilitar esta directiva, los usuarios no pueden desinstalar extensiones de su equipo, pero pueden configurar opciones para extensiones definidas en esta directiva, como permitir la Exploración de InPrivate. Los permisos adicionales que solicitan futuras actualizaciones de la extensión se conceden automáticamente.
+
+Cuando habilites esta directiva, debes proporcionar una lista delimitada por punto y coma de nombres de familia de paquetes (PFN) de extensión. Por ejemplo, si agregas Microsoft.OneNoteWebClipper_8wekyb3d8bbwe;Microsoft.OfficeOnline_8wekyb3d8bbwe, impides que un usuario desactive Web Clipper de OneNote y la extensión de Office Online.
+
+Cuando está habilitada, la eliminación de extensiones de la lista no desinstala la extensión del equipo del usuario automáticamente. Para desinstalar la extensión, usa cualquier canal de implementación empresarial disponible.
+
+Si habilitas la directiva Permitir herramientas de desarrollador, no se impide que los usuarios depuren y modifiquen la lógica de una extensión.
+
+Si la deshabilitas o no la configuras, las extensiones definidas como parte de esta directiva se omiten.
+
+Configuración predeterminada: deshabilitada o no configurada
+Directivas relacionadas: Permitir herramientas de desarrollador
+Documentos relacionados:
+- Buscar un nombre de familia de paquete (PFN) para VPN por aplicación (https://docs.microsoft.com/es-es/sccm/protect/deploy-use/find-a-pfn-for-per-app-vpn)
+- Cómo administrar las aplicaciones adquiridas a través de la Tienda Microsoft para Empresas con Microsoft Intune (https://docs.microsoft.com/es-es/intune/windows-store-for-business)
+- Asignación de aplicaciones a grupos con Microsoft Intune (https://docs.microsoft.com/es-es/intune/apps-deploy)
+- Administrar aplicaciones desde Microsoft Store para Empresas con System Center Configuration Manager (https://docs.microsoft.com/es-es/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
+- Incorporación de una aplicación de línea de negocio de Windows a Microsoft Intune (https://docs.microsoft.com/es-es/intune/lob-apps-windows)</string>
+      <string id="HideLocalHostIPAddress">Impedir el uso de la dirección IP de Localhost para WebRTC</string>
+      <string id="HideLocalHostIPAddress_Explain">Esta configuración de directiva te permite decidir si se muestra la dirección IP de LocalHost de un empleado al realizar llamadas mediante el protocolo WebRTC.
+
+Si habilitas esta configuración, las direcciones IP de LocalHost se ocultan al realizar llamadas mediante el protocolo WebRTC.
+
+Si deshabilitas o no estableces esta configuración, se muestran las direcciones IP de LocalHost al realizar llamadas mediante el protocolo WebRTC.</string>
+      <string id="ItemNameDisable">Deshabilitar</string>
+      <string id="ItemNameEnable">Habilitar</string>
+      <string id="PreventSmartScreenPromptOverride">Impedir la omisión de los avisos de SmartScreen de Windows Defender para sitios</string>
+      <string id="PreventSmartScreenPromptOverride_Explain">Esta configuración de directiva te permite decidir si los empleados pueden invalidar las advertencias de SmartScreen de Windows Defender sobre sitios web potencialmente malintencionados.
+
+Si habilitas esta configuración, los empleados no podrán ignorar las advertencias de SmartScreen de Windows Defender ni pueden continuar al sitio.
+
+Si deshabilitas o no defines esta configuración, los empleados podrán ignorar las advertencias de SmartScreen de Windows Defender y continuar al sitio.</string>
+      <string id="PreventSmartScreenPromptOverrideForFiles">Impedir la omisión de los avisos de SmartScreen de Windows Defender para archivos</string>
+      <string id="PreventSmartScreenPromptOverrideForFiles_Explain">Esta configuración de directiva te permite decidir si los empleados pueden invalidar las advertencias de SmartScreen de Windows Defender sobre la descarga de archivos no comprobados.
+
+Si habilitas esta configuración, los empleados no podrán ignorar las advertencias de SmartScreen de Windows Defender ni podrán descargar los archivos no comprobados.
+
+Si deshabilitas o no defines esta configuración, los empleados podrán ignorar las advertencias de SmartScreen de Windows Defender y continuar con el proceso de descarga.</string>
+      <string id="SetDefaultSearchEngine">Establecer motor de búsqueda predeterminado</string>
+      <string id="SetDefaultSearchEngine_Explain">Esta configuración de directiva te permite configurar el motor de búsqueda predeterminado para tus empleados. Los empleados pueden cambiar el motor de búsqueda predeterminado en cualquier momento.
+
+Importante
+Esta configuración solo se puede usar con dispositivos unidos al dominio o inscritos en MDM. Para obtener más información,, consulta la directiva de extensión del navegador de Microsoft (aka.ms/browserpolicy).
+
+Si habilitas esta configuración, puedes elegir un motor de búsqueda predeterminado para tus empleados. Si esta configuración está habilitada, debes agregar también el motor predeterminado en la directiva “Establecer motor de búsqueda predeterminado” agregando un vínculo al archivo XML OpenSearch, que incluya al menos el nombre corto y la dirección URL https: del motor de búsqueda. Para obtener más información sobre cómo crear el archivo XML OpenSearch, consulta el tema Descripción de los estándares OpenSearch (https://msdn.microsoft.com/en-us/library/dd163546.aspx) (puede estar en inglés). Usa este formato para especificar el vínculo que deseas agregar: &lt;https://fabrikam.com/opensearch.xml&gt;
+
+Nota
+Si deseas que los empleados usen la configuración predeterminada de Microsoft Edge para cada mercado, puedes definir la cadena como EDGEDEFAULT. Si deseas que los empleados usen Microsoft Bing como el motor de búsqueda predeterminado, puedes definir la cadena como EDGEBING.
+
+Los empleados pueden cambiar el motor de búsqueda predeterminado en cualquier momento a menos que desactives la opción "Permitir personalización del motor de búsqueda", que restringe cualquier cambio.
+
+Si desactivas esta configuración, se elimina el motor de búsqueda predeterminado definido por la directiva. Si este es también el valor predeterminado usado actualmente, el motor cambia al motor especificado por Microsoft Edge para el mercado.
+
+Si no estableces esta configuración, el motor de búsqueda predeterminado se establece en el especificado en la opción Aplicación.</string>
+      <string id="ConfigureAdditionalSearchEngines">Configurar motores de búsqueda adicionales</string>
+      <string id="ConfigureAdditionalSearchEngines_Explain">Esta configuración de directiva te permite agregar hasta cinco motores de búsqueda adicionales, que tus empleados no pueden eliminar, pero que pueden convertirse en el motor predeterminado personal. Esta configuración no define el motor de búsqueda predeterminado. Para ello, debes usar la opción "Establecer motor de búsqueda predeterminado".
+
+Importante
+Esta configuración solo se puede usar con dispositivos unidos a un dominio o inscritos en MDM. Para obtener más información, consulta la directiva de extensión de navegador de Microsoft (aka.ms/browserpolicy).
+
+Si habilitas esta configuración, puedes agregar hasta cinco motores de búsqueda adicionales. Para cada motor adicional, también debes agregar un vínculo al archivo XML de OpenSearch, que incluya al menos el nombre abreviado y la dirección URL https: del motor de búsqueda. Para obtener más información sobre cómo crear el archivo XML de OpenSearch, consulta el tema Descripción de los estándares OpenSearch (https://msdn.microsoft.com/en-us/library/dd163546.aspx) (puede estar en inglés). Usa este formato para especificar los vínculos que deseas agregar: &lt;https://fabrikam.com/opensearch.xml&gt;&lt;https://www.contoso.com/opensearch.xml&gt;
+
+Si deshabilitas esta configuración, todos los motores de búsqueda agregados se eliminan de los dispositivos de los empleados.
+
+Si no estableces esta configuración, la lista de motores de búsqueda se define con los motores de búsqueda especificados en la opción Aplicación.</string>
+      <string id="ProvisionedFavorites">Configurar favoritos</string>
+      <string id="ProvisionedFavorites_Explain">Esta configuración de directiva te permite configurar la lista predeterminada de Favoritos que se muestran para los empleados. Los empleados pueden cambiar sus favoritos agregando o quitando elementos en cualquier momento.
+
+Si activas esta configuración, puedes configurar los Favoritos predeterminados que se muestran para los empleados. Si esta configuración está activada, también debes proporcionar una lista de Favoritos en la sección Opciones. La lista se importa después de que se haya implementado la directiva.
+
+Si desactivas o no estableces esta configuración, los empleados verán los Favoritos que establecieron en el Hub de favoritos.</string>
+      <string id="SetHomeButtonURL">Establecer dirección URL del botón Inicio</string>
+      <string id="SetHomeButtonURL_Explain">El botón Inicio se puede configurar para cargar una URL personalizada cuando el usuario hace clic en el botón Inicio.
+
+Si se activa o se configura, la directiva Configurar el botón Inicio está activada y se selecciona la opción Mostrar el botón Inicio y establecer una página específica, se carga una dirección URL personalizada cuando el usuario hace clic en el botón Inicio.
+
+Configuración predeterminada: en blanco o sin configurar
+Directiva relacionada: Configurar botón Inicio</string>
+      <string id="SendIntranetTraffictoInternetExplorer">Enviar todos los sitios de la intranet a Internet Explorer 11</string>
+      <string id="SendIntranetTraffictoInternetExplorer_Explain">Esta configuración de directiva te permite decidir si todos los sitios de la intranet se deben abrir con Internet Explorer 11. Esta configuración solo se debe usar si hay problemas conocidos de compatibilidad con Microsoft Edge.
+
+Si activas esta configuración, todos los sitios de la intranet se abrirán automáticamente con Internet Explorer 11.
+
+Si desactivas o no estableces esta configuración, todos los sitios de la intranet se abrirán automáticamente con Microsoft Edge.</string>
+      <string id="SetNewTabPageURL">Establecer URL de página Nueva pestaña</string>
+      <string id="SetNewTabPageURL_Explain">Puedes establecer la URL de la página Nueva pestaña predeterminada en Microsoft Edge. Si habilitas esta directiva, impides que los usuarios cambien la configuración de la página Nueva pestaña. Si la habilitas y la directiva Permitir contenido web en la página Nueva pestaña está deshabilitada, Microsoft Edge ignora la dirección URL especificada en esta directiva y abre about:blank.
+
+Si está habilitada, puedes establecer la URL de la página Nueva pestaña predeterminada.
+
+Si está deshabilitada o no se configura, se utiliza la página Nueva pestaña de Microsoft Edge predeterminada.
+
+Configuración predeterminada: deshabilitada o sin configurar
+Directiva relacionada: Permitir contenido web en la página Nueva pestaña</string>
+      <string id="ShowMessageWhenOpeningSitesInInternetExplorer_Show_ContinueInEdge">Mostrar el vínculo Continuar en Microsoft Edge</string>
+      <string id="ShowMessageWhenOpeningSitesInInternetExplorer_Hide_ContinueInEdge">Ocultar vínculo Continuar en Microsoft Edge</string>
+      <string id="ShowMessageWhenOpeningSitesInInternetExplorer">Mostrar un mensaje cuando se abren los sitios de Internet Explorer</string>
+      <string id="ShowMessageWhenOpeningSitesInInternetExplorer_Explain">Puedes configurar Microsoft Edge para que abra un sitio automáticamente en Internet Explorer 11 y elegir que se muestre una notificación antes de que se abra el sitio. Si quieres mostrar una notificación, debes habilitar la opción Configurar la lista de sitios de modo de empresa o Enviar todos los sitios de la intranet a Internet Explorer 11 o ambas.
+
+Si la habilitas, la notificación aparecerá en una página nueva. Si quieres que los usuarios continúen en Microsoft Edge, selecciona la opción Mostrar el vínculo Continuar en Microsoft Edge de la lista desplegable en Opciones.
+
+Si la deshabilitas o no la configuras, se produce el comportamiento de la aplicación predeterminada y no se muestra ninguna página adicional.
+
+Configuración predeterminada: deshabilitada o sin configurar
+Directivas relacionadas:
+-Configurar la lista de sitios de modo de empresa
+-Enviar todos los sitios de la intranet a Internet Explorer 11</string>
+      <string id="PreventAccessToAboutFlagsInMicrosoftEdge">Impedir el acceso a la página about:flags de Microsoft Edge</string>
+      <string id="PreventAccessToAboutFlagsInMicrosoftEdge_Explain">Esta configuración de directiva te permite decidir si los empleados podrán tener acceso a la página about:flags, que se usa para cambiar la configuración del desarrollador y habilitar características experimentales.
+
+Si habilitas esta opción de directiva, los empleados no podrán tener acceso a la página about:flags.
+
+Si deshabilitas o no configuras esta opción, los empleados podrán tener acceso a la página about:flags.</string>
+      <string id="PreventLiveTileDataCollection">Impedir que Microsoft Edge recopile información de iconos dinámicos al anclar un sitio a Inicio</string>
+      <string id="PreventLiveTileDataCollection_Explain">Esta directiva te permite decidir si Microsoft Edge puede recopilar los metadatos de iconos dinámicos del servicio ieonline.microsoft.com para ofrecer una mejor experiencia al anclar un icono dinámico al menú Inicio.
+
+Si habilitas esta configuración, Microsoft Edge no recopilará los metadatos de iconos dinámicos y se ofrecerá una experiencia mínima cuando un usuario ancle un icono dinámico al menú Inicio.
+
+Si deshabilitas o no estableces esta configuración, Microsoft Edge recopila los metadatos de iconos dinámicos, lo que proporciona una experiencia más completa cuando un usuario ancla un icono dinámico al menú Inicio.</string>
+      <string id="PreventFirstRunPage">Impedir que se abra la página de primera ejecución en Microsoft Edge</string>
+      <string id="PreventFirstRunPage_Explain">
+Esta configuración de directiva te permite decidir si los empleados ven la página web de primera ejecución de Microsoft al abrir Microsoft Edge por primera vez.
+
+Si habilitas esta configuración, los empleados no verán la página de primera ejecución al abrir Microsoft Edge por primera vez.
+
+Si deshabilitas o no estableces esta configuración, los empleados verán la página de primera ejecución al abrir Microsoft Edge por primera vez.</string>
+      <string id="SyncFavoritesBetweenIEAndMicrosoftEdge">Mantener sincronizados los favoritos entre Internet Explorer y Microsoft Edge</string>
+      <string id="SyncFavoritesBetweenIEAndMicrosoftEdge_Explain">Esta configuración te permite decidir si los usuarios pueden sincronizar sus favoritos entre Internet Explorer y Microsoft Edge.
+
+Si habilitas esta configuración, los empleados podrán configurar sus favoritos entre Internet Explorer y Microsoft Edge.
+
+Si deshabilitas o no estableces esta configuración, los empleados no podrán sincronizar sus favoritos entre Internet Explorer y Microsoft Edge.
+      </string>
+      <string id="UnlockHomeButton">Desbloquear el botón Inicio</string>
+      <string id="UnlockHomeButton_Explain">De forma predeterminada, cuando se habilita la opción Configurar el botón Inicio o Establecer dirección URL del botón Inicio, el botón Inicio se bloquea para evitar que los usuarios cambien lo que la página carga al hacer clic en el botón Inicio. Utiliza esta directiva para permitir que los usuarios cambien el botón Inicio incluso cuando se habilite la opción Configurar botón Inicio o Establecer dirección URL del botón Inicio.
+
+Si está habilitada, la configuración de la interfaz de usuario del botón Inicio se habilita para permitir que los usuarios realicen cambios, incluso ocultar y mostrar el botón Inicio, así como configurar una dirección URL personalizada.
+
+Si está deshabilitada o no configurada, la configuración de la interfaz de usuario del botón Inicio se desactiva y, por tanto, se evita que los usuarios realicen cambios.
+
+Configuración predeterminada: deshabilitada o no configurada
+Directiva relacionada:
+-Configurar el botón Inicio
+-Establecer dirección URL del botón Inicio</string>
+      <string id="AllowFlashClickToRun">Configurar el ajuste Hacer clic y ejecutar Adobe Flash</string>
+      <string id="AllowFlashClickToRun_Explain">
+        Si habilitas o no configuras la opción Hacer clic y ejecutar de Adobe Flash, Microsoft Edge exigirá que un usuario haga clic en el botón Hacer clic y ejecutar para hacer clic en el contenido o para que el sitio aparezca en la lista de permitidos automáticamente antes de cargar y ejecutar el contenido.
+
+Los sitios se incluyen en la lista de permitidos automáticamente en función de los comentarios del usuario, concretamente, la frecuencia con la que se permite que el contenido se cargue y se ejecute.
+      </string>
+
+      <string id="AllowClearingBrowsingDataOnExit">Permitir el borrado de los datos de exploración al salir</string>
+      <string id="AllowClearingBrowsingDataOnExit_Explain">Esta configuración de directiva permite el borrado automático de los datos de exploración cuando se cierra Microsoft Edge.
+
+Si habilitas esta configuración de directiva, se activará el borrado del historial de exploración al salir.
+
+Si deshabilitas o no estableces esta configuración de directiva, el empleado puede activarla y configurarla en las opciones de Borrar datos de exploración en Configuración.
+      </string>
+
+      <string id="AllowFlash">Permitir Adobe Flash</string>
+      <string id="AllowFlash_Explain">Esta configuración te permite decidir si los empleados pueden ejecutar Adobe Flash en Microsoft Edge.
+
+Si habilitas o no estableces esta configuración, los empleados pueden usar Adobe Flash.
+
+Si deshabilitas esta configuración, los empleados no pueden usar Adobe Flash.
+
+      </string>
+
+      <string id="AllowCVList">Permitir lista de compatibilidad de Microsoft</string>
+      <string id="AllowCVList_Explain">Esta configuración de directiva te permite decidir si vas a usar la lista de compatibilidad de Microsoft (una lista proporcionada por Microsoft que ayuda a que los sitios con problemas de compatibilidad conocidos se muestren correctamente) en Microsoft Edge. De forma predeterminada, la lista de compatibilidad de Microsoft está habilitada y se puede ver consultando about:compat.
+
+Si habilitas o no estableces esta configuración, Microsoft Edge descarga periódicamente la versión más reciente de la lista de Microsoft, aplicando las actualizaciones durante la navegación. Si se visita algún sitio de la lista de compatibilidad de Microsoft, se le pedirá al empleado que use Internet Explorer 11, donde el sitio se representa automáticamente como si se visitara en cualquier versión de IE necesaria para que se muestre correctamente.
+
+Si deshabilitas esta configuración, no se utiliza la lista de compatibilidad de Microsoft durante la navegación.</string>
+
+      <string id="AllowTabPreloading">Permitir que Microsoft Edge inicie y cargue las páginas Inicio y Nueva pestaña en el inicio de Windows y cada vez que se cierre Microsoft Edge</string>
+      <string id="AllowTabPreloading_Explain">Esta configuración de directiva permite decidir si Microsoft Edge puede cargar las páginas Inicio y Nueva pestaña durante el inicio de sesión de Windows y cada vez que se cierra Microsoft Edge. De manera predeterminada, este ajuste está pensado para permitir la precarga.
+
+Si permites la precarga, deshabilitas o no configuras esta configuración de directiva, Microsoft Edge cargará las páginas Inicio y Nueva pestaña durante el inicio de sesión de Windows y cada vez que se cierre Microsoft Edge. Esto reduce la cantidad de tiempo necesario para iniciar Microsoft Edge y abrir una nueva pestaña.
+
+Si impides la precarga, Microsoft Edge no cargará la página Inicio o Nueva pestaña durante el inicio de sesión de Windows y cada vez que se cierre Microsoft Edge.</string>
+      <string id="AllowTabPreloadingDropdown_AllowTabPreloading">Permitir la carga previa de pestañas</string>
+      <string id="AllowTabPreloadingDropdown_PreventTabPreloading">Impedir la carga previa de pestañas</string>
+      <string id="ConfigureTelemetryForMicrosoft365Analytics">Configurar la recopilación de datos de exploración para Análisis de escritorio</string>
+      <string id="ConfigureTelemetryForMicrosoft365Analytics_Explain">Puedes configurar Microsoft Edge para que solo envíe el historial de la intranet, solo el historial de Internet o ambos a Análisis de escritorio para dispositivos empresariales con un Id. comercial configurado. Si está deshabilitado o no se ha configurado, Microsoft Edge no envía los datos del historial de exploración a Análisis de escritorio.
+
+Versiones compatibles: Microsoft Edge en Windows 10, versión 1809
+Configuración predeterminada: deshabilitada o no configurada (no se recopilan ni envían datos)</string>
+      <string id="ZonesList_IntranetOnly">Permitir solo el envío del historial de la intranet</string>
+      <string id="ZonesList_InternetOnly">Permitir solo el envío del historial de Internet</string>
+      <string id="ZonesList_Both">Permitir el envío del historial de la intranet y de Internet</string>
+      <string id="ZonesList_None">No permitir el envío del historial de la intranet ni de Internet</string>
+
+      <string id="AllowPrelaunch">Permitir que Microsoft Edge se inicie previamente al iniciar Windows, cuando el sistema está inactivo y cada vez que se cierra Microsoft Edge</string>
+      <string id="AllowPrelaunch_Explain">Esta configuración de directiva te permite decidir si Microsoft Edge puede iniciarse previamente durante el inicio de sesión de Windows, cuando el sistema está inactivo y cada vez que se cierra Microsoft Edge. De forma predeterminada, esta opción es para permitir el inicio previo.
+
+Si permites el inicio previo, o deshabilitas o no configuras esta opción de directiva, Microsoft Edge se inicia previamente durante el inicio de sesión de Windows, cuando el sistema está inactivo y cada vez que se cierra Microsoft Edge; con ello, minimiza la cantidad de tiempo necesaria para poner iniciar Microsoft Edge.
+
+Si impides el inicio previo, Microsoft Edge no se iniciará previamente durante el inicio de sesión de Windows, cuando el sistema esté inactivo ni cada vez que se cierre Microsoft Edge.</string>
+      <string id="AllowPrelaunchDropdown_AllowPrelaunch">Permitir iniciar previamente</string>
+      <string id="AllowPrelaunchDropdown_PreventPrelaunch">Impedir iniciar previamente</string>
+
+      <string id="ConfigureKioskMode">Configurar el modo de pantalla completa</string>
+      <string id="ConfigureKioskMode_Explain">Configura cómo se comporta Microsoft Edge cuando se ejecuta en pantalla completa con acceso asignado, ya sea como una aplicación única o como una de varias aplicaciones que se ejecutan en el dispositivo de pantalla completa. Puedes controlar si Microsoft Edge ejecuta la característica InPrivate en pantalla completa o en varias pestañas con funcionalidad limitada, o bien Microsoft Edge normal.
+
+Es necesario configurar Microsoft Edge en el acceso asignado para que esta directiva surta efecto; de lo contrario, estos ajustes se ignoran. Para obtener más información sobre el acceso asignado y la configuración de pantalla completa, consulta "Configurar dispositivos compartidos y de quiosco multimedia que ejecutan ediciones del escritorio de Windows" (https://aka.ms/E489vw).
+
+Si se habilita o se establece en 0 (valor predeterminado o no configurado):
+-Si se trata de una aplicación única, ejecuta la característica InPrivate en pantalla completa para la señalización digital o pantallas interactivas.
+-Si es una de muchas aplicaciones, Microsoft Edge se ejecuta en modo normal.
+Si se habilita y se establece en 1:
+-Si se trata de una aplicación única, ejecuta una versión limitada de varias pestañas de InPrivate y es la única aplicación disponible para la navegación pública. Los usuarios no pueden minimizar, cerrar ni abrir ventanas o personalizar Microsoft Edge, pero pueden borrar los datos de navegación y las descargas y reiniciar haciendo clic en "Finalizar sesión". Puedes configurar Microsoft Edge para que se reinicie después de un período de inactividad mediante la directiva "Configurar el restablecimiento de pantalla completa después del tiempo de espera de inactividad".
+-Si es una de muchas aplicaciones, se ejecuta en una versión limitada de varias pestañas de InPrivate para la navegación pública con otras aplicaciones. Los usuarios pueden minimizar, cerrar y abrir varias ventanas de InPrivate, pero no pueden personalizar Microsoft Edge.</string>
+      <string id="ConfigureKioskResetAfterIdleTimeout">Configurar el reinicio de la pantalla completa después del tiempo de espera de inactividad</string>
+      <string id="ConfigureKioskResetAfterIdleTimeout_Explain">Puedes configurar Microsoft Edge para que se restablezca a la experiencia de inicio configurada después de una cantidad de tiempo de inactividad especificada. El temporizador de restablecimiento comienza después de la última interacción del usuario. Al realizar el restablecimiento a la experiencia de inicio configurada, se eliminan los datos de navegación del usuario actual.
+
+Si habilitas la directiva, puedes establecer el tiempo de inactividad en minutos (0-1440). Debes establecer la directiva Configurar el modo de pantalla completa en 1 y configurar Microsoft Edge en acceso asignado como una aplicación única para que esta directiva funcione. Una vez que el tiempo de inactividad alcanza el tiempo especificado, se muestra un mensaje de confirmación que solicita al usuario que continúe y, si el usuario no realiza ninguna acción, Microsoft Edge se restablece después de 30 segundos.
+
+Si estableces esta directiva en 0, Microsoft Edge no utiliza ningún temporizador de inactividad.
+
+Si la directiva está deshabilitada o no se configura, el valor predeterminado es de 5 minutos.
+
+Si no configuras Microsoft Edge en acceso asignado, esta directiva no tendrá efecto.</string>
+    </stringTable>
+
+    <!-- Presentation -->
+    <presentationTable>
+      <presentation id="ConfiguredFavorites_Presentation">
+        <textBox refId="ConfiguredFavoritesPrompt">
+          <label>Especifica la dirección URL que apunta al archivo que tiene todos los datos para el aprovisionamiento de favoritos (en formato HTML). Puedes exportar un conjunto de favoritos de Microsoft Edge y utilizar ese archivo HTML para aprovisionar las máquinas del usuario.
+
+La URL se puede especificar como
+1. Ubicación del archivo HTTP: http://localhost:8080/URLs.html
+2. Red local: \\network\shares\URLs.html
+3. Archivo local: archivo:///c:\\Usuarios\\&lt;user&gt;\\Documentos\\URLs.html o C:\\Usuarios\\&lt;user&gt;\\Documentos\\URLs.html
+          </label>
+        </textBox>
+      </presentation>
+      <presentation id="ConfigureOpenEdgeWith_Presentation">
+        <dropdownList refId="ConfigureOpenEdgeWithListBox" noSort="true" defaultItem="3">Configurar Abrir Microsoft Edge con</dropdownList>
+      </presentation>
+      <presentation id="ConfigureHomeButton_Presentation">
+        <dropdownList refId="ConfigureHomeButtonDropdown" noSort="true" defaultItem="0">Configurar el botón Inicio</dropdownList>
+      </presentation>
+      <presentation id="EnterpriseModeSiteList_Presentation">
+        <textBox refId="EnterSiteListPrompt">
+          <label>Escriba la ubicación (dirección URL) de su lista de sitios web de IE en el modo de empresa</label>
+        </textBox>
+      </presentation>
+      <presentation id="HomePageSite_Presentation">
+        <textBox refId="HomePageSitePrompt">
+          <label>Escriba la ubicación (dirección URL) de su sitio web de página principal</label>
+        </textBox>
+      </presentation>
+      <presentation id="HomePages_Presentation">
+        <textBox refId="HomePagesPrompt">
+          <label>Usar este formato: &lt;support.contoso.com&gt;&lt;https://support.microsoft.com/&gt;</label>
+        </textBox>
+      </presentation>
+      <presentation id="SetDefaultSearchEngine_Presentation">
+        <textBox refId="SetDefaultSearchEngine_Prompt">
+          <label>Usa este formato para especificar el vínculo que deseas agregar: &lt;https://fabrikam.com/opensearch.xml&gt;</label>
+        </textBox>
+      </presentation>
+      <presentation id="SetHomeButtonURL_Presentation">
+        <textBox refId="SetHomeButtonURLPrompt">
+          <label>Escribe una dirección URL con formato de cadena. Por ejemplo: https://www.bing.com</label>
+        </textBox>
+      </presentation>
+      <presentation id="SetNewTabPageURL_Presentation">
+        <textBox refId="SetNewTabPageURLPrompt">
+          <label>Escribe una dirección URL con formato de cadena. Por ejemplo: https://www.bing.com</label>
+        </textBox>
+      </presentation>
+      <presentation id="ConfigureAdditionalSearchEngines_Presentation">
+        <textBox refId="ConfigureAdditionalSearchEngines_Prompt">
+          <label>Usa este formato para especificar los vínculos que deseas agregar: &lt;https://fabrikam.com/opensearch.xml&gt;&lt;https://www.contoso.com/opensearch.xml&gt;</label>
+        </textBox>
+      </presentation>
+      <presentation id="ProvisionedFavorites_Presentation">
+        <listBox refId="ProvisionedFavorites_List">Escribe el nombre del favorito en la primera columna y la dirección URL del favorito en la otra columna, como Contoso http://www.contoso.com/</listBox>
+      </presentation>
+      <presentation id="PreventTurningOffRequiredExtensions_Presentation">
+          <textBox refId="PreventTurningOffRequiredExtensions_Prompt">
+              <label>En el espacio siguiente, escribe los nombres de familia de paquete (PFN) de extensión separados por punto y coma.</label>
+          </textBox>
+      </presentation>
+      <presentation id="Cookies">
+        <dropdownList refId="CookiesListBox" noSort="true" defaultItem="2">Configurar cookies </dropdownList>
+      </presentation>
+      <presentation id="AllowTabPreloading">
+        <dropdownList refId="AllowTabPreloadingDropdown" defaultItem="0">Configurar la carga previa de pestañas</dropdownList>
+      </presentation>
+      <presentation id="AllowPrelaunch">
+        <dropdownList refId="AllowPrelaunchDropdown" defaultItem="0">Configurar inicio previo</dropdownList>
+      </presentation>
+      <presentation id="ConfigureTelemetryForMicrosoft365Analytics_Presentation">
+        <dropdownList refId="ZonesListBox" noSort="true" defaultItem="0">Configurar la recopilación de telemetría</dropdownList>
+      </presentation>
+      <presentation id="ConfigureKioskMode_Presentation">
+        <text>Configura el comportamiento de Microsoft Edge en pantalla completa.
+
+Para el acceso asignado a una única aplicación:
+   - 0 = señalización digital de pantalla completa y pantalla interactiva
+   - 1 = exploración pública InPrivate (características limitadas)
+
+Para el acceso asignado a varias aplicaciones:
+   - 0 = ejecución normal de Microsoft Edge en el acceso asignado
+   - 1 = exploración pública InPrivate
+        </text>
+        <decimalTextBox refId="ConfigureKioskMode_TextBox" defaultValue="0"></decimalTextBox>
+      </presentation>
+      <presentation id="ConfigureKioskResetAfterIdleTimeout_Presentation">
+        <text>Especifica la hora en minutos de la última actividad del usuario antes de que se restablezca la pantalla completa de Microsoft Edge. Puedes elegir entre lo siguiente:
+   - 0 para deshabilitar el temporizador de inactividad
+   - Entre 1 y 1440 minutos de inactividad desde la última interacción del usuario
+        </text>
+        <decimalTextBox refId="ConfigureKioskResetAfterIdleTimeout_TextBox" defaultValue="5"></decimalTextBox>
+      </presentation>
+      <presentation id="ShowMessageWhenOpeningSitesInInternetExplorer_Presentation">
+        <dropdownList refId="ShowMessageWhenOpeningSitesInInternetExplorer_Dropdown" noSort="true" defaultItem="0">Mostrar el vínculo Continuar en Microsoft Edge</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

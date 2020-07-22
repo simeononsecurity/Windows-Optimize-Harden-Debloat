@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <displayName>Σύνδεση</displayName>
+  <description>Επιλέξτε ένα στοιχείο, για να προβάλετε την περιγραφή του</description>
+  <resources>
+    <stringTable>
+      <!-- general -->
+      <string id="Connect">Σύνδεση</string>
+      
+      <!-- prevent file sync-->
+      <string id="AllowProjectionToPC">Να μην επιτρέπεται η προβολή σε αυτόν τον υπολογιστή</string>
+      <string id="AllowProjectionToPC_help">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να απενεργοποιείτε την προβολή σε έναν υπολογιστή.  
+
+ 
+
+Αν την ενεργοποιήσετε, ο υπολογιστής σας δεν είναι ανιχνεύσιμος και δεν είναι δυνατή η προβολή σε αυτόν, εκτός αν ο χρήστης εκκινήσει με μη αυτόματο τρόπο την εφαρμογή Σύνδεση.  
+
+ 
+
+Αν την απενεργοποιήσετε ή δεν ρυθμίσετε τις παραμέτρους της, ο υπολογιστής σας είναι ανιχνεύσιμος και η προβολή σε αυτόν είναι δυνατή μόνο επάνω από την οθόνη κλειδώματος. Ο χρήστης διαθέτει την επιλογή να την έχει πάντα ενεργοποιημένη ή απενεργοποιημένη εκτός από την εκκίνηση με μη αυτόματο τρόπο, επίσης.</string>
+
+      <string id="RequirePinForPairing">Απαίτηση pin για ζεύξη</string>
+      <string id="RequirePinForPairing_help">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να απαιτείτε pin για ζεύξη.  
+
+Εάν την ορίσετε σε "Ποτέ", δεν απαιτείται pin για τη ζεύξη.
+
+Εάν την ορίσετε σε "Πρώτη φορά", η διαδικασία ζεύξης για νέες συσκευές θα απαιτεί πάντα PIN.
+
+Εάν την ορίσετε σε "Πάντα", όλες οι ζεύξεις θα απαιτούν PIN.</string>
+      <string id="RequirePinForPairing_0">Ποτέ</string>
+      <string id="RequirePinForPairing_1">Πρώτη φορά</string>
+      <string id="RequirePinForPairing_2">Πάντα</string>
+   </stringTable>
+   <presentationTable>
+      <presentation id="RequirePinForPairing">
+        <dropdownList refId="RequirePinForPairingDropdown" noSort="true" defaultItem="0">Επιλέξτε μια από τις παρακάτω ενέργειες</dropdownList>
+      </presentation>
+   </presentationTable>
+  </resources>
+</policyDefinitionResources>

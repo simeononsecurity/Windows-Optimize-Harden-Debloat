@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>enter display name here</displayName>
+  <description>enter description here</description>
+  <resources>
+    <stringTable>
+      <string id="AccountingEnabled">Turn on Accounting for WSRM</string>
+      <string id="AccountingEnabled_Explain">This setting turns the Accounting feature On or Off.
+
+If you enable this setting, Windows System Resource Manager (WSRM) will start accounting various usage statistics of the processes.
+
+If you disable this setting, WSRM will stop logging usage statistics of processes.
+
+If you do not configure this setting, the user can specify whether accounting needs to be turned On or Off.
+
+The accounting processes is disabled by default.
+
+The accounting database provides an interface you can use to manage both the information in the database and the physical size of the database. Managing database information involves finding relevant information and then organizing it efficiently. Managing the physical size of the database requires regular attention because, unless it is configured to do otherwise, Windows System Resource Manager continues to store accounting information. As a result, the size of the database continues to increase. To manage the size of the database, you can archive accounting data for later use or delete it from the database.
+
+You can use accounting data can to monitor resource usage, compare actual and expected performance, assess whether the computer's physical resources are sufficient for its intended tasks, and provide the basis for charge-back accounting.
+</string>
+      <string id="EmailIds">Set the Email IDs to which notifications are to be sent</string>
+      <string id="EmailIds_Explain">This setting assigns the email address(es) to which notifications will be sent. Use a semicolon (;) to separate multiple email addresses.
+
+If you enable this setting, Windows System Resource Manager (WSRM) will send notifications to the address(es) specified.
+
+If you disable this setting, no email addresses (default value) will be set.
+
+If you do not configure this setting, the user may specify e-mail addresses to receive notifications. This value can be e-mail aliases or e-mail address including domain name (for example, someone@example.com).
+
+Depending on the events selected for notification, these email addresses will be notified.
+
+Note : To receive notifications, the notifications setting on the event log must be turned ON. To view the list of events, click Error, Warning, or Information, and then click OK. If you select Error, Warning, or Information, all of the individual events in that category are included.</string>
+      <string id="KeyName_Explain">This setting turns on the Accounting and/or Notification properties of WSRM through Group Policy Settings</string>
+      <string id="RecordWriteInterval">Set the Time interval in minutes for logging accounting data</string>
+      <string id="RecordWriteInterval_Explain">This setting directs the Accounting feature to log data on the accounting server at the specified time interval.
+
+If you enable this setting, Windows System Resource Manager (WSRM) will set the accounting time interval to the value specified.
+
+If you disable this setting, the default value of 10 minutes will be set.
+
+If you do not configure this setting, the user may specify an accounting interval.
+
+The value is specified in minutes and can range between 2 minutes and 60000 minutes. Ten minutes is provided as the default value as this would be an optimal value if there are many servers logging data remotely. Setting an accounting record write interval value less than 10 minutes for a server on a network with more than 20 machines logging data remotely can possibly degrade performance.
+
+Note : Set the accounting record write interval to a higher value as the number of machines increases on the network to reduce network congestion.</string>
+      <string id="SMTPServer">Set the SMTP Server used to send notifications</string>
+      <string id="SMTPServerConfiguration_Explain">This setting assigns the address of the SMTP server that sends out notifications.
+
+If you enable this setting, Windows System Resource Manager (WSRM) will set the SMTP server to the value specified.
+
+If you disable this setting, no SMTP server (default value) will be set.
+
+If you do not configure this setting, the user may specify an SMTP server.
+
+This value can be the NetBIOS name or the fully qualified domain name (FQDN) of the Simple Mail Transfer Protocol (SMTP) server. This server contains the email addresses that are configured to receive notifications.
+
+Note : To receive email notifications, the notifications setting on the event log must be turned ON. To view the list of events, click Error, Warning, or Information, and then click OK. If you select Error, Warning, or Information, all of the individual events in that category are included.</string>
+      <string id="WSRM">Windows System Resource Manager</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="EmailIds">
+        <textBox refId="EmailIdsConfiguration">
+          <label>Email IDs</label>
+          <defaultValue/>
+        </textBox>
+      </presentation>
+      <presentation id="RecordWriteInterval">
+        <decimalTextBox refId="Write_Interval" defaultValue="10">Recording Interval for accounting (Minutes 2 - 60000) </decimalTextBox>
+      </presentation>
+      <presentation id="SMTPServer">
+        <textBox refId="SMTPServerConfiguration">
+          <label>Enter the address of the SMTP server</label>
+          <defaultValue/>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

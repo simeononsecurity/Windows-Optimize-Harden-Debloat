@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" xsi:schemaLocation="" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+
+	<policyNamespaces >
+		<target prefix="Adobe Acrobat Pro DC Continuous" namespace="Adobe.ProDCContinuous.Policies" />
+	</policyNamespaces>
+	<supersededAdm fileName="AcrobatProDCContinuous.adm" />
+	<resources minRequiredRevision="1.0" fallbackCulture="en-us" />
+	<categories>
+
+		<category name="Cat_Adobe_Pro_DC" displayName="$(string.Cat_Adobe_Pro_DC)" />
+		<category name="Cat_Preferences" displayName="$(string.Cat_Preferences)" >
+			<parentCategory ref="Cat_Adobe_Pro_DC" />
+		</category>
+		<category name="Cat_General" displayName="$(string.Cat_General)" >
+			<parentCategory ref="Cat_Preferences" />
+		</category>
+		<category name="Cat_Security" displayName="$(string.Cat_Security)" >
+			<parentCategory ref="Cat_Preferences" />
+		</category>
+		<category name="Cat_TrustManager" displayName="$(string.Cat_TrustManager)" >
+			<parentCategory ref="Cat_Preferences" />
+		</category>
+		<category name="Cat_Startup" displayName="$(string.Cat_Startup)" >
+			<parentCategory ref="Cat_Preferences" />
+		</category>
+		<category name="Cat_Help" displayName="$(string.Cat_Help)" >
+			<parentCategory ref="Cat_Preferences" />
+		</category>	
+	</categories>
+	<policies > 
+		<policy name="Disable_PDF_handler" class="Machine" displayName="$(string.Disable_PDF_handler)" explainText="$(string.Explain_Disable_PDF_handler)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown" valueName="bDisablePDFHandlerSwitching">
+			<parentCategory ref="Cat_General" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Enable_Enhanced_security_standalone" class="Machine" displayName="$(string.Enable_Enhanced_security_standalone)" explainText="$(string.Explain_Enable_Enhanced_security_standalone)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown" valueName="bEnhancedSecurityStandalone">
+			<parentCategory ref="Cat_Security" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Enable_Enhanced_security_inbrowser" class="Machine" displayName="$(string.Enable_Enhanced_security_inbrowser)" explainText="$(string.Explain_Enable_Enhanced_security_inbrowser)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown" valueName="bEnhancedSecurityInBrowser">
+			<parentCategory ref="Cat_Security" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Non_PDF_attachments" class="Machine" displayName="$(string.Non_PDF_attachments)" explainText="$(string.Explain_Non_PDF_attachments)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown" valueName="iFileAttachmentPerms">
+			<parentCategory ref="Cat_TrustManager" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="Access_to_unknown_websites" class="Machine" displayName="$(string.Access_to_unknown_websites)" explainText="$(string.Explain_Access_to_unknown_websites)" presentation="$(presentation.Access_to_unknown_websites)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown\cDefaultLaunchURLPerms">
+			<parentCategory ref="Cat_TrustManager" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements>
+			<enum id="Access_to_unknown_websitesDropID" valueName="iUnknownURLPerms" >
+			<item displayName="$(string.Access_to_unknown_websites_AlwaysAsk)">
+			<value>
+			<decimal value="1" />
+			</value>
+			</item>
+			<item displayName="$(string.Access_to_unknown_websites_AllowAccess)">
+			<value>
+			<decimal value="2" />
+			</value>
+			</item>
+			<item displayName="$(string.Access_to_unknown_websites_BlockAccess)">
+			<value>
+			<decimal value="3" />
+			</value>
+			</item>
+			</enum>
+			</elements>
+		</policy>
+		<policy name="Access_to_websites" class="Machine" displayName="$(string.Access_to_websites)" explainText="$(string.Explain_Access_to_websites)" presentation="$(presentation.Access_to_websites)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown\cDefaultLaunchURLPerms">
+			<parentCategory ref="Cat_TrustManager" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements>
+			<enum id="Access_to_websitesDropID" valueName="iURLPerms" >
+			<item displayName="$(string.Access_to_websites_AllowPDF)">
+			<value>
+			<decimal value="2" />
+			</value>
+			</item>
+			<item displayName="$(string.Access_to_websites_CustomSetting)">
+			<value>
+			<decimal value="0" />
+			</value>
+			</item>
+			<item displayName="$(string.Access_to_websites_BlockPDF)">
+			<value>
+			<decimal value="1" />
+			</value>
+			</item>
+			</enum>
+			</elements>
+		</policy>
+		<policy name="Enable_Flash" class="Machine" displayName="$(string.Enable_Flash)" explainText="$(string.Explain_Enable_Flash)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown" valueName="bEnableFlash">
+			<parentCategory ref="Cat_Preferences" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+			<policy name="Send_and_Track_plugin" class="Machine" displayName="$(string.Send_and_Track_plugin)" explainText="$(string.Explain_Send_and_Track_plugin)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown\cCloud" valueName="bAdobeSendPluginToggle">
+			<parentCategory ref="Cat_Preferences" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+			<policy name="Privilege_folder_location" class="Machine" displayName="$(string.Privilege_folder_location)" explainText="$(string.Explain_Privilege_folder_location)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown" valueName="bDisableTrustedFolders">
+			<parentCategory ref="Cat_Security" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+			<policy name="Enable_FIPS" class="User" displayName="$(string.Enable_FIPS)" explainText="$(string.Explain_Enable_FIPS)" key="SOFTWARE\Adobe\Adobe Acrobat\DC\AVGeneral" valueName="bFIPSMode">
+			<parentCategory ref="Cat_Preferences" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="European_certificates" class="User" displayName="$(string.European_certificates)" explainText="$(string.Explain_European_certificates)" key="SOFTWARE\Adobe\Adobe Acrobat\DC\Security\cDigSig\cEUTLDownload" valueName="bLoadSettingsFromURL">
+			<parentCategory ref="Cat_TrustManager" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Protected_Mode" class="Machine" displayName="$(string.Protected_Mode)" explainText="$(string.Explain_Protected_Mode)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown" valueName="bProtectedMode">
+			<parentCategory ref="Cat_Preferences" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Protected_View" class="Machine" displayName="$(string.Protected_View)" explainText="$(string.Explain_Protected_View)" presentation="$(presentation.Protected_View)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown" >
+			<parentCategory ref="Cat_Security" />
+			<supportedOn ref="SupportedOn_1" />
+			<elements>
+			<enum id="Protected_ViewDropID" valueName="iProtectedView" >
+			<item displayName="$(string.Protected_View_Off)">
+			<value>
+			<decimal value="0" />
+			</value>
+			</item>
+			<item displayName="$(string.Protected_View_Locations)">
+			<value>
+			<decimal value="1" />
+			</value>
+			</item>
+			<item displayName="$(string.Protected_View_All)">
+			<value>
+			<decimal value="2" />
+			</value>
+			</item>
+			</enum>
+			</elements>
+		</policy>
+		<policy name="Store_files" class="Machine" displayName="$(string.Store_files)" explainText="$(string.Explain_Store_files)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown\cCloud" valueName="bDisableADCFileStore">
+			<parentCategory ref="Cat_Preferences" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="Cloud_Synchronization" class="Machine" displayName="$(string.Cloud_Synchronization)" explainText="$(string.Explain_Cloud_Synchronization)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown\cServices" valueName="bTogglePrefsSync">
+			<parentCategory ref="Cat_Preferences" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="Repair_installation_32" class="Machine" displayName="$(string.Repair_installation_32)" explainText="$(string.Explain_Repair_installation_32)" key="SOFTWARE\Adobe\Adobe Acrobat\DC\Installer" valueName="DisableMaintenance">
+			<parentCategory ref="Cat_Help" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="Repair_installation_64" class="Machine" displayName="$(string.Repair_installation_64)" explainText="$(string.Explain_Repair_installation_64)" key="SOFTWARE\Wow6432Node\Adobe\Adobe Acrobat\DC\Installer" valueName="DisableMaintenance">
+			<parentCategory ref="Cat_Help" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="Web_connectors" class="Machine" displayName="$(string.Web_connectors)" explainText="$(string.Explain_Web_connectors)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown\cServices" valueName="bToggleWebConnectors">
+			<parentCategory ref="Cat_Preferences" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="WebMail" class="Machine" displayName="$(string.WebMail)" explainText="$(string.Explain_WebMail)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown\cWebmailProfiles" valueName="bDisableWebmail">
+			<parentCategory ref="Cat_Preferences" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="WelcomeScreen" class="Machine" displayName="$(string.WelcomeScreen)" explainText="$(string.Explain_WelcomeScreen)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown\cWelcomeScreen" valueName="bShowWelcomeScreen">
+			<parentCategory ref="Cat_Preferences" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Cloud_features" class="Machine" displayName="$(string.Cloud_features)" explainText="$(string.Explain_Cloud_features)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown\cSharePoint" valueName="bDisableSharePointFeatures">
+			<parentCategory ref="Cat_Preferences" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="Adobe_certificates" class="User" displayName="$(string.Adobe_certificates)" explainText="$(string.Explain_Adobe_certificates)" key="SOFTWARE\Adobe\Adobe Acrobat\DC\Security\cDigSig\cAdobeDownload" valueName="bLoadSettingsFromURL">
+			<parentCategory ref="Cat_TrustManager" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="Trusted_Host" class="Machine" displayName="$(string.Trusted_Host)" explainText="$(string.Explain_Trusted_Host)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown" valueName="bDisableTrustedSites">
+			<parentCategory ref="Cat_Security" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="Trusted_sites" class="Machine" displayName="$(string.Trusted_sites)" explainText="$(string.Explain_Trusted_sites)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown" valueName="bDisableOSTrustedSites">
+			<parentCategory ref="Cat_Security" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="Certificate_trust" class="Machine" displayName="$(string.Certificate_trust)" explainText="$(string.Explain_Certificate_trust)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockdown" valueName="bEnableCertificateBasedTrust">
+			<parentCategory ref="Cat_Security" />
+			<supportedOn ref="SupportedOn_1" />
+			<enabledValue >
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue >
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		</policies>
+</policyDefinitions>

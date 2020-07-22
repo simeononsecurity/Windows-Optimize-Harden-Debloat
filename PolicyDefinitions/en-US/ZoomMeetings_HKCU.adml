@@ -1,0 +1,994 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>ZoomMeetings</displayName>
+  <description>ZoomMeetings</description>
+  <resources>
+    <stringTable>
+      <string id="SUPPORTED_WINXPSP2">Microsoft Windows XP SP2 or later</string>
+      <string id="ZoomUsCommunication">Zoom Meetings</string>
+      <string id="zoommeetings">Zoom Meetings Settings</string>
+      <string id="zoomgeneral">Zoom General Settings</string>
+      <string id="zoomchat">Zoom Chat Settings</string>
+      <string id="ZoomUsRecommendations">Zoom Meetings - Default Settings (users can override)</string>
+      <string id="zoommeetings_recommend">Zoom Meetings Default Settings</string>
+      <string id="zoomgeneral_recommend">Zoom General Default Settings</string>
+      <string id="zoomchat_recommend">Zoom Chat Default Settings</string>
+      <string id="EnableClientAutoUpdate_Policy">Enable client to auto update</string>
+      <string id="EnableClientAutoUpdate_Policy_Recommand">Enable client to auto update (Recommendation Setting)</string>
+      <string id="EnableClientAutoUpdate_Explain">Default setting for EXE installation is enabled, default setting for MSI installation is disabled.
+
+If this setting is enabled, client will auto update itself.
+
+If this setting is disabled, client will not auto update itself.
+
+If this setting is not set, client will use default setting.</string>
+      <string id="DisableCreatingDesktopShortcut_Policy">Disable creating a desktop shortcut</string>
+      <string id="DisableCreatingDesktopShortcut_Policy_Recommand">Disable creating a desktop shortcut (Recommendation Setting)</string>
+      <string id="DisableCreatingDesktopShortcut_Explain">Default setting is disabled.
+
+If this setting is enabled, no shortcut will be created on desktop.
+
+If this setting is disabled, a shortcut will be created on desktop the first time the user logs in.
+
+If this setting is not set, client will use default setting.</string>
+      <string id="AutoStartAfterReboot_Policy">Auto start client after reboot</string>
+      <string id="AutoStartAfterReboot_Policy_Recommand">Auto start client after reboot (Recommendation Setting)</string>
+      <string id="AutoStartAfterReboot_Explain">Default policy is false.
+
+If this policy is set to true, client will automatically start and show itself in task bar after system reboot.
+
+If this policy is set to false, client will not automatically start after system reboot.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="AutoStartInSystemTray_Policy">Auto start client after reboot in system tray</string>
+      <string id="AutoStartInSystemTray_Policy_Recommand">Auto start client after reboot in system tray (Recommendation Setting)</string>
+      <string id="AutoStartInSystemTray_Explain">Default policy is false.
+
+If this policy is set to true, client will automatically start and move itself to system tray without showing on task bar after system reboot.
+
+If this policy is set to false, client will not automatically start after system reboot.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="SetSSOURL_Policy">Set default SSO URL for client login</string>
+      <string id="SetSSOURL_Policy_Recommand">Set default SSO URL for client login (Recommendation Setting)</string>
+      <string id="SetSSOURL_Explain">Default URL is empty, client will manually enter the SSO URL for SSO log in.
+
+Allows you to set the SSO URL.</string>
+      <string id="SetSSOURL_Part">Set SSO host</string>
+      <string id="ForceLoginWithSSO_Policy">Force login with SSO only</string>
+      <string id="ForceLoginWithSSO_Policy_Recommand">Force login with SSO only (Recommendation Setting)</string>
+      <string id="ForceLoginWithSSO_Explain">Default policy is false.
+
+If this policy is set to true, client will be forced to login with SSO only.
+
+If this policy is set to false, client will not be forced to login with SSO.
+
+If this policy is not set, client will use default policy.
+
+If another setting 'Disable login with SSO' is enabled, this policy will be voided and makes no impact no matter this policy is set to true or false.</string>
+      <string id="DisableGoogleLogin_Policy">Disable login with Google OAuth</string>
+      <string id="DisableGoogleLogin_Policy_Recommand">Disable login with Google OAuth (Recommendation Setting)</string>
+      <string id="DisableGoogleLogin_Explain">Default setting is disabled.
+
+If this setting is enabled, login with Google will be disabled.
+
+If this setting is disabled, login with Google will be enabled.
+
+If this setting is not set, client will use default setting.</string>
+      <string id="DisableFacebookLogin_Policy">Disable login with Facebook OAuth</string>
+      <string id="DisableFacebookLogin_Policy_Recommand">Disable login with Facebook OAuth (Recommendation Setting)</string>
+      <string id="DisableFacebookLogin_Explain">Default setting is disabled.
+
+If this setting is enabled, login with Facebook will be disabled.
+
+If this setting is disabled, login with Facebook will be enabled.
+
+If this setting is not set, client will use default setting.</string>
+      <string id="DisableLoginWithSSO_Policy">Disable login with SSO</string>
+      <string id="DisableLoginWithSSO_Policy_Recommand">Disable login with SSO (Recommendation Setting)</string>
+      <string id="DisableLoginWithSSO_Explain">Default setting is disabled.
+
+If this setting is enabled, login with SSO will be disabled.
+
+If this setting is disabled, login with SSO will be enabled.
+
+If this setting is not set, client will use default setting.</string>
+      <string id="DisableLoginWithEmail_Policy">Disable login with email and password</string>
+      <string id="DisableLoginWithEmail_Policy_Recommand">Disable login with email and password (Recommendation Setting)</string>
+      <string id="DisableLoginWithEmail_Explain">Default setting is disabled.
+
+If this setting is enabled, login with email and password will be disabled.
+
+If this setting is disabled, login with email will be enabled.
+
+If this setting is not set, client will use default setting.</string>
+      <string id="CloseToSystemTray_Policy">Client will minimize to system tray and not show on task bar when closed</string>
+      <string id="CloseToSystemTray_Policy_Recommand">Client will minimize to system tray and not show on task bar when closed (Recommendation Setting)</string>
+      <string id="CloseToSystemTray_Explain">Default policy is true.
+
+If this policy is set to true, client will minimize to system tray and not show on task bar when closed.
+
+If this policy is set to false, client will minimize to task bar when closed.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="SetEmailDomainsRestrictedToLogin_Policy">Set email domains that client is restricted to log in with</string>
+      <string id="SetEmailDomainsRestrictedToLogin_Policy_Recommand">Set email domains that client is restricted to log in with (Recommendation Setting)</string>
+      <string id="SetEmailDomainsRestrictedToLogin_Explain">Default setting is empty, client can log in with any email domains.
+
+Allow you to set multiple email domains that client is restricted to log in with. Multiple email accounts can by separated with &amp;.
+
+For example: abc.com&amp;zoom.us</string>
+      <string id="SetEmailDomainsRestrictedToLogin_Part">Set email domains that client is restricted to log in with</string>
+      <string id="SetAccountIDsRestrictedToJoin_Policy">Set account IDs that client is restricted to join meeting hosted by</string>
+      <string id="SetAccountIDsRestrictedToJoin_Policy_Recommand">Set account IDs that client is restricted to join meeting hosted by (Recommendation Setting)</string>
+      <string id="SetAccountIDsRestrictedToJoin_Explain">Default setting is empty, client can join meeting hosted by any account IDs.
+
+Allow you to set multiple account IDs that client is restricted to join meeting hosted by. Multiple account IDs can by separated with ,.
+
+For example: 111111,22222</string>
+      <string id="SetAccountIDsRestrictedToJoin_Part">Set account IDs that client is restricted to join meeting hosted by</string>
+      <string id="AlwaysUsePersonalMeetingID_Policy">Client will use personal meeting ID to start meeting</string>
+      <string id="AlwaysUsePersonalMeetingID_Policy_Recommand">Client will use personal meeting ID to start meeting (Recommendation Setting)</string>
+      <string id="AlwaysUsePersonalMeetingID_Explain">Default policy is false.
+
+If this policy is set to true, client will use personal meeting ID to start meeting.
+
+If this policy is set to false, client will use a random generated meeting ID to start meeting.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="BlockUntrustedSSLCert_Policy">Client will block connection to untrusted SSL certificates</string>
+      <string id="BlockUntrustedSSLCert_Policy_Recommand">Client will block connection to untrusted SSL certificates (Recommendation Setting)</string>
+      <string id="BlockUntrustedSSLCert_Explain">Default policy is false.
+
+If this policy is true, client will show a warning dialog when connecting to untrusted SSL certificates, and there is no Trust button to allow user to bypass and continue.
+
+If this setting is false, client will show a warning dialog when connecting to untrusted SSL certificates, but there is a Trust button to allow user to bypass and continue.
+
+If this policy is not set, client use will default policy.</string>
+      <string id="DisableLinkPreviewInChat_Policy">Client will disable and hide link preview feature in chat</string>
+      <string id="DisableLinkPreviewInChat_Policy_Recommand">Client will disable and hide link preview feature in chat (Recommendation Setting)</string>
+      <string id="DisableLinkPreviewInChat_Explain">Default setting is disabled.
+
+If this setting is enabled, client will disable and hide link preview feature in chat.
+
+If this setting is disabled, link preview feature will be enabled in chat.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="TurnOffVideoCameraOnJoin_Policy">Turn off video camera when joining meeting</string>
+      <string id="TurnOffVideoCameraOnJoin_Policy_Recommand">Turn off video camera when joining meeting (Recommendation Setting)</string>
+      <string id="TurnOffVideoCameraOnJoin_Explain">Default policy is false.
+
+If this policy is set to true, client will turn off video camera when joining meeting.
+
+If this policy is set to false, client will turn on video camera when joining meeting.
+
+If this policy is not set, client will default policy.</string>
+      <string id="AutoJoinVoIP_Policy">Auto connect audio with VoIP when joining meeting</string>
+      <string id="AutoJoinVoIP_Policy_Recommand">Auto connect audio with VoIP when joining meeting (Recommendation Setting)</string>
+      <string id="AutoJoinVoIP_Explain">Default policy is false.
+
+If this policy is set to true, client will automatically connect audio with VoIP when joining meeting.
+
+If this policy is set to false, client will not automatically connect audio with VoIP when joining meeting.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="AutoEnableDualMonitor_Policy">Enable dual monitor if system supports</string>
+      <string id="AutoEnableDualMonitor_Policy_Recommand">Enable dual monitor if system supports (Recommendation Setting)</string>
+      <string id="AutoEnableDualMonitor_Explain">Default setting is disbled.
+
+If this setting is enabled, client will enabled dual monitor mode for meeting.
+
+If this setting is disabled, client will disable dual monitor mode for meeting.
+
+If this setting is not set, client will use default setting.</string>
+      <string id="EnterFullScreenWhenViewingSharedScreen_Policy">Client will enter full screen mode when viewing shared screen</string>
+      <string id="EnterFullScreenWhenViewingSharedScreen_Policy_Recommand">Client will enter full screen mode when viewing shared screen (Recommendation Setting)</string>
+      <string id="EnterFullScreenWhenViewingSharedScreen_Explain">Default policy is true.
+
+If this policy is set to true, client will enter full screen mode when viewing shared screen.
+
+If this policy is set to false, client will stay in windowed mode when viewing shared screen.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="FitContentWhenViewingSharedScreen_Policy">Client will resize content to fit the window when viewing shared screen</string>
+      <string id="FitContentWhenViewingSharedScreen_Policy_Recommand">Client will resize content to fit the window when viewing shared screen (Recommendation Setting)</string>
+      <string id="FitContentWhenViewingSharedScreen_Explain">Default policy is true.
+
+If this policy is set to true, client will resize content to fit the window when viewing shared screen.
+
+If this policy is set to false, client will not resize content to fit the window when viewing shared screen.
+
+If this policy is not set, client will default policy.</string>
+      <string id="EnableHDVideo_Policy">Client will capture and send camera video in HD 720p format</string>
+      <string id="EnableHDVideo_Policy_Recommand">Client will capture and send camera video in HD 720p format (Recommendation Setting)</string>
+      <string id="EnableHDVideo_Explain">Default setting is disabled.
+
+If this setting is enabled, client will capture and send camera video in HD 720p format.
+
+If this setting is disabled, client will capture and send camera video in 360p format.
+
+If this setting is not set, client will use default setting.</string>
+      <string id="ControlAllAppsWhenRemoteControl_Policy">All applications can be controlled during remote control session</string>
+      <string id="ControlAllAppsWhenRemoteControl_Policy_Recommand">All applications can be controlled during remote control session (Recommendation Setting)</string>
+      <string id="ControlAllAppsWhenRemoteControl_Explain">Default policy is true.
+
+If this policy is set to true, all applications can be controlled during remote control session.
+
+If this policy is set to false, system applications cannot be controlled during remote control session.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="RecordingFilePath_Policy">Set path for local meeting recording files</string>
+      <string id="RecordingFilePath_Policy_Recommand">Set path for local meeting recording files (Recommendation Setting)</string>
+      <string id="RecordingFilePath_Explain">Default path is User/Document folder.
+
+Allows you to set path for local meeting recording files.
+
+For example: C:\MyZoomRecordings</string>
+      <string id="RecordingFilePath_Part">Set path for local meeting recording files</string>
+      <string id="DisableAeroModeDuringShareScreen_Policy">Disable Aero mode when screen sharing on Windows 7 system</string>
+      <string id="DisableAeroModeDuringShareScreen_Policy_Recommand">Disable Aero mode when screen sharing on Windows 7 system (Recommendation Setting)</string>
+      <string id="DisableAeroModeDuringShareScreen_Explain">Default setting is enabled.
+
+If this setting is enabled, Aero mode will be disabled when screen sharing on Windows 7 system.
+
+If this setting is disabled, Aero mode will not be disabled when screen sharing on Windows 7 system.
+
+If this setting is not set, client will default setting.</string>
+      <string id="AlwaysShowMeetingControls_Policy">Client will always show meeting controls</string>
+      <string id="AlwaysShowMeetingControls_Policy_Recommand">Client will always show meeting controls (Recommendation Setting)</string>
+      <string id="AlwaysShowMeetingControls_Explain">Default policy is false.
+
+If this policy is set to true, client will always show meeting controls.
+
+If this policy is set to false, some meeting controls like the meeting toolbar will automatically hide after idle for a few seconds and show on mouse movement or keyboard stroke event.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="EnterFullScreenWhenJoinMeeting_Policy">Client will automatically enter full screen mode when joining a meeting</string>
+      <string id="EnterFullScreenWhenJoinMeeting_Policy_Recommand">Client will automatically enter full screen mode when joining a meeting (Recommendation Setting)</string>
+      <string id="EnterFullScreenWhenJoinMeeting_Explain">Default policy is false.
+
+If this policy is set to true, client will automatically enter full screen mode when joining a meeting.
+
+If this policy is set to false, client will stay in windowed mode when joining a meeting.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="PromptConfirmWhenLeaveMeeting_Policy">Client will prompt confirmation when leaving a meeting</string>
+      <string id="PromptConfirmWhenLeaveMeeting_Policy_Recommand">Client will prompt confirmation when leaving a meeting (Recommendation Setting)</string>
+      <string id="PromptConfirmWhenLeaveMeeting_Explain">Default policy is true.
+
+If this policy is set to true, client will will prompt confirmation when leaving a meeting.
+
+If this policy is set to false, client will leave a meting without prompt confirmation.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="AlwaysShowConnectedTime_Policy">Client will show meeting connected time</string>
+      <string id="AlwaysShowConnectedTime_Policy_Recommand">Client will show meeting connected time (Recommendation Setting)</string>
+      <string id="AlwaysShowConnectedTime_Explain">Default policy is false.
+
+If this policy is set to true, client will show meeting connected time.
+
+If this policy is set to false, client will not show meeting connected time.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="MuteVoipWhenJoinMeeting_Policy">Client will mute VoIP when joining a meeting</string>
+      <string id="MuteVoipWhenJoinMeeting_Policy_Recommand">Client will mute VoIP when joining a meeting (Recommendation Setting)</string>
+      <string id="MuteVoipWhenJoinMeeting_Explain">Default policy is false.
+
+If this policy is set to true, client will mute VoIP when joining a meeting.
+
+If this policy is set to false, client will unmute VoIP when joining a meeting.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="AutoHideNoVideoUsers_Policy">Client will hide users with video turned off in gallery View</string>
+      <string id="AutoHideNoVideoUsers_Policy_Recommand">Client will hide users with video turned off in gallery View (Recommendation Setting)</string>
+      <string id="AutoHideNoVideoUsers_Explain">Default policy is false.
+
+If this policy is set to true, client will hide users with video turned off in gallery View.
+
+If this policy is set to false, client will show users with video turned off in gallery View.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="AutoAdjustAudioSettings_Policy">Client will adjust audio settings automatically</string>
+      <string id="AutoAdjustAudioSettings_Policy_Recommand">Client will adjust audio settings automatically (Recommendation Setting)</string>
+      <string id="AutoAdjustAudioSettings_Explain">Default policy is true.
+
+If this policy is set to true, client will adjust audio settings automatically.
+
+If this policy is set to false, client will not adjust audio settings automatically, user has to manually adjust audio settings in Settings/Audio window.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="DisableShareScreen_Policy">Client will disable and hide Share Screen feature</string>
+      <string id="DisableShareScreen_Policy_Recommand">Client will disable and hide Share Screen feature (Recommendation Setting)</string>
+      <string id="DisableShareScreen_Explain">Default setting is disabled.
+
+If this setting is enabled, client will disable and hide Share Screen feature.
+
+If this setting is disabled, Share Screen feature will be enabled.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="DisableMeetingChat_Policy">Client will disable and hide in meeting chat feature</string>
+      <string id="DisableMeetingChat_Policy_Recommand">Client will disable and hide in meeting chat feature (Recommendation Setting)</string>
+      <string id="DisableMeetingChat_Explain">Default setting is disabled.
+
+If this setting is enabled, client will disable and hide in meeting chat feature.
+
+If this setting is disabled, in meeting chat feature will be enabled.
+
+If this policy is not set, client will use local configured setting.</string>
+      <string id="DisableMeetingFileTransfer_Policy">Client will disable and hide in meeting file-transfer feature</string>
+      <string id="DisableMeetingFileTransfer_Policy_Recommand">Client will disable and hide in meeting file-transfer feature (Recommendation Setting)</string>
+      <string id="DisableMeetingFileTransfer_Explain">Default setting is disabled.
+
+If this setting is enabled, client will disable and hide in meeting file-transfer feature.
+
+If this setting is disabled, in meeting file-transfer feature will be enabled.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="DisableLocalRecording_Policy">Client will disable and hide local recording feature</string>
+      <string id="DisableLocalRecording_Policy_Recommand">Client will disable and hide local recording feature (Recommendation Setting)</string>
+      <string id="DisableLocalRecording_Explain">Default setting is disabled.
+
+If this setting is enabled, client will disable and hide local recording feature.
+
+If this setting is disabled, local recording feature will be enabled.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="DisableCloudRecording_Policy">Client will disable and hide cloud recording feature</string>
+      <string id="DisableCloudRecording_Policy_Recommand">Client will disable and hide cloud recording feature (Recommendation Setting)</string>
+      <string id="DisableCloudRecording_Explain">Default setting is disabled.
+
+If this setting is enabled, client will disable and hide cloud recording feature.
+
+If this setting is disabled, cloud recording feature will be enabled.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="DisableVideoCamera_Policy">Client will disable and hide ability to send video</string>
+      <string id="DisableVideoCamera_Policy_Recommand">Client will disable and hide ability to send video (Recommendation Setting)</string>
+      <string id="DisableVideoCamera_Explain">Default setting is disabled.
+
+If this setting is enabled, client will disable and hide ability to send video.
+
+If this setting is disabled, client will be able to send video.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="DisableReceiveVideo_Policy">Client will disable and hide ability to receive video</string>
+      <string id="DisableReceiveVideo_Policy_Recommand">Client will disable and hide ability to receive video (Recommendation Setting)</string>
+      <string id="DisableReceiveVideo_Explain">Default setting is disabled.
+
+If this setting is enabled, client will disable and hide ability to receive video.
+
+If this setting is disabled, client will be able to receive video.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="DisableAnnotation_Policy">Client will disable and hide ability to annotate over shared screen</string>
+      <string id="DisableAnnotation_Policy_Recommand">Client will disable and hide ability to annotate over shared screen (Recommendation Setting)</string>
+      <string id="DisableAnnotation_Explain">Default setting is disabled.
+
+If this setting is enabled, client will disable and hide ability to annotate over shared screen.
+
+If this setting is disabled, client will enable ability to annotate over shared screen.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="EnableMirrorEffect_Policy">Client will enable mirror effect of your video camera</string>
+      <string id="EnableMirrorEffect_Policy_Recommand">Client will enable mirror effect of your video camera (Recommendation Setting)</string>
+      <string id="EnableMirrorEffect_Explain">Default setting is enabled.
+
+If this setting is enabled, client will enable mirror effect over your video camera.
+
+If this setting is disabled, client will disable mirror effect of your video camera.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="EnableHIDControl_Policy">Client will enable HID audio device control</string>
+      <string id="EnableHIDControl_Policy_Recommand">Client will enable HID audio device control (Recommendation Setting)</string>
+      <string id="EnableHIDControl_Explain">Default setting is enabled.
+
+If this setting is enabled, client will enable HID audio device control.
+
+If this setting is disabled, client will disable HID audio device control.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="EnableCloudSwitch_Policy">Enable to switch between Zoom commercial(default) cloud and FedRAMP cloud</string>
+      <string id="EnableCloudSwitch_Policy_Recommand">Enable to switch between Zoom commercial(default) cloud and FedRAMP cloud (Recommendation Setting)</string>
+      <string id="EnableCloudSwitch_Explain">Default policy is false.
+
+If this policy is set to true, client will be able to switch between Zoom commercial (default) cloud and FedRAMP cloud.
+
+If this policy is set to false, client will work with Zoom commercial (default) cloud only.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="EnableEmbedBrowserForSSO_Policy">Enable embed browser for SSO</string>
+      <string id="EnableEmbedBrowserForSSO_Policy_Recommand">Enable embed browser for SSO (Recommendation Setting)</string>
+      <string id="EnableEmbedBrowserForSSO_Explain">Default policy is false.
+
+If this policy is set to true, client will use embedded  browser for SSO.
+
+If this policy is set to false, client will launch system default browser for SSO.
+
+If this policy is not set, client will use default policy.</string>
+      <string id="AlwaysShowVideoPreviewDialog_Policy">Always show video preview dialog when joining a video meeting</string>
+      <string id="AlwaysShowVideoPreviewDialog_Policy_Recommand">Always show video preview dialog when joining a video meeting (Recommendation Setting)</string>
+      <string id="AlwaysShowVideoPreviewDialog_Explain">Default policy is false.
+
+If this policy is true, client will always show video preview dialog when joining a video meeting.
+
+If this setting is false, client will never show video preview dialog before joining any meeting.
+
+If this policy is not set, client will use default setting or user setting.</string>
+      <string id="DisableComputerAudio_Policy">Client will disable computer audio</string>
+      <string id="DisableComputerAudio_Policy_Recommand">Client will disable computer audio (Recommendation Setting)</string>
+      <string id="DisableComputerAudio_Explain">Default setting is disabled.
+
+If this setting is enabled, client will disable computer audio.
+
+If this setting is disabled, client will use computer audio.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="EnableSplitScreen_Policy">Client will enable side-by-side mode</string>
+      <string id="EnableSplitScreen_Policy_Recommand">Client will enable side-by-side mode (Recommendation Setting)</string>
+      <string id="EnableSplitScreen_Explain">Default setting is disabled.
+
+If this setting is enabled, client will enable side-by-side mode.
+
+If this setting is disabled, client will disable side-by-side mode.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="DisableRemoteControl_Policy">During screen sharing, the person who is sharing won't allow others to control the shared content.</string>
+      <string id="DisableRemoteControl_Policy_Recommand">During screen sharing, the person who is sharing won't allow others to control the shared content. (Recommendation Setting)</string>
+      <string id="DisableRemoteControl_Explain">Default policy is false.
+
+If this policy is true, client will disable remote control feature.
+
+If this setting is false, client will enable remote control feature.
+
+If this policy is not set, client will use default setting.
+
+Web also has the same option, which has a higher privilege than this.</string>
+      <string id="DisableRemoteSupport_Policy">Disallow meeting host to provide 1:1 remote support to another participant. This option depends on breakout room settings.</string>
+      <string id="DisableRemoteSupport_Policy_Recommand">Disallow meeting host to provide 1:1 remote support to another participant. This option depends on breakout room settings. (Recommendation Setting)</string>
+      <string id="DisableRemoteSupport_Explain">Default policy is true.
+
+If this policy is true, client will disallow meeting host to provide 1:1 remote support.
+
+If this setting is false, client will enable remote support feature.
+
+If this policy is not set, client will use default setting.
+
+Web also has the same option, which has a higher privilege than this.</string>
+      <string id="EnableOriginalSound_Policy">Client will keep preserve original sound.</string>
+      <string id="EnableOriginalSound_Policy_Recommand">Client will keep preserve original sound. (Recommendation Setting)</string>
+      <string id="EnableOriginalSound_Explain">Default setting is disabled.
+
+If this setting is enabled, client will keep preserve original sound.
+
+If this setting is disabled, client will not keep preserve original sound and use echo.
+
+If this setting is not set, client will use default setting.</string>
+      <string id="EnableFaceBeauty_Policy">Enable touch up my appearance</string>
+      <string id="EnableFaceBeauty_Policy_Recommand">Enable touch up my appearance (Recommendation Setting)</string>
+      <string id="EnableFaceBeauty_Explain">Default policy is true.
+
+If this policy is true, client will enable touch up my appearance.
+
+If this setting is false, client will disable touch up my appearance.
+
+If this policy is not set, client will use default setting or user setting.</string>
+      <string id="DisableVirtualBkgnd_Policy">Disable virtual background for meetings</string>
+      <string id="DisableVirtualBkgnd_Policy_Recommand">Disable virtual background for meetings (Recommendation Setting)</string>
+      <string id="DisableVirtualBkgnd_Explain">Default policy is false.
+
+If this policy is true, client will disable virtual background for meetings.
+
+If this setting is false, client will enable virtual background for meetings.
+
+If this policy is not set, client will use default setting or user setting.</string>
+      <string id="ForceSSOURL_Policy">Set and lock the default SSO URL for client login</string>
+      <string id="ForceSSOURL_Policy_Recommand">Set and lock the default SSO URL for client login (Recommendation Setting)</string>
+      <string id="ForceSSOURL_Explain">Default URL is empty, client will manually enter the SSO URL for SSO log in.
+
+If your organization is using FedRAMP cloud, you can input URL like: your-org-name.zoomgov.com; if your organization is using CN cluster, you can input URL like: your-org-name.zoom.com.
+
+Allows you to set and lock the SSO URL.</string>
+      <string id="ForceSSOURL_Part">Set and lock the default SSO URL for client login</string>
+      <string id="KeepSignedIn_Policy">Client will keep signed in</string>
+      <string id="KeepSignedIn_Policy_Recommand">Client will keep signed in (Recommendation Setting)</string>
+      <string id="KeepSignedIn_Explain">Default policy is false.
+
+If this policy is true, client will always enable 'remember me' feature.
+
+If this setting is false, user needs to input credential for every time of Zoom application launch.
+
+If this policy is not set, client will use default setting or user setting.</string>
+      <string id="DisableWhiteBoard_Policy">Disable white board feature</string>
+      <string id="DisableWhiteBoard_Policy_Recommand">Disable white board feature (Recommendation Setting)</string>
+      <string id="DisableWhiteBoard_Explain">Default policy is false.
+
+If this policy is true, client will disable white board for meetings.
+
+If this setting is false, client will enable white board for meetings.
+
+If this policy is not set, client will use default setting or user setting.</string>
+      <string id="EnableShareAudio_Policy">Enable share audio feature</string>
+      <string id="EnableShareAudio_Policy_Recommand">Enable share audio feature (Recommendation Setting)</string>
+      <string id="EnableShareAudio_Explain">Default policy is false.
+
+If this policy is true, client will enable share audio feature.
+
+If this setting is false, client will disable share audio feature.
+
+If this policy is not set, client will use default setting or user setting.</string>
+      <string id="EnableShareVideo_Policy">Enable share video feature</string>
+      <string id="EnableShareVideo_Policy_Recommand">Enable share video feature (Recommendation Setting)</string>
+      <string id="EnableShareVideo_Explain">Default policy is false.
+
+If this policy is true, client will enable share video feature.
+
+If this setting is false, client will disable share video feature.
+
+If this policy is not set, client will use default setting or user setting.</string>
+      <string id="DisableDirectShare_Policy">Disable to share with Zoom Rooms</string>
+      <string id="DisableDirectShare_Policy_Recommand">Disable to share with Zoom Rooms (Recommendation Setting)</string>
+      <string id="DisableDirectShare_Explain">Default policy is false.
+
+If this policy is true, client will disable the share to Zoom Rooms feature.
+
+If this setting is false, client will enable the share to Zoom Rooms feature.
+
+If this policy is not set, client will use default setting or user setting.</string>
+      <string id="DisableDesktopShare_Policy">Disable share desktop feature</string>
+      <string id="DisableDesktopShare_Policy_Recommand">Disable share desktop feature (Recommendation Setting)</string>
+      <string id="DisableDesktopShare_Explain">Default policy is false.
+
+If this policy is true, client will disable the share desktop feature.
+
+If this setting is false, client will enable the share desktop feature.
+
+If this policy is not set, client will use default setting or user setting.</string>
+      <string id="SetWebDomain_Policy">Set default web domain for client login and join meeting</string>
+      <string id="SetWebDomain_Policy_Recommand">Set default web domain for client login and join meeting (Recommendation Setting)</string>
+      <string id="SetWebDomain_Explain">Default policy is empty.
+
+If this policy is a valid string, client will always use this domain to login and join meeting.
+
+If this setting is empty, client will use the default cloud "https://zoom.us" and/or "https://zoom.com" to login and join meeting.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="DisableAudioOverProxy_Policy">Disable audio media stream over proxy server</string>
+      <string id="DisableAudioOverProxy_Policy_Recommand">Disable audio media stream over proxy server (Recommendation Setting)</string>
+      <string id="DisableAudioOverProxy_Explain">Default policy is false.
+
+If this policy is true, client will disable the audio media stream over proxy server.
+
+If this setting is false, client will enable the audio media stream over proxy server.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="DisableVideoOverProxy_Policy">Disable video media stream over proxy server</string>
+      <string id="DisableVideoOverProxy_Policy_Recommand">Disable video media stream over proxy server (Recommendation Setting)</string>
+      <string id="DisableVideoOverProxy_Explain">Default policy is false.
+
+If this policy is true, client will disable the video media stream over proxy server.
+
+If this setting is false, client will enable the video media stream over proxy server.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="DisableSharingOverProxy_Policy">Disable screen sharing media stream over proxy server</string>
+      <string id="DisableSharingOverProxy_Policy_Recommand">Disable screen sharing media stream over proxy server (Recommendation Setting)</string>
+      <string id="DisableSharingOverProxy_Explain">Default policy is false.
+
+If this policy is true, client will disable the screen sharing media stream over proxy server.
+
+If this setting is false, client will enable the screen sharing media stream over proxy server.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="SetUseSystemDefaultMicForVOIP_Policy">Set to use the system default microphone for VoIP</string>
+      <string id="SetUseSystemDefaultMicForVOIP_Policy_Recommand">Set to use the system default microphone for VoIP (Recommendation Setting)</string>
+      <string id="SetUseSystemDefaultMicForVOIP_Explain">Default policy is false.
+
+If this policy is true, client will use the system default microphone for VoIP.
+
+If this setting is false, client will use the user setting.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="SetUseSystemDefaultSpeakerForVOIP_Policy">Set to use the system default speaker for VoIP</string>
+      <string id="SetUseSystemDefaultSpeakerForVOIP_Policy_Recommand">Set to use the system default speaker for VoIP (Recommendation Setting)</string>
+      <string id="SetUseSystemDefaultSpeakerForVOIP_Explain">Default policy is false.
+
+If this policy is true, client will use the system default speaker for VoIP.
+
+If this setting is false, client will use the user setting.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="SetUseSystemDefaultSpeakerForRing_Policy">Set to use the system default speaker for ring</string>
+      <string id="SetUseSystemDefaultSpeakerForRing_Policy_Recommand">Set to use the system default speaker for ring (Recommendation Setting)</string>
+      <string id="SetUseSystemDefaultSpeakerForRing_Explain">Default policy is false.
+
+If this policy is true, client will use the system default speaker for ring.
+
+If this setting is false, client will use the user setting.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="ShowZoomWinWhenSharing_Policy">Set to show Zoom windows during screen sharing</string>
+      <string id="ShowZoomWinWhenSharing_Policy_Recommand">Set to show Zoom windows during screen sharing (Recommendation Setting)</string>
+      <string id="ShowZoomWinWhenSharing_Explain">Default policy is hidding Zoom windows during screen sharing.
+
+If this setting is true, client will show Zoom windows during screen sharing.
+
+If this setting is false, client will use the user setting.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="EnforceSignInToJoin_Policy">Set to enforce sign in to join Zoom meeting</string>
+      <string id="EnforceSignInToJoin_Policy_Recommand">Set to enforce sign in to join Zoom meeting (Recommendation Setting)</string>
+      <string id="EnforceSignInToJoin_Explain">Default policy is no sign in restriction to join Zoom meeting.
+
+If this setting is true, Zoom app cannot join meeting before signing in.
+
+If this setting is false, Zoom app can join meeting without signing in.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="BandwidthLimitUp_Policy">Set bandwidth limit up value, like "800" unit Kbps; if it's lower than 800Kbps, the value will be 800Kbps</string>
+      <string id="BandwidthLimitUp_Policy_Recommand">Set bandwidth limit up value, like "800" unit Kbps; if it's lower than 800Kbps, the value will be 800Kbps (Recommendation Setting)</string>
+      <string id="BandwidthLimitUp_Explain">Default policy is no limitation.
+
+If this policy is set, client will restrict media uplink traffic with the limitation.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="BandwidthLimitUp_Part">Set bandwidth limit up value, like "800" unit Kbps; if it's lower than 800Kbps, the value will be 800Kbps</string>
+      <string id="BandwidthLimitDown_Policy">Set bandwidth limit down value, like "800" unit Kbps; if it's lower than 800Kbps, the value will be 800Kbps</string>
+      <string id="BandwidthLimitDown_Policy_Recommand">Set bandwidth limit down value, like "800" unit Kbps; if it's lower than 800Kbps, the value will be 800Kbps (Recommendation Setting)</string>
+      <string id="BandwidthLimitDown_Explain">Default policy is no limitation.
+
+If this policy is set, client will restrict media downlink traffic with the limitation.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="BandwidthLimitDown_Part">Set bandwidth limit down value, like "800" unit Kbps; if it's lower than 800Kbps, the value will be 800Kbps</string>
+      <string id="EnableIndependentDataPort_Policy">Set to enable independent media data port</string>
+      <string id="EnableIndependentDataPort_Policy_Recommand">Set to enable independent media data port (Recommendation Setting)</string>
+      <string id="EnableIndependentDataPort_Explain">Default policy is no different port.
+
+IIf this setting is true, client will use different ports for media data as below:
+
+AUDIO: 8803
+AS: 8802
+VIDEO: 8801
+
+If this setting is false, client will use default setting.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="LegacyCaptureMode_Policy">Set to disable GPU acceleration</string>
+      <string id="LegacyCaptureMode_Policy_Recommand">Set to disable GPU acceleration (Recommendation Setting)</string>
+      <string id="LegacyCaptureMode_Explain">Default policy is GPU acceleration enabled.
+
+If this setting is true, client will disable the GPU acceleration.
+
+If this setting is false, client will enable the GPU acceleration.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="EnableStartMeetingWithRoomSystem_Policy">Set to show "Call Room System" button on home panel</string>
+      <string id="EnableStartMeetingWithRoomSystem_Policy_Recommand">Set to show "Call Room System" button on home panel (Recommendation Setting)</string>
+      <string id="EnableStartMeetingWithRoomSystem_Explain">Default policy is no "Call Room System" button on home panel.
+
+If this setting is true, client will show the "Call Room System" on home panel and supports to start meeting with Room System directly.
+
+If this setting is false, client will hide above button.
+
+If this policy is not set, client will use default setting.</string>
+      <string id="MuteWhenLockScreen_Policy">Set to mute audio after locking the machine</string>
+      <string id="MuteWhenLockScreen_Policy_Recommand">Set to mute audio after locking the machine (Recommendation Setting)</string>
+      <string id="MuteWhenLockScreen_Explain">Default policy is to send audio after locking the machine.
+
+If this setting is true, client will mute audio after locking the machine.
+
+If this setting is false, client will not mute audio after locking the machine.
+
+If this policy is not set, client will use the default setting.</string>
+      <string id="EnableWeChatLogin_Policy">Set to enable login with wechat</string>
+      <string id="EnableWeChatLogin_Policy_Recommand">Set to enable login with wechat (Recommendation Setting)</string>
+      <string id="EnableWeChatLogin_Explain">Default setting is false.
+
+If this setting is false, login with WeChat will be disabled.
+
+If this setting is true, login with WeChat will be enabled.
+
+If this setting is not set, it will be disable if IT installed the client, otherwise use app-default (enable)</string>
+      <string id="EnablePhoneLogin_Policy">Set to enable login with phone</string>
+      <string id="EnablePhoneLogin_Policy_Recommand">Set to enable login with phone (Recommendation Setting)</string>
+      <string id="EnablePhoneLogin_Explain">Default setting is false.
+
+If this setting is false, login with Phone will be disabled.
+
+If this setting is true, login with Phone will be enabled.
+
+If this setting is not set, it will be disable if IT installed the client, otherwise use app-default (enable)</string>
+      <string id="EnableAliPayLogin_Policy">Set to enable login with alipay</string>
+      <string id="EnableAliPayLogin_Policy_Recommand">Set to enable login with alipay (Recommendation Setting)</string>
+      <string id="EnableAliPayLogin_Explain">Default setting is false.
+
+If this setting is false, login with Alipay will be disabled.
+
+If this setting is true, login with Alipay will be enabled.
+
+If this setting is not set, it will be disable if IT installed the client, otherwise use app-default (enable)</string>
+      <string id="EnableQQLogin_Policy">Set to enable login with QQ</string>
+      <string id="EnableQQLogin_Policy_Recommand">Set to enable login with QQ (Recommendation Setting)</string>
+      <string id="EnableQQLogin_Explain">Default setting is false.
+
+If this setting is false, login with QQ will be disabled.
+
+If this setting is true, login with QQ will be enabled.
+
+If this setting is not set, it will be disable if IT installed the client, otherwise use app-default (enable)</string>
+      <string id="DefaultUsePortraitView_Policy">Set to use portrait view</string>
+      <string id="DefaultUsePortraitView_Policy_Recommand">Set to use portrait view (Recommendation Setting)</string>
+      <string id="DefaultUsePortraitView_Explain">Default policy is not to use portrait view.
+
+If this setting is true, client will use portrait view.
+
+If this setting is false, client will not use portrait view.
+
+If this policy is not set, client will use the default setting.</string>
+      <string id="EmbedUserAgentString_Policy">Set to embed one specified user agent string for all HTTP requests from Zoom client application; this piece of string will be appended to the end of regular user agent string.</string>
+      <string id="EmbedUserAgentString_Policy_Recommand">Set to embed one specified user agent string for all HTTP requests from Zoom client application; this piece of string will be appended to the end of regular user agent string. (Recommendation Setting)</string>
+      <string id="EmbedUserAgentString_Explain">Default policy is to use regular user agent string only.
+
+If this setting is not empty, client will append the value to the regular user agent string.
+
+If this setting is empty, client will use regular user agent string.
+
+If this policy is not set, client will use the default setting.</string>
+      <string id="AppendCallerNameForRoomSystem_Policy">Set to append caller name for Room system</string>
+      <string id="AppendCallerNameForRoomSystem_Policy_Recommand">Set to append caller name for Room system (Recommendation Setting)</string>
+      <string id="AppendCallerNameForRoomSystem_Explain">Default policy is not to append caller name for Room system.
+
+If this setting is true, client will append caller name for Room system.
+
+If this setting is false, client will not append caller name for Room system.
+
+If this policy is not set, client will use the default setting.</string>
+      <string id="EnableElevateForAdvDSCP_Policy">Set to enable elevating to support advanced DSCP marks</string>
+      <string id="EnableElevateForAdvDSCP_Policy_Recommand">Set to enable elevating to support advanced DSCP marks (Recommendation Setting)</string>
+      <string id="EnableElevateForAdvDSCP_Explain">Marks other than 56 and 40 are considered as 'Advanced DSCP', there is a limitation on Windows to set those kind of marks: only Admin user with Admin privilege can set 'advanced DSCP'. This option will try to create Zoom Meetings process with Admin privilege; if current user is the Admin, the mark will be set to the package. We highly suggest to use this option for advanced DSCP marks: EnableIndependentDataPort.
+
+Default policy is to not enable elevating for advanced DSCP marks.
+
+If this setting is true, client will create elevated video process to support advanced DSCP marks.
+
+If this setting is false, client will not create elevated video process to support advanced DSCP marks.
+
+If this policy is not set, client will use the default setting.</string>
+      <string id="EnableAutoUploadDumps_Policy">Enable to send dumps/critical-failure-logs to Zoom backend to improve the service</string>
+      <string id="EnableAutoUploadDumps_Policy_Recommand">Enable to send dumps/critical-failure-logs to Zoom backend to improve the service (Recommendation Setting)</string>
+      <string id="EnableAutoUploadDumps_Explain">Default policy is no automatically uploading dumps/critical-failure-logs.
+
+If this setting is true, client will automatically upload dumps/critical-failure-logs.
+
+If this setting is false, client will not automatically upload dumps/critical-failure-logs.
+
+If this policy is not set, client will use the default setting.</string>
+      <string id="ADMXMigrator_UnresolvedString">ADMX Migrator encountered a string that is not present in the source ADM string table.</string>
+      <string id="ADMXMigrator_NoSupportedOn">ADMX Migrator encountered a policy that does not have a supportedOn value.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="EnableClientAutoUpdate_Policy" />
+      <presentation id="DisableCreatingDesktopShortcut_Policy" />
+      <presentation id="AutoStartAfterReboot_Policy" />
+      <presentation id="AutoStartInSystemTray_Policy" />
+      <presentation id="SetSSOURL_Policy">
+        <textBox refId="SetSSOURL_Part">
+          <label>Set SSO host</label>
+        </textBox>
+      </presentation>
+      <presentation id="ForceLoginWithSSO_Policy" />
+      <presentation id="DisableGoogleLogin_Policy" />
+      <presentation id="DisableFacebookLogin_Policy" />
+      <presentation id="DisableLoginWithSSO_Policy" />
+      <presentation id="DisableLoginWithEmail_Policy" />
+      <presentation id="SetAccountIDsRestrictedToJoin_Policy">
+        <textBox refId="SetAccountIDsRestrictedToJoin_Part">
+          <label>Set account IDs that client is restricted to join meeting hosted by</label>
+        </textBox>
+      </presentation>
+      <presentation id="CloseToSystemTray_Policy" />
+      <presentation id="SetEmailDomainsRestrictedToLogin_Policy">
+        <textBox refId="SetEmailDomainsRestrictedToLogin_Part">
+          <label>Set email domains that client is restricted to log in with</label>
+        </textBox>
+      </presentation>
+      <presentation id="AlwaysUsePersonalMeetingID_Policy" />
+      <presentation id="BlockUntrustedSSLCert_Policy" />
+      <presentation id="EnableCloudSwitch_Policy" />
+      <presentation id="EnableEmbedBrowserForSSO_Policy" />
+      <presentation id="ForceSSOURL_Policy">
+        <textBox refId="ForceSSOURL_Part">
+          <label>Set and lock the default SSO URL for client login</label>
+        </textBox>
+      </presentation>
+      <presentation id="KeepSignedIn_Policy" />
+      <presentation id="SetWebDomain_Policy" />
+      <presentation id="EnforceSignInToJoin_Policy" />
+      <presentation id="EnableWeChatLogin_Policy" />
+      <presentation id="EnablePhoneLogin_Policy" />
+      <presentation id="EnableAliPayLogin_Policy" />
+      <presentation id="EnableQQLogin_Policy" />
+      <presentation id="DefaultUsePortraitView_Policy" />
+      <presentation id="EmbedUserAgentString_Policy" />
+      <presentation id="EnableAutoUploadDumps_Policy" />
+      <presentation id="DisableLinkPreviewInChat_Policy" />
+      <presentation id="TurnOffVideoCameraOnJoin_Policy" />
+      <presentation id="AutoJoinVoIP_Policy" />
+      <presentation id="AutoEnableDualMonitor_Policy" />
+      <presentation id="EnterFullScreenWhenViewingSharedScreen_Policy" />
+      <presentation id="FitContentWhenViewingSharedScreen_Policy" />
+      <presentation id="EnableHDVideo_Policy" />
+      <presentation id="ControlAllAppsWhenRemoteControl_Policy" />
+      <presentation id="RecordingFilePath_Policy">
+        <textBox refId="RecordingFilePath_Part">
+          <label>Set path for local meeting recording files</label>
+        </textBox>
+      </presentation>
+      <presentation id="DisableAeroModeDuringShareScreen_Policy" />
+      <presentation id="AlwaysShowMeetingControls_Policy" />
+      <presentation id="EnterFullScreenWhenJoinMeeting_Policy" />
+      <presentation id="PromptConfirmWhenLeaveMeeting_Policy" />
+      <presentation id="AlwaysShowConnectedTime_Policy" />
+      <presentation id="MuteVoipWhenJoinMeeting_Policy" />
+      <presentation id="AutoHideNoVideoUsers_Policy" />
+      <presentation id="AutoAdjustAudioSettings_Policy" />
+      <presentation id="DisableShareScreen_Policy" />
+      <presentation id="DisableMeetingChat_Policy" />
+      <presentation id="DisableMeetingFileTransfer_Policy" />
+      <presentation id="DisableLocalRecording_Policy" />
+      <presentation id="DisableCloudRecording_Policy" />
+      <presentation id="DisableVideoCamera_Policy" />
+      <presentation id="DisableReceiveVideo_Policy" />
+      <presentation id="DisableAnnotation_Policy" />
+      <presentation id="EnableMirrorEffect_Policy" />
+      <presentation id="EnableHIDControl_Policy" />
+      <presentation id="AlwaysShowVideoPreviewDialog_Policy" />
+      <presentation id="DisableComputerAudio_Policy" />
+      <presentation id="EnableSplitScreen_Policy" />
+      <presentation id="DisableRemoteControl_Policy" />
+      <presentation id="DisableRemoteSupport_Policy" />
+      <presentation id="EnableOriginalSound_Policy" />
+      <presentation id="EnableFaceBeauty_Policy" />
+      <presentation id="DisableVirtualBkgnd_Policy" />
+      <presentation id="DisableWhiteBoard_Policy" />
+      <presentation id="EnableShareAudio_Policy" />
+      <presentation id="EnableShareVideo_Policy" />
+      <presentation id="DisableDirectShare_Policy" />
+      <presentation id="DisableDesktopShare_Policy" />
+      <presentation id="DisableAudioOverProxy_Policy" />
+      <presentation id="DisableVideoOverProxy_Policy" />
+      <presentation id="DisableSharingOverProxy_Policy" />
+      <presentation id="SetUseSystemDefaultMicForVOIP_Policy" />
+      <presentation id="SetUseSystemDefaultSpeakerForVOIP_Policy" />
+      <presentation id="SetUseSystemDefaultSpeakerForRing_Policy" />
+      <presentation id="ShowZoomWinWhenSharing_Policy" />
+      <presentation id="BandwidthLimitUp_Policy">
+        <textBox refId="BandwidthLimitUp_Part">
+          <label>Set bandwidth limit up value, like "800" unit Kbps; if it's lower than 800Kbps, the value will be 800Kbps</label>
+        </textBox>
+      </presentation>
+      <presentation id="BandwidthLimitDown_Policy">
+        <textBox refId="BandwidthLimitDown_Part">
+          <label>Set bandwidth limit down value, like "800" unit Kbps; if it's lower than 800Kbps, the value will be 800Kbps</label>
+        </textBox>
+      </presentation>
+      <presentation id="EnableIndependentDataPort_Policy" />
+      <presentation id="LegacyCaptureMode_Policy" />
+      <presentation id="EnableStartMeetingWithRoomSystem_Policy" />
+      <presentation id="MuteWhenLockScreen_Policy" />
+      <presentation id="AppendCallerNameForRoomSystem_Policy" />
+      <presentation id="EnableElevateForAdvDSCP_Policy" />
+      <presentation id="EnableClientAutoUpdate_Policy_Recommand" />
+      <presentation id="DisableCreatingDesktopShortcut_Policy_Recommand" />
+      <presentation id="AutoStartAfterReboot_Policy_Recommand" />
+      <presentation id="AutoStartInSystemTray_Policy_Recommand" />
+      <presentation id="SetSSOURL_Policy_Recommand">
+        <textBox refId="SetSSOURL_Part">
+          <label>Set SSO host</label>
+        </textBox>
+      </presentation>
+      <presentation id="ForceLoginWithSSO_Policy_Recommand" />
+      <presentation id="DisableGoogleLogin_Policy_Recommand" />
+      <presentation id="DisableFacebookLogin_Policy_Recommand" />
+      <presentation id="DisableLoginWithSSO_Policy_Recommand" />
+      <presentation id="DisableLoginWithEmail_Policy_Recommand" />
+      <presentation id="SetAccountIDsRestrictedToJoin_Policy_Recommand">
+        <textBox refId="SetAccountIDsRestrictedToJoin_Part">
+          <label>Set account IDs that client is restricted to join meeting hosted by</label>
+        </textBox>
+      </presentation>
+      <presentation id="CloseToSystemTray_Policy_Recommand" />
+      <presentation id="SetEmailDomainsRestrictedToLogin_Policy_Recommand">
+        <textBox refId="SetEmailDomainsRestrictedToLogin_Part">
+          <label>Set email domains that client is restricted to log in with</label>
+        </textBox>
+      </presentation>
+      <presentation id="AlwaysUsePersonalMeetingID_Policy_Recommand" />
+      <presentation id="BlockUntrustedSSLCert_Policy_Recommand" />
+      <presentation id="EnableCloudSwitch_Policy_Recommand" />
+      <presentation id="EnableEmbedBrowserForSSO_Policy_Recommand" />
+      <presentation id="ForceSSOURL_Policy_Recommand">
+        <textBox refId="ForceSSOURL_Part">
+          <label>Set and lock the default SSO URL for client login</label>
+        </textBox>
+      </presentation>
+      <presentation id="KeepSignedIn_Policy_Recommand" />
+      <presentation id="SetWebDomain_Policy_Recommand" />
+      <presentation id="EnforceSignInToJoin_Policy_Recommand" />
+      <presentation id="EnableWeChatLogin_Policy_Recommand" />
+      <presentation id="EnablePhoneLogin_Policy_Recommand" />
+      <presentation id="EnableAliPayLogin_Policy_Recommand" />
+      <presentation id="EnableQQLogin_Policy_Recommand" />
+      <presentation id="DefaultUsePortraitView_Policy_Recommand" />
+      <presentation id="EmbedUserAgentString_Policy_Recommand" />
+      <presentation id="EnableAutoUploadDumps_Policy_Recommand" />
+      <presentation id="DisableLinkPreviewInChat_Policy_Recommand" />
+      <presentation id="TurnOffVideoCameraOnJoin_Policy_Recommand" />
+      <presentation id="AutoJoinVoIP_Policy_Recommand" />
+      <presentation id="AutoEnableDualMonitor_Policy_Recommand" />
+      <presentation id="EnterFullScreenWhenViewingSharedScreen_Policy_Recommand" />
+      <presentation id="FitContentWhenViewingSharedScreen_Policy_Recommand" />
+      <presentation id="EnableHDVideo_Policy_Recommand" />
+      <presentation id="ControlAllAppsWhenRemoteControl_Policy_Recommand" />
+      <presentation id="RecordingFilePath_Policy_Recommand">
+        <textBox refId="RecordingFilePath_Part">
+          <label>Set path for local meeting recording files</label>
+        </textBox>
+      </presentation>
+      <presentation id="DisableAeroModeDuringShareScreen_Policy_Recommand" />
+      <presentation id="AlwaysShowMeetingControls_Policy_Recommand" />
+      <presentation id="EnterFullScreenWhenJoinMeeting_Policy_Recommand" />
+      <presentation id="PromptConfirmWhenLeaveMeeting_Policy_Recommand" />
+      <presentation id="AlwaysShowConnectedTime_Policy_Recommand" />
+      <presentation id="MuteVoipWhenJoinMeeting_Policy_Recommand" />
+      <presentation id="AutoHideNoVideoUsers_Policy_Recommand" />
+      <presentation id="AutoAdjustAudioSettings_Policy_Recommand" />
+      <presentation id="DisableShareScreen_Policy_Recommand" />
+      <presentation id="DisableMeetingChat_Policy_Recommand" />
+      <presentation id="DisableMeetingFileTransfer_Policy_Recommand" />
+      <presentation id="DisableLocalRecording_Policy_Recommand" />
+      <presentation id="DisableCloudRecording_Policy_Recommand" />
+      <presentation id="DisableVideoCamera_Policy_Recommand" />
+      <presentation id="DisableReceiveVideo_Policy_Recommand" />
+      <presentation id="DisableAnnotation_Policy_Recommand" />
+      <presentation id="EnableMirrorEffect_Policy_Recommand" />
+      <presentation id="EnableHIDControl_Policy_Recommand" />
+      <presentation id="AlwaysShowVideoPreviewDialog_Policy_Recommand" />
+      <presentation id="DisableComputerAudio_Policy_Recommand" />
+      <presentation id="EnableSplitScreen_Policy_Recommand" />
+      <presentation id="DisableRemoteControl_Policy_Recommand" />
+      <presentation id="DisableRemoteSupport_Policy_Recommand" />
+      <presentation id="EnableOriginalSound_Policy_Recommand" />
+      <presentation id="EnableFaceBeauty_Policy_Recommand" />
+      <presentation id="DisableVirtualBkgnd_Policy_Recommand" />
+      <presentation id="DisableWhiteBoard_Policy_Recommand" />
+      <presentation id="EnableShareAudio_Policy_Recommand" />
+      <presentation id="EnableShareVideo_Policy_Recommand" />
+      <presentation id="DisableDirectShare_Policy_Recommand" />
+      <presentation id="DisableDesktopShare_Policy_Recommand" />
+      <presentation id="DisableAudioOverProxy_Policy_Recommand" />
+      <presentation id="DisableVideoOverProxy_Policy_Recommand" />
+      <presentation id="DisableSharingOverProxy_Policy_Recommand" />
+      <presentation id="SetUseSystemDefaultMicForVOIP_Policy_Recommand" />
+      <presentation id="SetUseSystemDefaultSpeakerForVOIP_Policy_Recommand" />
+      <presentation id="SetUseSystemDefaultSpeakerForRing_Policy_Recommand" />
+      <presentation id="ShowZoomWinWhenSharing_Policy_Recommand" />
+      <presentation id="BandwidthLimitUp_Policy_Recommand">
+        <textBox refId="BandwidthLimitUp_Part">
+          <label>Set bandwidth limit up value, like "800" unit Kbps; if it's lower than 800Kbps, the value will be 800Kbps</label>
+        </textBox>
+      </presentation>
+      <presentation id="BandwidthLimitDown_Policy_Recommand">
+        <textBox refId="BandwidthLimitDown_Part">
+          <label>Set bandwidth limit down value, like "800" unit Kbps; if it's lower than 800Kbps, the value will be 800Kbps</label>
+        </textBox>
+      </presentation>
+      <presentation id="EnableIndependentDataPort_Policy_Recommand" />
+      <presentation id="LegacyCaptureMode_Policy_Recommand" />
+      <presentation id="EnableStartMeetingWithRoomSystem_Policy_Recommand" />
+      <presentation id="MuteWhenLockScreen_Policy_Recommand" />
+      <presentation id="AppendCallerNameForRoomSystem_Policy_Recommand" />
+      <presentation id="EnableElevateForAdvDSCP_Policy_Recommand" />
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

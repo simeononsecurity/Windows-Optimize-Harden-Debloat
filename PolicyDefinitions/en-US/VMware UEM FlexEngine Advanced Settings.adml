@@ -1,0 +1,95 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <displayName />
+  <description />
+  <resources>
+    <stringTable>
+      <string id="Cat_FlexPlusAdvanced">Advanced Settings</string>
+      <string id="Cat_FlexPlusAdvanced_Help">Contains settings to allow configuration of advanced behaviour of VMware UEM FlexEngine.</string>
+      <string id="PlatformSupport">At least Microsoft Windows 7 with SP1 or Windows Server 2008 R2 with SP1</string>
+      <string id="PlatformSupport921">At least Microsoft Windows 7 with SP1 or Windows Server 2008 R2 with SP1.&#10;At least VMware User Environment Manager 9.2.2.</string>
+      <string id="PlatformSupportSpecialDriveMappping">At least Microsoft Windows 7 with SP1 or Windows Server 2008 R2 with SP1.&#10;VMware User Environment Manager 9.2.2 or 9.8.</string>
+      <string id="DisableDirectFlex">Disable DirectFlex</string>
+      <string id="DisableDirectFlex_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;When this setting is enabled, DirectFlex is disabled. This setting can be used to migrate VMware Persona Management to VMware User Environment Manager as described in the KB article at https://kb.vmware.com/kb/2118056.&#10;&#10;There are two options for this setting:&#10;&#10;- 'Disable DirectFlex': imports and exports for DirectFlex-enabled applications are not performed.&#10;&#10;- 'Disable DirectFlex and process DirectFlex config files during logon and logoff': imports and exports for DirectFlex-enabled applications are performed during logon and logoff, respectively.</string>
+      <string id="DisableDirectFlex1">Disable DirectFlex</string>
+      <string id="DisableDirectFlex2">Disable DirectFlex and process DirectFlex config files during logon and logoff</string>
+      <string id="DirectFlexExportFallback">Symantec Endpoint Protection DirectFlex export fix</string>
+      <string id="DirectFlexExportFallback_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Only enable this setting if DirectFlex exports are not being performed on clients where Symantec Endpoint Protection is running.</string>
+      <string id="SpecialDriveMappingLogic">Special Drive Mapping Logic</string>
+      <string id="SpecialDriveMappingLogic_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Enable this setting to activate a special drive mapping logic that can solve drive mapping issues in certain scenarios. The most common scenario is when users are local administrator and User Account Control (UAC) has been enabled. In this case a user has a split security token and drive mappings will not show up in Explorer. Enabling this setting solves this issue.&#10;NOTE: This setting is only supported on Windows 7 and Windows Server 2008 R2, with User Environment Manager 9.2.2. The setting has no effect on other Windows versions, and the underlying problem has been addressed in User Environment Manager 9.3.&#10;&#10;'Enabled always' is required if users can have multiple concurrent settings on the same host.&#10;NOTE: This is only supported on User Environment Manager 9.2.2. and 9.8.</string>
+      <string id="SpecialDriveMappingLogicUAC">Enabled for administrators with a split token</string>
+      <string id="SpecialDriveMappingLogicAlways">Enabled always</string>
+      <string id="AllowAdmxInSession">Allow processing ADMX-based settings, application blocking, Horizon Smart Policies, and privilege elevation configuration during a session</string>
+      <string id="AllowAdmxInSession_Help">NOTE: Don't enable this setting unless you need this specific functionality. Changing the default behavior has a security impact, as it allows users to circumvent restrictions.&#10;&#10;Enabling this setting allows UEM to revert ADMX-based settings, application blocking, Horizon Smart Policies, and privilege elevation configuration if a UEM export is triggered during a session. By default UEM reverts these settings only during logoff to prevent security issues.</string>
+      <string id="RemoveLocalProfileAtLogoff">Remove local profile at logoff</string>
+      <string id="RemoveLocalProfileAtLogoff_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Enable this setting to let Windows remove a local profile at logoff.&#10;&#10;WARNING: All settings and user data stored in the user profile will be deleted.</string>
+      <string id="AdmxLogging">Enable verbose logging for ADMX-based settings, application blocking, Horizon Smart Policies, and privilege elevation</string>
+      <string id="AdmxLogging_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Enabling this setting will create an additional log file in the same location as the FlexEngine log file. This additional log file will contain debug logging information for the UEM features 'ADMX-based Settings', 'Application Blocking', 'Horizon Smart Policies', and 'Privilege Elevation'.</string>
+      <string id="UEMActions">Disable UEM action types</string>
+      <string id="UEMActions_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Enabling this setting allows you to disable specific UEM action types, either completely or just during logon. </string>
+      <string id="PrinterMapping">Printer mapping</string>
+      <string id="PrinterMapping_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Enabling this setting will perform the specified number of retries when mapping and unmapping network printers. Make sure to map printers asynchronously to minimize the impact on logon times.</string>
+      <string id="PreExecutionCommand">Pre-execution Command</string>
+      <string id="PreExecutionCommand_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Enable this setting to run a custom command before the FlexEngine Group Policy client-side extension performs a path-based import.</string>
+      <string id="RenewHook">DirectFlex compatibility fix for BeyondTrust and Avecto</string>
+      <string id="RenewHook_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;In some scenarios enabling DirectFlex could stop the privilege elevation functionality with certain versions of BeyondTrust PowerBroker and Avecto Privilege Management. Enable this setting to solve the issue.</string>
+      <string id="DirectFlexFollowJMPHook">Compatibility fix for Sophos Endpoint Protection</string>
+      <string id="DirectFlexFollowJMPHook_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Certain versions of Sophos Endpoint Protection can affect UEM functionality. Enable this setting to solve the issue.</string>
+      <string id="DirectFlexHookLoadLibrary">Compatibility fix for VMware Horizon PCoIP smart card redirection</string>
+      <string id="DirectFlexHookLoadLibrary_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Certain UEM functionality can prevent the PCoIP smart card redirection feature of VMware Horizon Agent 7.1 or newer from functioning correctly. Enable this setting to solve the issue.</string>
+      <string id="ValidateRegFile">Validate .REG file</string>
+      <string id="ValidateRegFile_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Enabling this setting logs additional diagnostic information when importing of .REG file fails.</string>
+      <string id="EnvVarPrefix">Environment variable prefix</string>
+      <string id="EnvVarPrefix_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Enable this setting to configure another prefix than "UEM" for the %UEMSessionID%, %UEMConfigShare%, %UEMScripts%, and %UEMProfileArchives% environment variables.</string>
+      <string id="GlobalExcludesConfigFile">Global excludes</string>
+      <string id="GlobalExcludesConfigFile_Help">NOTE: Don't enable this setting unless you need this specific functionality.&#10;&#10;Enable this setting to apply global exclusions across all Flex config files.&#10;&#10;Specify the absolute or relative path to your 'global excludes' Flex config file here. If a relative path is specified, it is resolved against the 'General' folder.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="P_EnumNoSort">
+        <dropdownList refId="e" noSort="true" defaultItem="0" />
+      </presentation>
+      <presentation id="P_RemoveLocalProfileAtLogoff">
+        <checkBox refId="Chk_SkipForAdministratorMembers">Do not apply to members of the local administrators group</checkBox>
+      </presentation>
+      <presentation id="P_UEMActions">
+        <text>Disable during logon only:</text>
+        <checkBox refId="Chk_UEMActionDriveMappingDuringLogon" defaultChecked="false">Disable UEM Drive Mappings during logon</checkBox>
+        <checkBox refId="Chk_UEMActionFileTypeAssociationDuringLogon" defaultChecked="false">Disable UEM File Type Associations during logon</checkBox>
+        <checkBox refId="Chk_UEMActionPrinterMappingDuringLogon" defaultChecked="false">Disable UEM Printer Mappings during logon</checkBox>
+        <checkBox refId="Chk_UEMActionShortcutDuringLogon" defaultChecked="false">Disable UEM Shortcuts during logon</checkBox>
+        <text>Disable completely:</text>
+        <checkBox refId="Chk_UemActionAdmx" defaultChecked="false">Disable UEM ADMX-based Settings</checkBox>
+        <checkBox refId="Chk_UemActionAppVolumes" defaultChecked="false">Disable UEM App Volumes Settings</checkBox>
+        <checkBox refId="Chk_UEMActionApplicationBlocking" defaultChecked="false">Disable UEM Application Blocking</checkBox>
+        <checkBox refId="Chk_UemActionHideDrive" defaultChecked="false">Disable UEM Drive Hiding</checkBox>
+        <checkBox refId="Chk_UEMActionDriveMapping" defaultChecked="false">Disable UEM Drive Mappings</checkBox>
+        <checkBox refId="Chk_UEMActionEnvVar" defaultChecked="false">Disable UEM Environment Variables</checkBox>
+        <checkBox refId="Chk_UEMActionFileTypeAssociation" defaultChecked="false">Disable UEM File Type Associations</checkBox>
+        <checkBox refId="Chk_UEMActionFolderRedirection" defaultChecked="false">Disable UEM Folder Redirection</checkBox>
+        <checkBox refId="Chk_UEMActionHorizonPolicy" defaultChecked="false">Disable UEM Horizon Smart Policies</checkBox>
+        <checkBox refId="Chk_UEMActionPrinterMapping" defaultChecked="false">Disable UEM Printer Mappings</checkBox>
+        <checkBox refId="Chk_UEMActionPrivilegeElevation" defaultChecked="false">Disable UEM Privilege Elevation</checkBox>
+        <checkBox refId="Chk_UEMActionImport" defaultChecked="false">Disable UEM Settings Import</checkBox>
+        <checkBox refId="Chk_UEMActionShortcut" defaultChecked="false">Disable UEM Shortcuts</checkBox>
+        <checkBox refId="Chk_UEMActionTask" defaultChecked="false">Disable UEM Tasks</checkBox>
+        <checkBox refId="Chk_UemActionTriggeredTask" defaultChecked="false">Disable UEM Triggered Tasks</checkBox>
+        <checkBox refId="Chk_UemActionPolicy" defaultChecked="false">Disable UEM Policy Settings (old-school)</checkBox>
+        <checkBox refId="Chk_UemActionMigrate" defaultChecked="false">Disable UEM Migrate</checkBox>
+      </presentation>
+      <presentation id="P_PrinterMapping">
+        <decimalTextBox refId="Dec_MapPrinterRetryCount" defaultValue="20">Number of retries when mapping:</decimalTextBox>
+        <decimalTextBox refId="Dec_UnmapPrinterRetryCount" defaultValue="20">Number of retries when unmapping:</decimalTextBox>
+        <decimalTextBox refId="Dec_SpoolerRetryCount" defaultValue="5">Number of retries for spooler-related mapping failures:</decimalTextBox>
+        <decimalTextBox refId="Dec_SpoolerRetryWait" defaultValue="1000">Delay (in ms) between spooler-related retries:</decimalTextBox>
+      </presentation>
+      <presentation id="P_PreExecutionCommand">
+        <textBox refId="Txt_PreExecutionCommand"><label>Command to run:</label></textBox>
+      </presentation>
+      <presentation id="P_EnvVarPrefix">
+        <textBox refId="Txt_EnvVarPrefix"><label>Prefix:</label></textBox>
+      </presentation>
+      <presentation id="P_GlobalExcludesConfigFile">
+        <textBox refId="Txt_GlobalExcludesConfigFile"><label>Global excludes config file:</label></textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

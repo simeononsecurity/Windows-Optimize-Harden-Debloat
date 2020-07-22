@@ -1,0 +1,347 @@
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<displayName>Seguridad de Windows</displayName>
+<description>Archivo ADMX para Seguridad de Windows</description>
+<resources>
+    <stringTable>
+    <string id="WindowsDefenderSecurityCenter">Seguridad de Windows</string>    
+    <string id="VirusThreatProtection">Protección contra virus y amenazas</string>
+    <string id="FirewallNetworkProtection">Protección de Firewall y de red</string>
+    <string id="AppBrowserProtection">Protección de aplicaciones y navegador</string>
+    <string id="DevicePerformanceHealth">Estado y el rendimiento del dispositivo</string>
+    <string id="FamilyOptions">Opciones de familia</string>
+    <string id="Notifications">Notificaciones</string>
+    <string id="EnterpriseCustomization">Personalización de la empresa</string>
+    <string id="AccountProtection">Protección de cuentas</string>
+    <string id="DeviceSecurity">Seguridad del dispositivo</string>
+    <string id="Systray">Systray</string>
+    <string id="VirusThreatProtection_UILockdown">Ocultar el área de protección contra Virus y amenazas</string>
+    <string id="VirusThreatProtection_UILockdown_Explain">
+        Oculta el área de protección contra virus y amenazas en Seguridad de Windows.
+
+        Habilitada:
+        El área de protección contra virus y amenazas se ocultará.
+
+        Deshabilitada:
+        Se mostrará el área de protección contra virus y amenazas.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="VirusThreatProtection_HideRansomwareRecovery">Ocultar el área Recuperación de datos por ataque de ransomware</string>
+    <string id="VirusThreatProtection_HideRansomwareRecovery_Explain">
+        Oculta el área de Recuperación de datos por ataque de ransomware en Seguridad de Windows.
+
+        Habilitada:
+        El área de Recuperación de datos por ataque de ransomware se ocultará.
+
+        Deshabilitada:
+        Se mostrará el área de Recuperación de datos por ataque de ransomware.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="FirewallNetworkProtection_UILockdown">Ocultar el área de protección de Firewall y de red</string>
+    <string id="FirewallNetworkProtection_UILockdown_Explain">
+        Oculta el área de protección de firewall y red en Seguridad de Windows.
+
+        Habilitada:
+        El área de protección de firewall y red se ocultará.
+
+        Deshabilitada:
+        Se mostrará el área de protección de firewall y red.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="AppBrowserProtection_UILockdown">Ocultar el área de protección de aplicaciones y navegador</string>
+    <string id="AppBrowserProtection_UILockdown_Explain">
+        Oculta el área de protección de aplicaciones y navegadores en Seguridad de Windows.
+
+        Habilitada:
+        El área de protección de aplicaciones y navegadores se ocultará.
+
+        Deshabilitada:
+        Se mostrará el área de protección de aplicaciones y navegadores.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="AppBrowserProtection_DisallowExploitProtectionOverride">Impedir que los usuarios modifiquen la configuración</string>
+    <string id="AppBrowserProtection_DisallowExploitProtectionOverride_Explain">
+        Impide que los usuarios hagan cambios en el área de configuración de Protección contra vulnerabilidades de Seguridad de Windows.
+
+        Habilitada:
+        Los usuarios locales no pueden realizar cambios en el área de configuración de Protección contra vulnerabilidades.
+
+        Deshabilitada
+        Los usuarios locales pueden realizar cambios en el área de configuración de Protección contra vulnerabilidades.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="DevicePerformanceHealth_UILockdown">Ocultar el área de estado y el rendimiento del dispositivo</string>
+    <string id="DevicePerformanceHealth_UILockdown_Explain">
+        Oculta el área de estado y rendimiento del dispositivo de Seguridad de Windows.
+
+        Habilitada:
+        El área de estado y rendimiento del dispositivo se ocultará.
+
+        Deshabilitada:
+        Se mostrará el área de estado y rendimiento del dispositivo.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="FamilyOptions_UILockdown">Ocultar el área de opciones de familia</string>
+    <string id="FamilyOptions_UILockdown_Explain">
+        Oculta el área de Opciones de familia de Seguridad de Windows.
+
+        Habilitada:
+        El área de Opciones de familia se ocultará.
+
+        Deshabilitada:
+        Se mostrará el área de Opciones de familia.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="Notifications_DisableNotifications">Ocultar todas las notificaciones</string>
+    <string id="Notifications_DisableNotifications_Explain">
+        Oculta las notificaciones de Seguridad de Windows.
+        
+        Habilitada:
+        Los usuarios locales no verán las notificaciones de Seguridad de Windows.
+        
+        Deshabilitada:
+        Los usuarios locales pueden ver las notificaciones de Seguridad de Windows.
+        
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="Notifications_DisableEnhancedNotifications">Ocultar notificaciones no críticas</string>
+    <string id="Notifications_DisableEnhancedNotifications_Explain">
+        Muestra solo notificaciones críticas de Seguridad de Windows.
+
+        Si se ha activado la opción de GP Suprimir todas las notificaciones, esta configuración no tendrá ningún efecto.
+
+        Habilitada:
+        Los usuarios locales solo verán las notificaciones críticas de Seguridad de Windows. No verán otros tipos de notificaciones, como la información regular del estado del PC o dispositivo.
+
+        Deshabilitada:
+        Los usuarios locales verán todos los tipos de notificaciones de Seguridad de Windows.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="EnterpriseCustomization_EnableCustomizedToasts">Configurar notificaciones personalizadas</string>
+    <string id="EnterpriseCustomization_EnableCustomizedToasts_Explain">
+        Muestra la información de contacto especificada a los usuarios locales en las notificaciones de Seguridad de Windows.
+
+        Habilitada:
+        La información de contacto de la empresa se mostrará en las notificaciones que provienen de Seguridad de Windows.
+
+        Después de establecer esta opción en Habilitada, debes establecer la configuración de GP Especificar el nombre de la empresa de contacto y al menos una de las siguientes opciones de configuración de GP:
+        - Especificar el número de teléfono o el id. de Skype de contacto
+        - Especificar la dirección de correo electrónico o el id. de correo electrónico de contacto
+        - Especificar el sitio web de contacto
+
+        Deshabilitada:
+        No se mostrará ninguna información de contacto en las notificaciones.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="EnterpriseCustomization_EnableInAppCustomization">Configurar la información de contacto personalizada</string>
+    <string id="EnterpriseCustomization_EnableInAppCustomization_Explain">
+        Muestra la información de contacto especificada a los usuarios locales en un menú flotante de tarjeta de contacto de Seguridad de Windows.
+
+        Habilitada:
+        La información de contacto de la empresa se mostrará en un menú flotante de Seguridad de Windows.
+
+        Después de configurar esta opción en Habilitada, deberás configurar la opción de configuración de GP Especificar el nombre de la empresa de contacto y, por lo menos, una de las siguientes opciones de configuración de GP:
+        - Especificar el número de teléfono o el id. de Skype de contacto
+        - Especificar la dirección de correo electrónico o el id. de correo electrónico de contacto
+        - Especificar el sitio web de contacto
+
+        Deshabilitada:
+        No se mostrará información de contacto en Seguridad de Windows.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="EnterpriseCustomization_CompanyName">Especifique el nombre de empresa de contacto</string>
+    <string id="EnterpriseCustomization_CompanyName_Explain">
+        Permite especificar el nombre de la empresa que se mostrará en Seguridad de Windows y en las notificaciones asociadas. Esta configuración debe estar habilitada para que aparezca cualquier información de contacto.
+
+        Habilitada:
+        Escribe el nombre de la empresa en la sección Opciones.
+
+        Deshabilitada:
+        La información de la empresa no se mostrará ni en Seguridad de Windows ni en las notificaciones que cree.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="EnterpriseCustomization_Phone">Especifique el número de teléfono o Id. de Skype</string>
+    <string id="EnterpriseCustomization_Phone_Explain">
+        Permite especificar el número de teléfono o el id. de Skype que se mostrará en Seguridad de Windows y en las notificaciones asociadas. 
+
+        Los usuarios pueden hacer clic en la información de contacto para llamar automáticamente al número especificado. Para iniciar la llamada, se usará Skype. 
+
+        Habilitada:
+        Escribe el número de teléfono o el id. de Skype en la sección Opciones.
+
+        Deshabilitada:
+        No se mostrará el número de teléfono ni el id. de Skype de contacto en Seguridad de Windows ni en las notificaciones que cree.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="EnterpriseCustomization_Email">Especifique la dirección de correo electrónico del contacto o Id. de correo electrónico</string>
+    <string id="EnterpriseCustomization_Email_Explain">
+        Permite especificar la dirección de correo electrónico o el id. de correo electrónico que se mostrará en Seguridad de Windows y en las notificaciones asociadas. 
+
+        Los usuarios pueden hacer clic en la información de contacto para crear un correo electrónico que se enviará a la dirección especificada. Se usará la aplicación de correo electrónico predeterminada. 
+
+        Habilitada:
+        Escribe la dirección de correo electrónico o el id. de correo electrónico en la sección Opciones.
+
+        Deshabilitada:
+        No se mostrará la dirección de correo electrónico ni el id. de correo electrónico de contacto en Seguridad de Windows ni en las notificaciones que cree.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="EnterpriseCustomization_URL">Especifique el sitio Web de contacto</string>
+    <string id="EnterpriseCustomization_URL_Explain">
+        Permite especificar la dirección URL que se mostrará en Seguridad de Windows y en las notificaciones asociadas. 
+
+        Los usuarios pueden hacer clic en la información de contacto para visitar el sitio web especificado. Se usará el explorador web predeterminado. 
+
+        Habilitada:
+        Escribe la dirección URL en la sección Opciones.
+
+        Deshabilitada:
+        No se mostrará la dirección URL del sitio web de contacto en Seguridad de Windows ni en las notificaciones que cree.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="AccountProtection_UILockdown">Ocultar el área de protección de cuentas</string>
+    <string id="AccountProtection_UILockdown_Explain">
+        Oculta el área de protección de cuentas en Seguridad de Windows.
+
+        Habilitada:
+        Se ocultará el área de protección de cuentas.
+
+        Deshabilitada:
+        Se mostrará el área de protección de cuentas.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="DeviceSecurity_UILockdown">Ocultar el área Seguridad del dispositivo</string>
+    <string id="DeviceSecurity_UILockdown_Explain">
+        Oculta el área de seguridad del dispositivo de Seguridad de Windows.
+
+        Habilitada:
+        Se ocultará el área de seguridad del dispositivo.
+
+        Deshabilitada:
+        Se mostrará el área de seguridad del dispositivo.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="DeviceSecurity_HideTPMTroubleshooting">Ocultar la página de solución de problemas de procesador (TPM) de seguridad</string>
+    <string id="DeviceSecurity_HideTPMTroubleshooting_Explain">
+        Oculta el área de solución de problemas de procesador de seguridad (TPM) en Seguridad de Windows.
+
+        Habilitada:
+        Se ocultará el área de solución de problemas de procesador de seguridad (TPM).
+
+        Deshabilitada:
+        Se mostrará el área de solución de problemas de procesador de seguridad (TPM).
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="DeviceSecurity_HideSecureBoot">Ocultar el área de arranque seguro</string>
+    <string id="DeviceSecurity_HideSecureBoot_Explain">
+        Oculta el área de arranque seguro de Seguridad de Windows.
+
+        Habilitada:
+        Se ocultará el área de arranque seguro.
+
+        Deshabilitada:
+        Se mostrará el área de arranque seguro.
+
+        No configurada:
+        Igual que Deshabilitada.
+    </string>
+    <string id="DeviceSecurity_DisableClearTpmButton">Deshabilitar el botón Quitar TPM</string>
+    <string id="DeviceSecurity_DisableClearTpmButton_Explain">
+        Deshabilita el botón Quitar TPM en Seguridad de Windows.
+
+        Habilitado:
+        El botón Quitar TPM no estará disponible para su uso.
+
+Deshabilitado:
+        El botón Quitar TPM estará disponible para su uso.
+
+        No configurado:
+        Igual que Deshabilitado.
+    </string>
+    <string id="DeviceSecurity_DisableTpmFirmwareUpdateWarning">Oculta la recomendación de actualización del firmware del TPM.</string>
+    <string id="DeviceSecurity_DisableTpmFirmwareUpdateWarning_Explain">
+        Oculta la recomendación de actualización del firmware del TPM cuando se detecte un firmware vulnerable.
+
+        Habilitado:
+        No se mostrará a los usuarios una recomendación para actualizar el firmware del TPM.
+
+        Deshabilitado:
+        Los usuarios verán una recomendación para actualizar el firmware del TPM si Seguridad de Windows detecta que el sistema contiene un TPM con firmware vulnerable.        
+
+        No configurado:
+        Igual que Deshabilitado.
+    </string>
+    <string id="Systray_HideSystray">Ocultar Systray de seguridad de Windows</string>
+    <string id="Systray_HideSystray_Explain">
+        Esta configuración de directiva oculta el control del área de notificación de Seguridad de Windows.
+
+        El usuario tiene que cerrar sesión e iniciar sesión o reiniciar el equipo para que esta configuración surta efecto.
+
+        Habilitado:
+        El control del área de notificación de Seguridad de Windows se ocultará.
+
+        Deshabilitado:
+        Se mostrará el control del área de notificación de Seguridad de Windows.
+
+        No configurado:
+        Igual que Deshabilitado.
+    </string>
+    </stringTable>
+    <presentationTable>
+        <presentation id="Presentation_EnterpriseCustomization_CompanyName">
+        <textBox refId="Presentation_EnterpriseCustomization_CompanyName">
+            <label>Nombre de la compañía:</label>
+        </textBox>
+        </presentation>
+        <presentation id="Presentation_EnterpriseCustomization_Phone">
+        <textBox refId="Presentation_EnterpriseCustomization_Phone">
+            <label>Número de teléfono o Id. de Skype:</label>
+        </textBox>
+        </presentation>
+        <presentation id="Presentation_EnterpriseCustomization_Email">
+        <textBox refId="Presentation_EnterpriseCustomization_Email">
+            <label>Dirección de correo electrónico o Id. de correo electrónico:</label>
+        </textBox>
+        </presentation>
+        <presentation id="Presentation_EnterpriseCustomization_URL">
+        <textBox refId="Presentation_EnterpriseCustomization_URL">
+            <label>Administrador de TI o sitio Web de soporte técnico:</label>
+        </textBox>
+        </presentation>
+    </presentationTable>
+</resources>
+</policyDefinitionResources>

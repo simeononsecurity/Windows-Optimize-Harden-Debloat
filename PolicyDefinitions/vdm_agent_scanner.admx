@@ -1,0 +1,307 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="scanredirect" namespace="Vmware.Policies.Scanredirect" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+	<using prefix="vdm_agent_base" namespace="VMware.Policies.vdm_agent_base" />
+  </policyNamespaces>
+  <supersededAdm fileName="scanredirect.adm" />
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_NotSpecified" displayName="$(string.ADMXMigrator_NoSupportedOn)" />
+      <definition name="SUPPORTED_WindowsXP" displayName="$(string.SUPPORTED_WindowsXP)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="Root_CatName" displayName="$(string.Root_CatName)">
+      <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="DisableFunctionality_PolicyName" class="Machine" displayName="$(string.DisableFunctionality_PolicyName)" explainText="$(string.DisableFunctionality_PolicyExplain)" presentation="$(presentation.DisableFunctionality_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection" valueName="ScannerRedirection">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <enabledValue>
+        <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+    <policy name="LockConfig_PolicyName" class="Machine" displayName="$(string.LockConfig_PolicyName)" explainText="$(string.LockConfig_PolicyExplain)" presentation="$(presentation.LockConfig_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection" valueName="LockConfig">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="HideWebcam_PolicyName" class="Machine" displayName="$(string.HideWebcam_PolicyName)" explainText="$(string.HideWebcam_PolicyExplain_COMP)" presentation="$(presentation.HideWebcam_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection" valueName="HideWebcam">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="DefaultColorMode_PolicyName" class="Machine" displayName="$(string.DefaultColorMode_PolicyName)" explainText="$(string.DefaultColorMode_PolicyExplain)" presentation="$(presentation.DefaultColorMode_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <enum id="DefaultColorMode_DropDownListName" valueName="DefaultColorMode" required="true">
+          <item displayName="$(string.DefaultColorMode_BlackAndWhite)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.DefaultColorMode_Grayscale)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.DefaultColorMode_Color)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="DefaultDuplex_PolicyName" class="Machine" displayName="$(string.DefaultDuplex_PolicyName)" explainText="$(string.DefaultDuplex_PolicyExplain)" presentation="$(presentation.DefaultDuplex_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <enum id="DefaultDuplex_DropDownListName" valueName="DefaultDuplex" required="true">
+          <item displayName="$(string.DefaultDuplex_Simplex)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.DefaultDuplex_Duplex)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="DefaultScanner_PolicyName" class="Machine" displayName="$(string.DefaultScanner_PolicyName)" explainText="$(string.DefaultScanners_PolicyExplain_COMP)" presentation="$(presentation.DefaultScanner_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection\ConnectAtLogin">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <enum id="Scanners_SelectionMode_DropDownListName" valueName="Twain" required="true">
+          <item displayName="$(string.Scanners_SelectionMode_None)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Auto)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Last)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Specified)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+        <text id="Scanners_Specified_EditName" valueName="TwainScanner" />
+        <enum id="Scanners_SelectionMode_DropDownListName_1" valueName="Wia" required="true">
+          <item displayName="$(string.Scanners_SelectionMode_None)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Auto)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Last)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Specified)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+        <text id="Scanners_Specified_EditName_1" valueName="WiaScanner" />
+      </elements>
+    </policy>
+    <policy name="Compression_PolicyName" class="User" displayName="$(string.Compression_PolicyName)" explainText="$(string.Compression_PolicyExplain)" presentation="$(presentation.Compression_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <enum id="Compression_Mode_DropDownListName" valueName="Compression" required="true">
+          <item displayName="$(string.Compression_Mode_Disable)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Compression_Mode_Lossless)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Compression_Mode_JPEG)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <decimal id="Compression_JPEGQuality_NumericName" valueName="CompressionQualityJpeg" required="true" maxValue="100" />
+      </elements>
+    </policy>
+    <policy name="HideWebcam_PolicyName_1" class="User" displayName="$(string.HideWebcam_PolicyName)" explainText="$(string.HideWebcam_PolicyExplain_USER)" presentation="$(presentation.HideWebcam_PolicyName_1)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection" valueName="HideWebcam">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="DefaultColorMode_PolicyName_1" class="User" displayName="$(string.DefaultColorMode_PolicyName)" explainText="$(string.DefaultColorMode_PolicyExplain)" presentation="$(presentation.DefaultColorMode_PolicyName_1)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <enum id="DefaultColorMode_DropDownListName" valueName="DefaultColorMode" required="true">
+          <item displayName="$(string.DefaultColorMode_BlackAndWhite)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.DefaultColorMode_Grayscale)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.DefaultColorMode_Color)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="DefaultDuplex_PolicyName_1" class="User" displayName="$(string.DefaultDuplex_PolicyName)" explainText="$(string.DefaultDuplex_PolicyExplain)" presentation="$(presentation.DefaultDuplex_PolicyName_1)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <enum id="DefaultDuplex_DropDownListName" valueName="DefaultDuplex" required="true">
+          <item displayName="$(string.DefaultDuplex_Simplex)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.DefaultDuplex_Duplex)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="DefaultScanner_PolicyName_1" class="User" displayName="$(string.DefaultScanner_PolicyName)" explainText="$(string.DefaultScanners_PolicyExplain_USER)" presentation="$(presentation.DefaultScanner_PolicyName_1)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection\ConnectAtLogin">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <enum id="Scanners_SelectionMode_DropDownListName" valueName="Twain" required="true">
+          <item displayName="$(string.Scanners_SelectionMode_None)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Auto)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Last)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Specified)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+        <text id="Scanners_Specified_EditName" valueName="TwainScanner" />
+        <enum id="Scanners_SelectionMode_DropDownListName_1" valueName="Wia" required="true">
+          <item displayName="$(string.Scanners_SelectionMode_None)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Auto)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Last)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.Scanners_SelectionMode_Specified)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+        <text id="Scanners_Specified_EditName_1" valueName="WiaScanner" />
+      </elements>
+    </policy>
+	<policy name="BandwidthLimit_PolicyName" class="User" displayName="$(string.BandwidthLimit_PolicyName)" explainText="$(string.BandwidthLimit_PolicyExplain)" presentation="$(presentation.BandwidthLimit_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <elements>
+        <decimal id="BandwidthLimit_NumericName" valueName="BandwidthLimit" required="true" maxValue="2097152" />
+      </elements>
+    </policy>
+	<policy name="UseVendorUI_PolicyName" class="User" displayName="$(string.UseVendorUI_PolicyName)" explainText="$(string.UseVendorUI_PolicyExplain)" presentation="$(presentation.UseVendorUI_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+	    <elements>
+        <enum id="UseVendorUI_DropDownListName" valueName="UseScanVendorUI" required="true">
+          <item displayName="$(string.UseVendorUI_Server)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.UseVendorUI_Wks)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+	<policy name="ForceTwainDialog_PolicyName" class="User" displayName="$(string.ForceTwainDialog_PolicyName)" explainText="$(string.ForceTwainDialog_PolicyExplain_USER)" presentation="$(presentation.ForceTwainDialog_PolicyName)" key="SOFTWARE\Policies\VMware, Inc.\VMware VDM\ScannerRedirection" valueName="TwainAlwaysShowScanUI">
+      <parentCategory ref="Root_CatName" />
+      <supportedOn ref="SUPPORTED_WindowsXP" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+  </policies>
+</policyDefinitions>

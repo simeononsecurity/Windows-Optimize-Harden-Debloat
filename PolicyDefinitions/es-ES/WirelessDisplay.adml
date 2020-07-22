@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <displayName>Conectar</displayName>
+  <description>Selecciona un elemento para ver su descripción</description>
+  <resources>
+    <stringTable>
+      <!-- general -->
+      <string id="Connect">Conectar</string>
+      
+      <!-- prevent file sync-->
+      <string id="AllowProjectionToPC">No permitir que se proyecte nada en este PC</string>
+      <string id="AllowProjectionToPC_help">Esta configuración de directiva te permite desactivar la opción de proyectar a un equipo.  
+
+ 
+
+Si la activas, tu equipo no se podrá detectar y no se proyectar nada en él, a menos que el usuario inicie manualmente la aplicación Conectar.  
+
+ 
+
+Si la desactivas o no la configuras, el equipo será visible y solo se podrá proyectar contenido en él sobre la pantalla de bloqueo. El usuario tiene la opción de activarla siempre o desactivarla a menos que se inicie de forma manual.</string>
+
+      <string id="RequirePinForPairing">Solicitar PIN para emparejar dispositivos</string>
+      <string id="RequirePinForPairing_help">Esta configuración de directiva permite solicitar un pin para el emparejamiento. 
+
+Si estableces esta opción en "Nunca", no es necesario un pin para el emparejamiento.
+
+Si la estableces en "Primera vez", siempre se requerirá un PIN para emparejar nuevos dispositivos.
+
+Si la estableces en "Siempre", se requiere un PIN para todos los emparejamientos.</string>
+      <string id="RequirePinForPairing_0">Nunca</string>
+      <string id="RequirePinForPairing_1">Primera vez</string>
+      <string id="RequirePinForPairing_2">Siempre</string>
+   </stringTable>
+   <presentationTable>
+      <presentation id="RequirePinForPairing">
+        <dropdownList refId="RequirePinForPairingDropdown" noSort="true" defaultItem="0">Elige una de las siguientes acciones</dropdownList>
+      </presentation>
+   </presentationTable>
+  </resources>
+</policyDefinitionResources>

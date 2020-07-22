@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_OfflineFiles">Archivos sin conexión</string>
+      <string id="Lbl_Fail">No desconectar nunca</string>
+      <string id="Lbl_FullSync">Completa</string>
+      <string id="Lbl_QuickSync">Rápida</string>
+      <string id="Lbl_WorkOffline">Trabajar sin conexión</string>
+      <string id="Pol_AlwaysPinSubFolders">Subcarpetas siempre disponibles sin conexión</string>
+      <string id="Pol_AlwaysPinSubFolders_Help">Permite que las subcarpetas estén disponibles sin conexión cuando la carpeta principal sea creada como disponible sin conexión.
+
+Esta opción extiende automáticamente la opción "disponible sin conexión" a todas las subcarpetas nuevas y existentes dentro de una carpeta. Los usuarios no tienen la opción de excluir subcarpetas.
+
+Si habilita esta opción, al crear una carpeta disponible sin conexión, todas las carpetas que contiene también se crean como disponibles sin conexión. Asimismo, las nuevas carpetas que cree dentro de una carpeta que está disponible sin conexión, estarán disponibles sin conexión también cuando la carpeta principal se sincronice.
+
+Si deshabilita o no configura esta opción, el sistema preguntará a los usuarios si desean que las subcarpetas estén disponibles sin conexión al crear una carpeta principal disponible sin conexión.</string>
+      <string id="Pol_AssignedOfflineFiles">Especificar Archivos sin conexión asignados de forma administrativa</string>
+      <string id="Pol_AssignedOfflineFiles_Help">Esta configuración de directiva muestra una lista de carpetas y archivos de red que están siempre disponibles para usarlos sin conexión. Esto garantiza que los archivos y carpetas especificados estén disponibles sin conexión para los usuarios del equipo.
+
+Si habilita esta configuración de directiva, los archivos especificados están siempre disponibles sin conexión para los usuarios del equipo. Para especificar un archivo o carpeta, haga clic en Mostrar. En el cuadro de diálogo Mostrar contenido, en la columna Nombre de valor, escriba la ruta de acceso UNC completa para el archivo o la carpeta. Deje el campo de la columna Valor en blanco.
+
+Si deshabilita esta configuración de directiva, la lista de archivos o carpetas que están siempre disponibles sin conexión (incluidos aquellos que heredaron de GPO de precedencia menor) se elimina y no quedan carpetas ni archivos disponibles para su uso sin conexión por parte de la directiva de grupo (aunque los usuarios aún pueden especificar sus propios archivos y carpetas para usar sin conexión).
+
+Si no establece esta configuración de directiva, ningún archivo o carpeta estará disponible para su uso sin conexión por parte de la directiva de grupo.
+
+Nota: esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se establecen ambas opciones de configuración de directiva, estas se combinarán y todos los archivos especificados estarán disponibles para su uso sin conexión.</string>
+      
+      <string id="Pol_CustomGoOfflineActions">Acciones no predeterminadas de desconexión del servidor</string>
+      <string id="Pol_CustomGoOfflineActions_Help">Determina cómo responden los equipos cuando se desconectan determinados servidores de archivos sin conexión. Esta opción invalida la respuesta predeterminada, una respuesta especificada por el usuario y la respuesta especificada en la opción "Acción al desconectar el servidor".
+
+Para usar esta opción, haga clic en Mostrar. En el cuadro de diálogo Mostrar contenido, en la columna Nombre de valor, escriba el nombre del equipo servidor. A continuación, en el cuadro de la columna Valor, escriba "0" si los usuarios pueden trabajar sin conexión cuando están desconectados de este servidor o "1" si no pueden.
+
+Esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario.  Si las dos opciones están establecidas para un servidor en particular, la establecida en Configuración del equipo tendrá prioridad sobre la de Configuración del usuario.  La Configuración del equipo y la Configuración del usuario tendrán prioridad sobre una configuración de usuario.  Esta opción no impide que los usuarios establezcan acciones personalizadas mediante la pestaña Archivos sin conexión.  Sin embargo, los usuarios no podrán cambiar ninguna acción personalizada establecida mediante esta opción.
+
+Sugerencia: para configurar esta opción sin necesidad de establecer ninguna opción, haga clic en Opciones de carpeta en el menú Herramientas del Explorador de Windows, haga clic en la pestaña Archivos sin conexión y luego haga clic en Opciones avanzadas. Esta opción se corresponde con los valores de la sección "Lista de excepciones".</string>
+      <string id="Pol_DefCacheSize">Tamaño de caché predeterminado</string>
+      <string id="Pol_DefCacheSize_Help">Limita el porcentaje del espacio en disco del equipo que puede usarse para almacenar automáticamente en la memoria caché los archivos sin conexión.
+
+Esta opción también deshabilita la opción "Espacio total en disco que va a usarse para archivos temporalmente sin conexión" de la pestaña Archivos sin conexión. De esta forma se impide que los usuarios intenten modificar la opción mientras una configuración la está controlando.
+
+El almacenamiento en caché automático puede definirse en cualquier recurso compartido de red. Cuando un usuario abre un archivo en el recurso compartido, el sistema almacena automáticamente una copia del archivo en el equipo del usuario.
+
+Esta opción no limita el espacio en disco disponible para los archivos que el usuario ha preparado manualmente para que estén disponibles sin conexión.
+
+Si habilita esta opción, puede especificar un límite automático de espacio en disco para la memoria caché.
+
+Si deshabilita esta opción, el sistema limita el espacio que los archivos copiados automáticamente en caché ocupan a un 10 por ciento del espacio de la unidad del sistema.
+
+Si no configura esta opción, el espacio en disco para los archivos copiados automáticamente en caché se limita de forma predeterminada a un 10 por ciento del espacio de la unidad del sistema, pero los usuarios pueden modificarlo.
+
+Sugerencia: para modificar el espacio del disco utilizado para el almacenamiento en caché automático sin necesidad de definir una opción, abra el Explorador de Windows, vaya a menú Herramientas, haga clic en Opciones de carpeta, luego en la pestaña Archivos sin conexión, y utilice la barra de desplazamiento asociada con la opción "Espacio total en disco disponible para los archivos sin conexión temporales".</string>
+
+      <string id="Pol_Enabled">Permitir o denegar el uso de la característica Archivos sin conexión</string>
+      <string id="Pol_Enabled_Help">Esta configuración de directiva determina si se habilita o no la característica Archivos sin conexión. Archivos sin conexión guarda una copia de los archivos de red en el equipo del usuario para usarlos cuando el equipo no esté conectado a la red.
+
+Si habilita esta configuración de directiva, se habilita también Archivos sin conexión y los usuarios no pueden deshabilitarla.
+
+Si deshabilita esta configuración de directiva, se deshabilita también Archivos sin conexión y los usuarios no pueden habilitarla.
+
+Si no establece esta configuración de directiva, se habilita Archivos sin conexión en los equipos cliente de Windows y se deshabilita en los equipos que ejecutan Windows Server, a menos que el usuario lo modifique.
+
+Nota: los cambios realizados en esta configuración de directiva no surten efecto hasta que se reinicia el equipo.</string>
+
+      <string id="Pol_EncryptOfflineFiles">Cifrar la memoria caché de archivos sin conexión</string>
+      <string id="Pol_EncryptOfflineFiles_Help">Esta configuración de directiva determina si los archivos sin conexión están cifrados.
+
+Los archivos sin conexión son copias de archivos de un recurso compartido de red que se almacenan en la memoria caché local. El cifrado de esta memoria caché disminuye las posibilidades de que un usuario acceda a los archivos de la memoria caché de Archivos sin conexión sin los permisos adecuados.
+
+Si habilita esta configuración de directiva, todos los archivos de la memoria caché de Archivos sin conexión estarán cifrados.  Esto incluye archivos existentes así como archivos agregados más tarde. La copia en caché en el equipo local se verá afectada, pero no la copia de red asociada. El usuario no puede descifrar Archivos sin conexión a través de la interfaz de usuario.
+
+Si deshabilita esta configuración de directiva, los archivos de la memoria caché de Archivos sin conexión no estarán cifrados. Esto incluye archivos existentes así como archivos agregados más tarde, incluso si los archivos se almacenaron mediante el cifrado de NTFS o el Cifrado de unidad BitLocker mientras estaban en el servidor. La copia en caché en el equipo local se verá afectada, pero no la copia de red asociada. El usuario no puede cifrar Archivos sin conexión a través de la interfaz de usuario.
+
+Si no establece esta configuración de directiva, el usuario podrá controlar el cifrado de caché de Archivos sin conexión a través de la interfaz de usuario. Se mantiene el estado actual de la memoria caché y, si la misma está solo parcialmente cifrada, la operación se completa para que esté completamente cifrada. La memoria caché no vuelve al estado sin cifrar. El usuario tiene que ser un administrador del equipo local para cifrar y descifrar la memoria caché de Archivos sin conexión.
+
+Nota: de forma predeterminada, esta caché está protegida por ACL en particiones NTFS.
+
+Esta configuración se aplica cuando el usuario inicia sesión. Si esta configuración se modifica una vez que el usuario inicia sesión, se requiere cerrar y volver a iniciar la sesión para que la configuración surta efecto.</string>
+      
+      <string id="Pol_EventLoggingLevel">Nivel de registro de eventos</string>
+      <string id="Pol_EventLoggingLevel_Help">Determina qué eventos de la función Archivos sin conexión se guardan en el registro de eventos.
+
+Archivos sin conexión guarda los eventos en el registro de la aplicación del Visor de eventos cuando detecta errores. De forma predeterminada, Archivos sin conexión solo guarda un evento cuando la memoria caché de almacenamiento de los archivos sin conexión se ha dañado. Sin embargo, puede usar esta opción para especificar otros eventos que desee que Archivos sin conexión registre.
+
+Para usar esta opción, en el cuadro "Entrar", seleccione el número que corresponde a los eventos que desea que el sistema registre. Los niveles son acumulables, es decir, cada nivel incluye los eventos de los niveles anteriores.
+
+"0" registra un error cuando la memoria caché de almacenamiento sin conexión se ha dañado.
+
+"1" también registra un evento cuando el servidor que hospeda el archivo sin conexión se desconecta de la red.
+
+"2" también registra los eventos cuando el equipo local se conecta y desconecta de la red.
+
+"3" también registra un evento cuando el servidor que hospeda el archivo sin conexión se vuelve a conectar a la red.
+
+Nota: esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.</string>
+      <string id="Pol_ExtExclusionList">Archivos no almacenados en caché</string>
+      <string id="Pol_ExtExclusionList_Help">Enumera los tipos de archivos que no pueden utilizarse sin conexión.
+
+Esta configuración permite excluir ciertos tipos de archivos del almacenamiento en caché automático y manual para su uso sin conexión. El sistema no almacena en caché los archivos del tipo especificado en esta configuración, incluso si residen en un recurso compartido de red configurado para almacenamiento en caché automático. Asimismo, si los usuarios intentan poner un archivo de este tipo como disponible sin conexión, la operación no será correcta y aparecerá el siguiente mensaje en el cuadro de diálogo de progreso del Administrador de sincronización: "Los archivos de este tipo no pueden hacerse disponibles sin conexión".
+
+Esta configuración se ha creado para proteger los archivos que no pueden separarse, como por ejemplo los componentes de una base de datos.
+
+Para utilizar esta configuración, escriba la extensión de nombre de archivo en el cuadro "Extensiones". Para escribir más de una extensión, separe las extensiones con un punto y coma (;).
+
+Nota: para que los cambios de esta configuración surtan efecto, debe cerrar la sesión y volver a iniciarla.</string>
+      <string id="Pol_GoOfflineAction">Acción al desconectar el servidor</string>
+      <string id="Pol_GoOfflineAction_Help">Determina si los archivos de red seguirán estando disponibles si el equipo se desconecta inesperadamente del servidor que hospeda los archivos.
+
+Esta opción también deshabilita la opción "Al perder la conexión de red" de la pestaña Archivos sin conexión. De esta forma se impide que los usuarios intenten modificar la opción mientras una configuración la está controlando.
+
+Si habilita esta opción, puede usar el cuadro "Acción" para especificar cómo responden los equipos del grupo.
+
+--  "Trabajar sin conexión" indica que el equipo puede usar copias locales de los archivos de red mientras no se tiene acceso al servidor.
+
+--  "No desconectar nunca" indica que los archivos de red no estarán disponibles mientras no se tenga acceso al servidor.
+
+Si deshabilita esta opción o selecciona la opción "Trabajar sin conexión", los usuarios podrán seguir trabajando aunque se interrumpa la conexión.
+
+Si no configura esta opción, el valor predeterminado es que los usuarios podrán trabajar sin conexión, aunque podrán cambiar esta opción.
+
+Esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.
+
+Sugerencia: para configurar estos valores sin establecer una opción, abra el Explorador de Windows, en el menú Herramientas haga clic en Opciones de carpeta, haga clic en la pestaña Archivos sin conexión, haga clic en Opciones avanzadas y, a continuación, seleccione una opción en la sección "Al perder la conexión de red".
+
+Consulte también la opción "Acciones no predeterminadas de desconexión del servidor".</string>
+      <string id="Pol_NoCacheViewer">Evitar el uso de la carpeta Archivos sin conexión</string>
+      <string id="Pol_NoCacheViewer_Help">Deshabilita la carpeta Archivos sin conexión.
+
+Esta opción deshabilita el botón "Ver archivos" de la pestaña Archivos sin conexión. Como resultado, los usuarios no podrán usar la carpeta Archivos sin conexión para ver o abrir copias de archivos de red guardados en el equipo. Tampoco podrán usar la carpeta para ver características de los archivos sin conexión, como por ejemplo el estado, el tipo o la ubicación del servidor.
+
+Esta opción no impide que los usuarios trabajen sin conexión o que guarden copias locales de los archivos que se encuentren disponibles sin conexión. Tampoco les impide que usen otros programas como, por ejemplo, el Explorador de Windows, para ver los archivos sin conexión.
+
+Esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.
+
+Sugerencia: para ver la carpeta Archivos sin conexión, abra el Explorador de Windows, en el menú Herramientas haga clic en Opciones de carpeta y luego en "Ver archivos".</string>
+      <string id="Pol_NoConfigCache">Prohibir la configuración del usuario de Archivos sin conexión</string>
+      <string id="Pol_NoConfigCache_Help">Impide que los usuarios habiliten, deshabiliten o modifiquen la configuración de Archivos sin conexión.
+
+Esta opción quita la pestaña Archivos sin conexión del cuadro de diálogo Opciones de carpeta. También quita el elemento Configuración del menú contextual de Archivos sin conexión y deshabilita el botón Configuración del cuadro de diálogo Estado de archivos sin conexión. De esta forma, los usuarios no podrán ver o modificar las opciones de la pestaña Archivos sin conexión o del cuadro de diálogo Archivos sin conexión.
+
+Se trata de una opción completa que bloquea la configuración que haya establecido con otras opciones de esta carpeta.
+
+Esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.
+
+Sugerencia: esta opción ofrece un método rápido para bloquear los valores predeterminados de Archivos sin conexión. Para aceptar los valores predeterminados, solo tiene que habilitar esta opción. No tiene que deshabilitar ninguna otra opción de esta carpeta.</string>
+      <string id="Pol_NoMakeAvailableOffline">Quitar el comando "Disponible sin conexión"</string>
+      <string id="Pol_NoMakeAvailableOffline_Help">Esta configuración de directiva impide que los usuarios pongan archivos y carpetas de red como disponibles sin conexión.
+
+Si habilita esta configuración de directiva, los usuarios no pueden designar archivos para guardarlos en sus equipos y usarlos sin conexión. Sin embargo, Windows aún almacenará en caché copias locales de archivos que residen en recursos compartidos de red designados para almacenamiento en caché automático.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios pueden especificar manualmente archivos y carpetas que desean poner como disponibles sin conexión.
+
+Notas:
+
+Esta configuración de directiva aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se establecen ambas opciones de configuración de directiva, tiene prioridad la de Configuración del equipo.
+
+El comando "Disponible sin conexión" se denomina "Siempre disponible sin conexión" en los equipos que ejecutan Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows 8, Windows 7 o Windows Vista.
+      
+      </string>
+      <string id="Pol_NoPinFiles">Quitar "Disponible sin conexión" para estos archivos y carpetas</string>
+      <string id="Pol_NoPinFiles_Help">Esta configuración de directiva permite administrar una lista de archivos y carpetas para los que desea bloquear el comando "Disponible sin conexión".
+
+Si habilita esta configuración de directiva, el comando "Disponible sin conexión" no está disponible para los archivos y carpetas que elija. Para especificar estos archivos y carpetas, haga clic en Mostrar. En el cuadro de diálogo Mostrar contenido, en la columna Nombre de valor, escriba la ruta de acceso UNC completa para el archivo o la carpeta. Deje el campo de la columna Valor en blanco.
+
+Si deshabilita esta configuración de directiva, la lista de archivos y carpetas se elimina, incluidas las listas heredadas de GPO de menor precedencia, y el comando "Disponible sin conexión" se muestra para todos los archivos y carpetas.
+
+Si no establece esta configuración de directiva, el comando "Disponible sin conexión" está disponible para todos los archivos y carpetas.
+
+Notas:
+
+Esta configuración de directiva aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se establecen ambas opciones de configuración de directiva, estas se combinan y el comando "Disponible sin conexión" no está disponible para ninguno de los archivos y carpetas especificados.
+
+El comando "Disponible sin conexión" se denomina "Siempre disponible sin conexión" en los equipos que ejecutan Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows 8, Windows 7 o Windows Vista.
+
+Esta configuración de directiva no impide que los archivos se almacenen en caché automáticamente si el recurso compartido de red está configurado para "Almacenamiento en caché automático". Solo afecta la visualización del comando "Disponible sin conexión" en el Explorador de archivos.
+
+Si la configuración de directiva "Quitar el comando Disponible sin conexión" está habilitada, esta configuración no surte efecto.
+      
+      </string>
+      <string id="Pol_NoReminders">Desactivar los globos de aviso</string>
+      <string id="Pol_NoReminders_Help">Oculta o muestra globos de aviso, e impide que los usuarios cambien la configuración.
+
+Los globos de aviso aparecen encima del icono Archivos sin conexión en el área de notificación para comunicar a los usuarios que han perdido la conexión hacia un archivo de red y están trabajando en una copia local del archivo. Los usuarios pueden decidir cómo desean continuar.
+
+Si habilita esta configuración, el sistema oculta los globos de aviso e impide que los usuarios los muestren.
+
+Si deshabilita esta configuración, el sistema muestra los globos de aviso e impide que los usuarios los oculten.
+
+Si no se establece esta configuración, los globos de aviso se muestran de manera predeterminada cuando habilita archivos sin conexión, pero los usuarios pueden modificar la configuración.
+
+Para impedir que los usuarios modifiquen la configuración mientras una configuración está habilitada, el sistema deshabilita la opción "Habilitar avisos" de la pestaña Archivos sin conexión.
+
+Esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.
+
+Sugerencia: para mostrar u ocultar los globos de aviso sin establecer una configuración, en el Explorador de Windows, en el menú Herramientas, haga clic en Opciones de carpeta y, a continuación, haga clic en la pestaña Archivos sin conexión. Esta configuración corresponde a la casilla "Habilitar avisos".</string>
+      <string id="Pol_PurgeAtLogoff">Al cerrar sesión, eliminar la copia local de archivos sin conexión del usuario</string>
+      <string id="Pol_PurgeAtLogoff_Help">Elimina las copias locales de los archivos sin conexión del usuario cuando éste cierra la sesión.
+
+Esta opción especifica que los archivos copiados manual y automáticamente en caché solo se conservarán mientras el usuario está conectado al equipo. Cuando el usuario cierra la sesión, el sistema elimina las copias locales de los archivos sin conexión.
+
+Si deshabilita esta opción o no la configura, las copias realizadas manual o automáticamente se conservan en el equipo del usuario para que se puedan usar más adelante.
+
+Precaución: los archivos no están sincronizados antes de eliminarse. Los cambios que se hayan realizado en los archivos locales desde la última sincronización se perderán.</string>
+      <string id="Pol_ReminderFreq">Frecuencia de los globos de aviso</string>
+      <string id="Pol_ReminderFreq_Help">Determina con qué frecuencia aparecen las actualizaciones de los globos de aviso.
+
+Si habilita esta opción, podrá seleccionar con qué frecuencia aparecen las actualizaciones de los globos de aviso e impedir que los usuarios cambien esta opción.
+
+Los globos de aviso aparecen cuando la conexión de un usuario con un archivo de red se pierde o cuando se vuelve a conectar, y se actualizan periódicamente. Como valor predeterminado, el primer aviso de un evento se muestra durante 30 segundos. A partir de este momento, las actualizaciones aparecen cada 60 minutos y se muestran durante 15 segundos. Puede usar esta opción para modificar el intervalo de actualización.
+
+Esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.
+
+Sugerencia: para establecer la frecuencia de los globos de aviso sin definir una configuración, en Explorador de Windows, en el menú Herramientas haga clic en Opciones de carpeta y, a continuación, haga clic en la pestaña Archivos sin conexión. Esta configuración corresponde a la opción "Mostrar el aviso cada ... minutos".</string>
+      <string id="Pol_ReminderInitTimeout">Duración del globo de aviso inicial</string>
+      <string id="Pol_ReminderInitTimeout_Help">Determina el intervalo durante el que se muestra el primer aviso de una modificación en el estado de la red.
+
+Los globos de aviso aparecen cuando la conexión de un usuario con un archivo de red se pierde o cuando se vuelve a conectar, y se actualizan periódicamente. Como valor predeterminado, el primer aviso de un evento se muestra durante 30 segundos. A partir de este momento, las actualizaciones aparecen cada 60 minutos y se muestran durante 15 segundos. Puede usar esta opción para modificar la duración del primer aviso.
+
+Esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.</string>
+      <string id="Pol_ReminderTimeout">Duración del globo de aviso</string>
+      <string id="Pol_ReminderTimeout_Help">Determina durante cuánto tiempo se muestran los globos de aviso.
+
+Los globos de aviso aparecen cuando la conexión de un usuario con un archivo de red se pierde o cuando se vuelve a conectar, y se actualizan periódicamente. Como valor predeterminado, el primer aviso de un evento se muestra durante 30 segundos. A partir de este momento, las actualizaciones aparecen cada 60 minutos y se muestran durante 15 segundos. Puede usar esta opción para modificar la duración del aviso de actualización.
+
+Esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.</string>
+      <string id="Pol_SlowLinkSpeed">Configurar velocidad lenta de vínculos</string>
+      <string id="Pol_SlowLinkSpeed_Help">Configura el valor del umbral en el que los Archivos sin conexión consideran una conexión de red como "lenta". Cualquier velocidad de red por debajo de este valor es considerada como lenta.
+
+Cuando una conexión se considera lenta, los Archivos sin conexión automáticamente ajustan su comportamiento para evitar un tráfico de sincronización excesivo y no se volverá a conectar automáticamente con un servidor cuando se detecte la presencia de un servidor.
+
+Si habilita esta opción, puede configurar el valor del umbral que se usará para determinar una conexión de red lenta.
+
+Si esta opción está deshabilitada o no configurada, el valor de umbral predeterminado de 64.000 bps se usa para determinar si una conexión de red es considerada como lenta.
+
+Nota: use la siguiente fórmula cuando escriba el valor de vínculo de baja velocidad: [ bps / 100]. Por ejemplo, si desea establecer un valor de umbral de 128.000 bps, escriba un valor de 1280.</string>
+      <string id="Pol_SyncAtLogoff">Sincronizar todos los archivos sin conexión antes de cerrar la sesión</string>
+      <string id="Pol_SyncAtLogoff_Help">Determina si los archivos sin conexión están completamente sincronizados cuando los usuarios cierran la sesión.
+
+Esta configuración también deshabilita la opción "Sincronizar todos los archivos sin conexión antes de cerrar la sesión" de la pestaña Archivos sin conexión. De esta forma se impide que los usuarios intenten modificar la opción mientras una configuración la está controlando.
+
+Si habilita esta configuración, los archivos sin conexión estarán completamente sincronizados. Una sincronización completa asegura que los archivos sin conexión estén completos y actualizados.
+
+Si deshabilita esta configuración, el sistema solo realiza una sincronización rápida. Una sincronización rápida garantiza que los archivos estén completos, pero no garantiza que estén actualizados.
+
+Si no establece esta configuración, el sistema realiza una sincronización rápida de manera predeterminada, pero los usuarios pueden cambiar esta opción.
+
+Esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.
+
+Sugerencia: para cambiar el método de sincronización sin modificar una configuración, en el Explorador de Windows, en el menú Herramientas, haga clic en Opciones de Carpeta, haga clic en la pestaña Archivos sin conexión y seleccione la opción "Sincronizar todos los archivos sin conexión antes de cerrar la sesión".</string>
+      <string id="Pol_SyncAtLogon">Sincronizar todos los archivos sin conexión al iniciar sesión</string>
+      <string id="Pol_SyncAtLogon_Help">Determina si los archivos sin conexión están completamente sincronizados cuando los usuarios inician sesión.
+
+Esta opción también deshabilita la opción "Sincronizar todos los archivos sin conexión antes de iniciar sesión" en la pestaña Archivos sin conexión. De esta forma se impide que los usuarios intenten modificar la opción mientras una configuración la está controlando.
+
+Si habilita esta opción, los archivos sin conexión estarán completamente sincronizados en el inicio de sesión. Una sincronización completa asegura que los archivos sin conexión estén completos y actualizados. Si se habilita esta opción, se habilita automáticamente la sincronización en el inicio de sesión en el Administrador de sincronización.
+
+Si esta opción está deshabilitada y el Administrador de sincronización está configurado para que haya una sincronización en el inicio de sesión, el sistema realizará solo una sincronización rápida. Una sincronización rápida garantiza que los archivos están completos, pero no garantiza que están actualizados.
+
+Si no configura esta opción y el Administrador de sincronización está configurado para que haya una sincronización en el inicio de sesión, el sistema realizará solo una sincronización rápida de forma predeterminada, pero los usuarios podrán cambiar esta opción.
+
+Esta opción aparece en las carpetas Configuración del equipo y Configuración del usuario. Si se configuran las dos opciones, la opción de Configuración del equipo tiene prioridad sobre la opción de Configuración de usuario.
+
+Sugerencia: para cambiar el método de sincronización sin establecer una configuración, en el Explorador de Windows, en el menú Herramientas, haga clic en Opciones de Carpeta, haga clic en la pestaña Archivos sin conexión y seleccione la opción "Sincronizar todos los archivos sin conexión antes de iniciar sesión".</string>
+      <string id="Pol_SyncAtSuspend">Sincronizar archivos sin conexión antes de suspender el equipo</string>
+      <string id="Pol_SyncAtSuspend_Help">Determina si los archivos sin conexión están sincronizados antes de que el equipo se suspenda.
+
+Si habilita esta opción, los archivos sin conexión se sincronizarán cuando el equipo se suspenda. Establecer la acción de sincronización como "Rápida" asegura que solo los archivos de la memoria caché están completos. Establecer la acción de sincronización como "Completa" asegura que todos los archivos en caché y carpetas están actualizados con la versión más reciente.
+
+Si deshabilita o no configura esta opción, los archivos no se sincronizarán cuando el equipo se suspenda.
+
+Nota: si el equipo se suspende cerrando la pantalla en el equipo portátil, los archivos no se sincronizarán. Si múltiples usuarios han iniciado sesión en el equipo cuando el equipo estaba en suspensión, no se realizará una sincronización.</string>
+      
+      <string id="Pol_QuickAdimPin">Activar la aplicación económica de Archivos sin conexión asignados de forma administrativa</string>
+      <string id="Pol_QuickAdimPin_Help">Esta configuración de directiva permite activar la aplicación económica de Archivos sin conexión asignados de forma administrativa.
+
+Si habilita o no establece esta configuración de directiva, solo los archivos y carpetas nuevos de las carpetas asignadas de forma administrativa se sincronizarán al iniciar la sesión. Los archivos y carpetas que estén disponibles sin conexión previamente se omitirán y se sincronizarán más tarde.
+
+Si deshabilita esta configuración de directiva, todas las carpetas asignadas de forma administrativa se sincronizarán al iniciar la sesión.</string>
+
+      <string id="Pol_WorkOfflineDisabled">Quitar el comando "Trabajar sin conexión"</string>
+      <string id="Pol_WorkOfflineDisabled_Help">Esta configuración de directiva quita el comando "Trabajar sin conexión" del Explorador, lo que evita que los usuarios cambien manualmente si Archivos sin conexión es un modo en línea o un modo sin conexión.
+
+Si habilita esta configuración de directiva, el comando "Trabajar sin conexión" no se muestra en el Explorador de archivos.
+
+Si deshabilita o no establece esta configuración de directiva, el comando "Trabajar sin conexión" se muestra en el Explorador de archivos.
+      
+      </string>
+      <string id="Pol_SlowLinkSettings">Configurar el modo de vínculo de baja velocidad</string>
+      <string id="Pol_SlowLinkSettings_Help">Esta configuración de directiva controla la latencia de red y los umbrales de rendimiento que harán que los equipos cliente pasen los archivos y carpetas que ya están disponibles sin conexión al modo de vínculo de baja velocidad para que no se deniegue el acceso del usuario a estos datos debido a la lentitud de la red. Cuando Archivos sin conexión funciona en el modo de vínculo de baja velocidad, todas las solicitudes de archivos de red se atienden desde la memoria caché de Archivos sin conexión. Esto es similar a si el usuario trabajara sin conexión.
+
+Si habilita esta configuración de directiva, Archivos sin conexión usa el modo de vínculo de baja velocidad si el rendimiento de la red entre el cliente y el servidor se encuentra por debajo (es más lento) del parámetro de umbral de rendimiento o si la latencia de ida y vuelta de la red se halla por encima (es más lenta) del parámetro de umbral de latencia.
+
+Puede configurar el modo de vínculo de baja velocidad especificando umbrales para el rendimiento (en bits por segundo) y la latencia (en milisegundos) para rutas de acceso UNC específicas. Recomendamos que especifique siempre un valor para la latencia, porque la detección de la latencia de ida y vuelta de la red es más rápida. Puede usar caracteres comodín (*) para especificar rutas de acceso UNC. Si no especifica un valor de latencia o rendimiento, los equipos que ejecuten Windows Vista o Windows Server 2008 no usarán el modo de vínculo de baja velocidad.
+
+Si no establece esta configuración de directiva, los equipos que ejecuten Windows Vista o Windows Server 2008 no harán pasar las carpetas compartidas al modo de vínculo de baja velocidad. Los equipos que ejecuten Windows 7 o Windows Server 2008 R2 usarán el valor de latencia predeterminado de 80 milisegundos al hacer pasar una carpeta al modo de vínculo de baja velocidad. Los equipos que ejecutan Windows 8 o Windows Server 2012 usarán el valor de latencia predeterminado de 35 milisegundos al hacer pasar una carpeta al modo de vínculo de baja velocidad. Para evitar que se realicen cargos adicionales en los planes de telefonía celular o banda ancha, podría ser necesario configurar el umbral de latencia de modo que sea menor que la latencia de ida y vuelta de la red.
+
+En Windows Vista o Windows Server 2008, una vez que se pasa al modo de vínculo de baja velocidad, los usuarios seguirán trabajando en ese modo hasta que hagan clic en el botón Trabajar sin conexión en la barra de herramientas del Explorador de Windows. Los datos solo se sincronizarán con el servidor si el usuario inicia manualmente la sincronización mediante el Centro de sincronización.
+
+En Windows 7, Windows Server 2008 R2, Windows 8 o Windows Server 2012, al operar en el modo de vínculo de baja velocidad, Archivos sin conexión sincroniza los archivos del usuario en segundo plano a intervalos regulares o de acuerdo a lo que configuró la directiva "Configurar sincronización en segundo plano". Mientras se encuentra en el modo de vínculo de baja velocidad, Windows comprueba periódicamente la conexión a la carpeta y vuelve a poner la carpeta en línea si mejora la velocidad de la red.
+
+En Windows 8 o Windows Server 2012, establezca el umbral de latencia en 1 ms para mantener a los usuarios trabajando siempre sin conexión en el modo de vínculo de baja velocidad.
+
+Si deshabilita esta configuración de directiva, los equipos no usarán el modo de vínculo de baja velocidad.</string>
+
+      <string id="Pol_CacheSize">Limitar el espacio en disco usado por Archivos sin conexión</string>
+      <string id="Pol_CacheSize_Help">Esta configuración de directiva limita la cantidad de espacio en disco que se puede usar para almacenar archivos sin conexión. Esto incluye el espacio usado por los archivos almacenados en caché automáticamente y los archivos que se ponen como disponibles sin conexión de forma específica. Los archivos se pueden almacenar en caché automáticamente si el usuario accede a un archivo en un recurso compartido de red con almacenamiento en caché automático.
+
+Esta configuración también deshabilita la capacidad de ajustar, mediante el applet Archivos sin conexión del Panel de control, los límites de espacio en disco en la memoria caché de Archivos sin conexión. Esto impide que los usuarios intenten cambiar la opción mientras esté controlada por una configuración de directiva.
+
+Si habilita esta configuración de directiva, puede especificar el límite de espacio en disco (en megabytes) para los archivos sin conexión y también la proporción de ese espacio en disco que pueden usar los archivos almacenados en caché automáticamente.
+
+Si deshabilita esta configuración de directiva, el sistema limita el espacio que ocupan los archivos sin conexión al 25 por ciento del espacio total en la unidad donde está ubicada la memoria caché de Archivos sin conexión.  El límite para los archivos almacenados en caché automáticamente es del 100 por ciento del límite de espacio en disco total.
+
+Si no establece esta configuración de directiva, el sistema limita el espacio que ocupan los archivos sin conexión al 25 por ciento del espacio total de la unidad de disco donde se ubica la memoria caché de Archivos sin conexión. El límite para los archivos almacenados en caché automáticamente es del 100 por ciento del límite de espacio en disco total.  No obstante, los usuarios pueden cambiar estos valores con el applet de control Archivos sin conexión.
+
+Si habilita esta configuración y especifica un límite de tamaño total superior al tamaño de la unidad de disco que hospeda la memoria caché de Archivos sin conexión, y esa unidad de disco es la unidad del sistema, el límite de tamaño total se ajusta automáticamente a la baja hasta el 75 por ciento del tamaño de la unidad de disco.  Si la memoria caché se encuentra en una unidad de disco distinta de la del sistema, el límite se ajusta automáticamente a la baja hasta el 100 por ciento del tamaño de dicha unidad.
+
+Si habilita esta configuración y especifica un límite de tamaño total inferior a la cantidad de espacio usada actualmente por la memoria caché de Archivos sin conexión, el límite de tamaño total se ajusta automáticamente al alza hasta la cantidad de espacio usada actualmente por los archivos sin conexión.  En este caso, la memoria caché se considerará llena.
+
+Si habilita esta configuración y especifica un límite de espacio para el almacenamiento en caché automático superior al límite de tamaño total, el límite de almacenamiento en caché automático se ajusta automáticamente a la baja para igualar el límite de tamaño total.
+
+Esta configuración sustituye a Tamaño de caché predeterminado que se usa en sistemas anteriores a Windows Vista.</string>
+      <string id="Pol_BackgroundSyncSettings">Configurar sincronización en segundo plano</string>
+      <string id="Pol_BackgroundSyncSettings_Help">Esta configuración de directiva controla cuándo tiene lugar la sincronización en segundo plano mientras se trabaja en el modo de vínculo de baja velocidad; se aplica a todos los usuarios que inicien sesión en el equipo especificado mientras esta directiva está activa. Para controlar el modo de vínculo de baja velocidad, use la configuración de directiva "Configurar el modo de vínculo de baja velocidad".
+
+Si habilita esta configuración de directiva, puede controlar cuándo Windows debe sincronizarse en segundo plano mientras trabaja en modo de vínculo de baja velocidad. Use los valores "Intervalo de sincronización" y "Varianza de sincronización" para invalidar la configuración predeterminada de intervalo y varianza de sincronización. Use "Hora de inicio del bloqueo" y "Duración del bloqueo" para establecer un periodo de tiempo en el que se deshabilita la sincronización en segundo plano. Use el valor "Máximo de tiempo permitido sin una sincronización" para asegurarse de que todas las carpetas de red del equipo se sincronicen con el servidor regularmente.
+
+Además, puede configurar la sincronización en segundo plano para recursos compartidos de red que estén en el modo "Trabajar sin conexión" seleccionado por el usuario. Este modo surte efecto cuando el usuario hace clic en el botón Trabajar sin conexión para un recurso compartido específico. Cuando se selecciona este modo, todas las opciones de configuración establecidas se aplican asimismo a los recursos compartidos que estén en el modo Trabajar sin conexión seleccionado por el usuario.
+
+Si deshabilita o no establece esta configuración de directiva, Windows realiza una sincronización en segundo plano de las carpetas sin conexión en el modo de vínculo de baja velocidad en un intervalo predeterminado con una variación en el inicio de la sincronización de 0 a 60 minutos adicionales. En Windows 7 y Windows Server 2008 R2, el intervalo de sincronización predeterminado es de 360 minutos. En Windows 8 y Windows Server 2012, el intervalo de sincronización predeterminado es de 120 minutos.</string>
+      <string id="Pol_OnlineCachingSettings">Habilitar almacenamiento en caché transparente</string>
+      <string id="Pol_OnlineCachingSettings_Help">Esta configuración de directiva controla si los archivos que se leen desde los recursos compartidos de archivo a través de una red de baja velocidad se almacenan en caché de forma transparente para futuras lecturas. Cuando un usuario intenta acceder a un archivo que se almacenó en caché de forma transparente, Windows lee de la copia en caché tras verificar su integridad. Esto mejora los tiempos de respuesta del usuario final y disminuye el consumo de ancho de banda a través de vínculos WAN.
+
+Los archivos almacenados en caché son temporales y no están disponibles para el usuario cuando se trabaja sin conexión. Los archivos almacenados en caché no se mantienen sincronizados con la versión del servidor y la versión más actualizada del servidor está disponible siempre para las lecturas sucesivas.
+
+El valor de latencia de red de ida y vuelta desencadena esta configuración de directiva. Se recomienda usar esta configuración de directiva cuando la conexión de la red al servidor sea lenta. Por ejemplo, se puede configurar un valor de 60 ms como la latencia de ida y vuelta de la red, por encima de la cual los archivos se deben almacenar en la memoria caché de Archivos sin conexión de forma transparente. Si la latencia de ida y vuelta de la red es inferior a 60 ms, las lecturas de archivos remotos no se almacenarán en caché.
+
+Si habilita esta configuración de directiva, el almacenamiento en caché transparente está habilitado y puede configurarse.
+
+Si deshabilita o no establece esta configuración de directiva, los archivos remotos no se almacenarán en caché de forma transparente en los equipos cliente.</string>
+      <string id="Pol_ExclusionListSettings">Habilitar filtros de archivos</string>
+      <string id="Pol_ExclusionListSettings_Help">Esta configuración de directiva permite que los administradores impidan la creación de ciertos tipos de archivos en las carpetas que se pusieron como disponibles sin conexión.
+
+Si habilita esta configuración de directiva, los usuarios no podrán crear archivos con las extensiones especificadas en ninguna de las carpetas que se pusieron como disponibles sin conexión.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios pueden crear archivos de cualquier tipo en las carpetas que se pusieron como disponibles sin conexión.</string>
+      <string id="Pol_SyncOnCostedNetwork">Habilitar la sincronización de archivos en redes estimadas</string>
+      <string id="Pol_SyncOnCostedNetwork_Help">Esta configuración de directiva determina si los archivos sin conexión se sincronizan en segundo plano cuando esto podría ocasionar cargos adicionales en los planes de telefonía celular o banda ancha.
+
+Si habilita esta configuración de directiva, se puede realizar la sincronización en segundo plano cuando la red del usuario tiene movilidad, o bien está cerca del límite de datos del plan o lo supera.  Esto podría ocasionar cargos adicionales en los planes de telefonía celular o banda ancha.
+
+Si deshabilita o no establece esta configuración, la sincronización no se llevará a cabo en segundo plano en las carpetas de red cuando la red del usuario tenga movilidad, o bien esté cerca del límite de datos del plan o lo supere. La carpeta de red también debe estar en modo de "vínculo de baja velocidad", según lo especifica la directiva "Configurar el modo de vínculo de baja velocidad", para evitar el uso de la red.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_AlwaysPinSubFolders">
+        <text>Asegura que todas las subcarpetas estén disponibles sin conexión cuando una carpeta sea creada</text>
+        <text>para uso sin conexión.</text>
+      </presentation>
+      <presentation id="Pol_AssignedOfflineFiles_1">
+        <text>Especificar los archivos de red y carpetas a los que se puede tener acceso sin conexión.</text>
+        <text>En el campo del nombre, escribir una ruta de acceso UNC completa para cada archivo o carpeta.  </text>
+        <text>No escribir un valor para el elemento.</text>
+        <text> </text>
+        <listBox refId="Lbl_AssignedOfflineFilesList">Archivos y carpetas:  </listBox>
+      </presentation>
+      <presentation id="Pol_AssignedOfflineFiles_2">
+        <text>Especificar los archivos de red y carpetas a los que se puede tener acceso sin conexión.</text>
+        <text>En el campo del nombre, escribir una ruta de acceso UNC completa para cada archivo o carpeta.  </text>
+        <text>No escribir un valor para el elemento.</text>
+        <text> </text>
+        <listBox refId="Lbl_AssignedOfflineFilesList">Archivos y carpetas:  </listBox>
+      </presentation>
+      <presentation id="Pol_CustomGoOfflineActions_1">
+        <text>Especificar acciones no predeterminadas para servidores que queden no disponibles.</text>
+        <text>Escriba un nombre de servidor con un valor de acción incluido en la lista de abajo.</text>
+        <text> </text>
+        <listBox refId="Lbl_CustomGoOfflineActionsList">Personalizar acciones:  </listBox>
+        <text>Valores:</text>
+        <text>0 = Trabajar sin conexión. Los archivos del servidor están disponibles para el equipo local</text>
+        <text>1 = No desconectar nunca. Los archivos del servidor no están disponibles para el equipo local</text>
+      </presentation>
+      <presentation id="Pol_CustomGoOfflineActions_2">
+        <text>Especificar acciones no predeterminadas para servidores que queden no disponibles.</text>
+        <text>Escriba un nombre de servidor con un valor de acción incluido en la lista de abajo.</text>
+        <text> </text>
+        <listBox refId="Lbl_CustomGoOfflineActionsList">Personalizar acciones:  </listBox>
+        <text>Valores:</text>
+        <text>0 = Trabajar sin conexión. Los archivos del servidor están disponibles para el equipo local</text>
+        <text>1 = No desconectar nunca. Los archivos del servidor no están disponibles para el equipo local</text>
+      </presentation>
+      <presentation id="Pol_DefCacheSize">
+        <text>El valor indicado es [ porcentaje de disco usado * 10.000 ].</text>
+        <text>Por ejemplo, para indicar 12,53%, escriba 1253.</text>
+        <text> </text>
+        <decimalTextBox refId="Lbl_DefCacheSizeSpin" defaultValue="1000" spinStep="100">Tamaño de caché predeterminado:  </decimalTextBox>
+      </presentation>
+      <presentation id="Pol_EventLoggingLevel_1">
+        <text> </text>
+        <decimalTextBox refId="Lbl_EventLoggingLevelSpin" defaultValue="0">Escriba [0-3]:  </decimalTextBox>
+        <text> </text>
+        <text>0 = Datos de la memoria caché dañados</text>
+        <text>1 = Registro "servidor sin conexión"</text>
+        <text>2 = Nivel 1 + registro "red detenida" y "red iniciada"</text>
+        <text>3 = Nivel 2 + registro "servidor disponible para reconexión"</text>
+      </presentation>
+      <presentation id="Pol_EventLoggingLevel_2">
+        <text> </text>
+        <decimalTextBox refId="Lbl_EventLoggingLevelSpin" defaultValue="0">Escriba [0-3]:  </decimalTextBox>
+        <text> </text>
+        <text>0 = Datos de la memoria caché dañados</text>
+        <text>1 = Registro "servidor sin conexión"</text>
+        <text>2 = Nivel 1 + registro "red detenida" y "red iniciada"</text>
+        <text>3 = Nivel 2 + registro "servidor disponible para reconexión"</text>
+      </presentation>
+      <presentation id="Pol_ExtExclusionList">
+        <text>Se pueden excluir archivos del almacenamiento en la memoria caché de carpetas compartidas con caché automática basándose</text>
+        <text>en su extensión. Especifique una lista de las extensiones que se deben excluir. Las extensiones</text>
+        <text>deben ir precedidas de un asterisco y un punto. Por ejemplo: "*.dbf;*.ndx;*.lnk"</text>
+        <text> </text>
+        <textBox refId="Lbl_ExtExclusionListEdit">
+          <label>Extensiones:  </label>
+        </textBox>
+      </presentation>
+      <presentation id="Pol_GoOfflineAction_1">
+        <text>Especificar cómo responderá el sistema cuando un servidor de red</text>
+        <text>no esté disponible.</text>
+        <text> </text>
+        <dropdownList refId="Lbl_GoOfflineActionCombo" defaultItem="0">Acción:  </dropdownList>
+        <text> </text>
+        <text>No desconectar nunca = Los archivos del servidor no están disponibles para el equipo local</text>
+        <text>Trabajar sin conexión = Los archivos del servidor están disponibles para el equipo local</text>
+      </presentation>
+      <presentation id="Pol_GoOfflineAction_2">
+        <text>Especificar cómo responderá el sistema cuando un servidor de red</text>
+        <text>no esté disponible.</text>
+        <text> </text>
+        <dropdownList refId="Lbl_GoOfflineActionCombo" defaultItem="0">Acción:  </dropdownList>
+        <text> </text>
+        <text>No desconectar nunca = Los archivos del servidor no están disponibles para el equipo local</text>
+        <text>Trabajar sin conexión = Los archivos del servidor están disponibles para el equipo local</text>
+      </presentation>
+      <presentation id="Pol_NoConfigCache_1">
+        <text>Impide a los usuarios cambiar cualquier configuración de la memoria caché.</text>
+      </presentation>
+      <presentation id="Pol_NoConfigCache_2">
+        <text>Impide a los usuarios cambiar cualquier configuración de la memoria caché.</text>
+      </presentation>
+      <presentation id="Pol_NoPinFiles_1">
+        <text>Haga clic en Mostrar y escriba una ruta de acceso UNC para cada archivo o carpeta</text>
+        <text> </text>
+        <listBox refId="Lbl_NoPinFilesList">Archivos y carpetas:  </listBox>
+      </presentation>
+      <presentation id="Pol_NoPinFiles_2">
+        <text>Haga clic en Mostrar y escriba una ruta de acceso UNC para cada archivo o carpeta</text>
+        <text> </text>
+        <listBox refId="Lbl_NoPinFilesList">Archivos y carpetas:  </listBox>
+      </presentation>
+      <presentation id="Pol_PurgeAtLogoff">
+        <text>Ocasiona que la copia local de cualquier archivo sin conexión a que tiene acceso el usuario</text>
+        <text>se elimine cuando el usuario cierre la sesión en el equipo.</text>
+        <text> </text>
+        <checkBox refId="Lbl_PurgeOnlyAutoCachedFiles">Eliminar solo los archivos temporales sin conexión.</checkBox>
+      </presentation>
+      <presentation id="Pol_ReminderFreq_1">
+        <text>Tiempo en minutos entre los globos de aviso</text>
+        <text> </text>
+        <decimalTextBox refId="Lbl_ReminderFreqSpin" defaultValue="60" spinStep="10">Minutos:  </decimalTextBox>
+      </presentation>
+      <presentation id="Pol_ReminderFreq_2">
+        <text>Tiempo en minutos entre los globos de aviso</text>
+        <text> </text>
+        <decimalTextBox refId="Lbl_ReminderFreqSpin" defaultValue="60" spinStep="10">Minutos:  </decimalTextBox>
+      </presentation>
+      <presentation id="Pol_ReminderInitTimeout_1">
+        <text>Establece la duración del globo de notificación inicial que se muestra</text>
+        <text>cuando se produce un evento de archivos sin conexión.</text>
+        <text> </text>
+        <decimalTextBox refId="Lbl_ReminderInitTimeoutSpin" defaultValue="30">Segundos:  </decimalTextBox>
+      </presentation>
+      <presentation id="Pol_ReminderInitTimeout_2">
+        <text>Establece la duración del globo de notificación inicial que se muestra</text>
+        <text>cuando se produce un evento de archivos sin conexión.</text>
+        <text> </text>
+        <decimalTextBox refId="Lbl_ReminderInitTimeoutSpin" defaultValue="30">Segundos:  </decimalTextBox>
+      </presentation>
+      <presentation id="Pol_ReminderTimeout_1">
+        <text>Establece la duración del globo que se muestra recordando periódicamente</text>
+        <text>a los usuarios la condición actual de los archivos sin conexión.</text>
+        <text> </text>
+        <decimalTextBox refId="Lbl_ReminderTimeoutSpin" defaultValue="15">Segundos:  </decimalTextBox>
+      </presentation>
+      <presentation id="Pol_ReminderTimeout_2">
+        <text>Establece la duración del globo que se muestra recordando periódicamente</text>
+        <text>a los usuarios la condición actual de los archivos sin conexión.</text>
+        <text> </text>
+        <decimalTextBox refId="Lbl_ReminderTimeoutSpin" defaultValue="15">Segundos:  </decimalTextBox>
+      </presentation>
+      <presentation id="Pol_SlowLinkSpeed">
+        <text>El valor escrito debe ser [ bps / 100 ] --&gt; Ejemplo: 128,000bps, escriba 1280</text>
+        <decimalTextBox refId="Lbl_SlowLinkSpeedSpin" defaultValue="640" spinStep="10">Valor:  </decimalTextBox>
+      </presentation>
+      <presentation id="Pol_SyncAtSuspend_1">
+        <text>Tipo de sincronización que se realizará al suspender el equipo:</text>
+        <text> </text>
+        <dropdownList refId="Lbl_SyncAtSuspendCombo" defaultItem="0">Acción:</dropdownList>
+      </presentation>
+      <presentation id="Pol_SyncAtSuspend_2">
+        <text>Tipo de sincronización que se realizará al suspender el equipo:</text>
+        <text> </text>
+        <dropdownList refId="Lbl_SyncAtSuspendCombo" defaultItem="0">Acción:</dropdownList>
+      </presentation>
+      <presentation id="Pol_QuickAdimPin">
+        <text>Habilita el procesamiento eficaz de los archivos sin conexión</text>
+        <text>asignados de forma administrativa.</text>
+      </presentation>
+      <presentation id="Pol_SlowLinkSettings">
+        <text>Permite al administrador configurar cuándo debe producirse la transición automática a vínculo lento para las rutas de acceso UNC especificadas.</text>
+        <text>La ruta de acceso UNC debe especificarse en la columna Nombre de valor. Los umbrales de rendimiento (en bits por segundo) y/o latencia (en milisegundos) deben especificarse en la columna Valor.</text>
+        <text>Ejemplos:</text>
+        <text>Para habilitar que se aplique el modo de vínculo lento cuando el rendimiento de la red es inferior a 10000 bits por segundo y la latencia de la red es superior a 50 milisegundos:</text>
+        <text>  Nombre de valor="*" Valor="Throughput=10000, Latency=50"</text>
+        <text>Para habilitar que se aplique el modo de vínculo lento a todos los recursos compartidos de un servidor denominado "servidor" cuando la latencia de la red es superior a 50 milisegundos:</text>
+        <text>  Nombre de valor="\\servidor\*" Valor="Latency=50"</text>
+        <text>Para habilitar que se aplique el modo de vínculo lento al recurso compartido denominado "\\servidor\recurso compartido" cuando el rendimiento de la red es inferior a 10000 bits por segundo:</text>
+        <text>  Nombre de valor="\\servidor\recurso compartido\*" Valor="Throughput=10000"</text>
+        <listBox refId="Lbl_SlowLinkSettingsList">Rutas de acceso UNC:  </listBox>
+        <text> </text>
+      </presentation>
+      <presentation id="Pol_CacheSize">
+        <text>El valor indicado se expresa en megabytes.</text>
+        <text> </text>
+        <decimalTextBox refId="Lbl_TotalCacheSizeSpin" defaultValue="1000" spinStep="100">Tamaño total de los archivos sin conexión:  </decimalTextBox>
+        <decimalTextBox refId="Lbl_AutoCacheSizeSpin" defaultValue="100" spinStep="100">Tamaño de los archivos almacenados en caché automáticamente:  </decimalTextBox>
+      </presentation>
+      <presentation id="Pol_BackgroundSyncSettings">
+        <text>Configurar sincronización en segundo plano:</text>
+        <text> </text>
+        <decimalTextBox refId="Lbl_BackgroundSyncDefaultSyncTime" defaultValue="360" spinStep="10">Intervalo de sincronización (minutos)</decimalTextBox>
+        <decimalTextBox refId="Lbl_BackgroundSyncVariance" defaultValue="60" spinStep="10">Varianza de sincronización (minutos)</decimalTextBox>
+        <decimalTextBox refId="Lbl_BackgroundSyncIgnoreBlockOutTime" defaultValue="0" spinStep="15">Máximo de tiempo permitido sin una sincronización (minutos)</decimalTextBox>
+        <decimalTextBox refId="Lbl_BackgroundSyncBlockOutPeriodStartTime" defaultValue="0" spinStep="10">Hora de inicio del bloqueo (HHMM)</decimalTextBox>
+        <text>        HHMM es un valor donde</text>
+        <text>                HH debe estar comprendido entre 0 y 24, y</text>
+        <text>                MM debe estar comprendido entre 0 y 59.</text>
+        <decimalTextBox refId="Lbl_BackgroundSyncBlockOutPeriodDuration" defaultValue="0" spinStep="10">Duración del bloqueo (minutos)</decimalTextBox>
+        <checkBox refId="Lbl_BackgroundSyncInForcedOffline">Habilitar sincronización en segundo plano para recursos compartidos en el modo "Trabajar sin conexión" seleccionado por el usuario</checkBox>
+      </presentation>
+      <presentation id="Pol_OnlineCachingSettings">
+        <text>Escriba el valor de latencia de la red por encima del cual los archivos de red se almacenarán en caché temporalmente en el cliente.  </text>
+        <text> </text>
+        <decimalTextBox refId="Lbl_OnlineCachingSettingsList" defaultValue="32000" spinStep="100">Escriba el valor de latencia de la red en milisegundos</decimalTextBox>
+        <text> </text>
+      </presentation>
+      <presentation id="Pol_ExclusionListSettings">
+        <text>Escriba, separadas por punto y coma, las extensiones de los archivos que desea excluir de la disponibilidad sin conexión mediante Archivos sin conexión.  </text>
+        <text>Las extensiones deben estar precedidas de un asterisco y un punto. Por ejemplo: "*.dbf;*.jpg"</text>
+        <text> </text>
+        <textBox refId="Lbl_ExclusionListSettingsList">
+          <label>Extensiones:  </label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

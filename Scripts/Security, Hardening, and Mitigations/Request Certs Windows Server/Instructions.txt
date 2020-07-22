@@ -1,0 +1,14 @@
+On the machine you are requesting a cert for, create a folder and move the
+InitialRequest.txt to it. Change the information in the InitialRequest.txt
+file on the subject line to reflect the FQDN of the server. Request the cert
+by running the following command from the directory the InitialRequest.txt
+is located:
+
+"certreq.exe -new initialrequest.txt REDSXXXXXXXXXX.txt"
+
+It will output a file in the folder it was run from. Send that file to me.
+I'll send something back that will look something like this:
+REDSXXXXXXXXXXX_CA.txt
+When you get that, install the cert by running the following command:
+
+"certreq.exe -accept REDSXXXXXXXXXXX_CA.txt"

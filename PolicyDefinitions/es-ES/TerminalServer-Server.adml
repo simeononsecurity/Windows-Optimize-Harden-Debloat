@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="TS_APP_COMPATIBILITY">Compatibilidad de aplicaciones</string>
+      <string id="TS_APP_COMPATIBILITY_Help">Controla la configuración de compatibilidad de aplicaciones en un servidor de host de sesión de Escritorio remoto</string>
+      <string id="TS_TIME_ZONE">Permitir redirección de zona horaria</string>
+      <string id="TS_TIME_ZONE_EXPLAIN">Esta configuración de directiva permite especificar si el equipo cliente debe redirigir su configuración de zona horaria a la sesión de Servicios de Escritorio remoto.
+
+Si habilita esta configuración de directiva, los clientes que puedan redirigir su zona horaria enviarán su información de zona horaria al servidor. La hora de base del servidor se usará entonces para calcular la hora de la sesión actual (hora de la sesión actual = hora de base del servidor + zona horaria del cliente).
+
+Si deshabilita o no establece esta configuración de directiva, el equipo cliente no redirigirá su información de zona horaria y la zona horaria de la sesión será la misma que la del servidor.
+
+Nota: la redirección de zona horaria solo es posible al conectarse con, al menos, un servidor de Terminal Server de Microsoft Windows Server 2003 con un cliente que use RDP 5.1 o posterior.
+      
+      </string>
+      
+      <string id="TS_CLIENT_CLIPBOARD">No permitir redirección del Portapapeles</string>
+      <string id="TS_CLIPBOARDMAP_EXPLAIN">Esta configuración de directiva especifica si impedir el uso compartido del contenido del Portapapeles (redirección del Portapapeles) entre un equipo remoto y un equipo cliente durante una sesión de Servicios de Escritorio remoto.
+
+Puede usar esta configuración para impedir que los usuarios redirijan datos del Portapapeles a, y desde, el equipo remoto y el equipo local. De forma predeterminada, Servicios de Escritorio remoto permite la redirección del Portapapeles.
+
+Si habilita esta configuración de directiva, los usuarios no podrán redirigir los datos del Portapapeles.
+
+Si deshabilita esta configuración de directiva, Servicios de Escritorio remoto permitirá siempre la redirección del Portapapeles.
+
+Si no establece esta configuración de directiva, la redirección del Portapapeles no se especificará en el nivel de directiva de grupo. 
+  
+ </string>
+      
+      <string id="TS_DISABLE_REMOTE_DESKTOP_WALLPAPER">Quitar papel tapiz de Escritorio remoto</string>
+      <string id="TS_DISABLE_REMOTE_DESKTOP_WALLPAPER_EXPLAIN">Esta configuración de directiva permite especificar si debe mostrarse el papel tapiz del escritorio a los clientes cuando se conectan a un servidor remoto mediante RDP. 
+
+Puede usar esta configuración para exigir la eliminación del papel tapiz durante una sesión de Servicios de Escritorio remoto. 
+
+Si habilita esta configuración de directiva, el papel tapiz no se mostrará en una sesión de Servicios de Escritorio remoto.   
+
+Si deshabilita esta configuración de directiva, el papel tapiz se mostrará en una sesión de Servicios de Escritorio remoto, según la configuración del cliente.  
+
+Si no establece esta configuración de directiva, Windows Vista mostrará el papel tapiz a los clientes remotos que se conecten mediante Escritorio remoto, según la configuración del cliente (consulte la ficha Rendimiento en las opciones de Conexión a Escritorio remoto para obtener más información). Los servidores que ejecutan Windows Server 2008 no muestran el papel tapiz de forma predeterminada en las sesiones de Servicios de Escritorio remoto.
+      
+      </string>
+      
+      <string id="TS_TURNOFF_SINGLEAPP">Mostrar siempre el escritorio al conectarse</string>
+      <string id="TS_TURNOFF_SINGLEAPP_EXPLAIN">Esta configuración de directiva permite especificar si el escritorio debe mostrarse siempre después de que un cliente se conecte a un equipo remoto o si puede ejecutarse un programa inicial. Puede requerir que se muestre el escritorio después de que un cliente se conecte a un equipo remoto, incluso si ya se especificó un programa inicial en el perfil de usuario predeterminado, la Conexión a Escritorio remoto o mediante una directiva de grupo.
+
+Si habilita esta configuración de directiva, el escritorio se mostrará siempre que un cliente se conecte a un equipo remoto. Esta configuración de directiva invalida todas las configuraciones de directiva de programas iniciales.
+
+Si deshabilita o no establece esta configuración de directiva, es posible especificar un programa inicial que se ejecute en el equipo remoto una vez que el cliente se conecte a éste. Si no se especifica un programa inicial, el escritorio siempre se muestra en el equipo remoto después de que el cliente se conecte a éste.
+
+Nota: si esta configuración de directiva está habilitada, se pasará por alto la configuración de directiva "Iniciar un programa al conectarse".
+      
+      </string>
+      
+      <string id="TS_ALLOW_APPS">Permitir inicio remoto de programas que no figuran en la lista</string>
+      <string id="TS_ALLOW_APPS_EXPLAIN">Esta configuración de directiva te permite especificar si los usuarios remotos pueden iniciar programas en el servidor host de sesión de Escritorio remoto cuando inician una sesión de Servicios de Escritorio remoto, o si pueden iniciar solamente los programas enumerados en la lista de programas de RemoteApp.
+
+Puedes controlar qué programas pueden abrirse remotamente a través del administrador de RemoteApp en Windows Server 2008 R2 y Windows Server 2008 en un servidor host de sesión de Escritorio remoto. Si estás usando Windows Server 2012, puedes configurar esto en la hoja de propiedades de Colección con el Administrador del servidor.
+
+De forma predeterminada, solo los programas de la lista de programas de RemoteApp pueden iniciarse cuando el usuario inicia una sesión de Servicios de Escritorio remoto.
+
+Si habilitas esta configuración de directiva, los usuarios remotos podrán iniciar cualquier programa en el servidor host de sesión de Escritorio remoto cuando inicien una sesión de Servicios de Escritorio remoto.
+Por ejemplo, un usuario remoto puede hacer esto especificando la ruta de acceso del archivo ejecutable del programa en el momento de la conexión con el cliente de Conexión a Escritorio Remoto.
+
+Si deshabilitas o no estableces esta configuración de directiva, los usuarios remotos solo podrán iniciar los programas que se muestren en la lista de programas de RemoteApp cuando inicien una sesión de Servicios de Escritorio remoto.
+</string>
+
+      <string id="TS_ALLOW_DESKTOPCOMPOSITION">Permitir composición del escritorio para sesiones de escritorio remoto</string>
+      <string id="TS_ALLOW_DESKTOPCOMPOSITION_EXPLAIN">Esta configuración de directiva le permite especificar si la composición del escritorio está permitida para sesiones de escritorio remoto. Esta configuración de directiva no se aplica a sesiones de RemoteApp.
+
+La composición del escritorio proporciona los elementos de interfaz de usuario de Windows Aero, como las ventanas translúcidas, para sesiones de escritorio remoto. Puesto que Windows Aero requiere recursos de sistema y de ancho de banda adicionales, si se permite la composición del escritorio para sesiones de escritorio remoto se reducirá el rendimiento de la conexión, particularmente en vínculos de baja velocidad y aumentará la carga del equipo remoto. 
+
+Si habilita esta configuración de directiva, la composición del escritorio se permitirá para sesiones de escritorio remoto. En el equipo cliente puede configurar la composición del escritorio en la ficha Rendimiento en la Conexión a Escritorio remoto (RDC) o mediante la configuración "permitir la composición de escritorio" en un archivo de Protocolo de escritorio remoto (.rdp). De manera adicional, el equipo cliente debe disponer del hardware necesario para admitir las características de Windows Aero.
+
+Nota: es posible que sea necesaria una configuración adicional en el equipo remoto para que las características de Windows Aero estén disponibles para las sesiones de escritorio remoto. Por ejemplo, la característica Experiencia de uso debe estar instalada en el equipo remoto y la profundidad máxima de color en el equipo remoto debe establecerse en 32 bits por píxel. Además, el servicio Temas debe iniciarse en el equipo remoto.
+
+Si deshabilita o no configura esta configuración de directiva, la composición del escritorio no estará permitida para sesiones de escritorio remoto, incluso si dicha composición está habilitada en la RDC o en el archivo .rdp.
+      
+      </string>
+
+      <string id="TS_SB_LOAD_BALANCING">Usar equilibrio de carga de Agente conexión a Escritorio remoto</string>
+      <string id="TS_SB_LOAD_BALANCING_EXPLAIN">Esta configuración de directiva permite especificar si debe usarse la característica de equilibrio de carga del Agente de conexión a Escritorio remoto para equilibrar la carga entre los servidores de una granja de servidores de host de sesión de Escritorio remoto. 
+
+Si habilita esta configuración de directiva, el Agente de conexión a Escritorio remoto redirigirá a los usuarios que no tengan una sesión existente al servidor de host de sesión de Escritorio remoto de la granja con menos sesiones. El comportamiento de redirección para los usuarios con sesiones existentes no se verá afectado. Si el servidor está configurado para usar el Agente de conexión a Escritorio remoto, los usuarios que tengan una sesión existente serán redirigidos al servidor de host de sesión de Escritorio remoto donde se encuentre su sesión. 
+
+Si deshabilita esta configuración de directiva, los usuarios que no tengan una sesión existente iniciarán sesión en el primer servidor de host de sesión de Escritorio remoto al que se conecten.
+
+Si no establece esta configuración de directiva, puede configurar el servidor de host de sesión de Escritorio remoto para que participe en el equilibrio de carga del Agente de conexión a Escritorio remoto mediante la herramienta Configuración de host de sesión de Escritorio remoto o el proveedor WMI de servicios de Escritorio remoto.
+
+Nota: si habilita esta configuración de directiva, también deberá habilitar las configuraciones de directiva Unirse al Agente de conexión a Escritorio remoto, Configurar nombre de la granja del Agente de conexión a Escritorio remoto y Configurar nombre del servidor del Agente de conexión a Escritorio remoto. 
+       
+      </string>
+
+      <string id="TS_REDIRECT_CLIENT_PRN_ONLY">Redirigir solo la impresora predeterminada del cliente</string>
+      <string id="TS_REDIRECT_CLIENT_PRN_ONLY_EXPLAIN">Esta configuración de directiva permite especificar si la única impresora que se redirige en las sesiones de Servicios de Escritorio remoto es la impresora predeterminada del cliente.
+
+Si habilita esta configuración de directiva, solo se redirigirá la impresora predeterminada del cliente en las sesiones de Servicios de Escritorio remoto.
+
+Si deshabilita o no establece esta configuración de directiva, se redirigirán todas las impresoras del cliente en las sesiones de Servicios de Escritorio remoto.
+	  
+	  </string>
+	  
+      <string id="TS_SESSIONS_RemoteApp_End_Timeout">Establecer límite de tiempo para cerrar sesiones RemoteApp</string>
+      <string id="TS_SESSIONS_RemoteApp_End_Timeout_EXPLAIN">Esta configuración de directiva permite especificar cuánto tiempo permanecerá en estado desconectado una sesión RemoteApp del usuario tras cerrar todos los programas RemoteApp y antes de que dicha sesión se cierre desde el servidor de host de sesión de Escritorio remoto.
+
+De manera predeterminada, si un usuario cierra un programa RemoteApp, la sesión se desconecta del servidor de host de sesión de Escritorio remoto, pero no se cierra.
+
+Si habilita esta configuración de directiva, cuando un usuario cierre el último programa RemoteApp que se está ejecutando asociado con una sesión, la sesión RemoteApp permanecerá en estado desconectado hasta que se alcance el límite de tiempo especificado. Cuando se alcanza el límite de tiempo especificado, la sesión RemoteApp se cierra desde el servidor de host de sesión de Escritorio remoto. Si el usuario inicia un programa RemoteApp antes de que se alcance el límite de tiempo, se volverá a conectar a la sesión desconectada en el servidor de host de sesión de Escritorio remoto.
+
+Si deshabilita o no establece esta configuración de directiva, cuando un usuario cierre el último programa RemoteApp, la sesión se desconecta del servidor de host de sesión de Escritorio remoto, pero no se cierra.
+
+Nota: esta configuración de directiva aparece tanto en Configuración del equipo como en Configuración de usuario. Si se establecen ambas configuraciones de directiva, tiene prioridad la de Configuración del equipo.
+      
+      </string>
+
+      <string id="TS_TIME_1MIN">1 minuto</string>
+      <string id="TS_TIME_5MIN">5 minutos</string>
+      <string id="TS_TIME_10MIN">10 minutos</string>
+      <string id="TS_TIME_15MIN">15 minutos</string>
+      <string id="TS_TIME_30MIN">30 minutos</string>
+      <string id="TS_TIME_1HR">1 hora</string>
+      <string id="TS_TIME_2HR">2 horas</string>
+      <string id="TS_TIME_3HR">3 horas</string>
+      <string id="TS_TIME_6HR">6 horas</string>
+      <string id="TS_TIME_8HR">8 horas</string>
+      <string id="TS_TIME_12HR">12 horas</string>
+      <string id="TS_TIME_16HR">16 horas</string>
+      <string id="TS_TIME_18HR">18 horas</string>
+      <string id="TS_TIME_1DAY">1 día</string>
+      <string id="TS_TIME_2DAY">2 días</string>
+      <string id="TS_TIME_3DAY">3 días</string>
+      <string id="TS_TIME_4DAY">4 días</string>
+      <string id="TS_TIME_5DAY">5 días</string>
+      <string id="TS_TIME_IMMEDIATE">Inmediatamente</string>
+	
+      <string id="TS_DISALLOW_FONT_SMOOTHING">No permitir el suavizado de fuentes</string>
+      <string id="TS_DISALLOW_FONT_SMOOTHING_EXPLAIN">Esta configuración de directiva le permite especificar si el suavizado de fuentes está permitido para conexiones remotas.
+
+El suavizado de fuentes proporciona funcionalidad ClearType para una conexión remota. ClearType es una tecnología para mostrar fuentes en el equipo de una manera clara y suave, especialmente si está utilizando un monitor LCD. Puesto que el suavizado de fuentes requiere recursos de ancho de banda adicionales, si no se permite el suavizado de fuentes para conexiones remotas se mejorará el rendimiento de la conexión, particularmente en vínculos de baja velocidad.
+		   
+De manera predeterminada, el suavizado de fuentes está permitido para conexiones remotas. Puede configurar el suavizado de fuentes en la ficha Rendimiento en la Conexión a Escritorio remoto (RDC) o mediante la configuración "permitir el suavizado de fuentes" en un archivo de Protocolo de escritorio remoto (.rdp).
+		   
+Si habilita esta configuración de directiva, el suavizado de fuentes no se permitirá para conexiones remotas, incluso si el suavizado de fuentes está habilitado en la RDC o en el archivo .rdp.   
+		   
+Si deshabilita o no configura esta configuración de directiva, el suavizado de fuentes estará permitido en conexiones remotas.
+      
+      </string>
+
+      <string id="TS_ENABLE_IP_VIRTUALIZATION">Activar virtualización de IP de Escritorio remoto</string>
+      <string id="TS_ENABLE_IP_VIRTUALIZATION_EXPLAIN">Esta configuración de directiva especifica si la Virtualización de IP de Escritorio remoto está activada. 
+De manera predeterminada, la Virtualización IP de Escritorio remoto está desactivada.
+
+Si habilita esta configuración de directiva, la Virtualización IP de Escritorio remoto se activará. Puede seleccionar el modo en que esta configuración se aplica. Si está utilizando el modo Por programa, debe especificar una lista de programas para utilizar direcciones IP virtuales. Enumere cada programa en una línea independiente (no incluya líneas en blanco entre programas). Por ejemplo:	
+
+explorer.exe
+mstsc.exe
+
+Si deshabilita o no configura esta configuración de directiva, la Virtualización de IP de Escritorio remoto estará desactivada.
+      
+      </string>
+      
+      <string id="TS_ENABLE_SESSION_MODE_IP_VIRTUALIZATION">Por sesión</string>
+      <string id="TS_ENABLE_PRPGRAM_MODE_IP_VIRTUALIZATION">Por programa</string>
+      <string id="TS_NET_ID_IP_VIRTUALIZATION">Seleccionar el adaptador de red que se utilizará para la Virtualización de IP de Escritorio remoto</string>
+      <string id="TS_NET_ID_IP_VIRTUALIZATION_EXPLAIN">Esta configuración de directiva especifica la dirección de IP y la máscara de red que corresponde al adaptador de red utilizado para direcciones IP virtuales. La dirección IP y la máscara de red deben escribirse en la notación Classless Inter-Domain Routing; por ejemplo, 192.0.2.96/24. 
+
+Si habilita esta configuración de directiva, la dirección IP y la máscara de red especificadas se utilizarán para seleccionar el adaptador de red de las direcciones IP virtuales.
+
+Si deshabilita o no configura esta configuración de directiva, se desactivará la Virtualización IP de Escritorio remoto. Se debe configurar un adaptador de red para que la Virtualización de IP de Escritorio remoto funcione.
+      
+      </string>
+      
+      <string id="TS_NOT_USE_SERVER_IP_WITH_IP_VIRTUALIZATION">No utilizar la dirección IP del servidor de host de sesión de Escritorio remoto cuando la dirección IP virtual no está disponible</string>
+      <string id="TS_NOT_USE_SERVER_IP_WITH_IP_VIRTUALIZATION_EXPLAIN">Esta configuración de directiva especifica si una sesión utiliza la dirección IP del servidor de host de sesión de Escritorio remoto si una dirección IP virtual no está disponible.
+
+Si habilita esta configuración de directiva, la dirección IP del Servidor de Escritorio remoto no se utilizará si una dirección IP virtual no está disponible. La sesión no tendrá conectividad de red.
+
+Si deshabilita o no configura esta configuración de directiva, la dirección IP del Servidor de Escritorio remoto se utilizará si una dirección IP virtual no está disponible.
+      
+      </string>
+      
+      <string id="TS_ENABLE_DFSS">Desactivar la Programación dinámica de reparto justo de CPU</string>
+      <string id="TS_ENABLE_DFSS_EXPLAIN">La Programación de reparto justo de CPU distribuye de manera dinámica el tiempo de procesador a sesiones de Servicios de Escritorio remoto en función del número de sesiones y de la demanda de tiempo del procesador en cada sesión.
+ 
+Si habilita esta configuración de directiva, la Programación de reparto justo de CPU se desactivará.
+ 
+Si deshabilita o no configura esta configuración de directiva, la Programación de reparto justo de CPU se activará.
+      
+      </string>
+      
+      <string id="TS_DISABLE_MSI">Desactivar compatibilidad de RDS con Windows Installer</string>
+      <string id="TS_DISABLE_MSI_EXPLAIN">Esta configuración de directiva especifica si la compatibilidad de RDS con Windows Installer se ejecuta por usuario para aplicaciones instaladas completamente. Windows Installer solo permite ejecutar las instancias del proceso msiexec de una en una. De manera predeterminada, la compatibilidad de RDS con Windows Installer está activada.
+ 
+Si habilita esta configuración de directiva, la compatibilidad de RDS con Windows Installer estará desactivada y las instancias del proceso msiexec se ejecutarán de una en una.
+ 
+Si deshabilita o no configura esta configuración de directiva, la compatibilidad de RDS con Windows Installer estará activada y el proceso msiexec pondrá en cola y administrará varias solicitudes de instalación de aplicaciones en el orden en que se reciban. 
+       
+      </string>
+
+      <string id="RDS_VM_HOST_Node">Host de virtualización de Escritorio remoto</string>
+      <string id="RDS_VM_HOST_Node_Help">Controla la configuración de un servidor de host de virtualización de Escritorio remoto.</string>
+
+   </stringTable>
+
+   <presentationTable>
+      <presentation id="TS_SESSIONS_RemoteApp_End_Timeout">
+        <dropdownList refId="TS_SESSIONS_RemoteApp_End_Timeout" noSort="true" defaultItem="0">Retardo de cierre de sesión RemoteApp:</dropdownList>
+      </presentation>
+      <presentation id="TS_NET_ID_IP_VIRTUALIZATION">
+	    <textBox refId="TS_NET_ID_IP_VIRTUALIZATION">
+	      <label>Definir la dirección IP y la máscara de red correspondientes al adaptador de red que se utilizará para la Virtualización de IP de Escritorio remoto:</label>
+	    </textBox>
+    	<text>El formato es [dirección IP]/[máscara de red]. Por ejemplo:192.0.2.96/24</text>
+      </presentation>
+      <presentation id="TS_ENABLE_IP_VIRTUALIZATION">
+        <dropdownList refId="TS_ENABLE_IP_VIRTUALIZATION" noSort="true" defaultItem="0">Activar modo de virtualización de IP de Escritorio remoto:</dropdownList>
+	    <multiTextBox refId="TS_ENABLE_IP_VIRTUALIZATION_EDIT">Asignar direcciones IP virtuales de estos programas:</multiTextBox>
+        <text>Si está enumerando más de un programa, hágalo en líneas diferentes (no incluya líneas en blanco entre programas). Por ejemplo:</text>
+        <text>explorer.exe
+mstsc.exe</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,2039 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (c) 2015 Collabora Ltd. CC-BY-SA 4.0 -->
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>
+  </displayName>
+  <description>
+  </description>
+  <resources>
+    <stringTable>
+        <string id="supported_LibreOffice_4_2">LibreOffice-from-Collabora 4.2 o más reciente</string>
+        <string id="supported_LibreOffice_4_3">LibreOffice-from-Collabora 4.3 o más reciente</string>
+        <string id="supported_LibreOffice_4_4">LibreOffice-from-Collabora 4.4 o más reciente</string>
+        <string id="supported_LibreOffice_5_0">Collabora Office 5.0 o más reciente</string>
+        <string id="supported_LibreOffice_5_1">Collabora Office 5.1 o más reciente</string>
+        <string id="supported_LibreOffice_5_3">Collabora Office 5.3 o más reciente</string>
+        <string id="supported_LibreOffice_5_3_49">Collabora Office 5.3-49 o más reciente</string>
+        <string id="supported_LibreOffice_6_0_27">Collabora Office 6.0-27 o más reciente</string>
+
+        <string id="ValueFlagsNone">Ninguno</string>
+        <string id="ValueFlagsFinal">Final</string>
+        <string id="ValueFlagsExternalLDAP">Desde LDAP</string>
+        <string id="ValueFlagsExternalWin">Desde Windows</string>
+
+        <string id="category_LibreOffice">Collabora Office</string>
+        <string id="category_Common">Comunes</string>
+
+        <string id="category_General">Generales</string>
+        <string id="name_UseSystemFileDialog">Usar diálogo de apertura de archivos del sistema</string>
+        <string id="desc_UseSystemFileDialog">Determina si se debe utilizar el selector de archivos y carpetas de Windows. Si el valor es falso, se empleará el cuadro de diálogo multiplataforma incorporado.</string>
+        <string id="name_CollectUsageInformation">Ayudar a mejorar LibreOffice</string>
+        <string id="desc_CollectUsageInformation">Recopilar datos de uso y enviarlos a The Document Foundation</string>
+
+        <string id="category_LDAPConfigBackend">Motor de configuración de LDAP</string>
+        <string id="name_LDAPConfigBackendSettings">Directorio de usuario de LDAP</string>
+        <string id="desc_LDAPConfigBackendSettings">Define la manera en que se establecerán conexiones con servidores LDAP y se recuperará la información de los usuarios usada en la sección Datos de usuario.
+
+Observe que la contraseña de vinculación con el servidor LDAP se almacena sin cifrar en el registro del sistema cliente; recomendamos que use una cuenta de búsquedas restringida (la cual solo puede realizar búsquedas en LDAP).
+
+El atributo único de usuario debe corresponderse con el nombre de usuario de la cuenta de Windows, sin el dominio.</string>
+
+        <string id="category_ProductName">Nombre de producto</string>
+        <string id="name_ooName">Nombre de producto (ooName)</string>
+        <string id="desc_ooName">Especifica el nombre del producto.</string>
+        <string id="category_LoadandSave">Cargar y guardar</string>
+        <string id="name_UserDefinedSettings">Configuración definida por el usuario</string>
+        <string id="desc_UserDefinedSettings">Cargar configuración específica del usuario con el documento</string>
+        <string id="name_UseUserData">Utilizar datos de usuario</string>
+        <string id="desc_UseUserData">Utilizar datos de usuario para las propiedades del documento</string>
+        <string id="name_AutoSave">Guardado automático</string>
+        <string id="desc_AutoSave">Guardar información de recuperación automática cada __ minutos</string>
+        <string id="name_RecoveryInfo">Desactivar la función de recuperación automática</string>
+        <string id="desc_RecoveryInfo">Desactivar la función de recuperación automática en caso de cierres inesperados</string>
+        <string id="name_CreateBackup">Crear copia de seguridad</string>
+        <string id="desc_CreateBackup">Crear siempre una copia de seguridad</string>
+        <string id="name_EditProperty">Editar propiedades del documento antes de guardar</string>
+        <string id="desc_EditProperty">Especifica que el cuadro de diálogo Propiedades aparezca siempre que selecciona la orden Guardar como.</string>
+        <string id="name_WarnAlienFormat">Alertar al usuario cuando se guarde en un formato distinto de ODF o del predeterminado</string>
+        <string id="desc_WarnAlienFormat">Especifica que el formato de guardado sea distinto de ODF o del predeterminado.</string>
+        <string id="name_OfficeURIOpenProgramNoWarn">No avisar acerca del sitio Web intentando abrir el programa cuando se utiliza una URI de Office</string>
+        <string id="desc_OfficeURIOpenProgramNoWarn">Por defecto, cuando un usuario pulsa en un enlace URI de Office, Internet Explorer muestra un aviso informando de que un sitio web está intentando abrir un programa y solicita confirmación.
+
+Esta configuración permite deshabilitar la advertencia para URIs de Office soportadas por el producto (ms-word:, ms-excel:, ms-powerpoint:, ms-visio:, ms-access:, vnd.libreoffice.command:).  Recuerde que esta configuración puede sobreescribirse por el usuario si se configura en las opciones de usuario.
+
+Si está habilitada no se mostrará ningún mensaje de advertencia cuando el usuario pulse en un enlace URI de Office de los soportados.
+Si está deshabilitada se mostrará el mensaje de advertencia.</string>
+        <string id="name_HTMLExportBrowser">Compatibilidad con navegadores de exportación a HTML</string>
+        <string id="desc_HTMLExportBrowser">Especifica para cuál navegador debe optimizarse la exportación a HTML</string>
+        <string id="IE">Internet Explorer</string>
+        <string id="Firefox">Mozilla Firefox</string>
+        <string id="Writer">LibreOffice Writer</string>
+        <string id="name_MSOLockFiles">Crear fichero de bloqueo MSO</string>
+        <string id="desc_MSOLockFiles">Especifica si, cuando se abra un archivo, LibreOffice creará archivos de bloqueo compatibles con Microsoft Office junto a los ficheros de bloqueo de LibreOffice.  Esto permite a Microsoft Office leer el nombre de usuario del fichero de bloqueo y mostrarlo al usuario que intenta abrir el documento </string>
+
+        <string id="category_Experimental">Experimentales</string>
+        <string id="name_ExperimentalMode">Activar funcionalidades experimentales</string>
+        <string id="desc_ExperimentalMode">Determina si se deben activar en la interfaz de usuario diversas funcionalidades experimentales y potencialmente inestables.</string>
+        <string id="name_MacroRecorderMode">Activar grabación de macros (limitada)</string>
+        <string id="desc_MacroRecorderMode">Determina si se debe activar en la interfaz de usuario el grabador de macros, que produce actualmente código enrevesado.</string>
+        <string id="category_FileandPrintdialogs">Cuadros de diálogo de archivos e impresión</string>
+        <string id="name_UseSystemPrintDialog">Usar diálogo de impresión del sistema</string>
+        <string id="desc_UseSystemPrintDialog">Determina si se debe usar el cuadro de diálogo de impresión de Windows. Si el valor es falso, se empleará el cuadro de diálogo multiplataforma incorporado.</string>
+
+        <string id="category_History">Historial</string>
+        <string id="name_HistorySize">Tamaño de historial</string>
+        <string id="desc_HistorySize">Establece el tamaño de la lista de historial.</string>
+        <string id="name_HistoryPickListSize">Tamaño de lista de historial</string>
+        <string id="desc_HistoryPickListSize">Establece el tamaño de la lista que aparece en el menú Documentos recientes.</string>
+
+        <string id="category_Localization">Regionalización</string>
+        <string id="name_DefaultLocale">Idioma predeterminado de documentos (occidental)</string>
+        <string id="desc_DefaultLocale">Especifica el idioma «occidental» predeterminado de los documentos.</string>
+        <string id="name_DefaultLocale_CJK">Idioma predeterminado de documentos (CJK)</string>
+        <string id="desc_DefaultLocale_CJK">Especifica el idioma predeterminado de los documentos en modalidad para chino, japonés y coreano.</string>
+        <string id="name_DefaultLocale_CTL">Idioma predeterminado de documentos (CTL)</string>
+        <string id="desc_DefaultLocale_CTL">Especifica el idioma de Disposición compleja de textos predeterminado de los documentos (p. ej., aquellos que usan sistemas de escritura índicos, árabe, etc.)</string>
+        <string id="name_UILocale">Idioma de interfaz de usuario</string>
+        <string id="desc_UILocale">Especifica el idioma de la interfaz de usuario (IU). Si la cadena está vacía, se utilizará el idioma del sistema si es posible.</string>
+        <string id="name_Locale">Configuración regional</string>
+        <string id="desc_Locale">Contiene la configuración regional del escritorio del usuario.</string>
+        <string id="name_ooSetupCurrency">Moneda</string>
+        <string id="desc_ooSetupCurrency">Indica la configuración de moneda definida por el usuario. De manera predeterminada, esta etiqueta está vacía y la moneda la define la configuración regional del sistema.</string>
+        <string id="name_DecimalSeparatorAsLocale">Separador decimal según configuración regional</string>
+        <string id="desc_DecimalSeparatorAsLocale">Indica que se usará el separador decimal (punto o coma) apropiado para la región seleccionada, en vez del incluido en la disposición de teclado de manera predeterminada.</string>
+        <string id="name_IgnoreLanguageChange">Ignorar cambio de idioma</string>
+        <string id="desc_IgnoreLanguageChange">Indica si se ignorarán las modificaciones en el idioma de entrada o teclado del sistema. De ser así, cuando digite texto nuevo, este estará en el idioma del documento o del párrafo, no en el idioma actual del sistema.</string>
+
+        <string id="category_Security">Seguridad</string>
+        <string id="name_RemovePersonalInfoOnSaving">Suprimir información personal al guardar</string>
+        <string id="desc_RemovePersonalInfoOnSaving">Especifica si se suprimirá la información personal al guardar.
+
+Valor predeterminado: no suprimir</string>
+        <string id="name_RecommendPasswordProtection">Recomendar protección por contraseña al guardar</string>
+        <string id="desc_RecommendPasswordProtection">Especifica si se recomendará la protección por contraseña al guardar documentos.
+
+Valor predeterminado: no recomendar</string>
+        <string id="name_HyperlinksWithCtrlClick">Ctrl + clic requerido para seguir hiperenlaces</string>
+        <string id="desc_HyperlinksWithCtrlClick">Especifica si es necesario oprimir Ctrl antes de pulsar en un hiperenlace.
+Valor predeterminado: Ctrl + clic</string>
+        <string id="name_WarnSaveOrSendDoc">Alertas de seguridad al guardar o enviar</string>
+        <string id="desc_WarnSaveOrSendDoc">Especifica si se debe alertar al guardar o enviar documentos con datos personales/ocultos.
+
+Valor predeterminado: no alertar</string>
+        <string id="name_WarnSignDoc">Alertas de seguridad al firmar</string>
+        <string id="desc_WarnSignDoc">Especifica si se debe alertar sobre firmar documentos con datos personales/ocultos.
+
+Valor predeterminado: alertar</string>
+        <string id="name_WarnPrintDoc">Alertas de seguridad al imprimir</string>
+        <string id="desc_WarnPrintDoc">Especifica si se debe alertar sobre imprimir documentos con datos personales/ocultos.
+
+Valor predeterminado: no alertar</string>
+        <string id="name_WarnCreatePDF">Alertas de seguridad al crear PDF</string>
+        <string id="desc_WarnCreatePDF">Especifica si se debe alertar al crear documentos PDF con datos personales/ocultos.
+
+Valor predeterminado: no alertar</string>
+        <string id="name_MacroSecurityLevel">Nivel de seguridad de macros</string>
+        <string id="desc_MacroSecurityLevel">Nivel de seguridad de macros. Va desde 0 (menor) a 3 (mayor).
+
+- Bajo (no recomendado). Todas las macros se ejecutarán sin confirmación. Use esta opción solo si tiene la certeza de que cualesquier documentos que abra son seguros.
+- Medio. Se necesita confirmación antes de ejecutar macros de orígenes no confiables.
+- Alto. Solo se permite la ejecución de macros firmadas de orígenes de confianza. Se desactivan las macros no firmadas.
+- Muy alto. Solo se permite la ejecución de macros de ubicaciones de archivo de confianza. Todas las demás macros, estén firmadas o no, se desactivan.
+
+Valor predeterminado: alto</string>
+        <string id="low">Bajo (no recomendado)</string>
+        <string id="medium">Medio</string>
+        <string id="high">Alto</string>
+        <string id="veryhigh">Muy alto</string>
+        <string id="name_DisableMacrosExecution">Desactivar ejecución de macros</string>
+        <string id="desc_DisableMacrosExecution">Especifica si la ejecución de macros debe desactivarse en general. Si se define el valor como verdadero, se ignora MacroSecurityLevel; si se define como falso, la entrada mencionada establece el nivel de seguridad de macros.
+
+Valor predeterminado: macros activadas</string>
+        <string id="name_EnableExpertConfiguration">Activar configuración para expertos</string>
+        <string id="desc_EnableExpertConfiguration">Determina si los usuarios pueden acceder a la configuración completa mediante el botón «Configuración para expertos».</string>
+        <string id="name_SecureURL">Ubicaciones de archivos de confianza</string>
+
+        <string id="category_Filters">Desactivar filtros de formatos de archivo</string>
+
+        <string id="name_ADO_Rowset_XML">XML de Ado Rowset</string>
+        <string id="desc_ADO_Rowset_XML">Desactivar el filtro de importación para el formato de archivo XML de ADO Rowset.</string>
+        <string id="name_AbiWord">Documento de AbiWord</string>
+        <string id="desc_AbiWord">Desactivar el filtro de importación para el formato de archivo Documento de AbiWord.</string>
+        <string id="name_Apple_Keynote">Apple Keynote 5</string>
+        <string id="desc_Apple_Keynote">Desactivar el filtro de importación para el formato de archivo Apple Keynote 5.</string>
+        <string id="name_Apple_Numbers">Apple Numbers 2</string>
+        <string id="desc_Apple_Numbers">Desactivar el filtro de importación para el formato de archivo Apple Numbers 2.</string>
+        <string id="name_Apple_Pages">Apple Pages 4</string>
+        <string id="desc_Apple_Pages">Desactivar el filtro de importación para el formato de archivo Apple Pages 4.</string>
+        <string id="name_BMP__MS_Windows">BMP: mapa de bits de Windows</string>
+        <string id="desc_BMP__MS_Windows">Desactivar el filtro de importación para el formato de archivo BMP: mapa de bits de Windows.</string>
+        <string id="name_BroadBand_eBook">Libro electrónico de BroadBand</string>
+        <string id="desc_BroadBand_eBook">Desactivar el filtro de importación para el formato de archivo Libro electrónico de BroadBand.</string>
+        <string id="name_CGM__Computer_Graphics_Metafile">CGM: metarchivo de gráficos por computadora</string>
+        <string id="desc_CGM__Computer_Graphics_Metafile">Desactivar el filtro de importación para el formato de archivo CGM: metarchivo de gráficos por computadora.</string>
+        <string id="name_ClarisWorks">Documento de texto de ClarisWorks/AppleWorks</string>
+        <string id="desc_ClarisWorks">Desactivar el filtro de importación para el formato de archivo Documento de texto de ClarisWorks/AppleWorks.</string>
+        <string id="name_ClarisWorks_Calc">Hoja de cálculo de ClarisWorks/AppleWorks</string>
+        <string id="desc_ClarisWorks_Calc">Desactivar el filtro de importación para el formato de archivo Hoja de cálculo de ClarisWorks/AppleWorks.</string>
+        <string id="name_ClarisWorks_Draw">Dibujo de ClarisWorks/AppleWorks</string>
+        <string id="desc_ClarisWorks_Draw">Desactivar el filtro de importación para el formato de archivo Dibujo de ClarisWorks/AppleWorks.</string>
+        <string id="name_ClarisWorks_Impress">Presentación de ClarisWorks/AppleWorks</string>
+        <string id="desc_ClarisWorks_Impress">Desactivar el filtro de importación para el formato de archivo Presentación de ClarisWorks/AppleWorks.</string>
+        <string id="name_Claris_Resolve_Calc">Documento de ClarisResolve</string>
+        <string id="desc_Claris_Resolve_Calc">Desactivar el filtro de importación para el formato de archivo Documento de ClarisResolve.</string>
+        <string id="name_Corel_Draw_Document">CorelDRAW</string>
+        <string id="desc_Corel_Draw_Document">Desactivar el filtro de importación para el formato de archivo CorelDRAW.</string>
+        <string id="name_Corel_Presentation_Exchange">Intercambio de presentación de Corel</string>
+        <string id="desc_Corel_Presentation_Exchange">Desactivar el filtro de importación para el formato de archivo Intercambio de presentación de Corel.</string>
+        <string id="name_DIF">Formato de intercambio de datos</string>
+        <string id="desc_DIF">Desactivar el filtro de importación para el formato de archivo Formato de intercambio de datos.</string>
+        <string id="name_DXF__AutoCAD_Interchange">DXF: formato de intercambio de AutoCAD</string>
+        <string id="desc_DXF__AutoCAD_Interchange">Desactivar el filtro de importación para el formato de archivo DXF: formato de intercambio de AutoCAD.</string>
+        <string id="name_DocBook_File">DocBook</string>
+        <string id="desc_DocBook_File">Desactivar el filtro de importación para el formato de archivo Docbook.</string>
+        <string id="name_DosWord">Microsoft Word para DOS</string>
+        <string id="desc_DosWord">Desactivar el filtro de importación para el formato de archivo Microsoft Word para DOS.</string>
+        <string id="name_EMF__MS_Windows_Metafile">EMF: metarchivo mejorado</string>
+        <string id="desc_EMF__MS_Windows_Metafile">Desactivar el filtro de importación para el formato de archivo EMF: metarchivo mejorado.</string>
+        <string id="name_EPS__Encapsulated_PostScript">EPS: PostScript encapsulado</string>
+        <string id="desc_EPS__Encapsulated_PostScript">Desactivar el filtro de importación para el formato de archivo EPS: PostScript encapsulado.</string>
+        <string id="name_FictionBook_2">FictionBook 2.0</string>
+        <string id="desc_FictionBook_2">Desactivar el filtro de importación para el formato de archivo FictionBook 2.0.</string>
+        <string id="name_Freehand_Document">Adobe/Macromedia Freehand</string>
+        <string id="desc_Freehand_Document">Desactivar el filtro de importación para el formato de archivo Adobe/Macromedia Freehand.</string>
+        <string id="name_GIF__Graphics_Interchange">GIF: formato de intercambio de gráficos</string>
+        <string id="desc_GIF__Graphics_Interchange">Desactivar el filtro de importación para el formato de archivo GIF: formato de intercambio de gráficos.</string>
+        <string id="name_HTML">Documento HTML</string>
+        <string id="desc_HTML">Desactivar el filtro de importación para el formato de archivo Documento HTML.</string>
+        <string id="name_HTML_StarCalc">Documento HTML (Calc)</string>
+        <string id="desc_HTML_StarCalc">Desactivar el filtro de importación para el formato de archivo Documento HTML (Calc).</string>
+        <string id="name_HTML_StarWriter">Documento HTML (Writer)</string>
+        <string id="desc_HTML_StarWriter">Desactivar el filtro de importación para el formato de archivo Documento HTML (Writer).</string>
+        <string id="name_JPG__JPEG">JPEG: Grupo mixto de expertos en fotografía</string>
+        <string id="desc_JPG__JPEG">Desactivar el filtro de importación para el formato de archivo JPEG: Grupo mixto de expertos en fotografía.</string>
+        <string id="name_Lotus">Lotus 1-2-3</string>
+        <string id="desc_Lotus">Desactivar el filtro de importación para el formato de archivo Lotus 1-2-3.</string>
+        <string id="name_LotusWordPro">Documento de Lotus WordPro</string>
+        <string id="desc_LotusWordPro">Desactivar el filtro de importación para el formato de archivo Documento de Lotus WordPro.</string>
+        <string id="name_MET__OS2_Metafile">MET: metarchivo de OS/2</string>
+        <string id="desc_MET__OS2_Metafile">Desactivar el filtro de importación para el formato de archivo MET: metarchivo de OS/2.</string>
+        <string id="name_MS_Excel_2003_XML_Orcus">XML de Microsoft Excel 2003</string>
+        <string id="desc_MS_Excel_2003_XML_Orcus">Desactivar el filtro de importación para el formato de archivo XML de Microsoft Excel 2003.</string>
+        <string id="name_MS_Excel_40">Microsoft Excel 4.0</string>
+        <string id="desc_MS_Excel_40">Desactivar el filtro de importación para el formato de archivo Microsoft Excel 4.0.</string>
+        <string id="name_MS_Excel_40_VorlageTemplate">Plantilla de Microsoft Excel 4.0</string>
+        <string id="desc_MS_Excel_40_VorlageTemplate">Desactivar el filtro de importación para el formato de archivo Plantilla de Microsoft Excel 4.0.</string>
+        <string id="name_MS_Excel_5095">Microsoft Excel 5.0</string>
+        <string id="desc_MS_Excel_5095">Desactivar el filtro de importación para el formato de archivo Microsoft Excel 5.0.</string>
+        <string id="name_MS_Excel_5095_VorlageTemplate">Plantilla de Microsoft Excel 5.0</string>
+        <string id="desc_MS_Excel_5095_VorlageTemplate">Desactivar el filtro de importación para el formato de archivo Plantilla de Microsoft Excel 5.0.</string>
+        <string id="name_MS_Excel_95">Microsoft Excel 95</string>
+        <string id="desc_MS_Excel_95">Desactivar el filtro de importación para el formato de archivo Microsoft Excel 95.</string>
+        <string id="name_MS_Excel_95_VorlageTemplate">Plantilla de Microsoft Excel 95</string>
+        <string id="desc_MS_Excel_95_VorlageTemplate">Desactivar el filtro de importación para el formato de archivo Plantilla de Microsoft Excel 95.</string>
+        <string id="name_MS_Excel_97">Microsoft Excel 97–2003</string>
+        <string id="desc_MS_Excel_97">Desactivar el filtro de importación para el formato de archivo Microsoft Excel 97–2003.</string>
+        <string id="name_MS_Excel_97_VorlageTemplate">Plantilla de Microsoft Excel 97–2003</string>
+        <string id="desc_MS_Excel_97_VorlageTemplate">Desactivar el filtro de importación para el formato de archivo Plantilla de Microsoft Excel 97–2003.</string>
+        <string id="name_MS_PowerPoint_97">Microsoft PowerPoint 97–2003</string>
+        <string id="desc_MS_PowerPoint_97">Desactivar el filtro de importación para el formato de archivo Microsoft PowerPoint 97–2003.</string>
+        <string id="name_MS_PowerPoint_97_AutoPlay">Presentación automática de Microsoft PowerPoint 97–2003</string>
+        <string id="desc_MS_PowerPoint_97_AutoPlay">Desactivar el filtro de importación para el formato de archivo Presentación automática de Microsoft PowerPoint 97–2003.</string>
+        <string id="name_MS_PowerPoint_97_Vorlage">Plantilla de Microsoft PowerPoint 97–2003</string>
+        <string id="desc_MS_PowerPoint_97_Vorlage">Desactivar el filtro de importación para el formato de archivo Plantilla de Microsoft PowerPoint 97–2003.</string>
+        <string id="name_MS_WinWord_5">Microsoft WinWord 1/2/5</string>
+        <string id="desc_MS_WinWord_5">Desactivar el filtro de importación para el formato de archivo Microsoft WinWord 1/2/5.</string>
+        <string id="name_MS_WinWord_60">Microsoft Word 6.0</string>
+        <string id="desc_MS_WinWord_60">Desactivar el filtro de importación para el formato de archivo Microsoft Word 6.0.</string>
+        <string id="name_MS_Word_2003_XML">XML de Microsoft Word 2003</string>
+        <string id="desc_MS_Word_2003_XML">Desactivar el filtro de importación para el formato de archivo XML de Microsoft Word 2003.</string>
+        <string id="name_MS_Word_2007_XML">XML de Microsoft Word 2007–2019</string>
+        <string id="desc_MS_Word_2007_XML">Desactivar el filtro de importación para el formato de archivo XML de Microsoft Word 2007–2019.</string>
+        <string id="name_MS_Word_2007_XML_Template">Plantilla XML de Microsoft Word 2007–2019</string>
+        <string id="desc_MS_Word_2007_XML_Template">Desactivar el filtro de importación para el formato de archivo Plantilla XML de Microsoft Word 2007–2019.</string>
+        <string id="name_MS_Word_2007_XML_VBA">VBA XML de Microsoft Word 2007–2019</string>
+        <string id="desc_MS_Word_2007_XML_VBA">Desactivar el filtro de importación para el formato de archivo VBA XML de Microsoft Word 2007–2019.</string>
+        <string id="name_MS_Word_95">Microsoft Word 95</string>
+        <string id="desc_MS_Word_95">Desactivar el filtro de importación para el formato de archivo Microsoft Word 95.</string>
+        <string id="name_MS_Word_95_Vorlage">Plantilla de Microsoft Word 95</string>
+        <string id="desc_MS_Word_95_Vorlage">Desactivar el filtro de importación para el formato de archivo Microsoft Word 95.</string>
+        <string id="name_MS_Word_97">Microsoft Word 97–2003</string>
+        <string id="desc_MS_Word_97">Desactivar el filtro de importación para el formato de archivo Microsoft Word 97–2003.</string>
+        <string id="name_MS_Word_97_Vorlage">Plantilla de Microsoft Word 97–2003</string>
+        <string id="desc_MS_Word_97_Vorlage">Desactivar el filtro de importación para el formato de archivo Plantilla de Microsoft Word 97–2003.</string>
+        <string id="name_MS_Works">Documento de Microsoft Works</string>
+        <string id="desc_MS_Works">Desactivar el filtro de importación para el formato de archivo Documento de Microsoft Works.</string>
+        <string id="name_MS_Works_Calc">Documento de Microsoft Works</string>
+        <string id="desc_MS_Works_Calc">Desactivar el filtro de importación para el formato de archivo Documento de Microsoft Works.</string>
+        <string id="name_MS_Write">Microsoft Write</string>
+        <string id="desc_MS_Write">Desactivar el filtro de importación para el formato de archivo Microsoft Write.</string>
+        <string id="name_MWAW_Bitmap">Mapa de bits heredado de Mac</string>
+        <string id="desc_MWAW_Bitmap">Desactivar el filtro de importación para el formato de archivo Mapa de bits heredado de Mac.</string>
+        <string id="name_MWAW_Database">Base de datos heredada de Mac</string>
+        <string id="desc_MWAW_Database">Desactivar el filtro de importación para el formato de archivo Base de datos heredada de Mac.</string>
+        <string id="name_MWAW_Drawing">Dibujo heredado de Mac</string>
+        <string id="desc_MWAW_Drawing">Desactivar el filtro de importación para el formato de archivo Dibujo heredado de Mac.</string>
+        <string id="name_MWAW_Presentation">Presentación heredada de Mac</string>
+        <string id="desc_MWAW_Presentation">Desactivar el filtro de importación para el formato de archivo Presentación heredada de Mac.</string>
+        <string id="name_MWAW_Spreadsheet">Hoja de cálculo heredada de Mac</string>
+        <string id="desc_MWAW_Spreadsheet">Desactivar el filtro de importación para el formato de archivo Hoja de cálculo heredada de Mac.</string>
+        <string id="name_MWAW_Text_Document">Documento de texto heredado de Mac</string>
+        <string id="desc_MWAW_Text_Document">Desactivar el filtro de importación para el formato de archivo Documento de texto heredado de Mac.</string>
+        <string id="name_MacWrite">Documento de MacWrite</string>
+        <string id="desc_MacWrite">Desactivar el filtro de importación para el formato de archivo Documento de MacWrite.</string>
+        <string id="name_Mac_Word">Microsoft Word para Mac (v. 1–5)</string>
+        <string id="desc_Mac_Word">Desactivar el filtro de importación para el formato de archivo Microsoft Word para Mac (v. 1–5).</string>
+        <string id="name_Mac_Works">Documento de texto de Microsoft Works para Mac (v. 1–4)</string>
+        <string id="desc_Mac_Works">Desactivar el filtro de importación para el formato de archivo Documento de texto de Microsoft Works para Mac (v. 1–4).</string>
+        <string id="name_Mac_Works_Calc">Hoja de cálculo de Microsoft Works para Mac (v. 1–4)</string>
+        <string id="desc_Mac_Works_Calc">Desactivar el filtro de importación para el formato de archivo Hoja de cálculo de Microsoft Works para Mac (v. 1–4).</string>
+        <string id="name_Mariner_Write">Mariner Write Mac Classic v. 1.6–3.5</string>
+        <string id="desc_Mariner_Write">Desactivar el filtro de importación para el formato de archivo Mariner Write Mac Classic v. 1.6–3.5.</string>
+        <string id="name_MathML_XML_Math">MathML 2.0</string>
+        <string id="desc_MathML_XML_Math">Desactivar el filtro de importación para el formato de archivo MathML 2.0.</string>
+        <string id="name_MathType_3x">MathType 3.x</string>
+        <string id="desc_MathType_3x">Desactivar el filtro de importación para el formato de archivo MathType 3.x.</string>
+        <string id="name_OpenDocument_Drawing_Flat_XML">Dibujo ODF en XML plano</string>
+        <string id="desc_OpenDocument_Drawing_Flat_XML">Desactivar el filtro de importación para el formato de archivo Dibujo ODF en XML plano.</string>
+        <string id="name_OpenDocument_Presentation_Flat_XML">Presentación ODF en XML plano</string>
+        <string id="desc_OpenDocument_Presentation_Flat_XML">Desactivar el filtro de importación para el formato de archivo Presentación ODF en XML plano.</string>
+        <string id="name_OpenDocument_Spreadsheet_Flat_XML">Hoja de cálculo ODF en XML plano</string>
+        <string id="desc_OpenDocument_Spreadsheet_Flat_XML">Desactivar el filtro de importación para el formato de archivo Hoja de cálculo ODF en XML plano.</string>
+        <string id="name_OpenDocument_Text_Flat_XML">Documento de texto ODF en XML plano</string>
+        <string id="desc_OpenDocument_Text_Flat_XML">Desactivar el filtro de importación para el formato de archivo Documento de texto ODF en XML plano.</string>
+        <string id="name_Office_Open_XML_Text">Texto de Office Open XML</string>
+        <string id="desc_Office_Open_XML_Text">Desactivar el filtro de importación para el formato de archivo Texto de Office Open XML.</string>
+        <string id="name_Office_Open_XML_Text_Template">Plantilla de texto de Office Open XML</string>
+        <string id="desc_Office_Open_XML_Text_Template">Desactivar el filtro de importación para el formato de archivo Plantilla de texto de Office Open XML.</string>
+        <string id="name_PBM__Portable_Bitmap">PBM: mapa de bits portátil</string>
+        <string id="desc_PBM__Portable_Bitmap">Desactivar el filtro de importación para el formato de archivo PBM: mapa de bits portátil.</string>
+        <string id="name_PCT__Mac_Pict">PCT - Mac Pict</string>
+        <string id="desc_PCT__Mac_Pict">Desactivar el filtro de importación para el formato de archivo PCT - Mac Pict</string>
+        <string id="name_PCX__Zsoft_Paintbrush">PCX - Zsoft Paintbrush</string>
+        <string id="desc_PCX__Zsoft_Paintbrush">Desactivar el filtro de importación para el formato de archivo PCX - Zsoft Paintbrush</string>
+        <string id="name_PGM__Portable_Graymap">PGM - Mapa de grises portable</string>
+        <string id="desc_PGM__Portable_Graymap">Desactivar el filtro de importación para el formato de archivo PGM - Mapa de grises portable</string>
+        <string id="name_PNG__Portable_Network_Graphic">PNG: gráfico de red portátil</string>
+        <string id="desc_PNG__Portable_Network_Graphic">Desactivar el filtro de importación para el formato de archivo PNG: gráfico de red portátil</string>
+        <string id="name_PPM__Portable_Pixelmap">PPM: mapa de píxeles portátil</string>
+        <string id="desc_PPM__Portable_Pixelmap">Desactivar el filtro de importación para el formato de archivo PPM: mapa de píxeles portátil</string>
+        <string id="name_PSD__Adobe_Photoshop">PSD: Adobe Photoshop</string>
+        <string id="desc_PSD__Adobe_Photoshop">Desactivar el filtro de importación para el formato de archivo PSD: Adobe Photoshop</string>
+        <string id="name_PageMaker_Document">Adobe PageMaker</string>
+        <string id="desc_PageMaker_Document">Desactivar el filtro de importación para el formato de archivo Adobe PageMaker</string>
+        <string id="name_PalmDoc">Libro electrónico de PalmDoc</string>
+        <string id="desc_PalmDoc">Desactivar el filtro de importación para el formato de archivo Libro electrónico de PalmDoc</string>
+        <string id="name_Palm_Text_Document">Documento de texto de Palm</string>
+        <string id="desc_Palm_Text_Document">Desactivar el filtro de importación para el formato de archivo Documento de texto de Palm</string>
+        <string id="name_Plucker_eBook">Libro electrónico de Plucker</string>
+        <string id="desc_Plucker_eBook">Desactivar el filtro de importación para el formato de archivo Libro electrónico de Plucker</string>
+        <string id="name_PowerPoint_3">Microsoft PowerPoint 1-4 y 95's</string>
+        <string id="desc_PowerPoint_3">Desactivar el filtro de importación para el formato de archivo Microsoft PowerPoint 1-4 and 95's</string>
+        <string id="name_Publisher_Document">Microsoft Publisher 98–2010</string>
+        <string id="desc_Publisher_Document">Desactivar el filtro de importación para el formato de archivo Microsoft Publisher 98–2010</string>
+        <string id="name_Quattro_Pro_60">Quattro Pro 6.0</string>
+        <string id="desc_Quattro_Pro_60">Desactivar el filtro de importación para el formato de archivo Quattro Pro 6.0.</string>
+        <string id="name_QXP_Document">QuarkXPress</string>
+        <string id="desc_QXP_Document">Desactivar el filtro de importación para el formato de archivo QuarkXPress.</string>
+        <string id="name_RAS__Sun_Rasterfile">RAS - Imagen rasterizada de Sun</string>
+        <string id="desc_RAS__Sun_Rasterfile">Desactivar el filtro de importación para el formato de archivo RAS - Imagen rasterizada de Sun</string>
+        <string id="name_Rich_Text_Format">Texto enriquecido</string>
+        <string id="desc_Rich_Text_Format">Desactivar el filtro de importación para el formato de archivo Texto enriquecido</string>
+        <string id="name_Rich_Text_Format_StarCalc">Formato de texto enriquecido (Calc)</string>
+        <string id="desc_Rich_Text_Format_StarCalc">Desactivar el filtro de importación para el formato de archivo Formato de texto enriquecido (Calc)</string>
+        <string id="name_SVG__Scalable_Vector_Graphics">SVG: gráficos vectoriales escalables</string>
+        <string id="desc_SVG__Scalable_Vector_Graphics">Desactivar el filtro de importación para el formato de archivo SVG: gráficos vectoriales escalables</string>
+        <string id="name_SVM__StarView_Metafile">SVM: metarchivo de StarView</string>
+        <string id="desc_SVM__StarView_Metafile">Desactivar el filtro de importación para el formato de archivo SVM: metarchivo de StarView</string>
+        <string id="name_SYLK">SYLK</string>
+        <string id="desc_SYLK">Desactivar el filtro de importación para el formato de archivo SYLK</string>
+        <string id="name_StarOffice_XML_Base_Report">Informe de base de datos ODF</string>
+        <string id="desc_StarOffice_XML_Base_Report">Desactivar el filtro de importación para el formato de archivo Informe de base de datos ODF</string>
+        <string id="name_StarOffice_XML_Base_Report_Chart">Grafico de Informes de OpenOffice.org 1.0</string>
+        <string id="desc_StarOffice_XML_Base_Report_Chart">Desactivar el filtro de importación para el formato de archivo Grafico de Informes de OpenOffice.org 1.0</string>
+        <string id="name_StarOffice_Drawing">Dibujo StarOffice de versiones antiguas</string>
+        <string id="desc_StarOffice_Drawing">Desactivar el filtro de importación para el formato de archivo Dibujo StarOffice de versiones antiguas</string>
+        <string id="name_StarOffice_Presentation">Presentación StarOffice de versiones antiguas</string>
+        <string id="desc_StarOffice_Presentation">Desactivar el filtro de importación para el formato de archivo Presentación StarOffice de versiones antiguas</string>
+        <string id="name_StarOffice_Spreadsheet">Hoja de cálculo de StarOffice de versiones antiguas</string>
+        <string id="desc_StarOffice_Spreadsheet">Desactivar el filtro de importación para el formato de archivo Hoja de cálculo de StarOffice de versiones antiguas</string>
+        <string id="name_StarOffice_Writer">Documento de texto de StarOffice de versiones antiguas</string>
+        <string id="desc_StarOffice_Writer">Desactivar el filtro de importación para el formato de archivo Documento de texto de StarOffice de versiones antiguas</string>
+        <string id="name_StarOffice_XML_Base">Base de datos ODF</string>
+        <string id="desc_StarOffice_XML_Base">Desactivar el filtro de importación para el formato de archivo Base de datos ODF</string>
+        <string id="name_StarOffice_XML_Calc">Hoja de cálculo OpenOffice.org 1.0</string>
+        <string id="desc_StarOffice_XML_Calc">Desactivar el filtro de importación para el formato de archivo Hoja de cálculo OpenOffice.org 1.0</string>
+        <string id="name_StarOffice_XML_Chart">Gráfico OpenOffice.org 1.0</string>
+        <string id="desc_StarOffice_XML_Chart">Desactivar el filtro de importación para el formato de archivo Gráfico OpenOffice.org 1.0</string>
+        <string id="name_StarOffice_XML_Draw">Dibujo OpenOffice.org 1.0</string>
+        <string id="desc_StarOffice_XML_Draw">Desactivar el filtro de importación para el formato de archivo Dibujo OpenOffice.org 1.0</string>
+        <string id="name_StarOffice_XML_Impress">Presentacion OpenOffice.org 1.0</string>
+        <string id="desc_StarOffice_XML_Impress">Desactivar el filtro de importación para el formato de archivo Presentacion OpenOffice.org 1.0</string>
+        <string id="name_StarOffice_XML_Math">Fórmula OpenOffice.org 1.0</string>
+        <string id="desc_StarOffice_XML_Math">Desactivar el filtro de importación para el formato de archivo Fórmula OpenOffice.org 1.0</string>
+        <string id="name_StarOffice_XML_Writer">Documento de Texto OpenOffice.org 1.0</string>
+        <string id="desc_StarOffice_XML_Writer">Desactivar el filtro de importación para el formato de archivo Documento de Texto OpenOffice.org 1.0</string>
+        <string id="name_T602Document">Documento de T602</string>
+        <string id="desc_T602Document">Desactivar el filtro de importación para el formato de archivo Documento de D602.</string>
+        <string id="name_TGA__Truevision_TARGA">TGA - Truevision Targa</string>
+        <string id="desc_TGA__Truevision_TARGA">Desactivar el filtro de importación para el formato de archivo TGA - Truevision Targa</string>
+        <string id="name_TIF__Tag_Image_File">TIFF - Tagged Image File Format</string>
+        <string id="desc_TIF__Tag_Image_File">Desactivar el filtro de importación para el formato de archivo TIFF - Tagged Image File Format file format.</string>
+        <string id="name_Text">Texto</string>
+        <string id="desc_Text">Desactivar el filtro de importación para el formato de archivo Texto</string>
+        <string id="name_Text_StarWriterWeb">Texto (Writer/Web)</string>
+        <string id="desc_Text_StarWriterWeb">Desactivar el filtro de importación para el formato de archivo Texto (Writer/Web)</string>
+        <string id="name_Text__txt__csv_StarCalc">Texto CSV</string>
+        <string id="desc_Text__txt__csv_StarCalc">Desactivar el filtro de importación para el formato de archivo Texto CSV</string>
+        <string id="name_Text_encoded">Texto (seleccionar codificación)</string>
+        <string id="desc_Text_encoded">Desactivar el filtro de importación para el formato de archivo Texto (seleccionar codificación)</string>
+        <string id="name_Text_encoded_StarWriterGlobalDocument">Texto (seleccionar codificación; patrón de documento)</string>
+        <string id="desc_Text_encoded_StarWriterGlobalDocument">Desactivar el filtro de importación para el formato de archivo Texto (seleccionar codificación; patrón de documento)</string>
+        <string id="name_Text_encoded_StarWriterWeb">Texto (seleccionar codificación; Writer/Web)</string>
+        <string id="desc_Text_encoded_StarWriterWeb">Desactivar el filtro de importación para el formato de archivo Texto (seleccionar codificación; Writer/Web)</string>
+        <string id="name_UOF_presentation">Presentación en formato de oficina unificado</string>
+        <string id="desc_UOF_presentation">Desactivar el filtro de importación para el formato de archivo Presentación en formato de oficina unificado</string>
+        <string id="name_UOF_spreadsheet">Hoja de cálculo en formato de oficina unificado</string>
+        <string id="desc_UOF_spreadsheet">Desactivar el filtro de importación para el formato de archivo Hoja de cálculo en formato de oficina unificado</string>
+        <string id="name_UOF_text">Texto en formato de oficina unificado</string>
+        <string id="desc_UOF_text">Desactivar el filtro de importación para el formato de archivo Texto en formato de oficina unificado</string>
+        <string id="name_Visio_Document">Microsoft Visio 2000-2013</string>
+        <string id="desc_Visio_Document">Desactivar el filtro de importación para el formato de archivo Microsoft Visio 2000-2013</string>
+        <string id="name_WMF__MS_Windows_Metafile">WMF: metarchivo de Windows</string>
+        <string id="desc_WMF__MS_Windows_Metafile">Desactivar el filtro de importación para el formato de archivo WMF: metarchivo de Windows</string>
+        <string id="name_WPS_Lotus_Calc">Documento de Lotus</string>
+        <string id="desc_WPS_Lotus_Calc">Desactivar el filtro de importación para el formato de archivo Documento de Lotus</string>
+        <string id="name_WPS_QPro_Calc">Documento de QuattroPro</string>
+        <string id="desc_WPS_QPro_Calc">Desactivar el filtro de importación para el formato de archivo Documento de QuattroPro</string>
+        <string id="name_WordPerfect">Documento de WordPerfect</string>
+        <string id="desc_WordPerfect">Desactivar el filtro de importación para el formato de archivo Documento de WordPerfect</string>
+        <string id="name_WordPerfect_Graphics">Gráficos de WordPerfect</string>
+        <string id="desc_WordPerfect_Graphics">Desactivar el filtro de importación para el formato de archivo Gráficos de WordPerfect</string>
+        <string id="name_WriteNow">Documento de WriteNow</string>
+        <string id="desc_WriteNow">Desactivar el filtro de importación para el formato de archivo Documento de WriteNow</string>
+        <string id="name_XBM__XConsortium">XBM: mapa de bits de X</string>
+        <string id="desc_XBM__XConsortium">Desactivar el filtro de importación para el formato de archivo XBM: mapa de bits de X</string>
+        <string id="name_XPM">XPM: mapa de píxeles de X</string>
+        <string id="desc_XPM">Desactivar el filtro de importación para el formato de archivo XPM: mapa de píxeles de X</string>
+        <string id="name_ZMF_Document">Zoner Callisto/Draw</string>
+        <string id="desc_ZMF_Document">Desactivar el filtro de importación para el formato de archivo Zoner Callisto/Draw</string>
+        <string id="name_calc8">Hoja de cálculo ODF</string>
+        <string id="desc_calc8">Desactivar el filtro de importación para el formato de archivo Hoja de cálculo ODF</string>
+        <string id="name_calc8_template">Plantilla de hoja de cálculo ODF</string>
+        <string id="desc_calc8_template">Desactivar el filtro de importación para el formato de archivo Plantilla de hoja de cálculo ODF</string>
+        <string id="name_Gnumeric_Spreadsheet">Hoja de cálculo de Gnumeric</string>
+        <string id="desc_Gnumeric_Spreadsheet">Desactivar el filtro de importación para el formato de archivo Hoja de cálculo de Gnumeric</string>
+        <string id="name_calc_HTML_WebQuery">Consulta de página web (Calc)</string>
+        <string id="desc_calc_HTML_WebQuery">Desactivar el filtro de importación para el formato de archivo Consulta de página web (Calc)</string>
+        <string id="name_Calc_MS_Excel_2007_Binary">Binario de Microsoft Excel 2007</string>
+        <string id="desc_Calc_MS_Excel_2007_Binary">Desactivar el filtro de importación para el formato de archivo Binario de Microsoft Excel 2007</string>
+        <string id="name_Calc_MS_Excel_2007_VBA_XML">XML de Microsoft Excel 2007–2019 (habilitado para macros)</string>
+        <string id="desc_Calc_MS_Excel_2007_VBA_XML">Desactivar el filtro de importación para el formato de archivo XML de Microsoft Excel 2007–2016 (habilitado para macros)</string>
+        <string id="name_Calc_MS_Excel_2007_XML">Microsoft Excel 2007–2019</string>
+        <string id="desc_Calc_MS_Excel_2007_XML">Desactivar el filtro de importación para el formato de archivo Microsoft Excel 2007–2013</string>
+        <string id="name_Calc_MS_Excel_2007_XML_Template">Plantilla XML de Microsoft Excel 2007–2019</string>
+        <string id="desc_Calc_MS_Excel_2007_XML_Template">Desactivar el filtro de importación para el formato de archivo Plantilla XML de Microsoft Excel 2007–2013</string>
+        <string id="name_Calc_Office_Open_XML">Hoja de cálculo Office Open XML</string>
+        <string id="desc_Calc_Office_Open_XML">Desactivar el filtro de importación para el formato de archivo Hoja de cálculo Office Open XML</string>
+        <string id="name_Calc_Office_Open_XML_Template">Plantilla de Hoja de cálculo Office Open XML</string>
+        <string id="desc_Calc_Office_Open_XML_Template">Desactivar el filtro de importación para el formato de archivo Plantilla de Hoja de cálculo Office Open XML</string>
+        <string id="name_calc_StarOffice_XML_Calc_Template">Plantilla de Hoja de cálculo OpenOffice.org 1.0 </string>
+        <string id="desc_calc_StarOffice_XML_Calc_Template">Desactivar el filtro de importación para el formato de archivo Plantilla de Hoja de cálculo OpenOffice.org 1.0</string>
+        <string id="name_chart8">Gráfico ODF</string>
+        <string id="desc_chart8">Desactivar el filtro de importación para el formato de archivo Gráfico ODF</string>
+        <string id="name_dBase">dBASE</string>
+        <string id="desc_dBase">Desactivar el filtro de importación para el formato de archivo dBASE</string>
+        <string id="name_draw8">Dibujo ODF</string>
+        <string id="desc_draw8">Desactivar el filtro de importación para el formato de archivo Dibujo ODF</string>
+        <string id="name_draw8_template">Plantilla de Dibujo ODF</string>
+        <string id="desc_draw8_template">Desactivar el filtro de importación para el formato de archivo Plantilla de dibujo ODF</string>
+        <string id="name_draw_PCD_Photo_CD_Base">PCD - Foto CD Kodak (768x512)</string>
+        <string id="desc_draw_PCD_Photo_CD_Base">Desactivar el filtro de importación para el formato de archivo PCD - Foto CD Kodak (768x512)</string>
+        <string id="name_draw_PCD_Photo_CD_Base16">PCD - Kodak Foto CD (192x128) </string>
+        <string id="desc_draw_PCD_Photo_CD_Base16">Desactivar el filtro de importación para el formato de archivo PCD - Foto CD Kodak (192x128)</string>
+        <string id="name_draw_PCD_Photo_CD_Base4">PCD - Foto CD Kodak (384x256)</string>
+        <string id="desc_draw_PCD_Photo_CD_Base4">Desactivar el filtro de importación para el formato de archivo PCD - Foto CD Kodak (384x256)</string>
+        <string id="name_draw_StarOffice_XML_Draw_Template">Plantilla de Dibujo OpenOffice.org 1.0</string>
+        <string id="desc_draw_StarOffice_XML_Draw_Template">Desactivar el filtro de importación para el formato de archivo Plantilla de dibujo de OpenOffice.org 1.0</string>
+        <string id="name_impress8">Presentación ODF</string>
+        <string id="desc_impress8">Desactivar el filtro de importación para el formato de archivo Presentación ODF</string>
+        <string id="name_impress8_draw">Dibujo ODF (Impress)</string>
+        <string id="desc_impress8_draw">Desactivar el filtro de importación para el formato de archivo Dibujo ODF (Impress)</string>
+        <string id="name_impress8_template">Plantilla de presentación ODF</string>
+        <string id="desc_impress8_template">Desactivar el filtro de importación para el formato de archivo Plantilla de presentación ODF</string>
+        <string id="name_Impress_MS_PowerPoint_2007_XML">XML de Microsoft PowerPoint 2007–2019</string>
+        <string id="desc_Impress_MS_PowerPoint_2007_XML">Desactivar el filtro de importación para el formato de archivo XML de Microsoft PowerPoint 2007–2013</string>
+        <string id="name_Impress_MS_PowerPoint_2007_XML_AutoPlay">XML de autoreproducción de Microsoft PowerPoint 2007-2013</string>
+        <string id="desc_Impress_MS_PowerPoint_2007_XML_AutoPlay">Desactivar el filtro de importación para el formato de archivo XML de autoreproducción de Microsoft PowerPoint 2007-2013</string>
+        <string id="name_Impress_MS_PowerPoint_2007_XML_Template">Plantilla XML de Microsoft PowerPoint 2007-2013</string>
+        <string id="desc_Impress_MS_PowerPoint_2007_XML_Template">Desactivar el filtro de importación para el formato de archivo Plantilla XML de Microsoft PowerPoint 2007-2013</string>
+        <string id="name_Impress_MS_PowerPoint_2007_XML_VBA">VBA XML de Microsoft PowerPoint 2007–2019</string>
+        <string id="desc_Impress_MS_PowerPoint_2007_XML_VBA">Desactivar el filtro de importación para el formato de archivo VBA XML de Microsoft PowerPoint 2007–2013</string>
+        <string id="name_Impress_Office_Open_XML">Presentación Office Open XML</string>
+        <string id="desc_Impress_Office_Open_XML">Desactivar el filtro de importación para el formato de archivo Presentación Office Open XML</string>
+        <string id="name_Impress_Office_Open_XML_AutoPlay">Presentación automática Office Open XML</string>
+        <string id="desc_Impress_Office_Open_XML_AutoPlay">Desactivar el filtro de importación para el formato de archivo Presentación automática Office Open XML</string>
+        <string id="name_Impress_Office_Open_XML_Template">Plantilla de presentación Office Open XML</string>
+        <string id="desc_Impress_Office_Open_XML_Template">Desactivar el filtro de importación para el formato de archivo Plantilla de presentación Office Open XML</string>
+        <string id="name_impress_StarOffice_XML_Draw">Dibujo de OpenOffice.org 1.0 (Impress)</string>
+        <string id="desc_impress_StarOffice_XML_Draw">Desactivar el filtro de importación para el formato de archivo Dibujo de OpenOffice.org 1.0 (Impress)</string>
+        <string id="name_impress_StarOffice_XML_Impress_Template">Plantilla de presentación de OpenOffice.org 1.0</string>
+        <string id="desc_impress_StarOffice_XML_Impress_Template">Desactivar el filtro de importación para el formato de archivo Plantilla de presentación de OpenOffice.org 1.0</string>
+        <string id="name_math8">Fórmula ODF</string>
+        <string id="desc_math8">Desactivar el filtro de importación para el formato de archivo Fórmula ODF</string>
+        <string id="name_MOV__MOV">MOV: formato de archivo de QuickTime</string>
+        <string id="desc_MOV__MOV">Desactivar el filtro de importación para el formato de archivo MOV: formato de archivo de QuickTime</string>
+        <string id="name_writer8">Documento de texto ODF</string>
+        <string id="desc_writer8">Desactivar el filtro de importación para el formato de archivo Documento de texto ODF</string>
+        <string id="name_writer8_template">Plantilla de documento de texto ODF</string>
+        <string id="desc_writer8_template">Desactivar el filtro de importación para el formato de archivo Plantilla de documento de texto ODF</string>
+        <string id="name_writer_MIZI_Hwp_97">Hangul WP 97</string>
+        <string id="desc_writer_MIZI_Hwp_97">Desactivar el filtro de importación para el formato de archivo Hangul WP 97</string>
+        <string id="name_writer_StarOffice_XML_Writer_Template">Plantilla de documento de texto de OpenOffice.org 1.0</string>
+        <string id="desc_writer_StarOffice_XML_Writer_Template">Desactivar el filtro de importación para el formato de archivo Plantilla de documento de texto de OpenOffice.org 1.0</string>
+        <string id="name_writer_globaldocument_StarOffice_XML_Writer_GlobalDocument">Documento Maestro de OpenOffice.org 1.0</string>
+        <string id="desc_writer_globaldocument_StarOffice_XML_Writer_GlobalDocument">Desactivar el filtro de importación para el formato de archivo Documento Maestro de OpenOffice.org 1.0</string>
+        <string id="name_writer_web_HTML_help">Contenido de la ayuda</string>
+        <string id="desc_writer_web_HTML_help">Desactivar el filtro de importación para el formato de archivo Contenido de la ayuda.</string>
+        <string id="name_writer_web_StarOffice_XML_Writer_Web_Template">Plantilla HTML de OpenOffice.org 1.0</string>
+        <string id="desc_writer_web_StarOffice_XML_Writer_Web_Template">Desactivar el filtro de importación para el formato de archivo Plantilla HTML de OpenOffice.org 1.0</string>
+        <string id="name_writerglobal8">Patrón de documento ODF</string>
+        <string id="desc_writerglobal8">Desactivar el filtro de importación para el formato de archivo Patrón de documento ODF.</string>
+        <string id="name_writerglobal8_template">Plantilla de patrón de documento ODF</string>
+        <string id="desc_writerglobal8_template">Desactivar el filtro de importación para el formato de archivo Plantilla de patrón de documento ODF.</string>
+        <string id="name_writerweb8_writer_template">Plantilla de documento HTML</string>
+        <string id="desc_writerweb8_writer_template">Desactivar el filtro de importación para el formato de archivo Plantilla de documento HTML</string>
+
+        <string id="category_OpenCL">OpenCL</string>
+        <string id="name_UseOpenCL">Utilizar OpenCL</string>
+        <string id="desc_UseOpenCL">Determina si se puede emplear OpenCL, cuando esté disponible, para acelerar algunas operaciones.</string>
+
+        <string id="UserProfile">Datos de usuario</string>
+        <string id="UPUserName">Nombre de Usuario</string>
+        <string id="desc_UPUserName">Nombre de Usuario
+
+Cuando se configura para utilizar LDAP su valor es el atributo LDAP que contiene el nombre de usuario; La configuración de la infraestructura LDAP determina como conectar con el servidor LDAP.</string>
+        <string id="UPCompanyName">Nombre de Empresa</string>
+        <string id="desc_UPCompanyName">Nombre de Empresa
+
+Cuando se configura para utilizar LDAP su valor es el atributo LDAP que contiene el nombre de la empresa; La configuración de la infraestructura LDAP determina como conectar con el servidor LDAP.</string>
+        <string id="UPAddress">Dirección</string>
+        <string id="desc_UPAddress">Dirección
+
+Cuando se configura para utilizar LDAP su valor es el atributo LDAP que contiene la dirección; La configuración de la infraestructura LDAP determina como conectar con el servidor LDAP.</string>
+        <string id="UPTelephone">Telefono/Fax</string>
+        <string id="desc_UPTelephone">Telefono/Fax
+
+Cuando algúno se configura para utilizar LDAP su valor es el atributo LDAP que contiene el teléfono o fax; La configuración de la infraestructura LDAP determina como conectar con el servidor LDAP.</string>
+
+        <string id="category_Paths">Rutas</string>
+        <string id="name_AutoCorrect">Ruta de archivos de corrección automática</string>
+        <string id="name_AutoText">Ruta de archivos de texto automático</string>
+        <string id="name_Dictionary">Ruta de archivos de diccionario</string>
+        <string id="name_Gallery">Ruta de archivos de la Galería</string>
+        <string id="name_Templates">Ruta de plantillas</string>
+        <string id="name_MyDocuments">Ruta de carpeta Mis documentos</string>
+        <string id="name_Graphic">Ruta de imágenes</string>
+        <string id="name_Backup">Ruta de copias de seguridad</string>
+        <string id="name_Temp">Ruta de archivos temporales</string>
+
+        <string id="category_Passwords">Contraseñas</string>
+        <string id="name_TrySystemCredentialsFirst">Usar las credenciales del sistema</string>
+        <string id="desc_TrySystemCredentialsFirst">Especifica si se utilizará automáticamente la autenticación utilizando las credenciales del sistema para todos los recursos que lo soporten.</string>
+
+        <string id="category_View">Ver</string>
+        <string id="name_SymbolStyle">Estilo de iconos</string>
+        <string id="desc_SymbolStyle">Especifica cuál estilo de iconos se utiliza en las barras de herramientas, los menús, etc.: «Automatic» define un valor adecuado para el entorno de escritorio; los otros valores posibles son los nombres de los distintos temas de iconos («Breeze», «Oxygen», «Sifr», etc.).</string>
+        <string id="auto">Automático</string>
+        <string id="default">Predeterminado</string>
+        <string id="tango">Tango</string>
+        <string id="breeze">Breeze</string>
+        <string id="oxygen">Oxygen</string>
+        <string id="sifr">Sifr</string>
+        <string id="galaxy">Galaxy</string>
+        <string id="hicontrast">Contraste alto</string>
+        <string id="small">Pequeños</string>
+        <string id="large">Grandes</string>
+        <string id="name_UseOpenGL">Utilizar OpenGL</string>
+        <string id="desc_UseOpenGL">Especifica si se debe utilizar la representación con OpenGL en los motores de VLC que lo admiten.</string>
+        <string id="name_ForceOpenGL">Forzar OpenGL</string>
+        <string id="desc_ForceOpenGL">Especifica si se debe utilizar la representación con OpenGL en los motores de VCL que lo admiten. Esta opción fuerza el uso de OpenGL aun si la lista negra prohíbe el controlador OpenGL.</string>
+
+        <string id="category_Print">Imprimir</string>
+        <string id="name_ConvertToGreyscales">Convertir colores a escala de grises</string>
+        <string id="desc_ConvertToGreyscales">Indica si se debe crear solo salida en escala de grises para todos los objetos.</string>
+        <string id="name_PrinterWarnings">Alertas de impresora</string>
+        <string id="desc_PrinterWarnings">Alertas de impresora</string>
+
+        <string id="category_Accessibility">Accesibilidad</string>
+        <string id="name_EnableATToolSupport">Compatibilidad con herramientas de tecnología de asistencia</string>
+        <string id="desc_EnableATToolSupport">Compatibilidad con herramientas de tecnología de asistencia</string>
+        <string id="name_IsSelectionInReadonly">Usar cursor de selección de texto en documentos de solo lectura</string>
+        <string id="desc_IsSelectionInReadonly">Indica si se mostrará el cursor en los documentos de texto de solo lectura.</string>
+        <string id="name_IsAllowAnimatedGraphics">Permitir gráficos animados</string>
+        <string id="desc_IsAllowAnimatedGraphics">Indica si se deben permitir animaciones de gráficos en todas las aplicaciones, p. ej., GIF animados y objetos de Impress durante una presentación y previsualizaciones de animaciones (Galería, menú Insertar &gt; Imagen y la Herramienta de animaciones en Impress).</string>
+        <string id="name_IsAllowAnimatedText">Permitir texto animado</string>
+        <string id="desc_IsAllowAnimatedText">Indica si se deben permitir las animaciones de texto, como parpadeos y desplazamientos, en todas las aplicaciones.</string>
+        <string id="name_HelpTipsDisappear">Las descripciones emergentes desaparecen tras…</string>
+        <string id="desc_HelpTipsDisappear">Activa o desactiva el límite de tiempo de las descripciones emergentes. Puede especificar una duración (n) de entre 1 y 99 segundos. Si se desactiva esta opción, oprima Esc para cerrar la descripción emergente.</string>
+        <string id="name_AutoDetectSystemHC">Detectar automáticamente modo de contraste alto del sistema operativo</string>
+        <string id="desc_AutoDetectSystemHC">Activa la detección automática de la modalidad de contraste alto del sistema. Algunos sistemas operativos no proporcionan esta opción explícitamente; en cambio, ofrecen la posibilidad de seleccionar combinaciones de colores equivalentes, que son reconocidas cuando se activa esta opción.</string>
+        <string id="name_IsAutomaticFontColor">Utilizar color de letra automático para mostrar texto en pantalla</string>
+        <string id="desc_IsAutomaticFontColor">Invalida todos los atributos de color de texto definidos en un documento únicamente durante su visualización.</string>
+        <string id="name_IsForPagePreviews">Utilizar colores del sistema en previsualizaciones de páginas</string>
+        <string id="desc_IsForPagePreviews">Permite la utilización de los colores de contraste alto en lugar de los colores WYSIWYG originales.</string>
+
+        <string id="category_FontSubstitutions">Sustituciones tipográficas</string>
+        <string id="name_UseFontSubstitutions">Utilizar sustituciones tipográficas</string>
+        <string id="desc_UseFontSubstitutions">Permite a LibreOffice utilizar una tabla de sustituciones tipográficas</string>
+        <string id="name_FontPair_0">Par de tipos 0</string>
+        <string id="name_FontPair_1">Par de tipos 1</string>
+        <string id="name_FontPair_2">Par de tipos 2</string>
+        <string id="name_FontPair_3">Par de tipos 3</string>
+        <string id="name_FontPair_4">Par de tipos 4</string>
+        <string id="name_FontPair_5">Par de tipos 5</string>
+        <string id="name_FontPair_6">Par de tipos 6</string>
+        <string id="name_FontPair_7">Par de tipos 7</string>
+        <string id="name_FontPair_8">Par de tipos 8</string>
+        <string id="name_FontPair_9">Par de tipos 9</string>
+        <string id="desc_FontPair">Define un par de sustitución tipográfica</string>
+
+        <string id="category_PDFExport">Exportación a PDF</string>
+        <string id="name_SelectPDFExport">Seleccione las opciones de exportación a PDF preferidas</string>
+        <string id="desc_SelectPDFExport">Seleccione las opciones de exportación a PDF predeterminadas</string>
+
+        <string id="category_Writer">Writer</string>
+        <string id="desc_SaveAsFormat">Guardar siempre en este formato de documento. Observe que solo el Formato de Documentos Abiertos (ODF) garantiza la integridad de datos.</string>
+        <string id="odt">Documento de texto ODF</string>
+        <string id="docx">XML de Microsoft Word 2007/2010</string>
+        <string id="doc">Microsoft Word 97/2000/XP/2003</string>
+        <string id="rtf">Texto enriquecido (RTF)</string>
+        <string id="category_WriterDefaultFonts">Tipos de letra predeterminados</string>
+        <string id="name_WriterDefaultFontsWestern">Tipos de letra predeterminados (occidental)</string>
+        <string id="desc_WriterDefaultFontsWestern">Especifica el tipo de letra que se empleará para los textos occidentales (alfabetos latinos, cirílicos, griegos, etc.)
+
+Las alturas del tipo de letra se expresan en milímetros*100, equivalentes al tamaño en puntos multiplicado por 35,2777. Por ejemplo, para definir el tamaño de letra a 12 puntos, defina la altura a 423.</string>
+        <string id="name_WriterDefaultFontsCJK">Tipos de letra predeterminados (CJK)</string>
+        <string id="desc_WriterDefaultFontsCJK">Especifica el tipo de letra que se empleará para textos en chino, japonés y coreano.
+
+Las alturas del tipo de letra se expresan en milímetros*100, equivalentes al tamaño en puntos multiplicado por 35,2777. Por ejemplo, para definir el tamaño de letra a 12 puntos, defina la altura a 423.</string>
+        <string id="name_WriterDefaultFontsCTL">Tipos de letra predeterminados (CTL)</string>
+        <string id="desc_WriterDefaultFontsCTL">Especifica el tipo de letra que se empleará para textos de disposición compleja (árabe, índico, etc.)
+
+Las alturas del tipo de letra se expresan en milímetros*100, equivalentes al tamaño en puntos multiplicado por 35,2777. Por ejemplo, para definir el tamaño de letra a 12 puntos, defina la altura a 423.</string>
+        <string id="name_PrintEmptyPages">Imprimir páginas vacías</string>
+        <string id="desc_PrintEmptyPages">Especifica si se deben imprimir las páginas vacías.</string>
+        <string id="name_AllSheets">Imprimir solo hojas seleccionadas</string>
+        <string id="desc_AllSheets">Especifica si se deben imprimir todas las hojas en lugar de solo las que se hayan seleccionado.</string>
+        <string id="category_AutoText">AutoTexto</string>
+        <string id="name_AutoTextShowTooltip">Sugerencia</string>
+        <string id="desc_AutoTextShowTooltip">Mostrar el resto del nombre como sugerencia mientras se escribe</string>
+        <string id="category_Forms">Formularios</string>
+        <string id="name_MSOFormsMenu">Controles de formulario compatibles con MS Office</string>
+        <string id="desc_MSOFormsMenu">Especifica si se personalizarán los formularios para un workflow compatible con Microsoft Office.  Los formularios compatibles con Microsoft Office contienen únicamente controles compatibles con Microsoft Office</string>
+
+        <string id="category_Calc">Calc</string>
+        <string id="ods">Hoja de cálculo ODF</string>
+        <string id="xlsx">XML de Microsoft Excel 2007/2010</string>
+        <string id="xls">XLS de Microsoft Excel 97-2003</string>
+
+        <string id="category_Calculate">Calcular</string>
+
+        <string id="name_CaseSensitive">Distinguir mayúsculas y minúsculas</string>
+        <string id="desc_CaseSensitive">Al comparar los contenidos de las celdas, distinguir entre letras mayúsculas y minúsculas</string>
+        <string id="name_Precision">Precisión tal como se muestra</string>
+        <string id="desc_Precision">Especifica si el cálculo debe utilizar los valores redondeados mostrados en la hoja.</string>
+        <string id="name_SearchCriteria">Los criterios de búsqueda = y &lt;&gt; deben aplicarse a celdas enteras</string>
+        <string id="desc_SearchCriteria">Especifica si los criterios de búsqueda de las fórmulas deben coincidir con la totalidad del contenido de las celdas.</string>
+        <string id="name_FindLabel">Encontrar automáticamente etiquetas de columnas y filas</string>
+        <string id="desc_FindLabel">Especifica si se utilizarán las etiquetas de columnas y celdas para hacer referencia al área de la columna ubicada junto a la celda de texto o al área de la fila situada a la derecha de la celda de texto durante una búsqueda.</string>
+        <string id="name_RegularExpressions">Expresiones regulares en fórmulas</string>
+        <string id="desc_RegularExpressions">Especifica si el cálculo debe utilizar expresiones regulares en las fórmulas, por ejemplo, para funciones que localizan contenidos en hojas.</string>
+        <string id="name_Wildcards">Comodines en fórmulas</string>
+        <string id="desc_Wildcards">Especifica si el cálculo debe utilizar comodines en las fórmulas, por ejemplo, para funciones que localizan contenidos en hojas.</string>
+
+        <string id="category_Formulas">Fórmulas</string>
+        <string id="name_EnglishFunctionName">Nombres de funciones en inglés</string>
+        <string id="desc_EnglishFunctionName">Utilizar nombres de funciones ingleses aun en interfaces de usuario traducidas.</string>
+        <string id="name_RecalcMode">Recálculo de hojas de cálculo al cargarlas</string>
+        <string id="desc_RecalcMode">Especifica si forzar un recálculo de las celdas con fórmulas tras la carga de documentos ODF no generados por LibreOffice y/o documentos Excel basados en OOXML (versiones 2007 y superiores)</string>
+        <string id="alwaysrecalc">Siempre recalcular</string>
+        <string id="neverrecalc">Nunca recalcular</string>
+        <string id="promptrecalc">Preguntar al usuario</string>
+
+        <string id="category_MergeCells">Combinar celdas</string>
+        <string id="name_ShowMergeDialog">Mostrar cuadro de diálogo Combinar celdas</string>
+        <string id="desc_ShowMergeDialog">Especifica si debe mostrarse el cuadro de diálogo Combinar celdas cuando haya celdas no vacías.</string>
+        <string id="desc_EmptyMergedCells">Especifica si eliminar los contenidos de las celdas vacias (tal y como hace Excel).</string>
+        <string id="name_EmptyMergedCells">Vaciar celdas fusionadas</string>
+
+        <string id="category_Impress">Impress</string>
+        <string id="odp">Presentación ODF</string>
+        <string id="pptx">XML de Microsoft PowerPoint 2007/2010</string>
+        <string id="ppt">Microsoft PowerPoint 97/2000/XP/2003</string>
+
+        <string id="desc_WriterDefaultTemplate">Especifica la URL del archivo plantilla estándard para documentos de texto.</string>
+        <string id="desc_CalcDefaultTemplate">Especifica la URL del archivo plantilla estándard para hojas de cálculo.</string>
+        <string id="desc_ImpressDefaultTemplate">Especifica la URL del archivo plantilla estándard para presentaciones.</string>
+
+        <string id="SaveAsFormat">Formato de Guardar como</string>
+        <string id="Print">Imprimir</string>
+        <string id="DefaultTemplate">Plantilla predeterminada</string>
+        <string id="PathListExplain">Las rutas de archivo y directorio se deben introducir con la sintaxis URL descrita más abajo.
+Unidad local o unidad de red mapeadas a una letra de unidad, como C:
+    file:///C:/path/file.ext
+Path UNC
+    file://server/share/path/file.ext
+
+Los espacios y caracteres no-ASCII se deben codificar, e.g. el espacio ha de escribirse como %20.
+
+Se pueden utilizar las siguientes variables de ruta:
+    $(inst)  = ubicación de la instalación
+    $(user)  = ubicación del perfil de usuario
+    $(username) = login del usuario sin nombre de dominio (desde versión 5.2)
+    $(work)  = carpeta Mis Documentos del usuario
+    $(home)  = el directorio raíz del usuario
+    $(temp)  = ubicación de los archivos temporales del usuario
+    $(vlang) = código de lenguaje actual (e.g. en-US, fr, hu)
+
+Las rutas en listas de rutas se deben separar con espacios.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="LDAPConfigBackendSettings">
+        <text>Configuracion del servidor LDAP</text>
+        <textBox refId="LDAPUDServerDefinition_Server">
+          <label>Servidor:</label>
+          <defaultValue>example.com</defaultValue>
+        </textBox>
+        <decimalTextBox refId="LDAPUDServerDefinition_Port" defaultValue="389" spin="false">Puerto:</decimalTextBox>
+        <text>Configuración de la búsqueda LDAP</text>
+        <textBox refId="LDAPUDSearchUser">
+          <label>Usuario para conectar:</label>
+          <defaultValue>example\bindLdap</defaultValue>
+        </textBox>
+        <textBox refId="LDAPUDSearchPassword">
+          <label>Contraseña del usuario para conectar</label>
+        </textBox>
+        <textBox refId="LDAPUDServerDefinition_BaseDN">
+          <label>DN Base para la búsqueda:</label>
+          <defaultValue>cn=Users,dc=example,dc=com</defaultValue>
+        </textBox>
+        <textBox refId="LDAPUDUserObjectClass">
+          <label>Clase del objeto usuario:</label>
+          <defaultValue>user</defaultValue>
+        </textBox>
+        <textBox refId="LDAPUDUserUniqueAttribute">
+          <label>Atributo único del usuario:</label>
+          <defaultValue>sAMAccountName</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="ooName">
+        <text>Especifica el nombre del producto.</text>
+        <textBox refId="Value">
+          <label>Valor:</label>
+          <defaultValue>Collabora Office</defaultValue>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="UserDefinedSettings">
+        <checkBox refId="Value">Cargar configuración específica del usuario con el documento</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="UseUserData">
+        <checkBox refId="Value">Utilizar datos de usuario para las propiedades del documento</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="AutoSave">
+        <checkBox refId="Value">Guardar información de recuperación automática</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+        <text>Guardar información de recuperación automática cada __ minutos</text>
+        <text>Tipo: entero [1..60]</text>
+        <decimalTextBox refId="AutoSaveTimeIntervallValue" defaultValue="15" spin="true">Valor</decimalTextBox>
+        <checkBox refId="AutoSaveTimeIntervallFinal">Final</checkBox>
+        <checkBox refId="AutoSavePromptValue">También guardar documento automáticamente</checkBox>
+        <checkBox refId="AutoSavePromptFinal">Final</checkBox>
+      </presentation>
+      <presentation id="RecoveryInfo">
+        <checkBox refId="Value">Desactivar la función de recuperación automática</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="CreateBackup">
+        <checkBox refId="Value">Crear siempre una copia de seguridad</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="EditProperty">
+        <checkBox refId="Value">Editar propiedades del documento antes de guardar</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WarnAlienFormat">
+        <checkBox refId="Value">Alertar al usuario cuando se guarde en un formato distinto de ODF o del predeterminado</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="AutoCorrect">
+        <text>Ruta de escritura de ficheros de Autocorrección.  Esta es la ruta donde se ubicarán los nuevos archivos</text>
+        <textBox refId="WritePathValue">
+          <label>Ruta:</label>
+          <defaultValue>$(user)/autocorr</defaultValue>
+        </textBox>
+        <checkBox refId="WritePathFinal">Final</checkBox>
+        <text>Rutas de usuario de los archivos de Autocorrección</text>
+        <textBox refId="UserPathsValue">
+          <label>Lista de rutas:</label>
+          <defaultValue>$(inst)/share/autocorr $(user)/autocorr</defaultValue>
+        </textBox>
+        <checkBox refId="UserPathsFinal">Final</checkBox>
+      </presentation>
+      <presentation id="AutoText">
+        <text>Ruta de escritura de ficheros de AutoTexto.  Esta es la ruta donde se ubicarán los nuevos archivos</text>
+        <textBox refId="WritePathValue">
+          <label>Ruta:</label>
+          <defaultValue>$(user)/autotext</defaultValue>
+        </textBox>
+        <checkBox refId="WritePathFinal">Final</checkBox>
+        <text>Rutas de usuario de los archivos de AutoTexto</text>
+        <textBox refId="UserPathsValue">
+          <label>Lista de rutas:</label>
+          <defaultValue>$(inst)/share/autotext/$(vlang) $(user)/autotext</defaultValue>
+        </textBox>
+        <checkBox refId="UserPathsFinal">Final</checkBox>
+      </presentation>
+      <presentation id="Dictionary">
+        <text>Ruta de escritura de ficheros de Diccionario.  Esta es la ruta donde se ubicarán los nuevos archivos</text>
+        <textBox refId="WritePathValue">
+          <label>Ruta:</label>
+          <defaultValue>$(user)/wordbook</defaultValue>
+        </textBox>
+        <checkBox refId="WritePathFinal">Final</checkBox>
+        <text>Rutas de usuario de los archivos de Diccionario</text>
+        <textBox refId="UserPathsValue">
+          <label>Lista de rutas:</label>
+          <defaultValue>$(inst)/share/wordbook $(inst)/share/wordbook/$(vlang) $(user)/wordbook</defaultValue>
+        </textBox>
+        <checkBox refId="UserPathsFinal">Final</checkBox>
+      </presentation>
+      <presentation id="Gallery">
+        <text>Ruta de escritura de ficheros de Galería.  Esta es la ruta donde se ubicarán los nuevos archivos</text>
+        <textBox refId="WritePathValue">
+          <label>Ruta:</label>
+          <defaultValue>$(user)/gallery</defaultValue>
+        </textBox>
+        <checkBox refId="WritePathFinal">Final</checkBox>
+        <text>Rutas de usuario de los archivos de Galería</text>
+        <textBox refId="UserPathsValue">
+          <label>Lista de rutas:</label>
+          <defaultValue>$(inst)/share/gallery $(user)/gallery</defaultValue>
+        </textBox>
+        <checkBox refId="UserPathsFinal">Final</checkBox>
+      </presentation>
+      <presentation id="Templates">
+        <text>Ruta de escritura de ficheros de Plantillas.  Esta es la ruta donde se ubicarán los nuevos archivos</text>
+        <textBox refId="WritePathValue">
+          <label>Ruta:</label>
+          <defaultValue>$(user)/template</defaultValue>
+        </textBox>
+        <checkBox refId="WritePathFinal">Final</checkBox>
+        <text>Rutas de usuario de los archivos de Plantillas</text>
+        <textBox refId="UserPathsValue">
+          <label>Lista de rutas:</label>
+          <defaultValue>$(user)/template</defaultValue>
+        </textBox>
+        <checkBox refId="UserPathsFinal">Final</checkBox>
+      </presentation>
+      <presentation id="MyDocuments">
+        <text>Ubicación de la carpeta Mis documentos.</text>
+        <textBox refId="WritePathValue">
+          <label>Ruta:</label>
+          <defaultValue>$(work)</defaultValue>
+        </textBox>
+        <checkBox refId="WritePathFinal">Final</checkBox>
+      </presentation>
+      <presentation id="Graphic">
+        <text>Ruta de escritura de ficheros de Imagen.  Esta es la ruta donde se ubicarán los nuevos archivos</text>
+        <textBox refId="WritePathValue">
+          <label>Ruta:</label>
+          <defaultValue>$(user)/gallery</defaultValue>
+        </textBox>
+        <checkBox refId="WritePathFinal">Final</checkBox>
+      </presentation>
+      <presentation id="Backup">
+        <text>Ruta de escritura de ficheros de Backup.  Esta es la ruta donde se ubicarán los nuevos archivos</text>
+        <textBox refId="WritePathValue">
+          <label>Ruta:</label>
+          <defaultValue>$(user)/backup</defaultValue>
+        </textBox>
+        <checkBox refId="WritePathFinal">Final</checkBox>
+      </presentation>
+      <presentation id="Temp">
+        <text>Ruta de escritura de ficheros Temporales.  Esta es la ruta donde se ubicarán los nuevos archivos</text>
+        <textBox refId="WritePathValue">
+          <label>Ruta:</label>
+          <defaultValue>$(temp)</defaultValue>
+        </textBox>
+        <checkBox refId="WritePathFinal">Final</checkBox>
+      </presentation>
+      <presentation id="UseSystemFileDialog">
+        <checkBox refId="Value">Usar diálogo de apertura de archivos del sistema</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="CollectUsageInformation">
+        <checkBox refId="Value">Recopilar datos de uso y enviarlos a The Document Foundation</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="UseSystemPrintDialog">
+        <checkBox refId="Value">Usar diálogo de impresión del sistema</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="UPUserName">
+        <textBox refId="GivenNameValue">
+          <label>Nombre:</label>
+        </textBox>
+        <dropdownList refId="GivenNameFlags" noSort="true" defaultItem="0">Parámetros:</dropdownList>
+        <textBox refId="LastNameValue">
+          <label>Apellido:</label>
+        </textBox>
+        <dropdownList refId="LastNameFlags" noSort="true" defaultItem="0">Parámetros:</dropdownList>
+        <textBox refId="InitialsValue">
+          <label>Iniciales:</label>
+        </textBox>
+        <dropdownList refId="InitialsFlags" noSort="true" defaultItem="0">Parámetros:</dropdownList>
+      </presentation>
+      <presentation id="UPCompanyName">
+        <textBox refId="CompanyNameValue">
+          <label>Nombre de empresa:</label>
+        </textBox>
+        <dropdownList refId="CompanyNameFlags" noSort="true" defaultItem="0">Parámetros:</dropdownList>
+      </presentation>
+      <presentation id="UPAddress">
+        <textBox refId="AddressStreetValue">
+          <label>Calle:</label>
+        </textBox>
+        <dropdownList refId="AddressStreetFlags" noSort="true" defaultItem="0">Parámetros:</dropdownList>
+        <textBox refId="AddressCityValue">
+          <label>Ciudad:</label>
+        </textBox>
+        <dropdownList refId="AddressCityFlags" noSort="true" defaultItem="0">Parámetros:</dropdownList>
+        <textBox refId="AddressStateValue">
+          <label>Estado:</label>
+        </textBox>
+        <dropdownList refId="AddressStateFlags" noSort="true" defaultItem="0">Parámetros:</dropdownList>
+        <textBox refId="AddressPostalCodeValue">
+          <label>Código postal:</label>
+        </textBox>
+        <dropdownList refId="AddressPostalCodeFlags" noSort="true" defaultItem="0">Parámetros:</dropdownList>
+        <textBox refId="AddressCountryValue">
+          <label>País:</label>
+        </textBox>
+        <dropdownList refId="AddressCountryFlags" noSort="true" defaultItem="0">Parámetros:</dropdownList>
+      </presentation>
+      <presentation id="UPTelephone">
+        <textBox refId="TelephoneValue">
+          <label>Teléfono:</label>
+        </textBox>
+        <dropdownList refId="TelephoneFlags" noSort="true" defaultItem="0">Parámetros:</dropdownList>
+        <textBox refId="FaxValue">
+          <label>Fax:</label>
+        </textBox>
+        <dropdownList refId="FaxFlags" noSort="true" defaultItem="0">Parámetros:</dropdownList>
+      </presentation>
+      <presentation id="WriterSaveAsFormat">
+        <text>Guardar siempre en este formato de documento.</text>
+        <dropdownList refId="Value" defaultItem="2">Valor</dropdownList>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="CalcSaveAsFormat">
+        <text>Guardar siempre en este formato de documento.</text>
+        <dropdownList refId="Value" defaultItem="2">Valor</dropdownList>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ImpressSaveAsFormat">
+        <text>Guardar siempre en este formato de documento.</text>
+        <dropdownList refId="Value" defaultItem="2">Valor</dropdownList>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WriterDefaultTemplate">
+        <textBox refId="Value">
+          <label>URL de archivo:</label>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="CalcDefaultTemplate">
+        <textBox refId="Value">
+          <label>URL de archivo:</label>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ImpressDefaultTemplate">
+        <textBox refId="Value">
+          <label>URL de archivo:</label>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WriterDefaultFontsWestern">
+        <text>Predeterminado</text>
+        <textBox refId="WriterDefaultFontsWesternDefaultFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsWesternDefaultFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsWesternDefaultFontSizeValue" defaultValue="423" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsWesternDefaultFontSizeFinal">Final</checkBox>
+        <text>Título</text>
+        <textBox refId="WriterDefaultFontsWesternHeadingFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsWesternHeadingFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsWesternHeadingFontSizeValue" defaultValue="494" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsWesternHeadingFontSizeFinal">Final</checkBox>
+        <text>Lista</text>
+        <textBox refId="WriterDefaultFontsWesternListFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsWesternListFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsWesternListFontSizeValue" defaultValue="423" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsWesternListFontSizeFinal">Final</checkBox>
+        <text>Leyenda</text>
+        <textBox refId="WriterDefaultFontsWesternCaptionFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsWesternCaptionFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsWesternCaptionFontSizeValue" defaultValue="423" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsWesternCaptionFontSizeFinal">Final</checkBox>
+        <text>Índice</text>
+        <textBox refId="WriterDefaultFontsWesternIndexFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsWesternIndexFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsWesternIndexFontSizeValue" defaultValue="423" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsWesternIndexFontSizeFinal">Final</checkBox>
+      </presentation>
+      <presentation id="WriterDefaultFontsCJK">
+        <text>Predeterminado</text>
+        <textBox refId="WriterDefaultFontsCJKDefaultFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsCJKDefaultFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsCJKDefaultFontSizeValue" defaultValue="370" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsCJKDefaultFontSizeFinal">Final</checkBox>
+        <text>Título</text>
+        <textBox refId="WriterDefaultFontsCJKHeadingFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsCJKHeadingFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsCJKHeadingFontSizeValue" defaultValue="494" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsCJKHeadingFontSizeFinal">Final</checkBox>
+        <text>Lista</text>
+        <textBox refId="WriterDefaultFontsCJKListFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsCJKListFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsCJKListFontSizeValue" defaultValue="423" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsCJKListFontSizeFinal">Final</checkBox>
+        <text>Leyenda</text>
+        <textBox refId="WriterDefaultFontsCJKCaptionFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsCJKCaptionFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsCJKCaptionFontSizeValue" defaultValue="423" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsCJKCaptionFontSizeFinal">Final</checkBox>
+        <text>Índice</text>
+        <textBox refId="WriterDefaultFontsCJKIndexFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsCJKIndexFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsCJKIndexFontSizeValue" defaultValue="423" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsCJKIndexFontSizeFinal">Final</checkBox>
+      </presentation>
+      <presentation id="WriterDefaultFontsCTL">
+        <text>Predeterminado</text>
+        <textBox refId="WriterDefaultFontsCTLDefaultFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsCTLDefaultFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsCTLDefaultFontSizeValue" defaultValue="423" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsCTLDefaultFontSizeFinal">Final</checkBox>
+        <text>Título</text>
+        <textBox refId="WriterDefaultFontsCTLHeadingFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsCTLHeadingFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsCTLHeadingFontSizeValue" defaultValue="494" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsCTLHeadingFontSizeFinal">Final</checkBox>
+        <text>Lista</text>
+        <textBox refId="WriterDefaultFontsCTLListFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsCTLListFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsCTLListFontSizeValue" defaultValue="423" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsCTLListFontSizeFinal">Final</checkBox>
+        <text>Leyenda</text>
+        <textBox refId="WriterDefaultFontsCTLCaptionFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsCTLCaptionFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsCTLCaptionFontSizeValue" defaultValue="423" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsCTLCaptionFontSizeFinal">Final</checkBox>
+        <text>Índice</text>
+        <textBox refId="WriterDefaultFontsCTLIndexFontNameValue">
+          <label>Tipo de letra:</label>
+        </textBox>
+        <checkBox refId="WriterDefaultFontsCTLIndexFontNameFinal">Final</checkBox>
+        <decimalTextBox refId="WriterDefaultFontsCTLIndexFontSizeValue" defaultValue="423" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="WriterDefaultFontsCTLIndexFontSizeFinal">Final</checkBox>
+      </presentation>
+      <presentation id="ExperimentalMode">
+        <checkBox refId="Value">Activar funcionalidades experimentales</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MacroRecorderMode">
+        <checkBox refId="Value">Activar grabación de macros (limitada)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="HistorySize">
+        <decimalTextBox refId="Value" defaultValue="100" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="HistoryPickListSize">
+        <decimalTextBox refId="Value" defaultValue="25" spin="true">Tamaño:</decimalTextBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="DefaultLocale">
+        <textBox refId="Value">
+          <label>Código de idioma</label>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="DefaultLocale_CJK">
+        <textBox refId="Value">
+          <label>Código de idioma</label>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="DefaultLocale_CTL">
+        <textBox refId="Value">
+          <label>Código de idioma</label>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="UILocale">
+        <textBox refId="Value">
+          <label>Código de idioma</label>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Locale">
+        <textBox refId="Value">
+          <label>Configuración regional:</label>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ooSetupCurrency">
+        <textBox refId="Value">
+          <label>Código de moneda:</label>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="DecimalSeparatorAsLocale">
+        <checkBox refId="Value">Tecla de separador decimal según configuración regional</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="IgnoreLanguageChange">
+        <checkBox refId="Value">Ignorar idioma de entrada del sistema</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="RemovePersonalInfoOnSaving">
+        <checkBox refId="Value" defaultItem="0">Suprimir información personal al guardar</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="RecommendPasswordProtection">
+        <checkBox refId="Value" defaultItem="0">Recomendar protección por contraseña al guardar</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="HyperlinksWithCtrlClick">
+        <checkBox refId="Value" defaultItem="0">Ctrl + clic requerido para seguir hiperenlaces</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WarnSaveOrSendDoc">
+        <checkBox refId="Value" defaultItem="0">Alertas de seguridad al guardar o enviar</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WarnSignDoc">
+        <checkBox refId="Value" defaultItem="0">Alertas de seguridad al firmar</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WarnPrintDoc">
+        <checkBox refId="Value" defaultItem="0">Alertas de seguridad al imprimir</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WarnCreatePDF">
+        <checkBox refId="Value" defaultItem="0">Alertas de seguridad al crear PDF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MacroSecurityLevel">
+        <dropdownList refId="Value" defaultItem="2">Nivel de seguridad de macros:</dropdownList>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="DisableMacrosExecution">
+        <checkBox refId="Value">Desactivar ejecución de macros</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="EnableExpertConfiguration">
+        <checkBox refId="Value">Activar configuración para expertos</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="SecureURL">
+        <text>Las macros de documento se ejecutan siempre y cuando se hayan abierto de una de las ubicaciones siguientes.</text>
+        <textBox refId="Value">
+          <label>Lista de rutas:</label>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ADO_Rowset_XML">
+        <checkBox refId="Value">Deshabilitar XML de ADO Rowset</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="AbiWord">
+        <checkBox refId="Value">Deshabilitar Documento AbiWord</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Apple_Keynote">
+        <checkBox refId="Value">Deshabilitar Apple Keynote 5</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Apple_Numbers">
+        <checkBox refId="Value">Deshabilitar Apple Numbers 2</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Apple_Pages">
+        <checkBox refId="Value">Deshabilitar Apple Pages 4</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="BMP__MS_Windows">
+        <checkBox refId="Value">Deshabilitar BMP - mapa de bits de Windows</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="BroadBand_eBook">
+        <checkBox refId="Value">Deshabilitar eBook BroadBand</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="CGM__Computer_Graphics_Metafile">
+        <checkBox refId="Value">Deshabilitar CGM - metarchivo de gráficos por computadora</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ClarisWorks">
+        <checkBox refId="Value">Deshabilitar Documento de texto de ClarisWorks/AppleWorks</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ClarisWorks_Calc">
+        <checkBox refId="Value">Deshabilitar Hoja de cálculo de ClarisWorks/AppleWorks</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ClarisWorks_Draw">
+        <checkBox refId="Value">Deshabilitar Dibujo de ClarisWorks/AppleWorks</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ClarisWorks_Impress">
+        <checkBox refId="Value">Deshabilitar Presentación de ClarisWorks/AppleWorks</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Claris_Resolve_Calc">
+        <checkBox refId="Value">Deshabilitar Documento de ClarisResolve</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Corel_Draw_Document">
+        <checkBox refId="Value">Deshabilitar Corel Draw</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Corel_Presentation_Exchange">
+        <checkBox refId="Value">Deshabilitar Intercambio de presentación de Corel</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="DIF">
+        <checkBox refId="Value">Deshabilitar Formato de intercambio de datos</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="DXF__AutoCAD_Interchange">
+        <checkBox refId="Value">Deshabilitar DXF - formato de intercambio de AutoCAD</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="DocBook_File">
+        <checkBox refId="Value">Deshabilitar DocBook</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="DosWord">
+        <checkBox refId="Value">Deshabilitar Microsoft Word para DOS</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="EMF__MS_Windows_Metafile">
+        <checkBox refId="Value">Deshabilitar EMF - metarchivo mejorado</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="EPS__Encapsulated_PostScript">
+        <checkBox refId="Value">Deshabilitar EPS - PostScript encapsulado</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="FictionBook_2">
+        <checkBox refId="Value">Deshabilitar FictionBook 2.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Freehand_Document">
+        <checkBox refId="Value">Deshabilitar Adobe/Macromedia Freehand</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="GIF__Graphics_Interchange">
+        <checkBox refId="Value">Deshabilitar GIF - formato de intercambio de gráficos</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="HTML">
+        <checkBox refId="Value">Deshabilitar Documento HTML</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="HTML_StarCalc">
+        <checkBox refId="Value">Deshabilitar Documento HTML (Calc)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="HTML_StarWriter">
+        <checkBox refId="Value">Deshabilitar Documento HTML (Writer)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="JPG__JPEG">
+        <checkBox refId="Value">Deshabilitar JPEG - Grupo mixto de expertos en fotografía</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Lotus">
+        <checkBox refId="Value">Deshabilitar Lotus 1-2-3</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="LotusWordPro">
+        <checkBox refId="Value">Deshabilitar documento de Lotus WordPro</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MET__OS2_Metafile">
+        <checkBox refId="Value">Deshabilitar MET - metarchivo de OS/2</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Excel_2003_XML_Orcus">
+        <checkBox refId="Value">Deshabilitar XML de Microsoft Excel 2003</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Excel_40">
+        <checkBox refId="Value">Deshabilitar Microsoft Excel 4.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Excel_40_VorlageTemplate">
+        <checkBox refId="Value">Deshabilitar Plantilla de Microsoft Excel 4.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Excel_5095">
+        <checkBox refId="Value">Deshabilitar Microsoft Excel 5.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Excel_5095_VorlageTemplate">
+        <checkBox refId="Value">Deshabilitar Plantilla de Microsoft Excel 5.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Excel_95">
+        <checkBox refId="Value">Deshabilitar Microsoft Excel 95</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Excel_95_VorlageTemplate">
+        <checkBox refId="Value">Deshabilitar Plantilla de Microsoft Excel 95</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Excel_97">
+        <checkBox refId="Value">Deshabilitar Microsoft Excel 97-2003</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Excel_97_VorlageTemplate">
+        <checkBox refId="Value">Deshabilitar Plantilla de Microsoft Excel 97-2003</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_PowerPoint_97">
+        <checkBox refId="Value">Deshabilitar Microsoft PowerPoint 97-2003</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_PowerPoint_97_AutoPlay">
+        <checkBox refId="Value">Deshabilitar Presentación automática Microsoft PowerPoint 97-2003</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_PowerPoint_97_Vorlage">
+        <checkBox refId="Value">Deshabilitar Plantilla de Microsoft PowerPoint 97-2003</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_WinWord_5">
+        <checkBox refId="Value">Deshabilitar Microsoft WinWord 1/2/5</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_WinWord_60">
+        <checkBox refId="Value">Deshabilitar Microsoft Word 6.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Word_2003_XML">
+        <checkBox refId="Value">Deshabilitar Microsoft Word 2003 XML</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Word_2007_XML">
+        <checkBox refId="Value">Deshabilitar Microsoft Word 2007-2013 XML</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Word_2007_XML_Template">
+        <checkBox refId="Value">Deshabilitar Plantilla de Microsoft Word 2007-2013 XML</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Word_2007_XML_VBA">
+        <checkBox refId="Value">Deshabilitar Microsoft Word 2007-2013 XML VBA</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Word_95">
+        <checkBox refId="Value">Deshabilitar Microsoft Word 95</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Word_95_Vorlage">
+        <checkBox refId="Value">Deshabilitar Plantilla de Microsoft Word 95</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Word_97">
+        <checkBox refId="Value">Deshabilitar Microsoft Word 97-2003</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Word_97_Vorlage">
+        <checkBox refId="Value">Deshabilitar Plantilla de Microsoft Word 97-2003</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Works">
+        <checkBox refId="Value">Deshabilitar documento Microsoft Works</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Works_Calc">
+        <checkBox refId="Value">Deshabilitar documento Microsoft Works</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MS_Write">
+        <checkBox refId="Value">Deshabilitar Microsoft Write</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MWAW_Bitmap">
+        <checkBox refId="Value">Deshabilitar Mapa de bits heredado de Mac</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MWAW_Database">
+        <checkBox refId="Value">Deshabilitar Base de datos heredada de Mac</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MWAW_Drawing">
+        <checkBox refId="Value">Deshabilitar Dibujo heredado de Mac</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MWAW_Presentation">
+        <checkBox refId="Value">Deshabilitar Presentación heredada de Mac</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MWAW_Spreadsheet">
+        <checkBox refId="Value">Deshabilitar Hoja de cálculo heredada de Mac</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MWAW_Text_Document">
+        <checkBox refId="Value">Deshabilitar Documento de texto heredado de Mac</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MacWrite">
+        <checkBox refId="Value">Deshabilitar Documento de McWrite</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Mac_Word">
+        <checkBox refId="Value">Deshabilitar Microsoft Word for Mac (v1 - v5)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Mac_Works">
+        <checkBox refId="Value">Deshabilitar Documento de texto de Microsoft Works para Mac (v1 - v4)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Mac_Works_Calc">
+        <checkBox refId="Value">Deshabilitar Hoja de cálculo de Microsoft Works para Mac (v1 - v4)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Mariner_Write">
+        <checkBox refId="Value">Deshabilitar Mariner Write Mac Classic v1.6 - v3.5</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MathML_XML_Math">
+        <checkBox refId="Value">Deshabilitar MathML 2.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MathType_3x">
+        <checkBox refId="Value">Deshabilitar MathType3.x</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="OpenDocument_Drawing_Flat_XML">
+        <checkBox refId="Value">Deshabilitar Dibujo ODF en XML plano</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="OpenDocument_Presentation_Flat_XML">
+        <checkBox refId="Value">Deshabilitar Presentación ODF en XML plano</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="OpenDocument_Spreadsheet_Flat_XML">
+        <checkBox refId="Value">Deshabilitar Hoja de Cálculo ODF en XML plano</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="OpenDocument_Text_Flat_XML">
+        <checkBox refId="Value">Deshabilitar Documento ODF en XML plano</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Office_Open_XML_Text">
+        <checkBox refId="Value">Deshabilitar Texto de Office Open XML</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Office_Open_XML_Text_Template">
+        <checkBox refId="Value">Deshabilitar Plantilla de texto de Office Open XML</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PBM__Portable_Bitmap">
+        <checkBox refId="Value">Deshabilitar PBM - mapa de bits portátil</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PCT__Mac_Pict">
+        <checkBox refId="Value">Deshabilitar PCT - Mac Pict</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PCX__Zsoft_Paintbrush">
+        <checkBox refId="Value">Deshabilitar PCX - Zsoft Paintbrush</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PGM__Portable_Graymap">
+        <checkBox refId="Value">Deshabilitar PGM - Mapa de grises portable</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PNG__Portable_Network_Graphic">
+        <checkBox refId="Value">Deshabilitar PNG - gráfico de red portátil</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PPM__Portable_Pixelmap">
+        <checkBox refId="Value">Deshabilitar PPM - mapa de píxeles portátil</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PSD__Adobe_Photoshop">
+        <checkBox refId="Value">Deshabilitar PSD - Adobe Photoshop</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PageMaker_Document">
+        <checkBox refId="Value">Deshabilitar Adobe PageMaker</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PalmDoc">
+        <checkBox refId="Value">Deshabilitar PalmDoc eBook</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Palm_Text_Document">
+        <checkBox refId="Value">Deshabilitar documento Palm Text</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Plucker_eBook">
+        <checkBox refId="Value">Deshabilitar Plucker eBook</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PowerPoint_3">
+        <checkBox refId="Value">Deshabilitar Microsoft PowerPoint 1-4 y 95's</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Publisher_Document">
+        <checkBox refId="Value">Deshabilitar Microsoft Publisher 98-2010</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Quattro_Pro_60">
+        <checkBox refId="Value">Deshabilitar Quattro Pro 6.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="QXP_Document">
+        <checkBox refId="Value">Deshabilitar QuarkXPress</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="RAS__Sun_Rasterfile">
+        <checkBox refId="Value">Deshabilitar RAS - Imagen Sun Raster</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Rich_Text_Format">
+        <checkBox refId="Value">Deshabilitar Texto Enriquecido</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Rich_Text_Format_StarCalc">
+        <checkBox refId="Value">Deshabilitar Formato de Texto Enriquecido (Calc)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="SVG__Scalable_Vector_Graphics">
+        <checkBox refId="Value">Deshabilitar SVG - gráficos vectoriales escalables</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="SVM__StarView_Metafile">
+        <checkBox refId="Value">Deshabilitar SVM - metarchivo de StarView</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="SYLK">
+        <checkBox refId="Value">Deshabilitar SYLK</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_XML_Base_Report">
+        <checkBox refId="Value">Deshabilitar Informe de base de datos ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_XML_Base_Report_Chart">
+        <checkBox refId="Value">Deshabilitar Grafico de Informes de OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_Drawing">
+        <checkBox refId="Value">Deshabilitar Dibujo StarOffice de versiones antiguas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_Presentation">
+        <checkBox refId="Value">Deshabilitar Presentación StarOffice de versiones antiguas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_Spreadsheet">
+        <checkBox refId="Value">Deshabilitar Hoja de Cálculo StarOffice de versiones antiguas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_Writer">
+        <checkBox refId="Value">Deshabilitar Documento de Texto StarOffice de versiones antiguas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_XML_Base">
+        <checkBox refId="Value">Deshabilitar Base de datos ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_XML_Calc">
+        <checkBox refId="Value">Deshabilitar Hoja de cálculo OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_XML_Chart">
+        <checkBox refId="Value">Deshabilitar Gráfico OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_XML_Draw">
+        <checkBox refId="Value">Deshabilitar Dibujo OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_XML_Impress">
+        <checkBox refId="Value">Deshabilitar Presentación OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_XML_Math">
+        <checkBox refId="Value">Deshabilitar Fórmula OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="StarOffice_XML_Writer">
+        <checkBox refId="Value">Deshabilitar Documento de Texto OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="T602Document">
+        <checkBox refId="Value">Deshabilitar Documento T602</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="TGA__Truevision_TARGA">
+        <checkBox refId="Value">Deshabilitar TGA - Truevision Targa</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="TIF__Tag_Image_File">
+        <checkBox refId="Value">Deshabilitar TIFF - Tagged Image File Format</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Text">
+        <checkBox refId="Value">Deshabilitar Texto</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Text_StarWriterWeb">
+        <checkBox refId="Value">Deshabilitar Texto (Writer/Web)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Text__txt__csv_StarCalc">
+        <checkBox refId="Value">Deshabilitar Texto CSV</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Text_encoded">
+        <checkBox refId="Value">Deshabilitar Texto - seleccionar codificación</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Text_encoded_StarWriterGlobalDocument">
+        <checkBox refId="Value">Deshabilitar Texto - seleccionar codificación (patrón de documento)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Text_encoded_StarWriterWeb">
+        <checkBox refId="Value">Deshabilitar Texto - seleccionar codificación (Writer/Web)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="UOF_presentation">
+        <checkBox refId="Value">Deshabilitar Presentación en formato de oficina unificado</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="UOF_spreadsheet">
+        <checkBox refId="Value">Deshabilitar Hoja de cálculo en formato de oficina unificado</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="UOF_text">
+        <checkBox refId="Value">Deshabilitar texto en formato de oficina unificado</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Visio_Document">
+        <checkBox refId="Value">Deshabilitar Microsoft Visio 2000-2013</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WMF__MS_Windows_Metafile">
+        <checkBox refId="Value">Deshabilitar WMF - Windows Metafile</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WPS_Lotus_Calc">
+        <checkBox refId="Value">Deshabilitar Documento Lotus</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WPS_QPro_Calc">
+        <checkBox refId="Value">Deshabilitar Documento QuattroPro</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WordPerfect">
+        <checkBox refId="Value">Deshabilitar Documento WordPerfect</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WordPerfect_Graphics">
+        <checkBox refId="Value">Deshabilitar Gráfico WordPerfect</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="WriteNow">
+        <checkBox refId="Value">Deshabilitar Documento WriteNow</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="XBM__XConsortium">
+        <checkBox refId="Value">Deshabilitar XBM - X Bitmap</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="XPM">
+        <checkBox refId="Value">Deshabilitar XPM - X PixMap</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ZMF_Document">
+        <checkBox refId="Value">Deshabilitar Zoner Callisto/Draw</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="calc8">
+        <checkBox refId="Value">Deshabilitar Hoja de cálculo ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="calc8_template">
+        <checkBox refId="Value">Deshabilitar Plantilla de Hoja de cálculo ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Gnumeric_Spreadsheet">
+        <checkBox refId="Value">Deshabilitar Hoja de cálculo Gnumeric</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="calc_HTML_WebQuery">
+        <checkBox refId="Value">Deshabilitar Consulta de página web (Calc)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Calc_MS_Excel_2007_Binary">
+        <checkBox refId="Value">Deshabilitar Binario Microsoft Excel 2007</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Calc_MS_Excel_2007_VBA_XML">
+        <checkBox refId="Value">Deshabilitar XML de Microsoft Excel 2007-2016 (habilitado para macros)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Calc_MS_Excel_2007_XML">
+        <checkBox refId="Value">Deshabilitar XML de Microsoft Excel 2007-2013</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Calc_MS_Excel_2007_XML_Template">
+        <checkBox refId="Value">Deshabilitar Plantilla XML de Microsoft Excel 2007-2013</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Calc_Office_Open_XML">
+        <checkBox refId="Value">Deshabilitar Hoja de cálculo Open XML de Office</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Calc_Office_Open_XML_Template">
+        <checkBox refId="Value">Deshabilitar Plantilla de Hoja de cálculo Open XML de Office</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="calc_StarOffice_XML_Calc_Template">
+        <checkBox refId="Value">Deshabilitar Plantilla de Hoja de cálculo OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="chart8">
+        <checkBox refId="Value">Deshabilitar Gráfico ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="dBase">
+        <checkBox refId="Value">Deshabilitar dBASE</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="draw8">
+        <checkBox refId="Value">Deshabilitar Dibujo ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="draw8_template">
+        <checkBox refId="Value">Deshabilitar Plantilla de Dibujo ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="draw_PCD_Photo_CD_Base">
+        <checkBox refId="Value">Deshabilitar PCD - Kodak Photo CD (768x512)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="draw_PCD_Photo_CD_Base16">
+        <checkBox refId="Value">Deshabilitar PCD - Kodak Photo CD (192x128)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="draw_PCD_Photo_CD_Base4">
+        <checkBox refId="Value">Deshabilitar PCD - Kodak Photo CD (384x256)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="draw_StarOffice_XML_Draw_Template">
+        <checkBox refId="Value">Deshabilitar Plantilla de Dibujo OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="impress8">
+        <checkBox refId="Value">Deshabilitar Presentación ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="impress8_draw">
+        <checkBox refId="Value">Deshabilitar Dibujo ODF (Impress)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="impress8_template">
+        <checkBox refId="Value">Deshabilitar Plantilla de Presentación ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Impress_MS_PowerPoint_2007_XML">
+        <checkBox refId="Value">Deshabilitar Microsoft PowerPoint 2007-2013 XML</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Impress_MS_PowerPoint_2007_XML_AutoPlay">
+        <checkBox refId="Value">Deshabilitar XML de autorreproducción Microsoft PowerPoint 2007-2013</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Impress_MS_PowerPoint_2007_XML_Template">
+        <checkBox refId="Value">Deshabilitar Plantilla XML Microsoft PowerPoint 2007-2013</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Impress_MS_PowerPoint_2007_XML_VBA">
+        <checkBox refId="Value">Deshabilitar XML VBA Microsoft PowerPoint 2007-2013</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Impress_Office_Open_XML">
+        <checkBox refId="Value">Deshabilitar Presentacion Office Open XML</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Impress_Office_Open_XML_AutoPlay">
+        <checkBox refId="Value">Deshabilitar Presentación de autorreproducción Office Open XML</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Impress_Office_Open_XML_Template">
+        <checkBox refId="Value">Deshabilitar Plantilla de presentación Office Open XML</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="impress_StarOffice_XML_Draw">
+        <checkBox refId="Value">Deshabilitar Dibujo OpenOffice.org 1.0 (Impress)</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="impress_StarOffice_XML_Impress_Template">
+        <checkBox refId="Value">Deshabilitar Plantilla de presentación OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="math8">
+        <checkBox refId="Value">Deshabilitar Fórmula ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MOV__MOV">
+        <checkBox refId="Value">Deshabilitar MOV - Formato de archivos QuickTime</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="writer8">
+        <checkBox refId="Value">Deshabilitar Documento de Texto ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="writer8_template">
+        <checkBox refId="Value">Deshabilitar Plantilla de Documento de Texto ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="writer_MIZI_Hwp_97">
+        <checkBox refId="Value">Deshabilitar Hangul WP 97</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="writer_StarOffice_XML_Writer_Template">
+        <checkBox refId="Value">Deshabilitar Plantilla de Documento de Texto OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="writer_globaldocument_StarOffice_XML_Writer_GlobalDocument">
+        <checkBox refId="Value">Deshabilitar Documento Maestro OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="writer_web_HTML_help">
+        <checkBox refId="Value">Deshabilitar Contenido de Ayuda</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="writer_web_StarOffice_XML_Writer_Web_Template">
+        <checkBox refId="Value">Deshabilitar Plantilla HTML OpenOffice.org 1.0</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="writerglobal8">
+        <checkBox refId="Value">Deshabilitar Documento Maestro ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="writerglobal8_template">
+        <checkBox refId="Value">Deshabilitar Plantilla de Documento Maestro ODF</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="writerweb8_writer_template">
+        <checkBox refId="Value">Deshabilitar Plantilla de Documento HTML</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="CaseSensitive">
+        <checkBox refId="Value">Distinguir mayúsculas y minúsculas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Precision">
+        <checkBox refId="Value">Precisión tal como se muestra</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="SearchCriteria">
+        <checkBox refId="Value">Los criterios de búsqueda = y &lt;&gt; deben aplicarse a celdas enteras</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="FindLabel">
+        <checkBox refId="Value">Encontrar automáticamente etiquetas de columnas y filas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="RegularExpressions">
+        <checkBox refId="Value">Activar las expresiones regulares en las fórmulas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="Wildcards">
+        <checkBox refId="Value">Activar los comodines en las fórmulas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ShowMergeDialog">
+        <checkBox refId="Value">Mostrar cuadro de diálogo Combinar celdas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="EmptyMergedCells">
+        <checkBox refId="Value">Vaciar celdas fusionadas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PrintEmptyPages">
+        <checkBox refId="Value">Imprimir páginas vacías</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="EnglishFunctionName">
+        <checkBox refId="Value">Usar nombres de funciones en inglés</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="RecalcMode">
+        <text>Recalculation on file load</text>
+        <dropdownList refId="OOXMLValue" defaultItem="1">Excel 2007 y más recientes:</dropdownList>
+        <checkBox refId="OOXMLFinal">Final</checkBox>
+        <dropdownList refId="ODFValue" defaultItem="1">Hoja de cálculo ODF (no guardada por LibreOffice):</dropdownList>
+        <checkBox refId="ODFFinal">Final</checkBox>
+      </presentation>
+      <presentation id="AllSheets">
+        <checkBox refId="Value">Imprimir solo hojas seleccionadas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="SymbolStyle">
+        <dropdownList refId="Value" defaultItem="0">Estilo de iconos:</dropdownList>
+        <checkBox refId="Final">Final</checkBox>
+        <dropdownList refId="SizeValue" defaultItem="0">Tamaño de iconos:</dropdownList>
+        <checkBox refId="SizeFinal">Final</checkBox>
+      </presentation>
+      <presentation id="UseOpenCL">
+        <checkBox refId="Value">Permitir uso de OpenCL</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="UseOpenGL">
+        <checkBox refId="Value">Utilizar OpenGL para toda la representación</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ForceOpenGL">
+        <checkBox refId="Value">Forzar OpenGL aun si está en la lista negra</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="ConvertToGreyscales">
+        <checkBox refId="Value">Convertir colores a escala de grises</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="PrinterWarnings">
+        <text>Especifica si se debe mostrar una alerta si la impresión contiene objetos transparentes.</text>
+        <checkBox refId="Value">Transparencia</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="EnableATToolSupport">
+        <checkBox refId="Value">Compatibilidad con herramientas de tecnología de asistencia</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="IsSelectionInReadonly">
+        <checkBox refId="Value">Usar cursor de selección de texto en documentos de solo lectura</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="IsAllowAnimatedGraphics">
+        <checkBox refId="Value">Permitir gráficos animados</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="IsAllowAnimatedText">
+        <checkBox refId="Value">Permitir texto animado</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="HelpTipsDisappear">
+        <checkBox refId="Value">Las descripciones emergentes desaparecen tras…</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+        <decimalTextBox refId="HelpTipsDisappearValue" defaultValue="4" spin="true">segundos</decimalTextBox>
+        <checkBox refId="HelpTipsDisappearFinal">Final</checkBox>
+      </presentation>
+      <presentation id="AutoDetectSystemHC">
+        <checkBox refId="Value">Detectar automáticamente modo de contraste alto del sistema operativo</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="IsAutomaticFontColor">
+        <checkBox refId="Value">Utilizar color de letra automático para mostrar texto en pantalla</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="IsForPagePreviews">
+        <checkBox refId="Value">Utilizar colores del sistema en previsualizaciones de páginas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="HTMLExportBrowser">
+        <dropdownList refId="Value" defaultItem="0">Navegador:</dropdownList>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="UseFontSubstitutions">
+        <checkBox refId="Value">Usar tabla de sustituciones tipográficas</checkBox>
+        <checkBox refId="Final">Final</checkBox>
+        <checkBox refId="HideSettingsCommonFonts">Ocultar página «Herramientas &gt; Opciones &gt; LibreOffice &gt; Tipos de letra»</checkBox>
+      </presentation>
+      <presentation id="FontPair">
+        <checkBox refId="Always">Siempre</checkBox>
+        <checkBox refId="OnScreenOnly">Solo en pantalla</checkBox>
+        <textBox refId="ReplaceFont">
+          <label>Reemplazar tipo de letra:</label>
+        </textBox>
+        <textBox refId="SubstituteFont">
+          <label>Sustituir tipo de letra:</label>
+        </textBox>
+        <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="SelectPDFExport">
+          <checkBox refId="Value">Exportar todos los PDF como PDF/A</checkBox>
+          <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="TrySystemCredentialsFirst">
+          <checkBox refId="Value">Usar las credenciales del sistema</checkBox>
+          <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="AutoTextShowTooltip">
+          <checkBox refId="Value">Mostrar el resto del nombre como sugerencia mientras se escribe</checkBox>
+          <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MSOFormsMenu">
+          <checkBox refId="Value">Reorganizar formularios para que sean compatibles con MS</checkBox>
+          <checkBox refId="Final">Final</checkBox>
+      </presentation>
+      <presentation id="MSOLockFiles">
+          <checkBox refId="Value">Crear fichero de bloqueo MSO</checkBox>
+          <checkBox refId="Final">Final</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

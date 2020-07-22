@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>πληκτρολογήστε εδώ το εμφανιζόμενο όνομα</displayName>
+  <description>πληκτρολογήστε εδώ την περιγραφή</description>
+  <resources>
+    <stringTable>
+      <string id="SSLConfiguration">Ρυθμίσεις παραμέτρων SSL</string>
+      <string id="SSLCipherSuiteOrder">Σειρά ταξινόμησης προγραμμάτων κρυπτογράφησης SSL</string>
+      <string id="SSLCipherSuiteOrder_Help">Αυτή η ρύθμιση πολιτικής καθορίζει τις οικογένειες προγραμμάτων κρυπτογράφησης που χρησιμοποιούνται από το Secure Socket Layer (SSL).
+
+Αν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, οι οικογένειες προγραμμάτων κρυπτογράφησης SSL θα έχουν τη σειρά προτεραιότητας που έχει καθοριστεί.
+
+Αν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή δεν ρυθμίσετε τις παραμέτρους της, θα χρησιμοποιηθεί η προεπιλεγμένη σειρά ταξινόμησης των οικογενειών προγραμμάτων κρυπτογράφησης.
+
+Σύνδεση για όλες τις οικογένειες προγραμμάτων κρυπτογράφησης: http://go.microsoft.com/fwlink/?LinkId=517265
+
+      </string>
+
+      <string id="SSLCurveOrder">Σειρά καμπύλης ECC</string>
+      <string id="SSLCurveOrder_Help">Αυτή η ρύθμιση πολιτικής καθορίζει τη σειρά προτεραιότητας των καμπυλών ECC που χρησιμοποιούνται με οικογένειες προγραμμάτων κρυπτογράφησης ECDHE.
+
+Αν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, δίνεται προτεραιότητα στις καμπύλες ECC με τη σειρά που καθορίζεται. (Εισαγάγετε ένα όνομα καμπύλης ανά γραμμή)
+
+Αν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής ή δεν ρυθμίσετε τις παραμέτρους της, χρησιμοποιείται η προεπιλεγμένη σειρά καμπυλών ECC.
+
+Προεπιλεγμένη σειρά καμπυλών
+============
+curve25519
+NistP256
+NistP384
+
+Για να δείτε όλες τις καμπύλες που υποστηρίζονται από το σύστημα, χρησιμοποιήστε την ακόλουθη εντολή:
+
+CertUtil.exe -DisplayEccCurve
+
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SSLCipherSuiteOrder">
+        <textBox refId="Pol_SSLCipherSuiteOrder">
+          <label>Προγράμματα κρυπτογράφησης SSL</label>
+          <defaultValue>TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA256,TLS_RSA_WITH_NULL_SHA,TLS_PSK_WITH_AES_256_GCM_SHA384,TLS_PSK_WITH_AES_128_GCM_SHA256,TLS_PSK_WITH_AES_256_CBC_SHA384,TLS_PSK_WITH_AES_128_CBC_SHA256,TLS_PSK_WITH_NULL_SHA384,TLS_PSK_WITH_NULL_SHA256</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="SSLCurveOrder">
+        <text>Πληκτρολογήστε τα ονόματα των καμπυλών ECC κατά σειρά προτίμησης (ένα όνομα καμπύλης ανά γραμμή)</text>
+        <multiTextBox refId="SSLCurveOrderList">Σειρά καμπύλης ECC:</multiTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

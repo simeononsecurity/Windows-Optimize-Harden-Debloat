@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2017 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>SmartScreen de Windows Defender</displayName>
+  <description>Configuración para SmartScreen de Windows Defender</description>
+  <resources>
+    <stringTable>
+      <!-- Titles -->
+      <string id="SmartScreen">SmartScreen de Windows Defender</string>
+      <string id="Shell">Explorador</string>
+      <string id="Edge">Microsoft Edge</string>
+      <!-- Shell -->
+      <string id="ShellConfigureSmartScreen">Configurar SmartScreen de Windows Defender</string>
+      <string id="SmartScreen_PreventBypass">Advertir e impedir la omisión</string>
+      <string id="SmartScreen_Warn">Advertir</string>
+      <!-- AIC -->
+      <string id="SmartScreen_Anywhere">Desactivar las recomendaciones de la aplicación</string>
+      <string id="SmartScreen_StoreOnly">Permitir solo aplicaciones del Store</string>
+      <string id="SmartScreen_AppRecommendations">Mostrarme recomendaciones de la aplicación</string>
+      <string id="SmartScreen_PreferStore">Advertirme antes de instalar aplicaciones que no sean del Store</string>
+
+      <string id="ShellConfigureSmartScreen_Help">Esta directiva te permite activar o desactivar SmartScreen de Windows Defender. SmartScreen ayuda a proteger los equipos, ya que muestra una advertencia a los usuarios antes de ejecutar programas potencialmente malintencionados de Internet. Esta advertencia se presenta en un cuadro de diálogo intersticial que se muestra antes de ejecutar una aplicación descargada de Internet y que no se reconoce o se sabe que es malintencionada. No se muestra ningún cuadro de diálogo para las aplicaciones que no parecen ser sospechosas.
+
+Cuando esta característica está habilitada, se envía a Microsoft cierta información sobre los archivos y programas que se ejecutan en los equipos.
+
+Si habilitas esta directiva, SmartScreen se activará para todos los usuarios. Su comportamiento puede controlarse mediante las siguientes opciones:
+
+• Advertir e impedir la omisión
+• Advertir
+
+Si habilitas esta directiva con la opción "Advertir e impedir la omisión", los cuadros de diálogo de SmartScreen no presentarán al usuario la opción de omitir la advertencia y ejecutar la aplicación. SmartScreen seguirá mostrando la advertencia cuando se intente ejecutar de nuevo la aplicación.
+
+Si habilitas esta directiva con la opción "Advertir", los cuadros de diálogo de SmartScreen advertirán al usuario de que la aplicación parece sospechosa, pero el usuario podrá omitir la advertencia y ejecutar la aplicación de todas formas. SmartScreen no advertirá al usuario de nuevo sobre esa aplicación si este indica a SmartScreen que ejecute la aplicación.
+
+Si deshabilitas esta directiva, SmartScreen se desactivará para todos los usuarios. No se advertirá a los usuarios si intentan ejecutar aplicaciones sospechosas procedentes de Internet.
+
+Si no configuras esta directiva, SmartScreen se habilitará de forma predeterminada, pero los usuarios podrán cambiar su configuración.</string>
+      <string id="ConfigureAppInstallControl">Configurar App Install Control</string>
+      <string id="ConfigureAppInstallControl_Explain">App Install Control es una característica de SmartScreen de Windows Defender que ayuda a proteger los equipos al permitir a los usuarios instalar aplicaciones solo desde el Store. SmartScreen debe estar habilitado para que esta característica funcione correctamente.
+
+Si habilitas esta opción, debes elegir entre las siguientes conductas:
+
+     - Desactivar las recomendaciones de la aplicación
+
+     - Mostrarme recomendaciones de la aplicación
+
+     - Avisarme antes de instalar aplicaciones desde fuera del Store
+
+     - Permitir solo aplicaciones del Store
+
+Si deshabilitas o no configuras esta opción, los usuarios podrán instalar aplicaciones desde cualquier lugar, incluidos los archivos descargados de Internet.</string>
+      <!-- Edge -->
+      <string id="EdgeConfigureSmartScreen">Configurar SmartScreen de Windows Defender</string>
+      <string id="EdgeConfigureSmartScreen_Help">Esta configuración de directiva te permite configurar si se debe activar SmartScreen de Windows Defender. SmartScreen de Windows Defender proporciona mensajes de advertencia que ayudan a proteger a los empleados contra posibles estafas de suplantación de identidad (phishing) y software malintencionado. De manera predeterminada, SmartScreen de Windows Defender está activado.
+
+Si habilitas esta configuración, SmartScreen de Windows Defender se activará y los empleados no podrán desactivarlo.
+
+Si deshabilitas esta configuración, SmartScreen de Windows Defender se desactivará y los empleados no podrán activarlo.
+
+Si no defines esta configuración, los empleados podrán elegir si usar SmartScreen de Windows Defender o no.</string>
+    <string id="EdgePreventOverrideForNav">Impedir la omisión de los avisos de SmartScreen de Windows Defender para sitios</string>
+    <string id="EdgePreventOverrideForNav_Help">Esta configuración de directiva te permite decidir si los empleados pueden invalidar las advertencias de SmartScreen de Windows Defender sobre sitios web potencialmente malintencionados.
+
+Si habilitas esta configuración, los empleados no podrán ignorar las advertencias de SmartScreen de Windows Defender ni podrán continuar al sitio.
+
+Si deshabilitas o no defines esta configuración, los empleados podrán ignorar las advertencias de SmartScreen de Windows Defender y continuar al sitio.
+    </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="ShellConfigureSmartScreen">
+        <dropdownList refId="ShellConfigureSmartScreen_Dropdown" noSort="true" defaultItem="0">Elige una de las siguientes opciones:</dropdownList>
+      </presentation>
+      <presentation id="ConfigureAppInstallControl">
+        <dropdownList refId="ConfigureAppInstallControl_Dropdown" noSort="true" defaultItem="0">Elige una de las siguientes opciones:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

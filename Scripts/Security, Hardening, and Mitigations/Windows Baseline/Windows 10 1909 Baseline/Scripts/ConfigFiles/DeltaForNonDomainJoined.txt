@@ -1,0 +1,16 @@
+; ----------------------------------------------------------------------
+; LGPO-text file, used with LGPO.exe.
+;
+; Reverse the LocalAccountTokenFilterPolicy setting for non-domain-joined
+; systems to enable remote administration using local accounts.
+;
+
+Computer
+Software\Microsoft\Windows\CurrentVersion\Policies\System
+LocalAccountTokenFilterPolicy
+DWORD:1
+
+
+; ----------------------------------------------------------------------
+
+

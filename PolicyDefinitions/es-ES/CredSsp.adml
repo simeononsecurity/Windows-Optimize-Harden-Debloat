@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="AllowDefaultCredentials">Permitir delegación de credenciales predeterminadas</string>
+      <string id="AllowDefaultCredentials_Explain">Esta configuración de directiva se aplica a las aplicaciones que usan el componente Cred SSP (por ejemplo, Conexión a Escritorio remoto).
+
+Esta configuración de directiva es válida cuando la autenticación del servidor se ha realizado mediante un certificado X509 de confianza o mediante Kerberos.
+
+Si se habilita esta configuración de directiva, se pueden especificar los servidores a los que pueden delegarse las credenciales predeterminadas de usuario (las credenciales predeterminadas son aquellas que se usan cuando se inicia sesión en Windows por primera vez).
+
+La directiva entra en vigor la próxima vez que el usuario inicie sesión en un equipo donde se ejecute Windows.
+
+Si esta configuración de directiva se deshabilita o no se configura (predeterminado), la delegación de credenciales predeterminadas no se permite en ningún equipo. Es posible que se produzcan errores de autenticación en las aplicaciones que dependen de este comportamiento de delegación. Para obtener más información, consulte la KB.
+
+FWlink para KB:
+http://go.microsoft.com/fwlink/?LinkId=301508
+
+Nota: la configuración de directiva "Permitir delegación de credenciales predeterminadas" se puede establecer en uno o más nombres principales de servicio (SPN).  El SPN representa el servidor de destino al que se pueden delegar las credenciales de usuario.  Se admite el uso de un solo carácter comodín cuando se especifica SPN.
+
+Por ejemplo:
+TERMSRV/host.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en el equipo host.humanresources.fabrikam.com
+TERMSRV/* El host de sesión de Escritorio remoto se ejecuta en todos los equipos.
+TERMSRV/*.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en todos los equipos de .humanresources.fabrikam.com</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly">Permitir la delegación de credenciales predeterminadas con autenticación solo NTLM de servidor</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly_Explain">Esta configuración de directiva se aplica a las aplicaciones que usan el componente Cred SSP (por ejemplo, Conexión a Escritorio remoto).
+
+Esta configuración de directiva se aplica cuando la autenticación del servidor se realizó mediante NTLM.
+
+Si se habilita esta configuración de directiva, se pueden especificar los servidores a los que pueden delegarse las credenciales predeterminadas de usuario (las credenciales predeterminadas son aquellas que se usan cuando se inicia sesión en Windows por primera vez).
+
+Si se deshabilita o no se configura (predeterminado) esta configuración de directiva, la delegación de credenciales predeterminadas no se admite en ningún equipo.
+
+Nota: la configuración de directiva "Permitir la delegación de credenciales predeterminadas con autenticación solo NTLM de servidor" se puede establecer en uno o más nombres principales de servicio (SPN). El SPN representa el servidor de destino al que se pueden delegar las credenciales de usuario.  Se admite el uso de un solo carácter comodín cuando se especifica SPN.
+
+Por ejemplo:
+TERMSRV/host.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en el equipo host.humanresources.fabrikam.com
+TERMSRV/* El host de sesión de Escritorio remoto se ejecuta en todos los equipos.
+TERMSRV/*.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en todos los equipos de .humanresources.fabrikam.com</string>
+      <string id="AllowFreshCredentials">Permitir delegación de credenciales nuevas</string>
+      <string id="AllowFreshCredentials_Explain">Esta configuración de directiva se aplica a las aplicaciones que usan el componente Cred SSP (por ejemplo, Conexión a Escritorio remoto).
+
+Esta configuración de directiva se aplica cuando la autenticación del servidor se realizó mediante un certificado X509 de confianza o mediante Kerberos.
+
+Si se habilita esta configuración de directiva, se pueden especificar los servidores a los que pueden delegarse las nuevas credenciales de usuario (las credenciales nuevas son aquellas que se solicitan cuando se ejecuta la aplicación).
+
+Si no se configura (predeterminado) esta configuración de directiva, después de la autenticación mutua apropiada, se permitirá la delegación de credenciales nuevas al host de sesión de Escritorio remoto que se ejecuta en cualquier equipo (TERMSRV/*).
+
+Si se deshabilita esta configuración de directiva, no se permite la delegación de credenciales nuevas a ningún equipo.
+
+Nota: la configuración de directiva "Permitir delegación de credenciales nuevas" se puede establecer en uno o más nombres principales de servicio (SPN). El SPN representa el servidor de destino al que se pueden delegar las credenciales de usuario. Se admite el uso de un solo carácter comodín cuando se especifica SPN.
+
+Por ejemplo:
+TERMSRV/host.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en el equipo host.humanresources.fabrikam.com
+TERMSRV/* El host de sesión de Escritorio remoto se ejecuta en todos los equipos.
+TERMSRV/*.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en todos los equipos de .humanresources.fabrikam.com</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly">Permitir la delegación de credenciales nuevas con autenticación solo NTLM de servidor</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly_Explain">Esta configuración de directiva se aplica a las aplicaciones que usan el componente Cred SSP (por ejemplo, Conexión a Escritorio remoto).
+
+Esta configuración de directiva se aplica cuando la autenticación del servidor se realizó mediante NTLM.
+
+Si se habilita esta configuración de directiva, se pueden especificar los servidores a los que pueden delegarse las nuevas credenciales de usuario (las credenciales nuevas son aquellas que se solicitan cuando se ejecuta la aplicación).
+
+Si no se configura (predeterminado) esta configuración de directiva, después de la autenticación mutua apropiada, se permitirá la delegación de credenciales nuevas al host de sesión de Escritorio remoto que se ejecuta en cualquier equipo (TERMSRV/*).
+
+Si se deshabilita esta configuración de directiva, no se permite la delegación de credenciales nuevas a ningún equipo.
+
+Nota: la configuración de directiva "Permitir la delegación de credenciales nuevas con autenticación solo NTLM de servidor" se puede establecer en uno o más nombres principales de servicio (SPN). El SPN representa el servidor de destino al que se pueden delegar las credenciales de usuario. Se admite el uso de un solo carácter comodín cuando se especifica SPN.
+
+Por ejemplo:
+TERMSRV/host.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en el equipo host.humanresources.fabrikam.com
+TERMSRV/* El host de sesión de Escritorio remoto se ejecuta en todos los equipos.
+TERMSRV/*.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en todos los equipos de .humanresources.fabrikam.com</string>
+      <string id="AllowSavedCredentials">Permitir delegación de credenciales guardadas</string>
+      <string id="AllowSavedCredentials_Explain">Esta configuración de directiva se aplica a las aplicaciones que usan el componente Cred SSP (por ejemplo, Conexión a Escritorio remoto).
+
+Esta configuración de directiva se aplica cuando la autenticación del servidor se realizó mediante un certificado X509 de confianza o mediante Kerberos.
+
+Si se habilita esta configuración de directiva, se pueden especificar los servidores a los que pueden delegarse las credenciales de usuario guardadas (las credenciales guardadas son aquellas que se eligen para ser guardadas/recordadas mediante el administrador de credenciales de Windows).
+
+Si no se configura (predeterminado) esta configuración de directiva, después de la autenticación mutua apropiada, se permitirá la delegación de credenciales guardadas al host de sesión de Escritorio remoto que se ejecuta en cualquier equipo (TERMSRV/*).
+
+Si se deshabilita esta configuración de directiva, no se permite la delegación de credenciales guardadas a ningún equipo.
+
+Nota: la configuración de directiva "Permitir delegación de credenciales guardadas" se puede establecer en uno o más nombres principales de servicio (SPN). El SPN representa el servidor de destino al que se pueden delegar las credenciales de usuario. Se admite el uso de un solo carácter comodín cuando se especifica SPN.
+
+Por ejemplo:
+TERMSRV/host.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en el equipo host.humanresources.fabrikam.com
+TERMSRV/* El host de sesión de Escritorio remoto se ejecuta en todos los equipos.
+TERMSRV/*.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en todos los equipos de .humanresources.fabrikam.com</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly">Permitir la delegación de credenciales guardadas con autenticación solo NTLM de servidor</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly_Explain">Esta configuración de directiva se aplica a las aplicaciones que usan el componente Cred SSP (por ejemplo, Conexión a Escritorio remoto).
+
+Esta configuración de directiva se aplica cuando la autenticación del servidor se realizó mediante NTLM.
+
+Si se habilita esta configuración de directiva, se pueden especificar los servidores a los que pueden delegarse las credenciales de usuario guardadas (las credenciales guardadas son aquellas que se eligen para ser guardadas/recordadas mediante el administrador de credenciales de Windows).
+
+Si no se configura (predeterminado) esta configuración de directiva, después de la autenticación mutua apropiada, se permitirá la delegación de credenciales guardadas al host de sesión de Escritorio remoto que se ejecuta en cualquier equipo (TERMSRV/*), si el equipo cliente no es un miembro de algún dominio. Si el cliente está unido al dominio, de forma predeterminada no se permite la delegación de credenciales guardadas a ningún equipo.
+
+Si se deshabilita esta configuración de directiva, no se permite la delegación de credenciales guardadas a ningún equipo.
+
+Nota: la configuración de directiva "Permitir la delegación de credenciales guardadas con autenticación solo NTLM de servidor" se puede establecer en uno o más nombres principales de servicio (SPN). El SPN representa el servidor de destino al que se pueden delegar las credenciales de usuario. Se admite el uso de un solo carácter comodín cuando se especifica SPN.
+
+Por ejemplo:
+TERMSRV/host.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en el equipo host.humanresources.fabrikam.com
+TERMSRV/* El host de sesión de Escritorio remoto se ejecuta en todos los equipos.
+TERMSRV/*.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en todos los equipos de .humanresources.fabrikam.com</string>
+      <string id="CredentialsDelegation">Delegación de credenciales</string>
+      <string id="DenyDefaultCredentials">Denegar delegación de credenciales predeterminadas</string>
+      <string id="DenyDefaultCredentials_Explain">Esta configuración de directiva se aplica a las aplicaciones que usan el componente Cred SSP (por ejemplo, Conexión a Escritorio remoto).
+
+Si se habilita esta configuración de directiva, se pueden especificar los servidores a los que no pueden delegarse las credenciales predeterminadas de usuario (las credenciales predeterminadas son aquellas que se usan cuando se inicia sesión en Windows por primera vez).
+
+Si se deshabilita o no se configura (predeterminado) esta configuración de directiva, esta opción no especifica ningún servidor.
+
+Nota: la configuración de directiva "Denegar delegación de credenciales predeterminadas" se puede establecer en uno o más nombres principales de servicio (SPN). El SPN representa el servidor de destino al que no se pueden delegar las credenciales de usuario. Se admite el uso de un solo carácter comodín cuando se especifica SPN.
+
+Por ejemplo:
+TERMSRV/host.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en el equipo host.humanresources.fabrikam.com
+TERMSRV/* El host de sesión de Escritorio remoto se ejecuta en todos los equipos.
+TERMSRV/*.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en todos los equipos de .humanresources.fabrikam.com
+
+Esta configuración de directiva se puede usar en combinación con "Permitir delegación de credenciales predeterminadas" para definir excepciones para servidores específicos que se permiten al usar caracteres comodín en la lista de servidores de "Permitir delegación de credenciales predeterminadas".</string>
+      <string id="DenyFreshCredentials">Denegar delegación de credenciales nuevas</string>
+      <string id="DenyFreshCredentials_Explain">Esta configuración de directiva se aplica a las aplicaciones que usan el componente Cred SSP (por ejemplo, Conexión a Escritorio remoto).
+
+Si se habilita esta configuración de directiva, se pueden especificar los servidores a los que no pueden delegarse las nuevas credenciales de usuario (las credenciales nuevas son aquellas que se solicitan cuando se ejecuta la aplicación).
+
+Si se deshabilita o no se configura (predeterminado) esta configuración de directiva, esta opción no especifica ningún servidor.
+
+Nota: la configuración de directiva "Denegar delegación de credenciales nuevas" se puede establecer en uno o más nombres principales de servicio (SPN). El SPN representa el servidor de destino al que no se pueden delegar las credenciales de usuario. Se admite el uso de un solo carácter comodín cuando se especifica SPN.
+
+Por ejemplo:
+TERMSRV/host.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en el equipo host.humanresources.fabrikam.com
+TERMSRV/* El host de sesión de Escritorio remoto se ejecuta en todos los equipos.
+TERMSRV/*.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en todos los equipos de .humanresources.fabrikam.com
+
+Esta configuración de directiva se puede usar en combinación con "Permitir delegación de credenciales nuevas" para definir excepciones para servidores específicos que se permiten al usar caracteres comodín en la lista de servidores de "Permitir delegación de credenciales nuevas".</string>
+      <string id="DenySavedCredentials">Denegar delegación de credenciales guardadas</string>
+      <string id="DenySavedCredentials_Explain">Esta configuración de directiva se aplica a las aplicaciones que usan el componente Cred SSP (por ejemplo, Conexión a Escritorio remoto).
+
+Si se habilita esta configuración de directiva, se pueden especificar los servidores a los que no pueden delegarse las credenciales de usuario guardadas (las credenciales guardadas son aquellas que se eligen para ser guardadas/recordadas mediante el administrador de credenciales de Windows).
+
+Si se deshabilita o no se configura (predeterminado) esta configuración de directiva, esta opción no especifica ningún servidor.
+
+Nota: la configuración de directiva "Denegar delegación de credenciales guardadas" se puede establecer en uno o más nombres principales de servicio (SPN). El SPN representa el servidor de destino al que no se pueden delegar las credenciales de usuario. Se admite el uso de un solo carácter comodín cuando se especifica SPN.
+
+Por ejemplo:
+TERMSRV/host.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en el equipo host.humanresources.fabrikam.com
+TERMSRV/* El host de sesión de Escritorio remoto se ejecuta en todos los equipos.
+TERMSRV/*.humanresources.fabrikam.com El host de sesión de Escritorio remoto se ejecuta en todos los equipos de .humanresources.fabrikam.com
+
+Esta configuración de directiva se puede usar en combinación con "Permitir delegación de credenciales guardadas" para definir excepciones para servidores específicos que se permiten al usar caracteres comodín en la lista de servidores de "Permitir delegación de credenciales guardadas".</string>
+      <string id="RestrictedRemoteAdministration">Restringir delegación de credenciales a servidores remotos</string>
+      <string id="RestrictedRemoteAdministration_Explain">Cuando se ejecutan en el modo de administración restringida o de Credential Guard remoto, las aplicaciones participantes no exponen credenciales con las que se ha iniciado sesión ni las suministradas a ningún host remoto. El modo de administración restringida puede limitar el acceso a los recursos que están en otros servidores del host remoto, ya que las credenciales no se delegan. Credential Guard remoto no limita el acceso a los recursos, ya que redirige todas las solicitudes al dispositivo cliente.
+
+Aplicaciones participantes:
+Cliente de escritorio remoto
+
+Si habilitas esta configuración de directiva, se admiten las opciones siguientes:
+ 
+Restringir delegación de credenciales: Las aplicaciones participantes deben usar la administración restringida o Credential Guard remoto para conectarse a los hosts remotos.
+ 
+Necesitar Credential Guard remoto: Las aplicaciones participantes deben usar Credential Guard remoto para conectarse a los hosts remotos.
+ 
+Necesitar un administrador restringido: Las aplicaciones participantes deben usar la administración restringida para conectarse a los hosts remotos.
+
+Si deshabilitas o no configuras esta configuración de directiva, no se aplicarán la administración restringida ni Credential Guard remoto, y las aplicaciones participantes podrán delegar credenciales para dispositivos remotos.
+
+Nota: Para deshabilitar la mayoría de delegación de credenciales, puede bastar con denegar la delegación en el proveedor de servicios de seguridad de credenciales (CredSSP) modificando la configuración de plantillas administrativas (que se encuentra en Configuración del equipo\Plantillas administrativas\Sistema\Delegación de credenciales).
+
+Nota: En Windows 8.1 y Windows Server 2012 R2, la habilitación de esta directiva aplicará el modo de administración restringida, independientemente del modo elegido. Estas versiones no son compatibles con Credential Guard remoto.
+</string>
+      <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Restringir delegación de credenciales</string>
+      <string id="RequireRemoteCredentialGuard">Necesitar Credential Guard remoto</string>
+      <string id="RequireRestrictedAdmin">Necesitar un administrador restringido</string>
+      <string id="AllowProtectedCreds">El host remoto permite la delegación de credenciales no exportables</string>
+      <string id="AllowProtectedCreds_Explain">El host remoto permite la delegación de credenciales no exportables
+
+Cuando se usa la delegación de credenciales, los dispositivos proporcionan una versión exportable de credenciales al host remoto. Esto expone a los usuarios al riesgo de robo de credenciales por parte de atacantes en el host remoto.
+
+Si habilitas esta configuración de directiva, el host admitirá el modo de administración restringida o remoto.
+
+Si deshabilitas o no configuras esta configuración de directiva, no se admitirán el modo de administración restringida ni el modo Credential Guard remoto. El usuario siempre tendrá que pasar sus credenciales al host.</string>
+      <string id="AllowEncryptionOracle">Corrección de oráculo de cifrado</string>
+      <string id="AllowEncryptionOracle_Explain">Corrección de oráculo de cifrado
+
+Esta configuración de directiva se aplica a las aplicaciones que usan el componente CredSSP (por ejemplo: Conexión a Escritorio remoto).
+
+Algunas versiones del protocolo CredSSP son vulnerables a un ataque de oráculo de cifrado contra el cliente. Esta directiva controla la compatibilidad con los servidores y los clientes vulnerables. También te permite establecer el nivel de protección que quieras para la vulnerabilidad de oráculo de cifrado.
+
+Si habilitas esta configuración de directiva, la compatibilidad con la versión de CredSSP se seleccionará en función de las siguientes opciones:
+
+Forzar clientes actualizados: las aplicaciones cliente que usen CredSSP no podrán revertirse a las versiones no seguras y los servicios que usen CredSSP no aceptarán clientes sin revisión. Nota: Esta configuración no debe implementarse hasta que todos los hosts remotos sean compatibles con la versión más reciente.
+
+Mitigado: las aplicaciones cliente que usen CredSSP no podrán revertirse a la versión no segura, pero los servicios que usen CredSSP aceptarán clientes sin revisión. Consulta el vínculo siguiente para obtener información importante sobre el riesgo que plantean los clientes sin revisión restantes.
+
+Vulnerable: las aplicaciones cliente que usen CredSSP expondrán los servidores remotos a ataques al admitir la reversión a versiones no seguras, y los servicios que usen CredSSP aceptarán clientes sin revisión.
+
+Para obtener más información sobre los requisitos de vulnerabilidad y mantenimiento para mantener la seguridad, consulta https://go.microsoft.com/fwlink/?linkid=866660</string>
+      <string id="AllowEncryptionOracle_Force">Forzar clientes actualizados</string>
+      <string id="AllowEncryptionOracle_Secure">Mitigado</string>
+      <string id="AllowEncryptionOracle_Allow">Vulnerable</string>
+    </stringTable>
+    
+    <presentationTable>
+      <presentation id="AllowDefaultCredentials">
+        <listBox refId="AllowDefaultCredentials_Name">Agregar servidores a la lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_ADC" defaultChecked="true">Concatenar las opciones predeterminadas de SO con la entrada anterior</checkBox>
+      </presentation>
+      <presentation id="AllowDefCredentialsWhenNTLMOnly">
+        <listBox refId="AllowDefCredentialsWhenNTLMOnly_Name">Agregar servidores a la lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_ADCN" defaultChecked="true">Concatenar las opciones predeterminadas de SO con la entrada anterior</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentials">
+        <listBox refId="AllowFreshCredentials_Name">Agregar servidores a la lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_AFC" defaultChecked="true">Concatenar las opciones predeterminadas de SO con la entrada anterior</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentialsWhenNTLMOnly">
+        <listBox refId="AllowFreshCredentialsWhenNTLMOnly_Name">Agregar servidores a la lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_AFCN" defaultChecked="true">Concatenar las opciones predeterminadas de SO con la entrada anterior</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentials">
+        <listBox refId="AllowSavedCredentials_Name">Agregar servidores a la lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_ASC" defaultChecked="true">Concatenar las opciones predeterminadas de SO con la entrada anterior</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentialsWhenNTLMOnly">
+        <listBox refId="AllowSavedCredentialsWhenNTLMOnly_Name">Agregar servidores a la lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_ASCN" defaultChecked="true">Concatenar las opciones predeterminadas de SO con la entrada anterior</checkBox>
+      </presentation>
+      <presentation id="DenyDefaultCredentials">
+        <listBox refId="DenyDefaultCredentials_Name">Agregar servidores a la lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_DDC" defaultChecked="true">Concatenar las opciones predeterminadas de SO con la entrada anterior</checkBox>
+      </presentation>
+      <presentation id="DenyFreshCredentials">
+        <listBox refId="DenyFreshCredentials_Name">Agregar servidores a la lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_DFC" defaultChecked="true">Concatenar las opciones predeterminadas de SO con la entrada anterior</checkBox>
+      </presentation>
+      <presentation id="DenySavedCredentials">
+        <listBox refId="DenySavedCredentials_Name">Agregar servidores a la lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Concatenar las opciones predeterminadas de SO con la entrada anterior</checkBox>
+      </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Usar el siguiente modo restringido:</dropdownList>
+      </presentation>
+      <presentation id="AllowProtectedCreds">
+      </presentation>
+      <presentation id="AllowEncryptionOracle">
+        <dropdownList refId="AllowEncryptionOracleDrop" defaultItem="1">Nivel de protección:</dropdownList>
+      </presentation>
+    </presentationTable>
+    
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2016 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="appHVSI" namespace="Microsoft.Policies.AppHVSI" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="AppHVSICat" displayName="$(string.AppHVSICat_DisplayName)">
+        <parentCategory ref="windows:WindowsComponents" />
+    </category>
+  </categories>
+  <policies>
+    <!-- AllowAppHVSI -->
+    <policy name="AppHVSI_AllowAppHVSIConfig"
+            class="Machine"
+            clientExtension="{9650FDBC-053A-4715-AD14-FC2DC65E8330}"
+            displayName="$(string.AppHVSI_AllowAppHVSI_DisplayName)"
+            explainText="$(string.AppHVSI_AllowAppHVSI_Explain)"
+            presentation="$(presentation.AppHVSI_AllowAppHVSI_Presentation)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI"
+            >
+        <parentCategory ref="AppHVSICat" />
+        <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+        <elements>
+          <decimal id="AppHVSI_AllowAppHVSI_TextBox" valueName="AllowAppHVSI_ProviderSet" minValue="0" maxValue="3" />
+        </elements>
+    </policy>
+    <!-- Clipboard Settings -->
+    <policy name="AppHVSI_ClipboardConfig"
+            class="Machine"
+            displayName="$(string.AppHVSI_ClipboardSettings_DisplayName)"
+            explainText="$(string.AppHVSI_ClipboardSettings_Explain)"
+            presentation="$(presentation.AppHVSIClipboardSettings_Presentation)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI"
+            >
+      <parentCategory ref="AppHVSICat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+      <elements>
+        <enum 
+          id="AppHVSIClipboardSettings_CopyPasteDirection_DropdownList"
+          valueName="AppHVSIClipboardSettings"
+          required="true"
+          >
+          <item displayName="$(string.AppHVSI_ClipboardSettings_DropdownList_Option_OperationDisabled)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.AppHVSI_ClipboardSettings_DropdownList_Option_ContainerToHostEnabled)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.AppHVSI_ClipboardSettings_DropdownList_Option_HostToContainerEnabled)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.AppHVSI_ClipboardSettings_DropdownList_Option_BothDirectionsEnabled)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+        <decimal id="AppHVSIClipboardFileType_AllowedFileType_TextBox" valueName="AppHVSIClipboardFileType" minValue="1" maxValue="3" />
+      </elements>
+    </policy>
+
+     <!-- CertificateThumbprints -->
+    <policy name="AppHVSI_CertificateThumbprints"
+            class="Machine"
+            displayName="$(string.AppHVSI_CertificateThumbprints_DisplayName)"
+            explainText="$(string.AppHVSI_CertificateThumbprints_Explain)"
+            presentation="$(presentation.AppHVSICertificateThumbprints_Presentation)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI"
+            >
+      <parentCategory ref="AppHVSICat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+        <elements>
+          <text id="AppHVSICertificateThumbprints_TextBox" valueName="CertificateThumbprints" required="true"  /> <!--maxLength="16383" -->
+        </elements>
+    </policy>
+
+    <!-- Printing Settings -->
+    <policy name="AppHVSI_PrintingConfig"
+            class="Machine"
+            displayName="$(string.AppHVSI_PrintingSettings_DisplayName)"
+            explainText="$(string.AppHVSI_PrintingSettings_Explain)"
+            presentation="$(presentation.AppHVSIPrintingSettings_Presentation)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI"
+            >
+      <parentCategory ref="AppHVSICat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+      <elements>
+        <decimal id="AppHVSIPrintingSettings_TextBox" valueName="AppHVSIPrintingSettings" minValue="0" maxValue="15" />
+      </elements>
+    </policy>
+    <!-- BlockNonEnterpriseContent -->
+    <policy name="AppHVSI_BlockNonEnterpriseContentConfig"
+            class="Machine"
+            displayName="$(string.AppHVSI_BlockNonEnterpriseContent_DisplayName)"
+            explainText="$(string.AppHVSI_BlockNonEnterpriseContent_Explain)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI"
+            valueName="BlockNonEnterpriseContent"
+            >
+      <parentCategory ref="AppHVSICat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <!-- AllowCameraMicrophoneRedirection -->
+    <policy name="AppHVSI_AllowCameraMicrophoneRedirectionConfig"
+            class="Machine"
+            displayName="$(string.AppHVSI_AllowCameraMicrophoneRedirection_DisplayName)"
+            explainText="$(string.AppHVSI_AllowCameraMicrophoneRedirection_Explain)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI"
+            valueName="AllowCameraMicrophoneRedirection"
+            >
+      <parentCategory ref="AppHVSICat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <!-- AllowPersistence -->
+    <policy name="AppHVSI_AllowPersistence"
+            class="Machine"
+            displayName="$(string.AppHVSI_AllowPersistence_DisplayName)"
+            explainText="$(string.AppHVSI_AllowPersistence_Explain)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI"
+            valueName="AllowPersistence"
+            >
+      <parentCategory ref="AppHVSICat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <!-- AllowVirtualGPU -->
+    <policy name="AppHVSI_AllowVirtualGPU"
+            class="Machine"
+            displayName="$(string.AppHVSI_AllowVirtualGPU_DisplayName)"
+            explainText="$(string.AppHVSI_AllowVirtualGPU_Explain)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI"
+            valueName="AllowVirtualGPU"
+            >
+      <parentCategory ref="AppHVSICat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <!-- Auditing Settings -->
+    <policy name="AppHVSI_AuditApplicationGuardConfig"
+            class="Machine"
+            displayName="$(string.AppHVSI_AuditApplicationGuard_DisplayName)"
+            explainText="$(string.AppHVSI_AuditApplicationGuard_Explain)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI"
+            valueName="AuditApplicationGuard"
+            >
+      <parentCategory ref="AppHVSICat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <!-- SaveFilestoHost -->
+    <policy name="AppHVSI_SaveFilesToHost"
+            class="Machine"
+            displayName="$(string.AppHVSI_SaveFilesToHost_DisplayName)"
+            explainText="$(string.AppHVSI_SaveFilesToHost_Explain)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI"
+            valueName="SaveFilesToHost"
+            >
+      <parentCategory ref="AppHVSICat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+
+    <!-- File Trust Criteria - Can only be mutually exclusive -->
+    <policy name="AppHVSI_FileTrustCriteria"
+            class="Machine"
+            displayName="$(string.AppHVSI_FileTrustCriteria_DisplayName)"
+            explainText="$(string.AppHVSI_FileTrustCriteria_Explain)"
+            presentation="$(presentation.AppHVSI_FileTrustCriteria_Presentation)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI"
+            >
+      <parentCategory ref="AppHVSICat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+      <elements>
+        <decimal id="AppHVSI_FileTrustCriteria_TextBox" valueName="FileTrustCriteria" minValue="0" maxValue="2" />
+      </elements>
+    </policy>
+    
+    <!-- File Trust Origin - Can be logically OR'ed-->
+    <policy name="AppHVSI_FileTrustOrigin"
+            class="Machine"
+            displayName="$(string.AppHVSI_FileTrustOrigin_DisplayName)"
+            explainText="$(string.AppHVSI_FileTrustOrigin_Explain)"
+            presentation="$(presentation.AppHVSI_FileTrustOrigin_Presentation)"
+            key="SOFTWARE\Policies\Microsoft\AppHVSI\FileTrustOrigin"
+            >
+      <parentCategory ref="AppHVSICat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOSERVER_ENTERPRISE_EDUCATION" />
+        <elements>
+            <!-- File Trust Origin - RemovableMedia-->
+            <boolean id="AppHVSI_FileTrustOrigin_RemovableMedia_Checkbox" valueName="FileTrustOriginRemovableMedia">
+                <trueValue>
+                    <decimal value="1" />
+                </trueValue>
+                <falseValue>
+                    <decimal value="0" />
+                </falseValue>
+            </boolean>
+            <boolean id="AppHVSI_FileTrustOrigin_NetworkShares_Checkbox" valueName="FileTrustOriginNetworkShare">
+                <trueValue>
+                    <decimal value="1" />
+                </trueValue>
+                <falseValue>
+                    <decimal value="0" />
+                </falseValue>
+            </boolean>
+            <boolean id="AppHVSI_FileTrustOrigin_MOTW_Checkbox" valueName="FileTrustOriginMarkOfTheWeb">
+                <trueValue>
+                    <decimal value="1" />
+                </trueValue>
+                <falseValue>
+                    <decimal value="0" />
+                </falseValue>
+            </boolean>
+        </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

@@ -1,0 +1,378 @@
+; Last Updated 10/06/2016
+;
+; Allows Cjwdev Group Manager options to be configured via Group Policy
+;
+
+
+;
+; — USER POLICIES –
+;
+
+CLASS USER
+
+CATEGORY "Cjwdev"
+
+CATEGORY "Group Manager"
+
+KEYNAME "Software\Policies\Cjwdev\GroupManager\Settings"
+
+
+POLICY "Check for updates on launch"
+
+  EXPLAIN !!UpdatesExplain
+  VALUENAME "CheckForUpdates"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+ 
+END POLICY
+
+POLICY "Hide Check For Updates option from Help menu"
+
+  EXPLAIN !!DisableManualUpdateExplain
+  VALUENAME "DisableManualUpdateCheck"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+    #if version >= 4
+    SUPPORTED !!Version1-9-9
+  #endif
+ 
+END POLICY
+
+POLICY "Do not show other managers"
+
+  EXPLAIN !!HideOtherManagersExplain
+  VALUENAME "HideOtherManagers"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+    #if version >= 4
+    SUPPORTED !!Version1-9-9
+  #endif
+ 
+END POLICY
+
+POLICY "Require confirmation before removing members from groups"
+
+  EXPLAIN !!ConfirmRemovalExplain
+  VALUENAME "ConfirmRemoval"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+ 
+END POLICY
+
+POLICY "When viewing group membership, include User objects in the list of members"
+
+  EXPLAIN !!ViewUsersExplain
+  VALUENAME "ViewUsers"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+ 
+END POLICY
+
+POLICY "When viewing group membership, include Contacts in the list of members"
+
+  EXPLAIN !!ViewContactsExplain
+  VALUENAME "ViewContacts"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+ 
+END POLICY
+
+POLICY "When viewing group membership, include Computers in the list of members"
+
+  EXPLAIN !!ViewComputersExplain
+  VALUENAME "ViewComputers"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-9-0
+  #endif
+  
+END POLICY
+
+POLICY "When viewing group membership, include Groups in the list of members"
+
+  EXPLAIN !!ViewGroupsExplain
+  VALUENAME "ViewGroups"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+ 
+END POLICY
+
+POLICY "When finding new members to add to a group, allow the user to find and add user accounts"
+
+  EXPLAIN !!AddUsersExplain
+  VALUENAME "AddUsers"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+ 
+END POLICY
+
+POLICY "When finding new members to add to a group, allow the user to find and add contacts"
+
+  EXPLAIN !!AddContactsExplain
+  VALUENAME "AddContacts"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+ 
+END POLICY
+
+POLICY "When finding new members to add to a group, allow the user to find and add computers"
+
+  EXPLAIN !!AddComputersExplain
+  VALUENAME "AddComputers"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-9-0
+  #endif
+  
+END POLICY
+
+POLICY "When finding new members to add to a group, allow the user to find and add groups"
+
+  EXPLAIN !!AddGroupsExplain
+  VALUENAME "AddGroups"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+ 
+END POLICY
+
+
+POLICY "Do not allow user to add new members to groups"
+
+  EXPLAIN !!DenyAddMembersExplain
+  VALUENAME "DenyAddMembers"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+ 
+END POLICY
+
+POLICY "Do not allow user to remove existing members from groups"
+
+  EXPLAIN !!DenyRemoveMembersExplain
+  VALUENAME "DenyRemoveMembers"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+ 
+END POLICY
+
+POLICY "Do not find groups that the user is only a manager of due to group membership"
+
+  EXPLAIN !!DenyManagerViaGroupExplain
+  VALUENAME "DenyManagerViaGroup"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+ 
+END POLICY
+
+POLICY "Use a Global Catalog server to locate groups in other domains that the user is a manager of"
+
+  EXPLAIN !!UseGlobalCatalogExplain
+  VALUENAME "UseGlobalCatalog"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-9-0
+  #endif
+ 
+END POLICY
+
+POLICY "Do not allow users to add members from other domains"
+
+  EXPLAIN !!DisableAddFromOtherDomainExplain
+  VALUENAME "DisableAddFromOtherDomains"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-9-1
+  #endif
+ 
+END POLICY
+
+POLICY "Only allow users to add mail enabled objects to groups"
+
+  EXPLAIN !!MailEnabledExplain
+  VALUENAME "AddMailEnabledMembersOnly"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version1-9-4
+  #endif
+ 
+END POLICY
+
+POLICY "Additional columns for group members"
+
+  KEYNAME "Software\Policies\Cjwdev\GroupManager\Settings\AdditionalLdapAttributes\List"
+  EXPLAIN !!ColumnsExplain
+  PART "Columns: " LISTBOX
+    VALUEPREFIX "Attribute"
+  END PART
+    #if version >= 4
+    SUPPORTED !!Version2-0-0
+  #endif
+ 
+END POLICY
+
+POLICY "Hide the Display Name column when viewing group members"
+
+  EXPLAIN !!HideDisplayNameColumnExplain
+  VALUENAME "HideColumnDisplayName"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version2-0-0
+  #endif
+ 
+END POLICY
+
+POLICY "Hide the Email Address column when viewing group members"
+
+  EXPLAIN !!HideEmailColumnExplain
+  VALUENAME "HideColumnEmail"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version2-0-0
+  #endif
+ 
+END POLICY
+
+POLICY "Hide the Domain column when viewing group members"
+
+  EXPLAIN !!HideDomainColumnExplain
+  VALUENAME "HideColumnDomain"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version2-0-0
+  #endif
+ 
+END POLICY
+
+POLICY "Hide the Disabled column when viewing group members"
+
+  EXPLAIN !!HideDisabledColumnExplain
+  VALUENAME "HideColumnDisabled"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version2-0-0
+  #endif
+ 
+END POLICY
+
+POLICY "Hide the Description column when viewing group members"
+
+  EXPLAIN !!HideDescriptionColumnExplain
+  VALUENAME "HideColumnDescription"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version2-0-0
+  #endif
+ 
+END POLICY
+
+POLICY "Remove the Tools menu option to lookup managers for other groups"
+
+  EXPLAIN !!DisableOtherManagerLookupsExplain
+  VALUENAME "DisableOtherManagerLookups"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version2-1-0
+  #endif
+ 
+END POLICY
+
+POLICY "Hide the Description column for managed groups shown on the main window"
+
+  EXPLAIN !!HideMainWindowDescriptionColumnExplain
+  VALUENAME "HideMainWindowColumnDescription"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version2-1-1
+  #endif
+ 
+END POLICY
+
+POLICY "Hide the Email Address column for managed groups shown on the main window"
+
+  EXPLAIN !!HideMainWindowEmailColumnExplain
+  VALUENAME "HideMainWindowColumnEmail"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version2-1-1
+  #endif
+ 
+END POLICY
+
+POLICY "Hide the Creation Date column for managed groups shown on the main window"
+
+  EXPLAIN !!HideMainWindowCreatedColumnExplain
+  VALUENAME "HideMainWindowColumnCreated"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version2-1-1
+  #endif
+ 
+END POLICY
+
+POLICY "Hide the Last Modified column for managed groups shown on the main window"
+
+  EXPLAIN !!HideMainWindowModifiedColumnExplain
+  VALUENAME "HideMainWindowColumnModified"
+  VALUEON NUMERIC 1
+  VALUEOFF NUMERIC 0 
+  #if version >= 4
+    SUPPORTED !!Version2-1-1
+  #endif
+ 
+END POLICY
+
+
+END CATEGORY
+
+END CATEGORY
+
+[strings]
+Version1-9-0="At least Group Manager version 1.9.0"
+Version1-9-1="At least Group Manager version 1.9.1"
+Version1-9-4="At least Group Manager version 1.9.4"
+Version1-9-9="At least Group Manager version 1.9.9"
+Version2-0-0="At least Group Manager version 2.0"
+Version2-1-0="At least Group Manager version 2.1.0"
+Version2-1-1="At least Group Manager version 2.1.1"
+UpdatesExplain="If this setting is enabled then each time Group Manager is launched it will query a file on the www.cjwdev.co.uk web server to see if a newer version of the application is available, if there is then the user will be notified and asked if they want to download the new version now.\n \nIf this setting is disabled the application will only check for updates if the user selects the Check For Updates option from the Help menu.\n \nIf this setting is not configured, the setting that the user has configured in the Options window will take effect."
+ConfirmRemovalExplain="If this setting is enabled then the user will be asked if they are sure they want to remove the selected members from the group when they attempt to remove any number of members.\n \nIf this setting is disabled then the user will not be prompted for confirmation before the selected members are removed from the group.\n \nIf this setting is not configured, the setting that the user has configured in the Options window will take effect."
+ViewUsersExplain="If this setting is enabled then when a user views the member list of a group they will see user accounts that are members of the group. They will also see other types of accounts if they have chosen to do so in the Options window or if the relevant Group Policy settings dictate this.\n \nIf this setting is disabled then user accounts will not be included in the list of group members and the user will not be able to select this option in the Options window.\n \n If this setting is not configured, the setting that the user has configured in the Options window will take effect."
+ViewContactsExplain="If this setting is enabled then when a user views the member list of a group they will see contacts that are members of the group. They will also see other types of accounts if they have chosen to do so in the Options window or if the relevant Group Policy settings dictate this.\n \nIf this setting is disabled then contacts will not be included in the list of group members and the user will not be able to select this option in the Options window.\n \n If this setting is not configured, the setting that the user has configured in the Options window will take effect."
+ViewGroupsExplain="If this setting is enabled then when a user views the member list of a group they will see groups that are members of the group. They will also see other types of accounts if they have chosen to do so in the Options window or if the relevant Group Policy settings dictate this.\n \nIf this setting is disabled then groups will not be included in the list of group members and the user will not be able to select this option in the Options window.\n \n If this setting is not configured, the setting that the user has configured in the Options window will take effect."
+AddUsersExplain="If this setting is enabled then when a user tries to add a new member to a group, they will be allowed to find and add user accounts to the group. They will also be able to find other types of accounts if they have chosen to be able to do so in the Options window or if the relevant Group Policy settings dictate this.\n \nIf this setting is disabled then the user will not be able to find or add user accounts to any groups and will not be able to select this option in the Options window.\n \n If this setting is not configured, the setting that the user has configured in the Options window will take effect."
+AddContactsExplain="If this setting is enabled then when a user tries to add a new member to a group, they will be allowed to find and add contacts to the group. They will also be able to find other types of accounts if they have chosen to be able to do so in the Options window or if the relevant Group Policy settings dictate this.\n \nIf this setting is disabled then the user will not be able to find or add contacts to any groups and will not be able to select this option in the Options window.\n \n If this setting is not configured, the setting that the user has configured in the Options window will take effect."
+AddGroupsExplain="If this setting is enabled then when a user tries to add a new member to a group, they will be allowed to find and add other groups to the group. They will also be able to find other types of accounts if they have chosen to be able to do so in the Options window or if the relevant Group Policy settings dictate this.\n \nIf this setting is disabled then the user will not be able to find or add groups to any groups and will not be able to select this option in the Options window.\n \n If this setting is not configured, the setting that the user has configured in the Options window will take effect."
+DenyManagerViaGroupExplain="NOTE: Only supported in version 1.5 of Group Manager and above.\n \nIf this setting is enabled then when the application is searching for groups that the user is a manager of, it will not find groups that the user is only a manager of because they are a member of the group that is assigned as this group's manager. Yes it is slightly confusing but hopefully that makes sense!\n \nIf this setting is disabled or not configured then the application will show groups that the user is a member of due to them being a member of the group that is assigned as the group's manager"
+DenyAddMembersExplain="If this setting is enabled then the user will not be able to add members to any groups. The Add button on the Edit Group Members window will be removed and the Add Members option on the group list right click menu will be disabled.\n \nIf this setting is disabled or not configured then the user will be able to add members to any groups (assuming they have the relevant permissions in Active Directory)"
+DenyRemoveMembersExplain="If this setting is enabled then the user will not be able to remove members from any groups. The Remove button on the Edit Group Members window will be removed.\n \nIf this setting is disabled or not configured then the user will be able to remove members from any groups (assuming they have the relevant permissions in Active Directory)"
+UseGlobalCatalogExplain="If this setting is enabled then the program will query the global catalog to locate groups in other domains in the same forest that are managed by the user.\n \nIf this setting is disabled then a global catalog server will not be used and the user will not be able to enable this option in the Options window.\n \nIf this setting is not configured, the setting that the user has configured in the Options window will take effect."
+AddComputersExplain="If this setting is enabled then when a user tries to add a new member to a group, they will be allowed to find and add computer accounts to the group. They will also be able to find other types of accounts if they have chosen to be able to do so in the Options window or if the relevant Group Policy settings dictate this.\n \nIf this setting is disabled then the user will not be able to find or add computer accounts to any groups and will not be able to select this option in the Options window.\n \n If this setting is not configured, the setting that the user has configured in the Options window will take effect."
+DisableAddFromOtherDomainExplain="If this setting is enabled then users will not be able to add accounts from other domains to groups that they manage. The domain selection box in the Add Members window will be will be set to the user's own domain and the user will not be able to change it.\n \nIf this setting is disabled or not configured then the user will be able to select other domains to add members from as normal."
+MailEnabledExplain="If this setting is enabled then when a user tries to add a new member to a group, they will only find objects that are mail enabled (i.e. have at least one email address associated with them). \n \nIf this setting is disabled then the user will be able to add both mail enabled and non mail enabled members to groups but they will not be able to modify this setting from the Options window.\n \n If this setting is not configured, the setting that the user has configured in the Options window will take effect."
+HideOtherManagersExplain="If this setting is enabled then when a user views a managed group, they will not see the option to view other managers that have also been set as the group's manager via the Exchange admin tools (or any other tool that adds users to the MsExchCoManagedByLink LDAP attribute of the group) \n \nIf this setting is disabled or not configured then the user will be able to view other managers from within the Group Manager application."
+DisableManualUpdateExplain="If this setting is enabled then the user will not be able to manually check for updates to the application by using the Help -> Check For Updates menu item. \n \nIf this setting is disabled or not configured then the user will see the Check For Updates item within the Help menu and will be able to use it to check for updates online."
+DisableOtherManagerLookupsExplain="If this setting is enabled then the user will not be able to view managers of other groups by using the Lookup Managers For Group option under the Tools menu.\n \nIf this setting is disabled or not configured then the user will see the Lookup Manager For Group item within the Help menu and will be able to use it to view managers of other groups in their domain."
+ColumnsExplain="If this setting is enabled then when a user views group members, the LDAP attributes specified in this setting will be shown as additional columns. Add a new item for each additional column that you wish to be added, using the format LdapName;DisplayName \nEach entry must have the LDAP name of the attribute followed by a semi colon and then the text that you wish to be displayed as the column header. So for example to add a column showing each member's logon username you could use: sAMAccountName;Username\n \nIf this setting is disabled or not configured then only the default columns will be shown."
+HideDisplayNameColumnExplain="If this setting is enabled then users will not see the Display Name column when viewing group members.\n \nIf this setting is disabled or not configured then the user will see the column as normal."
+HideEmailColumnExplain="If this setting is enabled then users will not see the Email Address column when viewing group members.\n \nIf this setting is disabled or not configured then the user will see the column as normal."
+HideDomainColumnExplain="If this setting is enabled then users will not see the Domain column when viewing group members.\n \nIf this setting is disabled or not configured then the user will see the column as normal."
+HideDisabledColumnExplain="If this setting is enabled then users will not see the Disabled column when viewing group members.\n \nIf this setting is disabled or not configured then the user will see the column as normal."
+HideDescriptionColumnExplain="If this setting is enabled then users will not see the Description column when viewing group members.\n \nIf this setting is disabled or not configured then the user will see the column as normal."
+HideMainWindowDescriptionColumnExplain="If this setting is enabled then users will not see the description of each managed group listed on the main window.\n \nIf this setting is disabled or not configured then the user will see the column as normal."
+HideMainWindowEmailColumnExplain="If this setting is enabled then users will not see the email address of each managed group listed on the main window.\n \nIf this setting is disabled or not configured then the user will see the column as normal."
+HideMainWindowCreatedColumnExplain="If this setting is enabled then users will not see the creation date of each managed group listed on the main window.\n \nIf this setting is disabled or not configured then the user will see the column as normal."
+HideMainWindowModifiedColumnExplain="If this setting is enabled then users will not see the last modified date of each managed group listed on the main window.\n \nIf this setting is disabled or not configured then the user will see the column as normal."
+ViewComputersExplain="If this setting is enabled then when a user views the member list of a group they will see computer accounts that are members of the group. They will also see other types of accounts if they have chosen to do so in the Options window or if the relevant Group Policy settings dictate this.\n \nIf this setting is disabled then computer accounts will not be included in the list of group members and the user will not be able to select this option in the Options window.\n \n If this setting is not configured, the setting that the user has configured in the Options window will take effect."

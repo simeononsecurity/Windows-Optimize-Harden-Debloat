@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="CredUI">Interfaz de usuario de credenciales</string>
+      <string id="CredUI_Help">Contiene la configuración para controlar el comportamiento de la recopilación de credenciales.</string>
+      <string id="EnumerateAdministrators">Enumerar las cuentas de administración al realizar una elevación</string>
+      <string id="EnumerateAdministrators_Help">Esta configuración de directiva controla si se muestran las cuentas de administrador cuando un usuario intenta elevar una aplicación en ejecución. Las cuentas de administrador no se muestran de forma predeterminada cuando un usuario intenta elevar una aplicación en ejecución.
+
+Si habilita esta configuración de directiva, todas las cuentas de administrador local en el equipo se mostrarán para que el usuario pueda elegir alguna y escribir la contraseña adecuada.
+
+Si deshabilita esta configuración de directiva, los usuarios siempre deberán escribir un nombre de usuario y una contraseña para realizar la elevación.</string>
+      <string id="EnableSecureCredentialPrompting">Requerir ruta de acceso de confianza para la entrada de credenciales.</string>
+      <string id="EnableSecureCredentialPrompting_Help">Esta configuración de directiva obliga al usuario a indicar las credenciales de Microsoft Windows con una ruta de acceso de confianza, para impedir que un caballo de Troya u otros tipos de código malintencionado puedan robar las credenciales de Windows del usuario.
+
+Nota: esta directiva solo afecta a las tareas de autenticación que no son de inicio de sesión. Por motivos de seguridad, se recomienda habilitar esta directiva.
+
+Si habilita esta configuración de directiva, los usuarios deberán indicar las credenciales de Windows en el escritorio seguro por medio del mecanismo de ruta de acceso de confianza.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios indicarán las credenciales de Windows en su sesión de escritorio, lo cual puede permitir al código malintencionado obtener acceso a sus credenciales de Windows.</string>
+      <string id="DisablePasswordReveal">No mostrar el botón revelar contraseña</string>
+      <string id="DisablePasswordReveal_Help">Esta configuración de directiva permite configurar la visualización del botón revelar contraseña en las experiencias de usuario de entrada de contraseñas.
+
+Si habilita esta configuración de directiva, no se mostrará el botón revelar contraseña después de que un usuario escriba una contraseña en el cuadro de texto de entrada de contraseña.
+
+Si deshabilita o no establece esta configuración de directiva, se mostrará el botón revelar contraseña después de que un usuario escriba una contraseña en el cuadro de texto de entrada de contraseña.
+
+De manera predeterminada, se muestra el botón revelar contraseña después de que un usuario escriba una contraseña en el cuadro de texto de entrada de contraseña. Para mostrar la contraseña, haga clic en el botón Mostrar contraseña.
+
+La directiva se aplica a todos los componentes y aplicaciones de Windows que usan los controles de sistema de Windows, incluido Internet Explorer.</string>
+      <string id="NoLocalPasswordResetQuestions">Impedir el uso de preguntas de seguridad en las cuentas locales</string>
+      <string id="NoLocalPasswordResetQuestions_Help">Si activas esta configuración de directiva, los usuarios locales no podrán configurar ni usar preguntas de seguridad para restablecer sus contraseñas.</string>
+    </stringTable>
+  </resources>
+</policyDefinitionResources>

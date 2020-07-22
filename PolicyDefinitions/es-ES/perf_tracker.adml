@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="perf_tracker">Seguimiento del rendimiento de VMware Horizon</string>
+      <string id="ShowUI">Mostrar la interfaz de usuario de visión general de seguimiento del rendimiento</string>
+      <string id="HideUI">Ocultar la interfaz de usuario de visión general de seguimiento del rendimiento</string>
+      <string id="SUPPORTED_NotSpecified">Sin especificar</string>
+      <string id="perf_tracker_basic_settings">Ajuste básico del seguimiento del rendimiento</string>
+      <string id="perf_tracker_VDI_auto_start">Habilitar el inicio automático del seguimiento del rendimiento en la conexión a los escritorios remotos</string>
+      <string id="perf_tracker_remote_app_auto_start">Habilitar el inicio automático del seguimiento del rendimiento en la conexión a las aplicaciones remotas</string>
+      <string id="perf_tracker_blast_settings">Ajuste del umbral de Blast</string>
+      <string id="perf_tracker_PCoIP_settings">Ajuste del umbral de PCoIP</string>
+      <string id="perf_tracker_notification_settings_detail"> Este ajuste de directiva se usa para ajustar la configuración de las notificaciones.
+
+Habilitar notificación:
+Cuando está habilitada, se muestran notificaciones emergentes para advertir al usuario.
+
+Tiempo para ocultar automáticamente las notificaciones:
+El intervalo (en segundos) durante el que se mostrarán las notificaciones emergentes antes de que se oculten automáticamente.
+
+Intervalo mínimo entre notificaciones:
+La cantidad de sondeos que se mantendrá el estado de una alarma para evitar que las notificaciones oscilen. Este valor * intervalo de sondeos = segundos.</string>
+      <string id="perf_tracker_basic_settings_detail"> Ajuste básico del seguimiento del rendimiento.
+
+Frecuencia de actualización de datos:
+La frecuencia (en segundos) con la que se extraen los datos de rendimiento. </string>
+      <string id="perf_tracker_VDI_auto_start_detail">Iniciar automáticamente en la conexión de escritorio remoto.
+
+Si se habilita, perfTracker se iniciará automáticamente cuando el usuario inicie sesión en una conexión de escritorio remoto.</string>
+      <string id="perf_tracker_remote_app_auto_start_detail">Iniciar automáticamente en la conexión de aplicación remota.
+
+Si se habilita, perfTracker se iniciará automáticamente cuando el usuario inicie sesión en una conexión de aplicación remota.</string>
+      <string id="perf_tracker_blast_settings_detail">Ajuste del umbral de Blast.
+
+Valor de advertencia de latencia de Blast:
+El número de ms tras los cuales se mostrará una advertencia para la métrica de latencia de Blast.
+
+Valor de error de latencia de Blast:
+El número de ms tras los cuales se mostrará un error de la métrica de latencia de Blast.
+
+Valor de advertencia de pérdida de Blast:
+Cuando el porcentaje de pérdida de Blast supere este valor, se mostrará una advertencia.
+
+Valor de error de pérdida de Blast:
+Cuando el porcentaje de pérdida de Blast supere este valor, se mostrará un error.
+
+Valor de error de ancho de banda de Blast:
+Si el ancho de banda disponible se encuentra por debajo de este valor (en kbps), se mostrará un error.
+
+Valor de advertencia de ancho de banda de Blast:
+Si el ancho de banda disponible se encuentra por debajo de este valor (en kbps), se mostrará una advertencia.</string>
+      <string id="perf_tracker_PCoIP_settings_detail">Ajuste del umbral de PCoIP.
+
+Valor de advertencia de latencia de PCoIP:
+El número de ms tras los cuales se mostrará una advertencia para la métrica de latencia de PCoIP.
+
+
+Valor de error de latencia de PCoIP:
+El número de ms tras los cuales se mostrará un error de la métrica de latencia de PCoIP.
+
+
+Valor de advertencia de pérdida de PCoIP:
+Cuando el porcentaje de pérdida de PCoIP supere este valor, se mostrará una advertencia.
+
+
+Valor de error de pérdida de PCoIP:
+Cuando el porcentaje de pérdida de PCoIP supere este valor, se mostrará un error.
+
+
+
+Valor de error de ancho de banda de PCoIP:
+Si el ancho de banda disponible se encuentra por debajo de este valor (en kbps), se mostrará un error.
+
+
+
+Valor de advertencia de ancho de banda de PCoIP:
+Si el ancho de banda disponible se encuentra por debajo de este valor (en kbps), se mostrará una advertencia.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="perf_tracker_basic_settings">
+        <decimalTextBox refId="DataCollectionFrequency" defaultValue="5">Frecuencia de actualización de datos</decimalTextBox>
+      </presentation>
+      <presentation id="perf_tracker_auto_start_mode">
+         <dropdownList refId="HideUI" defaultItem="0">Si se oculta la interfaz de usuario de visión general</dropdownList>
+      </presentation>
+      <presentation id="perf_tracker_blast_settings">
+        <decimalTextBox refId="WarningBlastLatencyValue" defaultValue="100">Valor de advertencia de latencia de Blast</decimalTextBox>
+        <decimalTextBox refId="ErrorBlastLatencyValue" defaultValue="300">Valor de error de latencia de Blast</decimalTextBox>
+        <textBox refId="WarningBlastLossValue">
+          <label>Valor de advertencia de pérdida de Blast</label>
+          <defaultValue>2</defaultValue>
+        </textBox>
+        <textBox refId="ErrorBlastLossValue" defaultValue="10">
+          <label>Valor de error de pérdida de Blast</label>
+          <defaultValue>10</defaultValue>
+        </textBox>
+        <decimalTextBox refId="ErrorBlastBandwidthKbValue" defaultValue="512">Valor de error de ancho de banda de Blast</decimalTextBox>
+        <decimalTextBox refId="WarningBlastBandwidthKbValue" defaultValue="1500">Valor de advertencia de ancho de banda de Blast</decimalTextBox>
+      </presentation>
+      <presentation id="perf_tracker_PCoIP_settings">
+        <decimalTextBox refId="WarningPCoIPLatencyValue" defaultValue="100">Valor de advertencia de latencia de PCoIP</decimalTextBox>
+        <decimalTextBox refId="ErrorPCoIPLatencyValue" defaultValue="250">Valor de error de latencia de PCoIP</decimalTextBox>
+        <textBox refId="WarningPCoIPLossValue">
+          <label>Valor de advertencia de pérdida de PCoIP</label>
+          <defaultValue>0,5</defaultValue>
+        </textBox>
+        <textBox refId="ErrorPCoIPLossValue">
+          <label>Valor de error de pérdida de PCoIP</label>
+          <defaultValue>2</defaultValue>
+        </textBox>
+        <decimalTextBox refId="ErrorPCoIPBandwidthKbValue" defaultValue="512">Valor de error de ancho de banda de PCoIP</decimalTextBox>
+        <decimalTextBox refId="WarningPCoIPBandwidthKbValue" defaultValue="1500">Valor de advertencia de ancho de banda de PCoIP</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<policyDefinitions
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	revision="1.0"
+	schemaVersion="1.0"
+	xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+
+<policyNamespaces>
+	<target prefix="cascadia-server" namespace="VMware.Policies.Cascadia-Server" />
+	<using prefix="cascadia" namespace="VMware.Policies.Cascadia" />
+</policyNamespaces>
+
+<resources minRequiredRevision="1.0" />
+
+<categories>
+	<category name="CASCADIA_APP_COMPATIBILITY" displayName="$(string.CASCADIA_APP_COMPATIBILITY)" explainText="$(string.CASCADIA_APP_COMPATIBILITY_Help)">
+		<parentCategory ref="cascadia:CASCADIA_TERMINAL_SERVER" />
+	</category>
+</categories>
+
+<policies>
+
+	<policy name="CASCADIA_DISABLE_MSI" class="Machine" displayName="$(string.CASCADIA_DISABLE_MSI)" explainText="$(string.CASCADIA_DISABLE_MSI_EXPLAIN)" key="SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\TSAppSrv\TSMSI" valueName="Enable">
+		<parentCategory ref="cascadia-server:CASCADIA_APP_COMPATIBILITY" />
+		<supportedOn ref="cascadia:CASCADIA_SUPPORTED_Windows7_Server" />
+		<enabledValue>
+		<decimal value="0" />
+		</enabledValue>
+		<disabledValue>
+		<decimal value="1" />
+		</disabledValue>
+	</policy>
+
+	<policy name="CASCADIA_ENABLE_IP_VIRTUALIZATION" class="Machine" displayName="$(string.CASCADIA_ENABLE_IP_VIRTUALIZATION)" explainText="$(string.CASCADIA_ENABLE_IP_VIRTUALIZATION_EXPLAIN)" presentation="$(presentation.CASCADIA_ENABLE_IP_VIRTUALIZATION)" key="SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\TSAppSrv\VirtualIP" valueName="EnableVirtualIP" >
+		<parentCategory ref="cascadia-server:CASCADIA_APP_COMPATIBILITY" />
+		<supportedOn ref="cascadia:CASCADIA_SUPPORTED_Windows7_Server" />
+		<enabledValue>
+		<decimal value="1" />
+		</enabledValue>
+		<disabledValue>
+		<decimal value="0" />
+		</disabledValue>
+		<elements>
+		<enum id="CASCADIA_ENABLE_IP_VIRTUALIZATION" valueName="VirtualMode" >
+		<item displayName="$(string.CASCADIA_ENABLE_PRPGRAM_MODE_IP_VIRTUALIZATION)">
+		<value>
+		<decimal value="1" />
+		</value>
+		</item>
+		<item displayName="$(string.CASCADIA_ENABLE_SESSION_MODE_IP_VIRTUALIZATION)">
+		<value>
+		<decimal value="0" />
+		</value>
+		</item>
+		</enum>
+		<multiText id="CASCADIA_ENABLE_IP_VIRTUALIZATION_EDIT" valueName="PerApp"/>
+		</elements>
+	</policy>
+
+	<policy name="CASCADIA_NET_ID_IP_VIRTUALIZATION" class="Machine" displayName="$(string.CASCADIA_NET_ID_IP_VIRTUALIZATION)" explainText="$(string.CASCADIA_NET_ID_IP_VIRTUALIZATION_EXPLAIN)" presentation="$(presentation.CASCADIA_NET_ID_IP_VIRTUALIZATION)" key="SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\TSAppSrv\VirtualIP">
+		<parentCategory ref="cascadia-server:CASCADIA_APP_COMPATIBILITY" />
+		<supportedOn ref="cascadia:CASCADIA_SUPPORTED_Windows7_Server" />
+		<elements>
+		<text id="CASCADIA_NET_ID_IP_VIRTUALIZATION" valueName="VIPAdapter" required="true" />
+		</elements>
+	</policy>
+
+	<policy name="CASCADIA_NOT_USE_SERVER_IP_WITH_IP_VIRTUALIZATION" class="Machine" displayName="$(string.CASCADIA_NOT_USE_SERVER_IP_WITH_IP_VIRTUALIZATION)" explainText="$(string.CASCADIA_NOT_USE_SERVER_IP_WITH_IP_VIRTUALIZATION_EXPLAIN)" key="SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\TSAppSrv\VirtualIP"  valueName="PromptOnIPLeaseFail">
+		<parentCategory ref="cascadia-server:CASCADIA_APP_COMPATIBILITY" />
+		<supportedOn ref="cascadia:CASCADIA_SUPPORTED_Windows7_Server" />
+		<enabledValue>
+		<decimal value="1" />
+		</enabledValue>
+		<disabledValue>
+		<decimal value="0" />
+		</disabledValue>
+	</policy>
+
+	<policy name="CASCADIA_ENABLE_DFSS" class="Machine" displayName="$(string.CASCADIA_ENABLE_DFSS)" explainText="$(string.CASCADIA_ENABLE_DFSS_EXPLAIN)" key="SOFTWARE\Policies\Microsoft\Windows\SessionManager\DFSS" valueName="EnableDFSS">
+		<parentCategory ref="cascadia:CASCADIA_CONNECTIONS" />
+		<supportedOn ref="cascadia:CASCADIA_SUPPORTED_Windows7_Server" />
+		<enabledValue>
+		<decimal value="1" />
+		</enabledValue>
+		<disabledValue>
+		<decimal value="0" />
+		</disabledValue>
+	</policy>
+
+</policies>
+
+</policyDefinitions>

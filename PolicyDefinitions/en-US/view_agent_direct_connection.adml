@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+
+   <displayName>VMware Horizon View Agent Direct Connection</displayName>
+   <description>VMware Horizon View Agent direct connection configuration settings</description>
+   <resources>
+
+      <stringTable>
+
+         <string id="Agent_Direct_Connect_Config">View Agent Direct-Connection Configuration</string>
+
+         <string id="HTTPS_Port">HTTPS Port Number</string>
+
+         <string id="HTTPS_Port_Desc">The TCP port number on which View Agent Connect listens for incoming View client HTTPS connections. If this policy is not configured or disabled the default of 443 is used.
+
+NOTE: If you change the port number, you may need to reconfigure the desktop firewall to allow incoming connections to the port.</string>
+
+         <string id="Session_Timeout">Session Timeout</string>
+
+         <string id="Session_Timeout_Desc">Determines how long a user can keep a session open after logging in with a View client. The value is set in minutes, if this policy is not configured or disabled the default is 600 minutes. When a desktop session times out, the session is terminated and the View client is disconnected from the desktop.</string>
+
+         <string id="Disclaimer_Enabled">Disclaimer Enabled</string>
+
+         <string id="Disclaimer_Enabled_Desc">Show disclaimer text for user acceptance at login time. The text is shown from 'Disclaimer Text' if present, or from the GPO 'Configuration\Windows Settings\Security Settings\Local Policies\Security Options' 'Interactive logon: Message text for users attempting to log on'. The default setting is for this to be disabled.</string>
+
+         <string id="Disclaimer_Text">Disclaimer Text</string>
+
+         <string id="Disclaimer_Text_Desc">Disclaimer text to be shown to View client users when they log in, requires that the Disclaimer Enabled policy is set. If no text is specified, the default is to take the value from Windows policy 'Configuration\Windows Settings\Security Settings\Local Policies\Security Options' 'Interactive logon: Message text for users attempting to log on'.</string>
+
+         <string id="Applications_Enabled">Applications Enabled</string>
+
+         <string id="Applications_Enabled_Desc">Support Application launch on Remote Desktop Session Hosts. The default setting is for this feature to be enabled.</string>
+
+         <string id="Client_autoconnect_setting">Client setting: AutoConnect</string>
+
+         <string id="Client_autoconnect_setting_Desc">AutoConnect setting sent to View Client. If this policy is set, it will override any saved client preferences. No value is set by default. Enabling this policy will set the value to true, disabling this policy will set the value to false.</string>
+
+         <string id="Client_alwaysconnect_setting">Client setting: AlwaysConnect</string>
+
+         <string id="Client_alwaysconnect_setting_Desc">AlwaysConnect setting sent to View Client. If this policy is set, it will override any saved client preferences. No value is set by default. Enabling this policy will set the value to true, disabling this policy will set the value to false.</string>
+
+         <string id="Client_screensize_setting">Client setting: ScreenSize</string>
+
+         <string id="Client_screensize_setting_Desc">ScreenSize setting sent to View Client. If this policy is enabled, it will override any saved client preferences. If this policy is not configured or disabled, the client preferences will be used.</string>
+
+         <string id="External_PCoIP_port">External PCoIP Port</string>
+
+         <string id="External_PCoIP_port_Desc">Port number sent to View Client for destination TCP/UDP port number used for the PCoIP protocol. A '+' character in front of the number indicates a relative number from the port number used for HTTPS. Only set this value if the externally exposed port number does not match the port the service is listening on, typically this will be in a NAT environment. No value is set by default.</string>
+
+         <string id="External_RDP_Port">External RDP Port</string>
+
+         <string id="External_RDP_Port_Desc">Port number sent to View Client for destination TCP port number used for the RDP protocol. A '+' character in front of the number indicates a relative number from the port number used for HTTPS. Only set this value if the externally exposed port number does not match the port the service is listening on, typically this will be in a NAT environment. No value is set by default.</string>
+
+         <string id="External_Blast_port">External Blast Port</string>
+
+         <string id="External_Blast_port_Desc">Port number sent to View Client for destination TCP port number used for the Blast protocol. A '+' character in front of the number indicates a relative number from the port number used for HTTPS. Only set this value if the externally exposed port number does not match the port the service is listening on, typically this will be in a NAT environment. No value is set by default.</string>
+
+         <string id="External_IP">External IP Address</string>
+
+         <string id="External_IP_Desc">IP v4 address sent to View Client for destination IP address used for secondary protocols (RDP, PCoIP, Framework channel, Blast ...). Only set this value if the externally exposed address does not match the address of the desktop machine, typically this will be in a NAT environment. No value is set by default.</string>
+
+         <string id="External_Framework_Channel_port">External Framework Channel Port</string>
+
+         <string id="External_Framework_Channel_port_Desc">Port number sent to View Client for destination TCP port number used for the Framework Channel protocol. A '+' character in front of the number indicates a relative number from the port number used for HTTPS. Only set this value if the externally exposed port number does not match the port the service is listening on, typically this will be in a NAT environment. No value is set by default.</string>
+
+         <string id="USB_Enabled">USB Enabled</string>
+
+         <string id="USB_Enabled_Desc">Determines whether desktops can use USB devices connected to the client system. The default value is enabled. To prevent the use of external devices for security reasons, change the setting to disabled.</string>
+
+         <string id="MMR_Enabled">Multimedia redirection (MMR) Enabled</string>
+
+         <string id="MMR_Enabled_Desc">Determines whether MMR is enabled for client systems. MMR is a Microsoft DirectShow filter that forwards multimedia data from specific codecs on View desktops directly through a TCP socket to the client system. The data is then decoded directly on the client system, where it is played. The default value is disabled.
+
+MMR does not work correctly if the client system's video display hardware does not have overlay support. Client systems may have insufficient resources to handle local multimedia decoding.</string>
+
+         <string id="Reset_Enabled">Reset Enabled</string>
+
+         <string id="Reset_Enabled_Desc">Ability for an authenticated View client to perform an operating system level reboot. The default setting is disabled.</string>
+
+         <string id="USB_AutoConnect">USB AutoConnect</string>
+
+         <string id="USB_AutoConnect_Desc">Connect USB devices to the desktop when they are plugged in. If this policy is set, it will override any saved client preferences. No value is set by default.</string>
+
+         <string id="Client_Cred_Cache_Timeout">Client Credential Cache Timeout</string>
+
+         <string id="Client_Cred_Cache_Timeout_Desc">How long in minutes a View client should allow a user to use a saved password for. 0 means never, -1 means forever. View clients will offer users the option of saving their passwords if this is set to a valid value. The default is 0 (never).</string>
+
+         <string id="User_Idle_Timeout">User Idle Timeout</string>
+
+         <string id="User_Idle_Timeout_Desc">The maximum length of time in seconds that a user can be idle before the service takes measures to protect the session. A value of -1 indicates that the session will never be considered idle. The default is 900 seconds (15 minutes).</string>
+
+         <string id="Client_Session_Timeout">Client Session Timeout</string>
+
+         <string id="Client_Session_Timeout_Desc">The maximum length of time in seconds that a session will be kept active if a client is not connected. The default is 36000 seconds (10 hours).</string>
+
+         <string id="X509_Cert_Auth">X509 Certificate Authentication</string>
+
+         <string id="X509_Cert_Auth_Desc">Determines if Smart Card X.509 certificate authentication is disabled, allowed or required.</string>
+
+         <string id="Disabled">Disabled</string>
+
+         <string id="Allowed">Allowed</string>
+
+         <string id="Required">Required</string>
+
+         <string id="X509_SSL_Cert_Auth_Enabled">X509 SSL Certificate Authentication Enabled</string>
+
+         <string id="X509_SSL_Cert_Auth_Enabled_Desc">Determines if Smart Card X.509 certificate authentication is enabled via a direct SSL connection from a View Client. This is not required if X.509 certificate authentication is handled via an intermediate SSL termination point. View Agent must be restarted if this value changes.</string>
+
+         <string id="Client_Config_NVP">Client Config Name Value Pairs</string>
+
+         <string id="Client_Config_NVP_Desc">List of values to be passed to the client in the form name=value e.g. clientCredentialCacheTimeout=1440.</string>
+
+         <string id="Default_Protocol">Default Protocol</string>
+
+         <string id="Default_Protocol_Desc">Default display protocol used by View client to connect to desktop, if the value is not set then default is BLAST.</string>
+      </stringTable>
+
+      <presentationTable>
+
+         <presentation id="HTTPS_Port">
+            <textBox refId="HTTPS_Port_TB">
+               <label>HTTPS Port Number</label>
+               <defaultValue>443</defaultValue>
+            </textBox>
+         </presentation>
+
+         <presentation id="Session_Timeout">
+            <textBox refId="Session_Timeout_TB">
+               <label>Session Timeout</label>
+               <defaultValue>600</defaultValue>
+            </textBox>
+         </presentation>
+
+         <presentation id="Disclaimer_Text">
+            <textBox refId="Disclaimer_Text_TB">
+               <label>Disclaimer Text</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="Client_screensize_setting">
+            <textBox refId="Client_screensize_setting_TB">
+               <label>Client setting: ScreenSize</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="External_PCoIP_port">
+            <textBox refId="External_PCoIP_port_TB">
+               <label>External PCoIP Port</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="External_RDP_Port">
+            <textBox refId="External_RDP_Port_TB">
+               <label>External RDP Port</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="External_Blast_port">
+            <textBox refId="External_Blast_port_TB">
+               <label>External Blast Port</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="External_IP">
+            <textBox refId="External_IP_TB">
+               <label>External IP Address</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="External_Framework_Channel_port">
+            <textBox refId="External_Framework_Channel_port_TB">
+               <label>External Framework Channel Port</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="Client_Cred_Cache_Timeout">
+            <textBox refId="Client_Cred_Cache_Timeout_TB">
+               <label>Client Credential Cache Timeout</label>
+               <defaultValue>0</defaultValue>
+            </textBox>
+         </presentation>
+
+         <presentation id="User_Idle_Timeout">
+            <textBox refId="User_Idle_Timeout_TB">
+               <label>User Idle Timeout</label>
+               <defaultValue>900</defaultValue>
+            </textBox>
+         </presentation>
+
+         <presentation id="Client_Session_Timeout">
+            <textBox refId="Client_Session_Timeout_TB">
+               <label>Client Session Timeout</label>
+               <defaultValue>36000</defaultValue>
+            </textBox>
+         </presentation>
+
+         <presentation id="X509_Cert_Auth">
+            <dropdownList refId="X509_Cert_Auth_DDL" defaultItem="0">X509 Certificate Authentication</dropdownList>
+         </presentation>
+
+         <presentation id="Client_Config_NVP">
+            <listBox refId="Client_Config_NVP_list">Client Config Name Value Pairs</listBox>
+         </presentation>
+
+         <presentation id="Default_Protocol">
+            <textBox refId="Default_Protocol_TB">
+               <label>Default Protocol</label>
+               <defaultValue>BLAST</defaultValue>
+            </textBox>
+         </presentation>
+      </presentationTable>
+   </resources>
+</policyDefinitionResources>

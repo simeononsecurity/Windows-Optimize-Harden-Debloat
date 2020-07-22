@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="grouppolicy" namespace="Microsoft.Policies.AGPM"/>
+    <using prefix="windows" namespace="Microsoft.Policies.Windows"/>
+    <using prefix="mmcsnapins" namespace="Microsoft.Policies.MMCSnapIns" />
+    <using prefix="mmc" namespace="Microsoft.Policies.ManagementConsole" />
+  </policyNamespaces>
+  <supersededAdm fileName="agpm.adm"/>
+  <resources minRequiredRevision="1.0"/>
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_Win2k3" displayName="$(string.SUPPORTED_Win2k3)"/>
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="AGPM" displayName="$(string.AGPM)" explainText="$(string.AGPM_ComputerHelp)">
+      <parentCategory ref="windows:WindowsComponents"/>
+    </category>
+  </categories>
+  <policies>
+    <policy name="AGPM_Logging" class="Machine" displayName="$(string.AGPM_Logging)" explainText="$(string.AGPM_LoggingHelp)" presentation="$(presentation.AGPM_Logging)" key="SOFTWARE\Policies\Microsoft\AGPM">
+      <parentCategory ref="AGPM"/>
+      <supportedOn ref="SUPPORTED_Win2k3"/>
+      <elements><enum id="AGPM_TraceLevel" valueName="TraceLevel">
+        <item displayName="$(string.AGPM_TraceLevelOff)">
+          <value>
+            <decimal value="0"/>
+          </value>
+        </item>
+        <item displayName="$(string.AGPM_TraceLevelErrors)">
+          <value><decimal value="1"/>
+          </value></item>
+        <item displayName="$(string.AGPM_TraceLevelWarnings)">
+          <value>
+            <decimal value="2"/>
+          </value>
+        </item>
+        <item displayName="$(string.AGPM_TraceLevelInformation)">
+          <value><decimal value="3"/>
+          </value>
+        </item>
+        <item displayName="$(string.AGPM_TraceLevelEverything)">
+          <value>
+            <decimal value="4"/>
+          </value>
+        </item>
+      </enum>
+      </elements>
+    </policy>
+    <policy name="AGPM_ArchiveLocation" class="User" displayName="$(string.AGPM_ArchiveLocation)" explainText="$(string.AGPM_ArchiveLocationHelp)" presentation="$(presentation.AGPM_ArchiveLocation)" key="SOFTWARE\Policies\Microsoft\AGPM\Domains">
+      <parentCategory ref="AGPM"/>
+      <supportedOn ref="SUPPORTED_Win2k3"/>
+      <elements>
+        <list id="AGPM_DomainArchiveList" key="SOFTWARE\Policies\Microsoft\AGPM\Domains" explicitValue="true"/>
+      </elements>
+    </policy>
+    <policy name="AGPM_DefaultArchiveLocation" class="User" displayName="$(string.AGPM_DefaultArchiveLocation)" explainText="$(string.AGPM_DefaultArchiveLocationHelp)" presentation="$(presentation.AGPM_DefaultArchiveLocation)" key="SOFTWARE\Policies\Microsoft\AGPM">
+      <parentCategory ref="AGPM"/>
+      <supportedOn ref="SUPPORTED_Win2k3"/>
+      <elements>
+        <text id="AGPM_DefaultArchive" valueName="DefaultArchive"/>
+      </elements>
+    </policy>
+    <policy name="AGPM_AgpmChangeControl" class="User" displayName="$(string.AGPM_AgpmChangeControl)" explainText="$(string.AGPM_AgpmChangeControl_Explain)" key="Software\Policies\Microsoft\MMC\{02683EE9-CAB6-492f-90BD-2A6AF40E4D1D}" valueName="Restrict_Run">
+      <parentCategory ref="mmc:MMC_ExtensionSnapins"/>
+      <supportedOn ref="SUPPORTED_Win2k3"/>
+      <enabledValue><decimal value="0"/></enabledValue>
+      <disabledValue><decimal value="1"/></disabledValue>
+    </policy>
+    <policy name="AGPM_AgpmLinkExtensions" class="User" displayName="$(string.AGPM_AgpmLinkExtensions)" explainText="$(string.AGPM_AgpmLinkExtensions_Explain)" key="Software\Policies\Microsoft\MMC\{395B4947-74C5-4fb0-B2A5-C0067A408DD8}" valueName="Restrict_Run">
+      <parentCategory ref="mmc:MMC_ExtensionSnapins"/>
+      <supportedOn ref="SUPPORTED_Win2k3"/>
+      <enabledValue><decimal value="0"/></enabledValue>
+      <disabledValue><decimal value="1"/></disabledValue>
+    </policy>
+    <policy name="AGPM_AgpmGpoExtensions" class="User" displayName="$(string.AGPM_AgpmGpoExtensions)" explainText="$(string.AGPM_AgpmGpoExtensions_Explain)" key="Software\Policies\Microsoft\MMC\{3FE09D70-A924-4168-8F0B-CC2B1723DAE4}" valueName="Restrict_Run">
+      <parentCategory ref="mmc:MMC_ExtensionSnapins"/>
+      <supportedOn ref="SUPPORTED_Win2k3"/>
+      <enabledValue>
+        <decimal value="0"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1"/>
+      </disabledValue>
+    </policy>
+</policies>
+</policyDefinitions>

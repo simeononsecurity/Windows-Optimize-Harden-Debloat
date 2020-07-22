@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="AllowAutoConfig">Permitir la administración de servidores remotos a través de WinRM</string>
+      <string id="AllowBasic">Permitir autenticación básica</string>
+      <string id="AllowBasicClientHelp">Esta configuración de directiva le permite administrar si el cliente Administración remota de Windows (WinRM) usará la autenticación básica.
+
+Si habilita esta configuración de directiva, el cliente WinRM usa la autenticación básica. Si WinRM está configurado para usar el transporte HTTP, el nombre de usuario y la contraseña se envían a través de la red como texto sin cifrar.
+
+Si deshabilita o no define esta configuración de directiva, el cliente WinRM no usa la autenticación básica.</string>
+      <string id="AllowBasicServiceHelp">Esta configuración de directiva le permite administrar si el servicio Administración remota de Windows (WinRM) acepta la autenticación básica de un cliente remoto.
+
+        Si habilita esta configuración de directiva, el servicio WinRM acepta la autenticación básica de un cliente remoto.
+
+        Si deshabilita o no define esta configuración de directiva, el servicio WinRM no acepta la autenticación básica de un cliente remoto.</string>
+      <string id="AllowUnencrypted">Permitir tráfico sin cifrar</string>
+      <string id="AllowUnencryptedMessagesClientHelp">Esta configuración de directiva le permite administrar si el cliente Administración remota de Windows (WinRM) envía y recibe mensajes sin cifrar a través de la red.
+
+Si habilita esta configuración de directiva, el cliente WinRM envía y recibe mensajes sin cifrar a través de la red.
+
+Si deshabilita o no define esta configuración de directiva, el cliente WinRM envía o recibe únicamente mensajes cifrados a través de la red.</string>
+      <string id="AllowUnencryptedMessagesServiceHelp">Esta configuración de directiva le permite administrar si el servicio Administración remota de Windows (WinRM) envía y recibe mensajes sin cifrar a través de la red.
+
+Si habilita esta configuración de directiva, el cliente WinRM envía y recibe mensajes sin cifrar a través de la red.
+
+Si deshabilita o no define esta configuración de directiva, el cliente WinRM envía o recibe únicamente mensajes cifrados a través de la red.</string>
+      <string id="DisableRunAs">No permitir que WinRM almacene credenciales de RunAs</string>      
+      <string id="DisableRunAsMessagesServiceHelp">Esta configuración de directiva le permite administrar si el servicio Administración remota de Windows (WinRM) no permitirá que se almacenen credenciales de RunAs para ningún complemento.
+
+Si habilita esta configuración de directiva, el servicio WinRM no permitirá que se establezcan los valores de configuración de RunAsUser o RunAsPassword para ningún complemento.  Si un complemento ya tiene establecidos los valores de configuración de RunAsUser y RunAsPassword, el valor de configuración de RunAsPassword se borrará del almacén de credenciales del equipo.
+
+Si deshabilita o no define esta configuración de directiva, el servicio WinRM permitirá que se establezcan los valores de configuración de RunAsUser y RunAsPassword para complementos y el valor de RunAsPassword se almacenará de manera segura.
+
+Si habilita y luego deshabilita esta configuración de directiva, los valores que se habían configurado previamente para RunAsPassword deberán restablecerse.</string>
+      <string id="AutoConfigHelp">Esta configuración de directiva le permite administrar si el servicio Administración remota de Windows (WinRM) escucha automáticamente en la red solicitudes en el transporte HTTP a través del puerto HTTP predeterminado.
+
+Si habilita esta configuración de directiva, el servicio WinRM escucha automáticamente en la red solicitudes en el transporte HTTP a través del puerto HTTP predeterminado.
+
+Para permitir que el servicio WinRM reciba solicitudes a través de la red, defina la configuración de directiva de Firewall de Windows con excepciones para el puerto 5985 (puerto predeterminado para HTTP).
+
+Si deshabilita o no define esta configuración de directiva, el servicio WinRM no responderá a las solicitudes de un equipo remoto, independientemente de si hay o no escuchas WinRM configuradas.
+
+El servicio escucha en las direcciones especificadas en los filtros IPv4 e IPv6. El filtro IPv4 especifica uno o varios intervalos de direcciones IPv4 y el filtro IPv6, uno o varios intervalos de direcciones IPv6. Si se especifica, el servicio enumera las direcciones IP disponibles en el equipo y solo usa direcciones que se encuentren dentro de uno de los intervalos de filtro.
+
+Debe usar un asterisco (*) para indicar que el servicio escucha en todas las direcciones IP disponibles en el equipo. Cuando se usa *, se omiten otros intervalos del filtro. Si se deja el filtro en blanco, el servicio no escucha en ninguna dirección.
+
+Por ejemplo, si desea que el servicio escuche solo en direcciones IPv4, deje el filtro IPv6 vacío.
+
+Los intervalos se especifican mediante la sintaxis IP1-IP2. Use "," (coma) como delimitador para separar varios intervalos.
+
+Filtros IPv4 de ejemplo:\n2.0.0.1-2.0.0.20, 24.0.0.1-24.0.0.22
+Filtros IPv6 de ejemplo:\n3FFE:FFFF:7654:FEDA:1245:BA98:0000:0000-3FFE:FFFF:7654:FEDA:1245:BA98:3210:4562</string>
+      <string id="DisallowDigest">No permitir autenticación implícita</string>
+      <string id="DisallowDigestClientHelp">Esta configuración de directiva le permite administrar si el cliente Administración remota de Windows (WinRM) usa la autenticación implícita.
+
+Si habilita esta configuración de directiva, el cliente WinRM no usa la autenticación implícita.
+
+Si deshabilita o no define esta configuración de directiva, el cliente WinRM usa la autenticación implícita.</string>
+      <string id="DisallowNegotiate">No permitir autenticación Negotiate</string>
+      <string id="DisallowKerberos">No permitir autenticación Kerberos</string>
+      <string id="DisallowNegotiateClientHelp">Esta configuración de directiva le permite administrar si el cliente Administración remota de Windows (WinRM) usa la autenticación Negotiate.
+
+Si habilita esta configuración de directiva, el cliente WinRM no usa la autenticación Negotiate.
+
+Si deshabilita o no define esta configuración de directiva, el cliente WinRM usa la autenticación Negotiate.</string>
+      <string id="DisallowNegotiateServiceHelp">Esta configuración de directiva le permite administrar si el servicio Administración remota de Windows (WinRM) acepta la autenticación Negotiate de un cliente remoto.
+
+        Si habilita esta configuración de directiva, el servicio WinRM no acepta la autenticación Negotiate de un cliente remoto.
+
+        Si deshabilita o no define esta configuración de directiva, el servicio WinRM acepta la autenticación Negotiate de un cliente remoto.</string>
+      <string id="DisallowKerberosClientHelp">Esta configuración de directiva le permite administrar si el cliente Administración remota de Windows (WinRM) usa la autenticación Kerberos directamente.
+
+Si habilita esta configuración de directiva, el cliente Administración remota de Windows (WinRM) no usa la autenticación Kerberos directamente. Kerberos todavía se puede usar si el cliente WinRM usa la autenticación Negotiate y se selecciona Kerberos.
+
+Si deshabilita o no define esta configuración de directiva, el cliente WinRM usa la autenticación Kerberos directamente.</string>
+      <string id="DisallowKerberosServiceHelp">Esta configuración de directiva le permite administrar si el servicio Administración remota de Windows (WinRM) acepta credenciales Kerberos a través de la red.
+
+        Si habilita esta configuración de directiva, el servicio WinRM no acepta credenciales Kerberos a través de la red.
+
+        Si deshabilita o no define esta configuración de directiva, el servicio WinRM acepta la autenticación Kerberos de un cliente remoto.</string>
+      <string id="AllowCredSSP">Permitir autenticación CredSSP</string>
+      <string id="AllowCredSSPClientHelp">Esta configuración de directiva le permite administrar si el cliente Administración remota de Windows (WinRM) usa la autenticación CredSSP.
+
+Si habilita esta configuración de directiva, el cliente WinRM usa la autenticación CredSSP.
+
+Si deshabilita o no define esta configuración de directiva, el cliente WinRM no usa la autenticación CredSSP.</string>
+      <string id="AllowCredSSPServiceHelp">Esta configuración de directiva le permite administrar si el servicio Administración remota de Windows (WinRM) acepta la autenticación CredSSP de un cliente remoto.
+
+        Si habilita esta configuración de directiva, el servicio WinRM acepta la autenticación CredSSP de un cliente remoto.
+
+        Si deshabilita o no define esta configuración de directiva, el servicio WinRM no acepta la autenticación CredSSP de un cliente remoto.
+      
+      </string>
+      <string id="CBTHardeningLevel">Especificar el nivel de protección de token de enlace de canal</string>
+      <string id="CBTHardeningLevelHelp">Esta configuración de directiva le permite establecer el nivel de protección del servicio Administración remota de Windows (WinRM) respecto a los tokens de enlace de canal.
+
+        Si habilita esta configuración de directiva, el servicio WinRM usa el nivel especificado en Nivel de protección para determinar si acepta o no una solicitud recibida, en función del token de enlace de canal proporcionado.
+
+        Si deshabilita o no define esta configuración de directiva, puede configurar el nivel de protección localmente en cada equipo.
+
+        Si el nivel de protección se establece en Estricto, se rechaza cualquier solicitud que no contenga un token de enlace de canal válido.
+
+        Si el nivel de protección se establece en Relajado (valor predeterminado), se rechaza cualquier solicitud que contenga un token de enlace de canal no válido. Sin embargo, se acepta una solicitud que no contenga un token de enlace de canal (aunque no queda protegida frente a ataques de reenvío de credenciales).
+
+        Si el nivel de protección se establece en Ninguno, se aceptan todas las solicitudes (aunque no quedan protegidas frente a ataques de reenvío de credenciales).
+      
+      </string>
+        <string id="None">Ninguno</string>
+        <string id="Strict">Estricto</string>
+        <string id="Relaxed">Relajado</string>
+        <string id="WinRM">Administración remota de Windows (WinRM)</string>
+      <string id="WinRMClient">Cliente WinRM</string>
+      <string id="WinRMService">Servicio WinRM</string>
+      <string id="TrustedHosts">Hosts de confianza</string>
+      <string id="TrustedHostsHelp">Esta configuración de directiva le permite administrar si el cliente Administración remota de Windows (WinRM) usa la lista especificada en TrustedHostsList para determinar si el host de destino es una entidad de confianza.
+
+Si habilita esta configuración de directiva, el cliente WinRM usa la lista especificada en TrustedHostsList para determinar si el host de destino es una entidad de confianza. El cliente WinRM usa esta lista cuando no se usa ni HTTPS ni Kerberos para autenticar la identidad del host.
+
+Si deshabilita o no define esta configuración de directiva, y el cliente WinRM necesita usar la lista de hosts de confianza, debe configurar esta lista de forma local en cada equipo.</string>
+      <string id="HttpCompatibilityListener">Activar escucha HTTP de compatibilidad</string>
+      <string id="HttpsCompatibilityListener">Activar escucha HTTPS de compatibilidad</string>
+      <string id="HttpCompatibilityListenerHelp">Esta configuración de directiva activa o desactiva una escucha HTTP creada por motivos de compatibilidad con versiones anteriores en el servicio Administración remota de Windows (WinRM).
+
+        Si habilita esta configuración de directiva, siempre aparece la escucha HTTP.
+
+        Si deshabilita o no define esta configuración de directiva, la escucha HTTP no aparece nunca.
+
+        Cuando se migran determinadas escuchas del puerto 80 a WinRM 2.0, el número del puerto de escucha cambia a 5985.
+
+        Puede que se cree automáticamente una escucha en el puerto 80 para asegurar la compatibilidad con versiones anteriores.</string>
+      <string id="HttpsCompatibilityListenerHelp">Esta configuración de directiva activa o desactiva una escucha HTTPS creada por motivos de compatibilidad con versiones anteriores en el servicio Administración remota de Windows (WinRM).
+
+        Si habilita esta configuración de directiva, siempre aparece la escucha HTTPS.
+
+        Si deshabilita o no define esta configuración de directiva, la escucha HTTPS no aparece nunca.
+
+        Cuando se migran determinadas escuchas del puerto 443 a WinRM 2.0, el número del puerto de escucha cambia a 5986.
+
+        Puede que se cree automáticamente una escucha en el puerto 443 para asegurar la compatibilidad con versiones anteriores.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowAutoConfig">
+        <textBox refId="AllowAutoConfig_IPv4Filter">
+          <label>Filtro IPv4:</label>
+        </textBox>
+        <textBox refId="AllowAutoConfig_IPv6Filter">
+          <label>Filtro IPv6:</label>
+        </textBox>
+        <text>Sintaxis:</text>
+        <text>Escriba "*" para permitir mensajes de cualquier dirección IP o deje el</text>
+        <text>campo vacío para no escuchar en ninguna dirección IP. Puede especificar uno</text>
+        <text>o varios intervalos de direcciones IP.</text>
+        <text/>
+        <text>Filtros IPv4 de ejemplo:</text>
+        <text>2.0.0.1-2.0.0.20, 24.0.0.1-24.0.0.22</text>
+        <text>*</text>
+        <text/>
+        <text>Filtros IPv6 de ejemplo:</text>
+        <text>3FFE:FFFF:7654:FEDA:1245:BA98:0000:0000-3FFE:FFFF:7654:FEDA:1245:BA98:3210:4562</text>
+        <text>*</text>
+      </presentation>
+      <presentation id="TrustedHosts">
+        <textBox refId="TrustedHosts_List">
+          <label>TrustedHostsList:</label>
+        </textBox>
+        <text>Sintaxis:</text>
+        <text>Configure los hosts de confianza mediante una lista separada por comas</text>
+        <text>de nombres de host. Puede usar comodines (*), pero solo</text>
+        <text>se permite un comodín en un patrón de nombre de host.</text>
+        <text>Use "&lt;local&gt;" (no distingue mayúsculas de minúsculas) para indicar</text>
+        <text>todos los nombres de host que no contengan un punto (.).</text>
+        <text>La lista puede estar vacía para indicar que no se confía en ningún host.</text>
+        <text>Use un asterisco (*) para indicar que se confía en todos los hosts.</text>
+        <text>Si usa *, no puede aparecer ningún otro patrón en la lista.</text>
+        <text/>
+        <text/>
+        <text>Ejemplos:</text>
+        <text>*.midominio.com indica que se confía en todos los equipos de midominio.com</text>
+        <text>2.0.* indica que todas las direcciones IP que comienzan con 2.0 son de confianza.</text>
+      </presentation>
+        <presentation id="CBTHardeningLevel">
+            <dropdownList refId="HardeningLevelCombo" defaultItem="1">Nivel de protección:</dropdownList>
+        </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

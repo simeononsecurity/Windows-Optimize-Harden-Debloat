@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- (c) 2016 Microsoft Corporation -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <displayName>OneDrive Group Policy Settings</displayName>
+  <description>Various Group Policy settings for the OneDrive sync app (OneDrive.exe), especially those specific to enterprise functionality in the app.</description>
+  <resources>
+    <stringTable>
+      <!-- general -->
+      <string id="OneDriveNGSCSettingCategory">OneDrive</string>
+
+      <!-- block syncing personal OneDrive -->
+      <string id="DisablePersonalSync">Prevent users from syncing personal OneDrive accounts</string>
+      <string id="DisablePersonalSync_help">This setting lets you block users from signing in with a Microsoft account to sync their personal OneDrive files.
+
+If you enable this setting, users will be prevented from setting up a sync relationship for their personal OneDrive account. Users who are already syncing their personal OneDrive when you enable this setting won't be able to continue syncing (and will be shown a message that syncing has stopped), but any files synced to the computer will remain on the computer.
+
+If you disable or do not configure this setting, users can sync their personal OneDrive accounts.</string>
+
+      <!-- turn on GPOSetUpdateRing for app updates -->
+      <string id="GPOSetUpdateRing">Set the sync app update ring</string>
+      <string id="GPOSetUpdateRing_help">Updates to the OneDrive sync app (OneDrive.exe) are released to the public through three rings-first to Insiders, then Production, and finally Deferred. This setting lets you specify the sync app version for users in your organization. When you enable this setting and select a ring, users won't be able to change it.
+
+Insiders ring users will receive builds that let them preview new features coming to OneDrive.
+
+Production ring users will get the latest features as they become available.
+
+Deferred ring users get new features, bug fixes, and performance improvements last. This ring lets you deploy updates from an internal network location and control the timing of the deployment (within a 60-day window).
+
+If you disable or do not configure this setting, users will get OneDrive sync app updates when they become available in the Production ring. Users can join the Office or Windows Insiders programs to get updates on the Insiders ring.</string>
+
+      <string id="Enterprise">Deferred</string>
+      <string id="Production">Production</string>
+      <string id="Insider">Insiders</string>
+
+      <!-- set default location of the OneDrive folder -->
+      <string id="DefaultRootDir">Set the default location for the OneDrive folder</string>
+      <string id="DefaultRootDir_help">This setting lets you set a specific path as the default location of the OneDrive folder on users' computers. By default, the path is under %userprofile%.
+
+If you enable this setting, the default location of the OneDrive - {organization name} folder will be the path that you specify in the OneDrive.admx file. To prevent users from changing the location you specify, enable the "Prevent users from changing the location of their OneDrive folder" setting.
+
+If you disable or do not configure this setting, the default location of the OneDrive - {organization name} folder will be in %userprofile%.</string>
+
+      <!-- disable changing the default location of the OneDrive folder -->
+      <string id="DisableCustomRoot">Prevent users from changing the location of their OneDrive folder</string>
+      <string id="DisableCustomRoot_help">This setting lets you block users from changing the location of their OneDrive - {organization name} folder during setup of the OneDrive sync app.
+
+If you enable this setting, the "Change location" link is hidden in OneDrive Setup. The OneDrive folder will be created in the default location, or in the custom location you specified if you enabled the "Set the default location for the OneDrive folder" setting.
+
+If you disable or do not configure this setting, users can click the "Change location" link to change the location of their OneDrive folder in OneDrive Setup.</string>
+
+      <!-- Enable Office Integration for coauthoring and in-app sharing -->
+      <string id="EnableAllOcsiClients">Coauthor and share in Office desktop apps</string>
+      <string id="EnableAllOcsiClients_help">This setting lets multiple users use the Office 365 ProPlus, Office 2019, or Office 2016 desktop apps to simultaneously edit an Office file stored in OneDrive. It also lets users share files from the Office desktop apps.
+
+If you enable this setting, coauthoring and sharing in the Office desktop apps is enabled. Users can disable these features by opening the OneDrive sync app settings, clicking the Office tab, and clearing the "Use Office applications to sync Office files that I open" check box.
+
+If you disable this setting, coauthoring and sharing in the Office desktop apps is disabled, and the Office tab is hidden in sync app. The "Office file conflicts" setting will also be disabled and when two versions of a file conflict, both copies will be kept.</string>
+
+
+      <!-- Enable hold the file for handling Office conflicts -->
+      <string id="EnableHoldTheFile">Allow users to choose how to handle Office file sync conflicts</string>
+      <string id="EnableHoldTheFile_help">This setting specifies what happens when there's a conflict between Office file versions during sync. By default, users can decide if they want to merge changes or keep both copies. Users can also change settings in the OneDrive sync app to always keep both copies. (This option is available for Office 2016 or later only. With earlier versions of Office, both copies are always kept.)
+
+If you enable this setting or do not configure this setting, users can decide if they want to merge changes or keep both copies. Users can also select in OneDrive sync app settings to keep both copies.
+
+If you disable this setting, both copies of the file will be kept when versions of a file conflict. Users won't be able to change the setting and merge changes.</string>
+
+      <!-- Enable Automatic Upload Bandwidth Limiting -->
+      <string id="AutomaticUploadBandwidthPercentage">Limit the sync app upload rate to a percentage of throughput</string>
+      <string id="AutomaticUploadBandwidthPercentage_help">This setting lets you balance the performance of different upload tasks on a computer by specifying the percentage of the computer's upload throughput that the OneDrive sync app (OneDrive.exe) can use to upload files. Setting this as a percentage lets the sync app respond to both increases and decreases in throughput. The lower the percentage you set, the slower files will upload. We recommend a value of 50% or higher. The sync app will periodically upload without restriction for one minute and then slow down to the upload percentage you set. This lets small files upload quickly while preventing large uploads from dominating the computer's upload throughput.
+
+        If you enable this setting, computers will use the percentage of upload throughput that you specify when uploading files to OneDrive, and users will not be able to change it.
+
+        If you disable or do not configure this setting, users can choose to limit the upload rate to a fixed value (in KB/second), or set it to "Adjust automatically" which will use 70% of upload throughput to respond to increases and decreases in throughput.
+
+        Important: If you enable or disable this setting, and then change it back to Not Configured, the last configuration will remain in effect. We recommend enabling this setting instead of "Limit the sync app upload speed to a fixed rate" to limit the upload rate. You should not enable both settings at the same time.</string>
+      <!-- Enable Upload Bandwidth Limiting -->
+      <string id="UploadBandwidthLimit">Limit the sync app upload speed to a fixed rate</string>
+      <string id="UploadBandwidthLimit_help">This setting lets you configure the maximum speed at which the OneDrive sync app (OneDrive.exe) can upload files. This rate is a fixed value in kilobytes per second. The lower the rate, the slower the computer will upload files. The minimum rate that can be set is 1 KB/s and the maximum rate is 100000 KB/s. Any input lower than 50 KB/s will set the limit to 50 KB/s, even if the UI shows the inputted rate.
+
+If you enable this setting, computers will use the maximum upload rate that you specify, and users will not be able to change it in OneDrive settings.
+
+If you disable or do not configure this setting, users can choose to limit the upload rate to a fixed value (in KB/second), or set it to "Adjust automatically" which will use 70% of upload throughput to respond to increases and decreases in throughput.
+
+Instead of using this setting to limit the upload rate, we recommend enabling "Limit the sync app upload rate to a percentage of throughput" to set a limit that adjusts to changing conditions. You should not enable both settings at the same time.</string>
+
+      <!-- Enable Download Bandwidth Limiting -->
+      <string id="DownloadBandwidthLimit">Limit the sync app download speed to a fixed rate</string>
+      <string id="DownloadBandwidthLimit_help">This setting lets you configure the maximum speed at which the OneDrive sync app (OneDrive.exe) can download files. This rate is a fixed value in kilobytes per second, and applies only to syncing, not to downloading updates. The lower the rate, the slower files will download. The minimum rate that can be set is 1 KB/s and the maximum rate is 100000 KB/s. Any input lower than 50 KB/s will set the limit to 50 KB/s, even if the UI shows the inputted rate.
+If you enable this setting, computers will use the maximum download rate that you specify, and users will not be able to change it.
+
+If you disable or do not configure this setting, users can choose to limit the download rate in OneDrive sync app settings.</string>
+
+      <!-- turn off remote access/fetch on the computer  -->
+      <string id="RemoteAccessGPOEnabled">Prevent users from fetching files remotely</string>
+      <string id="RemoteAccessGPOEnabled_help">This setting lets you block users from using the fetch feature when they're signed in to the OneDrive sync app (OneDrive.exe) with their personal OneDrive account. The fetch feature lets users to go to OneDrive.com, select a Windows computer that's currently online and running the OneDrive sync app, and access all files from that computer. By default, users can use the fetch feature.
+
+If you enable this setting, users will be prevented from using the fetch feature.
+
+If you disable or do not configure this setting and "Prevent users from syncing personal OneDrive accounts," users can use the fetch feature.
+
+This setting is for computers running either the 32-bit or 64-bit version of Windows.</string>
+
+      <!-- prevent OneDrive sync app (OneDrive.exe) from generating network traffic (checking for updates, etc.) until the user signs in to OneDrive -->
+      <string id="PreventNetworkTrafficPreUserSignIn">Prevent the sync app from generating network traffic until users sign in</string>
+      <string id="PreventNetworkTrafficPreUserSignIn_help">This setting lets you block the OneDrive sync app (OneDrive.exe) from generating network traffic (checking for updates, etc.) until users sign in to the sync app or start syncing files to the computer.
+
+If you enable this setting, users must sign in to the OneDrive sync app on the computer, or select to sync OneDrive or SharePoint files on the computer, for the sync app to start automatically.
+
+If you disable or do not configure this setting, the OneDrive sync app will start automatically when users sign in to Windows.
+
+Important: If you enable or disable this setting, and then change it back to Not Configured, the last configuration will remain in effect. </string>
+
+      <!-- Silent Account Config -->
+      <string id="SilentAccountConfig">Silently sign in users to the OneDrive sync app with their Windows credentials</string>
+      <string id="SilentAccountConfig_help">This setting lets you silently sign in users to the OneDrive sync app (OneDrive.exe) with their Windows credentials.
+
+If you enable this setting, users who are signed in on the PC with the primary Windows account (the account used to join the PC to the domain) can set up the sync app without entering the credentials for the account. Users will still be shown OneDrive Setup so they can select folders to sync and change the location of their OneDrive folder. If a user is using the previous OneDrive for Business sync app (Groove.exe), the new sync app will attempt to take over syncing the user's OneDrive from the previous app and preserve the user's sync settings. This setting is frequently used together with "Set the maximum size of a user's OneDrive that can download automatically" on PCs that don't have Files On-Demand, and "Set the default location for the OneDrive folder."
+
+If you disable or do not configure this setting, users will need to sign in with their work or school account to set up sync.
+
+</string>
+
+      <!-- DiskSpaceCheckThresholdMB -->
+      <string id="DiskSpaceCheckThresholdMB">Set the maximum size of a user's OneDrive that can download automatically</string>
+      <string id="DiskSpaceCheckThresholdMB_help">This setting is used in conjunction with "Silently sign in users to the OneDrive sync app with their Windows credentials." This setting lets you prompt users who have more than a specified amount of content in OneDrive to choose folders to sync during setup of the OneDrive sync app (OneDrive.exe).
+
+If you enable this setting, users who have more content than the value you specify will be shown the Choose Folders dialog box by default during OneDrive Setup.
+
+If you disable or do not configure this setting, when users set up the sync app, all files will be selected to sync.</string>
+
+      <!-- Settings below control behavior of Files-On-Demand (Cloud Files) -->
+      <string id="FilesOnDemandEnabled">Use OneDrive Files On-Demand</string>
+      <string id="FilesOnDemandEnabled_help">This setting lets you control whether OneDrive Files On-Demand is enabled for your organization.
+
+If you enable this setting, OneDrive Files On-Demand will be turned on by default.
+
+If you disable this setting, OneDrive Files On-Demand will be explicitly disabled and users can't turn it on.
+
+If you do not configure this setting, users can turn OneDrive Files On-Demand on or off.</string>
+
+      <string id="DehydrateSyncedTeamSites">Convert synced team site files to online-only files</string>
+      <string id="DehydrateSyncedTeamSites_help">This setting is used in conjunction with OneDrive Files On-Demand. When many users sync the same team sites, this setting lets you conserve bandwidth and free up space across devices by making synced team site files online-only files.
+
+If you enable this setting, team site files that were syncing before OneDrive Files On-Demand was enabled, will be converted (as a one-time action) to online-only files.
+
+If you disable or do not configure this setting, team site files will remain locally available unless users choose to make them online only.</string>
+
+    <!-- Restrict syncing with other organizations -->
+      <string id="AllowTenantList">Allow syncing OneDrive accounts for only specific organizations</string>
+      <string id="AllowTenantList_help">This setting lets you prevent users from easily uploading files to other organizations by specifying a list of allowed tenant IDs.
+
+If you enable this setting, users will get an error if they attempt to add an account from an organization that is not allowed. If a user has already added the account, the files will stop syncing.
+
+If you disable or do not configure this setting, users can add accounts from any organization.
+
+To block specific organizations instead, use "Block syncing OneDrive accounts for specific organizations."
+
+This setting will take priority over the "Block syncing OneDrive accounts for specific organizations." Do not enable both policies at the same time.</string>
+
+      <string id="BlockTenantList">Block syncing OneDrive accounts for specific organizations</string>
+      <string id="BlockTenantList_help">This setting lets you prevent users from easily uploading files to another organization by specifying a list of blocked tenant IDs.
+
+If you enable this setting, users will get an error if they attempt to add an account from an organization that is blocked. If a user has already added the account, the files will stop syncing.
+
+If you disable or do not configure this setting, users can add accounts from any organization.
+
+To specify a list of allowed organizations instead, use "Allow syncing OneDrive accounts for only specific organizations."
+
+This setting will NOT work if you have the "Allow syncing OneDrive accounts for only specific organizations." enabled. Do not enable both policies at the same time.</string>
+
+    <!-- SharePoint Server 2019 settings -->
+    <string id="SharePointOnPremFrontDoorUrl">Specify SharePoint Server URL and organization name</string>
+    <string id="SharePointOnPremFrontDoorUrl_help">This setting lets you enable users to use the OneDrive sync app (OneDrive.exe) to sync files in SharePoint Server 2019. The URL defines the location of the SharePoint Server and enables the sync app to authenticate and set up sync. The organization name lets you specify the OneDrive and SharePoint folder names that will be created in File Explorer. The organization name is optional. If you don't provide it, the sync app will use the first segment of the URL as the name. For example, office.sharepoint.com would become "Office," and the OneDrive folder name would be "OneDrive - Office."
+
+If you enable this setting and provide the SharePoint Server URL, users will be able to sync files in SharePoint Server 2019.
+
+If you disable or do not configure this setting, or do not provide the SharePoint Server URL, users will not be able to sync files in SharePoint Server 2019. </string>
+
+    <string id="SharePointOnPremPrioritization">Specify the OneDrive location in a hybrid environment</string>
+    <string id="SharePointOnPremPrioritization_help">This setting defines whether the OneDrive sync app (OneDrive.exe) should authenticate against SharePoint Online or SharePoint Server 2019 if the identity exists in both identity providers. To use this setting, you must also enable "Specify SharePoint Server URL and organization name". This setting affects only OneDrive for Business sync functionality. It does not impact syncing team sites in SharePoint Online or SharePoint Server 2019.
+
+If you enable this setting, you can select one of two options:
+
+SharePoint Online: The sync app will look first in SharePoint Online for a user's OneDrive. If the sync app is already configured with SharePoint Online for the user, it will attempt to configure a OneDrive for Business instance in SharePoint Server 2019 for that user.
+
+SharePoint Server 2019: The sync app will look first in SharePoint Server 2019 for a user's OneDrive for Business. If the sync app is already configured with SharePoint Server 2019 for the user, it will attempt to configure a OneDrive instance in SharePoint Online for that user.
+
+If you disable or do not configure this setting, the sync app will look first in SharePoint Online for the user's OneDrive.</string>
+    <string id="PrioritizeSPO">SharePoint Online</string>
+    <string id="PrioritizeSharePointOnPrem">SharePoint Server 2019</string>
+
+    <!-- Disable tutorial in the FRE -->
+    <string id="DisableFRETutorial">Disable the tutorial that appears at the end of OneDrive Setup</string>
+    <string id="DisableFRETutorial_help">This setting lets you prevent the tutorial from launching in a web browser at the end of OneDrive Setup.
+
+If you enable this setting, users will not see the tutorial after they complete OneDrive Setup.
+
+If you disable or do not configure this setting, the tutorial will appear at the end of OneDrive Setup.</string>
+
+      <!-- Block KFM -->
+      <string id="BlockKnownFolderMove">Prevent users from moving their Windows known folders to OneDrive</string>
+      <string id="BlockKnownFolderMove_help">This setting prevents users from moving their Documents, Pictures, and Desktop folders to any OneDrive for Business account.
+Note: Moving known folders to personal OneDrive accounts is already blocked on domain-joined PCs.
+
+If you enable this setting, users won't be prompted with the "Set up protection of important folders" window, and the "Start protection" command will be disabled. If the user has already moved their known folders, the files in those folders will remain in OneDrive. This setting will not take effect if you enable "Prompt users to move Windows known folders to OneDrive" or "Silently move Windows known folders to OneDrive."
+
+If you disable or do not configure this setting, users can choose to move their known folders.</string>
+
+    <!-- KFMOptInWithWizard -->
+    <string id="KFMOptInWithWizard">Prompt users to move Windows known folders to OneDrive </string>
+    <string id="KFMOptInWithWizard_help">This setting displays the "Your IT department wants you to protect your important folders" window that prompts users to move their Documents, Pictures, and Desktop folders to OneDrive. This feature is not enabled for on-premises SharePoint.
+
+If you enable this setting and provide your tenant ID, users who are syncing their OneDrive will see the "Your IT department wants you to protect your important folders" window when they're signed in. If they close the window, a reminder notification will appear in the activity center until they move all three known folders. If a user has already redirected their known folders to a different OneDrive account, they will be prompted to direct the folders to the account for your organization (leaving existing files behind).
+
+If you disable or do not configure this setting, the "Your IT department wants you to protect your important folders" window won't appear automatically.</string>
+
+    <!-- KFMOptInNoWizard -->
+    <string id="KFMOptInNoWizard">Silently move Windows known folders to OneDrive</string>
+    <string id="KFMOptInNoWizard_help">This setting lets you redirect known folders to OneDrive without any user interaction. In sync app builds below 18.171.0823.0001, this setting only redirects empty known folders to OneDrive (or known folders already redirected to a different OneDrive account). In later builds, it redirects known folders that contain content and moves the content to OneDrive. We recommend using this setting together with "Prompt users to move Windows known folders to OneDrive." If moving the known folders silently does not succeed, users will be prompted to correct the error and continue.
+
+If you enable this setting and provide your tenant ID, you can choose whether to display a notification to users after their folders have been redirected.
+
+If you disable or do not configure this setting, your users' known folders will not be silently redirected and/or moved to OneDrive.
+
+    </string>
+    <string id="KFMOptInNoWizardToast">Yes</string>
+    <string id="KFMOptInNoWizardNoToast">No</string>
+
+     <!-- Block KFM Opt Out -->
+      <string id="KFMBlockOptOut">Prevent users from redirecting their Windows known folders to their PC</string>
+      <string id="KFMBlockOptOut_help">This setting forces users to keep their Documents, Pictures, and Desktop folders directed to OneDrive.
+
+If you enable this setting, the "Stop protecting" button in the "Your IT department wants you to protect your important folders" window will be disabled and users will receive an error if they try to stop syncing a known folder.
+
+If you disable or do not configure this setting, users can choose to redirect their known folders back to their PC. </string>
+
+    <string id="AutoMountTeamSites">Configure team site libraries to sync automatically</string>
+    <string id="AutoMountTeamSites_help">This setting lets you specify SharePoint team site libraries to sync automatically the next time users sign in to the OneDrive sync app (OneDrive.exe). It may take up to 8 hours after a users signs in before the library begins to sync. To use the setting, you must enable OneDrive Files On-Demand, and the setting applies only for users on computers running Windows 10 (1709) Fall Creators Update or later. Do not enable this setting for the same library to more than 1,000 devices. To ensure a good sync experience, avoid enabling this feature on large libraries sets (For the most up to date guidance see https://docs.microsoft.com/en-us/onedrive/use-group-policy#AutoMountTeamSites). This feature is not enabled for on-premises SharePoint sites.
+ 
+If you enable this setting, the OneDrive sync app will automatically download the contents of the libraries you specified as online-only files the next time the user signs in. The user won't be able to stop syncing the libraries.
+ 
+If you disable this setting, team site libraries that you've specified won't be automatically synced for new users. Existing users can choose to stop syncing the libraries, but the libraries won't stop syncing automatically.</string>
+
+    <!-- Disable Pause On Battery Saver  -->
+    <string id="DisablePauseOnBatterySaver">Continue syncing when devices have battery saver mode turned on</string>
+    <string id="DisablePauseOnBatterySaver_help">This setting lets you turn off the auto-pause feature for devices that have battery saver mode turned on.
+
+If you enable this setting, syncing will continue when users turn on battery saver mode. OneDrive will not automatically pause syncing.
+
+If you disable or do not configure this setting, syncing will pause automatically when battery saver mode is detected and a notification will be displayed. Users can choose not to pause syncing by clicking "Sync Anyway" in the notification. When syncing is paused, users can resume syncing by clicking the OneDrive cloud icon in the notification area of the taskbar and then clicking the alert at the top of the activity center.</string>
+
+    <!-- Disable Pause On Metered Network -->
+    <string id="DisablePauseOnMeteredNetwork">Continue syncing on metered networks</string>
+    <string id="DisablePauseOnMeteredNetwork_help">This setting lets you turn off the auto-pause feature when devices connect to metered networks.
+
+If you enable this setting, syncing will continue when devices are on a metered network. OneDrive will not automatically pause syncing.
+
+If you disable or do not configure this setting, syncing will pause automatically when a metered network is detected and a notification will be displayed. Users can choose not to pause syncing by clicking "Sync Anyway" in the notification. When syncing is paused, uers can resume syncing by clicking the OneDrive cloud icon in the notification area of the taskbar and then clicking the alert at the top of the activity center.</string>
+
+    <!-- Insert multi-tenant settings here -->
+    <!-- See http://go.microsoft.com/fwlink/p/?LinkId=797547 for configuration instructions -->
+
+    <string id="LocalMassDeleteFileDeleteThreshold">Prompt users when they delete multiple OneDrive files on their local computer</string>
+    <string id="LocalMassDeleteFileDeleteThreshold_help">This policy sets the threshold for how many files a user can delete from a local OneDrive folder before the user is notified that the files will also be deleted from the cloud.
+ 
+If you enable this policy, users will see a notification if they delete more than the specified number of files from OneDrive on their local computer. The user will be given the option to continue to remove the cloud files, or restore the local files.
+Note: Even if you enable this policy, users won't receive notifications if they've selected the "Always remove files" check box on a previous notification, or if they've cleared the "Notify me when many files are deleted in the cloud" check box in OneDrive sync app settings.
+
+If you disable this policy, users will not receive a notification when they delete numerous OneDrive files on their local computer.
+
+If you do not configure this policy, users will see a notification when they delete more than 200 files within a short period of time.</string>
+
+
+    <!-- Forced local mass delete prompt -->
+    <string id="ForcedLocalMassDeleteDetection">Require users to confirm large delete operations</string>
+    <string id="ForcedLocalMassDeleteDetection_help">This setting makes users confirm that they want to delete files in the cloud when they delete a large number of synced files.
+
+If you enable this setting, a warning will always appear when users delete a large number of synced files. If a user does not confirm a delete operation within 7 days, the files will not be deleted.
+
+If you disable or do not configure this setting, users can choose to hide the warning and always delete files in the cloud.</string>
+
+    <!-- Block B2BSync aka Cross Tenant Sync -->
+    <string id="BlockExternalSync">Prevent users from syncing libraries and folders shared from other organizations</string>
+    <string id="BlockExternalSync_help">This setting controls whether users in your organization are allowed to sync OneDrive for Business or SharePoint content that has been shared by users in a different organization. This is a collaboration feature called B2B Sync.
+
+If you enable this setting, users will not be able to start syncing a OneDrive for Business or SharePoint library or folder that was shared from an external organization. Any shared libraries or folders already being synced will stop syncing.
+
+If you disable or do not configure this setting, users will be able to sync OneDrive for Business and SharePoint libraries and folders that have been shared from external organizations.
+
+For more info about B2B Sync, see: https://docs.microsoft.com/en-us/onedrive/b2b-sync</string>
+
+    <!-- Allow OneDrive to disable permission inheritance within read-only folders -->
+    <string id="PermitDisablePermissionInheritance">Allow OneDrive to disable Windows permission inheritance in folders synced read-only</string>
+    <string id="PermitDisablePermissionInheritance_help">This setting lets the OneDrive sync app remove all inherited permissions within read-only folders syncing on a user's PC.
+
+If you enable this setting, the OneDrive sync app can disable permission inheritance in read-only folders to improve sync speed.
+
+If you disable or do not configure this setting, the OneDrive sync app will preserve permission inheritance in read-only folders. Sync speed may be significantly slower.</string>
+
+    <!-- Automatically adjust the sync app upload rate based on bandwidth availability -->
+    <string id="EnableAutomaticUploadBandwidthManagement">Enable automatic upload bandwidth management for OneDrive</string>
+    <string id="EnableAutomaticUploadBandwidthManagement_help">This setting lets the OneDrive sync app (OneDrive.exe) upload data in the background only when unused bandwidth is available. It prevents the sync app from interfering with other apps that are using the network. This setting is powered by the Windows LEDBAT (Low Extra Delay Background Transport) protocol. When LEDBAT detects increased latency that indicates other TCP connections are consuming bandwidth, the sync app will reduce its own consumption to prevent interference. When network latency decreases again and bandwidth is freed up, the sync app will increase the upload rate and consume the unused bandwidth.
+
+If you enable this setting, the sync app upload rate will be set to "Adjust automatically" based on bandwidth availability and users won't be able to change it.
+
+If you disable or do not configure this setting, users can choose to limit the upload rate to a fixed value (in KB/second), or set it to "Adjust automatically".
+
+Important
+If you enable or disable this setting, and then change it back to Not Configured, the last configuration will remain in effect. We recommend enabling this setting instead of "Limit the sync app upload speed to a fixed rate." You should not enable both settings at the same time. This setting will override "Limit the sync app upload rate to a percentage of throughput" if both are enabled on the same device.</string>
+
+    <!-- MinDiskSpaceLimitInMB -->
+    <!-- configurable limit where low disk space error will occur-->
+    <string id="MinDiskSpaceLimitInMB">Block file downloads when users are low on disk space</string>
+    <string id="MinDiskSpaceLimitInMB_help">This setting lets you specify a minimum amount of available disk space and block the OneDrive sync app (OneDrive.exe) from downloading files when users have less than this amount.
+
+Users will be prompted with options to help free up space.</string>
+
+    <!-- WarningMinDiskSpaceLimitInMB -->
+    <!-- configurable limit where user will be notified they are approaching low disk space -->
+    <string id="WarningMinDiskSpaceLimitInMB">Warn users who are low on disk space</string>
+    <string id="WarningMinDiskSpaceLimitInMB_help">This setting lets you specify a minimum amount of available disk space and warn users when the OneDrive sync app (OneDrive.exe) downloads a file that causes them to have less than this amount.
+
+Users will be prompted with options to help free up space.</string>
+
+    </stringTable>
+    <presentationTable>
+      <presentation id="GPOSetUpdateRing_Pres">
+        <dropdownList refId="GPOSetUpdateRing_Dropdown" noSort="true" defaultItem="0">Update ring:</dropdownList>
+      </presentation>
+
+      <presentation id="AutomaticUploadBandwidthPercentage_Pres">
+        <text>Select the maximum percentage of bandwidth to take up when uploading files.</text>
+        <text>Valid values are from 10 - 99.</text>
+        <decimalTextBox refId="BandwidthSpinBox" defaultValue="70" spinStep="1">Bandwidth:</decimalTextBox>
+      </presentation>
+
+      <presentation id="UploadBandwidthLimit_Pres">
+        <text>Select the maximum amount of bandwidth to take up when uploading files.</text>
+        <text>Valid values are from 1 to 100000.</text>
+        <decimalTextBox refId="UploadRateValue" defaultValue="125">Bandwidth:</decimalTextBox>
+      </presentation>
+
+      <presentation id="DownloadBandwidthLimit_Pres">
+        <text>Select the maximum amount of bandwidth to take up when downloading files.</text>
+        <text>Valid values are from 1 to 100000.</text>
+        <decimalTextBox refId="DownloadRateValue" defaultValue="125">Bandwidth:</decimalTextBox>
+      </presentation>
+
+       <presentation id="DiskSpaceCheckThresholdMB_Pres">
+        <text>Specify the tenant ID and the maximum size of a user's OneDrive before the user is prompted to choose the folders they want to sync. </text>
+        <text>In the Value name field, enter the tenant ID. In the Value field, enter the size.</text>
+        <text>Valid values are from 0 to 4294967295 MB (inclusive).</text>
+        <listBox refId="DiskSpaceCheckThresholdMBList">Max size: </listBox>
+      </presentation>
+
+      <presentation id="DefaultRootDir_Pres">
+       <text>Specify the tenant ID and default path. </text>
+        <text>In the Value name field, enter the tenant ID. In the Value field, enter the path.</text>
+        <listBox refId="DefaultRootDirList">Path: </listBox>
+      </presentation>
+
+      <presentation id="DisableCustomRoot_Pres">
+        <text>Specify the tenant ID and value of the setting. </text>
+        <text>In the Value name field, enter the tenant ID. In the Value field, enter 1 to enable the setting or 0 to disable it.</text>
+        <listBox refId="DisableCustomRootList">Change location setting: </listBox>
+      </presentation>
+
+      <presentation id="AllowTenantList_Pres">
+        <text>Specify tenant ID</text>
+        <text>In the Value field, enter the tenant ID you want to add to this list.</text>
+        <text> </text>
+        <listBox refId="AllowTenantListBox">Tenant ID: </listBox>
+      </presentation>
+
+      <presentation id="BlockTenantList_Pres">
+        <text>Specify tenant ID</text>
+        <text>In the Value field, enter the tenant ID you want to add to this list.</text>
+        <text> </text>
+        <listBox refId="BlockTenantListBox">Tenant ID: </listBox>
+       </presentation>
+
+      <presentation id="SharePointOnPremFrontDoorUrl_Pres">
+        <text>Provide a URL to the SharePoint Server that hosts the user's OneDrive for Business, and the organization name.</text>
+        <textBox refId="SharePointOnPremFrontDoorUrlBox">
+          <label>SharePoint Server 2019 URL:</label>
+        </textBox>
+        <textBox refId="SharePointOnPremTenantNameBox">
+          <label>Organization name:</label>
+        </textBox>
+      </presentation>
+
+      <presentation id="SharePointOnPremPrioritization_Pres">
+        <dropdownList refId="SharePointOnPremPrioritization_Dropdown" noSort="true" defaultItem="0">Authenticate first against:</dropdownList>
+      </presentation>
+
+      <presentation id="BlockKnownFolderMove_Pres">
+        <dropdownList refId="BlockKnownFolderMove_Dropdown" noSort="true" defaultItem="0">If known folders have already been moved to OneDrive:</dropdownList>
+      </presentation>
+
+      <presentation id="KFMOptInWithWizard_Pres">
+        <textBox refId="KFMOptInWithWizard_TextBox">
+          <label>Tenant ID:</label>
+        </textBox>
+      </presentation>
+
+      <presentation id="KFMOptInNoWizard_Pres">
+        <textBox refId="KFMOptInNoWizard_TextBox">
+          <label>Tenant ID:</label>
+        </textBox>
+        <dropdownList refId="KFMOptInNoWizard_Dropdown" noSort="true" defaultItem="0">Show notification to users after folders have been redirected:</dropdownList>
+      </presentation>
+      <presentation id="AutoMountTeamSites_Pres">
+        <text>To specify a library to sync:
+
+Open a web browser, sign in to Office 365 as a global or SharePoint admin for your organization, and browse to the library to sync.
+
+Click the "Sync" button on the library you want to sync automatically, and then click "Copy library ID."
+
+Click "Show", and then enter a friendly name to identify the library in the Value Name field and then enter the library ID in the Value field.
+        </text>
+        <listBox refId="AutoMountTeamSitesListBox">Libraries:</listBox>
+      </presentation>
+
+      <presentation id="MinDiskSpaceLimitInMB_Pres">
+        <text>In the Value field, enter the minimum amount of disk space you want to leave available.</text>
+        <text>Valid values are from 0 through 10240000 MB</text>
+        <decimalTextBox refId="minDiskSpaceMB" defaultValue="200">Minimum available disk space:</decimalTextBox>
+      </presentation>
+
+      <presentation id="WarningMinDiskSpaceLimitInMB_Pres">
+        <text>In the Value field, enter the amount of available disk space below which users will receive a warning. If you use this policy together with "Block file downloads when users are low on disk space," the value for this setting should be greater than the value for blocking downloads.</text>
+        <text>Valid values are from 0 through 10240000 MB</text>
+        <decimalTextBox refId="warningMinDiskSpaceMB" defaultValue="500">Minimum available disk space:</decimalTextBox>
+      </presentation>
+
+      <presentation id="LocalMassDeleteFileDeleteThreshold_Pres">
+        <text>Specify the maximum number of files users can delete at a time before they're required to confirm the operation.</text>
+        <text>Valid values are from 1 to 100000.</text>
+        <decimalTextBox refId="LMDFileDeleteThresholdBox" defaultValue="200">Number of files:</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

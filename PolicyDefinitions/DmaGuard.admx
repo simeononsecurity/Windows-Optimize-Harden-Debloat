@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+  These files MUST be kept in sync:
+
+  * minkernel\ntos\io\pnpmgr\adm\dmaguard.admx (Group Policy)
+  * tools\managed\v4.0\admx\dmaguard.admx (MDM)
+
+  The two files must be exact copies of one another!
+
+-->
+
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   revision="1.0"
+                   schemaVersion="1.0"
+                   xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+
+  <policyNamespaces>
+    <target prefix="dmaguard" namespace="Microsoft.Policies.DmaGuard" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+
+  <resources minRequiredRevision="1.0" />
+
+  <categories>
+    <category name="DmaGuard"
+              displayName="$(string.DmaGuard)"
+              explainText="$(string.DmaGuard_Explain)">
+       <parentCategory ref="windows:System" />
+    </category>
+  </categories>
+
+  <policies>
+    <policy name="DmaGuardEnumerationPolicy"
+            class="Machine"
+            displayName="$(string.DmaGuardEnumerationPolicy)"
+            explainText="$(string.DmaGuardEnumerationPolicy_Explain)"
+            presentation="$(presentation.DmaGuardEnumerationPolicy)"
+            key="Software\Policies\Microsoft\Windows\Kernel DMA Protection">
+      <parentCategory ref="DmaGuard" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <elements>
+        <enum id="DmaGuardEnumerationPolicy_Options" valueName="DeviceEnumerationPolicy">
+          <!--
+            Note that the displayName values do not match the registry
+            values. This has no functional impact, but changing them will
+            affect localization, so leave as is.
+          -->
+          <!-- Block all -->
+          <item displayName="$(string.DmaGuardEnumerationPolicy_Options_3)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <!-- Only while logged in -->
+          <item displayName="$(string.DmaGuardEnumerationPolicy_Options_2)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <!-- Allow all -->
+          <item displayName="$(string.DmaGuardEnumerationPolicy_Options_1)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+  </policies>
+
+</policyDefinitions>

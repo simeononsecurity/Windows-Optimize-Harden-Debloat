@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="NotificationsCategory">Notificaciones</string>
+      <string id="NoTileNotification">Desactivar las notificaciones de mosaico</string>
+      <string id="NoTileNotificationExplain">
+          
+          Esta configuración de directiva desactiva las notificaciones de mosaico.
+
+          Si habilita esta configuración de directiva, las aplicaciones y las características del sistema no podrán actualizar sus mosaicos y distintivos de mosaico en la pantalla Inicio.
+
+          Si deshabilita o no establece esta configuración de directiva, las notificaciones de distintivos y mosaicos están habilitadas y el administrador o el usuario pueden desactivarlas.
+
+          Para que esta configuración de directiva surta efecto, no es necesario reiniciar el equipo ni el servicio.
+      
+      </string>
+      <string id="NoToastNotification">Desactivar las notificaciones del sistema</string>
+      <string id="NoToastNotificationExplain">
+          
+          Esta configuración de directiva desactiva las notificaciones del sistema para aplicaciones.
+
+          Si habilita esta configuración de directiva, las aplicaciones no podrán elevar notificaciones del sistema.
+
+          Recuerde que esta directiva no afecta a los globos de notificación de la barra de tareas.
+
+          Tenga en cuenta que las características del sistema Windows no se verán afectadas por esta directiva.  Debe habilitar o deshabilitar las características del sistema manualmente para detener la capacidad que tienen de elevar notificaciones del sistema.
+
+          Si deshabilita o no establece esta configuración de directiva, las notificaciones del sistema están habilitadas y el administrador o el usuario pueden desactivarlas.
+
+          Para que esta configuración de directiva surta efecto, no es necesario reiniciar el equipo ni el servicio.
+      
+      </string>
+      <string id="NoLockScreenToastNotification">Desactivar las notificaciones del sistema en la pantalla de bloqueo</string>
+      <string id="NoLockScreenToastNotificationExplain">
+        
+        Esta configuración de directiva desactiva las notificaciones del sistema en la pantalla de bloqueo.
+
+        Si habilita esta configuración de directiva, las aplicaciones no podrán elevar notificaciones del sistema en la pantalla de bloqueo.
+
+        Si deshabilita o no establece esta configuración de directiva, las notificaciones del sistema en la pantalla de bloqueo están habilitadas y el administrador o el usuario pueden desactivarlas.
+
+        Para que esta configuración de directiva surta efecto, no es necesario reiniciar el equipo ni el servicio.
+      
+      </string>
+      <string id="NoCloudNotification">Desactivar el uso de la red para notificaciones</string>
+      <string id="NoCloudNotificationExplain">
+          
+          Esta configuración de directiva impide que las aplicaciones puedan usar la red para enviar notificaciones para actualizar mosaicos, indicadores de mosaico, notificaciones del sistema o notificaciones sin procesar. Esta configuración de directiva desactiva la conexión entre Windows y el Servicio de notificaciones de inserción de Windows (WNS). Esta configuración de directiva también impide que las aplicaciones puedan sondear los servicios de aplicaciones para actualizar mosaicos.
+
+          Si habilita esta configuración de directiva, las aplicaciones y las características del sistema no podrán recibir notificaciones desde la red, desde WNS o a través de las API de sondeo de notificaciones.
+
+          Si habilita esta configuración de directiva, las aplicaciones que se ejecutan en el equipo a través de llamadas de API locales desde la aplicación podrán aún elevar notificaciones.
+
+          Si deshabilita o no establece esta configuración de directiva, el equipo cliente se conectará a WNS cuando el usuario inicie sesión y las aplicaciones podrán sondear las actualizaciones de notificaciones de mosaico en segundo plano.
+
+          Para que esta configuración de directiva surta efecto, no es necesario reiniciar el equipo ni el servicio.
+      
+      </string>
+      <string id="NoQuietHours">Desactivar el modo "no molestar"</string>
+      <string id="NoQuietHoursExplain">
+        Esta configuración de directiva desactiva la funcionalidad del modo "no molestar".
+        
+         Si habilita esta configuración de directiva, no se suprimirán las notificaciones del sistema y no se aplazarán algunas tareas en segundo plano en el modo "no moleastar" designado cada día.
+        
+        Si deshabilita esta configuración de directiva, se suprimirán las notificaciones del sistema y se aplazarán algunas tareas en segundo plano en el modo "no molestar" designado cada día.  Los usuarios no podrán cambiar esta ni ninguna otra opción del modo "no molestar".
+        
+         Si no establece esta configuración de directiva, el modo "no molestar" se habilita de manera predeterminada, pero puede ser deshabilitado por el administrador o el usuario.
+
+      </string>
+      <string id="NoCallsDuringQuietHours">Desactivar llamadas durante el modo "no molestar"</string>
+      <string id="QuietHoursDailyBeginMinute">Establecer la hora de inicio del modo "no molestar" cada día</string>
+      <string id="QuietHoursDailyBeginMinuteExplain">
+        
+        Esta configuración de directiva especifica el número de minutos tras la medianoche (hora local) después de los cuales empieza el modo "no molestar" de cada día.
+
+        Si habilita esta configuración de directiva, se usará la hora especificada, y los usuarios no podrán personalizar ninguna opción del modo "no molestar".
+
+        Si deshabilita esta configuración de directiva, se usará un valor predeterminado, y los usuarios no podrán personalizar ninguna opción del modo "no molestar".
+
+        Si no establece esta configuración de directiva, se usará un valor predeterminado que podrán modificar los administradores y los usuarios.
+
+      </string>
+      <string id="QuietHoursDailyEndMinute">Establecer la hora de fin del modo "no molestar" cada día</string>
+      <string id="QuietHoursDailyEndMinuteExplain">
+        
+        Esta configuración de directiva especifica el número de minutos tras la medianoche (hora local) después de los cuales finaliza el modo "no molestar" de cada día.
+
+         Si habilita esta configuración de directiva, se usará la hora especificada, y los usuarios no podrán personalizar ninguna opción del modo "no molestar".
+
+        Si deshabilita esta configuración de directiva, se usará un valor predeterminado, y los usuarios no podrán personalizar ninguna opción del modo "no molestar".
+
+        Si no establece esta configuración de directiva, se usará un valor predeterminado que podrán modificar los administradores y los usuarios.
+
+      </string>
+      <string id="NoCallsDuringQuietHoursExplain">
+        
+        Esta configuración de directiva bloquea las llamadas de voz y de vídeo durante el modo "no molestar".
+
+         Si habilita esta configuración de directiva, las llamadas de voz y de vídeo se bloquearán durante el modo "no molestar" designado cada día, y los usuarios no podrán personalizar ninguna otra opción del modo "no molestar".
+
+        Si deshabilita esta configuración de directiva, se permitirán las llamadas de voz y de vídeo durante el modo "no molestar", y los usuarios no podrán personalizar ninguna opción del modo "no molestar".
+
+        Si no establece esta configuración de directiva, se permitirán las llamadas de voz y de vídeo durante el modo "no molestar" de forma predeterminada.  Los administradores y los usuarios podrán modificar esta configuración.
+      
+      </string>
+      <string id="NoNotificationMirroring">Desactivar el reflejo de notificaciones</string>
+      <string id="NoNotificationMirroringExplain">
+          Esta configuración de directiva desactiva el reflejo de notificaciones.
+
+          Si activas esta configuración de directiva, las notificaciones de las aplicaciones y del sistema no se reflejarán en otros dispositivos.
+
+          Si desactivas o no configuras esta configuración de directiva, las notificaciones se reflejarán y el administrador o el usuario podrán desactivarlas.
+
+          Para que esta configuración de directiva surta efecto, no es necesario reiniciar el equipo ni el servicio.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="QuietHoursBeginTimePicker">
+        <decimalTextBox refId="QuietHoursDailyBeginMinuteControl" defaultValue="0">Minutos tras la medianoche:</decimalTextBox>
+      </presentation>
+      <presentation id="QuietHoursEndTimePicker">
+        <decimalTextBox refId="QuietHoursDailyEndMinuteControl" defaultValue="360">Minutos tras la medianoche:</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

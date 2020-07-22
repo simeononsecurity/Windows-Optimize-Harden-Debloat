@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="fullarmor" namespace="FullArmor.Policies.0040BD25_8C9A_4269_8EB8_19D1D2244161" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <supersededAdm fileName="dv.adm" />
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="CAT_DesktopValidator" displayName="$(string.DesktopValidator)" />
+    <category name="CAT_Configuration" displayName="$(string.Configuration)">
+      <parentCategory ref="CAT_DesktopValidator" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="POL_Settings" class="Machine" displayName="$(string.Settings)" 
+            presentation="$(presentation.Settings)" 
+            key="SOFTWARE\Policies\Tumbleweed\Desktop Validator" 
+            explainText="$(string.ExplainSettings)">
+      <parentCategory ref="CAT_Configuration" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <text id="ModificationId" key="SOFTWARE\Policies\Tumbleweed\Desktop Validator" 
+              valueName="ModificationId" required="true" />
+        <text id="Location" key="SOFTWARE\Policies\Tumbleweed\Desktop Validator" 
+              valueName="Location" required="true" />
+        <decimal id="Type" key="\\sim.lan\sysvol\configurations\axway.txt" 
+              valueName="Type" required="true" minValue="0" maxValue="1" />
+        <decimal id="RefreshPeriod" key="SOFTWARE\Policies\Tumbleweed\Desktop Validator" 
+              valueName="RefreshPeriod" minValue="0" maxValue="30000000" />
+        <decimal id="MaxRefreshSalt" key="SOFTWARE\Policies\Tumbleweed\Desktop Validator" 
+              valueName="MaxRefreshSalt" minValue="0" maxValue="86400" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

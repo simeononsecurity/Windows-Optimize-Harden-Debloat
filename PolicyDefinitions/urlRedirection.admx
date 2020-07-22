@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="vdm_urlRedirection" namespace="VMware.Policies.vdm_urlRedirection" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_NotSpecified" displayName="$(string.ADMXMigrator_NoSupportedOn)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="VMwareHorizonURLRedirection" displayName="$(string.unknown_0)" />
+  </categories>
+  <policies>
+    <policy name="IEpolicyPreventusersfromchangingURLRedirectionpluginloadingbehavior" class="Machine" displayName="$(string.unknown_2)" explainText="$(string.unknown_3)" presentation="$(presentation.IEpolicyPreventusersfromchangingURLRedirectionpluginloadingbehavior)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext\CLSID" valueName="{B2DC5663-8716-4D76-8305-C637429CCD7B}">
+      <parentCategory ref="VMwareHorizonURLRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>1</string>
+      </enabledValue>
+      <disabledValue>
+        <string>2</string>
+      </disabledValue>
+    </policy>
+    <policy name="IEpolicyAutomaticallyenableURLRedirectionplugin" class="Machine" displayName="$(string.unknown_6)" explainText="$(string.unknown_7)" presentation="$(presentation.IEpolicyAutomaticallyenableURLRedirectionplugin)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext" valueName="IgnoreFrameApprovalCheck">
+      <parentCategory ref="VMwareHorizonURLRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="UrlRedirectionIPRulesEnabled" class="Machine" displayName="$(string.unknown_4)" explainText="$(string.unknown_5)" presentation="$(presentation.UrlRedirectionIPRulesEnabled)" key="Software\VMware, Inc.\VMware VDM\URLRedirection" valueName="EnabledIPRules">
+      <parentCategory ref="VMwareHorizonURLRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="UrlRedirectionEnabled" class="Machine" displayName="$(string.unknown_8)" explainText="$(string.unknown_9)" presentation="$(presentation.UrlRedirectionEnabled)" key="Software">
+      <parentCategory ref="VMwareHorizonURLRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledList>
+        <item key="Software\VMware, Inc.\VMware VDM\URLRedirection" valueName="Enabled">
+          <value>
+            <decimal value="1" />
+          </value>
+        </item>
+        <item key="Software\Policies\Google\Chrome\URLWhitelist" valueName="1">
+          <value>
+            <string>vmware-view:*</string>
+          </value>
+        </item>
+        <item key="Software\Policies\Google\Chrome\URLWhitelist" valueName="2">
+          <value>
+            <string>vmware-view-url-launch:*</string>
+          </value>
+        </item>
+      </enabledList>
+      <disabledList>
+        <item key="Software\VMware, Inc.\VMware VDM\URLRedirection" valueName="Enabled">
+          <value>
+            <decimal value="0" />
+          </value>
+        </item>
+        <item key="Software\Policies\Google\Chrome\URLWhitelist" valueName="1">
+          <value>
+            <delete />
+          </value>
+        </item>
+        <item key="Software\Policies\Google\Chrome\URLWhitelist" valueName="2">
+          <value>
+            <delete />
+          </value>
+        </item>
+      </disabledList>
+    </policy>
+    <policy name="UrlRedirectionProtocol_http" class="Machine" displayName="$(string.unknown_10)" explainText="$(string.HelpString)" presentation="$(presentation.UrlRedirectionProtocol_http)" key="SOFTWARE\VMware, Inc.\VMware VDM\URLRedirection\http">
+      <parentCategory ref="VMwareHorizonURLRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="brokerHostname" valueName="brokerHostname" />
+        <text id="remoteItem" valueName="remoteItem" />
+        <multiText id="clientRules" valueName="clientRules" maxLength="32767" />
+        <multiText id="agentRules" valueName="agentRules" maxLength="32767" />
+      </elements>
+    </policy>
+    <policy name="UrlRedirectionProtocol_https" class="Machine" displayName="$(string.unknown_12)" explainText="$(string.HelpString)" presentation="$(presentation.UrlRedirectionProtocol_https)" key="SOFTWARE\VMware, Inc.\VMware VDM\URLRedirection\https">
+      <parentCategory ref="VMwareHorizonURLRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="brokerHostname" valueName="brokerHostname" />
+        <text id="remoteItem" valueName="remoteItem" />
+        <multiText id="clientRules" valueName="clientRules" maxLength="32767" />
+        <multiText id="agentRules" valueName="agentRules" maxLength="32767" />
+      </elements>
+    </policy>
+    <policy name="UrlRedirectionProtocol_" class="Machine" displayName="$(string.unknown_15)" explainText="$(string.HelpString)" presentation="$(presentation.UrlRedirectionProtocol_)" key="SOFTWARE\VMware, Inc.\VMware VDM\URLRedirection\...">
+      <parentCategory ref="VMwareHorizonURLRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="brokerHostname" valueName="brokerHostname" />
+        <text id="remoteItem" valueName="remoteItem" />
+        <multiText id="clientRules" valueName="clientRules" maxLength="32767" />
+        <multiText id="agentRules" valueName="agentRules"  maxLength="32767" />
+      </elements>
+    </policy>
+    <policy name="UrlRedirectionExtension_ForceInstall" class="User" displayName="$(string.ExtensionInstallForcelist)" explainText="$(string.ExtensionInstallForcelist_Explain)" key="Software\Policies\Google\Chrome\ExtensionInstallForcelist">
+      <parentCategory ref="VMwareHorizonURLRedirection"/>
+      <supportedOn ref="SUPPORTED_NotSpecified"/>
+      <enabledList>
+        <item key="Software\Policies\Google\Chrome\ExtensionInstallForcelist" valueName="1">
+          <value>
+            <string>lfidjngibpklhhijphdmbmedchiiolgk;https://clients2.google.com/service/update2/crx</string>
+          </value>
+        </item>
+      </enabledList>
+      <disabledList>
+         <item key="Software\Policies\Google\Chrome\ExtensionInstallForcelist" valueName="1">
+           <value>
+             <delete />
+           </value>
+         </item>
+      </disabledList>
+    </policy>
+    <policy name="UrlRedirectionProtocol_WhitelistConfiguration" class="Machine" displayName="$(string.UrlRedirectionProtocol_WhitelistSring)" explainText="$(string.UrlRedirectionProtocol_WhitelistExplain)" presentation="$(presentation.UrlRedirectionProtocol_Whitelist)" key="SYSTEM\CurrentControlSet\Services\vmwicpdr">
+      <parentCategory ref="VMwareHorizonURLRedirection" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <multiText id="whitelist" valueName="vmware-url-protocol-intercept_Inclusions" maxLength="32767" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="systemresourcemanager" namespace="Microsoft.Policies.SystemResourceManager" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="WSRM" displayName="$(string.WSRM)" explainText="$(string.KeyName_Explain)">
+      <parentCategory ref="windows:WindowsComponents" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="AccountingEnabled" class="Machine" displayName="$(string.AccountingEnabled)" explainText="$(string.AccountingEnabled_Explain)" key="Software\Microsoft\Windows\CurrentVersion\Policies\WSRM" valueName="AccountingEnabled">
+      <parentCategory ref="WSRM" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="EmailIds" class="Machine" displayName="$(string.EmailIds)" explainText="$(string.EmailIds_Explain)" presentation="$(presentation.EmailIds)" key="Software\Microsoft\Windows\CurrentVersion\Policies\WSRM">
+      <parentCategory ref="WSRM" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <text id="EmailIdsConfiguration" valueName="EmailIds" required="true" maxLength="255" />
+      </elements>
+    </policy>
+    <policy name="RecordWriteInterval" class="Machine" displayName="$(string.RecordWriteInterval)" explainText="$(string.RecordWriteInterval_Explain)" presentation="$(presentation.RecordWriteInterval)" key="Software\Microsoft\Windows\CurrentVersion\Policies\WSRM">
+      <parentCategory ref="WSRM" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <decimal id="Write_Interval" valueName="RecordWriteInterval" required="true" minValue="2" maxValue="60000" />
+      </elements>
+    </policy>
+    <policy name="SMTPServer" class="Machine" displayName="$(string.SMTPServer)" explainText="$(string.SMTPServerConfiguration_Explain)" presentation="$(presentation.SMTPServer)" key="Software\Microsoft\Windows\CurrentVersion\Policies\WSRM">
+      <parentCategory ref="WSRM" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <text id="SMTPServerConfiguration" valueName="SMTPServer" required="true" maxLength="255" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

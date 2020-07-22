@@ -1,0 +1,187 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <!-- NetBanner 2.0.130 -->
+  <policyNamespaces>
+    <target prefix="fullarmor" namespace="FullArmor.Policies.D31FC025_CAAE_4A5F_85B1_F123FB14A8B6" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <supersededAdm fileName="C:\Dev\Internal\USAF\StdConfig\NetBanner\NetBanner.adm" />
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_NotSpecified" displayName="$(string.ADMXMigrator_NoSupportedOn)" />
+      <definition name="SUPPORTED_WindowsXPSP2_Or_WindowsNETSP1" displayName="$(string.SUPPORTED_WindowsXPSP2_Or_WindowsNETSP1)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="NetBanner" displayName="$(string.unknown_0)" />
+  </categories>
+  <policies>
+    <policy name="Classification" class="Machine" displayName="$(string.unknown_1)" explainText="$(string.Classification_Help)" presentation="$(presentation.Classification)" key="Software\Policies\Microsoft\NetBanner" valueName="Classification">
+      <parentCategory ref="NetBanner" />
+      <supportedOn ref="SUPPORTED_WindowsXPSP2_Or_WindowsNETSP1" />
+      <elements>
+        <enum id="Classification" key="Software\Policies\Microsoft\NetBanner" valueName="Classification">
+          <item displayName="$(string.unknown_3)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_4)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_5)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_6)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="CustomSettings" class="Machine" displayName="$(string.unknown_7)" explainText="$(string.unknown_8)" presentation="$(presentation.CustomSettings)" key="Software\Policies\Microsoft\NetBanner" valueName="CustomSettings">
+      <parentCategory ref="NetBanner" />
+      <supportedOn ref="SUPPORTED_WindowsXPSP2_Or_WindowsNETSP1" />
+      <elements>
+        <enum id="BackgroundColor" key="Software\Policies\Microsoft\NetBanner" valueName="CustomBackgroundColor">
+          <item displayName="$(string.unknown_10)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_11)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_12)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_13)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_14)">
+            <value>
+              <decimal value="5" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_15)">
+            <value>
+              <decimal value="6" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_16)">
+            <value>
+              <decimal value="7" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_17)">
+            <value>
+              <decimal value="8" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_18)">
+            <value>
+              <decimal value="9" />
+            </value>
+          </item>
+        </enum>
+        <enum id="TextColor" key="Software\Policies\Microsoft\NetBanner" valueName="CustomForeColor">
+          <item displayName="$(string.unknown_20)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_21)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_22)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+        <text id="DisplayText" key="Software\Policies\Microsoft\NetBanner" valueName="CustomDisplayText" />
+      </elements>
+    </policy>
+    <policy name="InformationCondition" class="Machine" displayName="$(string.unknown_24)" explainText="$(string.InformationCondition_Help)" presentation="$(presentation.InformationCondition)" key="Software\Policies\Microsoft\NetBanner" valueName="InfoCon">
+      <parentCategory ref="NetBanner" />
+      <supportedOn ref="SUPPORTED_WindowsXPSP2_Or_WindowsNETSP1" />
+      <elements>
+        <enum id="InformationCondition" key="Software\Policies\Microsoft\NetBanner" valueName="InfoCon">
+          <item displayName="$(string.unknown_26)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_27)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_28)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_29)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_30)">
+            <value>
+              <decimal value="5" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="ForceProtectionCondition" class="Machine" displayName="$(string.unknown_31)" explainText="$(string.ForceProtectionCondition_Help)" presentation="$(presentation.ForceProtectionCondition)" key="Software\Policies\Microsoft\NetBanner" valueName="FpCon">
+      <parentCategory ref="NetBanner" />
+      <supportedOn ref="SUPPORTED_WindowsXPSP2_Or_WindowsNETSP1" />
+      <elements>
+        <enum id="ForceProtection" key="Software\Policies\Microsoft\NetBanner" valueName="FpCon">
+          <item displayName="$(string.unknown_33)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_34)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_35)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.unknown_36)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="Caveats" class="Machine" displayName="$(string.unknown_37)" explainText="$(string.Caveats_Help)" presentation="$(presentation.Caveats)" key="Software\Policies\Microsoft\NetBanner" valueName="CaveatsEnabled">
+      <parentCategory ref="NetBanner" />
+      <supportedOn ref="SUPPORTED_WindowsXPSP2_Or_WindowsNETSP1" />
+      <elements>
+        <text id="SizeMessage" key="Software\Policies\Microsoft\NetBanner" valueName="Caveats" maxLength="40" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

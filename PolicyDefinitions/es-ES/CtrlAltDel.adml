@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="CADOptions">Opciones de Ctrl+Alt+Supr</string>
+      <string id="DisableChangePassword">Quitar la opción Cambiar contraseña</string>
+      <string id="DisableChangePassword_Help">Esta configuración de directiva impide que los usuarios cambien su contraseña de Windows a petición.
+
+Si habilita esta configuración de directiva el botón "Cambiar contraseña" en el cuadro de diálogo Seguridad de Windows no aparecerá al presionar Ctrl+Alt+Supr.
+
+No obstante, los usuarios pueden cambiar su contraseña cuando se lo solicite el sistema. El sistema solicita a los usuarios una nueva contraseña cuando un administrador requiere una contraseña nueva o cuando su contraseña está a punto de expirar.</string>
+      <string id="DisableLockComputer">Quitar el bloqueo de equipos</string>
+      <string id="DisableLockComputer_Help">Esta configuración de directiva impide que los usuarios bloqueen el sistema.
+
+Cuando el sistema está bloqueado, el escritorio permanece oculto y no se puede usar el sistema. Únicamente el usuario que bloqueó el sistema o el administrador del sistema pueden desbloquearlo.
+
+Si habilita esta configuración de directiva, los usuarios no pueden bloquear el equipo desde el teclado usando Ctrl+Alt+Supr.
+
+Si se deshabilita o no se establece esta configuración de directiva, los usuarios podrán bloquear el equipo desde el teclado usando Ctrl+Alt+Supr.
+
+Sugerencia: para bloquear un equipo sin establecer una configuración, presione Ctrl+Alt+Supr y, a continuación, haga clic en Bloquear este equipo.</string>
+      <string id="DisableTaskMgr">Quitar Administrador de tareas</string>
+      <string id="DisableTaskMgr_Help">Esta configuración de directiva impide que los usuarios inicien el Administrador de tareas.
+
+El Administrador de tareas (taskmgr.exe) permite a los usuarios iniciar y detener programas, supervisar el rendimiento de sus equipos, ver y supervisar todos los programas que se ejecutan en sus equipos (incluidos los servicios del sistema), buscar los nombres de los archivos ejecutables de los programas y cambiar la prioridad del proceso en el que se ejecutan los programas.
+
+Si habilita esta configuración de directiva, los usuarios no podrán tener acceso al Administrador de tareas. Si los usuarios intentan iniciar el Administrador de tareas, aparece un mensaje que explica que una directiva impide esa acción.
+
+Si deshabilita o no establece esta configuración de directiva, los usuarios pues acceder al Administrador de tares para iniciar y detener programas, supervisar el rendimiento de sus equipos, ver y supervisar todos los programas que se ejecutan en sus equipos (incluidos los servicios del sistema), buscar los nombres de los archivos ejecutables de los programas y cambiar la prioridad del proceso en el que se ejecutan los programas.</string>
+      <string id="NoLogoff">Quitar Cerrar sesión</string>
+      <string id="NoLogOff_Help">Esta configuración de directiva deshabilita o quita todos los elementos de menú y botones que permiten al usuario cerrar sesión en el sistema.
+
+Si habilita esta configuración de directiva, los usuarios no verán el elemento del menú Cerrar sesión cuando presionen Ctrl+Alt+Supr. Esto impedirá que cierren sesión a menos que reinicien o apaguen el equipo, o hagan clic en Cerrar sesión desde el menú Inicio.
+
+Consulte también la configuración de directiva "Quitar Cerrar sesión del menú Inicio".
+
+Si deshabilita o no configura esta configuración de directiva, los usuarios pueden ver y seleccionar el elemento del menú Cerrar sesión cuando presionan Ctrl+Alt+Supr.</string>
+    </stringTable>
+  </resources>
+</policyDefinitionResources>

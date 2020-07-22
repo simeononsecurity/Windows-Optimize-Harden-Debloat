@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (c) Microsoft Corporation. All rights reserved. -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Proveedor de red</displayName>
+  <description>Definiciones de directiva para el Proveedor de UNC múltiples</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_NetworkProvider">Proveedor de red</string>
+      <string id="Pol_HardenedPaths">Rutas de acceso UNC protegidas</string>
+      <string id="Pol_HardenedPaths_Explain">Esta configuración de directiva establece el acceso seguro a rutas de acceso UNC.
+
+Si habilita esta directiva, Windows solo permite el acceso a las rutas de acceso UNC especificadas una vez satisfechos los requisitos de seguridad adicionales.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_HardenedPaths">
+        <text>Especifique rutas de acceso de red protegidas.
+En el campo de nombre, escriba una ruta de acceso UNC completa para cada recurso de red.
+Para proteger todo el acceso a un recurso compartido con un determinado nombre, independientemente del nombre del servidor, especifique un nombre de servidor de '*' (asterisco). Por ejemplo, "\\*\NETLOGON".
+Para proteger todo el acceso a todos los recursos compartidos hospedados en un servidor, se puede omitir la parte del nombre del recurso compartido de la ruta de acceso UNC. Por ejemplo, "\\SERVIDOR".
+
+En el campo de valor, especifique una o varias de las siguientes opciones, separadas por comas:
+    'RequireMutualAuthentication=1': se requiere la autenticación mutua entre el cliente y el servidor para garantizar que cliente se conecte al servidor correcto.
+    'RequireIntegrity=1': la comunicación entre el cliente y el servidor debe emplear un mecanismo de integridad para evitar la manipulación de datos.
+    'RequirePrivacy=1': la comunicación entre el cliente y el servidor debe estar cifrada para evitar que terceros observen información confidencial.</text>
+        <listBox refId="Pol_HardenedPaths">Rutas de acceso UNC protegidas:</listBox>
+        <text> </text>
+        <text>Debe exigir un mecanismo de integridad y la autenticación mutua para todas las rutas de acceso UNC que hospeden programas ejecutables, archivos de script o archivos que controlen las directivas de seguridad.
+
+Considere la posibilidad de hospedar los archivos que no requieran integridad o privacidad en recursos compartidos totalmente distintos de los que necesitan absolutamente estos requisitos de seguridad para un rendimiento óptimo.
+
+Para obtener información adicional sobre cómo configurar equipos Windows para que exijan medidas de seguridad adicionales al acceder a rutas de acceso UNC específicas, visite http://support.microsoft.com/kb/3000483.</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

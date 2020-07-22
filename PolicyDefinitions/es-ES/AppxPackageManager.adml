@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) Microsoft. All rights reserved.  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
+  <displayName>Gerente de paquetes AppX</displayName> 
+  <description>Gerente de paquetes AppX</description>
+  <resources>
+    <stringTable>
+      <string id="AppxDeployment">Implementación de paquetes de la aplicación</string>
+      <string id="AppxDeploymentAllowAllTrustedApps">Permitir la instalación de todas las aplicaciones de confianza</string>
+      <string id="AppxDeploymentAllowAllTrustedAppsExplanation">Esta configuración de directiva permite administrar la instalación de las aplicaciones de la Tienda Windows de línea de negocio (LOB) o desarrolladores que sean de confianza.
+
+Si habilitas esta configuración de directiva, podrás instalar cualquier aplicación de LOB o desarrolladores de la Tienda Windows (debe estar firmada con una cadena de certificados que el equipo local pueda validar correctamente).
+
+Si deshabilitas o no estableces esta configuración de directiva, no podrás instalar aplicaciones de LOB o desarrolladores de la Tienda Windows.</string>
+      <string id="AllowDeploymentInSpecialProfiles">Permitir operaciones de implementación en perfiles especiales</string>
+      <string id="AllowDeploymentInSpecialProfilesExplanation">Esta configuración de directiva permite administrar la implementación de aplicaciones de la Tienda Windows cuando el usuario inicia sesión con un perfil especial. Los perfiles especiales son los siguientes perfiles de usuario, donde los cambios se descartan cuando el usuario cierre sesión:
+
+Perfiles de usuario móvil a los que se aplica la configuración de directiva de grupo "Eliminar copias en caché de perfiles móviles"
+
+Perfiles de usuario obligatorios y súper obligatorios, que un administrador crea
+
+Perfiles de usuario temporales, que se crean cuando un error impide que se cargue el perfil adecuado
+
+Perfiles de usuario de la cuenta Invitado y de los miembros del grupo de invitados
+
+
+Si habilita esta configuración de directiva, la directiva de grupo permite realizar operaciones de implementación (agregar, registrar, almacenar provisionalmente, actualizar o quitar un paquete de la aplicación) de las aplicaciones de la Tienda Windows cuando se usa un perfil especial.
+
+Si deshabilita o no establece esta configuración de directiva, la directiva de grupo bloquea las operaciones de implementación de aplicaciones de la Tienda Windows cuando se usa un perfil especial.</string>
+      <string id="AllowDevelopmentWithoutDevLicense">Permitir el desarrollo de aplicaciones de la Tienda Windows y su instalación desde un entorno de desarrollo integrado (IDE)</string>
+      <string id="AllowDevelopmentWithoutDevLicenseExplanation">
+        Permite o impide desarrollar aplicaciones de la Tienda Windows e instalarlas directamente desde un IDE.
+
+        Si habilitas esta configuración de directiva junto con la directiva de grupo "Permitir la instalación de todas las aplicaciones de confianza", podrás desarrollar aplicaciones de la Tienda Windows e instalarlas directamente desde un IDE.
+        
+        Si deshabilitas o no estableces esta configuración, no podrás desarrollar aplicaciones de la Tienda Windows ni instalarlas directamente desde un IDE.
+      </string>
+      <string id="DisableDeploymentToNonSystemVolumes">Deshabilitar la instalación de aplicaciones para Windows en volúmenes que no sean del sistema</string>
+      <string id="DisableDeploymentToNonSystemVolumesExplanation">
+        Esta configuración de directiva permite administrar la instalación de aplicaciones para Windows en volúmenes adicionales, como particiones secundarias, unidades USB o tarjetas SD.
+
+        Si habilitas esta configuración, no podrás mover ni instalar aplicaciones para Windows en volúmenes que no sean del sistema.
+
+        Si deshabilitas o no estableces esta configuración, podrás mover o instalar aplicaciones para Windows en otros volúmenes.
+      </string>
+      <string id="RestrictAppDataToSystemVolume">Impedir que los datos de aplicaciones de los usuarios se almacenen en volúmenes que no sean del sistema</string>
+      <string id="RestrictAppDataToSystemVolumeExplanation">
+        Impide que los datos de aplicaciones de los usuarios se muevan a otra ubicación si la aplicación se mueve o instala en otra ubicación.
+
+        Si habilitas esta configuración, todos los datos de aplicaciones de los usuarios permanecerán en el volumen del sistema, independientemente de la ubicación donde esté instalada la aplicación.
+
+        Si deshabilitas o no estableces esta configuración, cuando se mueva una aplicación a un volumen distinto, los datos de aplicaciones de los usuarios también se moverán a este volumen.
+      </string>
+      <string id="AllowSharedLocalAppData">Permitir que una aplicaciones para Windows comparta datos de aplicaciones entre los usuarios</string>
+      <string id="AllowSharedLocalAppDataExplanation">Administra la capacidad de una aplicación para Windows de compartir datos entre los usuarios que han instalado la aplicación.
+      
+        Si habilitas esta directiva, una aplicación para Windows podrá compartir datos de aplicaciones con otras instancias de dicha aplicación. Los datos se comparten a través de la carpeta SharedLocal. Esta carpeta está disponible en la API Windows.Storage.
+
+        Si deshabilitas esta directiva, una aplicación para Windows no podrá compartir datos de aplicaciones con otras instancias de dicha aplicación. Si esta directiva estaba habilitadas previamente, todos los datos de aplicaciones compartidos anteriormente permanecerán en la carpeta SharedLocal. 
+      </string>
+    </stringTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="SSLConfiguration">Opciones de configuración SSL</string>
+      <string id="SSLCipherSuiteOrder">Orden de conjuntos de cifrado SSL</string>
+      <string id="SSLCipherSuiteOrder_Help">Esta configuración de directiva determina los conjuntos de cifrado usados por la Capa de sockets seguros (SSL).
+
+Si habilitas esta configuración de directiva, los conjuntos de cifrado SSL se ordenarán según las prioridades especificadas.
+
+Si deshabilitas o no estableces esta configuración de directiva, se usará el orden del conjunto de cifrado predeterminado.
+          
+Vínculo para todos los conjuntos de cifrado: http://go.microsoft.com/fwlink/?LinkId=517265
+
+      </string>
+
+      <string id="SSLCurveOrder">Orden de la curva ECC</string>
+      <string id="SSLCurveOrder_Help">Esta configuración de directiva determina el orden de prioridad de curvas ECC que se usa con conjuntos de cifrado ECDHE.
+
+Si habilitas esta configuración de directiva, las curvas ECC se ordenarán según las prioridades especificadas. (Escribe un nombre de curva por línea)
+
+Si deshabilitas o no estableces esta configuración de directiva, se usará el orden de curva ECC predeterminado.
+
+Orden de curva predeterminado
+============
+curve25519
+NistP256
+NistP384
+
+Para ver todas las curvas compatibles con el sistema, usa el siguiente comando:
+
+CertUtil.exe -DisplayEccCurve
+
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SSLCipherSuiteOrder">
+        <textBox refId="Pol_SSLCipherSuiteOrder">
+          <label>Conjuntos de cifrado SSL</label>
+          <defaultValue>TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_NULL_SHA256,TLS_RSA_WITH_NULL_SHA,TLS_PSK_WITH_AES_256_GCM_SHA384,TLS_PSK_WITH_AES_128_GCM_SHA256,TLS_PSK_WITH_AES_256_CBC_SHA384,TLS_PSK_WITH_AES_128_CBC_SHA256,TLS_PSK_WITH_NULL_SHA384,TLS_PSK_WITH_NULL_SHA256</defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="SSLCurveOrder">
+        <text>Escribe los nombres de curva ECC en el orden que quieras (un nombre de curva por línea)</text>
+        <multiTextBox refId="SSLCurveOrderList">Orden de la curva ECC:</multiTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

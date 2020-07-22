@@ -1,0 +1,53 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="VMwareUEMHelpdeskSupportTool" namespace="VMwareUEM.Policies.HelpdeskSupportTool.8.7" />
+    <using prefix="VMwareUEM" namespace="VMwareUEM.Policies.Root" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="PlatformSupport" displayName="$(string.PlatformSupport)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="Cat_ImmidioFlexPlusHelpdeskSupportTool" displayName="$(string.Cat_ImmidioFlexPlusHelpdeskSupportTool)" explainText="$(string.Cat_ImmidioFlexPlusHelpdeskSupportTool_Help)">
+      <parentCategory ref="VMwareUEM:Cat_Immidio"/>
+    </category>
+    <category name="Cat_AdvancedSettings" displayName="$(string.Cat_AdvancedSettings)">
+      <parentCategory ref="Cat_ImmidioFlexPlusHelpdeskSupportTool" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="FlexConfigFilesPath" class="User" displayName="$(string.FlexConfigFilesPath)" explainText="$(string.FlexConfigFilesPath_Help)" presentation="$(presentation.FlexConfigFilesPath)" key="Software\Policies\Immidio\Flex+\Helpdesk Support Tool">
+      <parentCategory ref="Cat_ImmidioFlexPlusHelpdeskSupportTool" />
+      <supportedOn ref="PlatformSupport" />
+      <elements>
+        <text id="Txt_FlexConfigFilesPath" key="Software\Policies\Immidio\Flex+\Helpdesk Support Tool" valueName="FlexConfig" required="true" expandable="true"/>
+      </elements>
+    </policy>
+    <policy name="AllowExplore" class="User" displayName="$(string.AllowExplore)" explainText="$(string.AllowExplore_Help)" key="Software\Policies\Immidio\Flex+\Helpdesk Support Tool" valueName="AllowExplore">
+      <parentCategory ref="Cat_ImmidioFlexPlusHelpdeskSupportTool" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="AllowEditArchive" class="User" displayName="$(string.AllowEditArchive)" explainText="$(string.AllowEditArchive_Help)" key="Software\Policies\Immidio\Flex+\Helpdesk Support Tool" valueName="AllowEditArchive">
+      <parentCategory ref="Cat_ImmidioFlexPlusHelpdeskSupportTool" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="AllowMultiSelect" class="User" displayName="$(string.AllowMultiSelect)" explainText="$(string.AllowMultiSelect_Help)" key="Software\Policies\Immidio\Flex+\Helpdesk Support Tool" valueName="AllowMultiSelect">
+      <parentCategory ref="Cat_ImmidioFlexPlusHelpdeskSupportTool" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="AllowForcedDebugLogging" class="User" displayName="$(string.AllowForcedDebugLogging)" explainText="$(string.AllowForcedDebugLogging_Help)" key="Software\Policies\Immidio\Flex+\Helpdesk Support Tool" valueName="AllowForcedDebugLogging">
+      <parentCategory ref="Cat_ImmidioFlexPlusHelpdeskSupportTool" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="DisableAclUpdate" class="User" displayName="$(string.DisableAclUpdate)" explainText="$(string.DisableAclUpdate_Help)" key="Software\Policies\Immidio\Flex+\Helpdesk Support Tool" valueName="DisableAclUpdate">
+      <parentCategory ref="Cat_AdvancedSettings" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+    <policy name="DisallowAllLabels" class="User" displayName="$(string.DisallowAllLabels)" explainText="$(string.DisallowAllLabels_Help)" key="Software\Policies\Immidio\Flex+\Helpdesk Support Tool" valueName="DisallowAllLabels">
+      <parentCategory ref="Cat_AdvancedSettings" />
+      <supportedOn ref="PlatformSupport" />
+    </policy>
+  </policies>
+</policyDefinitions>

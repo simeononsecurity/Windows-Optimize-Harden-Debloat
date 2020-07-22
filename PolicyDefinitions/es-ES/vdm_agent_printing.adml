@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <!--Revision: 4.1-->
+  <!--Comment: Copyright (c) 2017 ThinPrint GmbH-->
+  <!--revision 11.0 build 26.2-->
+  <displayName>Redireccionamiento de impresora de VMware Horizon</displayName>
+  <description>Permite la configuración del redireccionamiento de impresora de VMware Horizon.</description>
+  <resources>
+    <stringTable>
+      <string id="THINPRINT">ThinPrint</string>
+      <string id="ID_ThinPrint_AutoConnect_VMware">Redireccionamiento de impresora de VMware Horizon</string>
+      <string id="SUPPORTED_ON">Windows Server 2008/Windows 7 como mínimo</string>
+      <string id="ID_ThinPrint_AutoConnect_VMware_explainText">Permite la configuración del redireccionamiento de impresora de VMware Horizon.</string>
+      <string id="ID_Name_PrinterFilterString">Especificar un filtro en el redireccionamiento de impresoras cliente</string>
+      <string id="ID_Name_PrinterFilterString_Help">Una regla que filtra cualquier impresora con la que coincida en el redireccionamiento de impresora. Los atributos admitidos son: nombres de impresora, nombres de controladores de impresoras y nombres de proveedores. Los operadores admitidos son: AND, OR y NOT. Como patrones de búsqueda se admiten expresiones regulares que usen ECMAScript (una versión de JavaScript).
+De manera predeterminada, la regla está vacía, lo que implica que las impresoras cliente se redireccionarán.
+
+Ejemplo:
+(DriverName= &quot;DrName1&quot; OR VendorName=&quot;VeName1&quot;) AND NOT PrinterName= &quot;PrNa.?e&quot;
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="ID_Name_PrinterFilterString">
+        <textBox refId="ID_ELE_PrinterFilterString">
+          <label>Nombre del valor de registro: PrinterFilterString</label>
+          <defaultValue></defaultValue>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

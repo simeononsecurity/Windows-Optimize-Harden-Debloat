@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="vdm_cdr" namespace="VMware.Policies.vdm_cdr" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+    <using prefix="vdm_agent_base" namespace="VMware.Policies.vdm_agent_base" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="VMwareViewCDR" displayName="$(string.VMwareViewCDR)">
+      <parentCategory ref="vdm_agent_base:View_Agent_Config" />
+    </category>
+	<category name="VMwareViewCDRDeviceFiltering" displayName="$(string.VMwareViewCDRDeviceFiltering)">
+      <parentCategory ref="VMwareViewCDR" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="IsDriveLetterNeeded" class="Machine" displayName="$(string.IsDriveLetterNeeded)" explainText="$(string.IsDriveLetterNeededExplain)" presentation="$(presentation.IsDriveLetterNeeded)" key="Software\Policies\VMware, Inc.\VMware tsdr" valueName="IsDriveLetterNeeded">
+      <parentCategory ref="VMwareViewCDR" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <enabledValue>
+        <string>true</string>
+      </enabledValue>
+      <disabledValue>
+        <string>false</string>
+      </disabledValue>
+    </policy>
+    <policy name="InitDriveLetterTimeout" class="Machine" displayName="$(string.InitDriveLetterTimeout)" explainText="$(string.InitDriveLetterTimeoutExplain)" presentation="$(presentation.InitDriveLetterTimeout)" key="Software\Policies\VMware, Inc.\VMware tsdr">
+      <parentCategory ref="VMwareViewCDR"/>
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <decimal id="InitDriveLetterTimeout" valueName="InitDriveLetterTimeout" minValue="0" maxValue="600000"/>
+      </elements>
+    </policy>
+	<policy name="ExcludeVidPid" class="Machine" displayName="$(string.ExcludeVidPid)" explainText="$(string.ExcludeVidPidExplain)" presentation="$(presentation.ExcludeVidPid)" key="Software\Policies\VMware, Inc.\VMware tsdr\Filter">
+      <parentCategory ref="VMwareViewCDRDeviceFiltering" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="ExcludeVidPid" valueName="ExcludeVidPid" />
+      </elements>
+    </policy>
+    <policy name="IncludeVidPid" class="Machine" displayName="$(string.IncludeVidPid)" explainText="$(string.IncludeVidPidExplain)" presentation="$(presentation.IncludeVidPid)" key="Software\Policies\VMware, Inc.\VMware tsdr\Filter">
+      <parentCategory ref="VMwareViewCDRDeviceFiltering" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <text id="IncludeVidPid" valueName="IncludeVidPid" />
+      </elements>
+    </policy>
+    <policy name="DriveLetterMapping" class="Machine" displayName="$(string.DriveLetterMapping)"
+ explainText="$(string.DriveLetterMappingExplain)" presentation="$(presentation.DriveLetterMapping)" key="Software\Policies\VMware, Inc.\VMware tsdr">
+      <parentCategory ref="VMwareViewCDR" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <enum id="DriveLetterMappingDropdown" valueName="DriveLetterMappingType" required="true">
+          <item displayName="$(string.OneToOneMapping)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.PredefinedMapping)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="DriveLetterMappingTable" class="Machine" displayName="$(string.DriveLetterMappingTable)"
+ explainText="$(string.DriveLetterMappingTableExplain)" presentation="$(presentation.DriveLetterMappingTable)" key="Software\Policies\VMware, Inc.\VMware tsdr">
+      <parentCategory ref="VMwareViewCDR" />
+      <supportedOn ref="SUPPORTED_NotSpecified" />
+      <elements>
+        <list id="DriveLetterMappingTable" key="Software\Policies\VMware, Inc.\VMware tsdr\DriveLetterMappingTable" explicitValue="true" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

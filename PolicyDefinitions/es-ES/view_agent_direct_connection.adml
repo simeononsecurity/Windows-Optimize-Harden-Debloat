@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+
+   <displayName>VMware Horizon View Agent Direct-Connection</displayName>
+   <description>Ajustes de configuración de VMware Horizon View Agent Direct-Connection</description>
+   <resources>
+
+      <stringTable>
+
+         <string id="Agent_Direct_Connect_Config">Configuración de View Agent Direct-Connection</string>
+
+         <string id="HTTPS_Port">Número de puerto HTTPS</string>
+
+         <string id="HTTPS_Port_Desc">El número de puerto TCP en el que View Agent Connect escucha conexiones HTTPS entrantes de View Client. Si se deshabilita o no se configura esta directiva, se utiliza el puerto 443 predeterminado.
+
+NOTA: Si modifica el número de puerto, puede que sea necesario volver a configurar el firewall del escritorio para permitir que lleguen conexiones entrantes al puerto.</string>
+
+         <string id="Session_Timeout">Tiempo de espera de la sesión</string>
+
+         <string id="Session_Timeout_Desc">Determina cuánto tiempo puede un usuario mantener una sesión abierta tras iniciar sesión con View Client. El valor se indica en minutos; si se deshabilita o no se configura esta directiva, el valor predeterminado es 600 minutos. Cuando expira una sesión de escritorio, esta finaliza y View Client se desconecta del escritorio.</string>
+
+         <string id="Disclaimer_Enabled">Renuncia de responsabilidad habilitada</string>
+
+         <string id="Disclaimer_Enabled_Desc">Mostrar el texto de renuncia de responsabilidad al iniciar sesión. El texto mostrado procede de &quot;Texto de renuncia de responsabilidad&quot;, si lo hay, o bien del GPO: &quot;Configuración\Configuración de Windows\Configuración de seguridad\Directivas locales\Opciones de seguridad&quot;/&quot;Inicio de sesión interactivo: texto del mensaje para los usuarios que intentan iniciar una sesión&quot;. El ajuste predeterminado es que esté deshabilitado.</string>
+
+         <string id="Disclaimer_Text">Texto de renuncia de responsabilidad</string>
+
+         <string id="Disclaimer_Text_Desc">Texto de exención de responsabilidad que se muestra a los usuarios de View Client cuando inician sesión; es necesario establecer la directiva Renuncia de responsabilidad habilitada. Si no se especifica un texto, El ajuste predeterminado es mostrar el valor de la directiva de Windows: &quot;Configuración\Configuración de Windows\Configuración de seguridad\Directivas locales\Opciones de seguridad&quot;/&quot;Inicio de sesión interactivo: texto del mensaje para los usuarios que intentan iniciar una sesión&quot;.</string>
+
+         <string id="Applications_Enabled">Aplicaciones habilitadas</string>
+
+         <string id="Applications_Enabled_Desc">Permitir iniciar aplicaciones en hosts de sesiones de escritorios remotos. El ajuste predeterminado es que esta función esté habilitada.</string>
+
+         <string id="Client_autoconnect_setting">Ajuste de cliente: AutoConnect</string>
+
+         <string id="Client_autoconnect_setting_Desc">Configuración de AutoConnect enviada a View Client. Si se establece esta directiva, reemplaza las preferencias de cliente guardadas. No se establece ningún valor de forma predeterminada. Al habilitar esta directiva, el valor se establece en true; si se deshabilita la directiva, el valor se establece en false.</string>
+
+         <string id="Client_alwaysconnect_setting">Ajuste de cliente: AlwaysConnect</string>
+
+         <string id="Client_alwaysconnect_setting_Desc">Configuración de AlwaysConnect enviada a View Client. Si se establece esta directiva, reemplaza las preferencias de cliente guardadas. No se establece ningún valor de forma predeterminada. Al habilitar esta directiva, el valor se establece en true; si se deshabilita la directiva, el valor se establece en false.</string>
+
+         <string id="Client_screensize_setting">Ajuste de cliente: ScreenSize</string>
+
+         <string id="Client_screensize_setting_Desc">Configuración de ScreenSize enviada a View Client. Si se habilita esta directiva, reemplaza las preferencias de cliente guardadas. Si se deshabilita o no se configura esta directiva, se utilizan las preferencias de cliente.</string>
+
+         <string id="External_PCoIP_port">Puerto PCoIP externo</string>
+
+         <string id="External_PCoIP_port_Desc">Número de puerto enviado a View Client como número de puerto TCP/UDP de destino usado para el protocolo PCoIP. Un carácter &quot;+&quot; delante del número indica un número relativo del número de puerto usado para HTTPS. Establezca este valor solamente si el número de puerto de exposición externa no coincide con el puerto en el que el servicio está realizando la escucha (normalmente, este estará en un entorno NAT). No se establece ningún valor de forma predeterminada.</string>
+
+         <string id="External_RDP_Port">Puerto RDP externo</string>
+
+         <string id="External_RDP_Port_Desc">Número de puerto enviado a View Client como número de puerto TCP de destino usado para el protocolo RDP. Un carácter &quot;+&quot; delante del número indica un número relativo del número de puerto usado para HTTPS. Establezca este valor solamente si el número de puerto de exposición externa no coincide con el puerto en el que el servicio está realizando la escucha (normalmente, este estará en un entorno NAT). No se establece ningún valor de forma predeterminada.</string>
+
+         <string id="External_Blast_port">Puerto Blast externo</string>
+
+         <string id="External_Blast_port_Desc">Número de puerto enviado a View Client como número de puerto TCP de destino usado para el protocolo Blast. Un carácter &quot;+&quot; delante del número indica un número relativo del número de puerto usado para HTTPS. Establezca este valor solamente si el número de puerto de exposición externa no coincide con el puerto en el que el servicio está realizando la escucha (normalmente, este estará en un entorno NAT). No se establece ningún valor de forma predeterminada.</string>
+
+         <string id="External_IP">Dirección IP externa</string>
+
+         <string id="External_IP_Desc">Dirección IPv4 enviada a View Client como dirección IP de destino y usada para protocolos secundarios (RDP, PCoIP, canal de marco, Blast, etc.). Establezca este valor solamente si la dirección de exposición externa no coincide con la dirección de la máquina del escritorio (normalmente, esta estará en un entorno NAT). No se establece ningún valor de forma predeterminada.</string>
+
+         <string id="External_Framework_Channel_port">Puerto del canal de marco externo</string>
+
+         <string id="External_Framework_Channel_port_Desc">Número de puerto enviado a View Client como número de puerto TCP de destino usado para el protocolo de canal de marco. Un carácter &quot;+&quot; delante del número indica un número relativo del número de puerto usado para HTTPS. Establezca este valor solamente si el número de puerto de exposición externa no coincide con el puerto en el que el servicio está realizando la escucha (normalmente, este estará en un entorno NAT). No se establece ningún valor de forma predeterminada.</string>
+
+         <string id="USB_Enabled">USB habilitado</string>
+
+         <string id="USB_Enabled_Desc">Determina si los escritorios pueden usar los dispositivos USB conectados al sistema cliente. Está habilitado de forma predeterminada. Si desea evitar el uso de dispositivos externos por razones de seguridad, deshabilite el ajuste.</string>
+
+         <string id="MMR_Enabled">Redireccionamiento multimedia (MMR) habilitado</string>
+
+         <string id="MMR_Enabled_Desc">Determina si el MMR está habilitado para los sistemas cliente. El MMR es un filtro de Microsoft DirectShow que reenvía directamente al sistema cliente datos multimedia desde códecs específicos de escritorios de View a través de un socket TCP. Los datos se descodifican directamente en el sistema cliente, donde se reproducen. El valor predeterminado es deshabilitado.
+
+El MMR no funciona correctamente si el hardware de reproducción de vídeo del sistema cliente no es compatible con la superposición. Los sistemas clientes pueden no disponer de recursos suficientes para procesar la decodificación multimedia local.</string>
+
+         <string id="Reset_Enabled">Restablecimiento habilitado</string>
+
+         <string id="Reset_Enabled_Desc">Habilidad de un View Client autenticado para realizar un reinicio del sistema operativo. Este ajuste aparece como deshabilitado de forma predeterminada.</string>
+
+         <string id="USB_AutoConnect">Conexión automática de USB</string>
+
+         <string id="USB_AutoConnect_Desc">Conectar dispositivos USB al escritorio cuando se conectan. Si se establece esta directiva, reemplaza las preferencias de cliente guardadas. No se establece ningún valor de forma predeterminada.</string>
+
+         <string id="Client_Cred_Cache_Timeout">Tiempo de espera de la caché de las credenciales del cliente</string>
+
+         <string id="Client_Cred_Cache_Timeout_Desc">Tiempo en minutos durante el que View Client permite al usuario utilizar una contraseña guardada. 0 significa nunca y -1 significa siempre. View Client ofrecerá a los usuarios la posibilidad de guardar las contraseñas si esta opción está configurada con un valor válido. El valor predeterminado es 0 (nunca).</string>
+
+         <string id="User_Idle_Timeout">Tiempo de espera inactivo del usuario</string>
+
+         <string id="User_Idle_Timeout_Desc">Tiempo máximo en minutos que un usuario puede estar inactivo antes de que el servicio tome medidas para proteger la sesión. Un valor de -1 indica que nunca se considerará que la sesión está inactiva. El valor predeterminado es 900 segundos (15 minutos).</string>
+
+         <string id="Client_Session_Timeout">Tiempo de espera de sesión de cliente</string>
+
+         <string id="Client_Session_Timeout_Desc">Tiempo máximo en segundos durante el que se mantendrá activa la sesión si no se conecta un cliente. El valor predeterminado es 36.000 segundos (10 horas).</string>
+
+         <string id="X509_Cert_Auth">Autenticación mediante certificado X509</string>
+
+         <string id="X509_Cert_Auth_Desc">Determina si se deshabilita, se permite o se requiere la autenticación mediante un certificado X.509 de tarjeta inteligente.</string>
+
+         <string id="Disabled">Deshabilitada</string>
+
+         <string id="Allowed">Permitida</string>
+
+         <string id="Required">Requerida</string>
+
+         <string id="X509_SSL_Cert_Auth_Enabled">Autenticación mediante certificado X509 SSL habilitada</string>
+
+         <string id="X509_SSL_Cert_Auth_Enabled_Desc">Determina si se habilita la autenticación mediante un certificado X.509 de tarjeta inteligente a través de una conexión SSL directa de View Client. Esto no es necesario si se procesa la autenticación mediante certificado X.509 a través de un punto de terminación SSL intermedio. Se debe reiniciar View Agent si este valor cambia.</string>
+
+         <string id="Client_Config_NVP">Pares de valores del nombre de la configuración cliente</string>
+
+         <string id="Client_Config_NVP_Desc">Lista de valores que pasar al cliente con formato nombre=valor, p. ej.: clientCredentialCacheTimeout=1440.</string>
+
+         <string id="Default_Protocol">Protocolo predeterminado</string>
+
+         <string id="Default_Protocol_Desc">Protocolo de visualización predeterminado utilizado por View Client para conectarse al escritorio; si no se establece un valor, el predeterminado es BLAST.</string>
+      </stringTable>
+
+      <presentationTable>
+
+         <presentation id="HTTPS_Port">
+            <textBox refId="HTTPS_Port_TB">
+               <label>Número de puerto HTTPS</label>
+               <defaultValue>443</defaultValue>
+            </textBox>
+         </presentation>
+
+         <presentation id="Session_Timeout">
+            <textBox refId="Session_Timeout_TB">
+               <label>Tiempo de espera de la sesión</label>
+               <defaultValue>600</defaultValue>
+            </textBox>
+         </presentation>
+
+         <presentation id="Disclaimer_Text">
+            <textBox refId="Disclaimer_Text_TB">
+               <label>Texto de renuncia de responsabilidad</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="Client_screensize_setting">
+            <textBox refId="Client_screensize_setting_TB">
+               <label>Ajuste de cliente: ScreenSize</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="External_PCoIP_port">
+            <textBox refId="External_PCoIP_port_TB">
+               <label>Puerto PCoIP externo</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="External_RDP_Port">
+            <textBox refId="External_RDP_Port_TB">
+               <label>Puerto RDP externo</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="External_Blast_port">
+            <textBox refId="External_Blast_port_TB">
+               <label>Puerto Blast externo</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="External_IP">
+            <textBox refId="External_IP_TB">
+               <label>Dirección IP externa</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="External_Framework_Channel_port">
+            <textBox refId="External_Framework_Channel_port_TB">
+               <label>Puerto del canal de marco externo</label>
+            </textBox>
+         </presentation>
+
+         <presentation id="Client_Cred_Cache_Timeout">
+            <textBox refId="Client_Cred_Cache_Timeout_TB">
+               <label>Tiempo de espera de la caché de las credenciales del cliente</label>
+               <defaultValue>0</defaultValue>
+            </textBox>
+         </presentation>
+
+         <presentation id="User_Idle_Timeout">
+            <textBox refId="User_Idle_Timeout_TB">
+               <label>Tiempo de espera inactivo del usuario</label>
+               <defaultValue>900</defaultValue>
+            </textBox>
+         </presentation>
+
+         <presentation id="Client_Session_Timeout">
+            <textBox refId="Client_Session_Timeout_TB">
+               <label>Tiempo de espera de sesión de cliente</label>
+               <defaultValue>36.000</defaultValue>
+            </textBox>
+         </presentation>
+
+         <presentation id="X509_Cert_Auth">
+            <dropdownList refId="X509_Cert_Auth_DDL" defaultItem="0">Autenticación mediante certificado X509</dropdownList>
+         </presentation>
+
+         <presentation id="Client_Config_NVP">
+            <listBox refId="Client_Config_NVP_list">Pares de valores del nombre de la configuración cliente</listBox>
+         </presentation>
+
+         <presentation id="Default_Protocol">
+            <textBox refId="Default_Protocol_TB">
+               <label>Protocolo predeterminado</label>
+               <defaultValue>BLAST</defaultValue>
+            </textBox>
+         </presentation>
+      </presentationTable>
+   </resources>
+</policyDefinitionResources>

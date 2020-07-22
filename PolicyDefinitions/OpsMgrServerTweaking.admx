@@ -1,0 +1,93 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="OpsMgrServerTweaking" namespace="OpsMgr2012.Server.Tweaking" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <supersededAdm fileName="" />
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SupportedOn_SCOM2012" displayName="$(string.String_SupportedOn_SCOM2012)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="OpsMgr2012" displayName="$(string.OpsMgr2012)" explainText="$(string.OpsMgr2012_HELP)" />
+    <category name="DataWarehouse" displayName="$(string.DataWarehouse)" explainText="$(string.DataWarehouse_HELP)">
+      <parentCategory ref="OpsMgr2012" />
+    </category>
+    <category name="HealthService" displayName="$(string.HealthService)" explainText="$(string.HealthService_HELP)">
+      <parentCategory ref="OpsMgr2012" />
+    </category>
+    <category name="ConfigurationService" displayName="$(string.ConfigurationService)" explainText="$(string.ConfigurationService_HELP)">
+      <parentCategory ref="OpsMgr2012" />
+    </category>
+    <category name="GroupCalculation" displayName="$(string.GroupCalculation)" explainText="$(string.GroupCalculation_HELP)">
+      <parentCategory ref="HealthService" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="DeploymentCommandTimeoutSeconds" class="Machine" displayName="$(string.DeploymentCommandTimeoutSeconds)" explainText="$(string.DeploymentCommandTimeoutSeconds_HELP)" presentation="$(presentation.DeploymentCommandTimeoutSeconds)" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Data Warehouse\" valueName="Deployment Command Timeout Seconds">
+      <parentCategory ref="DataWarehouse" />
+      <supportedOn ref="SupportedOn_SCOM2012" />
+      <elements>
+        <decimal id="DeploymentCommandTimeoutSeconds_TextBox" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Data Warehouse\" valueName="Deployment Command Timeout Seconds" minValue="10800" maxValue="86400" />
+      </elements>
+    </policy>
+    <policy name="DataWarehouseCommandTimeoutSeconds" class="Machine" displayName="$(string.DataWarehouseCommandTimeoutSeconds)" explainText="$(string.DataWarehouseCommandTimeoutSeconds_HELP)" presentation="$(presentation.DataWarehouseCommandTimeoutSeconds)" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Data Warehouse\" valueName="Command Timeout Seconds">
+      <parentCategory ref="DataWarehouse" />
+      <supportedOn ref="SupportedOn_SCOM2012" />
+      <elements>
+        <decimal id="DataWarehouseCommandTimeoutSeconds_TextBox" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Data Warehouse\" valueName="Command Timeout Seconds" minValue="300" maxValue="1800" />
+      </elements>
+    </policy>
+    <policy name="BulkInsertCommandTimeOutSeconds" class="Machine" displayName="$(string.BulkInsertCommandTimeOutSeconds)" explainText="$(string.BulkInsertCommandTimeOutSeconds_HELP)" presentation="$(presentation.BulkInsertCommandTimeOutSeconds)" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Data Warehouse\" valueName="Bulk Insert Command Time Out Seconds">
+      <parentCategory ref="DataWarehouse" />
+      <supportedOn ref="SupportedOn_SCOM2012" />
+      <elements>
+        <decimal id="BulkInsertCommandTimeOutSeconds_TextBox" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Data Warehouse\" valueName="Bulk Insert Command Time Out Seconds" minValue="30" maxValue="90" />
+      </elements>
+    </policy>
+    <policy name="StateQueueItems" class="Machine" displayName="$(string.StateQueueItems)" explainText="$(string.StateQueueItems_HELP)" presentation="$(presentation.StateQueueItems)" key="SYSTEM\CurrentControlSet\services\HealthService\Parameters\" valueName="State Queue Items">
+      <parentCategory ref="HealthService" />
+      <supportedOn ref="SupportedOn_SCOM2012" />
+      <elements>
+        <decimal id="StateQueueItems_TextBox" key="SYSTEM\CurrentControlSet\services\HealthService\Parameters\" valueName="State Queue Items" minValue="1024" maxValue="25600" />
+      </elements>
+    </policy>
+    <policy name="GroupCalcPollingIntervalMilliseconds" class="Machine" displayName="$(string.GroupCalcPollingIntervalMilliseconds)" explainText="$(string.GroupCalcPollingIntervalMilliseconds_HELP)" presentation="$(presentation.GroupCalcPollingIntervalMilliseconds)" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\" valueName="GroupCalcPollingIntervalMilliseconds">
+      <parentCategory ref="GroupCalculation" />
+      <supportedOn ref="SupportedOn_SCOM2012" />
+      <elements>
+        <decimal id="GroupCalcPollingIntervalMilliseconds_TextBox" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\" valueName="GroupCalcPollingIntervalMilliseconds" minValue="30000" maxValue="900000" />
+      </elements>
+    </policy>
+    <policy name="DALInitiateClearPool" class="Machine" displayName="$(string.DALInitiateClearPool)" explainText="$(string.DALInitiateClearPool_HELP)" presentation="$(presentation.DALInitiateClearPool)" key="SOFTWARE\Microsoft\System Center\2010\Common\DAL\" valueName="DALInitiateClearPool">
+      <parentCategory ref="HealthService" />
+      <supportedOn ref="SupportedOn_SCOM2012" />
+      <elements>
+        <decimal id="DALInitiateClearPool_TextBox" key="SOFTWARE\Microsoft\System Center\2010\Common\DAL\" valueName="DALInitiateClearPoolSeconds" minValue="15" maxValue="300" />
+      </elements>
+    </policy>
+    <policy name="MaxOidsPerRequest" class="Machine" displayName="$(string.MaxOidsPerRequest)" explainText="$(string.MaxOidsPerRequest_HELP)" presentation="$(presentation.MaxOidsPerRequest)" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Modules\Global\SNMP\" valueName="MaxOidsPerRequest">
+      <parentCategory ref="HealthService" />
+      <supportedOn ref="SupportedOn_SCOM2012" />
+      <elements>
+        <decimal id="MaxOidsPerRequest_TextBox" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Modules\Global\SNMP\" valueName="MaxOidsPerRequest" minValue="10" maxValue="100" />
+      </elements>
+    </policy>
+    <policy name="PollingIntervalSeconds" class="Machine" displayName="$(string.PollingIntervalSeconds)" explainText="$(string.PollingIntervalSeconds_HELP)" presentation="$(presentation.PollingIntervalSeconds)" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Config Service\" valueName="PollingIntervalSeconds">
+      <parentCategory ref="ConfigurationService" />
+      <supportedOn ref="SupportedOn_SCOM2012" />
+      <elements>
+        <decimal id="PollingIntervalSeconds_TextBox" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Config Service\" valueName="PollingIntervalSeconds" minValue="30" maxValue="120" />
+      </elements>
+    </policy>
+    <policy name="CommandTimeoutSeconds" class="Machine" displayName="$(string.CommandTimeoutSeconds)" explainText="$(string.CommandTimeoutSeconds_HELP)" presentation="$(presentation.CommandTimeoutSeconds)" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Config Service\" valueName="CommandTimeoutSeconds">
+      <parentCategory ref="ConfigurationService" />
+      <supportedOn ref="SupportedOn_SCOM2012" />
+      <elements>
+        <decimal id="CommandTimeoutSeconds_TextBox" key="SOFTWARE\Microsoft\Microsoft Operations Manager\3.0\Config Service\" valueName="CommandTimeoutSeconds" minValue="30" maxValue="120" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

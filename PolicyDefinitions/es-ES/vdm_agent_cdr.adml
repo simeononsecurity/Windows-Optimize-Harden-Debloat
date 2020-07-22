@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="VMwareViewCDR">Redireccionamiento de unidades de VMware Horizon Client</string>
+      <string id="IsDriveLetterNeeded">Mostrar dispositivo redireccionado con la letra de unidad</string>
+      <string id="IsDriveLetterNeededExplain">Este ajuste determina si la letra de la unidad del redireccionamiento de unidades cliente (CDR) está habilitada. Está habilitado de forma predeterminada.</string>
+      <string id="InitDriveLetterTimeout">Tiempo de espera de inicialización de la letra de unidad</string>
+      <string id="InitDriveLetterTimeoutExplain">Este ajuste determina el valor de tiempo de espera durante el que el Explorador de Windows debe procesar correctamente la letra de unidad. Si este ajuste está deshabilitado o no está configurado, se establece en 5 segundos de forma predeterminada.</string>
+      <string id="VMwareViewCDRDeviceFiltering">Filtrado de dispositivos</string>
+	  <string id="ExcludeVidPid">Excluir un dispositivo Vid/Pid</string>
+      <string id="ExcludeVidPidExplain">Evitar que un dispositivo con identificadores de proveedor y de producto específicos se reenvíe.
+
+Sintaxis: &lt;vid-&lt;xxxx&gt;_pid-&lt;xxxx | *&gt;&gt;[;...]
+
+Por ejemplo: vid-0781_pid-554c;vid-0781_pid-9999</string>
+      <string id="IncludeVidPid">Incluir un dispositivo Vid/Pid</string>
+      <string id="IncludeVidPidExplain">Incluir un dispositivo con identificadores de proveedor y de producto específicos que pueda reenviarse.
+
+Sintaxis: &lt;vid-&lt;xxxx&gt;_pid-&lt;xxxx | *&gt;&gt;[;...]
+
+Por ejemplo: vid-0781_pid-554c;vid-0781_pid-9999</string>
+      <string id="DriveLetterMapping">Configurar modo de asignación de letras de unidad</string>
+      <string id="DriveLetterMappingExplain">Este GPO sirve para configurar el modo de asignación de letras de unidad. Actualmente hay dos modos compatibles.
+- Asignación una a una: asigna al agente la misma letra de unidad del cliente.
+- Asignación definida: asigna al agente la letra de unidad del cliente de acuerdo con la tabla de asignación definida.
+
+
+Notas:
+- Este GPO es válido cuando el GPO &quot;Mostrar dispositivo redireccionado con la letra de unidad&quot; no está deshabilitado.
+- Para los dos modos compatibles, si hay un conflicto con la letra de la unidad (por ejemplo, si la letra que se va a asignar ya se está usando en el agente), se utilizará la primera letra disponible desde la &quot;Z&quot; hasta la &quot;A&quot;. Si no hay ninguna letra de unidad disponible, no se asignará ninguna.
+      </string>
+      <string id="DriveLetterMappingTable">Definir tabla de asignación de letras de unidad</string>
+      <string id="DriveLetterMappingTableExplain">Definir tabla de asignación de letras de unidad
+- Letra de la unidad del cliente (nombre del valor): letra de la unidad utilizada en el cliente.
+- Letra de la unidad del agente (valor): letra de la unidad que utilizará el agente.
+</string>
+      <string id="OneToOneMapping">Asignación una a una</string>
+      <string id="PredefinedMapping">Asignación definida</string>
+    </stringTable>
+    <presentationTable>
+       <presentation id="IsDriveLetterNeeded"/>
+       <presentation id="InitDriveLetterTimeout">
+         <decimalTextBox refId="InitDriveLetterTimeout" defaultValue="5000">Tiempo de espera en milisegundos:</decimalTextBox>
+       </presentation>
+	   <presentation id="ExcludeVidPid">
+         <textBox refId="ExcludeVidPid">
+           <label>Excluir un dispositivo Vid/Pid</label>
+         </textBox>
+       </presentation>
+       <presentation id="IncludeVidPid">
+         <textBox refId="IncludeVidPid">
+           <label>Incluir un dispositivo Vid/Pid</label>
+         </textBox>
+       </presentation>
+       <presentation id="DriveLetterMapping">
+         <dropdownList refId="DriveLetterMappingDropdown" defaultItem="0" noSort="true">Configurar modo de asignación de letras de unidad:</dropdownList>
+       </presentation>
+       <presentation id="DriveLetterMappingTable">
+         <listBox refId="DriveLetterMappingTable">Definir tabla de asignación de letras de unidad:</listBox>
+       </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Directivas del programador de mantenimiento</displayName>
+  <description>Directivas de grupo del programador de mantenimiento</description>
+  <resources>
+    <stringTable>
+      <string id="MaintenanceScheduler">Programador de mantenimiento</string>
+      <string id="ActivationBoundary">Límite de activación del Mantenimiento automático</string>
+      <string id="ActivationBoundaryHelp">
+          Esta configuración de directiva permite configurar el límite de activación del Mantenimiento automático.
+
+          El límite de activación del mantenimiento es la hora del día programada en que se inicia el Mantenimiento automático.
+
+          Si habilitas esta configuración de directiva, se sobrescribirá la hora del día programada predeterminada que se especifica en Seguridad y mantenimiento/Panel de control del mantenimiento automático.
+
+          Si deshabilitas o no estableces esta configuración de directiva, se aplicará la hora del día programada que se especifica en Seguridad y mantenimiento/Panel de control del mantenimiento automático.
+      </string>
+      <string id="RandomDelay">Retraso aleatorio del Mantenimiento automático</string>
+      <string id="RandomDelayHelp">
+          
+          Esta configuración de directiva le permite configurar el retraso aleatorio del Mantenimiento automático.
+
+          El retraso aleatorio del mantenimiento es el tiempo máximo que se retrasará el inicio del Mantenimiento automático desde su límite de activación.
+
+          Si habilita esta configuración de directiva, el inicio del Mantenimiento automático se retrasará desde su límite de activación hasta este momento.
+
+          Si no establece esta configuración de directiva, se producirá un retraso aleatorio de 4 horas en el Mantenimiento automático.
+
+          Si deshabilita configuración de directiva, no se producirá ningún retraso aleatorio en el Mantenimiento automático.
+      
+      </string>
+      <string id="WakeUp">Directiva de reactivación del Mantenimiento automático</string>
+      <string id="WakeUpHelp">
+          Esta configuración de directiva permite configurar la directiva de reactivación del Mantenimiento automático.
+
+          La directiva de reactivación del mantenimiento especifica si el Mantenimiento automático debe realizar una solicitud de reactivación al sistema operativo para el mantenimiento diario programado. Ten en cuenta que, si la directiva de reactivación del sistema operativo está deshabilitada de manera explícita, esta configuración no tendrá ningún efecto.
+
+          Si habilitas esta configuración de directiva, el Mantenimiento automático intentará establecer la directiva de reactivación del sistema operativo y realizará una solicitud de reactivación a la hora del día programada, si es necesario.
+
+          Si deshabilitas o no estableces esta configuración de directiva, se aplicará la configuración de reactivación que se especifica en Seguridad y mantenimiento/Panel de control del mantenimiento automático.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="ActivationBoundaryPolicy">
+        <textBox refId="ActivationBoundary">
+          <label>Límite de activación del mantenimiento regular</label>
+          <defaultValue>2000-01-01T02:00:00</defaultValue>
+        </textBox>
+      </presentation>   
+      <presentation id="RandomDelayPolicy">
+        <textBox refId="RandomDelay">
+          <label>Retraso aleatorio del mantenimiento regular</label>
+          <defaultValue>PT4H</defaultValue>
+        </textBox>
+      </presentation>   
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

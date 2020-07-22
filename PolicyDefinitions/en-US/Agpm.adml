@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName></displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="Microsoft">Microsoft</string>
+      <string id="Microsoft_Help">Microsoft policies for configuration and management of Microsoft products.</string>
+      <string id="System">System</string>
+      <string id="System_Help">Allows configuration of various system component settings.</string>
+      <string id="AGPM">AGPM</string>
+      <string id="AGPM_LongName">Advanced Group Policy Management</string>
+      <string id="AGPM_Help">Contains settings for Microsoft AGPM.</string>
+      <string id="AGPM_ComputerHelp">Contains settings for Microsoft AGPM.</string>
+      <string id="AGPM_UserHelp">Contains settings for Microsoft AGPM.</string>
+      <string id="AGPM_Logging">AGPM: Configure logging</string>
+      <string id="AGPM_LoggingHelp">This policy setting allows you to turn on and configure logging for Microsoft Advanced Group Policy Management (AGPM).
+
+If you enable this policy setting and specify a logging threshold other than "No Logging," you turn on logging for AGPM. To start, modify, or stop logging, you must restart the AGPM Service and AGPM Client. For AGPM Clients, the log file is %LocalAppData%\Microsoft\AGPM\agpm.log. For AGPM Servers, the log file is %ProgramData%\Microsoft\AGPM\agpmserv.log.
+
+If you disable or do not configure this policy setting, logging is turned off for AGPM.</string>
+      <string id="AGPM_TraceLevel">Trace level</string>
+      <string id="AGPM_TraceLevelOff">Off</string>
+      <string id="AGPM_TraceLevelErrors">Errors Only</string>
+      <string id="AGPM_TraceLevelWarnings">Errors and Warnings</string>
+      <string id="AGPM_TraceLevelInformation">Errors, Warnings and Information</string>
+      <string id="AGPM_TraceLevelEverything">Everything</string>
+      <string id="AGPM_DefaultArchiveLocation">AGPM: Specify default AGPM Server (all domains)</string>
+      <string id="AGPM_DefaultArchiveLocationHelp">This policy setting allows you to specify a default AGPM Server for all domains. This is used only by AGPM Clients, and restricts Group Policy administrators from connecting to another archive.
+
+Note: You can override this default for individual domains using the "AGPM: Specify AGPM Servers" setting.
+
+If you enable this policy setting and specify the fully-qualified domain name and port for an AGPM Server, Group Policy administrators are unable to connect to any other AGPM Server. If you also configure the "AGPM: Specify AGPM Servers" setting, it overrides this policy setting for specific domains.
+
+If you disable or do not configure this policy setting, you can specify AGPM Servers on a per domain basis using the "AGPM: Specify AGPM Servers" setting. If you also disable or do not configure the "AGPM: Specify AGPM Servers" setting, the selection of AGPM Servers is unrestricted.</string>
+      <string id="AGPM_ArchiveLocationExamples">Examples:</string>
+      <string id="AGPM_DomainArchiveList">AGPM Server locations by domain:</string>
+      <string id="AGPM_ArchiveLocation">AGPM: Specify AGPM Servers</string>
+      <string id="AGPM_ArchiveLocationHelp">This policy setting allows you to specify the AGPM Servers for individual domains. This is used only by AGPM Clients, and restricts Group Policy administrators from connecting to a different archive for the specified domain.
+
+Note: To specify a default AGPM Server, use the "AGPM: Specify default AGPM Server (all domains)" setting and use this policy setting to override the default on a per domain basis.
+
+If you enable this policy setting and specify AGPM Servers, Group Policy administrators are unable to connect to any other AGPM Server for the domains that you specify. For each Value Name, type a domain name. For the Value, type the fully-qualified domain name and port for the AGPM Server for that domain. For the domains you specify in this policy setting, this policy setting overrides the "AGPM: Specify default AGPM Server (all domains)" setting.
+
+If you disable or do not configure this policy setting, you can specify a single AGPM Server using the "AGPM: Specify default AGPM Server (all domains)" setting. If you also disable or do not configure the "AGPM: Specify default AGPM Server (all domains)" setting, the selection of AGPM Servers is unrestricted.</string>
+      <string id="AGPM_DefaultArchive">Default AGPM Server location for all domains:</string>
+      <string id="AGPM_AgpmChangeControl">AGPM: Show Change Control tab</string>
+      <string id="AGPM_AgpmChangeControl_Explain">This policy setting allows you to control the visibility of the Change Control folder of Microsoft Advanced Group Policy Management in the Group Policy Management Console (GPMC).
+
+If you enable or do not configure this policy setting, the Change Control folder is displayed in the GPMC.
+
+If you disable this policy setting, the Change Control folder is not displayed in the GPMC.</string>
+      <string id="AGPM_AgpmLinkExtensions">AGPM: Show History tab for linked GPOs</string>
+      <string id="AGPM_AgpmLinkExtensions_Explain">This policy setting allows you to control the visibility of the History tab when viewing a linked Group Policy object (GPO) in the Group Policy Management Console (GPMC). The History tab is provided by Microsoft Advanced Group Policy Management (AGPM).
+
+If you enable or do not configure this policy setting, a History tab is displayed for each linked GPO in the GPMC.
+
+If you disable this policy setting, the History tab is not displayed for linked GPOs in the GPMC.</string>
+      <string id="AGPM_AgpmGpoExtensions">AGPM: Show History tab for GPOs</string>
+      <string id="AGPM_AgpmGpoExtensions_Explain">This policy setting allows you to control the visibility of the History tab when viewing a Group Policy object (GPO) in the Group Policy Management Console (GPMC). The History tab is provided by Microsoft Advanced Group Policy Management (AGPM).
+
+If you enable or do not configure this policy setting, a History tab is displayed for each GPO in the GPMC.
+
+If you disable this policy setting, the History tab is not displayed for GPOs in the GPMC.</string>
+      <string id="WindowsComponents">Windows Components</string>
+      <string id="WindowsComponents_Help">Contains settings for operating system components.</string>
+      <string id="SUPPORTED_Win2k3">At least Microsoft Windows Server 2003</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AGPM_Logging">
+        <dropdownList refId="AGPM_TraceLevel" noSort="true">Trace level</dropdownList>
+      </presentation>
+      <presentation id="AGPM_ArchiveLocation">
+        <listBox refId="AGPM_DomainArchiveList">AGPM Servers by domain:</listBox>
+        <text></text>
+        <text>Examples:</text>
+        <text>MyDomain1.com -&gt; server:4600</text>
+        <text>MyDomain2.com -&gt; server.mydomain2.com:4600</text>
+      </presentation>
+      <presentation id="AGPM_DefaultArchiveLocation">
+        <textBox refId="AGPM_DefaultArchive">
+          <label>Default AGPM Server for all domains:</label>
+        </textBox>
+        <text></text>
+        <text>Examples:</text>
+        <text>server:4600</text>
+        <text>server.mydomain2.com:4600</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

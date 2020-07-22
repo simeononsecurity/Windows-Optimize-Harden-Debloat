@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Configuración de directiva de grupo de servicio WLAN</displayName>
+  <description>Configuración de directiva de grupo de servicio WLAN</description>
+  <resources>
+    <stringTable>
+      <string id="WlanSvc_Category">Servicio WLAN</string>
+      <string id="NetworkCost_Category">Costo de medios WLAN</string>
+      <string id="WlanSettings_Category">Configuración WLAN</string>
+      <string id="SetCost">Establecer costo</string>
+      <string id="SetCost_Help">Esta configuración de directiva define el costo de conexiones de LAN inalámbrica (WLAN) en el equipo local.
+
+Si esta configuración de directiva está habilitada, estará activo un cuadro de lista desplegable en el que se presentan los valores de costos posibles. Al seleccionar uno de los siguientes valores de la lista, se establecerá el costo de todas las conexiones WLAN en el equipo local:
+
+- Sin restricciones: el uso de esta conexión es ilimitado y no está restringido por limitaciones de capacidad ni cargas de uso. 
+
+- Fijo: el uso de esta conexión no está restringido por limitaciones de capacidad y cargos de uso hasta un determinado límite de datos. 
+
+- Variable: esta conexión tiene un costo por byte.
+
+Si esta configuración de directiva está deshabilitada o no se define, el valor predeterminado del costo de las conexiones inalámbricas WLAN es Sin restricciones.
+      
+      </string>
+      <string id="Cost_DropDownList_Unrestricted">Sin restricciones</string>
+      <string id="Cost_DropDownList_Fixed">Fijo</string>
+      <string id="Cost_DropDownList_Variable">Variable</string>
+      <string id="Wireless_Display_Category">Proyección inalámbrica</string>
+      <string id="Wireless_Display_PINEnforced">Requerir emparejamiento de PIN</string>
+      <string id="Wireless_Display_PINEnforced_Help">Esta directiva se aplica a las conexiones de proyección inalámbrica. Esta directiva significa que el uso de un PIN de emparejamiento para dispositivos de proyección inalámbrica es obligatorio en lugar de opcional.
+
+A la inversa significa que NO se permite el botón de comando.
+
+Si esta configuración de directiva está deshabilitada o no está configurada, de forma predeterminada se permitirá el emparejamiento del botón de comando (pero no será necesariamente la opción preferida).
+      </string>
+      <string id="Wireless_Display_PINPreferred">Preferir emparejamiento de PIN</string>
+      <string id="Wireless_Display_PINPreferred_Help">Esta directiva se aplica a las conexiones de proyección inalámbrica. Esta directiva cambia el orden de preferencia de los métodos de emparejamiento.
+
+Cuando se habilita, hace que las conexiones prefieran un PIN para emparejamiento para dispositivos de proyección inalámbrica por el método de emparejamiento del botón de comando.
+
+Si esta configuración de directiva está deshabilitada o no está configurada, de forma predeterminada se prefiere el emparejamiento del botón de comando (si está permitido por otras directivas).
+      </string>
+      <string id="WiFiSense">Permite que Windows se conecte automáticamente a puntos de acceso abiertos sugeridos, redes compartidas por los contactos y puntos de acceso que ofrezcan servicios de pago</string>
+      <string id="WiFiSense_Help">Esta configuración de directiva determina si los usuarios pueden habilitar la siguiente configuración de WLAN: "Conectarse a zonas con cobertura inalámbrica abiertas sugeridas", "Conectarse a las redes que mis contactos comparten" y "Habilitar servicios de pago".
+
+"Conectarse a zonas con cobertura inalámbrica abiertas sugeridas" permite a Windows conectar usuarios automáticamente a zonas con cobertura inalámbrica abiertas haciendo crowdsourcing de redes a las que se han conectado otras personas que usan Windows.
+
+"Conectarse a las redes que mis contactos comparten" permite a Windows conectarse automáticamente a redes que los contactos del usuario han compartido con ellos y permite a los usuarios de este dispositivo compartir redes con sus contactos.
+
+"Habilitar servicios pagados" permite que Windows se conecte temporalmente a zonas con cobertura inalámbrica abiertas para determinar si los servicios de pago están disponibles.
+
+Si esta configuración de directiva está habilitada, se desactivarán tanto "Conectarse a zonas con cobertura inalámbrica abiertas sugeridas" y "Conectarse a las redes que mis contactos comparten" como "Habilitar pagada servicios", y se evitará que los usuarios de este dispositivo las habiliten.
+
+Si esta configuración de directiva no está configurada o está deshabilitada, los usuarios pueden elegir habilitar o deshabilitar "Conectarse a zonas con cobertura inalámbrica abiertas sugeridas" o "Conectarse a las redes que mis contactos comparten".
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SetCost_Presentation">
+        <dropdownList refId="Cost_Dropdownlist" defaultItem="0">Seleccione un valor de costo de conexión WLAN que desea establecer:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

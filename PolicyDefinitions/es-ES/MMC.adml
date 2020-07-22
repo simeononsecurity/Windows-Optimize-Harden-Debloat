@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="MMC">Microsoft Management Console</string>
+      <string id="MMC_ActiveXControl">Control ActiveX</string>
+      <string id="MMC_ExtendView">Vista extendida (vista Web)</string>
+      <string id="MMC_ExtensionSnapins">Complementos de extensión</string>
+      <string id="MMC_LinkToWeb">Vínculo a la dirección web</string>
+      <string id="MMC_RESTRICT">Complementos restringidos o permitidos</string>
+      <string id="MMC_Restrict_Author">Restringir al usuario la entrada al modo de autor</string>
+      <string id="MMC_restrict_Author_Explain">Impide que los usuarios entren en el modo de autor.
+
+Esta opción impide a los usuarios abrir Microsoft Management Console (MMC) en modo de autor, abrir explícitamente archivos de consola en modo de autor y abrir cualquier archivo de consola en modo de autor de forma predeterminada.
+
+De esta forma, los usuarios no pueden crear archivos de consola o agregar o eliminar complementos. Al no poder abrir archivos de consola en modo de autor, tampoco podrán usar las herramientas que contienen los archivos.
+
+Esta opción permite a los usuarios abrir los archivos de consola en modo usuario MMC, como los que aparecen en el menú Herramientas administrativas de las familias Windows 2000 Server o Windows Server 2003. Sin embargo, los usuarios no pueden abrir una ventana de consola MMC vacía desde el menú Inicio. (Para abrir MMC, haga clic en Inicio, luego en Ejecutar y escriba mmc.) Los usuarios tampoco pueden abrir una ventana de consola MMC vacía desde el símbolo del sistema.
+
+Si deshabilita esta opción o no la configura, los usuarios podrán entrar en el modo de autor y abrir los archivos de consola en modo de autor.</string>
+      <string id="MMC_Restrict_Explain">Permite o prohíbe el uso de este complemento.
+
+Si habilita esta configuración se permitirá el uso del complemento mientras que si la deshabilita se prohibirá.
+
+Si esta configuración no se establece el valor de la configuración Restringir a los usuarios a la lista de complementos con permisos explícitos determinará si este complemento se permite o prohíbe.
+
+-- Si Restringir a los usuarios a la lista de complementos con permisos explícitos está habilitada los usuarios no podrán usar ningún complemento salvo los permitidos explícitamente.
+
+    Para permitir explícitamente el uso de este complemento habilite esta configuración. Si esta configuración no está establecida o está deshabilitada este complemento estará prohibido.
+
+-- Si Restringir a los usuarios a la lista de complementos con permisos explícitos está deshabilitada o no está configurada los usuarios podrán usar todos los complementos excepto los que estén explícitamente prohibidos.
+
+    Para prohibir explícitamente el uso de este complemento deshabilite esta configuración. Si esta configuración no está establecida o está deshabilitada se permitirá el uso del complemento.
+
+Cuando un complemento está prohibido no aparece en la ventana Agregar o quitar complemento en MMC. Asimismo cuando un usuario abre un archivo de consola que incluye un complemento prohibido el archivo de consola se abre pero el complemento prohibido no aparece.</string>
+      <string id="MMC_Restrict_To_Permitted_Snapins">Restringir a los usuarios a la lista de complementos con permisos explícitos</string>
+      <string id="MMC_restrict_To_Permitted_Snapins_Explain">Permite o prohíbe de forma selectiva el uso de complementos de Microsoft Management Console (MMC).
+
+--  Si habilita esta opción, todos los complementos se prohibirán, excepto los que permita explícitamente. Use esta opción si planea prohibir el uso de la mayoría de los complementos.
+
+    Para permitir un complemento de forma explícita, abra la carpeta de configuración Complementos restringidos/permitidos y habilite las opciones que representen los complementos que desea permitir. Si una opción de complemento de la carpeta se deshabilita o no se configura, se prohibirá el complemento.
+
+--  Si deshabilita esta opción o no la configura, se permitirán todos los complementos con excepción de aquellos que prohíba de forma explícita. Use esta opción si planea permitir el uso de la mayoría de los complementos.
+
+    Para prohibir un complemento de forma explícita al, abra la carpeta de configuración Complementos restringidos/permitidos y deshabilite las configuraciones que representen los complementos que desea prohibir. Si una opción de complemento de la carpeta se habilita o no se configura, se permitirá el complemento.
+
+Cuando se prohíbe un complemento, no aparecerá en la ventana Agregar o quitar complementos de MMC. Asimismo, cuando un usuario abre un archivo de consola que incluye un complemento prohibido, el archivo de consola se abre, pero el complemento prohibido no aparece.
+
+Nota: si habilita esta opción y no habilita las opciones de la carpeta Complementos restringidos/permitidos, los usuarios no podrán usar ningún complemento MMC.</string>
+    </stringTable>
+  </resources>
+</policyDefinitionResources>

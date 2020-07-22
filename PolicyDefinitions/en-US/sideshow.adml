@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>enter display name here</displayName>
+  <description>enter description here</description>
+  <resources>
+    <stringTable>
+      <string id="DeleteDataOnLogoff">Delete data from devices running Microsoft firmware when a user logs off from the computer.</string>
+      <string id="DeleteDataOnLogoff_Explain">This policy setting deletes all data stored on Windows SideShow-compatible devices (running Microsoft firmware) when a user logs off from the computer. This is a security precaution but it significantly limits the usefulness of the devices.
+
+If you enable this policy setting, all data stored on devices running Microsoft firmware will be deleted when a user logs off from the computer. Data will be re-sent to the device when the user logs on again.
+
+If you disable or do not configure this policy setting, data will not be deleted from these devices when users log off from the computer. Users can enable this setting in the Windows SideShow Control Panel.
+
+Note   Devices not running Microsoft firmware will not be affected by this policy setting.</string>
+      <string id="DisableWindowsSideShow">Turn off Windows SideShow</string>
+      <string id="DisableWindowsSideShow_Explain">This policy setting turns off Windows SideShow.
+
+If you enable this policy setting, the Windows SideShow Control Panel will be disabled and data from Windows SideShow-compatible gadgets (applications) will not be sent to connected devices. 
+
+If you disable or do not configure this policy setting, Windows SideShow is on by default.</string>
+      <string id="DisableAutoWake">Turn off automatic wake</string>
+      <string id="DisableAutoWake_Explain">This policy setting turns off the option to periodically wake the computer to update information on Windows SideShow-compatible devices.
+
+If you enable this policy setting, the option to automatically wake the computer will not be available in the Windows SideShow Control Panel.
+
+If you disable or do not configure this policy setting, the option to automatically wake the computer will be available in the Windows SideShow Control Panel. However, the option will be disabled by default.
+
+Note   Information on Windows SideShow-compatible devices will only be updated when the computer is on and awake.</string>
+      <string id="PINTimeout_10Minutes">10 minutes</string>
+      <string id="PINTimeout_1Minute">1 minute</string>
+      <string id="PINTimeout_2Minutes">2 minutes</string>
+      <string id="PINTimeout_30Minutes">30 minutes</string>
+      <string id="PINTimeout_5Minutes">5 minutes</string>
+      <string id="PINTimeout_Never">Never</string>
+      <string id="PINTimeout_WhenScreenIsOff">When the screen turns off</string>
+      <string id="SetPIN">Require a PIN to access data on devices running Microsoft firmware</string>
+      <string id="SetPIN_Explain">This policy setting requires users to enter a default personal identification number (PIN) to unlock and access data on the device after a specified period of inactivity (time-out period). This setting applies to Windows SideShow-compatible devices running Microsoft firmware.
+
+If you enable this policy setting, users will be required to enter the default PIN to unlock and access data on the device after the specified time-out period.
+
+Note   Users can change the PIN and time-out periods on the device settings page in the Windows SideShow Control Panel.
+
+If you disable or do not configure this policy setting, users will not be required to enter a default PIN to unlock and access data on the device after a specified time-out period. However, users can choose to turn on PIN locking and can change the time-out period in the Windows SideShow Control Panel.
+
+Note   Devices not running Microsoft firmware will not be affected by this policy setting.
+
+Note   There is a fixed set of time-out periods which includes: after 1 minute, after 2 minutes, after 5 minutes, after 10 minutes, after 30 minutes, when the screen turns off, never.</string>
+      <string id="SideShow">Windows SideShow</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SetPIN_1">
+        <decimalTextBox refId="PINNumber" defaultValue="9999" spinStep="0">4 digit PIN</decimalTextBox>
+        <dropdownList refId="PINTimeout" noSort="true" defaultItem="0">Timeout Value</dropdownList>
+      </presentation>
+      <presentation id="SetPIN_2">
+        <text>Default PIN which a user must enter to access data on</text>
+        <text>SideShow-compatible devices running Microsoft firmware.</text>
+        <decimalTextBox refId="PINNumber" defaultValue="9999" spinStep="0">4 digit PIN</decimalTextBox>
+        <text>Length of time that SideShow-compatible devices running Microsoft</text>
+        <text>firmware can be inactive before the device will lock.</text>
+        <dropdownList refId="PINTimeout" noSort="true" defaultItem="0">Timeout Value</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

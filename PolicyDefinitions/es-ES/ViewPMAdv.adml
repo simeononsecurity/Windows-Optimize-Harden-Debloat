@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           revision="1.0"
+                           schemaVersion="1.0"
+                           xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+  <!-- Copyright 2005-2016 VMware, Inc.  All rights reserved. -->
+
+  <displayName >Administración de identidades</displayName>
+  <description >Directiva avanzada de Administración de identidades</description>
+  <resources >
+    <stringTable ><!--Storage for String Definitions-->
+      <string id="String_Category_Troubleshooting" >Solución de problemas</string>
+      <string id="String_Policy_Logging_flags" >Marcadores de registro</string>
+      <string id="String_Explain_Logging_flags" >Especifica el tipo de mensajes de registro que se generan. Por defecto, los mensajes de registro se establecen al nivel informativo.</string>
+      <string id="String_Policy_Debug_flags" >Marcadores de depuración</string>
+      <string id="String_Explain_Debug_flags" >Especifica el tipo de mensajes de depuración que se generan. Los mensajes de depuración se tratan de la misma forma que los de registro. Los mensajes de depuración están desactivados por defecto.</string>
+      <string id="String_Policy_Repository_connection" >Supervisión de conexión a repositorio</string>
+      <string id="String_Explain_Repository_connection" >Cuando se habilita, View Persona Management detecta si la conexión al repositorio de identidades se ha perdido o si es demasiado lenta. Cuando se logra una conexión rápida de nuevo, se cargan todos los cambios locales y se sincronizan con la identidad remota del usuario. Se puede ajustar la frecuencia con la que se comprueban la conexión y la latencia de red máxima para lograr un rendimiento óptimo. Por defecto, el intervalo de comprobación es de 120 segundos y la latencia de red máxima es de 40 ms.</string>
+      <string id="String_Policy_Download_Timeout" >Tiempo de espera de descarga de archivos del repositorio</string>
+      <string id="String_Explain_Download_Timeout" >Especifica el tiempo (en milisegundos) transcurrido antes de que expire la descarga de un archivo del repositorio remoto. Por defecto, el tiempo de espera es de 1.800 milisegundos.</string>
+      <string id="String_Policy_Sync_onlogon" >Sincronizar perfil al iniciar sesión</string>
+      <string id="String_Explain_Sync_onlogon" >Cuando se habilita, los archivos del perfil local del usuario se sincronizan con el perfil de itinerancia al iniciar sesión. Por defecto, se sincroniza el perfil de usuario al iniciar sesión.</string>
+      <string id="String_Policy_File_creation_delay" >Retraso de creación de archivos</string>
+      <string id="String_Explain_File_creation_delay" >Indica el retraso (en milisegundos) entre el inicio de sesión y la creación de los archivos sin conexión en la identidad del usuario. Por defecto, el retraso es de 10.000 milisegundos.</string>
+      <string id="String_Policy_Create_retry_delay" >Crear retraso de reintento</string>
+      <string id="String_Explain_Create_retry_delay" >Indica el retraso (en milisegundos) entre un error de creación de archivo y el reintento de creación de este. Por defecto, el retraso es de 500 milisegundos.</string>
+      <string id="String_Policy_Profile_reconcile_delay" >Retraso de conciliación de perfil</string>
+      <string id="String_Explain_Profile_reconcile_delay" >Indica el retraso (en segundos) entre el inicio de sesión y el inicio de la conciliación de la identidad del usuario. Por defecto, el retraso es de 10 segundos.</string>
+      <string id="String_Policy_Remove_temporary" >Eliminar archivos temporales al cerrar sesión</string>
+      <string id="String_Explain_Remove_temporary" >Cuando se habilita, los archivos con extensión .tmp se eliminan de la identidad del usuario al cerrar sesión. View Persona Management utiliza archivos .tmp para la sincronización de varios archivos entre el perfil local y el remoto. Los archivos temporales se eliminan por defecto.</string>
+      <string id="String_Policy_Disable_create_retry" >Deshabilitar el reintento de creación de archivos</string>
+      <string id="String_Explain_Disable_create_retry" >Cuando se habilita, no se realiza un nuevo intento tras un error de creación de archivo. Por defecto se realiza un nuevo intento.</string>
+      <string id="String_Policy_Disable_desktop" >Deshabilitar la actualización de escritorios</string>
+      <string id="String_Explain_Disable_desktop" >Cuando se habilita, no se actualizan los iconos del escritorio del usuario tras obtener los archivos .exe correspondientes. Habilitar este marcador puede provocar que no aparezcan iconos en accesos directos del escritorio si dichos accesos directos hacen referencia a un ejecutable dentro del perfil, pero evitará actualizaciones de escritorio extrañas. Por defecto, los iconos del escritorio se actualizan.</string>
+      <string id="String_Policy_Disable_user_environment" >Deshabilitar errores del entorno del usuario al iniciar sesión</string>
+      <string id="String_Explain_Disable_user_environment" >Cuando se habilita, se desactivan los mensajes de error del entorno del usuario del sistema al iniciar sesión. Por defecto, los mensajes de error del entorno del usuario están desactivados.</string>
+      <string id="String_Policy_Driver_Disable" >Marcadores de deshabilitación de controladores</string>
+      <string id="String_Explain_Driver_Disable" >Los marcadores de deshabilitación deshabilitan ciertas funciones de identidad.</string>
+    </stringTable>
+
+    <presentationTable ><!--Storage for Presentation Definitions-->
+      <presentation id="Present_Logging_flags" >
+        <checkBox refId="Present_CheckBox_Log_Error" >Registrar mensajes de error.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Info" >Registrar mensajes de información.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Debug" >Registrar mensajes de depuración.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Alt_Path" >Registrar mensajes de ruta alternativa.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Impersonation" >Registrar mensajes de suplantación.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Only_Driver" >Registrar solo mensajes de controladores.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Offline" >Registrar mensajes de archivos sin conexión.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Status_Log" >Registrar mensajes de registro de estado.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Fetch" >Registrar mensajes de recuperación.</checkBox>
+        <checkBox refId="Present_CheckBox_Log_Performance" >Registrar mensajes de rendimiento.</checkBox>
+      </presentation>
+      <presentation id="Present_Debug_flags" >
+        <checkBox refId="Present_CheckBox_Debug_Error" >Depurar mensajes de error.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_IRQL" >Depurar mensajes IRQL.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Port" >Depurar mensajes de puerto.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Process" >Depurar mensajes de proceso.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Registry" >Depurar mensajes de registro.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Info" >Depurar mensajes de información.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Directory" >Depurar mensajes de directorio.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Stream" >Depurar mensajes de contexto de transmisión.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Create" >Depurar mensajes de creación.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Offline_File_Table" >Depurar mensajes de tabla de archivos sin conexión.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_User_Table" >Depurar mensajes de tabla de usuario.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Alt_Path" >Depurar mensajes de ruta alternativa.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Registry_Filter" >Depurar mensajes de filtro de registro.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Oplock" >Depurar mensajes de bloqueo oportunista.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Impersonation" >Depurar mensajes de suplantación.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Name_Provider" >Depurar mensajes de nombre de proveedor.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Lock_Control" >Depurar mensajes de control de bloqueo.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Set_Info" >Depurar mensajes de establecimiento de información.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Offline" >Depurar mensajes de archivos sin conexión.</checkBox>
+        <checkBox refId="Present_CheckBox_Debug_Status_Log" >Depurar mensajes de registro de estado.</checkBox>
+      </presentation>
+      <presentation id="Present_Repository_connection" >
+        <text >Supervisar la conexión al repositorio de identidades.</text>
+        <decimalTextBox refId="Present_Numeric_Repository_connection_Interval" defaultValue="120" >Intervalo de la prueba de conexión (s):</decimalTextBox>
+        <decimalTextBox refId="Present_Numeric_Repository_connection_Max_Latency" defaultValue="40" >Máxima latencia de red para carga de cambios (ms):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Download_Timeout" >
+        <decimalTextBox refId="Present_Numeric_Download_Timeout" defaultValue="1800" >Tiempo de espera de descarga de archivos de usuario remoto (ms):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Sync_onlogon" >
+        <text >Sincronizar archivos locales con el perfil remoto durante el inicio de sesión.</text>
+      </presentation>
+      <presentation id="Present_File_creation_delay" >
+        <decimalTextBox refId="Present_Numeric_File_creation_delay" defaultValue="10000" >Retraso entre el inicio de sesión y la creación de archivos de usuario (ms):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Create_retry_delay" >
+        <decimalTextBox refId="Present_Numeric_Create_retry_delay" defaultValue="500" >Retraso antes de reintento de creación de archivos de usuario (ms):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Profile_reconcile_delay" >
+        <decimalTextBox refId="Present_Numeric_Profile_reconcile_delay" defaultValue="10" >Retraso entre el inicio de sesión y el inicio de conciliación (s):</decimalTextBox>
+      </presentation>
+      <presentation id="Present_Remove_temporary" >
+        <text >Eliminar archivos .tmp del usuario remoto cuando los usuarios cierren sesión.</text>
+      </presentation>
+      <presentation id="Present_Disable_create_retry" >
+        <text >No realizar un nuevo intento si la creación de archivo falla.</text>
+      </presentation>
+      <presentation id="Present_Disable_desktop" >
+        <text >No actualizar iconos de escritorio tras recuperar archivos EXE del perfil.</text>
+      </presentation>
+      <presentation id="Present_Disable_user_environment" >
+        <text >Deshabilitar errores de perfil de entorno de usuario durante el inicio de sesión.</text>
+      </presentation>
+      <presentation id="Present_Driver_Disable" >
+        <checkBox refId="Present_CheckBox_Driver_Disable" >Configurar los niveles de registro de servicio y controlador de forma independiente</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

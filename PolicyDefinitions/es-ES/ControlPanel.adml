@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="DisallowCpls">Ocultar los elementos especificados del Panel de control</string>
+      <string id="DisallowCpls_Help">Este ajuste permite mostrar u ocultar elementos del Panel de control (por ejemplo, Mouse, Sistema o Personalización) en la ventana Panel de control y la pantalla Inicio. El ajuste afecta a la pantalla Inicio y a la ventana Panel de control, así como a otros métodos de acceso a los elementos del Panel de control, como los accesos directos de Ayuda y Soporte o las líneas de comandos que usan control.exe. Esta directiva no afecta a los elementos que se muestran en la configuración de PC.
+
+Si habilitas este ajuste, puedes seleccionar los elementos específicos que no se mostrarán en la ventana Panel de control y la pantalla Inicio.
+
+Para ocultar un elemento del Panel de control, habilita este ajuste de directiva y haz clic en Mostrar para acceder a la lista de elementos de Panel de control no permitidos. En el cuadro de diálogo Mostrar contenido, en la columna Valor, escribe el nombre canónico del elemento del Panel de control. Por ejemplo, Microsoft.Mouse, Microsoft.Sistema o Microsoft.Personalización.
+
+Nota: Para Windows Vista, Windows Server 2008 y versiones anteriores de Windows, se debe especificar el nombre del módulo, por ejemplo, timedate.cpl o inetcpl.cpl. Si un elemento del Panel de control no tiene un archivo CPL o si el archivo CPL contiene varios applets, se debe especificar el nombre del módulo y el número de identificación del recurso de cadena (por ejemplo, @systemcpl.dll,-1 para Sistema o @themecpl.dll,-1 para Personalización). Podrás encontrar una lista de nombres canónicos y de módulos en MSDN si buscas "Elementos de Panel de control". 
+
+Si se habilitan ambos ajustes "Ocultar los elementos especificados del Panel de control" y "Mostrar solo los elementos especificados del Panel de control", se omite el ajuste "Mostrar solo los elementos especificados del Panel de control".
+
+Nota: No se puede ocultar el elemento Panel de control de Pantalla en el menú contextual del Escritorio mediante este ajuste. Para ocultar el elemento Panel de control de Pantalla e impedir que los usuarios modifiquen la configuración de pantalla del equipo, usa el ajuste "Deshabilitar Panel de control de pantalla".
+
+Nota: Para ocultar páginas en la aplicación Configuración del sistema, usa el ajuste "Visibilidad de la página de configuración" de Configuración del equipo.</string>
+      <string id="ForceClassicControlPanel">Abrir siempre Todos los elementos del Panel de control al abrir el Panel de control</string>
+      <string id="ForceClassicControlPanel_Help">Esta configuración de directiva controla la vista predeterminada del Panel de control, por categoría o por iconos. 
+
+Si se habilita esta configuración de directiva, se abre el Panel de control en vista de iconos.
+
+Si deshabilita esta configuración de directiva, se abre el Panel de control en vista categoría.
+
+Si no se establece esta configuración de directiva, se abre el Panel de control en la vista usada durante la última sesión del Panel de control.
+Nota: el tamaño de los iconos depende de la configuración establecida por el usuario en la sesión anterior.</string>
+      <string id="NoControlPanel">Prohibir el acceso a Configuración de PC y a Panel de control</string>
+      <string id="NoControlPanel_Help">Deshabilita todos los programas del Panel de control y la aplicación Configuración de PC.
+
+Esta configuración impide que se ejecuten Control.exe y SystemSettings.exe, que son los archivos de programa de Panel de control y Configuración de PC. En consecuencia, los usuarios no pueden iniciar el Panel de control ni Configuración de PC, ni ejecutar ninguno de sus elementos.
+
+Esta configuración quita el Panel de control de:
+La pantalla Inicio
+Explorador de archivos
+
+Esta configuración quita Configuración de PC de:
+La pantalla Inicio
+Acceso a Configuración
+Imagen de cuenta
+Resultados de búsqueda
+
+Si los usuarios intentan seleccionar un elemento del Panel de control desde el elemento Propiedades en un menú contextual, aparece un mensaje que explica que existe una configuración que impide la acción.</string>
+      <string id="RestrictCpls">Mostrar solo los elementos especificados del Panel de control</string>
+      <string id="RestrictCpls_Help">Este ajuste de directiva controla qué elementos del Panel de control (como Mouse, Sistema o Personalización) se mostrarán en la ventana Panel de control y la pantalla Inicio. Los únicos elementos que se muestran en el Panel de control son aquellos que se especifican en este ajuste. Este ajuste afecta a la pantalla Inicio y al Panel de control, así como a otros métodos de acceso a los elementos del Panel de control, como los accesos directos de Ayuda y Soporte o las líneas de comandos que usan control.exe. Esta directiva no afecta a los elementos que se muestran en la configuración de PC.
+
+Para mostrar un elemento del Panel de control, habilita este ajuste de directiva y haz clic en Mostrar para acceder a la lista de elementos de Panel de control permitidos. En el cuadro de diálogo Mostrar contenido, en la columna Valor, escribe el nombre canónico del elemento del Panel de control. Por ejemplo, escribe Microsoft.Mouse, Microsoft.Sistema o Microsoft.Personalización.
+
+Nota: Para Windows Vista, Windows Server 2008 y versiones anteriores de Windows, debe especificarse el nombre del módulo, por ejemplo, timedate.cpl o inetcpl.cpl. Si un elemento del Panel de control no tiene un archivo CPL o si el archivo CPL contiene varios applets, se debe especificar el nombre del módulo y el número de identificación del recurso de cadena de dicho elemento. Por ejemplo, escribe @systemcpl.dll,-1 para Sistema o @themecpl.dll,-1 para Personalización. Podrás encontrar una lista de nombres canónicos y de módulos de elementos del Panel de control en MSDN si buscas "Elementos de Panel de control".
+
+Si se habilitan ambos ajustes "Ocultar los elementos especificados del Panel de control" y "Mostrar solo los elementos especificados del Panel de control", se omite el ajuste "Mostrar solo los elementos especificados del Panel de control".
+
+Nota: No se puede ocultar el elemento Panel de control de Pantalla en el menú contextual del Escritorio mediante este ajuste. Para ocultar el elemento Panel de control de Pantalla e impedir que los usuarios modifiquen la configuración de pantalla del equipo, usa el ajuste "Deshabilitar Panel de control de pantalla".
+
+Nota: Para ocultar páginas en la aplicación Configuración del sistema, usa el ajuste "Visibilidad de la página de configuración" de Configuración del equipo.</string>
+      <string id="SettingsPageVisibility">Visibilidad de la página de configuración</string>
+      <string id="SettingsPageVisibility_Help">Especifica la lista de páginas que se mostrarán o se ocultarán en la aplicación Configuración del sistema.
+
+Esta directiva permite que los administradores bloqueen un determinado conjunto de páginas de la aplicación Configuración del sistema. Las páginas bloqueadas no serán visibles en la aplicación y, si todas las páginas de una categoría están bloqueadas, también se ocultará la categoría. La navegación directa a una página bloqueada mediante un identificador URI, el menú contextual del explorador o cualquier otro método hará que se muestre la página principal de Configuración en su lugar.
+
+Esta directiva tiene dos modos: puede especificar una lista de páginas de configuración que se mostrarán o una lista de páginas que se ocultarán. Para especificar una lista de páginas que se mostrarán, la cadena de la directiva debe empezar por "showonly:" (sin las comillas) y para especificar una lista de páginas que se ocultará, debe empezar por "hide:". Si una página de la lista showonly estaría normalmente oculta por otros motivos (por ejemplo, falta un dispositivo de hardware), la directiva no forzará la aparición de la página. Después de esto, la cadena de la directiva debe contener una lista delimitada por punto y coma de identificadores de página de configuración. El identificador de cualquier página de configuración proporcionada es el URI publicado de la página, sin la parte del protocolo "ms-settings:".
+
+Ejemplo: para especificar que solo se deben mostrar las páginas Acerca de y Bluetooth (cuyos URI son ms-settings:about y ms-settings:bluetooth, respectivamente) y que se oculten las demás páginas:
+
+showonly:about;bluetooth
+
+Ejemplo: para especificar que solo se debe ocultar la página Bluetooth (cuyo URI es ms-settings:bluetooth):
+
+hide:bluetooth</string>
+      <string id="AllowOnlineTips">Permitir recomendaciones en línea</string>
+      <string id="AllowOnlineTips_Help">Habilita o deshabilita la obtención de ayuda y las recomendaciones en línea para la aplicación Configuración.
+
+Si se deshabilita, esta aplicación no contactará con los servicios de contenido de Microsoft para obtener recomendaciones ni contenido de ayuda.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DisallowCpls">
+        <listBox refId="DisallowCplsList">Lista de elementos no permitidos del Panel de control</listBox>
+      </presentation>
+      <presentation id="RestrictCpls">
+        <listBox refId="RestrictCplsList">Lista de elementos permitidos del Panel de control</listBox>
+      </presentation>
+      <presentation id="SettingsPageVisibility">
+        <textBox refId="SettingsPageVisibilityBox">
+          <label>Visibilidad de la página de configuración:</label>
+        </textBox>
+      </presentation>
+      <presentation id="AllowOnlineTips">
+        <checkBox refId="CheckBox_AllowOnlineTips">
+          Permitir que Configuración obtenga recomendaciones en línea.
+        </checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+
+  <displayName>Kernel DMA Protection</displayName>
+  <description>This file contains the configuration options for Kernel DMA Protection</description>
+  <resources>
+
+    <stringTable>
+      <string id="DmaGuard">Kernel DMA Protection</string>
+      <string id="DmaGuard_Explain">Policies for configuring Kernel DMA Protection</string>
+      <string id="DmaGuardEnumerationPolicy">Enumeration policy for external devices incompatible with Kernel DMA Protection</string>
+      <string id="DmaGuardEnumerationPolicy_Explain">Enumeration policy for external DMA-capable devices incompatible with DMA remapping. This policy only takes effect when Kernel DMA Protection is enabled and supported by the system. Note: this policy does not apply to 1394, PCMCIA or ExpressCard devices.</string>
+      <string id="DmaGuardEnumerationPolicy_Options_1">Allow all</string>
+      <string id="DmaGuardEnumerationPolicy_Options_2">Only while logged in (default)</string>
+      <string id="DmaGuardEnumerationPolicy_Options_3">Block all</string>
+    </stringTable>
+
+    <presentationTable>
+      <presentation id="DmaGuardEnumerationPolicy">
+        <dropdownList refId="DmaGuardEnumerationPolicy_Options" noSort="true" defaultItem="1">Enumeration policy</dropdownList>
+      </presentation>
+    </presentationTable>
+
+  </resources>
+</policyDefinitionResources>

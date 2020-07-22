@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>enter display name here</displayName>
+  <description>enter description here</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Allow Telemetry</string>
+      <string id="AllowTelemetry_0">0 - Security [Enterprise Only]</string>
+      <string id="AllowTelemetry_1">1 - Basic</string>
+      <string id="AllowTelemetry_2">2 - Enhanced</string>
+      <string id="AllowTelemetry_3">3 - Full</string>
+      <string id="AllowTelemetry_Explain">By configuring this setting in Windows 10, end users will not be able to opt into a higher level of telemetry collection than the level you have set for your organization.  This limitation applies only to the Windows operating system and apps included with Windows, and does not apply to third-party apps running on Windows 10.
+
+Diagnostic data is categorized into four levels, as follows:
+  - 0 (Security). Information that’s required to help keep Windows, Windows Server, and System Center secure, including data about the Connected User Experiences and Telemetry component settings, the Malicious Software Removal Tool, and Windows Defender.
+  - 1 (Basic). Basic device info, including: quality-related data, app compatibility, and data from the Security level.
+  - 2 (Enhanced). Additional insights, including: how Windows, Windows Server, System Center, and apps are used, how they perform, advanced reliability data, and data from both the Basic and the Security levels.
+  - 3 (Full). All data necessary to identify and help to fix problems, plus data from the Security, Basic, and Enhanced levels.
+
+Options available to users in the Settings app are changed by configuring this setting, and even if not set, may be impacted by other group policy settings.  Note that if this policy is configured to allow a telemetry setting of Security or Basic, end users will be unable to select a higher level.
+      </string>
+
+      <string id="TelemetryProxy">Configure Connected User Experiences and Telemetry</string>
+      <string id="TelemetryProxy_Explain">With this policy setting, you can forward Connected User Experience and Telemetry requests to a proxy server.
+
+If you enable this policy setting, you can specify the FQDN or IP address of the destination device within your organization’s network (and optionally a port number, if desired). The connection will be made over a Secure Sockets Layer (SSL) connection.  If the named proxy fails, or if you disable or do not configure this policy setting, Connected User Experience and Telemetry data will be sent to Microsoft using the default proxy configuration.
+
+The format for this setting is &lt;server&gt;:&lt;port&gt; 
+      </string>
+
+      <string id="CommercialId">Configure the Commercial ID</string>
+      <string id="CommercialId_Explain">This policy setting defines the identifier used to uniquely associate this device’s telemetry data as belonging to a given organization. If your organization is participating in a program that requires this device to be identified as belonging to your organization then use this setting to provide that identification. The value for this setting will be provided by Microsoft as part of the onboarding process for the program. 
+
+If you disable or do not configure this policy setting, then Microsoft will not be able to use this identifier to associate this machine and its telemetry data with your organization.
+      </string>
+
+      <string id="DisableEnterpriseAuthProxy">Configure Authenticated Proxy usage for the Connected User Experience and Telemetry service</string>
+      <string id="DisableEnterpriseAuthProxy_1">Enable Authenticated Proxy usage</string>
+      <string id="DisableEnterpriseAuthProxy_2">Disable Authenticated Proxy usage</string>
+      <string id="DisableEnterpriseAuthProxy_Explain">This policy setting blocks the Connected User Experience and Telemetry service from automatically using an authenticated proxy to send data back to Microsoft on Windows 10. If you disable or do not configure this policy setting, the Connected User Experience and Telemetry service will automatically use an authenticated proxy to send data back to Microsoft. Enabling this policy will block the Connected User Experience and Telemetry service from automatically using an authenticated proxy.</string>
+
+      <string id="LimitEnhancedDiagnosticDataWindowsAnalytics">Limit Enhanced diagnostic data to the minimum required by Windows Analytics</string>
+      <string id="LimitEnhancedDiagnosticDataWindowsAnalytics_1">Enable Windows Analytics collection</string>
+      <string id="LimitEnhancedDiagnosticDataWindowsAnalytics_2">Disable Windows Analytics collection</string>
+      <string id="LimitEnhancedDiagnosticDataWindowsAnalytics_Explain">This policy setting, in combination with the Allow Telemetry policy setting, enables organizations to send Microsoft a specific set of diagnostic data for IT insights via Windows Analytics services. By configuring this setting, you're not stopping people from changing their Telemetry Settings; however, you are stopping them from choosing a higher level than you've set for the organization.
+
+To enable this behavior, you must complete two steps:
+
+    1. Enable this policy setting
+    2. Set Allow Telemetry to level 2 (Enhanced)
+
+If you configure these policy settings together, you'll send the Basic level of diagnostic data plus any additional events that are required for Windows Analytics, to Microsoft. The additional events are documented here: https://go.Microsoft.com/fwlink/?linked=847594.
+
+If you enable Enhanced diagnostic data in the Allow Telemetry policy setting, but you don't configure this policy setting, you'll send the required events for Windows Analytics, plus any additional Enhanced level telemetry data to Microsoft. This setting has no effect on computers configured to send Full, Basic, or Security level diagnostic data to Microsoft.
+
+If you disable or don't configure this policy setting, then the level of diagnostic data sent to Microsoft is determined by the Allow Telemetry policy setting.
+      </string>
+
+      <string id="AllowDeviceNameInDiagnosticData">Allow device name to be sent in Windows diagnostic data</string>
+      <string id="AllowDeviceNameInDiagnosticData_Explain">This policy allows the device name to be sent to Microsoft as part of Windows diagnostic data.
+
+If you disable or do not configure this policy setting, then device name will not be sent to Microsoft as part of Windows diagnostic data.
+      </string>
+
+      <string id="ConfigureTelemetryOptInSettingsUx">Configure telemetry opt-in setting user interface.</string>
+      <string id="ConfigureTelemetryOptInSettingsUx_1">Disable telemetry opt-in Settings</string>
+      <string id="ConfigureTelemetryOptInSettingsUx_2">Enable telemetry opt-in Setings</string>
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">This policy setting determines whether an end user can change telemetry levels in Settings.
+
+If you set this policy setting to "Disable Telemetry opt-in Settings", telemetry levels are disabled in Settings, and prevents end users from changing them.
+
+If you don’t configure this policy setting, or you set it to "Enable Telemetry opt-in Settings”, end users can change the device telemetry level in the Settings app.
+
+Note:
+To set a limit on the level of diagnostic data that is sent to Microsoft by your organization, use the Allow Telemetry policy setting.
+      </string>
+
+      <string id="ConfigureTelemetryOptInChangeNotification">Configure telemetry opt-in change notifications.</string>
+      <string id="ConfigureTelemetryOptInChangeNotification_1">Disable telemetry change notifications</string>
+      <string id="ConfigureTelemetryOptInChangeNotification_2">Enable telemetry change notifications</string>
+      <string id="ConfigureTelemetryOptInChangeNotification_Explain">
+          This policy setting controls whether a device shows notifications about telemetry levels to people on first logon or when changes occur in Settings. 
+          If you set this policy setting to "Disable telemetry change notifications", telemetry level notifications stop appearing.
+          If you set this policy setting to "Enable telemetry change notifications" or don't configure this policy setting, telemetry notifications appear at first logon and when changes occur in Settings.
+      </string>
+
+      <string id="DisableDeviceDelete">Disable deleting diagnostic data </string>
+      <string id="DisableDeviceDelete_Explain">
+          This policy setting controls whether the Delete diagnostic data button is enabled in Diagnostic &amp; Feedback Settings page.
+          If you enable this policy setting, the Delete diagnostic data button will be disabled in Settings page, preventing the deletion of diagnostic data collected by Microsoft from the device. 
+          If you disable or don't configure this policy setting, the Delete diagnostic data button will be enabled in Settings page, which allows people to erase all diagnostic data collected by Microsoft from that device.
+      </string>
+
+      <string id="DisableDiagnosticDataViewer">Disable diagnostic data viewer. </string>
+      <string id="DisableDiagnosticDataViewer_Explain">
+          This policy setting controls whether users can enable and launch the Diagnostic Data Viewer from the Diagnostic &amp; Feedback Settings page.
+          If you enable this policy setting, the Diagnostic Data Viewer will not be enabled in Settings page, and it will prevent the viewer from showing diagnostic data collected by Microsoft from the device.  
+          If you disable or don't configure this policy setting, the Diagnostic Data Viewer will be enabled in Settings page.
+      </string>
+
+      <string id="ConfigureMicrosoft365UploadEndpoint">Configure diagnostic data upload endpoint for Desktop Analytics</string>
+      <string id="ConfigureMicrosoft365UploadEndpoint_Explain">
+          This policy sets the upload endpoint for this device’s diagnostic data as part of the Desktop Analytics program.
+          If your organization is participating in the program and has been instructed to configure a custom upload endpoint, then use this setting to define that endpoint.
+          The value for this setting will be provided by Microsoft as part of the onboarding process for the program. 
+      </string>
+
+      <string id="AllowCommercialDataPipeline">Allow commercial data pipeline</string>
+      <string id="AllowCommercialDataPipeline_Explain">
+          AllowCommercialDataPipeline opts the device into the Windows enterprise data pipeline.
+          If you enable this setting, data collected from the device will be opted into the Windows enterprise data pipeline.
+          If you disable or don't configure this setting, all data from the device will be collected and processed in accordance with our policies for the Windows standard data pipeline.
+          Configuring this setting does not change the telemetry collection level or the ability of the user to change the level. This setting only applies to the Windows operating system and apps included with Windows, not third-party apps or services running on Windows 10.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="TelemetryProxy">
+        <textBox refId="TelemetryProxyName">
+          <label>Proxy Server Name:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CommercialID">
+        <textBox refId="CommercialIdValue">
+          <label>Commercial Id:</label>
+        </textBox>
+      </presentation>
+      <presentation id="DisableEnterpriseAuthProxy">
+        <dropdownList refId="DisableEnterpriseAuthProxy" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="LimitEnhancedDiagnosticDataWindowsAnalytics">
+        <dropdownList refId="LimitEnhancedDiagnosticDataWindowsAnalytics" noSort="true" defaultItem="0"></dropdownList>
+      </presentation>
+      <presentation id="ConfigureTelemetryOptInSettingsUx">
+        <dropdownList refId="ConfigureTelemetryOptInSettingsUx" noSort="true" defaultItem="0"></dropdownList>
+      </presentation>
+      <presentation id="ConfigureTelemetryOptInChangeNotification">
+        <dropdownList refId="ConfigureTelemetryOptInChangeNotification" noSort="true" defaultItem="0"></dropdownList>
+      </presentation>
+      <presentation id="ConfigureMicrosoft365UploadEndpoint">
+        <textBox refId="ConfigureMicrosoft365UploadEndpointValue">
+          <label>Desktop Analytics Custom Upload Endpoint:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

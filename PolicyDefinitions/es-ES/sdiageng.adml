@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Diagnósticos generados por script</displayName>
+  <description>Diagnósticos generados por script</description>
+  <resources>
+    <stringTable>
+      <string id="ScriptedDiagnosticsCategory">Diagnósticos generados por script</string>
+      <string id="ScriptedDiagnosticsSecurityPolicy">Configurar directiva de seguridad para diagnósticos generados por script</string>
+      <string id="ScriptedDiagnosticsSecurityPolicyExplain">Esta configuración de directiva determina si los diagnósticos generados por script ejecutarán paquetes de diagnóstico firmados por publicadores que no son de confianza.
+
+Si habilita esta configuración de directiva, el motor de ejecución de diagnósticos generados por script valida el firmante de cualquier paquete de diagnóstico y solo ejecuta los firmados por editores de confianza.
+
+Si deshabilita o no establece esta configuración de directiva, el motor de ejecución de diagnósticos generados por script ejecuta todos los paquetes firmados digitalmente.</string>
+
+      <string id="ScriptedDiagnosticsExecutionPolicy">Solución de problemas: permitir que los usuarios tengan acceso a asistentes de solución de problemas y que puedan ejecutarlos</string>
+      <string id="ScriptedDiagnosticsExecutionPolicyExplain">Esta configuración de directiva permite a los usuarios tener acceso a las herramientas de solución de problemas disponibles en el Panel de control de solución de problemas y ejecutar el Asistente para solucionar problemas.
+
+Si habilita o no define esta configuración de directiva, los usuarios podrán tener acceso a las herramientas de solución de problemas del Panel de control de solución de problemas y podrán ejecutarlas.
+
+Si deshabilita esta configuración de directiva, los usuarios no podrán tener acceso a las herramientas de solución de problemas del Panel de control de solución de problemas ni podrán ejecutarlas.
+
+Tenga en cuenta que esta configuración también controla la capacidad de un usuario para iniciar paquetes independientes de solución de problemas, como los que se encuentran en los archivos .diagcab.
+    
+    </string>
+
+    <string id="BetterWhenConnected">Solución de problemas: permitir que los usuarios tengan acceso a contenido de solución de problemas de los servidores de Microsoft desde el Panel de control de solución de problemas (a través del Solucionador de problemas en línea de Windows - Windows Online Troubleshooting Service, WOTS)</string>
+    <string id="BetterWhenConnectedExplain">Esta configuración de directiva permite a los usuarios que están conectados a Internet tener acceso al contenido de solución de problemas hospedado en los servidores de contenido de Microsoft y realizar búsquedas en él. Los usuarios pueden tener acceso a contenido de solución de problemas en línea desde la interfaz del Panel de control de solución de problemas; para ello deberán hacer clic en 'Sí' cuando aparezca el mensaje "¿Desea ver el contenido más actualizado disponible para solucionar problemas?"
+
+Si habilita o no establece esta configuración de directiva, los usuarios que estén conectados a Internet podrán tener acceso a contenido de solución de problemas hospedado en los servidores de contenido de Microsoft y podrán realizar búsquedas en él desde la interfaz de usuario del Panel de control de solución de problemas
+
+Si deshabilita esta configuración de directiva, los usuarios solo podrán tener acceso a contenido de solución de problemas que esté disponible localmente en sus equipos, aunque estén conectados a Internet. No podrán conectarse a los servidores de Microsoft que hospedan el Solucionador de problemas en línea de Windows.
+    
+    </string>
+
+    </stringTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,1358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions" revision="1.0" schemaVersion="1.0">
+  <displayName>Directivas de preferencias de la directiva de grupo</displayName>
+  <description></description>
+  <resources>
+    <stringTable>
+      <string id="MMC_PrefApplications">Permitir el uso de complementos de aplicaciones</string>
+      <string id="MMC_PrefApplications_Explain">Esta directiva permite o prohíbe el uso de complementos de aplicaciones (tipos de elementos de aplicaciones de preferencias). Si se prohíbe, no aparecen tipos de elementos de aplicaciones de preferencias al intentar crear un nuevo elemento y no se permite hacerlo. Esta configuración de directiva no afecta a los elementos de aplicaciones de preferencias existentes.
+
+Si habilita o no configura la configuración de esta directiva, estará permitiendo el uso de los complementos de aplicaciones. Si habilita la configuración de esta directiva, no invalidará la configuración de directiva que restringe el uso de las extensiones de preferencias.
+
+Si deshabilita la configuración de esta directiva, prohibirá el uso de complementos de aplicaciones y no se podrán crear nuevos elementos de aplicaciones de preferencias.
+
+</string>
+      <string id="MMC_GPO_Applications">Permitir el uso de la extensión de preferencias Aplicaciones</string>
+      <string id="MMC_GPO_Applications_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Aplicaciones. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, estará permitiendo el uso de la extensión de preferencias. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, estará prohibiendo el uso de la extensión de preferencias.
+
+Si no configura este valor de directiva, estará permitiendo el uso de la extensión de preferencias a menos que el valor "Restringir a los usuarios a la lista de complementos con permisos explícitos" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_CompControl">Permitir el uso de la Configuración del Panel de control</string>
+      <string id="MMC_GPO_CompControl_Explain">Esta configuración de directiva permite o prohíbe el uso del elemento Configuración del Panel de control y de todas las extensiones enumeradas en la ventana Editor de administración de directivas de grupo de GPMC en Configuración del equipo\Preferencias\Configuración del Panel de control. Cuando se prohíbe el elemento Configuración del Panel de control o una extensión de preferencias, no aparecerá en la ventana Editor de administración de directivas de grupo.
+
+Si habilita esta configuración de directiva, permite el uso del elemento Configuración del Panel de control y de todas las extensiones de preferencias en Configuración del Panel de control para Configuración del equipo. Si habilita esta configuración de directiva se invalidará la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos" para el elemento Configuración del Panel de control, pero no para sus elementos secundarios. Si habilita esta configuración de directiva no invalidará ninguna configuración de directiva "Permitir el uso de la extensión de preferencias &lt;nombre de la extensión&gt;" que esté deshabilitada.
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de extensiones de preferencias en Configuración del Panel de control para la Configuración del equipo. Si deshabilita esta configuración de directiva se invalidará cualquier configuración de directiva "Permitir el uso de la extensión de preferencias &lt;nombre de la extensión&gt;".
+
+Si no configura esta configuración de directiva, permite el uso de extensiones de preferencias en Configuración del Panel de control para la Configuración del equipo a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos" o cualquier configuración de directiva "Permitir el uso de la extensión de preferencias &lt;nombre de la extensión&gt;" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_DataSources">Permitir el uso de la extensión de preferencias Orígenes de datos</string>
+      <string id="MMC_GPO_DataSources_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Orígenes de datos. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos", "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_Devices">Permitir el uso de la extensión de preferencias Dispositivos</string>
+      <string id="MMC_GPO_Devices_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Dispositivos. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos", "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_Drives">Permitir el uso de la extensión de preferencias Asignaciones de unidades</string>
+      <string id="MMC_GPO_Drives_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Asignaciones de unidades. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, estará permitiendo el uso de la extensión de preferencias. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura este valor de directiva, estará permitiendo el uso de la extensión de preferencias a menos que el valor "Restringir a los usuarios a la lista de complementos con permisos explícitos" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_Environment">Permitir el uso de la extensión de preferencias Entorno</string>
+      <string id="MMC_GPO_Environment_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Entorno. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, estará permitiendo el uso de la extensión de preferencias. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura este valor de directiva, estará permitiendo el uso de la extensión de preferencias a menos que el valor "Restringir a los usuarios a la lista de complementos con permisos explícitos" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_Files">Permitir el uso de la extensión de preferencias Archivos</string>
+      <string id="MMC_GPO_Files_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Archivos. Cuando se prohíbe una extensión de preferencias, esta no aparece en la ventana del Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, se permite el uso de la extensión de preferencias. Al habilitar esta configuración de directiva, se invalida la opción "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, se prohíbe el uso de la extensión de preferencias.
+
+Si no establece esta configuración de directiva, se permite el uso de la extensión de preferencias a menos que el valor "Restringir a los usuarios a la lista de complementos con permisos explícitos" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_FolderOptions">Permitir el uso de la extensión de preferencias Opciones de carpeta</string>
+      <string id="MMC_GPO_FolderOptions_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Opciones de carpeta. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos", "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_Folders">Permitir el uso de la extensión de preferencias Carpetas</string>
+      <string id="MMC_GPO_Folders_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Carpetas. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, estará permitiendo el uso de la extensión de preferencias. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura este valor de directiva, estará permitiendo el uso de la extensión de preferencias a menos que el valor "Restringir a los usuarios a la lista de complementos con permisos explícitos" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_IniFiles">Permitir el uso de la extensión de preferencias Archivos .ini</string>
+      <string id="MMC_GPO_IniFiles_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Archivos .ini. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, estará permitiendo el uso de la extensión de preferencias. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura este valor de directiva, estará permitiendo el uso de la extensión de preferencias a menos que el valor "Restringir a los usuarios a la lista de complementos con permisos explícitos" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_Internet">Permitir el uso de la extensión de preferencias Configuración de Internet</string>
+      <string id="MMC_GPO_Internet_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Configuración de Internet. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_LocalUsersAndGroups">Permitir el uso de la extensión de preferencias Usuarios y grupos locales</string>
+      <string id="MMC_GPO_LocalUsersAndGroups_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Usuarios y grupos locales. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos", "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_NetworkOptions">Permitir el uso de la extensión de preferencias Opciones de red</string>
+      <string id="MMC_GPO_NetworkOptions_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Opciones de red. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos", "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_NetworkShares">Permitir el uso de la extensión de preferencias Recursos compartidos de red</string>
+      <string id="MMC_GPO_NetworkShares_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Recursos compartidos de red. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, estará permitiendo el uso de la extensión de preferencias. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura este valor de directiva, estará permitiendo el uso de la extensión de preferencias a menos que el valor "Restringir a los usuarios a la lista de complementos con permisos explícitos" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_PowerOptions">Permitir el uso de la extensión de preferencias Opciones de energía</string>
+      <string id="MMC_GPO_PowerOptions_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Opciones de energía. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos", "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_Printers">Permitir el uso de la extensión de preferencias Impresoras</string>
+      <string id="MMC_GPO_Printers_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Impresoras. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos", "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_RegionalOptions">Permitir el uso de la extensión de preferencias Configuración regional</string>
+      <string id="MMC_GPO_RegionalOptions_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Configuración regional. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_Registry">Permitir el uso de la extensión de preferencias Registro</string>
+      <string id="MMC_GPO_Registry_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Registro. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, estará permitiendo el uso de la extensión de preferencias. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura este valor de directiva, estará permitiendo el uso de la extensión de preferencias a menos que el valor "Restringir a los usuarios a la lista de complementos con permisos explícitos" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_ScheduledTasks">Permitir el uso de la extensión de preferencias Tareas programadas</string>
+      <string id="MMC_GPO_ScheduledTasks_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Tareas programadas. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos", "Permitir el uso de la Configuración del Panel de control (Equipos)" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_Services">Permitir el uso de la extensión de preferencias Servicios</string>
+      <string id="MMC_GPO_Services_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Servicios. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Equipos)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos" o "Permitir el uso de la Configuración del Panel de control (Equipos)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_Shortcuts">Permitir el uso de la extensión de preferencias Accesos directos</string>
+      <string id="MMC_GPO_Shortcuts_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Accesos directos. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, estará permitiendo el uso de la extensión de preferencias. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura este valor de directiva, estará permitiendo el uso de la extensión de preferencias a menos que el valor "Restringir a los usuarios a la lista de complementos con permisos explícitos" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_UserControl">Permitir el uso de la Configuración del Panel de control (Usuarios)</string>
+      <string id="MMC_GPO_UserControl_Explain">Esta configuración de directiva permite o prohíbe el uso del elemento Configuración del Panel de control y de todas las extensiones enumeradas en la ventana Editor de administración de directivas de grupo de GPMC en Configuración de usuario\Preferencias\Configuración del Panel de control. Cuando se prohíbe el elemento Configuración del Panel de control o una extensión de preferencias, no aparecerá en la ventana Editor de administración de directivas de grupo.
+
+Si habilita esta configuración de directiva, permite el uso del elemento Configuración del Panel de control y de todas las extensiones de preferencias en Configuración del Panel de control para Configuración de usuario. Si habilita esta configuración de directiva se invalidará la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos" para el elemento Configuración del Panel de control, pero no para sus elementos secundarios. Si habilita esta configuración de directiva no invalidará ninguna configuración de directiva "Permitir el uso de la extensión de preferencias &lt;nombre de la extensión&gt;" que esté deshabilitada.
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de extensiones de preferencias en Configuración del Panel de control para la Configuración de usuario. Si deshabilita esta configuración de directiva se invalidará cualquier configuración de directiva "Permitir el uso de la extensión de preferencias &lt;nombre de la extensión&gt;".
+
+Si no configura esta configuración de directiva, permite el uso de extensiones de preferencias en Configuración del Panel de control para la Configuración de usuario a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos" o cualquier configuración de directiva "Permitir el uso de la extensión de preferencias &lt;nombre de la extensión&gt;" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_StartMenu">Permitir el uso de la extensión de preferencias Menú Inicio</string>
+      <string id="MMC_GPO_StartMenu_Explain">Esta configuración de directiva permite o prohíbe el uso de la extensión de preferencias Menú Inicio. Cuando se prohíbe una extensión, no aparece en la ventana Editor de administración de directivas de grupo de GPMC.
+
+Si habilita esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja. Al habilitar esta configuración de directiva, se invalidará el valor de configuración "Restringir a los usuarios a la lista de complementos con permisos explícitos".
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la extensión de preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la extensión de preferencias a menos que la configuración de directiva "Restringir a los usuarios a la lista de complementos con permisos explícitos" o "Permitir el uso de la Configuración del Panel de control (Usuarios)" así lo restrinja.
+
+</string>
+      <string id="MMC_GPO_ViewExtensionPro">Permitir el uso de la ficha Preferencias</string>
+      <string id="MMC_GPO_ViewExtensionPro_Explain">Esta configuración de directiva permite o prohíbe el uso de la ficha Preferencias. Si se prohíbe, la ficha Preferencias no aparece al visualizar una extensión de preferencias en la ventana Editor de administración de directivas de grupo de GPMC. Esto no afecta a las fichas Extendido y Estándar por lo que puede seguir creando y administrando elementos de preferencias.
+
+Si habilita esta configuración de directiva, estará permitiendo el uso de la ficha Preferencias. Si habilita la configuración de esta directiva, no invalidará la configuración de directiva que restringe el uso de las extensiones de preferencias.
+
+Si deshabilita esta configuración de directiva, prohíbe el uso de la ficha Preferencias.
+
+Si no configura esta configuración de directiva, permite el uso de la ficha Preferencias.
+
+</string>
+      <string id="CSE_Applications">Configurar el procesamiento de la directiva de extensión de preferencias Aplicaciones</string>
+      <string id="CSE_Applications_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Aplicaciones.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Aplicación.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Aplicación pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en los elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_Applications_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Aplicaciones</string>
+      <string id="CSE_Applications_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Aplicaciones y activar el seguimiento para la extensión Aplicaciones. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Aplicaciones para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.
+
+</string>
+      <string id="CSE_DataSources">Configurar el procesamiento de la directiva de extensión de preferencias Orígenes de datos</string>
+      <string id="CSE_DataSources_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Orígenes de datos.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Orígenes de datos.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Orígenes de datos pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directiva de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en los elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.
+
+</string>
+      <string id="CSE_DataSources_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Orígenes de datos</string>
+      <string id="CSE_DataSources_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Orígenes de datos y activar el seguimiento para la extensión Orígenes de datos. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Orígenes de datos para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_Devices">Configurar el procesamiento de la directiva de extensión de preferencias Dispositivos</string>
+      <string id="CSE_Devices_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Dispositivos.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Dispositivo.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Dispositivo pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directiva de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en los elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.
+
+</string>
+      <string id="CSE_Devices_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Dispositivos</string>
+      <string id="CSE_Devices_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Dispositivos y activar el seguimiento para la extensión Dispositivos. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Dispositivos para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_Drives">Configurar el procesamiento de la directiva de extensión de preferencias Asignaciones de unidades</string>
+      <string id="CSE_Drives_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Asignaciones de unidades.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Asignaciones de unidades.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Asignaciones de unidades pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en los elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.
+
+</string>
+      <string id="CSE_Drives_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Asignaciones de unidades</string>
+      <string id="CSE_Drives_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Asignaciones de unidades y activar el seguimiento para la extensión Asignaciones de unidades. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Asignaciones de unidades para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_Environment">Configurar el procesamiento de la directiva de extensión de preferencias Entorno</string>
+      <string id="CSE_Environment_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Entorno.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Variable de entorno.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Variable de entorno pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en los elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_Environment_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Entorno</string>
+      <string id="CSE_Environment_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Entorno y activar el seguimiento para la extensión Entorno. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Entorno para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_Files">Configurar el procesamiento de la directiva de extensión de preferencias Archivos</string>
+      <string id="CSE_Files_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Archivos.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Archivo.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Archivo pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en los elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_Files_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Archivos</string>
+      <string id="CSE_Files_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Archivos y activar el seguimiento para la extensión Archivos. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Archivos para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_FolderOptions">Configurar el procesamiento de la directiva de extensión de preferencias Opciones de carpeta</string>
+      <string id="CSE_FolderOptions_Help">Esta configuración de directiva le permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Opciones de carpeta.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Opciones de carpeta, Abrir con y Tipo de archivo.
+
+Si deshabilita o no configura esta configuración de directiva, los elementos de preferencias Opciones de carpeta, Abrir con y Tipo de archivo pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_FolderOptions_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Opciones de carpeta</string>
+      <string id="CSE_FolderOptions_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Opciones de carpeta y activar el seguimiento para la extensión Opciones de carpeta. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Opciones de carpeta para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_Folders">Configurar el procesamiento de la directiva de extensión de preferencias Carpetas</string>
+      <string id="CSE_Folders_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Carpetas.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Carpeta.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Carpeta pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en los elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_Folders_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Carpetas</string>
+      <string id="CSE_Folders_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Carpetas y activar el seguimiento para la extensión Carpetas. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Carpetas para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_IniFiles">Configurar el procesamiento de la directiva de extensión de preferencias Archivos .ini</string>
+      <string id="CSE_IniFiles_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Archivos .ini.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Archivos .ini.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Archivos .ini pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_IniFiles_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Archivos ini</string>
+      <string id="CSE_IniFiles_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Archivos ini y activar el seguimiento para la extensión Archivos ini. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Archivos ini para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_Internet">Configurar el procesamiento de la directiva de extensión de preferencias Configuración de Internet</string>
+      <string id="CSE_Internet_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Configuración de Internet.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Internet.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Internet pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_Internet_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Configuración de Internet</string>
+      <string id="CSE_Internet_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Internet y activar el seguimiento para la extensión Internet. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Internet para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_LocalUsersAndGroups">Configurar el procesamiento de la directiva de extensión de preferencias Usuarios y grupos locales</string>
+      <string id="CSE_LocalUsersAndGroups_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Usuarios y grupos locales.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Usuario local y Grupo local.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Usuario local y Grupo local pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_LocalUsersAndGroups_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Usuarios y grupos locales</string>
+      <string id="CSE_LocalUsersAndGroups_Logging_Help">Esta configuración de directiva permite establecer el nivel de detalle que almacena el registro de eventos para la extensión de preferencias Usuario local y Grupo local, así como activar el seguimiento para esta extensión. El registro y seguimiento proporcionan información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Usuario local y Grupo local.
+
+Si deshabilita o no establece esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_NetworkOptions">Configurar el procesamiento de la directiva de extensión de preferencias Opciones de red</string>
+      <string id="CSE_NetworkOptions_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Opciones de red.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Conexión VPN y Conexión DUN.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Conexión VPN y Conexión DUN pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_NetworkOptions_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Opciones de red</string>
+      <string id="CSE_NetworkOptions_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Opciones de red y activar el seguimiento para la extensión Opciones de red. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Opciones de red para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_NetShares">Configurar el procesamiento de la directiva de extensión de preferencias Recursos compartidos de red</string>
+      <string id="CSE_NetShares_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Recursos compartidos de red.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Recursos compartidos de red.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Recursos compartidos de red pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_NetShares_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Recursos compartidos de red</string>
+      <string id="CSE_NetShares_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Recursos compartidos de red y activar el seguimiento para la extensión Recursos compartidos de red. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Recursos compartidos de red para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_PowerOptions">Configurar el procesamiento de la directiva de extensión de preferencias Opciones de energía</string>
+      <string id="CSE_PowerOptions_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Opciones de energía.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Opciones de energía y Plan de energía.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Opciones de energía y Plan de energía pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_PowerOptions_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Opciones de energía</string>
+      <string id="CSE_PowerOptions_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Opciones de energía y activar el seguimiento para la extensión Opciones de energía. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Opciones de energía para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_Printers">Configurar el procesamiento de la directiva de extensión de preferencias Impresoras</string>
+      <string id="CSE_Printers_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Impresoras.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Impresora compartida, Impresora TCP/IP e Impresora local.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Impresora compartida, Impresora TCP/IP e Impresora local pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_Printers_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Impresoras</string>
+      <string id="CSE_Printers_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Impresoras y activar el seguimiento para la extensión Impresoras. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Impresoras para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_RegionalOptions">Configurar el procesamiento de la directiva de extensión de preferencias Configuración regional</string>
+      <string id="CSE_RegionalOptions_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Configuración regional.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Configuración regional.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Configuración regional pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_RegionalOptions_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Configuración regional</string>
+      <string id="CSE_RegionalOptions_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Configuración regional y activar el seguimiento para la extensión Configuración regional. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Configuración regional para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_PrefRegistry">Configurar el procesamiento de la directiva de extensión de preferencias Registro</string>
+      <string id="CSE_PrefRegistry_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Registro.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Registro.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Registro pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_PrefRegistry_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Registro</string>
+      <string id="CSE_PrefRegistry_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Registro y activar el seguimiento para la extensión Registro. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Registro para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_ScheduledTasks">Configurar el procesamiento de la directiva de extensión de preferencias Tareas programadas</string>
+      <string id="CSE_ScheduledTasks_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Tareas programadas.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Tarea programada y Tarea inmediata.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Tarea programada y Tarea inmediata pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_ScheduledTasks_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Tareas programadas</string>
+      <string id="CSE_ScheduledTasks_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Tareas programadas y activar el seguimiento para la extensión Tareas programadas. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Tareas programadas para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_Services">Configurar el procesamiento de la directiva de extensión de preferencias Servicios</string>
+      <string id="CSE_Services_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Servicios.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Servicio.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Servicio pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_Services_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Servicios</string>
+      <string id="CSE_Services_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Servicios y activar el seguimiento para la extensión Servicios. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Servicios para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_Shortcuts">Configurar el procesamiento de la directiva de extensión de preferencias Accesos directos</string>
+      <string id="CSE_Shortcuts_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Accesos directos.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Acceso directo.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Acceso directo pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_Shortcuts_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Accesos directos</string>
+      <string id="CSE_Shortcuts_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Accesos directos y activar el seguimiento para la extensión Accesos directos. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Accesos directos para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_StartMenu">Configurar el procesamiento de la directiva de extensión de preferencias Menú Inicio</string>
+      <string id="CSE_StartMenu_Help">Esta configuración de directiva permite configurar cuándo se actualizan los elementos de preferencias en la extensión de preferencias Menú Inicio.
+
+Si habilita esta configuración de directiva, puede configurar las opciones de procesamiento para los elementos de preferencias Menú Inicio.
+
+Si deshabilita o no establece esta configuración de directiva, los elementos de preferencias Menú Inicio pueden procesarse en una conexión de red de baja velocidad, aplicarse durante el procesamiento en segundo plano y procesarse incluso si los objetos de directivas de grupo (GPO) no cambian. De manera predeterminada, la prioridad de procesamiento en segundo plano es "Inactiva".
+
+Notas:
+
+1. La opción "Permitir el procesamiento a través de una conexión de red de baja velocidad" actualiza los elementos de preferencias incluso cuando la actualización se transmite a través de una conexión de red de baja velocidad, como una línea telefónica. Las actualizaciones a través de conexiones de baja velocidad pueden causar retrasos importantes. 
+
+2. La opción "No aplicar durante el procesamiento periódico en segundo plano" impide que el sistema actualice los elementos de preferencias afectados en segundo plano mientras se está utilizando el equipo. Cuando las actualizaciones en segundo plano están deshabilitadas, los cambios en elementos de preferencias no se aplican hasta el siguiente inicio de sesión del usuario o hasta que se reinicia el sistema.
+
+3. La opción "Procesar incluso si los objetos de directiva de grupo no han cambiado" actualiza y vuelve a aplicar los elementos de preferencias incluso si estos no han cambiado. Muchas implementaciones de directivas especifican que solo se actualicen cuando se modifiquen. Sin embargo, es posible que desee actualizar elementos de preferencias que no hayan cambiado, como cuando se vuelve a aplicar una configuración de preferencia deseada en caso de que un usuario la haya modificado.</string>
+      <string id="CSE_StartMenu_Logging">Configurar el seguimiento y el registro de la extensión de preferencias Menú Inicio</string>
+      <string id="CSE_StartMenu_Logging_Help">Esta configuración de directiva le permite configurar el nivel de detalle registrado por el registro de eventos para la extensión de preferencias Menú Inicio y activar el seguimiento para la extensión Menú Inicio. El registro y seguimiento proporciona información de diagnóstico para la solución de problemas.
+
+Si habilita esta configuración de directiva, puede configurar el registro de eventos y activar el seguimiento de la extensión Menú Inicio para equipos cliente.
+
+Si deshabilita o no configura esta configuración de directiva, el registro de eventos para esta extensión solamente incluye de manera predeterminada advertencias y errores, y el seguimiento para esta extensión está desactivado.
+
+Notas:
+
+1. Seguimiento de la Configuración de usuario: para realizar el seguimiento de elementos en esta extensión de preferencias enumerada en Configuración de usuario, en el cuadro "Seguimiento de usuarios" debe proporcionar una ruta de acceso a la ubicación en el equipo cliente donde se pueda crear un archivo de seguimiento de usuarios y debe activar la opción "Seguimiento". Si no hay elementos de preferencias en Configuración de usuario en esta extensión, no se creará ningún archivo de seguimiento de usuarios.
+
+2. Seguimiento de la Configuración del equipo: esta extensión de preferencias está disponible únicamente en Configuración de usuario por lo que el seguimiento de la configuración del equipo no es aplicable.
+
+3. Seguimiento de la consulta de Modelado de directivas de grupo: para realizar el seguimiento de elementos en esta extensión de preferencias al realizar una consulta de Modelado de directivas de grupo, en el cuadro "Seguimiento de planeación" debe proporcionar una ruta de acceso a la ubicación donde se pueda crear un archivo de seguimiento de planeación en el equipo donde ejecute el modelado y debe activar la opción "Seguimiento". Si no está realizando un Modelado de directivas de grupo o no hay elementos de preferencias en esta extensión, no se crea ningún archivo de seguimiento de planeación.</string>
+      <string id="CSE_NOCHANGES">Procesar incluso si los objetos de directiva de grupo no han cambiado</string>
+      <string id="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</string>
+      <string id="CSE_ALLOWSLOWLINK">Permitir el procesamiento a través de una conexión de red de baja velocidad</string>
+      <string id="CSE_TRACELEVEL">Seguimiento</string>
+      <string id="CSE_TRACEFILEPATHUSER">Seguimiento de usuarios</string>
+      <string id="CSE_TRACEFILEPATHMACHINE">Seguimiento de equipos</string>
+      <string id="CSE_TRACEFILEPATH">Archivo de seguimiento</string>
+      <string id="CSE_TRACEFILEPATHPLANNING">Seguimiento de planeación</string>
+      <string id="CSE_TRACEFILEMAXSIZE">Tamaño máximo del archivo de seguimiento (KB)</string>
+      <string id="CSE_TRACELEVELNORMAL">Desactivado</string>
+      <string id="CSE_TRACELEVELVERBOSE">Activado</string>
+      <string id="CSE_BACKGROUNDPRIORTYLEVEL">Prioridad en segundo plano</string>
+      <string id="CSE_PRILEVEL_NORMAL">Normal</string>
+      <string id="CSE_PRILEVEL_BELOWNORMAL">Por debajo de lo normal</string>
+      <string id="CSE_PRILEVEL_LOWEST">Mínima</string>
+      <string id="CSE_PRILEVEL_IDLE">Inactiva</string>
+      <string id="CSE_LOGLEVEL">Registro de eventos</string>
+      <string id="CSE_LOGLEVEL_INFORMATION">Información, advertencias y errores</string>
+      <string id="CSE_LOGLEVEL_WARNINGS">Advertencias y errores</string>
+      <string id="CSE_LOGLEVEL_ERRORS">Solo errores</string>
+      <string id="CSE_LOGLEVEL_NONE">Ninguno</string>
+      <string id="MMC_Preferences_GPSnapin">Extensiones de preferencias de complementos</string>
+      <string id="MMC_Preferences_GPSnapin_Help">Permite autorizar y prohibir el uso de las extensiones del complemento de preferencias del Editor de objetos de directiva de grupo (GPOE).</string>
+      <string id="CSE_Logging">Registro y seguimiento</string>
+      <string id="CSE_Logging_Help">Permite configurar el registro y el seguimiento de los componentes de preferencias.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="CSE_Applications">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_Applications_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_DataSources">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_DataSources_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_Devices">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_Devices_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_Drives">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_Drives_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_Environment">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_Environment_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_Files">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_Files_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_FolderOptions">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_FolderOptions_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_Folders">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_Folders_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_IniFiles">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_IniFiles_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_Internet">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_Internet_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_LocalUsersAndGroups">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_LocalUsersAndGroups_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_NetworkOptions">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_NetworkOptions_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_NetShares">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_NetShares_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_PowerOptions">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_PowerOptions_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_Printers">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_Printers_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_RegionalOptions">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_RegionalOptions_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_PrefRegistry">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_PrefRegistry_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_ScheduledTasks">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_ScheduledTasks_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_Services">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_Services_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_Shortcuts">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_Shortcuts_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHMACHINE">
+          <label>Seguimiento de equipos</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Computer.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+      <presentation id="CSE_StartMenu">
+        <checkBox refId="CSE_ALLOWSLOWLINK" defaultChecked="true">Permitir el procesamiento a través de una conexión de red de baja velocidad</checkBox>
+        <checkBox refId="CSE_NOBACKGROUND">No aplicar durante el procesamiento periódico en segundo plano</checkBox>
+        <checkBox refId="CSE_NOCHANGES" defaultChecked="true">Procesar incluso si los objetos de directiva de grupo no han cambiado</checkBox>
+        <dropdownList refId="CSE_BACKGROUNDPRIORTYLEVEL" noSort="true" defaultItem="3">Prioridad en segundo plano</dropdownList>
+      </presentation>
+      <presentation id="CSE_StartMenu_Logging">
+        <dropdownList refId="CSE_LOGLEVEL" noSort="true" defaultItem="1">Registro de eventos</dropdownList>
+        <dropdownList refId="CSE_TRACELEVEL" noSort="true" defaultItem="1">Seguimiento</dropdownList>
+        <textBox refId="CSE_TRACEFILEPATHUSER">
+          <label>Seguimiento de usuarios</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\User.log</defaultValue>
+        </textBox>
+        <textBox refId="CSE_TRACEFILEPATHPLANNING">
+          <label>Seguimiento de planeación</label>
+          <defaultValue>%COMMONAPPDATA%\GroupPolicy\Preference\Trace\Planning.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="CSE_TRACEFILEMAXSIZE" defaultValue="1024">Tamaño máximo del archivo de seguimiento (KB)</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

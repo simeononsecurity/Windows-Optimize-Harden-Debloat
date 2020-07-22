@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Defender Application Guard</displayName>
+  <description>Turn on Microsoft Defender Application Guard in Managed Mode</description>
+  <resources>
+    <stringTable>
+        <string id="AppHVSICat_DisplayName">Microsoft Defender Application Guard</string>
+        <string id="AppHVSI_AllowAppHVSI_DisplayName">Turn on Microsoft Defender Application Guard in Managed Mode</string>
+        <string id="AppHVSI_AllowAppHVSI_Explain">This policy setting enables application isolation through Microsoft Defender Application Guard.
+
+Application Guard uses Windows Hypervisor to create a virtualized environment for apps that are configured to use virtualization-based security isolation. While in isolation, improper user interactions and app vulnerabilities can’t compromise the kernel or any other apps running outside of the virtualized environment.
+
+If you enable this setting, Application Guard is turned on for your organization.
+        </string>
+        <string id="AppHVSI_ClipboardSettings_DisplayName">Configure Microsoft Defender Application Guard clipboard settings</string>
+        <string id="AppHVSI_ClipboardSettings_Explain">This policy setting allows you to decide how the clipboard behaves while in Microsoft Defender Application Guard.
+
+If you enable this setting, you must choose from the following behaviors:
+
+- Disable clipboard functionality completely between the host and Application Guard
+
+- Enable the clipboard to copy content from Application Guard to the host
+
+- Enable the clipboard to copy content from the host to Application Guard.
+
+Note:
+We recommend that you don't enable copying from the host to Application Guard. If you enable this functionality, a potentially compromised Application Guard session will have access to the host device’s clipboard and its content.
+
+If you choose to enable copying, you must also choose the type of content that can be copied, by using the content options:
+
+- 1. Allows text copying.
+
+- 2. Allows image copying.
+
+- 3. Allows both text and image copying.
+
+If you disable or don't configure this setting, all clipboard functionality is turned off in Application Guard.
+        </string>
+        <string id="AppHVSI_ClipboardSettings_DropdownList_Option_OperationDisabled">Block clipboard operations(default)</string>
+        <string id="AppHVSI_ClipboardSettings_DropdownList_Option_ContainerToHostEnabled">Enable clipboard operation from an isolated session to the host</string>
+        <string id="AppHVSI_ClipboardSettings_DropdownList_Option_HostToContainerEnabled">Enable clipboard operation from an host to the isolated session</string>
+        <string id="AppHVSI_ClipboardSettings_DropdownList_Option_BothDirectionsEnabled">Enable clipboard operation both directions</string>
+        <string id="AppHVSI_PrintingSettings_DisplayName">Configure Microsoft Defender Application Guard print settings</string>
+        <string id="AppHVSI_PrintingSettings_Explain">This policy setting allows you to decide how the print functionality behaves while in Microsoft Defender Application Guard.
+
+If you enable this setting, you must choose one or many of the following behaviors:
+
+- Disable all print functionality in Application Guard.
+
+- Enable printing to existing network printers.
+
+- Enable printing to local printers.
+
+- Enable printing to PDF, allows people to print as PDF and save the resulting file on the host.
+
+- Enable printing to XPS, allows people to print as XPS and save the resulting file on the host.
+
+If you disable or don't configure this setting, all print functionality is turned off in Application Guard.
+        </string>
+
+        <string id="AppHVSI_CertificateThumbprints_DisplayName">Allow Microsoft Defender Application Guard to use Root Certificate Authorities from the user’s device</string>
+        <string id="AppHVSI_CertificateThumbprints_Explain">This policy setting allows certain Root Certificates to be shared with the Microsoft Defender Application Guard container.
+
+If you enable this setting, certificates with a thumbprint matching the ones specified will be transferred into the container. Multiple certificates can be specified by using a comma to separate the thumbprints for each certificate you want to transfer.
+
+If you disable or don’t configure this setting, certificates are not shared with the Microsoft Defender Application Guard container.
+
+Example:  b4e72779a8a362c860c36a6461f31e3aa7e58c14,1b1d49f06d2a697a544a1059bd59a7b058cda924
+        </string>
+
+        <string id="AppHVSI_BlockNonEnterpriseContent_DisplayName">Prevent enterprise websites from loading non-enterprise content in Microsoft Edge and Internet Explorer</string>
+        <string id="AppHVSI_BlockNonEnterpriseContent_Explain">This policy setting allows you to decide whether websites can load non-enterprise content in Microsoft Edge and Internet Explorer.
+
+If you enable this setting, non-enterprise content embedded on enterprise sites are stopped from opening in Internet Explorer or Microsoft Edge outside of Microsoft Defender Application Guard.
+
+If you disable or don't configure this setting, non-enterprise sites can open outside of the Microsoft Defender Application Guard container, directly in Internet Explorer and Microsoft Edge.
+        </string>
+        <string id="AppHVSI_AllowCameraMicrophoneRedirection_DisplayName">Allow camera and microphone access in Microsoft Defender Application Guard</string>
+        <string id="AppHVSI_AllowCameraMicrophoneRedirection_Explain">The policy allows you to determine whether applications inside Microsoft Defender Application Guard can access the device’s camera and microphone when these settings are enabled on the user’s device.
+
+If you enable this policy, applications inside Microsoft Defender Application Guard will be able to access the camera and microphone on the user’s device.
+
+If you disable or don't configure this policy, applications inside Microsoft Defender Application Guard will be unable to access the camera and microphone on the user’s device.
+
+Important: If you turn on this policy, a compromised container could bypass camera and microphone permissions and access the camera and microphone without the user’s knowledge. To prevent unauthorized access, we recommend that camera and microphone privacy settings be turned off on the user’s device when they are not needed.
+        </string>
+        <string id="AppHVSI_AllowPersistence_DisplayName">Allow data persistence for Microsoft Defender Application Guard</string>
+        <string id="AppHVSI_AllowPersistence_Explain">This policy setting allows you to decide whether data should persist across different sessions in Microsoft Defender Application Guard.
+
+If you enable this setting, Application Guard saves user-downloaded files and other items (such as, cookies, Favorites, and so on) for use in future Application Guard sessions.
+
+Note:
+If you enable this setting, you can still delete a user's data from a specific device using the Reset-ApplicationGuard PowerShell command. Running this command deletes all employee data, regardless of configuration, and can result in data loss for the employee.
+
+If you disable or don't configure this setting, Application Guard deletes all user data within the Application Guard container.
+        </string>
+        <string id="AppHVSI_AllowVirtualGPU_DisplayName">Allow hardware-accelerated rendering for Microsoft Defender Application Guard</string>
+        <string id="AppHVSI_AllowVirtualGPU_Explain">This policy setting determines whether Microsoft Defender Application Guard renders graphics using hardware or software acceleration.
+
+If you enable this setting, Microsoft Defender Application Guard uses Hyper-V to access supported, high-security rendering graphics hardware (GPUs). These GPUs improve rendering performance and battery life while using Microsoft Defender Application Guard, particularly for video playback and other graphics-intensive use cases. If you enable this setting without connecting any high-security rendering graphics hardware, Microsoft Defender Application Guard will automatically revert to software-based (CPU) rendering.
+
+Note:
+Be aware that enabling this setting with potentially compromised graphics devices or drivers might pose a risk to the host device.
+
+If you disable or don’t configure this setting, Microsoft Defender Application Guard uses software-based (CPU) rendering and won’t load any third-party graphics drivers or interact with any connected graphics hardware.
+        </string>
+        <string id="AppHVSI_AuditApplicationGuard_DisplayName">Allow auditing events in Microsoft Defender Application Guard</string>
+        <string id="AppHVSI_AuditApplicationGuard_Explain">This policy setting allows you to decide whether auditing events can be collected from Microsoft Defender Application Guard.
+
+If you enable this setting, Application Guard inherits auditing policies from your device and logs system events from the Application Guard container to your host.
+
+If you disable or don't configure this setting, event logs aren't collected from your Application Guard container.
+        </string>
+
+        <string id="AppHVSI_SaveFilesToHost_DisplayName">Allow files to download and save to the host operating system from Microsoft Defender Application Guard</string>
+        <string id="AppHVSI_SaveFilesToHost_Explain">This policy setting determines whether to save downloaded files to the host operating system from the Microsoft Defender Application Guard container.
+
+If you enable this setting, people can save downloaded files from the Microsoft Defender Application Guard container to the host operating system.
+
+If you disable or don't configure this setting, people can't save downloaded files from the Microsoft Defender Application Guard container to the host operating system.
+        </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AppHVSI_AllowAppHVSI_Presentation">
+        <decimalTextBox refId="AppHVSI_AllowAppHVSI_TextBox" defaultValue="1"></decimalTextBox>
+        <text>
+Options:
+0. Disable Microsoft Defender Application Guard
+1. Enable Microsoft Defender Application Guard for Microsoft Edge ONLY
+2. Enable Microsoft Defender Application Guard for isolated Windows environments ONLY
+3. Enable Microsoft Defender Application Guard for Microsoft Edge AND isolated Windows environments
+        </text>
+      </presentation>
+    <presentation id="AppHVSIClipboardSettings_Presentation">
+        <dropdownList refId="AppHVSIClipboardSettings_CopyPasteDirection_DropdownList" noSort="true" defaultItem="0">Clipboard behavior setting.</dropdownList>
+        <decimalTextBox refId="AppHVSIClipboardFileType_AllowedFileType_TextBox" defaultValue="1">Clipboard content options.
+        </decimalTextBox>
+      </presentation>
+      <presentation id="AppHVSIPrintingSettings_Presentation">
+        <decimalTextBox refId="AppHVSIPrintingSettings_TextBox" defaultValue="0">Allowed print types in Application Guard.
+        </decimalTextBox>
+        <text>To determine which types of printing to allow, you must choose:
+     - 0. Disables all print functionality.
+     - 1. Enables only XPS printing.
+     - 2. Enables only PDF printing.
+     - 3. Enables both PDF and XPS printing.
+     - 4. Enables only local printing.
+     - 5. Enables both local and XPS printing.
+     - 6. Enables both local and PDF printing.
+     - 7. Enables local, PDF, and XPS printing.
+     - 8. Enables only network printing.
+     - 9. Enables both network and XPS printing.
+     - 10. Enables both network and PDF printing.
+     - 11. Enables network, PDF, and XPS printing.
+     - 12. Enables both network and local printing.
+     - 13. Enables network, local, and XPS printing.
+     - 14. Enables network, local, and PDF printing.
+     - 15. Enables all printing.
+        </text>
+      </presentation>
+      <presentation id="AppHVSICertificateThumbprints_Presentation">
+        <textBox refId="AppHVSICertificateThumbprints_TextBox">
+          <label>Thumbprints of the certificates to share</label>
+        </textBox>
+      </presentation>
+  </presentationTable>
+  </resources>
+</policyDefinitionResources>

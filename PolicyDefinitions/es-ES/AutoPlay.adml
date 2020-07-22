@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="AutoPlay">Directivas de Reproducción automática</string>
+      <string id="AutoPlay_Help">Configura varios comportamientos de Reproducción automática.</string>
+      <string id="NoAutorun">Establece el comportamiento predeterminado para ejecución automática.</string>
+      <string id="NoAutorun_Help">Esta configuración de directiva establece el comportamiento predeterminado para los comandos de ejecución automática.
+
+          Los comandos de ejecución automática se suelen almacenar en archivos autorun.inf. Estos suelen iniciar el programa de instalación u otras rutinas.
+
+          En los sistemas operativos anteriores a Windows Vista, cuando se insertan medios que contienen un comando de ejecución automática, el sistema ejecuta el programa automáticamente sin la intervención del usuario.
+
+          Esto constituye un riesgo de seguridad importante, ya que se puede ejecutar código sin que el usuario lo sepa. El comportamiento predeterminado a partir de Windows Vista es preguntar al usuario si se debe ejecutar el comando de ejecución automática. El comando de ejecución automática se representa como un controlador en el cuadro de diálogo Reproducción automática.
+
+          Si habilita esta configuración de directiva, un administrador puede cambiar el comportamiento predeterminado de Windows Vista o posterior para la ejecución automática a:
+
+          a) Deshabilitar completamente los comandos de ejecución automática, o bien
+          b) Volver al comportamiento anterior a Windows Vista de ejecutar automáticamente el comando de ejecución automática.
+
+          Si deshabilita o no establece esta configuración de directiva, Windows Vista o un sistema superior preguntará al usuario si se debe ejecutar el comando de ejecución automática.</string>
+      <string id="NoAutorun_Disabled">No ejecutar ningún comando de ejecución automática</string>
+      <string id="NoAutorun_XP">Ejecutar automáticamente comandos de ejecución automática</string>
+      <string id="DontSetAutoplayCheckbox">Evitar que Reproducción automática recuerde las elecciones del usuario</string>
+      <string id="DontSetAutoplayCheckbox_Help">Esta configuración de directiva permite impedir que Reproducción automática recuerde la elección del usuario sobre qué hacer si se conecta un dispositivo.
+
+          Si habilita esta configuración de directiva, Reproducción automática le pedirá al usuario que elija qué hacer cuando se conecte un dispositivo.
+
+          Si deshabilita o no establece esta configuración de directiva, Reproducción automática recuerda la elección del usuario sobre qué hacer si se conecta un dispositivo.</string>
+      <string id="NoAutoplayfornonVolume">Deshabilitar Reproducción automática para dispositivos que no son de volumen</string>
+      <string id="NoAutoplayfornonVolume_Help">Esta configuración de directiva deshabilita la Reproducción automática para dispositivos MTP como cámaras o teléfonos.
+
+          Si habilita esta configuración de directiva, Reproducción automática no se habilitará para dispositivos MTP como cámaras o teléfonos.
+
+          Si deshabilita o no configura esta configuración de directiva, Reproducción automática se habilitará para dispositivos que no son de volumen.</string>
+      <string id="Autorun">Desactivar Reproducción automática</string>
+      <string id="Autorun_Help">Esta configuración de directiva le permite desactivar el la característica Reproducción automática.
+
+          Reproducción automática comienza a leer desde una unidad de disco en cuanto se inserta un medio en la unidad. Como resultado, el archivo de instalación de programas y la música en medios de audio se inician inmediatamente.
+
+          Antes de Windows XP SP2, Reproducción automática estaba deshabilitada de forma predeterminada en unidades extraíbles, tales como la unidad de disco (pero no la unidad de CD-ROM) y en unidades de red.
+
+          A partir de Windows XP SP2, Reproducción automática también está habilitada para las unidades extraíbles, como unidades Zip y algunos dispositivos de almacenamiento USB.
+
+          Si habilita esta configuración de directiva, se deshabilita la característica Reproducción automática en unidades de CD-ROM y unidades de medios extraíbles, o deshabilitarla en todas las unidades.
+
+          Esta configuración de directiva deshabilita Reproducción automática en otros tipos de unidades. No puede usar esta opción para habilitar Reproducción automática en unidades en las que esta característica está deshabilitada de forma predeterminada.
+
+          Si deshabilita o no establece esta configuración de directiva, se habilitará la característica Reproducción automática.
+
+          Nota: esta configuración de directiva aparece en las carpetas Configuración del equipo y Configuración de usuario. Si las configuraciones de directivas entran en conflicto, la configuración de directiva de Configuración del equipo tiene prioridad sobre la de Configuración de usuario.</string>
+      <string id="Autorun_NoCD">Unidades de CD-ROM y medios extraíbles</string>
+      <string id="Autorun_None">Todas las unidades</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="NoAutorun">
+        <dropdownList refId="NoAutorun_Dropdown" noSort="true" defaultItem="0">Comportamiento predeterminado de ejecución automática</dropdownList>
+      </presentation>
+      <presentation id="Autorun">
+        <dropdownList refId="Autorun_Box" defaultItem="0">Desactivar Reproducción automática en:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

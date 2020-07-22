@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>πληκτρολογήστε εδώ το όνομα εμφάνισης</displayName>
+  <description>πληκτρολογήστε εδώ την περιγραφή</description>
+  <resources>
+    <stringTable>
+      <string id="Filesystem">Σύστημα αρχείων</string>
+      <string id="NTFS">NTFS</string>
+      <string id="SymlinkEvalExplain">Οι συμβολικές συνδέσεις μπορεί να δημιουργούν ευπάθειες σε ορισμένες εφαρμογές. Για να αντιμετωπίσετε αυτό το ζήτημα, μπορείτε να ενεργοποιήσετε ή να απενεργοποιήσετε την αξιολόγηση αυτών των τύπων συμβολικών συνδέσεων:
+
+Τοπική σύνδεση σε τοπικό προορισμό Τοπική σύνδεση σε απομακρυσμένο προορισμό Απομακρυσμένη σύνδεση σε απομακρυσμένο προορισμό Απομακρυσμένη σύνδεση σε τοπικό προορισμό
+
+Για περισσότερες πληροφορίες ανατρέξτε στην ενότητα Βοήθειας των Windows
+
+ΣΗΜΕΙΩΣΗ: Αν αυτή η πολιτική απενεργοποιηθεί ή δεν ρυθμιστούν οι παράμετροί της, οι τοπικοί διαχειριστές μπορούν να επιλέξουν τους τύπους συμβολικών συνδέσεων που θα αξιολογηθούν.</string>
+      <string id="SymlinkEvaluation">Να επιτρέπεται επιλεκτικά η αξιολόγηση μιας συμβολικής σύνδεσης</string>
+      <string id="DisableCompression">Να μην επιτρέπεται η συμπίεση σε όλες τους τόμους NTFS</string>
+      <string id="DisableCompressionText">Η συμπίεση μπορεί να επιβαρύνει την επεξεργασία των λειτουργιών του συστήματος αρχείων.  Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, η δημιουργία συμπιεσμένων αρχείων και η πρόσβαση σε αυτά δεν θα είναι διαθέσιμη.  </string>
+      <string id="DisableEncryption">Να μην επιτρέπεται η κρυπτογράφηση σε όλες τους τόμους NTFS</string>
+      <string id="DisableEncryptionText">Η κρυπτογράφηση μπορεί να επιβαρύνει την επεξεργασία των λειτουργιών του συστήματος αρχείων.  Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, η δημιουργία κρυπτογραφημένων αρχείων και η πρόσβαση σε αυτά δεν θα είναι διαθέσιμη.</string>
+      <string id="EnablePagefileEncryption">Ενεργοποίηση κρυπτογράφησης αρχείου αντιμετάθεσης NTFS</string>
+      <string id="EnablePagefileEncryptionText">Η κρυπτογράφηση του αρχείου αντιμετάθεσης απαγορεύει στους κακόβουλους χρήστες την ανάγνωση δεδομένων από το αρχείο αντιμετάθεσης αλλά επιβαρύνει και τις λειτουργίες του συστήματος αρχείων.  Εάν ενεργοποιήσετε αυτήν τη ρύθμιση, τα αρχεία αντιμετάθεσης θα κρυπτογραφηθούν.</string>
+      <string id="LongPathsEnabled">Ενεργοποίηση μεγάλων διαδρομών Win32</string>
+      <string id="LongPathsEnabledText">Η ενεργοποίηση μεγάλων διαδρομών Win32 θα επιτρέψει στις δηλωμένες εφαρμογές win32 και στις εφαρμογές του Windows Store να έχουν πρόσβαση σε διαδρομές πέρα από το κανονικό όριο 260 χαρακτήρων ανά κόμβο σε συστήματα αρχείων που το υποστηρίζουν. Η ενεργοποίηση αυτής της ρύθμισης θα έχει ως αποτέλεσμα οι μεγάλες διαδρομές να είναι προσβάσιμες από το εσωτερικό της διεργασίας.</string>
+      <string id="ShortNameCreationSettings">Επιλογές δημιουργίας μικρών ονομάτων</string>
+      <string id="ShortNameCreationSettingsText">Αυτές οι ρυθμίσεις ελέγχουν αν θα παράγονται μικρά ονόματα κατά τη δημιουργία αρχείων.  Ορισμένες εφαρμογές απαιτούν μικρά ονόματα για λόγους συμβατότητας αλλά τα μικρά ονόματα επιβαρύνουν τις επιδόσεις του συστήματος.
+
+Εάν ενεργοποιήσετε τα μικρά ονόματα σε όλους τους τόμους, τότε θα δημιουργούνται πάντα μικρά ονόματα.  Εάν απενεργοποιήσετε τα μικρά ονόματα σε όλους τους τόμους, τα μικρά ονόματα δεν θα δημιουργούνται ποτέ.  Εάν ορίστε τη δημιουργία μικρών ονομάτων ανά τόμο, τότε μια σήμανση δίσκου θα καθορίζει αν θα δημιουργούνται μικρά ονόματα για συγκεκριμένους δίσκους.  Εάν απενεργοποιήσετε τη δημιουργία μικρών ονομάτων σε όλους τους τόμους δεδομένων, τότε τα μικρά ονόματα θα δημιουργούνται μόνο για αρχεία που δημιουργούνται στον τόμο του συστήματος.</string>
+      <string id="ShortNameCreationSetting_0">Ενεργοποίηση για όλους τους τόμους</string>
+      <string id="ShortNameCreationSetting_1">Απενεργοποίηση για όλους τους τόμους</string>
+      <string id="ShortNameCreationSetting_2">Ενεργοποίηση / απενεργοποίηση ανά τόμο</string>
+      <string id="ShortNameCreationSetting_3">Απενεργοποίηση για όλους τους τόμους δεδομένων</string>
+      <string id="DisableDeleteNotification">Απενεργοποίηση ειδοποιήσεων διαγραφής για όλους τους τόμους</string>
+      <string id="DisableDeleteNotificationText">Η ειδοποίηση διαγραφής είναι μια δυνατότητα που ειδοποιεί την υποκείμενη συσκευή αποθήκευσης για συμπλέγματα που απελευθερώθηκαν εξαιτίας μιας λειτουργίας διαγραφής αρχείου.
+
+Η προεπιλεγμένη τιμή 0 ενεργοποιεί τις ειδοποιήσεις διαγραφής για όλους τους τόμους. 
+Η τιμή 1 απενεργοποιεί τις ειδοποιήσεις διαγραφής για όλους τους τόμους.</string>
+      <string id="TxfDeprecatedFunctionality">Ενεργοποίηση/απενεργοποίηση δυνατοτήτων του TXF υπό απόσυρση</string>
+      <string id="TxfDeprecatedFunctionalityText">Οι δυνατότητες του TXF υπό απόσυρση περιλαμβάνουν σημεία αποθήκευσης, δευτερεύον RM, μίνι έκδοση και επαναφορά σε νεότερες εκδόσεις. Ενεργοποιήστε αυτήν την επιλογή αν θέλετε να χρησιμοποιήσετε τα API.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SymlinkEvaluation">
+        <checkBox refId="SymLinkClassL2L">Τοπική σύνδεση σε τοπικό προορισμό</checkBox>
+        <checkBox refId="SymLinkClassL2R">Τοπική σύνδεση σε απομακρυσμένο προορισμό</checkBox>
+        <checkBox refId="SymLinkClassR2R">Απομακρυσμένη σύνδεση σε απομακρυσμένο προορισμό</checkBox>
+        <checkBox refId="SymLinkClassR2L">Απομακρυσμένη σύνδεση σε τοπικό προορισμό</checkBox>
+      </presentation>
+      <presentation id="CompressionOptions"/>
+      <presentation id="EncryptionOptions"/>
+      <presentation id="LongPathsEnabledOptions"/>
+      <presentation id="PagefileEncryptionOptions"/>
+      <presentation id="ShortNameCreationSettings">
+          <dropdownList refId="ShortNameCreationSetting_Levels" noSort="true" defaultItem="2">Επιλογές δημιουργίας μικρών ονομάτων</dropdownList>
+      </presentation>
+      <presentation id="DeleteNotificationOptions"/>
+      <presentation id="TxfDeprecatedFunctionalityOptions"/>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>
