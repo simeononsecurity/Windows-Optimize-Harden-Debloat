@@ -4,6 +4,9 @@
 .\LGPO\LGPO.exe /g ".\Scripts\Security, Hardening, and Mitigations\Windows Baseline\Windows 10 1909 Baseline\GPOs"
 .\LGPO\LGPO.exe /g ".\GPO Backup for Mass Import"
 
+mkdir C:\temp\
+mkdir "C:\temp\Windows Defender"
+copy-item -Path .\Files\DOD_EP_V3.xml -Destination "C:\temp\Windows Defender" -Force -Recurse
 copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions -Force -Recurse
 
 #Package Management Scripts
