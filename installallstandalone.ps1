@@ -26,4 +26,4 @@ copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions 
 .\Scripts\"Debloating, Optimization, and Privacy"\online-Windows10Debloater.ps1
 
 #ONLY ENABLE IF ON VM
-#".\Scripts\Debloating, Optimization, and Privacy\Windows_10_VDI_Optimize-master\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1"
+#.\Scripts\"Debloating, Optimization, and Privacy"\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
