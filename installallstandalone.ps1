@@ -7,7 +7,7 @@
 copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions -Force -Recurse
 
 #Package Management Scripts
-.\Scripts\"Package Management and Windows Updates"\installrsat.ps1
+#.\Scripts\"Package Management and Windows Updates"\installrsat.ps1
 .\Scripts\"Package Management and Windows Updates"\chocoautomatewindowsupdates.ps1
 
 #Security Scripts
