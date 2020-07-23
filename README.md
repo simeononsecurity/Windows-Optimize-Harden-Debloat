@@ -21,7 +21,7 @@ A list of script and tools this collection utilizes:
 
 5.) [Mirinsoft - SharpApp](https://github.com/builtbybel/sharpapp)
 
-6.) [Mirinsoft - debotnet] (https://github.com/builtbybel/debotnet)
+6.) [Mirinsoft - debotnet](https://github.com/builtbybel/debotnet)
 
 Additional configurations were considered from:
 
