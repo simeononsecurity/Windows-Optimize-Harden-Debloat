@@ -1,0 +1,23 @@
+[Info]
+ID=Disable Mozilla Firefox telemetry
+Ver=1.0
+Desc=Firefox 75 comes with a new telemetry agent that sends information about your operating system and your default browser to Firefox every day. The information collected is sent as a background telemetry ping every 24 hours to Mozilla.\n\nMozilla has introduced a Windows group policy that prevents the default-browser-agent.exe executable from sending your default browser info. Run this script, to enable this policy.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Recommended
+EvaluationColor=009e5e
+RequireAdmin=Yes
+
+[Code]
+File1=Try,query "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /v "DisableTelemetry",STDOUT
+File2=Try,query "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /v "DisableDefaultBrowserAgent",STDOUT
+File3=Reg,add "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /v "DisableTelemetry" /t REG_DWORD /d 1 /f,STDOUT
+File4=Reg,add "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /v "DisableDefaultBrowserAgent" /t REG_DWORD /d 1 /f,STDOUT
+
+[Undo]
+File1=Reg,delete "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /v "DisableTelemetry" /f,STDOUT
+File2=Reg,delete "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /v "DisableDefaultBrowserAgent" /f,STDOUT
+
+
+

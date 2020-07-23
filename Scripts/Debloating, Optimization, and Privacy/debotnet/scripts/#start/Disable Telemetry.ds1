@@ -1,0 +1,35 @@
+[Info]
+ID=Disable Telemetry
+Ver=1.1
+Desc=As you use Windows 10, Microsoft will collect usage information. All its options are available in Settings -> Privacy - Feedback and Diagnostics. There you can set the options "Diagnostic and usage data" to Basic, Enhanced and Full.\n\nThe Telemetry levels:\n---Security=Enterprise and Education editions only\n---Basic=A value of 1 sends the same data as a value of 0, plus a very limited amount of diagnostic data such as basic device info, quality-related data, and app compatibility info.\n---Enhanced=A value of 2 sends the same data as a value of 1, plus additional data such as how Windows, Windows Server, System Center, and apps are used, how they perform, and advanced reliability data.\n---Full=A value of 3 sends the same data as a value of 2, plus advanced diagnostics data used to diagnose and fix problems with devices, which can include the files and content that may have caused a problem with the device.\n\nThis script will set diagnostic data to Basic, which is the lowest level available for all consumer versions of Windows 10.\n\nIf you want to remove completely all telemetry and other unnecessary services, please use the script "Remove Telemetry (Advanced)".
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Recommended
+EvaluationColor=009e5e
+RequireAdmin=Yes
+
+[Code]
+Task1=Run,net stop DiagTrack,STDOUT
+Task2=Run,net stop dmwappushsvc,STDOUT
+Task3=Try,query "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry,STDOUT
+Task4=Try,query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v AllowTelemetry,STDOUT
+Task5=Try,query "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v AITEnable,STDOUT
+Task6=Try,query "HKLM\SYSTEM\ControlSet001\Services\DiagTrack" /v Start,STDOUT
+Task7=Try,query "HKLM\SYSTEM\ControlSet001\Services\dmwappushsvc" /v Start,STDOUT
+File1=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v AITEnable /t REG_DWORD /d 0 /f,STDOUT
+File2=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f,STDOUT
+File3=Reg,add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f,STDOUT
+File4=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v AITEnable /t REG_DWORD /d 0 /f,STDOUT
+File5=Reg,add "HKLM\SYSTEM\ControlSet001\Services\DiagTrack" /v Start /t REG_DWORD /d 4 /f,STDOUT
+File6=Reg,add "HKLM\SYSTEM\ControlSet001\Services\dmwappushsvc" /v Start /t REG_DWORD /d 4 /f,STDOUT
+
+[Undo]
+Task1=Run,net start DiagTrack,STDOUT
+Task2=Run,net start dmwappushsvc,STDOUT
+File1=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f,STDOUT
+File2=Reg,add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f,STDOUT
+File3=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v AITEnable /t REG_DWORD /d 1 /f,STDOUT
+File4=Reg,add "HKLM\SYSTEM\ControlSet001\Services\DiagTrack" /v Start /t REG_DWORD /d 2 /f,STDOUT
+File5=Reg,add "HKLM\SYSTEM\ControlSet001\Services\dmwappushsvc" /v Start /t REG_DWORD /d 2 /f,STDOUT
+

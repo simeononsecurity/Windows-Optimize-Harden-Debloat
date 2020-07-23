@@ -1,0 +1,19 @@
+[Info]
+ID=Disable CCleaner Health Check
+Ver=1.0
+Desc=Recently Piriform, maker of CCleaner (aquired by Avast in 2017), released a new version of CCleaner which comes with a brand new feature called "Health Check". This option has been developed to replace previous "Easy Clean" feature which was implemented for non-technical users to scan and clean unnecessary files quickly and easily without any technical knowledge.\n\nRun this script, if you at least want to see the familiar home screen - now called "Custom Clean" - from previous versions, which provides full control over the cleanup options.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Custom
+EvaluationColor=562765
+
+[Code]
+Task1=Try,query "HKCU\Software\Piriform\CCleaner" /v HomeScreen,STDOUT
+Task2=TaskKill,ccleaner.exe,WARNING
+Task3=TaskKill,ccleaner64.exe,WARNING
+File1=Reg,add "HKCU\Software\Piriform\CCleaner" /v "HomeScreen" /t REG_SZ /d 2 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKCU\Software\Piriform\CCleaner" /v "HomeScreen" /t REG_SZ /d 3 /f,STDOUT
+

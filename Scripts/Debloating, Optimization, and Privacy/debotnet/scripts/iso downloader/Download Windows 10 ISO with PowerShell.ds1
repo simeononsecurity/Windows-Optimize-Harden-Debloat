@@ -1,0 +1,18 @@
+[Info]
+ID=Download Windows 10 ISO (PowerShell)
+Ver=1.0
+Desc=Fido is a PowerShell script that can automate downloading of Microsoft Windows retail ISO images directly from the Microsoft servers. Fido is an acronym for full ISO downloader and is designed by the developer to work with the popular bootable USB creator tool Rufus, but can also be used in standalone fashion.\n\nThis script will automatically download the Fido script (Fido.ps1) from GitHub @https://github.com/pbatard/Fido/releases and execute it. After a few seconds a new pop-up window, the Fido - Retail Windows ISO Downloader, opens and you will be asked to select your version, edition, architecture and language. Hit then the download button; it should open a new tab in your browser and the download of the ISO image should start. 
+Dev=Pete Batard
+DevURL=https://github.com/pbatard/Fido
+WinVer=Compatible with Windows 10
+Evaluation=ISO Downloader
+EvaluationColor=68217a
+Update=False
+
+[Code]
+Task1=GetRaw,https://github.com/pbatard/Fido/blob/master/Fido.ps1,helper
+File1=Run,powershell -ExecutionPolicy Bypass -file helper\Fido.ps1,STDOUT
+
+[Undo]
+Task1=rmdir,helper
+

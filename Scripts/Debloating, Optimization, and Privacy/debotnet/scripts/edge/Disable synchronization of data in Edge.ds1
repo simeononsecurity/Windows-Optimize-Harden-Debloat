@@ -1,0 +1,17 @@
+[Info]
+ID=Disable synchronization of data
+Ver=1.0
+Desc=Run this script to disable synchronization of data using Microsoft sync services.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Recommended
+EvaluationColor=009e5e
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\Software\Policies\Microsoft\Edge" /v SyncDisabled,STDOUT
+File1=Reg,add "HKLM\Software\Policies\Microsoft\Edge" /v SyncDisabled /t REG_DWORD /d 1 /f,STDOUT
+
+[Undo]
+File1=Reg,delete "HKLM\Software\Policies\Microsoft\Edge" /v SyncDisabled /f,STDOUT

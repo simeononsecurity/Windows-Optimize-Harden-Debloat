@@ -1,0 +1,22 @@
+[Info]
+ID=Turn off ads in Settings app
+Ver=1.0
+Desc=Starting with Windows 10 build 16273, the Settings app of Windows 10 shows tips and suggestions. This content comes in a variety of forms, and can help you discover new features within Settings, or suggest new content and apps you may find interesting.\n\nRun this script, to disable ads in Settings app.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Recommended
+EvaluationColor=009e5e
+
+[Code]
+Task1=Try,query "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-338393Enabled,STDOUT
+Task2=Try,query "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-353694Enabled,STDOUT
+Task3=Try,query "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-353696Enabled,STDOUT
+File1=Reg,add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-338393Enabled /t REG_DWORD /d 0 /f,STDOUT
+File2=Reg,add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-353694Enabled /t REG_DWORD /d 0 /f,STDOUT
+File3=Reg,add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-353696Enabled /t REG_DWORD /d 0 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-338393Enabled /t REG_DWORD /d 1 /f,STDOUT
+File2=Reg,add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-353694Enabled /t REG_DWORD /d 1 /f,STDOUT
+File3=Reg,add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-353696Enabled /t REG_DWORD /d 1 /f,STDOUT

@@ -1,0 +1,16 @@
+[Info]
+ID=Remove all apps
+Ver=1.0
+Desc=This is a all in one script (AIO), which will remove all apps except Microsoft Store from this PC on current account only.\n\nThe execution is redirected to command-line and the process can be aborted at any time.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Update=False
+
+[Code]
+File1=Run,powershell -command "Get-AppXPackage | where-object {$_.name -notlike '*store*'} | Remove-AppxPackage",SHOWCLI
+
+[Undo]
+Info1=Msg,This script does not support re-installing built-in apps.\nYou will find tutorials (e.g. with PowerShell commands) on the web how to restore them in your computer.
+
+

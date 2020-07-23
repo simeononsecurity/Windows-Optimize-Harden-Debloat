@@ -1,0 +1,19 @@
+[Info]
+ID=Thunderbird
+Ver=1.0
+Desc=This will download ninite installer for Thunderbird
+Dev=Ninite
+DevURL=https://ninite.com/
+Evaluation=App
+EvaluationColor=002BAE
+Update=False
+
+[Variables]
+Thunderbird=Thunderbird
+
+[Code]
+File1=Get,https://ninite.com/%Thunderbird%/ninite.exe,DEFAULT
+Task1=Start(),ninite.exe
+
+[Undo]
+Info1=Msg,This script will ONLY download an application.\nNo system changes are made here!

@@ -1,0 +1,19 @@
+[Info]
+ID=Download Windows 10 ISO (MCT)
+Ver=1.0
+Desc=With the Media Creation Tool (MCT) for Windows 10 you can create your own ISO, have it written on a USB stick or DVD. You have the choice between the Home, Pro and Education (also as an N version).\n\nThere is also a .BAT file available - it's officially a wrapper to get the official MCT working, made by an user of forums.mydigitallife.net It uses official Microsoft hosted files to get current as well as past Windows 10 MCT builds. MCT wrapper also comes with support for Windows 10 business edition both enterprise as well as volume licensing. You can get 64-bit as well as 32-bit or AIO inside the MCT GUI.\n\nThis script will automatically download the MediaCreationTool.bat Wrapper provided by AveYo @https://gist.github.com/AveYo/c74dc774a8fb81a332b5d65613187b15 from GitHub and run it. The Windows dialog appears automatically after download.
+Dev=BAU (User of forums.mydigitallife.net)
+DevURL=https://forums.mydigitallife.net/threads/universal-mediacreationtool-bat-wrapper-for-all-versions-1607-1909.78054/
+WinVer=Compatible with Windows 10
+Evaluation=ISO Downloader
+EvaluationColor=68217a
+Update=False
+
+[Code]
+Task1=GetRaw,https://github.com/mirinsoft/debotnet/blob/master/third-party/mediacreationtool.bat,helper
+File1=Run,helper\mediacreationtool.bat,STDOUT
+
+[Undo]
+Task1=rmdir,helper
+
+

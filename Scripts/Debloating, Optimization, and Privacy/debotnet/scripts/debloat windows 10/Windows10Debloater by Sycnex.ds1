@@ -1,0 +1,23 @@
+[Info]
+ID=Windows10Debloater
+Patron=With love from Sycnex / Windows10Debloater
+Ver=1.2
+Desc=This is a All-in-One PowerShell script which features a GUI and allows you to remove the bloatware from Windows 10, disable scheduled tasks/telemetry, Cortana, OneDrive and also some optional changes and fixes, e.g it can disable dark mode and stop Edge from PDF takeover.\n\nTo view the full code of this PowerShell script goto @https://github.com/Sycnex/Windows10Debloater/blob/master/Windows10DebloaterGUI.ps1\n\nThis script must be executed as administrator.\nDebotnet will download always the latest version from the master branch and execute this script automatically. After hitting <Run script> a PowerShell console will open where the output is done and the application screen itself which allows you to control every function that the scripts do.
+Dev=Richard Newton
+DevURL=https://github.com/Sycnex/Windows10Debloater
+WinVer=Compatible with Windows 10
+Evaluation=Patron
+EvaluationColor=f6298c
+Update=False
+
+[Code]
+Task1=GetRaw,https://github.com/Sycnex/Windows10Debloater/blob/master/Windows10DebloaterGUI.ps1,helper
+;Download file when hitting "Test script"
+Task2=UseRaw,https://github.com/Sycnex/Windows10Debloater/blob/master/Windows10DebloaterGUI.ps1,helper
+;Open downloaded file when hitting "Test script" to preview script changes
+Task3=OpenRaw,helper\Windows10DebloaterGUI.ps1
+File1=Run,start powershell -ExecutionPolicy Bypass -file helper\Windows10DebloaterGUI.ps1
+
+[Undo]
+Task1=rmdir,helper
+Info1=Msg,This script changes can not be reverted.

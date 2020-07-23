@@ -1,0 +1,15 @@
+[Info]
+ID=Download Windows updates
+Ver=1.0
+Desc=Once you get to the desktop, go to Settings > Update and Security, and let it download all the updates.\nReboot and repeat until no more updates are available.\n\nThis is important because Windows Update may interfere with our activities.\n\nRun this script to open the Windows Update.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Recommended
+EvaluationColor=009e5e
+
+[Code]
+File1=Start,ms-settings:windowsupdate-action
+
+[Undo]
+Info1=Msg,This script will open ONLY the Windows updates.\nNo system changes are made here!

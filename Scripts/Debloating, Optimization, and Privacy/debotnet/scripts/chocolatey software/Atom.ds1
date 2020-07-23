@@ -1,0 +1,18 @@
+[Info]
+ID=Atom
+Ver=1.0
+Desc=Chocolatey packages represent community-maintained distributions of software titles.\n\nYou can search for additional packages here\n1. https://chocolatey.org/packages\n2. Inside an elevated powershell/command prompt with\n<choco search [keyword]>\n\nThis will install choco package Atom.\nTo uninstall an choco package run Debotnet > Undo script.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Chocolatey
+EvaluationColor=75b2e3
+Update=False
+
+[Code]
+Task1=Start(),choco install atom -yes
+
+[Undo]
+Task1=Run,choco uninstall atom -yes -force,STDOUT
+
+

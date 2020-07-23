@@ -1,0 +1,16 @@
+[Info]
+ID=Contact Support
+Ver=1.0
+Desc=If you no longer want or use an app, then you could uninstall the app to remove it and free up space on the drive.\n\nThis script will remove the app Contact Support from current account only.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Bloatware
+EvaluationColor=3D8836
+Update=False
+
+[Code]
+File1=Run,powershell -command "Get-AppxPackage *Windows.ContactSupport* | Remove-AppxPackage"
+
+[Undo]
+Info1=Msg,This script does not support re-installing built-in apps.\nYou will find tutorials (e.g. with PowerShell commands) on the web how to restore them in your computer.

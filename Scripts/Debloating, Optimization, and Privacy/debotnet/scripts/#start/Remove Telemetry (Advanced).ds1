@@ -1,0 +1,52 @@
+[Info]
+ID=Removing Telemetry (Advanced)
+Ver=1.0
+Desc=This script will remove completely all telemetry and other unnecessary services.
+Dev=Federico Dossena
+DevURL=https://github.com/adolfintel/Windows10-Privacy
+WinVer=Compatible with Windows 10
+Evaluation=Limited
+EvaluationColor=ffd45e
+RequireAdmin=Yes
+
+[Code]
+File1=Run,sc delete DiagTrack,STDOUT
+File2=Run,sc delete dmwappushservice,STDOUT
+File3=Run,sc delete WerSvc,STDOUT
+File4=Run,sc delete OneSyncSvc,STDOUT
+File5=Run,sc delete MessagingService,STDOUT
+File6=Run,sc delete wercplsupport,STDOUT
+File7=Run,sc delete PcaSvc,STDOUT
+File8=Run,sc config wlidsvc start=demand,STDOUT
+File9=Run,sc delete wisvc,STDOUT
+File10=Run,sc delete RetailDemo,STDOUT
+File11=Run,sc delete diagsvc,STDOUT
+File12=Run,sc delete shpamsvc,STDOUT
+File13=Run,sc delete TermService,STDOUT
+File14=Run,sc delete UmRdpService,STDOUT
+File15=Run,sc delete SessionEnv,STDOUT
+File16=Run,sc delete TroubleshootingSvc,STDOUT
+File17=Run,sc delete diagnosticshub.standardcollector.service,STDOUT
+File18=Run,for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "OneSyncSvc" ^| find /i "OneSyncSvc"') do (reg delete %I /f)
+File19=Run,for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "MessagingService" ^| find /i "MessagingService"') do (reg delete %I /f)
+File20=Run,for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "PimIndexMaintenanceSvc" ^| find /i "PimIndexMaintenanceSvc"') do (reg delete %I /f)
+File21=Run,for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "UserDataSvc" ^| find /i "UserDataSvc"') do (reg delete %I /f)
+File22=Run,for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "UnistoreSvc" ^| find /i "UnistoreSvc"') do (reg delete %I /f)
+File23=Run,for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "BcastDVRUserService" ^| find /i "BcastDVRUserService"') do (reg delete %I /f)
+File24=Run,for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "Sgrmbroker" ^| find /i "Sgrmbroker"') do (reg delete %I /f)
+File25=Reg,add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules" /v "NumberOfSIUFInPeriod" /t REG_DWORD /d 0 /f,STDOUT
+File26=Reg,delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules" /v "PeriodInNanoSeconds" /f,STDOUT
+File27=Reg,add "HKLM\SYSTEM\ControlSet001\Control\WMI\AutoLogger\AutoLogger-Diagtrack-Listener" /v Start /t REG_DWORD /d 0 /f,STDOUT
+File28=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v AITEnable /t REG_DWORD /d 0 /f,STDOUT
+File29=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v DisableInventory /t REG_DWORD /d 1 /f,STDOUT
+File30=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v DisablePCA /t REG_DWORD /d 1 /f,STDOUT
+File31=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v DisableUAR /t REG_DWORD /d 1 /f,STDOUT
+File32=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter" /v "EnabledV9" /t REG_DWORD /d 0 /f,STDOUT
+File33=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /v "EnableSmartScreen" /t REG_DWORD /d 0 /f,STDOUT
+File34=Reg,add "HKCU\Software\Microsoft\Internet Explorer\PhishingFilter" /v "EnabledV9" /t REG_DWORD /d 0 /f,STDOUT
+File35=Reg,add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoRecentDocsHistory" /t REG_DWORD /d 1 /f,STDOUT
+File36=Reg,add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f,STDOUT
+File37=Reg,add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DeviceCensus.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f,STDOUT
+
+[Undo]
+Info1=Msg,This script changes can not be reverted.

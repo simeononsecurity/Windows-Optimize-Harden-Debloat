@@ -1,0 +1,18 @@
+[Info]
+ID=Disable Windows Defender
+Ver=1.0
+Desc=If you believe that Windows Defender Antivirus isn't for you, run this script to disable it.\n\nIf you're installing third-party anti-malware, you don't need to disable the Windows Defender Antivirus, as it'll be disabled automatically during the installation process.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Custom
+EvaluationColor=562765
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware,STDOUT
+File1=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 0 /f,STDOUT
+

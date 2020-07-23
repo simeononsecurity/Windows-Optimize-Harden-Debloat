@@ -1,0 +1,18 @@
+[Info]
+ID=Download Wim Tweak
+Ver=1.0
+Desc=This script will download "install_wim_tweak.exe" which can uninstall pre-installed apps and remove Windows components with a single command. You can also use the built-in scripts in Debotnet for removing the default UWP apps. Of course, not everything can be uninstalled in this manner. For the more difficult apps, use the install_wim_tweak.exe utility.\n\nE.g., to uninstall Cortana you could use the commented out command in the code section of this script. Other examples can be viewed on Debotnet's GitHub repository @https://github.com/mirinsoft/debotnet/blob/master/third-party/wim_tweak_switches.txt
+Dev=Wnuowski, updated by Win Toolkit Programmer
+DevURL=https://msfn.org/board/topic/152688-win6x_registry_tweak/
+WinVer=Compatible with Windows 10
+Evaluation=Limited
+EvaluationColor=ffd45e
+
+[Code]
+File1=GetRaw,https://github.com/mirinsoft/debotnet/blob/master/helper/install_wim_tweak.exe,helper
+;File2=Run,helper\install_wim_tweak.exe /o /c Microsoft-Windows-Cortana /r,SHOWCLI
+
+[Undo]
+Info1=Msg,This script will ONLY download an application.\nNo system changes are made here!
+
+

@@ -1,0 +1,18 @@
+[Info]
+ID=Delay feature updates
+Ver=1.0
+Desc=Defer upgrades option is available on Professional, Enterprise and Education editions of Windows 10, whilst Windows 10 Home doesn't have this feature. If you enable this feature, your Windows 10 PC will stay on the Current branch for business. \n\nThis script will defer/delay upgrades that install a new version of Windows 10, e.g. version 1903 on a system with version 1809 installed.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Custom
+EvaluationColor=562765
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate" /v DeferUpgrade,STDOUT
+File5=Reg,add "HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate" /v DeferUpgrade /t REG_DWORD /d 1 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate" /v DeferUpgrade /t REG_DWORD /d 0 /f,STDOUT
+

@@ -1,0 +1,19 @@
+[Info]
+ID=Evernote
+Ver=1.0
+Desc=This will download ninite installer for Evernote
+Dev=Ninite
+DevURL=https://ninite.com/
+Evaluation=App
+EvaluationColor=002BAE
+Update=False
+
+[Variables]
+Evernote=Evernote
+
+[Code]
+File1=Get,https://ninite.com/%Evernote%/ninite.exe,DEFAULT
+Task1=Start(),ninite.exe
+
+[Undo]
+Info1=Msg,This script will ONLY download an application.\nNo system changes are made here!

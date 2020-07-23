@@ -1,0 +1,22 @@
+[Info]
+ID=Disable app access to webcam
+Ver=1.0
+Desc=Windows 10 provides a wealth of data access to make apps useful and valuable to you. These capabilities, which are security constructs that gate access to personal data, include things like Calendar, Contacts, Call History, and more. Each capability has its own privacy settings page so that you can control it and what apps and services can use that capability.\n\nThese settings can be also found in the GUI by going to Settings > Privacy or just use the below script "Open privacy settings".\n\nThis script will disable app access to webcam.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Recommended
+EvaluationColor=009e5e
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam" /v Value,STDOUT
+File1=Reg,add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam" /v Value /t REG_SZ /d "Deny" /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam" /v Value /t REG_SZ /d "Allow" /f,STDOUT
+
+
+
+
+

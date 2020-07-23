@@ -1,0 +1,17 @@
+[Info]
+ID=Prevent Installing Microsoft Edge Chrome automatically 
+Ver=1.0
+Desc=On January 15, 2020, Microsoft is expected to begin the automatic rollout of the new version of Microsoft Edge based on the Chromium engine through Windows Update on devices running the Windows 10 April 2018 Update (version 1803) and newer releases to replace the legacy version.\n\nWith this script you can block the automatic delivery of the new version of Microsoft Edge-based of on the Chromium engine on your device until you're ready.
+Dev=Windows Central
+DevURL=https://www.windowscentral.com/how-prevent-microsoft-edge-chromium-installing-automatically-windows-10
+WinVer=Compatible with Windows 10
+Evaluation=Custom
+EvaluationColor=562765
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\SOFTWARE\Microsoft" /v DoNotUpdateToEdgeWithChromium,STDOUT
+File1=Reg,add "HKLM\SOFTWARE\Microsoft" /v DoNotUpdateToEdgeWithChromium /t REG_DWORD /d 1 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKLM\SOFTWARE\Microsoft" /v DoNotUpdateToEdgeWithChromium /t REG_DWORD /d 0 /f,STDOUT

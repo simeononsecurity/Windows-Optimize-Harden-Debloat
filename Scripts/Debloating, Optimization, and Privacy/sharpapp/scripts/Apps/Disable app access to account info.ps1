@@ -1,0 +1,2 @@
+﻿### Disable app access to account info
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation" -Name Value -Type String -Value Deny -Force

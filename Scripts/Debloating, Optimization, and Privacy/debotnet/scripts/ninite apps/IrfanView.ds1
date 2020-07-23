@@ -1,0 +1,35 @@
+[Info]
+ID=IrfanView
+Ver=1.0
+Desc=This will download ninite installer for IrfanView
+Dev=Ninite
+DevURL=https://ninite.com/
+Evaluation=App
+EvaluationColor=002BAE
+Update=False
+
+[Variables]
+IrfanView=IrfanView
+
+[Code]
+File1=Get,https://ninite.com/%IrfanView%/ninite.exe,DEFAULT
+Task1=Start(),ninite.exe
+
+[Undo]
+Info1=Msg,This script will ONLY download an application.\nNo system changes are made here!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

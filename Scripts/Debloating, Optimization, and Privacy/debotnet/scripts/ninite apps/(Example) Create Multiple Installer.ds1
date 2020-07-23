@@ -1,0 +1,22 @@
+[Info]
+ID=Create Multiple Installer (Example ONLY)
+Ver=1.0
+Desc=This will download mutliple ninite installer packages, here GIMP, IrfanView, Notepad++, qBittorrent.\n\nThis is ONLY an example script. You can customize it via Debotnet > Code
+Dev=Ninite
+DevURL=https://ninite.com/
+Evaluation=Example
+EvaluationColor=008335
+Update=False
+
+[Variables]
+gimp=gimp
+iview=irfanview
+npp=notepadplusplus
+qbittorrent=qbittorrent
+
+[Code]
+Package1=Get,https://ninite.com/%gimp%-%iview%-%npp%-%qbittorrent%/ninite.exe,DEFAULT
+Task1=Start(),ninite.exe
+
+[Undo]
+Info1=Msg,This script will ONLY download an application.\nNo system changes are made here!

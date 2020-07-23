@@ -1,0 +1,25 @@
+[Info]
+ID=Disable Microsoft Office telemetry
+Ver=1.0
+Desc=Run this script to disable Microsoft Office telemetry (supports Microsoft Office 2013 and 2016).
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Custom
+EvaluationColor=562765
+
+[Code]
+File1=Try,query "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /v "Enablelogging",STDOUT
+File2=Try,query "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /v "EnableUpload",STDOUT
+File3=Try,query "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /v "Enablelogging",STDOUT
+File4=Try,query "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /v "EnableUpload",STDOUT
+File5=Reg,add "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /v "Enablelogging" /t REG_DWORD /d 0 /f,STDOUT
+File6=Reg,add "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /v "EnableUpload" /t REG_DWORD /d 0 /f,STDOUT
+File7=Reg,add "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /v "Enablelogging" /t REG_DWORD /d 0 /f,STDOUT
+File8=Reg,add "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /v "EnableUpload" /t REG_DWORD /d 0 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /v "Enablelogging" /t REG_DWORD /d 1 /f,STDOUT
+File2=Reg,add "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /v "EnableUpload" /t REG_DWORD /d 1 /f,STDOUT
+File3=Reg,add "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /v "Enablelogging" /t REG_DWORD /d 1 /f,STDOUT
+File4=Reg,add "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /v "EnableUpload" /t REG_DWORD /d 1 /f,STDOUT

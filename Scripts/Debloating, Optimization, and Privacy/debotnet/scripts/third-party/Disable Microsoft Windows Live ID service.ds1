@@ -1,0 +1,19 @@
+[Info]
+ID=Disable Microsoft Windows Live ID service
+Ver=1.0
+Desc=This will disable user sign-in through Microsoft account identity services. If this service is stopped, users will not be able to logon to the computer with their Microsoft account.\n\nRun this script to disable Microsoft Windows Live ID service.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Custom
+EvaluationColor=562765
+RequireAdmin=Yes
+
+[Code]
+File1=Try,query "HKLM\SYSTEM\CurrentControlSet\services\wlidsvc" /v Start,STDOUT
+File2=Reg,add "HKLM\SYSTEM\CurrentControlSet\services\wlidsvc" /v Start /t REG_DWORD /d 4 /f,STDOUT
+Task1=Run,sc config wlidsvc start=disabled,STDOUT
+
+[Undo]
+File1=Reg,delete "HKLM\SYSTEM\CurrentControlSet\services\wlidsvc" /v Start /f,STDOUT
+Task1=Run,sc config wlidsvc start=auto,STDOUT

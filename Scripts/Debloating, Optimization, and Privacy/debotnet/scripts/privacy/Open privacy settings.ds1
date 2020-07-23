@@ -1,0 +1,15 @@
+[Info]
+ID=Open privacy settings
+Ver=1.0
+Desc=At the end of Windows 10 setup process, create a local account, don't use Cortana and turn off everything in the privacy settings.\n\nIf you already installed Windows with the default settings, go to Start > Settings > Privacy to turn them off. You should also go to Account and disconnect your Microsoft account because Debotnet will prevent it from working properly, when running all scripts.\n\nThis script will ONLY open Windows 10 privacy settings.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Settings ONLY
+EvaluationColor=68217a
+
+[Code]
+File1=Start,ms-settings:privacy-general
+
+[Undo]
+Info1=Msg,This script will open ONLY the Privacy settings app.\nNo system changes are made here!

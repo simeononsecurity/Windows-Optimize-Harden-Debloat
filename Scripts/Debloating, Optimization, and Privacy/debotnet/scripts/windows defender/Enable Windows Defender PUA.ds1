@@ -1,0 +1,18 @@
+[Info]
+ID=Enable Windows Defender PUA Protection
+Ver=1.0
+Desc=The Potentially Unwanted Applications (PUA) protection feature in Windows Defender Antivirus can identify and block PUAs from downloading and installing on endpoints in your network.\nThese applications are not considered viruses, malware, or other types of threats, but might perform actions on endpoints that adversely affect their performance or use. PUA can also refer to applications that are considered to have a poor reputation.\n\nThis script will enable Potential Unwanted Applications (PUA) protection in Windows Defender for all users.
+Dev=tenforums
+DevURL=https://www.tenforums.com/tutorials/32236-enable-disable-windows-defender-pua-protection-windows-10-a.html
+WinVer=Compatible with Windows 10
+Evaluation=Custom
+EvaluationColor=562765
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\SOFTWARE\Microsoft\Windows Defender" /v PUAProtection,STDOUT
+File1=Run,powershell -command Set-MpPreference -PUAProtection Enabled,STDOUT
+
+[Undo]
+File1=Run,powershell -command Set-MpPreference -PUAProtection Disabled,STDOUT
+

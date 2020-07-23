@@ -1,0 +1,2 @@
+﻿### Disable app access to microphone
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone" -Name Value -Type String -Value Deny -Force

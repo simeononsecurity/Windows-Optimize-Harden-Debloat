@@ -1,0 +1,29 @@
+[Info]
+ID=No more forced driver updates
+Ver=1.0
+Desc=Windows 10 automatically installs updates, including new versions of hardware drivers.\n\nIf you want to use specific drivers, you can prevent Windows Update from installing driver updates with this script. After the reboot, the automatic update of the drivers in the system will be blocked.
+Dev=MajorGeeks
+DevURL=https://www.majorgeeks.com/content/page/how_to_view_recently_updated_windows_drivers.html
+WinVer=Compatible with Windows 10
+Evaluation=Custom
+EvaluationColor=562765
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Update" /v ExcludeWUDriversInQualityUpdate,STDOUT
+Task2=Try,query "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Update" /v ExcludeWUDriversInQualityUpdate,STDOUT
+Task3=Try,query "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Update\ExcludeWUDriversInQualityUpdate" /v Value,STDOUT
+Task4=Try,query "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v ExcludeWUDriversInQualityUpdate,STDOUT
+Task5=Try,query "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v ExcludeWUDriversInQualityUpdate,STDOUT
+File1=Reg,add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Update" /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 1 /f,STDOUT
+File2=Reg,add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Update" /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 1 /f,STDOUT
+File3=Reg,add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Update\ExcludeWUDriversInQualityUpdates" /v Value /t REG_DWORD /d 1 /f,STDOUT
+File2=Reg,add "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 1 /f,STDOUT
+File3=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 1 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Update" /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 0 /f,STDOUT
+File2=Reg,add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Update" /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 0 /f,STDOUT
+File3=Reg,add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Update\ExcludeWUDriversInQualityUpdates" /v Value /t REG_DWORD /d 0 /f,STDOUT
+File2=Reg,add "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 0 /f,STDOUT
+File3=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 0 /f,STDOUT

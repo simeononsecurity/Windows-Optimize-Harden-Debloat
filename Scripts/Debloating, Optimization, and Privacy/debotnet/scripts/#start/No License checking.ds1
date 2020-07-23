@@ -1,0 +1,17 @@
+[Info]
+ID=No License checking
+Ver=1.0
+Desc=By default, Windows will check your license every time you turn on your PC.\n\nThe values added to registry with this script will prevent it.
+Dev=Federico Dossena
+DevURL=https://github.com/adolfintel/Windows10-Privacy
+WinVer=Compatible with Windows 10
+Evaluation=Limited
+EvaluationColor=ffd45e
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\Software\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform" /v NoGenTicket,STDOUT
+File1=Reg,add "HKLM\Software\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform" /v NoGenTicket /t REG_DWORD /d 1 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKLM\Software\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform" /v NoGenTicket /t REG_DWORD /d 0 /f,STDOUT

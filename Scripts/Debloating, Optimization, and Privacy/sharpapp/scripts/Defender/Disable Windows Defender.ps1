@@ -1,0 +1,3 @@
+﻿### Disable Windows Defender ###
+### If you believe that Windows Defender Antivirus isn't for you, apply this policy to disable it. If you're installing third-party anti-malware, you don't need to disable the Windows Defender Antivirus, as it'll be disabled automatically during the installation process.
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name "DisableAntiSpyware" -Type DWord -Value 1 -Force

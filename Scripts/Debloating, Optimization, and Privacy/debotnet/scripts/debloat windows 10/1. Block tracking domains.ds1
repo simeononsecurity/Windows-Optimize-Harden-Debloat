@@ -1,0 +1,23 @@
+[Info]
+ID=Block tracking domains
+Patron=With love from W4RH4WK / Debloat-Windows-10
+Ver=1.0
+Desc=This script blocks telemetry related domains via the hosts file and related IPs via Windows Firewall.\nPlease note that adding these domains may break certain software like iTunes or Skype. It does not break Windows update.\n\nTo view the full code of this PowerShell script goto @https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/block-telemetry.ps1\n\nThis script must be executed as administrator.\nDebotnet will download always the latest version from the master branch and execute this script automatically.\n\nINFO: To Preview script changes before executing this script file, just hit <Test script> which will ONLY download and open the script content. E.g. you could customize after this step the script and run it again. Debotnet will always use the last existent and local version. 
+Dev=Alex Hirsch
+DevURL=https://github.com/W4RH4WK/Debloat-Windows-10
+WinVer=Compatible with Windows 10
+Evaluation=Patron
+EvaluationColor=f6298c
+Update=False
+
+[Code]
+Task1=GetRaw,https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/block-telemetry.ps1,helper
+;Download file when hitting "Test script"
+Task2=UseRaw,https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/block-telemetry.ps1,helper
+;Open downloaded file when hitting "Test script" to preview script changes
+Task3=OpenRaw,helper\block-telemetry.ps1
+File1=Run,powershell -ExecutionPolicy Bypass -file helper\block-telemetry.ps1,STDOUT
+
+[Undo]
+Task1=rmdir,helper
+Info1=Msg,These script changes cannot be reverted by Debotnet.\n\nTo do this open the hosts file located in systemroot\System32\drivers\etc and remove all Windows related entries redirected to non-existent 0.0.0.0 servers.

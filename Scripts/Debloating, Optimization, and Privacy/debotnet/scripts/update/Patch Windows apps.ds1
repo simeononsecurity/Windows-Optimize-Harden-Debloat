@@ -1,0 +1,18 @@
+[Info]
+ID=Patch Windows apps with Patch My PC
+Ver=1.0
+Desc=Patch My PC is a portable and reliable tool which can quickly check your PC for outdated software. The supported third-party programs include a large number of widely-used applications, including Adobe Reader, Mozilla Firefox, Oracle Java and many more.\n\nUse this script to download always the most recent version of Patch My PC.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Privacy App
+EvaluationColor=68217a
+
+[Code]
+File1=Get,https://patchmypc.net/freeupdater/PatchMyPC.exe,tools
+Task1=Start(),tools\PatchMyPC.exe
+
+[Undo]
+Task1=rm,tools\PatchMyPC.exe
+Info1=Msg,PatchMyPC has been removed from tools directory.
+

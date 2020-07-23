@@ -1,0 +1,16 @@
+[Info]
+ID=Opt out of Help Experience Improvement Program (HEIP)
+Ver=1.0
+Desc=The Help Experience Improvement Program (HEIP) collects and send to Microsoft information about how you use Windows Help. This might reveal what problems you are having with your computer.\n\nThe Windows Help Experience Improvement Program should be disabled with this script.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Recommended
+EvaluationColor=009e5e
+
+[Code]
+Task1=Try,query "HKCU\Software\Microsoft\Assistance\Client\1.0\Settings" /v ImplicitFeedback,STDOUT
+File1=Reg,add "HKCU\Software\Microsoft\Assistance\Client\1.0\Settings" /v ImplicitFeedback /t REG_DWORD /d 0 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKCU\Software\Microsoft\Assistance\Client\1.0\Settings" /v ImplicitFeedback /t REG_DWORD /d 1 /f,STDOUT

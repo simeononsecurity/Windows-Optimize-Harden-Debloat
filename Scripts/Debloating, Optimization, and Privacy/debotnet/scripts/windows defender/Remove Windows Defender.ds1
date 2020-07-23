@@ -1,0 +1,35 @@
+[Info]
+ID=Remove Windows Defender (Advanced)
+Ver=1.0
+Desc=This script makes use of the install_wim_tweak.exe to run API in the system to remove Windows Defender.\n\nThe install_wim_tweak.exe will be automatically downloaded and executed. This script must be run as administrator and the system restarted after finish. If Windows complains afterwards about the system being unprotected, right click the notification and hide it.
+Dev=Federico Dossena
+DevURL=https://github.com/adolfintel/Windows10-Privacy
+WinVer=Compatible with Windows 10
+Warning=We strongly advise against removing the Windows Defender.
+Evaluation=Not Recommended
+EvaluationColor=c14566
+RequireAdmin=Yes
+
+[Code]
+Task1=Get,https://www.mirinsoft.com/downloads/Debotnet/third-party/install_wim_tweak.exe,helper
+File1=Run,helper\install_wim_tweak.exe /o /l,SHOWCLI
+File2=Run,helper\install_wim_tweak.exe /o /c Windows-Defender /r,SHOWCLI
+File3=Run,helper\install_wim_tweak.exe /h /o /l,SHOWCLI
+File4=Reg,add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SmartScreenEnabled /t REG_SZ /d "Off" /f,STDOUT
+File5=Reg,add "HKCU\Software\Microsoft\Windows\CurrentVersion\AppHost" /v "EnableWebContentEvaluation" /t REG_DWORD /d "0" /f,STDOUT
+File6=Reg,add "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\PhishingFilter" /v "EnabledV9" /t REG_DWORD /d "0" /f,STDOUT
+File7=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f,STDOUT
+File8=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /v SpyNetReporting /t REG_DWORD /d 0 /f,STDOUT
+File9=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /v SubmitSamplesConsent /t REG_DWORD /d 2 /f,STDOUT
+File10=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /v DontReportInfectionInformation /t REG_DWORD /d 1 /f,STDOUT
+File11=Reg delete "HKLM\SYSTEM\CurrentControlSet\Services\Sense" /f,STDOUT
+File12=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\MRT" /v "DontReportInfectionInformation" /t REG_DWORD /d 1 /f,STDOUT
+File13=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\MRT" /v "DontOfferThroughWUAU" /t REG_DWORD /d 1 /f,STDOUT
+File14=Reg,delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "SecurityHealth" /f,STDOUT
+File15=Reg,delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" /v "SecurityHealth" /f,STDOUT
+File16=Reg,add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SecHealthUI.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f,STDOUT
+File17=Reg,add "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance" /v "Enabled" /t REG_DWORD /d 0 /f,STDOUT
+File18=Reg,delete "HKLM\SYSTEM\CurrentControlSet\Services\SecurityHealthService" /f,STDOUT
+
+[Undo]
+Info1=Msg,This script changes can not be reverted.

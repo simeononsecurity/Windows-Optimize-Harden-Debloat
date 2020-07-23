@@ -1,0 +1,20 @@
+[Info]
+ID=Uninstall apps with GeekUninstaller
+Ver=1.0
+Desc=GeekUninstaller is a much faster and more powerful alternative to "Windows Add or Remove Programs" applet! It has very powerful features to uninstall and remove programs. It can effectively and thoroughly uninstall any program that the standard Windows Add/Remove Programs can't remove, remove all the leftover files and registry entries, and fix the program install/uninstall errors if anything found\n\nUse this script to download always the most recent version of GeekUninstaller (Portable).
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Privacy App
+EvaluationColor=68217a
+
+[Code]
+File1=Get,https://geekuninstaller.com/geek.zip,tools
+File2=GetRaw,https://github.com/mirinsoft/debotnet/blob/master/helper/7za.exe,helper
+Task1=Run,helper\7za x tools\geek.zip -otools\GeekUninstaller -y,STDOUT
+Task2=Start,tools\GeekUninstaller\geek.exe
+Task3=rm,tools\geek.zip
+
+[Undo]
+Info1=Msg,This script will ONLY download an application.\nNo system changes are made here!
+

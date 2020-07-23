@@ -1,0 +1,20 @@
+[Info]
+ID=Disable Windows Error reporting
+Ver=1.0
+Desc=The error reporting feature in Windows is what produces those alerts after certain program or operating system errors, prompting you to send the information about the problem to Microsoft.\n\nThis script allows you to disable error reporting to avoid sending private information about your computer to Microsoft.
+Dev=Federico Dossena
+DevURL=https://github.com/adolfintel/Windows10-Privacy
+WinVer=Compatible with Windows 10
+Evaluation=Recommended
+EvaluationColor=009e5e
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /v Disabled,STDOUT
+Task2=Try,query "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v Disabled,STDOUT
+File1=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 1 /f,STDOUT
+File2=Reg,add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 1 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 0 /f,STDOUT
+File2=Reg,add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 0 /f,STDOUT

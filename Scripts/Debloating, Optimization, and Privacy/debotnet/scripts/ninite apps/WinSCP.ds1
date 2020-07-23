@@ -1,0 +1,19 @@
+[Info]
+ID=WinSCP
+Ver=1.0
+Desc=This will download ninite installer for WinSCP
+Dev=Ninite
+DevURL=https://ninite.com/
+Evaluation=App
+EvaluationColor=002BAE
+Update=False
+
+[Variables]
+WinSCP=WinSCP
+
+[Code]
+File1=Get,https://ninite.com/%WinSCP%/ninite.exe,DEFAULT
+Task1=Start(),ninite.exe
+
+[Undo]
+Info1=Msg,This script will ONLY download an application.\nNo system changes are made here!

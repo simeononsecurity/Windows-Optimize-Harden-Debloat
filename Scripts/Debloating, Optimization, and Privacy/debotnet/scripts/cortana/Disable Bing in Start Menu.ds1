@@ -1,0 +1,19 @@
+[Info]
+ID=Disable Bing in Start Menu
+Ver=1.0
+Desc=Windows 10, by default, sends everything you search for in the Start Menu to their servers to give you results from Bing search - so you better make sure that you don't type anything private into your own PC's Start Menu.\n\nOr, you could just use this script to disable the Bing integration in the Start Menu.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Recommended
+EvaluationColor=009e5e
+
+[Code]
+Task1=Try,query "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v BingSearchEnabled,STDOUT
+Task2=Try,query "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v CortanaConsent,STDOUT
+File1=Reg,add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v BingSearchEnabled /t REG_DWORD /d 0 /f,STDOUT
+File2=Reg,add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v CortanaConsent /t REG_DWORD /d 0 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v BingSearchEnabled /t REG_DWORD /d 1 /f,STDOUT
+File2=Reg,add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v CortanaConsent /t REG_DWORD /d 1 /f,STDOUT

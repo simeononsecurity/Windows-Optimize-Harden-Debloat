@@ -1,0 +1,17 @@
+[Info]
+ID=Manage Windows updates with WUA Manager
+Ver=1.0
+Desc=If you weren't aware, Microsoft has reduced the ability to choose what updates you want to download and when you want to download them in Windows Update. It will also upgrade you to the latest feature update if you don't run the script "No more forced updates". WAU Manager (Windows Automatic Updates Manager) is a fully featured replacement for the built in Windows Updating interface. This tool gives you full control of the Windows Updates, such as when and how they are installed, and has full uninstall and maintenance support for Windows updates.\n\nUse this script to download always the most recent version of WAU Manager (Portable).
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Enhancement
+EvaluationColor=000000
+
+[Code]
+File1=Get,https://www.carifred.com/wau_manager/WAU%20Manager.exe,tools
+Task1=Start,tools\WAU Manager.exe
+
+[Undo]
+Task1=rm,tools\WAU Manager.exe
+Info1=Msg,WAU Manager has been removed from tools directory.

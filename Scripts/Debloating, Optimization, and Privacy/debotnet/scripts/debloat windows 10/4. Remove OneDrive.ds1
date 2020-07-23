@@ -1,0 +1,27 @@
+[Info]
+ID=Remove OneDrive
+Patron=With love from W4RH4WK / Debloat-Windows-10
+Ver=1.0
+Desc=This script will remove and disable OneDrive integration. You can remove OneDrive also via a Debotnet own script file located under start > Disable OneDrive everywhere.\n\nTo view the full code of this PowerShell script goto @https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/remove-onedrive.ps1\n\nThis script must be executed as administrator.\nDebotnet will download always the latest version from the master branch and execute this script automatically. It will temporarily terminate process explorer.exe The PowerShell script itself fails to restart explorer.exe and just loads an Explorer window. After execution Debotnet will start explorer.exe again.\n\nINFO: To Preview script changes before executing this script file, just hit <Test script> which will ONLY download and open the script content. E.g. you could customize after this step the script and run it again. Debotnet will always use the last existent and local version. 
+Dev=Alex Hirsch
+DevURL=https://github.com/W4RH4WK/Debloat-Windows-10
+WinVer=Compatible with Windows 10
+Evaluation=Patron
+EvaluationColor=f6298c
+RequireAdmin=Yes
+Update=False
+
+[Code]
+Task1=GetRaw,https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/remove-onedrive.ps1,helper
+;Download file when hitting "Test script"
+Task2=UseRaw,https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/remove-onedrive.ps1,helper
+;Open downloaded file when hitting "Test script" to preview script changes
+Task3=OpenRaw,helper\remove-onedrive.ps1
+File1=Run,powershell -ExecutionPolicy Bypass -file helper\remove-onedrive.ps1,STDOUT
+Task4=Start(),explorer.exe
+
+[Undo]
+Task1=rmdir,helper
+Info1=Msg,These script changes cannot be reverted.
+
+

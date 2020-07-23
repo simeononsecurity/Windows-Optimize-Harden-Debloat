@@ -1,0 +1,17 @@
+[Info]
+ID=Turn off distributing updates to other computers
+Ver=1.0
+Desc=Windows 10 lets you download updates from several sources to speed up the process of updating the operating system.\n\nIf you don't want your files to be shared by others and exposing your IP address to random computers, you can run this script and turn this feature off.\n\nAvailable options:\n0=Off (HTTP, this option will be set by Debotnet)\n1=On, but local network only (LAN)\n2=On, local network private peering only (Group)\n3=On, local network and Internet (Internet)
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Limited
+EvaluationColor=ffd45e
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v DODownloadMode,STDOUT
+File1=Reg,add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v DODownloadMode /t REG_DWORD /d 0 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v DODownloadMode /t REG_DWORD /d 3 /f,STDOUT

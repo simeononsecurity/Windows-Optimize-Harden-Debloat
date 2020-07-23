@@ -1,0 +1,2 @@
+﻿### Disable app access to diagnostic information
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics" -Name Value -Type String -Value Deny -Force

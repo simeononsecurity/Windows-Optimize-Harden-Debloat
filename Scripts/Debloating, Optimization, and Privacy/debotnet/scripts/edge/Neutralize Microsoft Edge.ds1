@@ -1,0 +1,28 @@
+[Info]
+ID=Neutralize Microsoft Edge (NOT Chrome)
+Ver=1.0
+Desc=Since May 2019, Edge (NOT the new Chromium Edge) can no longer be fully removed without breaking Windows Update. We can neutralize it with this script, but the icon will still be there in the start menu.
+Dev=Federico Dossena
+DevURL=https://github.com/adolfintel/Windows10-Privacy
+WinVer=Compatible with Windows 10
+Evaluation=Limited
+EvaluationColor=ffd45e
+RequireAdmin=Yes
+
+[Code]
+Task1=TaskKill,browser_broker.exe,WARNING
+Task2=TaskKill,RuntimeBroker.exe,WARNING
+Task3=TaskKill,MicrosoftEdge.exe,WARNING
+Task4=TaskKill,MicrosoftEdgeCP.exe,WARNING
+Task5=TaskKill,MicrosoftEdgeSH.exe,WARNING
+File1=Run,rename C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe Microsoft.MicrosoftEdge_8wekyb3d8bbwe_BAK
+File2=Reg,add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\MicrosoftEdge.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f,STDOUT
+
+[Undo]
+Task1=net start browser_broker.exe,STDOUT
+Task2=net start RuntimeBroker.exe,STDOUT
+Task3=net start MicrosoftEdge.exe,STDOUT
+Task4=net start MicrosoftEdgeCP.exe,STDOUT
+Task5=net start MicrosoftEdgeSH.exe,STDOUT
+File1=Run,rename C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe_BAK Microsoft.MicrosoftEdge_8wekyb3d8bbwe
+File2=Reg,delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\MicrosoftEdge.exe" /f,STDOUT

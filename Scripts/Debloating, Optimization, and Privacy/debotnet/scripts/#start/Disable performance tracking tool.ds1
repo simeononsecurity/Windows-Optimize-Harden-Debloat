@@ -1,0 +1,17 @@
+[Info]
+ID=Disable performance tracking tool
+Ver=1.0
+Desc=The performance tracking tool (PerfTrack) tracks system and application responsiveness events. The aggregated data are then transmitted to Microsoft through SQM to learn a lot information on how you are using your machine.\n\nThis ability should be disabled with this script.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Recommended
+EvaluationColor=009e5e
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\SOFTWARE\Policies\Microsoft\Windows\WDI\{9c5a40da-b965-4fc3-8781-88dd50a6299d}" /v ScenarioExecutionEnabled,STDOUT
+File1=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WDI\{9c5a40da-b965-4fc3-8781-88dd50a6299d}" /v ScenarioExecutionEnabled /t REG_DWORD /d 0 /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WDI\{9c5a40da-b965-4fc3-8781-88dd50a6299d}" /v ScenarioExecutionEnabled /t REG_DWORD /d 1 /f,STDOUT

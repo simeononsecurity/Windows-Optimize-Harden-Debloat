@@ -1,0 +1,25 @@
+[Info]
+ID=Disable Cortana (Current Cortana app)
+Ver=1.0
+Desc=With the Anniversary Update, Microsoft hid the option to disable Cortana. \n\nThis script makes it possible again. It will block the outbound network connections completely in the Firewall.
+Dev=Federico Dossena
+DevURL=https://github.com/adolfintel/Windows10-Privacy
+WinVer=Compatible with Windows 10
+Warning=Do not attempt to remove the Cortana package using install_wim_tweak or the PowerShell, as it will break Windows Search and you will have to reinstall Windows! Using this script is the only safe way.
+Evaluation=Recommended
+EvaluationColor=009e5e
+RequireAdmin=Yes
+
+[Code]
+Task1=Try,query "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v AllowCortana,STDOUT
+Task2=Try,query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v BingSearchEnabled,STDOUT
+Task3=Try,query "HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules" /v {2765E0F4-2918-4A46-B9C9-43CDD8FCBA2B},STDOUT
+File1=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v AllowCortana /t REG_DWORD /d 0 /f,STDOUT
+File2=Reg,add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v BingSearchEnabled /t REG_DWORD /d 0 /f,STDOUT
+File3=Reg,add "HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules" /v "{2765E0F4-2918-4A46-B9C9-43CDD8FCBA2B}" /t REG_SZ /d  "BlockCortana|Action=Block|Active=TRUE|Dir=Out|App=C:\windows\systemapps\microsoft.windows.cortana_cw5n1h2txyewy\searchui.exe|Name=Search and Cortana application|AppPkgId=S-1-15-2-1861897761-1695161497-2927542615-642690995-327840285-2659745135-2630312742|" /f,STDOUT
+
+[Undo]
+File1=Reg,add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v AllowCortana /t REG_DWORD /d 1 /f,STDOUT
+File2=Reg,add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v BingSearchEnabled /t REG_DWORD /d 1 /f,STDOUT
+File3=Reg,delete "HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules" /v "{2765E0F4-2918-4A46-B9C9-43CDD8FCBA2B}" /f,STDOUT
+

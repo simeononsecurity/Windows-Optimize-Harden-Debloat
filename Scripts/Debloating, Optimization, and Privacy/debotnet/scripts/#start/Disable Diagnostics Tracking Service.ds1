@@ -1,0 +1,17 @@
+[Info]
+ID=Disable Diagnostics Tracking Service
+Ver=1.0
+Desc=The Diagnostics Tracking Service is a core tracking service of the operating system that controls data collection. After Windows 10 Build 1511 Microsoft renamed the service to the Connected User Experiences and Telemetry.\n\nIt is crucial to disable this service with this script and to preserve your privacy.\nThe script "Remove Telemetry (Advanced)", which is also shipped per default with Debotnet, can also delete this service.
+Dev=Mirinsoft
+DevURL=https://www.mirinsoft.com
+WinVer=Compatible with Windows 10
+Evaluation=Recommended
+EvaluationColor=009e5e
+
+[Code]
+File1=Run,net stop DiagTrack,STDOUT
+
+[Undo]
+File1=Run,net start DiagTrack,STDOUT
+
+

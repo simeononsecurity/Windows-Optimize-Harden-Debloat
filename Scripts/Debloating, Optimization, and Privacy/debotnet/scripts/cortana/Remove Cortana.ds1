@@ -1,0 +1,19 @@
+[Info]
+ID=Remove Cortana
+Ver=1.0
+Desc=This script will uninstall Cortana with wim_tweak.exe\nThis third-party tool will be automatically downloaded and executed.
+Dev=Wnuowski, updated by Win Toolkit Programmer
+DevURL=https://msfn.org/board/topic/152688-win6x_registry_tweak/
+WinVer=Compatible with Windows 10
+Warning=User's own risk! Do not attempt to remove the Cortana package using install_wim_tweak or the PowerShell, as it will break Windows Search and you will have to reinstall Windows!
+Evaluation=Limited
+EvaluationColor=ffd45e
+
+[Code]
+File1=GetRaw,https://github.com/mirinsoft/debotnet/blob/master/helper/install_wim_tweak.exe,helper
+File2=Run,helper\install_wim_tweak.exe /o /c Microsoft-Windows-Cortana /r,SHOWCLI
+
+[Undo]
+Info1=Msg,This script changes can not be reverted.
+
+
