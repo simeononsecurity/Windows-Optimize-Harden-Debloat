@@ -86,3 +86,8 @@ copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions 
 #.\Scripts\"Debloating, Optimization, and Privacy"\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
 ```
 
+
+The script may be lauched from the extracted GitHub download like this:
+```
+.\W10-Optimize-and-Harden-master\installallstandalone.ps1
+```
