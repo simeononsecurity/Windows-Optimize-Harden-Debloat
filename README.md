@@ -53,10 +53,10 @@ The script we will be using is called **"installallstandalone.ps1"** and its con
 
 ```
 ######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
-.\LGPO\LGPO.exe /g ".\Scripts\Security, Hardening, and Mitigations\Windows Baseline\Microsoft Edge v80\GPOs"
-.\LGPO\LGPO.exe /g ".\Scripts\Security, Hardening, and Mitigations\Windows Baseline\Office365-ProPlus-Sept2019-FINAL\GPOs"
-.\LGPO\LGPO.exe /g ".\Scripts\Security, Hardening, and Mitigations\Windows Baseline\Windows 10 1909 Baseline\GPOs"
-.\LGPO\LGPO.exe /g ".\GPO Backup for Mass Import"
+.\LGPO\LGPO.exe /g .\Scripts\"Security, Hardening, and Mitigations"\"Windows Baseline"\"Microsoft Edge v80"\GPOs
+.\LGPO\LGPO.exe /g .\Scripts\"Security, Hardening, and Mitigations"\"Windows Baseline"\Office365-ProPlus-Sept2019-FINAL\GPOs
+.\LGPO\LGPO.exe /g .\Scripts\"Security, Hardening, and Mitigations"\"Windows Baseline"\"Windows 10 1909 Baseline"\GPOs
+.\LGPO\LGPO.exe /g .\"GPO Backup for Mass Import"
 
 mkdir C:\temp\
 mkdir "C:\temp\Windows Defender"
@@ -84,6 +84,7 @@ copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions 
 
 #ONLY ENABLE IF ON VM
 #.\Scripts\"Debloating, Optimization, and Privacy"\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
+
 ```
 
 
