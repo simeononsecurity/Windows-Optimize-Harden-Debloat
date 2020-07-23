@@ -1,9 +1,3 @@
----
-title: "Optimizing and Hardening Windows 10 Deployments"
-date: 2020-07-22T20:15:14-05:00
-draft: true
----
-
 **Optimizing and Hardening Windows 10 Deployments**
 
 Download all the required files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)
