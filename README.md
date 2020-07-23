@@ -53,14 +53,21 @@ The script we will be using is called **"installallstandalone.ps1"** and its con
 
 ```
 ######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
-.\LGPO\LGPO.exe /g .\Scripts\"Security, Hardening, and Mitigations"\"Windows Baseline"\"Microsoft Edge v80"\GPOs
-.\LGPO\LGPO.exe /g .\Scripts\"Security, Hardening, and Mitigations"\"Windows Baseline"\Office365-ProPlus-Sept2019-FINAL\GPOs
-.\LGPO\LGPO.exe /g .\Scripts\"Security, Hardening, and Mitigations"\"Windows Baseline"\"Windows 10 1909 Baseline"\GPOs
-.\LGPO\LGPO.exe /g .\"GPO Backup for Mass Import"
+#Microsoft Security Baselines
+.\LGPO\LGPO.exe /g .\GPOs\Microsoft\"Windows 10 1909 Baseline"\GPOs
+.\LGPO\LGPO.exe /g .\GPOs\Microsoft\"Microsoft Edge v80"\GPOs
+.\LGPO\LGPO.exe /g .\GPOs\Microsoft\Office365-ProPlus-Sept2019-FINAL\GPOs
+#Cyber.mil GPOs
+.\LGPO\LGPO.exe /g .\GPOs\Cyber.mil
+#SIMEONONSECURITY GPOS
+.\LGPO\LGPO.exe /g .\GPOs\simeononsecurity
 
+#Windows 10 Defenter Exploit Guard Configuration File
 mkdir C:\temp\
 mkdir "C:\temp\Windows Defender"
 copy-item -Path .\Files\DOD_EP_V3.xml -Destination "C:\temp\Windows Defender" -Force -Recurse
+
+#Copy  Policy Definitions for gpedit.msc
 copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions -Force -Recurse
 
 #Package Management Scripts
@@ -84,7 +91,6 @@ copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions 
 
 #ONLY ENABLE IF ON VM
 #.\Scripts\"Debloating, Optimization, and Privacy"\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
-
 ```
 
 
