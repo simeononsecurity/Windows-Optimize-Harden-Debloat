@@ -5,7 +5,7 @@ Download all the required files from the [GitHub Repository](https://github.com/
 
 Windows 10 is an invasive and insecure operating system out of the box. 
 Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https://microsoft.com) and the 
-[Department of Defense](https://public.cyber.mil) have reccomended configuration changes to lockdown, harden, and secure the operating system. These changes cover a wide range of mitigations including blocking telemetery, macros, removing bloatware, and preventing many physical attacks on a system.
+[Department of Defense](https://public.cyber.mil) have recomended configuration changes to lockdown, harden, and secure the operating system. These changes cover a wide range of mitigations including blocking telemetery, macros, removing bloatware, and preventing many physical attacks on a system.
 
 
 
