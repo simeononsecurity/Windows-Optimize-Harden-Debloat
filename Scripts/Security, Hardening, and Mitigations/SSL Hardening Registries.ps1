@@ -97,8 +97,3 @@ Disable-TlsCipherSuite -Name “TLS_PSK_WITH_AES_128_CBC_SHA256“
 Disable-TlsCipherSuite -Name “TLS_PSK_WITH_NULL_SHA384“
 Disable-TlsCipherSuite -Name “TLS_PSK_WITH_NULL_SHA256“
 
-
-##### DISABLE TCP TIMESTAMPS#####
-netsh int tcp set global timestamps=disabled
-
-
