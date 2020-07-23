@@ -37,7 +37,7 @@ Additional configurations were considered from:
 
 [Managing Windows 10 Telemetry and Callbacks](https://docs.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services)
 
-[Windows 10 VDI Reccomendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909)
+[Windows 10 VDI Recomendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909)
 
 
 The script we will be using must be launched from the directory containing all the other files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)
