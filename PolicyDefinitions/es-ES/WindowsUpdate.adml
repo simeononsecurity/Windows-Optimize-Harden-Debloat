@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Al menos los sistemas operativos Windows Server 2003 o Windows XP Professional con SP1, excluido Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Se requiere al menos Windows XP Professional Service Pack 1 o al menos Windows 2000 Service Pack 3 a través de Windows 8.1 o Windows Server 2012 R2 con el Service Pack más reciente</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Se requiere al menos Windows Vista a través de Windows 8.1 o Windows Server 2012 R2 con el Service Pack más reciente</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 o, como mínimo, Windows 2000 Service Pack 3
+La opción 7 solo se admite en servidores que ejecuten Windows Server 2016 Edition como mínimo</string>
       <string id="AUDontShowUasHelp">Esta configuración de directiva permite controlar si la opción "Instalar actualizaciones y apagar" se muestra en el cuadro de diálogo Apagar de Windows.
 
 Si habilita esta configuración de directiva, "Instalar actualizaciones y apagar" no aparecerá como opción en el cuadro de diálogo Apagar de Windows, incluso si hay actualizaciones disponibles para instalarse cuando el usuario seleccione la opción Apagar en el menú Inicio.
@@ -60,32 +62,37 @@ En Windows 8 y Windows RT, si se habilita esta directiva, solo se mostrarán las
 
 Nota: Esta directiva no se aplica a Windows RT.
 
-Esta configuración permite especificar si las actualizaciones automáticas están habilitadas en este equipo. Si el servicio está habilitado, debes seleccionar una de las cuatro opciones de la configuración de directiva de grupo:
+Esta configuración te permite especificar si se habilitan las actualizaciones automáticas en este equipo. Si se habilita el servicio, debes seleccionar una de las cuatro opciones que figuran en Configuración de directiva de grupo:
 
         2 = Notificar antes de descargar e instalar cualquier actualización.
 
-Cuando Windows encuentre actualizaciones que se aplican a este equipo, se notificará a los usuarios que las actualizaciones están listas para descargarse. Después de ir a Windows Update, los usuarios pueden descargar e instalar cualquier actualización disponible.
+        Cuando Windows encuentre actualizaciones aplicables a este equipo, se notificará a los usuarios que hay actualizaciones listas para descargar. Los usuarios pueden descargar e instalar cualquier actualización disponible desde Windows Update.
 
-        3 = (Configuración predeterminada) Descargar las actualizaciones automáticamente y enviar una notificación cuando se puedan instalar
+        3 = (valor predeterminado) Descargar las actualizaciones automáticamente y notificar cuando estén listas para instalarse.
 
-        Windows busca actualizaciones que se aplican al equipo y las descarga en segundo plano (no se notifica ni se interrumpe al usuario durante este proceso). Cuando se completen las descargas, se notificará a los usuarios que están listas para instalarse. Después de ir a Windows Update, los usuarios pueden instalarlas.
+        Windows busca las actualizaciones que se aplican al equipo y las descarga en segundo plano (no se notifica al usuario ni se le interrumpe durante el proceso). Una vez completadas las descargas, se notifica a los usuarios que están listas para instalarse. Los usuarios pueden instalarlas desde Windows Update.
 
-        4 = Descargar las actualizaciones automáticamente e instalarlas según la programación que se especifica a continuación.
+        4 = Descargar las actualizaciones automáticamente e instalarlas según la programación especificada a continuación.
 
-Cuando se selecciona "Automático" como el tiempo de instalación programado, Windows comprobará, descargará e instalará las actualizaciones automáticamente. El dispositivo se reiniciará según la configuración predeterminada de Windows, a menos que se configure con una directiva de grupo. (Se aplica a Windows 10, versión 1809 y posteriores)
+        Cuando se seleccione "Automático" como la hora de instalación programada, Windows buscará, descargará e instalará automáticamente las actualizaciones. El dispositivo se reiniciará según la configuración predeterminada de Windows, a menos que la directiva de grupo indique lo contrario. (Se aplica a Windows 10, versión 1809 y versiones posteriores).
 
-        Especifica la programación mediante las opciones de configuración de la directiva de grupo. Para la versión 1709 y las posteriores, hay la opción adicional de limitar la actualización a una ocurrencia semanal, quincenal o mensual. Si no se especifica ninguna programación, la programación predeterminada para todas las instalaciones será todos los días a las 3:00 h. Si alguna actualización requiere un reinicio para completar la instalación, Windows reiniciará el equipo automáticamente. (Si un usuario tiene la sesión iniciada en el equipo cuando Windows está listo para reiniciarse, se le notificará y se le dará la opción de retrasar el reinicio).
+        Especifica la programación mediante las opciones de la configuración de la directiva de grupo. Para las versiones 1709 posteriores, hay una opción adicional que limita la actualización a una frecuencia semanal, quincenal o mensual. Si no se especifica ninguna programación, la programación predeterminada para todas las instalaciones será todos los días a las 15:00. Si alguna actualización requiere que se reinicie el equipo para completar la instalación, Windows reiniciará el equipo automáticamente. (Si un usuario ha iniciado sesión en el equipo cuando Windows está listo para reiniciarse, se le notificará y se le dará la opción de retrasar el reinicio).
 
-        En Windows 8 y versiones posteriores, puedes configurar que las actualizaciones se instalen durante el mantenimiento automático, en lugar de una programación específica. El mantenimiento automático instalará las actualizaciones cuando el equipo no esté en uso, y evitará hacerlo cuando el equipo solo esté funcionando con la batería. Si el mantenimiento automático no puede instalar actualizaciones durante 2 días, Windows Update instalará las actualizaciones de inmediato. A continuación, se notificará a los usuarios que próximamente se hará un reinicio, que solo tendrá lugar si no existe ningún riesgo de pérdida de datos accidental.
+        En Windows 8 y versiones posteriores, puedes establecer que las actualizaciones se instalen durante el mantenimiento automático en lugar de según una programación específica. El mantenimiento automático instalará las actualizaciones cuando el equipo no esté en uso y evitará hacerlo cuando el equipo funcione con batería. Si el mantenimiento automático no puede instalar las actualizaciones durante 2 días, Windows Update las instalará de inmediato. De este modo, se notificará a los usuarios sobre un próximo reinicio, y dicho reinicio solo se realizará si no hay posibilidad de pérdida accidental de datos.
 
-        5 = Permitir a los administradores locales seleccionar el modo de configuración en el que las actualizaciones automáticas notifican e instalan las actualizaciones. (Esta opción no se ha transferido a ninguna de las versiones de Windows 10).
+        5 = Permitir a los administradores locales seleccionar el modo de configuración en el que la característica Actualizaciones automáticas debe notificar e instalar las actualizaciones. (Esta opción no se ha trasladado a ninguna de las versiones de Windows 10).
 
-        Con esta opción, se permitirá a los administradores locales utilizar el panel de control de Windows Update para seleccionar una opción de configuración de su elección. No se permitirá que los administradores locales deshabiliten la configuración para las actualizaciones automáticas.
+        Con esta opción, se permitirá a los administradores locales usar el Panel de control de Windows Update para seleccionar la opción de configuración que deseen. No se permitirá a los administradores locales deshabilitar la configuración de Actualizaciones automáticas.
 
-Si el estado de esta directiva se establece en Deshabilitado, todas las actualizaciones disponibles en Windows Update se deben descargar e instalar manualmente. Para ello, busca Windows Update en Inicio.
+        7 = Notificar la instalación y notificar el reinicio. (solo Windows Server)
 
-Si el estado está establecido en No configurado, el uso de las actualizaciones automáticas no se especifica en el nivel de directiva de grupo. Sin embargo, un administrador todavía puede configurar las actualizaciones automáticas a través del Panel de control.</string>
+        Con esta opción de Windows Server 2016, que solo se aplica a los dispositivos con SKU de servidor, los administradores locales podrán usar Windows Update para realizar las instalaciones o los reinicios de forma manual.
 
+Si el estado de esta directiva se establece en Deshabilitado, todas las actualizaciones disponibles en Windows Update deberán descargarse e instalarse manualmente. Para ello, busca Windows Update en Inicio.
+
+Si el estado se establece en No configurado, el uso de la característica Actualizaciones automáticas no se especificará en el nivel de directiva de grupo. Sin embargo, un administrador puede seguir configurando Actualizaciones automáticas mediante el Panel de control.</string>
+
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7: Descarga automática, notificar para instalar, notificar para reiniciar</string>
       <string id="AutoUpdateModeAdminChooses">5 - Permitir que el administrador local elija la opción</string>
       <string id="AutoUpdateModeAuto">4 - Descargar automáticamente y programar la instalación</string>
       <string id="AutoUpdateModeDownload">3 - Descargar automáticamente y notificar instalación</string>
@@ -356,6 +363,10 @@ Para impedir la recepción de actualizaciones de calidad en la fecha programada,
 Para reanudar la recepción de actualizaciones de calidad que están en pausa, borra el campo de fecha de inicio.
 
 Si deshabilitas esta directiva o no la configuras, Windows Update no alterará su comportamiento.</string>
+      <string id="TargetReleaseVersion_Title">Seleccionar la versión de actualización de características de destino</string>
+      <string id="TargetReleaseVersion_Help">Habilita esta directiva para especificar una versión de actualización de característica que se va a solicitar en exámenes posteriores.
+
+Escribe la versión tal como aparece en la página de información de la versión de Windows aka.ms/ReleaseInformationPage</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">No incluyas controladores con las actualizaciones de Windows</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Habilita esta directiva para no incluir controladores con las actualizaciones de calidad de Windows.
 
@@ -705,6 +716,11 @@ Esta directiva invalidará las siguientes directivas:
         <text>todo este tiempo para guardar su</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">trabajo (minutos):  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Versión de destino de Actualizaciones de características</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Establecer el comportamiento de recibir compilaciones de vista previa:</dropdownList>
       </presentation>

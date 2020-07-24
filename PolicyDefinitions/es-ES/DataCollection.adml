@@ -10,19 +10,18 @@
       <string id="AllowTelemetry_1">1: básico</string>
       <string id="AllowTelemetry_2">2: mejorado</string>
       <string id="AllowTelemetry_3">3: completo</string>
-      <string id="AllowTelemetry_Explain">Esta configuración de directiva determina el nivel más alto de datos de diagnóstico de Windows enviados a Microsoft. Al configurar este ajuste, no evitas que las personas cambien su configuración de telemetría; sin embargo, les impides elegir un nivel superior al que estableciste para la organización. La configuración de datos de diagnóstico de Windows 10 solo se aplica al sistema operativo Windows y a las aplicaciones incluidas con Windows. Estos ajustes no se aplican a aplicaciones de terceros que se ejecutan en Windows 10.
+      <string id="AllowTelemetry_Explain">Al establecer esta configuración en Windows 10, los usuarios finales no podrán optar a un nivel de recopilación de datos de telemetría más alto que el que has establecido para tu organización. Esta limitación solo se aplica al sistema operativo Windows y a las aplicaciones incluidas con Windows, pero no a las aplicaciones de terceros que se ejecutan en Windows 10.
 
-Si habilitas esta configuración, puedes decidir qué nivel de datos de diagnóstico enviar a Microsoft, incluidos los siguientes:
+Los datos de diagnóstico se clasifican en cuatro niveles, de la forma siguiente:
+  - 0 (Seguridad). Información necesaria para ayudar a proteger Windows, Windows Server y System Center, incluidos los datos sobre la configuración del componente Experiencias del usuario y telemetría asociadas, la Herramienta de eliminación de software malintencionado y Microsoft Defender.
+  - 1 (Básico). Información básica del dispositivo, incluidos: datos relacionados con la calidad y con la compatibilidad de las aplicaciones, y datos del nivel de seguridad.
+  - 2 (Mejorado). Información adicional, como por ejemplo: cómo se usa Windows, Windows Server, System Center y otras aplicaciones, cómo funcionan, datos avanzados de confiabilidad y los datos de los niveles básico y de seguridad.
+  - 3 (Completo). Todos los datos necesarios para identificar y ayudar a solucionar los problemas, además de los datos de los niveles de seguridad, básico y mejorado.
 
-  - 0 (Seguridad). Envía solo una cantidad mínima de datos a Microsoft que se necesitan para mantener Windows protegido. Los componentes de seguridad de Windows, como la Herramienta de eliminación de software malintencionado (MSRT) y Windows Defender, pueden enviar datos a Microsoft en este nivel, si está habilitado. Si estableces un valor de 0, solo se aplica a los dispositivos que ejecutan las ediciones Enterprise, Education, IoT o Windows Server. Si estableces un valor de 0 para otras ediciones, equivale a establecer un valor de 1.
-  - 1 (Básico). Envía los mismos datos que un valor de 0, además de una cantidad muy limitada de datos de diagnóstico, como información básica del dispositivo, datos relacionados con la calidad e información de compatibilidad de aplicaciones. Ten en cuenta que establecer los valores 0 o 1 degradará ciertas experiencias en el dispositivo.
-  - 2 (Mejorado). Envía los mismos datos que un valor de 1, además de datos adicionales, por ejemplo, cómo se usan Windows, Windows Server, System Center y las aplicaciones, cómo funcionan y datos de confiabilidad avanzados.
-  - 3 (Completo). Envía los mismos datos que un valor de 2, además de los datos de diagnóstico avanzados que se usan para diagnosticar y solucionar problemas con dispositivos, incluidos los archivos y el contenido que pudieran haber provocado un problema con el dispositivo.
-
-Si deshabilitas o no estableces esta configuración de directiva, los usuarios pueden configurar el nivel de telemetría en Configuración.
+Las opciones disponibles para los usuarios en la aplicación Configuración se modifican con esta configuración y, aunque no se establezca, pueden verse afectadas por otras configuraciones de la directiva de grupo. Ten en cuenta que, si esta directiva está configurada para permitir la configuración de telemetría de seguridad o básica, los usuarios finales no podrán seleccionar un nivel superior.
       </string>
 
-      <string id="TelemetryProxy">Configurar Experiencia del usuario y telemetría asociadas</string>
+      <string id="TelemetryProxy">Configurar Experiencias del usuario y telemetría asociadas</string>
       <string id="TelemetryProxy_Explain">Con esta configuración de directiva, puedes reenviar solicitudes de Experiencia del usuario y telemetría asociadas a un servidor proxy.
 
 Si habilitas esta configuración de directiva, puedes especificar el FQDN o la dirección IP del dispositivo de destino dentro de la red de tu organización (y, opcionalmente, un número de puerto, si lo prefieres). La conexión se establecerá mediante una conexión de capa de sockets seguros (SSL). Si se produce un error en el proxy con nombre o si deshabilitas o no estableces esta configuración de directiva, los datos de Experiencia del usuario y telemetría asociadas se enviarán a Microsoft mediante la configuración de proxy predeterminada.
@@ -67,14 +66,14 @@ Si deshabilitas o no estableces esta configuración de directiva, el nombre del 
       <string id="ConfigureTelemetryOptInSettingsUx">Define la interfaz de usuario para configurar la participación en telemetría.</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">Deshabilitar configuración de participación en telemetría</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">Habilitar configuración de participación en telemetría</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Esta configuración de directiva determina si las personas pueden cambiar sus propios niveles de telemetría en Configuración. Este ajuste debe usarse junto con la el ajuste Permitir telemetría.
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Esta configuración de directiva determina si un usuario final puede cambiar los niveles de telemetría en Configuración.
 
-Si estableces esta configuración de directiva en "Deshabilitar configuración de participación en telemetría", los niveles de telemetría se deshabilitan en Configuración, lo que impide que las personas los modifiquen.
+Si la estableces en "Deshabilitar configuración de participación en telemetría", los niveles de telemetría se deshabilitan en Configuración y los usuarios no podrán cambiarlos.
 
-Si estableces esta configuración de directiva en "Habilitar configuración de participación en telemetría" o no estableces esta configuración de directiva, las personas pueden cambiar sus propios niveles de telemetría en Configuración.
+Sin embargo, si no la estableces o defines la opción "Habilitar configuración de participación en telemetría", los usuarios finales podrán cambiar el nivel de telemetría del dispositivo en la aplicación Configuración.
 
 Nota:
-Establece la configuración de directiva Permitir telemetría para evitar que las personas envíen datos de diagnóstico a Microsoft más allá del límite de la organización.
+Para establecer un límite en el nivel de datos de diagnóstico que tu organización envía a Microsoft, usa la configuración de directiva Permitir telemetría.
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">Configura las notificaciones de cambio de la participación en telemetría.</string>

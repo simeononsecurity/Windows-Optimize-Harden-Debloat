@@ -3,10 +3,10 @@
 <description>escriba aquí la descripción</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Antivirus de Windows Defender</string>
+    <string id="AntiSpywareDefender">Antivirus de Microsoft Defender</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Exclusiones</string>
-    <string id="ExploitGuard">Protección contra vulnerabilidades de seguridad de Windows Defender</string>
+    <string id="ExploitGuard">Protección contra vulnerabilidades de seguridad de Microsoft Defender</string>
     <string id="ExploitGuard_ASR">Reducir la superficie de ataque</string>
     <string id="ExploitGuard_ControlledFolderAccess">Acceso a la carpeta controlado</string>
     <string id="ExploitGuard_NetworkProtection">Protección de red</string>
@@ -31,16 +31,16 @@ Si deshabilita esta configuración, el servicio antimalware se cargará como una
 
     <string id="DisableAutoExclusions">Desactivar las exclusiones automáticas</string>
     <string id="DisableAutoExclusions_Explain">
-        Permite a un administrador especificar si debe desactivarse la característica Exclusiones automáticas para las SKU del servidor.
+        Permite a un Administrador especificar si debe desactivarse la característica Exclusiones automáticas para las SKU del servidor.
 
-        Deshabilitado (predeterminado):
-        Windows Defender excluirá una lista predefinida de rutas de acceso de los exámenes para mejorar el rendimiento.
+        Deshabilitado (valor predeterminado):
+        Microsoft Defender excluirá una lista predefinida de rutas de acceso del análisis para mejorar el rendimiento.
 
         Habilitado:
-        Windows Defender no excluirá ninguna lista predefinida de rutas de acceso de los exámenes. Esta opción puede afectar al rendimiento del equipo en algunos escenarios.
+        Microsoft Defender no excluirá una lista predefinida de rutas de acceso de los análisis. Esto puede afectar al rendimiento del equipo en algunos escenarios.
 
         No configurado:
-        Lo mismo que Deshabilitado.
+        Igual que Deshabilitado.
     </string>
     <string id="DisableAntiSpyware">Desactivar Endpoint Protection</string>
     <string id="DisableAntiSpyware_Explain">Esta configuración de directiva desactiva Endpoint Protection.
@@ -49,16 +49,16 @@ Si habilita esta configuración de directiva, no se ejecuta Endpoint Protection 
 
 Si deshabilita o no define esta configuración de directiva, de manera predeterminada, se ejecuta Endpoint Protection y se busca malware y otro software potencialmente no deseado en los equipos.
     </string>
-    <string id="DisableAntiSpywareDefender">Desactivar Antivirus de Windows Defender</string>
-    <string id="DisableAntiSpywareDefender_Explain">Esta configuración de directiva desactiva el Antivirus de Windows Defender.
+    <string id="DisableAntiSpywareDefender">Desactivar Antivirus de Microsoft Defender</string>
+    <string id="DisableAntiSpywareDefender_Explain">Esta configuración de directiva desactiva Antivirus de Microsoft Defender.
     
-    Si habilitas esta configuración de directiva, no se ejecutará el Antivirus de Windows Defender y no se examinarán los equipos en busca de malware u otro software potencialmente no deseado.
+    Si habilitas esta configuración de directiva, Antivirus de Microsoft Defender no se ejecutará y no analizará los equipos en busca de malware u otro software potencialmente no deseado.
 
-    Si deshabilitas esta configuración de directiva, Antivirus de Windows Defender se ejecutará independientemente de cualquier otro producto antivirus instalado.
+    Si deshabilitas esta configuración de directiva, Antivirus de Microsoft Defender se ejecutará independientemente de cualquier otro producto antivirus instalado.
 
-    Si no estableces esta configuración de directiva, Windows administrará de forma interna el Antivirus de Windows Defender. Si instalas otro programa antivirus, Windows deshabilitará automáticamente el Antivirus de Windows Defender. De lo contrario, el Antivirus de Windows Defender buscará malware y otro software potencialmente no deseado en los equipos.
+    Si no configuras esta configuración de directiva, Windows administrará el antivirus de Microsoft Defender de forma interna. Si instalas otro programa antivirus, Windows deshabilitará automáticamente Antivirus de Microsoft Defender. De lo contrario, Antivirus de Microsoft Defender buscará malware y otro software potencialmente no deseado en los equipos.
 
-    Habilitar o deshabilitar esta directiva puede provocar un comportamiento inesperado o no admitido. Se recomienda dejar esta configuración de directiva sin configurar.</string>
+    Habilitar o deshabilitar esta directiva puede provocar un comportamiento inesperado o no admitido. Se recomienda dejar esta configuración de directiva desconfigurada.</string>
     <string id="DisableLocalAdminMerge">Configurar el comportamiento de combinación de las listas de administrador local</string>
     <string id="DisableLocalAdminMerge_Explain">Esta configuración de directiva controla si la configuración de lista compleja establecida por un administrador local se va a combinar con la configuración de la directiva de grupo. Esta configuración es válida en listas como las amenazas y las exclusiones.
 
@@ -67,11 +67,11 @@ Si habilita o no establece esta configuración, los elementos únicos definidos 
 Si deshabilita esta configuración, la directiva vigente resultante solo usará los elementos definidos en la directiva de grupo. La configuración de directiva de grupo reemplazará la configuración de preferencias establecida por el administrador local.</string>
     <string id="DisableRoutinelyTakingAction">Desactivar corrección de rutina</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    Esta configuración de directiva permite configurar si Antivirus de Windows Defender realiza automáticamente acciones en todas las amenazas detectadas. La acción que debe realizarse en una amenaza en concreto está determinada por la combinación de la acción definida por la directiva, la acción definida por el usuario y la acción definida por la firma.
+    Esta configuración de directiva te permite configurar si Antivirus de Microsoft Defender emprende automáticamente acciones contra todas las amenazas detectadas. La acción que debe realizarse contra una amenaza en particular se determina mediante la combinación de la acción definida por la directiva, la acción definida por el usuario y la acción definida por la firma.
 
-    Si habilitas esta configuración de directiva, Antivirus de Windows Defender no realizará ninguna acción automáticamente en las amenazas detectadas, sino que pedirá a los usuarios que elijan una de las acciones disponibles para cada amenaza.
+    Si habilitas esta configuración de directiva, Antivirus de Microsoft Defender no realizará automáticamente ninguna acción contra las amenazas detectadas, sino que pedirá a los usuarios que elijan una de las acciones disponibles para cada amenaza.
 
-    Si deshabilitas o no estableces esta configuración de directiva, Antivirus de Windows Defender realizará automáticamente acciones en todas las amenazas detectadas tras un retraso no configurable de aproximadamente cinco segundos.</string>
+    Si deshabilitas o no estableces esta configuración de directiva, Antivirus de Microsoft Defender realizará automáticamente acciones contra todas las amenazas detectadas tras un retraso no configurable de aproximadamente cinco segundos.</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         Esta configuración de directiva le permite configurar si Endpoint Protection toma medidas automáticamente acerca de todas las amenazas detectadas. La medida que se debe tomar acerca de una amenaza en particular se determina mediante la combinación de las medidas definidas por la directiva, el usuario y la firma.
 
@@ -192,13 +192,14 @@ Si habilita o no establece esta configuración, las notificaciones de escritura 
 
 Si deshabilita esta configuración, las notificaciones de escritura de volumen sin procesar se deshabilitarán.</string>
     <string id="DisableRealtimeMonitoring">Desactivar protección en tiempo real</string>
-    <string id="DisableRealtimeMonitoringDefender_Explain">Esta configuración de directiva desactiva los avisos de protección en tiempo real sobre la detección de malware.
+    <string id="DisableRealtimeMonitoringDefender_Explain">Esta configuración de directiva desactiva los avisos de protección en tiempo real sobre la detección de malware conocido.
 
-    Antivirus de Windows Defender te avisa cuando malware o software posiblemente no deseado intenta instalarse o ejecutarse en tu equipo.
+    Antivirus de Microsoft Defender te avisa cuando malware o software potencialmente no deseado intenta instalarse o ejecutarse en tu equipo.
 
-    Si habilitas esta configuración de directiva, Antivirus de Windows Defender no avisará a los usuarios sobre la detección de malware para que tomen medidas.
+    Si habilitas esta configuración de directiva, Antivirus de Microsoft Defender no avisará a los usuarios sobre la detección de malware para que tomen medidas.
 
-    Si deshabilitas o no estableces esta configuración de directiva, Antivirus de Windows Defender avisará a los usuarios sobre la detección de malware para que tomen medidas.</string>
+    Si deshabilitas o no estableces esta configuración de directiva, Antivirus de Microsoft Defender pedirá a los usuarios que tomen medidas sobre la detección de malware.
+</string>
     <string id="DisableRealtimeMonitoring_Explain">
     Esta configuración de directiva desactiva los avisos de protección en tiempo real sobre la detección de malware.
 
@@ -331,11 +332,12 @@ Si deshabilita esta configuración, no se enviarán eventos Watson.</string>
     4: Depuración</string>
     <string id="Reporting_DisableEnhancedNotifications">Desactivar notificaciones mejoradas</string>
     <string id="Reporting_DisableEnhancedNotifications_Explain">
-      Usa esta configuración de directiva para especificar si quieres que las notificaciones mejoradas de Antivirus de Windows Defender se muestren en los clientes.
+      Usa esta configuración de directiva para especificar si quieres que las notificaciones mejoradas de Antivirus de Microsoft Defender se muestren en los clientes.
       
-      Si deshabilitas o no estableces esta configuración, las notificaciones mejoradas de Antivirus de Windows Defender se mostrarán en los clientes.
+      Si deshabilitas o no estableces esta configuración, las notificaciones mejoradas de Antivirus de Microsoft Defender se mostrarán en los clientes.
       
-      Si habilitas esta configuración, las notificaciones mejoradas de Antivirus de Windows Defender no se mostrarán en los clientes.
+      Si habilitas esta configuración, las notificaciones mejoradas de Antivirus de Microsoft Defender no se mostrarán en los clientes.
+
     </string>
 
       <string id="Scan_AllowPause">Permitir a los usuarios pausar un examen</string>
@@ -756,10 +758,11 @@ Los valores de acción de corrección válidos son:
       Si habilita a esta configuración, la interfaz de usuario de AM no mostrará las notificaciones de reinicio.
     </string>
     <string id="UX_Configuration_Notification_Suppress">Suprimir todas las notificaciones</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Usa esta configuración de directiva para especificar si quieres que las notificaciones de Antivirus de Windows Defender se muestren en los clientes.
-      Si deshabilitas o no estableces esta configuración, las notificaciones de Antivirus de Windows Defender se mostrarán en los clientes.
+    <string id="UX_Configuration_Notification_Suppress_Explain">Usa esta configuración de directiva para especificar si quieres que las notificaciones de Antivirus de Microsoft Defender se muestren en los clientes.
+      Si deshabilitas o no estableces esta configuración, las notificaciones de Antivirus de Microsoft Defender se mostrarán en los clientes.
 
-      Si habilitas esta configuración, las notificaciones de Antivirus de Windows Defender no se mostrarán en los clientes.
+      Si habilitas esta configuración, las notificaciones de Antivirus de Microsoft Defender no se mostrarán en los clientes.
+
     </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Mostrar más texto a los clientes cuando deban realizar una acción</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Esta configuración de directiva permite configurar si se va a mostrar o no más texto a los clientes cuando deban realizar una acción. El texto que se muestra es una cadena definida por el administrador personalizada (por ejemplo, el número de teléfono para llamar al servicio de asistencia de la compañía). La interfaz de cliente solo mostrará un máximo de 1024 caracteres. Las cadenas que sean más largas se truncarán antes de mostrarse.
@@ -769,42 +772,58 @@ Si habilita esta configuración, se mostrará el texto extra especificado.
 Si deshabilita o no establece esta configuración, no se mostrará ningún texto extra.</string>
     <string id="MpCloudBlockLevel">Selecciona el nivel de protección de la nube</string>
     <string id="MpCloudBlockLevel_Explain">
-      Esta configuración de directiva determina la agresividad de Antivirus de Windows Defender en lo que respecta al bloqueo y examen de archivos sospechosos.
+      Esta configuración de directiva determina la agresividad de Antivirus de Microsoft Defender en lo que respecta al bloqueo y análisis de archivos sospechosos.
 
-      Si esta configuración está activada, Antivirus de Windows Defender será más agresivo al identificar archivos sospechosos que se deben bloquear y examinar; de lo contrario, será menos agresivo y, por tanto, bloqueará y examinará archivos con menos frecuencia. 
+      Si esta configuración está activada, Antivirus de Microsoft Defender será más agresivo al identificar archivos sospechosos que se deben bloquear y analizar; de lo contrario, será menos agresivo y, por tanto, bloqueará y analizará archivos con menos frecuencia. 
       
-      Para obtener más información sobre los valores específicos compatibles, consulta el sitio de la documentación de Antivirus de Windows Defender.
+      Para obtener más información sobre los valores específicos compatibles, consulta el sitio de documentación de Antivirus de Microsoft Defender.
 
-      Nota: esta característica necesita que la configuración "Únete a Microsoft MAPS" esté habilitada para funcionar.
+      Nota: esta característica necesita que la configuración "Únase a Microsoft MAPS" esté habilitada para funcionar.
 
       Las opciones posibles son:
-      (0x0) Nivel de bloqueo predeterminado de Windows Defender
-      (0x2) Nivel de bloqueo alto: bloquea objetos desconocidos de manera agresiva a la vez que optimiza el rendimiento del cliente (más posibilidades de falsos positivos).
-      (0x4) Nivel de bloqueo alto+: bloquea objetos desconocidos de manera agresiva y aplica medidas de protección adicionales (puede afectar al rendimiento del cliente).
+      (0x0) Nivel de bloqueo predeterminado de Antivirus de Microsoft Defender
+      (0x1) Nivel de bloqueo moderado de Antivirus de Microsoft Defender: proporciona veredicto solo para detecciones de alta confianza
+      (0x2) Nivel de bloqueo alto: bloquea objetos desconocidos de manera agresiva a la vez que optimiza el rendimiento del cliente (más posibilidades de falsos positivos)
+      (0x4) Nivel de bloqueo alto+: bloquea objetos desconocidos de manera agresiva y aplica medidas de protección adicionales (puede afectar al rendimiento del cliente)
       (0x6) Nivel de bloqueo con tolerancia cero: bloquea todos los ejecutables desconocidos.
     </string>
-    <string id="MpCloudBlockLevel_Default_Level">Nivel de bloqueo predeterminado de Antivirus de Windows Defender</string>
+    <string id="MpCloudBlockLevel_Default_Level">Nivel de bloqueo predeterminado</string>
+    <string id="MpCloudBlockLevel_Moderate_Level">Nivel de bloqueo moderado</string>
     <string id="MpCloudBlockLevel_High_Level">Nivel de bloqueo alto</string>
     <string id="MpCloudBlockLevel_High_Plus_Level">Nivel de bloqueo alto+</string>
     <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Nivel de bloqueo de cero tolerancia</string>
     <string id="MpBafsExtendedTimeout">Configura la comprobación de la nube extendida</string>
     <string id="MpBafsExtendedTimeout_Explain">
-      Esta característica permite que Antivirus de Windows Defender bloquee un archivo sospechoso durante un máximo de 60 segundos y lo examine en la nube para comprobar que es seguro.
+      Esta característica permite a Antivirus de Microsoft Defender bloquear un archivo sospechoso durante 60 segundos y analizarlo en la nube para comprobar que es seguro.
       
-      El tiempo de espera de la comprobación de la nube habitual es de 10 segundos. Para habilitar la característica de comprobación de la nube extendida, especifica el tiempo extendido en segundos, hasta un máximo de 50 segundos adicionales.
+      El tiempo de espera de comprobación de la nube habitual es de 10 segundos. Para habilitar la característica de comprobación de la nube extendida, especifica el tiempo extendido en segundos, hasta un máximo de 50 segundos adicionales.
 
-      Por ejemplo, si el tiempo de espera deseado es de 60 segundos, especifica 50 segundos en esta configuración y se habilitará la característica de comprobación de la nube extendida, que aumentará el tiempo total en 60 segundos.
+      Por ejemplo, si el tiempo de espera deseado es de 60 segundos, especifica 50 segundos en esta configuración y se habilitará la característica de comprobación de la nube, que aumentará el tiempo total en 60 segundos.
 
-      Nota: esta característica depende de otras tres opciones de configuración de MAPS: característica "Bloqueo a primera vista"; "Únete a Microsoft MAPS"; "Enviar muestras de archivos cuando se requieran más análisis" (todas ellas deben estar activadas).
+      Nota: esta característica depende de otras tres opciones de configuración de MAPS: característica "Bloqueo a primera vista"; "Únase a Microsoft MAPS"; "Enviar muestras de archivos si se requiere un análisis más detallado" (todas ellas deben estar activadas).
+    </string>
+    <string id="MpEngine_EnableFileHashComputation">Habilitar la característica de cálculo de hash de archivo</string>
+    <string id="MpEngine_EnableFileHashComputation_Explain">
+        Habilita o deshabilita la característica de cálculo de hash de archivos.
+
+        Habilitado
+        Cuando esta característica está habilitada, Microsoft Defender calculará el valor de hash para los archivos que analiza.
+
+        Habilitado
+        El valor de hash del archivo no está calculado
+        
+        No configurado:
+        Igual que deshabilitado.
+
     </string>
     <string id="ExploitGuard_EnableNetworkProtection">Impedir que los usuarios y las aplicaciones tengan acceso a sitios Web peligrosos</string>
     <string id="ExploitGuard_EnableNetworkProtection_Explain">
-    Habilita o deshabilita la protección de red de Protección contra vulnerabilidades de seguridad de Windows Defender para impedir que los empleados usen cualquier aplicación para acceder a dominios peligrosos que puedan hospedar fraudes por suplantación de identidad (phishing), sitios que hospeden vulnerabilidades y otro tipo de contenido malintencionado en Internet.
+    Habilita o deshabilita la protección de red de Protección contra vulnerabilidades de seguridad de Microsoft Defender para impedir que los empleados usen cualquier aplicación para acceder a dominios peligrosos que puedan hospedar fraudes por suplantación de identidad (phishing), sitios que hospeden vulnerabilidades y otro tipo de contenido malintencionado en Internet.
 
     Habilitado:
     Especifica el modo en la sección Opciones:
     -Bloquear: los usuarios y las aplicaciones no podrán acceder a sitios peligrosos.
-    -Modo auditoría: los usuarios y las aplicaciones pueden conectarse a dominios peligrosos. Sin embargo, si esta característica bloquea el acceso porque se la ha establecido en Bloquear, se almacenará un registro del evento en los registros de eventos.
+    -Modo auditoría: los usuarios y las aplicaciones pueden conectarse a dominios peligrosos. Sin embargo, si esta característica hubiera bloqueado el acceso porque se la ha establecido en Bloquear, se almacenará un registro del evento en los registros de eventos.
 
     Deshabilitado:
     No se impedirá que los usuarios y las aplicaciones se conecten a sitios peligrosos.
@@ -865,55 +884,55 @@ Si deshabilita o no establece esta configuración, no se mostrará ningún texto
     </string>
     <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Configurar Acceso controlado a carpeta</string>
     <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
-    Habilitar o deshabilitar el acceso controlado a carpetas para aplicaciones que no son de confianza. Puedes elegir bloquear, auditar o permitir los intentos que realizan las aplicaciones que no son de confianza para:
-    - Modificar o eliminar archivos en carpetas protegidas, como la carpeta Documentos
-    - Escribir en sectores del disco
+        Habilita o deshabilita el acceso controlado a carpetas para las aplicaciones que no son de confianza. Puedes elegir bloquear, auditar o permitir los intentos de las aplicaciones que no son de confianza para:
+        - Modificar o eliminar archivos de carpetas protegidas, como la carpeta Documentos
+        - Escribir en los sectores del disco
 
-    También puedes elegir bloquear o auditar solamente la escritura en los sectores del disco, pero seguir permitiendo la modificación o la eliminación de archivos en las carpetas protegidas.
+        También puedes elegir bloquear o auditar únicamente las escrituras en los sectores del disco, al tiempo que permites la modificación o eliminación de archivos en carpetas protegidas.
 
-    El Antivirus de Windows Defender determina automáticamente qué aplicaciones pueden considerarse de confianza. Puedes agregar aplicaciones de confianza adicionales en la opción de directiva de grupo Configurar aplicaciones permitidas.
-    Las carpetas del sistema predeterminadas se protegen automáticamente, pero puedes agregar carpetas en la opción de directiva de grupo Configurar carpetas protegidas.
+        Antivirus de Microsoft Defender determina automáticamente qué aplicaciones son de confianza. Puedes agregar aplicaciones de confianza adicionales en la opción de GP Configurar aplicaciones permitidas.
+        Las carpetas del sistema predeterminadas se protegen automáticamente, pero puedes agregar carpetas en la configuración de GP Configurar carpetas protegidas.
 
-    Bloquear:
-    Se bloquearán los siguientes elementos:
-    - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
-    - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
-    El registro de eventos de Windows registrará estos bloqueos en Registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operativo &gt; Id. 1123.
-
-
-    Deshabilitado:
-    No se bloquearán y se podrán ejecutar los siguientes elementos:
-    - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
-    - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
-    Estos intentos no se registrarán en el registro de eventos de Windows.
+        Bloque
+        Se bloquearán los siguientes elementos:
+        - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
+        - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
+        El registro de eventos de Windows registrará estos bloques en los registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; ID &gt; operativo 1123.
 
 
-    Modo auditoría:
-    No se bloquearán y se podrán ejecutar los siguientes elementos:
-    - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
-    - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
-    El registro de eventos de Windows registrará estos intentos en Registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operativo &gt; Id. 1124.
+        Deshabilitado:
+        Los siguientes elementos no se bloquearán y se podrán ejecutar:
+        - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
+        - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
+        Estos intentos no se registrarán en el registro de eventos de Windows.
 
 
-    Bloquear solo la modificación del disco:
-    Se bloquearán los siguientes elementos:
-    - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
-    El registro de eventos de Windows registrará estos intentos en Registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operativo &gt; Id. 1123.
-
-    No se bloquearán y se podrán ejecutar los siguientes elementos:
-    - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
-    Estos intentos no se registrarán en el registro de eventos de Windows.
+        Modo auditoría:
+        Los siguientes elementos no se bloquearán y se podrán ejecutar:
+        - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
+        - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
+        El registro de eventos de Windows registrará estos intentos en registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; ID &gt; operativo 1124.
 
 
-    Auditar solo la modificación del disco:
-    No se bloquearán y se podrán ejecutar los siguientes elementos:
-    - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
-    - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
-    Solo los intentos de escritura en los sectores del disco protegidos se registrarán en el registro de eventos de Windows (en Registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operativo &gt; Id. 1124).
-    No se registrarán los intentos de modificación o eliminación de archivos de carpetas protegidas.
+        Bloquear solo la modificación del disco:
+        Se bloquearán los siguientes elementos:
+        - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
+        El registro de eventos de Windows registrará estos intentos en registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; ID &gt; operativo 1123.
 
-    No configurado:
-    Igual que Deshabilitado.
+        Los siguientes elementos no se bloquearán y se podrán ejecutar:
+        - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
+        Estos intentos no se registrarán en el registro de eventos de Windows.
+
+
+        Auditar solo la modificación del disco:
+        Los siguientes elementos no se bloquearán y se podrán ejecutar:
+        - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
+        -Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
+        Solo los intentos de escritura en los sectores del disco protegidos se registrarán en el registro de eventos de Windows (en registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; ID &gt; operativo 1124).
+        No se registrarán los intentos de modificación o eliminación de archivos de carpetas protegidas.
+
+        No configurado:
+        Igual que deshabilitado.
     </string>
     <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Deshabilitar (predeterminado)</string>
     <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Bloquear</string>
@@ -926,10 +945,10 @@ Si deshabilita o no establece esta configuración, no se mostrará ningún texto
 
     Estas aplicaciones pueden modificar o eliminar archivos de las carpetas de acceso controlado a carpetas.
 
-    El Antivirus de Windows Defender determina automáticamente qué aplicaciones son de confianza. Puedes configurar esta opción para agregar aplicaciones adicionales.
+    El Antivirus de Microsoft Defender determina automáticamente qué aplicaciones son de confianza. Puedes configurar esta opción para agregar aplicaciones adicionales.
 
     Habilitado: 
-    Especifica aplicaciones permitidas adicionales en la sección Opciones.
+    Especifica aplicaciones permitidas adicionales en la sección Opciones. 
 
     Deshabilitado:
     No se agregará ninguna aplicación adicional a la lista de confianza.
@@ -950,18 +969,18 @@ Si deshabilita o no establece esta configuración, no se mostrará ningún texto
     Las carpetas del sistema predeterminadas se protegen automáticamente. Puedes establecer esta configuración para agregar carpetas adicionales. 
     La lista de carpetas del sistema predeterminadas que se protegen se muestra en Seguridad de Windows.
 
-    Habilitada:
+    Habilitado:
     Especifica las carpetas adicionales que deben protegerse en la sección Opciones.
 
-    Deshabilitada:
+    Deshabilitado:
     No se protegerá ninguna carpeta adicional.
 
-    No configurada:
-    Igual que Deshabilitada.
+    No configurado:
+    Igual que Deshabilitado.
 
     Puedes habilitar el acceso controlado a carpetas en la opción de GP Configurar el acceso controlado a carpetas.
 
-    El Antivirus de Windows Defender determina automáticamente las aplicaciones que pueden ser de confianza. Puedes agregar aplicaciones de confianza adicionales en la opción de GP Configurar aplicaciones permitidas.
+    Antivirus de Microsoft Defender determina automáticamente las aplicaciones que pueden ser de confianza. Puedes agregar aplicaciones de confianza adicionales en la opción de GP Configurar aplicaciones permitidas.
     </string>
     </stringTable>
     <presentationTable>

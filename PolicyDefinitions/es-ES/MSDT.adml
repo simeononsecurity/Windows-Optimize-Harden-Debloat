@@ -74,9 +74,9 @@ Habilitar esta directiva te permite configurar cómo se aplica la solución de p
 Después de establecer esta configuración nueva, para activar la solución de problemas recomendada para los dispositivos del dominio, sigue estas instrucciones:
 1. Crea un script bat con el siguiente contenido:
 rem El siguiente script por lotes activa Resolución de problemas recomendada
-C:\Windows\System32\mitigationscanner.exe
+schtasks /run /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner"
 
-2. Para crear una nueva tarea inmediata, navega hasta Editor de administración de directivas de grupo &gt; Configuración del equipo &gt; Preferencias y selecciona Configuración del Panel de control.
+2. Para crear una nueva tarea inmediata, navega hasta Editor de administración de directivas de grupo &gt; Configuración del equipo &gt; Preferencias y selecciona Configuración del Panel de control. 
 3. En Configuración del Panel de control, haz clic con el botón derecho en Tareas programadas y selecciona Nuevo. Selecciona Tarea inmediata (como mínimo, Windows 7).
 4. Proporciona un nombre y una descripción, según corresponda, luego, en Opciones de seguridad, establece la cuenta de usuario en Sistema y selecciona la casilla ejecutar con los privilegios más altos.
 5. En la pestaña Acciones, crea una nueva acción, selecciona Iniciar un programa como tipo y, luego, escribe el archivo creado en el paso 1.

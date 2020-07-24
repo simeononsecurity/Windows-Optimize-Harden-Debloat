@@ -505,11 +505,11 @@ Nota: si un complemento se muestra en la configuración de directiva "Lista de c
 Si habilita esta configuración de directiva, los bloqueos en Internet Explorer tendrán el comportamiento de Windows XP Professional Service Pack 1, que es invocar Informes de errores de Windows. Todas las configuraciones de directiva para Informes de errores de Windows se seguirán aplicando.
 
 Si deshabilita esta configuración de directiva o no la establece, la característica de detección de bloqueos de Administración de complementos seguirá funcionando.</string>
-      <string id="IE_ExplainAddonManagement_RestrictExtensionManagement">Esta configuración de directiva le permite administrar si los usuarios tienen la capacidad de permitir o denegar complementos por medio del Administrador de complementos.
+      <string id="IE_ExplainAddonManagement_RestrictExtensionManagement">Esta configuración de directiva determina si los usuarios pueden permitir o denegar complementos a través del Administrador de complementos.
 
-Si habilita esta configuración de directiva, los usuarios no podrán habilitar ni deshabilitar complementos por medio del Administrador de complementos. La única excepción se producirá si un complemento se especificó en la configuración de directiva "Lista de complementos" de manera que se permita a los usuarios continuar administrándolo. En este caso, el usuario podrá todavía administrar el complemento por medio del Administrador de complementos.
+Si se habilita esta configuración de directiva, los usuarios no podrán habilitar ni deshabilitar complementos mediante el Administrador de complementos.
 
-Si deshabilita esta configuración de directiva o no la establece, los controles apropiados del Administrador de complementos estarán disponibles para el usuario.</string>
+Si se deshabilita o no se establece esta configuración de directiva, en el Administrador de complementos se mostrarán los controles oportunos para el usuario.</string>
       <string id="IE_ExplainAddSearchProvider">Esta configuración de directiva le permite agregar una lista específica de proveedores de búsqueda a la lista de proveedores de búsqueda predeterminada del usuario. Normalmente, los proveedores de búsqueda pueden agregarse desde barras de herramientas de terceros o en la instalación. El usuario también puede agregar un proveedor de búsqueda desde el sitio web del proveedor.
 
 Si habilita esta configuración de directiva, el usuario puede agregar y quitar proveedores de búsqueda, pero únicamente del conjunto de proveedores de búsqueda especificado en la lista de claves de directivas de proveedores de búsqueda (en [HKCU o HKLM\Software\policies\Microsoft\Internet Explorer\SearchScopes]). Nota: esta lista se puede crear con un archivo de plantilla administrativa personalizada. Para obtener información sobre cómo crear este archivo de plantilla administrativa personalizada, consulte la documentación de Internet Explorer sobre proveedores de búsqueda.
@@ -598,7 +598,7 @@ Cuando configura esta directiva, no necesita configurar las siguientes directiva
 "Impedir el cambio de configuración de proxy"
 
 "Deshabilitar el cambio de valores de Configuración automática"</string>
-      <string id="IE_ExplainControlPanel_RestrictContentTab">Si habilita esta configuración de directiva, los usuarios no podrán ver ni modificar las configuraciones de clasificación, certificados, Autocompletar, Wallet y Asistente para perfiles.
+      <string id="IE_ExplainControlPanel_RestrictContentTab">Si habilita esta configuración de directiva, los usuarios no podrán ver ni modificar las configuraciones de clasificación, certificados, Autocompletar, Cartera y Asistente para perfiles.
 
 Si deshabilita esta directiva o no la configura, los usuarios podrán ver y modificar esa configuración.</string>
       <string id="IE_ExplainControlPanel_RestrictGeneralTab">Quita la pestaña General de la interfaz en el cuadro de diálogo Opciones de Internet.
@@ -723,13 +723,13 @@ Si habilita esta configuración de directiva, se desactiva la compatibilidad con
 Si deshabilita esta configuración de directiva, se activa la compatibilidad con geoubicación del explorador.
 
 Si no establece esta configuración de directiva, la compatibilidad con geoubicación del explorador puede activarse o desactivarse en la pestaña Privacidad de Opciones de Internet.</string>
-      <string id="IE_ExplainDisableFlashInIE">Esta configuración de directiva desactiva Adobe Flash en Internet Explorer e impide que las aplicaciones utilicen la tecnología de Internet Explorer para crear instancias de objetos Flash.
- 
-Si habilita esta configuración de directiva, se desactiva Flash para Internet Explorer y las aplicaciones no pueden utilizar la tecnología de Internet Explorer para crear instancias de objetos Flash. En el cuadro de diálogo Administrar complementos, el estado de Flash será 'Deshabilitado' y los usuarios no podrán habilitar Flash. Si habilita esta configuración de directiva, Internet Explorer ignorará las configuraciones que se realicen para Adobe Flash a través de las configuraciones de directiva "Lista de complementos" y "Denegar complementos a menos que se permitan específicamente en la Lista de complementos".  
- 
-Si deshabilita esta configuración de directiva o no la establece, se activa Flash para Internet Explorer y las aplicaciones pueden utilizar la tecnología de Internet Explorer para crear instancias de objetos Flash. Los usuarios pueden habilitar o deshabilitar Flash en el cuadro de diálogo Administrar complementos. 
+      <string id="IE_ExplainDisableFlashInIE">Esta configuración de directiva desactiva Adobe Flash en Internet Explorer e impide que las aplicaciones usen la tecnología de Internet Explorer para crear instancias de objetos Flash.
 
-Tenga en cuenta que aún se podría deshabilitar Adobe Flash a través de las configuraciones de directiva "Lista de complementos" y "Denegar complementos a menos que se permitan específicamente en la Lista de complementos", incluso si esta configuración de directiva no se ha establecido o se ha deshabilitado. Sin embargo, si se deshabilita Adobe Flash a través de las configuraciones de directiva "Lista de complementos" y "Denegar complementos a menos que se permitan específicamente en la Lista de complementos" en lugar de hacerlo a través de esta configuración de directiva, todas las aplicaciones que utilicen la tecnología de Internet Explorer para crear instancias de objetos Flash podrán seguir haciéndolas. Para obtener más información, consulte las "Configuraciones de directiva de grupo en Internet Explorer 10" en la biblioteca de TechNet de Internet Explorer.</string>
+Si habilitas esta configuración de directiva, se desactiva Flash para Internet Explorer y las aplicaciones no pueden usar la tecnología de Internet Explorer para crear instancias de objetos Flash. En el cuadro de diálogo Administrar complementos, el estado de Flash será 'Deshabilitado' y los usuarios no podrán habilitar Flash. Si habilitas esta configuración de directiva, Internet Explorer ignorará las configuraciones que se realicen para Adobe Flash a través de las configuraciones de directiva "Lista de complementos" y "Denegar complementos a menos que se permitan específicamente en la Lista de complementos".
+
+Si deshabilitas esta configuración de directiva o no la estableces, se activa Flash para Internet Explorer y las aplicaciones pueden usar la tecnología de Internet Explorer para crear instancias de objetos Flash. Los usuarios pueden habilitar o deshabilitar Flash en el cuadro de diálogo Administrar complementos.
+
+Ten en cuenta que aún se podría deshabilitar Adobe Flash a través de las configuraciones de directiva "Lista de complementos" y "Denegar complementos a menos que se permitan específicamente en la Lista de complementos", incluso si esta configuración de directiva no se ha establecido o se ha deshabilitado. Sin embargo, si se deshabilita Adobe Flash a través de las configuraciones de directiva "Lista de complementos" y "Denegar complementos a menos que se permitan específicamente en la Lista de complementos" en lugar de hacerlo a través de esta configuración de directiva, todas las aplicaciones que usen la tecnología de Internet Explorer para crear instancias de objetos Flash podrán seguir haciéndolas. Para obtener más información, consulta las "Configuraciones de directiva de grupo en Internet Explorer 10" en la biblioteca de TechNet de Internet Explorer.</string>
       <string id="IE_ExplainFile_NoBrowserClose">Impide que el usuario cierre Microsoft Internet Explorer y el Explorador de archivos.
 
 Si habilita esta directiva, el comando Cerrar del menú Archivo aparecerá atenuado.
@@ -790,13 +790,13 @@ Si deshabilita o no establece esta configuración de directiva, las aplicaciones
 Si habilita esta directiva, el comando Enviar comentarios se quita del menú Ayuda.
 
 Si deshabilita esta directiva o no la configura, los usuarios pueden rellenar un formulario de Internet para enviar comentarios acerca de los productos de Microsoft.</string>
-      <string id="IE_ExplainHelp_NoNetscapeHelp">Impide que los usuarios muestren sugerencias para usuarios que van a cambiar desde Netscape.
+      <string id="IE_ExplainHelp_NoNetscapeHelp">Impide que los usuarios muestren recomendaciones para usuarios que van a cambiar desde Netscape.
 
 Si habilita esta directiva, el comando Para usuarios de Netscape se quita del menú Ayuda.
 
 Si deshabilita esta directiva o no la configura, los usuarios pueden mostrar el contenido acerca de cómo cambiar a Netscape haciendo clic en el comando Para usuarios de Netscape del menú Ayuda.
 
-Precaución: al habilitar esta directiva no se quitan las sugerencias para los usuarios de Netscape del archivo de Ayuda de Microsoft Internet Explorer.</string>
+Precaución: al habilitar esta directiva no se quitan las recomendaciones para los usuarios de Netscape del archivo de Ayuda de Microsoft Internet Explorer.</string>
       <string id="IE_ExplainHelp_NoTip">Impide que los usuarios vean o modifiquen la interfaz de Sugerencia del día en Microsoft Internet Explorer.
 
 Si habilita esta directiva, el comando Sugerencia del día se quita del menú Ayuda.
@@ -2025,6 +2025,12 @@ Si no establece esta configuración de directiva, el usuario puede elegir si los
 Si habilita esta configuración de directiva, el usuario debe confirmar si permite la ejecución de los controles ActiveX desde sitios web en esta zona. El usuario puede permitir que el control se ejecute desde el sitio actual, o bien, desde todos los sitios.
 
 Si deshabilita esta configuración de directiva, el usuario no ve el mensaje de ActiveX por sitio y los controles de ActiveX pueden ejecutarse desde todos los sitios de esta zona.</string>
+<string id="IZ_PolicyAllowTDCControl">Permitir que solo los dominios aprobados usen el control ActiveX de TDC</string>
+      <string id="IZ_EXPLAIN_PolicyAllowTDCControl">Esta configuración de directiva controla si el usuario tiene permiso o no para ejecutar el control ActiveX de TDC en sitios web.
+
+Si habilitas esta configuración de directiva, el control ActiveX de TDC no se ejecutará desde los sitios web en esta zona.
+
+Si deshabilitas esta configuración de directiva, el control ActiveX de TDC se ejecutará desde todos los sitios de esta zona.</string>
       <string id="IZ_Policy_AllowDynsrcPlayback">Permitir vídeo y animación en una página web que use un reproductor multimedia anterior</string>
       <string id="IZ_Policy_AllowDynsrcPlayback_Explain">Esta configuración de directiva permite la reproducción de vídeo y animación a través de reproductores multimedia anteriores en zonas especificadas. Puede permitirse la reproducción de vídeo y animación a través de la etiqueta object, porque esto implica controles externos o reproductores multimedia.
 
@@ -2351,11 +2357,11 @@ Si habilita esta configuración de directiva, puede controlar si Internet Explor
 
 Si deshabilita o no establece esta configuración de directiva, los usuarios pueden elegir si desean procesar o no filtros en esta zona. Los usuarios pueden cambiar esta configuración en la pestaña Seguridad del cuadro de diálogo Opciones de Internet. Los filtros no se procesan en esta zona de forma predeterminada.</string>
 
-      <string id="IZ_PolicyRenderLegacyFilters_ExplainDefaultEnable">Esta configuración de directiva especifica si Internet Explorer procesa filtros visuales heredados en esta zona. 
+      <string id="IZ_PolicyRenderLegacyFilters_ExplainDefaultEnable">Esta configuración de directiva especifica si Internet Explorer representa filtros visuales heredados en esta zona.
 
-Si habilita esta configuración de directiva, puede controlar si Internet Explorer procesa o no filtros heredados seleccionando Habilitar o Deshabilitar, en Opciones del Editor de directivas de grupo.
+Si habilitas esta configuración de directiva, puedes controlar si Internet Explorer representa o no filtros heredados seleccionando Habilitar o Deshabilitar, en Opciones del Editor de directivas de grupo.
 
-Si deshabilita o no establece esta configuración de directiva, los usuarios pueden elegir si desean procesar o no filtros en esta zona. Los usuarios pueden cambiar esta configuración en la pestaña Seguridad del cuadro de diálogo Opciones de Internet. Los filtros se procesan en esta zona de forma predeterminada.</string>
+Si deshabilitas o no estableces esta configuración de directiva, los usuarios pueden elegir si quieren representar o no filtros en esta zona. Los usuarios pueden cambiar esta configuración en la ficha Seguridad del cuadro de diálogo Opciones de Internet. Los filtros se representan en esta zona de forma predeterminada.</string>
 
       <string id="IZ_PolicyFileDownload">Permitir la descarga de archivos</string>
       <string id="IZ_PolicyFileDownload_ExplainDefaultDisable">Esta configuración de directiva le permite administrar si se permite la descarga de archivos de la zona. Esta opción se determina por la zona de la página con el vínculo que ocasiona la descarga, no por la zona desde donde se entrega el archivo.
@@ -2684,17 +2690,17 @@ Si deshabilita esta configuración de directiva, se impedirá que la interacció
 Si no establece esta configuración de directiva, la interacción con el script podrá realizarse automáticamente sin la intervención del usuario.</string>
       <string id="IZ_PolicyAntiMalwareCheckingOfActiveXControls">No ejecutar programas antimalware en controles ActiveX</string>
       <string id="IZ_PolicyAntiMalwareCheckingOfActiveXControls_ExplainDefaultEnable">Esta configuración de directiva determina si Internet Explorer ejecuta programas antimalware en controles ActiveX con objeto de comprobar si es seguro cargarlos en las páginas.
-      
-Si habilita esta configuración de directiva, Internet Explorer no comprobará el programa antimalware para saber si se puede crear una instancia del control ActiveX de forma segura.
 
-Si deshabilita esta configuración de directiva, Internet Explorer siempre comprueba el programa antimalware para saber si se puede crear una instancia del control ActiveX de forma segura.
+Si habilitas esta configuración de directiva, Internet Explorer no comprobará el programa antimalware para saber si se puede crear una instancia del control ActiveX de forma segura.
 
-Si no se establece esta configuración de directiva, Internet Explorer siempre comprueba el programa antimalware para saber si se puede crear una instancia del control ActiveX de forma segura. Los usuarios pueden activar o desactivar este comportamiento por medio de las opciones de seguridad de Internet Explorer.</string>
+Si deshabilitas esta configuración de directiva, Internet Explorer siempre comprobará el programa antimalware para saber si se puede crear una instancia del control ActiveX de forma segura.
+
+Si no se establece esta configuración de directiva, Internet Explorer siempre comprobará el programa antimalware para saber si se puede crear una instancia del control ActiveX de forma segura. Los usuarios pueden activar o desactivar este comportamiento por medio de las opciones de seguridad de Internet Explorer.</string>
       <string id="IZ_PolicyAntiMalwareCheckingOfActiveXControls_ExplainDefaultDisable">Esta configuración de directiva determina si Internet Explorer ejecuta programas antimalware en controles ActiveX con objeto de comprobar si es seguro cargarlos en las páginas.
-      
-Si habilita esta configuración de directiva, Internet Explorer no comprobará el programa antimalware para saber si se puede crear una instancia del control ActiveX de forma segura.
 
-Si deshabilita esta configuración de directiva, Internet Explorer siempre comprueba el programa antimalware para saber si se puede crear una instancia del control ActiveX con seguridad.
+Si habilitas esta configuración de directiva, Internet Explorer no comprobará el programa antimalware para saber si se puede crear una instancia del control ActiveX de forma segura.
+
+Si deshabilitas esta configuración de directiva, Internet Explorer siempre comprobará el programa antimalware para saber si se puede crear una instancia del control ActiveX con seguridad.
 
 Si no se establece esta configuración de directiva, Internet Explorer no comprobará el programa antimalware para saber si se puede crear una instancia del control ActiveX con seguridad. Los usuarios pueden activar o desactivar este comportamiento por medio de las opciones de seguridad de Internet Explorer.</string>
       <string id="IZ_PolicyScriptActiveXNotMarkedSafe">Inicializar y generar scripts de los controles ActiveX no marcados como seguros</string>
@@ -2838,20 +2844,20 @@ Si deshabilita esta configuración de directiva, los usuarios no podrán preserv
 
 Si no establece esta configuración de directiva, los usuarios podrán preservar información en el Historial del explorador, en Favoritos, en un almacén XML o directamente dentro de una página web guardada en disco.</string>
       <string id="IZ_PolicyWindowsRestrictionsURLaction">Permitir que se abran ventanas iniciadas por scripts sin ninguna restricción de tamaño o posición</string>
-      <string id="IZ_PolicyWindowsRestrictionsURLaction_ExplainDefaultDisable">Esta configuración de directiva le permite administrar las restricciones sobre ventanas emergentes iniciadas por scripts y sobre ventanas que incluyen la barra de título y estado.
+      <string id="IZ_PolicyWindowsRestrictionsURLaction_ExplainDefaultDisable">Esta configuración de directiva te permite administrar las restricciones sobre ventanas emergentes iniciadas por scripts y sobre ventanas que incluyen las barras de título y estado.
 
-Si habilita esta directiva, la seguridad de restricciones de ventanas no se aplicará a esta zona. La zona de seguridad se ejecutará sin la capa agregada de seguridad proporcionada por esta característica.
+Si habilitas esta configuración de directiva, la seguridad de Restricciones en Windows no se aplicará a esta zona. La zona de seguridad se ejecutará sin la capa agregada de seguridad proporcionada por esta característica.
 
-Si deshabilita esta configuración de directiva, no se podrán ejecutar las acciones posiblemente dañinas contenidas en las ventanas emergentes iniciadas por scripts y en las ventanas que incluyen la barra de título y estado. La característica de seguridad de Internet Explorer estará en esta zona como lo indica el control de la característica Restricciones de seguridad de ventanas con scripts para el proceso.
+Si deshabilitas esta configuración de directiva, no se podrán ejecutar las acciones posiblemente dañinas contenidas en las ventanas emergentes iniciadas por scripts y en las ventanas que incluyen las barras de título y estado. Esta característica de seguridad de Internet Explorer estará activada en esta zona tal como lo indica la configuración de control de la característica de restricciones de seguridad de ventanas generadas por scripts para el proceso.
 
-Si no establece esta configuración de directiva, no se podrán ejecutar las acciones posiblemente dañinas contenidas en las ventanas emergentes iniciadas por scripts y en las ventanas que incluyen la barra de título y estado. La característica de seguridad de Internet Explorer estará en esta zona como lo indica el control de la característica Restricciones de seguridad de ventanas con scripts para el proceso.</string>
-      <string id="IZ_PolicyWindowsRestrictionsURLaction_ExplainDefaultEnable">Esta configuración de directiva le permite administrar las restricciones sobre ventanas emergentes iniciadas por scripts y sobre ventanas que incluyen la barra de título y estado.
+Si no estableces esta configuración de directiva, no se podrán ejecutar las acciones posiblemente dañinas contenidas en las ventanas emergentes iniciadas por scripts y en las ventanas que incluyen las barras de título y estado. Esta característica de seguridad de Internet Explorer estará activa en esta zona tal como lo indica el control de la característica restricciones de seguridad de ventanas generadas por scripts para el proceso.</string>
+      <string id="IZ_PolicyWindowsRestrictionsURLaction_ExplainDefaultEnable">Esta configuración de directiva te permite administrar las restricciones sobre ventanas emergentes iniciadas por scripts y sobre ventanas que incluyen las barras de título y estado.
 
-Si habilita esta directiva, la seguridad de restricciones de ventanas no se aplicará a esta zona. La zona de seguridad se ejecutará sin la capa agregada de seguridad proporcionada por esta característica.
+Si habilitas esta configuración de directiva, la seguridad de Restricciones en Windows no se aplicará a esta zona. La zona de seguridad se ejecutará sin la capa agregada de seguridad proporcionada por esta característica.
 
-Si deshabilita esta configuración de directiva, no se podrán ejecutar las acciones posiblemente dañinas contenidas en las ventanas emergentes iniciadas por scripts y en las ventanas que incluyen la barra de título y estado. La característica de seguridad de Internet Explorer estará en esta zona como lo indica el control de la característica Restricciones de seguridad de ventanas con scripts para el proceso.
+Si deshabilitas esta configuración de directiva, no se podrán ejecutar las acciones posiblemente dañinas contenidas en las ventanas emergentes iniciadas por scripts y en las ventanas que incluyen las barras de título y estado. Esta característica de seguridad de Internet Explorer estará activada en esta zona tal como lo indica el control de la característica de restricciones de seguridad de ventanas generadas por scripts para el proceso.
 
-Si no establece esta configuración de directiva, la seguridad de restricciones de ventanas no se aplicará a esta zona. La zona de seguridad se ejecutará sin la capa agregada de seguridad proporcionada por esta característica.</string>
+Si no estableces esta configuración de directiva, la seguridad de Restricciones en Windows no se aplicará a esta zona. La zona de seguridad se ejecutará sin la capa agregada de seguridad proporcionada por esta característica.</string>
       <string id="IZ_PolicyZoneElevationURLaction">Los sitios web en zonas de contenido web con menores privilegios pueden desplazarse hacia esta zona</string>
       <string id="IZ_PolicyZoneElevationURLaction_ExplainDefaultDisable">Esta configuración de directiva le permite administrar si los sitios web de zonas con menos privilegios, como sitios de Internet, pueden desplazarse hacia esta zona.
 
@@ -2874,6 +2880,34 @@ Si habilita esta directiva, los sitios web de zonas con menos privilegios podrá
 Si deshabilita esta configuración de directiva, se evitará cualquier navegación que pueda ser dañina. La característica de seguridad de Internet Explorer estará en esta zona como lo establece el control de la característica Protección contra elevación de zona.
 
 Si no establece esta configuración de directiva, se emitirá una advertencia al usuario que indica que se va a realizar una navegación potencialmente arriesgada.</string>
+      <string id="IZ_PolicyAllowVBScript">Permitir que VBScript se ejecute en Internet Explorer</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultDisable">Esta configuración de directiva te permite administrar si VBScript puede ejecutarse en las páginas de la zona especificada en Internet Explorer.
+
+Si se selecciona Habilitar en el cuadro desplegable, VBScript podrá ejecutarse sin la intervención del usuario.
+
+Si se selecciona Preguntar en el cuadro desplegable, se consultará con los usuarios si desean permitir la ejecución de VBScript.
+
+Si deshabilitas esta configuración, se impedirá que VBScript se ejecute.
+
+Si no se configura ni se deshabilita esta configuración de directiva, VBScript no podrá ejecutarse.</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultEnable">Esta configuración de directiva te permite administrar si VBScript puede ejecutarse en las páginas de la zona especificada en Internet Explorer.
+
+Si se selecciona Habilitar en el cuadro desplegable, VBScript podrá ejecutarse sin la intervención del usuario.
+
+Si se selecciona Preguntar en el cuadro desplegable, se consultará con los usuarios si desean permitir la ejecución de VBScript.
+
+Si se deshabilita esta configuración, se impedirá que VBScript se ejecute.
+
+Si no se configura ni se deshabilita esta configuración de directiva, VBScript se ejecutará sin intervención por parte del usuario.</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultPrompt">Esta configuración de directiva te permite administrar si VBScript puede ejecutarse en las páginas de la zona especificada en Internet Explorer.
+
+Si se selecciona Habilitar en el cuadro desplegable, VBScript podrá ejecutarse sin la intervención del usuario.
+
+Si se selecciona Preguntar en el cuadro desplegable, se consultará con los usuarios si desean permitir la ejecución de VBScript.
+
+Si se deshabilita esta configuración, se impedirá que VBScript se ejecute.
+
+Si no se configura ni se deshabilita esta configuración de directiva, se le pedirá a los usuarios que elijan si quieren permitir que VBScript se ejecute.</string>
       <string id="IZ_ProxyByPass">Sitios de intranet: incluir todos los sitios que no usen un servidor proxy</string>
       <string id="IZ_RestrictedSitesZone">Zona Sitios restringidos</string>
       <string id="IZ_RestrictedSitesZoneLockdown">Zona Sitios restringidos bloqueada</string>
@@ -2997,7 +3031,7 @@ Si no establece esta configuración de directiva, el usuario puede activar o des
       <string id="RestrictCalendarContact">Deshabilitar el cambio de configuración de Calendario y Contactos</string>
       <string id="RestrictCertificates">Deshabilitar el cambio de configuración de certificados</string>
       <string id="RestrictCheckBrowser">Deshabilitar el cambio de comprobación de explorador predeterminado</string>
-      <string id="NotifyNotDefaultBrowser">Notificar a los usuarios si Internet Explorer no es el explorador web predeterminado</string>  
+      <string id="NotifyNotDefaultBrowser">Notificar a los usuarios si Internet Explorer no es el explorador web predeterminado</string>
       <string id="RestrictColors">Deshabilitar el cambio de configuración de color</string>
       <string id="RestrictConnectionSettings">Deshabilitar el cambio de configuración de conexión</string>
       <string id="RestrictConnectionWizard">Deshabilitar Asistente para la conexión a Internet</string>
@@ -3078,11 +3112,19 @@ Si no establece esta configuración de directiva, el usuario puede activar o des
       <string id="SmoothScrolling">Desactivar desplazamiento suave</string>
       <string id="SmoothScrolling_Explain">Esta configuración de directiva especifica si se debe usar el desplazamiento suave para mostrar el contenido a una velocidad predefinida.
 
-Si habilita esta configuración de directiva, se desactiva el desplazamiento suave. El usuario no puede activar el desplazamiento suave.
+Si habilitas esta configuración de directiva, se desactiva el desplazamiento suave. El usuario no puede activar el desplazamiento suave.
 
-Si deshabilita esta configuración de directiva, se activa el desplazamiento suave. El usuario no puede desactivar el desplazamiento suave.
+Si deshabilitas esta configuración de directiva, se activa el desplazamiento suave. El usuario no puede desactivar el desplazamiento suave.
 
-Si no establece esta configuración de directiva, el usuario puede activar o desactivar el desplazamiento suave.</string>
+Si no la estableces, el usuario puede ocultar o mostrar el botón para abrir Microsoft Edge desde Internet Explorer.</string>
+      <string id="HideNewEdgeButton">Ocultar el botón (junto al botón Nueva pestaña) que abre Microsoft Edge</string>
+      <string id="HideNewEdgeButton_Explain">Esta configuración de directiva te permite administrar si los usuarios pueden ver el botón (junto al botón Nueva pestaña) que abre Microsoft Edge.
+
+Si habilitas esta configuración de directiva, se ocultará el botón para abrir Microsoft Edge desde Internet Explorer.
+
+Si deshabilitas esta configuración de directiva, se mostrará el botón para abrir Microsoft Edge desde Internet Explorer.
+
+Si no estableces esta configuración de directiva, el usuario podrá configurar el botón para abrir Microsoft Edge desde Internet Explorer.</string>
       <string id="SpecificSearchProvider">Restringir proveedores de búsqueda a una lista específica</string>
       <string id="SQM_DisableCEIP">Impedir la participación en el Programa para la mejora de la experiencia del usuario</string>
       <string id="SUPPORTED_IE4ONLY">Solo Internet Explorer 4.0</string>
@@ -3110,8 +3152,14 @@ Si no establece esta configuración de directiva, el usuario puede activar o des
       <string id="SUPPORTED_IE8">Al menos Internet Explorer 8.0</string>
       <string id="SUPPORTED_IE8ONLY">Solo Internet Explorer 8.0</string>
       <string id="SUPPORTED_IE9">Al menos Internet Explorer 9.0</string>
+      <string id="SUPPORTED_IE9_IE11NONWIN10">Solo Internet Explorer 9.0 hasta 11.0. No se admite en Windows 10</string>
       <string id="SUPPORTED_IE10">Al menos Internet Explorer 10.0</string>
       <string id="SUPPORTED_IE10WIN8">Al menos Internet Explorer 10.0 en Windows 8</string>
+      <string id="SUPPORTED_IE11WIN8">Se requiere al menos Internet Explorer 11.0 en Windows 8.1</string>
+      <string id="SUPPORTED_IE11WIN8ONLY">Solo Internet Explorer 11.0 en Windows 8.1</string>
+      <string id="SUPPORTED_IE11WIN10">Se requiere al menos Internet Explorer 11.0 en Windows 10</string>
+      <string id="SUPPORTED_IE11WIN10_1607">Al menos Internet Explorer 11.0 en Windows 10, vertion 1607 o posterior</string>
+      <string id="SUPPORTED_IE11WIN10_1703">Al menos Internet Explorer 11.0 en Windows 10, versión 1703 o posterior</string>
       <string id="SUPPORTED_IE11">Al menos Internet Explorer 11.0</string>
       <string id="SUPPORTED_IE7_NONVISTA">Al menos Internet Explorer 7.0. No compatible con Windows Vista</string>
       <string id="SUPPORTED_IE7VISTA">Al menos Internet Explorer 7.0 en Windows Vista</string>
@@ -3166,13 +3214,13 @@ Si deshabilita o no establece esta configuración de directiva, el usuario puede
       <string id="TopResult0">Deshabilitar la búsqueda de resultado principal</string>
       <string id="TopResult1">Habilitar la búsqueda de resultado principal</string>
       <string id="TopResultPol">Impedir la configuración de la búsqueda de resultado principal en la barra de direcciones</string>
-      <string id="TopResultPol_Explain">Esta configuración de directiva permite especificar si un usuario puede explorar la página web de un resultado principal cuando la búsqueda está habilitada en la barra de direcciones. Las opciones posibles son:
-    • Deshabilitar la búsqueda de resultado principal: cuando un usuario realiza una búsqueda en la barra de direcciones, se muestra en la ventana principal una lista de resultados de la búsqueda del proveedor de búsqueda seleccionado.
-    • Habilitar la búsqueda de resultado principal: cuando un usuario realiza una búsqueda en la barra de direcciones, se dirige al usuario a un sitio web de resultado principal externo determinado por el proveedor de búsqueda, si está disponible.
+      <string id="TopResultPol_Explain">Esta configuración de directiva permite especificar si un usuario puede examinar el sitio web de un resultado principal cuando la búsqueda está habilitada en la barra de direcciones. Las opciones posibles son:
+    • Deshabilitar la búsqueda de resultado principal: cuando un usuario realiza una búsqueda en la barra de direcciones, se muestra una lista de los resultados de la búsqueda del proveedor de búsqueda seleccionado en la ventana principal.
+    • Habilitar la búsqueda de resultado principal: cuando un usuario realiza una búsqueda en la barra de direcciones, se dirige al usuario al sitio web del resultado principal externo determinado por el proveedor de la búsqueda, si está disponible.
 
-Si habilita esta configuración de directiva, puede elegir dónde se dirige al usuario después de una búsqueda en la barra de direcciones: un sitio web de resultado principal o una página web de resultados de la búsqueda en la ventana principal.
+Si habilitas esta configuración de directiva, puedes elegir dónde quieres dirigir al usuario después de una búsqueda en la barra de direcciones: un sitio web de resultado principal o una página web de resultados de la búsqueda en la ventana de principal.
 
-Si deshabilita o no establece esta configuración de directiva, el usuario puede seleccionar sus preferencias en cuanto a este comportamiento. Explorar el sitio web de resultado principal es el comportamiento predeterminado.</string>
+Si deshabilitas o no estableces esta configuración de directiva, el usuario puede seleccionar su preferencia para este comportamiento. Ir al sitio web del resultado principal es el valor predeterminado.</string>
       <string id="UseHomePage">Ir directamente a la página principal</string>
       <string id="UseHoverColor">Activar la opción de color de desplazamiento</string>
       <string id="UseHoverColor_Explain">Esta configuración de directiva hace que los hipervínculos cambien de color cuando el puntero del mouse se detiene momentáneamente sobre ellos.
@@ -3311,18 +3359,18 @@ Si deshabilita esta configuración de directiva, los datos de filtrado InPrivate
 
 Si no establece esta configuración de directiva, el usuario puede elegir si eliminar o conservar los datos de filtrado InPrivate cuando haga clic en Eliminar.</string>
       <string id="IE_ExplainDBHDisableDeleteInPrivateDataV9">En Internet Explorer 9 e Internet Explorer 10:
-Esta configuración de directiva impide que los usuarios eliminen datos de filtrado ActiveX y de protección de rastreo, lo que incluye la lista de sitios web en los que el usuario haya optado por deshabilitar el filtrado ActiveX o la protección de rastreo. Asimismo, los datos de protección de rastreo también se recopilan si los usuarios activan la lista de protección de rastreo personalizada, que bloquea los elementos de terceros mientras el usuario está explorando.
+Esta configuración de directiva impide que los usuarios eliminen datos de filtrado ActiveX y de Protección de rastreo, lo que incluye la lista de sitios web en los que el usuario haya optado por deshabilitar el filtrado ActiveX o la Protección de rastreo. Asimismo, los datos de Protección de rastreo también se recopilan si los usuarios activan la lista de protección de rastreo personalizada, que bloquea los elementos de terceros mientras el usuario está explorando.
 
 Con Internet Explorer 11 como mínimo:
-Esta configuración de directiva impide que los usuarios eliminen datos de filtrado ActiveX y de protección de rastreo, así como las excepciones de No realizar seguimiento almacenadas en relación con los sitios web visitados. 
+Esta configuración de directiva impide que los usuarios eliminen datos de filtrado ActiveX y de Protección de rastreo, así como las excepciones de No realizar seguimiento almacenadas en relación con los sitios web visitados.
 
 Esta característica está disponible en el cuadro de diálogo Eliminar el historial de exploración.
 
-Si habilita esta configuración de directiva, los datos de filtrado ActiveX, protección de rastreo y No realizar seguimiento se conservan cuando el usuario haga clic en Eliminar.
+Si habilitas esta configuración de directiva, los datos de filtrado ActiveX, Protección de rastreo y No realizar seguimiento se conservan cuando el usuario hace clic en Eliminar.
 
-Si deshabilita esta configuración de directiva, los datos de filtrado ActiveX, protección de rastreo y No realizar seguimiento se eliminan cuando el usuario haga clic en Eliminar.
+Si deshabilitas esta configuración de directiva, los datos de filtrado ActiveX, Protección de rastreo y No realizar seguimiento se eliminan cuando el usuario hace clic en Eliminar.
 
-Si no establece esta configuración de directiva, los usuarios pueden activar y desactivar esta característica, lo que determina si se pueden eliminar los datos de filtrado ActiveX, protección de rastreo y No realizar seguimiento cuando se haga clic en Eliminar.</string>
+Si no estableces esta configuración de directiva, los usuarios pueden activar y desactivar esta característica, lo que determina si se pueden eliminar los datos de filtrado ActiveX, Protección de rastreo y No realizar seguimiento cuando se hace clic en Eliminar.</string>
       <string id="IE_ExplainDBHDisableKeepFavorites">Esta configuración de directiva impide que el usuario elimine datos del sitio de favoritos. Esta característica está disponible en el cuadro de diálogo Eliminar el historial de exploración.
 
 Si habilita esta configuración de directiva, los datos del sitio de favoritos se conservan cuando el usuario haga clic en Eliminar.
@@ -3393,7 +3441,12 @@ Si deshabilita o no establece esta configuración de directiva, el usuario puede
       <string id="Advanced_DisableEPMCompat">No permitir que los controles ActiveX se ejecuten en modo protegido cuando el modo protegido mejorado está habilitado</string>
       <string id="Advanced_EnableHttp1_1">Usar HTTP 1.1</string>
       <string id="Advanced_ProxyHttp1_1">Usar HTTP 1.1 a través de conexiones proxy</string>
-      <string id="Advanced_EnableSPDY3_0">Permitir que Internet Explorer use el protocolo de red SPDY/3</string>
+      <string id="Advanced_EnableSSL3Fallback">Permitir reserva para SSL 3.0 (Internet Explorer)</string>
+      <string id="Advanced_FallbackNonProtected">Sitios en modo no protegido</string>
+      <string id="Advanced_FallbackAll">Todos los sitios</string>
+      <string id="Advanced_FallbackNone">No hay sitios</string>
+      <string id="Advanced_EnableSPDY3_0">Permitir que Internet Explorer use el protocolo de red SPDY/3</string>
+      <string id="Advanced_EnableHTTP2">Permitir que Internet Explorer use el protocolo de red HTTP2</string>
       <string id="Advanced_SetWinInetProtocols">Desactivar soporte de cifrado</string>
       <string id="NoPrinting">Desactivar menú de impresión</string>
       <string id="Advanced_DisableFlipAhead">Desactivar la característica para pasar de página con predicción de página</string>
@@ -3446,20 +3499,35 @@ Si habilita esta configuración de directiva, Internet Explorer usa HTTP 1.1 med
 Si deshabilita esta configuración de directiva, Internet Explorer no usa HTTP 1.1 mediante conexiones proxy.
 
 Si no establece la configuración de directiva, los usuarios pueden configurar Internet Explorer para usar o no HTTP 1.1 mediante conexiones proxy.</string>
-      <string id="Advanced_ExplainEnableSPDY3_0">Esta configuración de directiva determina si Internet Explorer usa el protocolo de red SPDY/3. SPDY/3 funciona con solicitudes HTTP para optimizar la latencia de las solicitudes de red mediante la compresión, multiplexación y priorización.
+      <string id="Advanced_ExplainEnableSPDY3_0">Esta configuración de directiva determina si Internet Explorer usa el protocolo de red SPDY/3. SPDY/3 funciona con solicitudes HTTP para optimizar la latencia de las solicitudes de red mediante la compresión, multiplexación y establecimiento de prioridades.
 
-Si habilita esta configuración de directiva, Internet Explorer usa el protocolo de red SPDY/3.
+Si habilitas esta configuración de directiva, Internet Explorer usará el protocolo de red SPDY/3.
 
-Si deshabilita esta configuración de directiva, Internet Explorer no usará el protocolo de red SPDY/3.
+Si deshabilitas esta configuración de directiva, Internet Explorer no usará el protocolo de red SPDY/3.
 
-Si no establece esta configuración de directiva, los usuarios pueden activar y desactivar este comportamiento en la configuración de Opciones avanzadas de Internet Explorer.  Este comportamiento está activado de forma predeterminada.</string>
-      <string id="Advanced_ExplainSetWinInetProtocols">Esta configuración de directiva le permite desactivar el soporte de Seguridad de la capa de transporte (TLS, Transport Layer Security) 1.0, TLS 1.1, TLS 1.2, Capa de sockets seguros (SSL, Secure Sockets Layer) 2.0 o SSL 3.0 en el explorador. TLS y SSL son protocolos que ayudan a proteger la comunicación entre el explorador y el servidor de destino. Cuando el explorador intenta establecer una comunicación protegida con el servidor de destino, el explorador y el servidor negocian el protocolo y la versión que se deberá usar. El explorador y el servidor intentan que coincidan sus listas de protocolos y versiones admitidos y eligen la coincidencia preferida.
+Si no estableces esta configuración de directiva, los usuarios podrán activar o desactivar este comportamiento mediante la configuración de opciones avanzadas de Internet Explorer. Está activada de forma predeterminada.</string>
+      <string id="Advanced_ExplainEnableHTTP2">Esta configuración de directiva determina si Internet Explorer usa el protocolo de red HTTP2. Las solicitudes de HTTP2 ayudan a optimizar la latencia de las solicitudes de red mediante la compresión, multiplexación y priorización.
 
-Si habilita esta configuración de directiva, el explorador negocia, o no, un túnel de cifrado con los métodos de cifrado seleccionados en la lista desplegable.
+Si habilitas esta configuración de directiva, Internet Explorer usará el protocolo de red HTTP2.
 
-Si deshabilita o no establece esta configuración de directiva, el usuario puede seleccionar qué método de cifrado admite el explorador.
+Si deshabilitas esta configuración de directiva, Internet Explorer no usará el protocolo de red HTTP2.
 
-Nota: SSL 2.0 está desactivado de forma predeterminada. SSL 2.0 es un protocolo de seguridad caducado, y la habilitación de SSL 2.0 dificulta el rendimiento y la funcionalidad de TLS 1.0.</string>
+Si no estableces esta configuración de directiva, los usuarios podrán activar o desactivar esta característica mediante la configuración de opciones avanzadas de Internet Explorer. Está activada de forma predeterminada.</string>
+      <string id="Advanced_ExplainEnableSSL3Fallback">Esta configuración de directiva permite bloquear una reserva no segura para SSL 3.0. Cuando esté habilitada, Internet Explorer intentará conectarse a los sitios con SSL 3.0 o una versión anterior cuando se produzca un error en TLS 1.0 o una versión posterior.
+
+Recomendamos que no permitas la reserva no segura con el fin de evitar un ataque de tipo "Man in the middle".
+
+Esta directiva no afecta a la selección de protocolos de seguridad habilitados.
+
+Si deshabilitas esta directiva, se usarán los valores predeterminados del sistema.
+</string>
+      <string id="Advanced_ExplainSetWinInetProtocols">Esta configuración de directiva permite desactivar el soporte de Seguridad de la capa de transporte (TLS, Transport Layer Security) 1.0, TLS 1.1, TLS 1.2, Capa de sockets seguros (SSL, Secure Sockets Layer) 2.0 o SSL 3.0 en el explorador. TLS y SSL son protocolos que ayudan a proteger la comunicación entre el explorador y el servidor de destino. Cuando el explorador intenta establecer una comunicación protegida con el servidor de destino, el explorador y el servidor negocian el protocolo y la versión que se deberá usar. El explorador y el servidor intentan que coincidan sus listas de protocolos y versiones admitidos y eligen la coincidencia preferida.
+
+Si habilitas esta configuración de directiva, el explorador negocia, o no, un túnel de cifrado con los métodos de cifrado seleccionados en la lista desplegable.
+
+Si deshabilitas o no estableces esta configuración de directiva, el usuario puede seleccionar qué método de cifrado admite el explorador.
+
+Nota: SSL 2.0 está desactivado de forma predeterminada y ya no es compatible, empezando con la versión 1607 de Windows 10. SSL 2.0 es un protocolo de seguridad caducado, y la habilitación de SSL 2.0 dificulta el rendimiento y la funcionalidad de TLS 1.0.</string>
       <string id="IE_ExplainNoPrinting">Esta configuración de directiva le permite administrar si los usuarios podrán tener acceso al menú de impresión. A partir de Windows 8, esta configuración de directiva también permite administrar si los usuarios pueden acceder al control flotante Imprimir para Internet Explorer y a las impresoras desde el acceso a Dispositivos.
 
 Si habilita esta configuración de directiva, el menú de impresión no estará disponible en Internet Explorer. A partir de Windows 8, el control flotante Imprimir para Internet Explorer no estará disponible y los usuarios no verán las impresoras desde el acceso a Dispositivos.
@@ -3494,9 +3562,11 @@ Si deshabilita esta configuración de directiva, Internet Explorer envía el en
 Si no establece esta configuración de directiva, los usuarios pueden seleccionar la opción Enviar siempre el encabezado No realizar seguimiento en la configuración de Internet Explorer. Cuando esta opción se selecciona, Internet Explorer envía un encabezado DNT:1 con todas las solicitudes HTTP y HTTPS, a menos que el usuario permita una excepción específica de sitio. Internet Explorer envía un encabezado DNT:0 a todos los sitios en los que se permita una excepción. Esta opción está activada de forma predeterminada.</string>
       <string id="Content_ExplainShowContentAdvisor">Esta configuración de directiva muestra la configuración del Asesor de contenido en la pestaña Contenido del cuadro de diálogo Opciones de Internet.
 
-Si habilita esta configuración de directiva, Internet Explorer muestra la configuración del Asesor de contenido en la pestaña Contenido del cuadro de diálogo Opciones de Internet. Los usuarios pueden cambiar la configuración del Asesor de contenido.
+Si habilitas esta configuración de directiva, Internet Explorer muestra la configuración del Asesor de contenido en la pestaña Contenido del cuadro de diálogo Opciones de Internet. Los usuarios pueden cambiar la configuración del Asesor de contenido.
 
-Si deshabilita o no configura esta configuración de directiva, Internet Explorer no muestra la configuración del Asesor de contenido en la pestaña Contenido del cuadro de diálogo Opciones de Internet.</string>
+Si deshabilitas o no configuras esta configuración de directiva, Internet Explorer no muestra la configuración del Asesor de contenido en la pestaña Contenido del cuadro de diálogo Opciones de Internet.
+
+Nota: Esta directiva no es compatible desde Windows 10 versión 1607.</string>
       <string id="Protocols_None">Uso de protocolos no seguros</string>
       <string id="Protocols_SSL2">Usar solo SSL 2.0</string>
       <string id="Protocols_SSL3">Usar solo SSL 3.0</string>
@@ -3534,6 +3604,7 @@ Si deshabilita o no configura esta configuración de directiva, Internet Explore
       <string id="NewTab_AboutBlank">about:blank</string>
       <string id="NewTab_AboutTabs">Página de la nueva pestaña</string>
       <string id="NewTab_Homepage">Página principal</string>
+      <string id="NewTab_AboutNewsFeed">Página de nueva pestaña con suministro de noticias</string>
       <string id="NewTabAction">Especificar el comportamiento predeterminado para una nueva pestaña</string>
       <string id="SecondaryHomePages">Deshabilitar el cambio de configuración secundaria de la página principal</string>
       <string id="SetCommandLabels">Personalizar etiquetas de comandos</string>
@@ -3574,11 +3645,11 @@ Si habilita esta configuración de directiva, los botones Detener y Actualizar q
 Si deshabilita esta configuración de directiva, los botones Detener y Actualizar quedan junto a la barra de direcciones, y el usuario no puede moverlos.
 
 Si no establece esta configuración de directiva, los botones Detener y Actualizar quedarán junto a la barra de direcciones de forma predeterminada y el usuario puede optar por moverlos.</string>
-      <string id="IE_ExplainNewTabAction">Esta configuración de directiva le permite especificar qué se muestra cuando el usuario abre una nueva pestaña.
+      <string id="IE_ExplainNewTabAction">Esta configuración de directiva te permite especificar qué se muestra cuando el usuario abre una nueva pestaña.
 
-Si habilita esta configuración de directiva, puede elegir qué página mostrar cuando el usuario abre una nueva pestaña: una página en blanco (about:blank), la primera página principal o la página en una nueva pestaña.
+Si se habilita esta configuración de directiva, se puede elegir qué página mostrar cuando el usuario abre una nueva pestaña: una página en blanco (about:blank), la primera página principal, la página de nueva pestaña o la página de nueva pestaña con el suministro de noticias.
 
-Si deshabilita o no establece esta configuración de directiva, el usuario puede seleccionar sus preferencias en cuanto a este comportamiento. La opción predeterminada es la página de la nueva pestaña.</string>
+Si deshabilita o no se define esta configuración de directiva, el usuario puede seleccionar sus preferencias en cuanto a este comportamiento.</string>
       <string id="IE_ExplainSecondaryHomePages">Las páginas principales secundarias son las páginas web predeterminadas que carga Internet Explorer en pestañas diferentes a la página principal cada vez que se ejecuta el explorador. Esta configuración de directiva le permite establecer las páginas principales secundarias predeterminadas.
 
 Si habilita esta configuración de directiva, puede especificar qué páginas principales predeterminadas se deben cargar como secundarias. El usuario no puede establecer páginas principales secundarias que estén personalizadas de forma predeterminada.
@@ -3826,44 +3897,99 @@ Si deshabilita o no establece esta configuración de directiva, los usuarios pue
 Si activa esta configuración, los usuarios podrán ver y usar la opción del modo de empresa desde el menú Herramientas. Si activa esta configuración pero no indica una ubicación para los informes, el modo de empresa seguirá estando disponible para los usuarios, pero usted no recibirá ningún informe.
 
 Si deshabilita esta configuración de directiva o no la define, la opción de menú no aparecerá y los usuarios no podrán ejecutar los sitios web en el modo de empresa.</string>
-      <string id="VerMgmtDisable">Desactivar bloqueo de controles ActiveX obsoletos para Internet Explorer</string>
-      <string id="IE_ExplainVerMgmtDisable">Esta configuración de directiva establece si Internet Explorer va a bloquear controles ActiveX específicos que están obsoletos. Los controles ActiveX obsoletos nunca se bloquean en la zona Intranet.
+      <string id="RestrictInternetExplorer">Enviar todos los sitios que no está incluidos en la lista de sitios del modo de empresa a Microsoft Edge.</string>
+      <string id="IE_ExplainRestrictInternetExplorer">Esta configuración permite decidir si se deben abrir todos los sitios que no están incluidos en la lista de sitios de modo de empresa en Microsoft Edge. Si usas esta configuración, también debes activar la configuración de directiva Plantillas administrativas\Componentes de Windows\Internet Explorer\Usar la lista de sitios web de IE del modo de empresa y debes incluir al menos un sitio en la lista de sitios del modo de empresa.
 
-Si habilita esta configuración de directiva, Internet Explorer dejará de bloquear controles ActiveX obsoletos.
+Si habilitas esta configuración, se abren automáticamente todos los sitios que no están incluidos en la lista de sitios del modo de empresa en Microsoft Edge.
 
-Si deshabilita o no define esta configuración de directiva, Internet Explorer seguirá bloqueando controles ActiveX específicos que estén obsoletos.
+Si deshabilitas o no estableces esta configuración, se abren todos los sitios basándose en el explorador activo actualmente.
 
-Para obtener más información, consulte el tema sobre controles ActiveX obsoletos en la biblioteca de TechNet de Internet Explorer.</string>
-      <string id="VerMgmtAuditModeEnable">Activar registro de controles ActiveX en Internet Explorer</string>
-      <string id="IE_ExplainVerMgmtAuditModeEnable">Esta configuración de directiva establece si Internet Explorer va a guardar información de registro sobre los controles ActiveX.
+Nota: Si has habilitado también la configuración de directiva Plantillas administrativas\Componentes de Windows\Microsoft Edge\Enviar todos los sitios de la intranet a Internet Explorer 11, todos los sitios de la intranet continuarán abriéndose en Internet Explorer 11.</string>
+      <string id="ShowMessageWhenOpeningSitesInMicrosoftEdge">Mostrar un mensaje cuando se abran sitios en Microsoft Edge mediante el Modo de empresa</string>
+      <string id="IE_ExplainShowMessageWhenOpeningSitesInMicrosoftEdge">Esta configuración de directiva te permite decidir si los empleados verán una página adicional en Internet Explorer 11 que les indique que se ha abierto un sitio mediante Microsoft Edge con el Modo de empresa.
 
-Si habilita esta configuración de directiva, Internet Explorer registrará información sobre los controles ActiveX (como el URI de origen que cargó el control y si este está bloqueado) en un archivo local.
+Si habilitas esta configuración, los empleados verán una página adicional en Internet Explorer 11 que les indicará que se ha abierto un sitio mediante Microsoft Edge con el Modo de empresa.
 
-Si deshabilita o no define esta configuración de directiva, Internet Explorer no registrará información de los controles ActiveX.
+Si deshabilitas o no configuras esta opción, se aplicará el comportamiento predeterminado de la aplicación y no aparecerá ninguna página adicional.</string>
+      <string id="NeedEdgeBrowser">Configurar el canal de Microsoft Edge que se usará para abrir los sitios redirigidos</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Permite configurar hasta tres versiones de Microsoft Edge para abrir un sitio redirigido (en orden de preferencia). Usa esta directiva si tu entorno está configurado para redirigir sitios de Internet Explorer 11 a Microsoft Edge. Si alguna de las versiones elegidas no está instalada en el dispositivo, esa preferencia se omitirá.
 
-Recuerde que esta configuración de directiva se puede activar o desactivar de manera independiente de las configuraciones de directiva "Desactivar bloqueo de controles ActiveX obsoletos para Internet Explorer" o "Desactivar bloqueo de controles ActiveX obsoletos para Internet Explorer en dominios específicos".
+Si tanto la actualización de Windows Update para la siguiente versión de Microsoft Edge* como el canal estable Microsoft Edge están instalados, se producen los comportamientos siguientes:
+- Si deshabilitas o no configuras esta directiva, se usa el canal estable Microsoft Edge. Este es el comportamiento predeterminado.
+- Si habilitas esta directiva, puedes especificar en la configuración que los sitios redirigidos se abran en un máximo de tres de los canales siguientes, donde:
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta versión 77 o posterior
+    3 = Microsoft Edge Dev versión 77 o posterior
+    4 = Microsoft Edge Canary versión 77 o posterior
 
-Para obtener más información, consulte el tema sobre controles ActiveX obsoletos en la biblioteca de TechNet de Internet Explorer.</string>
-      <string id="VerMgmtDomainAllowlist">Desactivar bloqueo de controles ActiveX obsoletos para Internet Explorer en dominios específicos</string>
-      <string id="IE_ExplainVerMgmtDomainAllowlist">Esta configuración de directiva permite administrar una lista de dominios en los que Internet Explorer detendrá el bloqueo de los controles ActiveX que estén obsoletos. Los controles ActiveX obsoletos nunca se bloquean en la zona de Intranet.
+Si la actualización de Windows Update para la siguiente versión de Microsoft Edge* o el canal estable Microsoft Edge no están instalados, se producen los comportamientos siguientes:
+- Si deshabilitas o no configuras esta directiva, se usará Microsoft Edge versión 45 o una versión anterior automáticamente. Este es el comportamiento predeterminado.
+- Si habilitas esta directiva, puedes especificar en la configuración que los sitios redirigidos se abran en un máximo de tres de los canales siguientes, donde:
+    0 = Microsoft Edge versión 45 o anterior
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta versión 77 o posterior
+    3 = Microsoft Edge Dev versión 77 o posterior
+    4 = Microsoft Edge Canary versión 77 o posterior
 
-Si habilita esta configuración de directiva, puede introducir una lista personalizada de dominios para los que los controles ActiveX obsoletos no estarán bloqueados en Internet Explorer. Todas las entradas de dominio deben estar formateadas del siguiente modo:
+*Para obtener más información acerca de la actualización de Windows Update para la siguiente versión de Microsoft Edge; p. ej., cómo deshabilitarla, consulta https://go.microsoft.com/fwlink/?linkid=2102115. Esta actualización solo se aplica a Windows 10 versión 1709 o superior.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta versión 77 o posterior</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev versión 77 o posterior</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary versión 77 o posterior</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge versión 45 o anterior</string>
+      <string id="KeepIntranetSitesInInternetExplorer">Mantener todos los sitios de la intranet en Internet Explorer</string>
+      <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Impide que los sitios de la intranet se abran en cualquier explorador, excepto en Internet Explorer. Sin embargo, ten en cuenta que si la directiva "Enviar todos los sitios que no están incluidos en la lista de sitios del modo de empresa a Microsoft Edge" ("RestrictIE") no está habilitada, esta directiva no tendrá ningún efecto.
 
-1. "dominio.nombre.TLD". Por ejemplo, si quiere incluir *.contoso.com/*, utilice "contoso.com"
-2. "nombre de host". Por ejemplo, si quiere incluir http://ejemplo, utilice "ejemplo"
-3. "archivo:///ruta/nombrearchivo.htm". Por ejemplo, utilice "archivo:///C:/Users/contoso/Desktop/index.htm"
+ Si habilitas esta directiva, todos los sitios de la intranet se abrirán en Internet Explorer 11. Las únicas excepciones son los sitios que se muestran en la lista de sitios del modo de empresa.
 
-Si inhabilita o no configura esta configuración de directiva, la lista se elimina e Internet Explorer continúa bloqueando los controles ActiveX obsoletos específicos en todos los dominios en la zona de Internet.
+Si deshabilitas o no configuras esta directiva, todos los sitios de la intranet se abrirán automáticamente en Microsoft Edge.
 
-Para obtener más información, consulte "Controles ActiveX obsoletos" en la biblioteca TechNet de Internet Explorer.</string>
-      <string id="VerMgmtDisableRunThisTime">Quitar botón "Ejecutar esta vez" para controles ActiveX obsoletos en Internet Explorer </string>
-      <string id="IE_ExplainVerMgmtDisableRunThisTime">Esta configuración de directiva permite impedir que los usuarios vean el botón "Ejecutar esta vez" y ejecuten controles ActiveX concretos que estén obsoletos en Internet Explorer.
+ Recomendamos encarecidamente mantener esta directiva sincronizada con la directiva "Enviar todos los sitios de la intranet a Internet Explorer" ("SendIntranetToInternetExplorer"). Además, es mejor habilitar esta directiva solo si los sitios de la intranet tienen problemas de compatibilidad conocidos con Microsoft Edge.
 
-Si habilita esta configuración de directiva, los usuarios no verán el botón "Ejecutar esta vez" en el mensaje de advertencia que aparece cuando Internet Explorer bloquea un control ActiveX obsoleto.
+Directivas relacionadas:
+- Enviar todos los sitios de la intranet a Internet Explorer ("SendIntranetToInternetExplorer")
+- Enviar todos los sitios que no están incluidos en la lista de sitios del modo de empresa a Microsoft Edge ("RestrictIE")
 
-Si deshabilita o no define esta configuración de directiva, los usuarios verán el botón "Ejecutar esta vez" en el mensaje de advertencia que aparece cuando Internet Explorer bloquea un control ActiveX obsoleto. Si hacen clic en este botón, ejecutarán el control ActiveX obsoleto una vez.
+ Para obtener más información sobre cómo usar esta directiva junto con otras directivas relacionadas para crear la configuración óptima para la organización, consulta https://go.microsoft.com/fwlink/?linkid=2094210.</string>
+      <string id="VerMgmtDisable">Desactivar el bloqueo de controles ActiveX obsoletos para Internet Explorer</string>
+      <string id="IE_ExplainVerMgmtDisable">Esta configuración de directiva determina si Internet Explorer bloquea determinados controles ActiveX obsoletos. Nunca se bloquean los controles ActiveX obsoletos en la zona de Intranet.
 
-Para obtener más información, consulte el tema sobre controles ActiveX obsoletos en la biblioteca de TechNet de Internet Explorer.</string>
+Si habilitas esta configuración de directiva, Internet Explorer dejará de bloquear los controles ActiveX obsoletos.
+
+Si deshabilitas o no estableces esta configuración de directiva, Internet Explorer seguirá bloqueando determinados controles ActiveX obsoletos.
+
+Para obtener más información, consulta "Controles ActiveX obsoletos" en la biblioteca de TechNet de Internet Explorer.</string>
+      <string id="VerMgmtAuditModeEnable">Activar el registro de controles ActiveX en Internet Explorer</string>
+      <string id="IE_ExplainVerMgmtAuditModeEnable">Esta configuración de directiva determina si Internet Explorer guarda la información de registro de los controles ActiveX.
+
+Si habilitas esta configuración de directiva, Internet Explorer registrará la información de los controles ActiveX (incluido el URI de origen que haya cargado el control y si está o no bloqueado) en un archivo local.
+
+Si deshabilitas o no estableces esta configuración de directiva, Internet Explorer no registrará la información de los controles ActiveX.
+
+Ten en cuenta que puedes activar o desactivar esta configuración de directiva independientemente de las configuraciones de directiva "Desactivar el bloqueo de controles ActiveX obsoletos para Internet Explorer" o "Desactivar el bloqueo de controles ActiveX obsoletos para Internet Explorer en dominios específicos".
+
+Para obtener más información, consulta "Controles ActiveX obsoletos" en la biblioteca de TechNet de Internet Explorer.</string>
+      <string id="VerMgmtDomainAllowlist">Desactivar el bloqueo de controles ActiveX obsoletos para Internet Explorer en dominios específicos</string>
+      <string id="IE_ExplainVerMgmtDomainAllowlist">Esta configuración de directiva permite administrar una lista de dominios en los que Internet Explorer dejará de bloquear los controles ActiveX obsoletos. Nunca se bloquean los controles ActiveX obsoletos en la zona de Intranet.
+
+Si habilitas esta configuración de directiva, podrás especificar una lista personalizada de dominios en los que no se bloquearán los controles ActiveX obsoletos en Internet Explorer. Cada entrada de dominio debe tener uno de los siguientes formatos:
+
+1. "domain.name.TLD". Por ejemplo, para incluir *.contoso.com/*, usa "contoso.com".
+2. "hostname". Por ejemplo, para incluir http://ejemplo, usa "ejemplo".
+3. "file:///path/filename.htm". Por ejemplo, usa "file:///C:/Users/contoso/Desktop/index.htm".
+
+Si deshabilitas o no estableces esta configuración de directiva, se eliminará la lista e Internet Explorer seguirá bloqueando determinados controles ActiveX obsoletos en todos los dominios de la zona de Internet.
+
+Para obtener más información, consulta "Controles ActiveX obsoletos" en la biblioteca de TechNet de Internet Explorer.</string>
+      <string id="VerMgmtDisableRunThisTime">Quitar el botón "Ejecutar esta vez" para los controles ActiveX obsoletos en Internet Explorer </string>
+      <string id="IE_ExplainVerMgmtDisableRunThisTime">Esta configuración de directiva permite impedir que otros usuarios vean el botón "Ejecutar esta vez" y ejecuten determinados controles ActiveX obsoletos en Internet Explorer.
+
+Si habilitas esta configuración de directiva, los usuarios no verán el botón "Ejecutar esta vez" en el mensaje de advertencia que aparece cuando Internet Explorer bloquea un control ActiveX obsoleto.
+
+Si deshabilitas o no estableces esta configuración de directiva, los usuarios verán el botón "Ejecutar esta vez" en el mensaje de advertencia que aparece cuando Internet Explorer bloquea un control ActiveX obsoleto. Este botón permite al usuario ejecutar el control ActiveX obsoleto una vez.
+
+Para obtener más información, consulta "Controles ActiveX obsoletos" en la biblioteca de TechNet de Internet Explorer.</string>
       <string id="EnterpriseModeSiteList">Usar la lista de sitios web de IE del modo de empresa</string>
       <string id="IE_ExplainEnterpriseModeSiteList">Esta configuración de directiva le permite indicar dónde encontrar la lista de sitios web que quiere que se abran usando IE en el modo de empresa en lugar de en el modo estándar por problemas de compatibilidad. Los usuarios no pueden editar esta lista.
 
@@ -3962,13 +4088,15 @@ Si deshabilita o no establece esta configuración de directiva, los usuarios pue
       <string id="DefaultView_Immersive">Siempre en Internet Explorer</string>
       <string id="DefaultView_Contextual">Dejar que Internet Explorer decida</string>
       <string id="EnableAutoUpgrade">Instalar versiones nuevas de Internet Explorer automáticamente</string>
-      <string id="IE_ExplainEnableAutoUpgrade">Esta configuración de directiva establece Internet Explorer para que instale automáticamente versiones nuevas de Internet Explorer cuando estén disponibles.
+      <string id="IE_ExplainEnableAutoUpgrade">Esta configuración de directiva establece que Internet Explorer instale automáticamente versiones nuevas de Internet Explorer cuando estén disponibles.
 
-Si habilita esta configuración de directiva, se activará la actualización automática de Internet Explorer.
+Si habilitas esta configuración de directiva, se activará la actualización automática de Internet Explorer.
 
-Si deshabilita esta configuración de directiva, se desactivará la actualización automática de Internet Explorer.
+Si deshabilitas esta configuración de directiva, se desactivará la actualización automática de Internet Explorer.
 
-Si no establece esta directiva, los usuarios pueden activar o desactivar las actualizaciones automáticas desde el cuadro de diálogo Acerca de Internet Explorer.</string>
+Si no configuras esta directiva, los usuarios pueden activar o desactivar las actualizaciones automáticas desde el cuadro de diálogo Acerca de Internet Explorer.
+
+Nota: esta directiva está en desuso a partir de la versión 1703 de Windows 10.</string>
       <string id="TurnOffFormatDetectionPhone">Desactivar detección de número de teléfono</string>
       <string id="TurnOffFormatDetectionPhone_Explain">Esta configuración de directiva determina si los números de teléfono se van a reconocer y convertir en hipervínculos, lo que puede servir para invocar la aplicación de teléfono predeterminada en el sistema.
 
@@ -3977,10 +4105,58 @@ Si habilita esta configuración de directiva, se desactiva la detección de núm
 Si deshabilita esta configuración de directiva, se activa la detección de número de teléfono. Los usuarios no podrán modificar esta configuración.
 
 Si no establece esta configuración de directiva, los usuarios pueden activar y desactivar este comportamiento en la configuración de Internet Explorer. Este comportamiento está activado de forma predeterminada.</string>
+      <string id="SiteDiscoveryEnableXML">Activar la salida XML de detección del sitio</string>
+      <string id="SiteDiscoveryEnableWMI">Activar la salida WMI de detección del sitio</string>
+      <string id="SiteDiscoveryDomainAllowList">Limitar la salida de detección del sitio por dominio</string>
+      <string id="SiteDiscoveryZoneAllowList">Limitar la salida de detección del sitio por zona</string>
+      <string id="IE_Explain_SiteDiscoveryEnableXML">Esta configuración de directiva permite administrar la funcionalidad de salida XML del kit de herramientas de detección del sitio (SDTK) de Internet Explorer. Al configurar esta directiva, la característica escribirá los datos recopilados en un archivo XML en la ubicación especificada cuando esté habilitada. Cuando esté deshabilitada, no se escribirá ningún dato en el archivo XML. El hecho de habilitar o deshabilitar esta configuración no afecta a otros métodos de salida disponibles para el SDTK.</string>
+      <string id="IE_Explain_SiteDiscoveryEnableWMI">Esta configuración de directiva permite administrar la funcionalidad de salida WMI del kit de herramientas de detección del sitio (SDTK) de Internet Explorer. Cuando esté habilitada, la característica escribirá los datos recopilados en una clase WMI que se puede agregar mediante una solución de administración de clientes (SCCM) u otros medios. Cuando esté deshabilitada, no se escribirá ningún dato en la clase WMI. El hecho de habilitar o deshabilitar esta configuración no afecta a otros métodos de salida disponibles para el SDTK.</string>
+      <string id="IE_Explain_SiteDiscoveryDomainAllowList">Esta configuración de directiva permite controlar qué dominios se incluyen en la funcionalidad del kit de herramientas de detección del sitio (SDTK) de Internet Explorer. Cuando esté habilitada, la característica recopilará datos de los sitios que forman parte de los dominios configurados en la directiva. Cuando esté deshabilitada, o no esté configurada, se incluirán todos los dominios en la detección del sitio. Se puede usar esta directiva junto con otras directivas que controlen los sitios incluidos en la detección del sitio.
+
+Para configurar los dominios incluidos en la recopilación de datos para el kit de herramientas de detección del sitio de Internet Explorer, agregue un dominio por línea en el cuadro de texto. Por ejemplo:
+
+microsoft.sharepoint.com
+outlook.com
+onedrive.com
+timecard.contoso.com
+LOBApp.contoso.com</string>
+      <string id="IE_Explain_SiteDiscoveryZoneAllowList">Esta configuración de directiva permite controlar qué zonas de sitios se incluyen en la funcionalidad del kit de herramientas de detección del sitio (SDTK) de Internet Explorer. Cuando esté habilitada, la característica recopilará datos de los sitios que forman parte de las zonas configuradas en la directiva. Cuando esté deshabilitada o no esté configurada, se incluirán todas las zonas en la detección del sitio. Se puede usar esta directiva junto con otras directivas que controlen los sitios incluidos en la detección del sitio.
+
+Para configurar las zonas incluidas en la detección del sitio, se forma un número binario en función de las zonas seleccionadas. La representación decimal de este número se usa para representarlo en la directiva. Por ejemplo:
+
+• 2: solo zona de sitios de Intranet
+  Representación binaria: 00010
+	• 0: zona de sitios restringidos
+	• 0: zona de Internet
+	• 0: zona de sitios de confianza
+	• 1: zona de Intranet local
+	• 0: zona de equipo local
+• 6: solo zonas de sitios de Intranet y de confianza
+  Representación binaria: 00110
+	• 0: zona de sitios restringidos
+	• 0: zona de Internet
+	• 1: zona de sitios de confianza
+	• 1: zona de Intranet local
+	• 0: zona de equipo local
+• 22: solo zonas de sitios de confianza, de Intranet y restringidos
+  Representación binaria: 10110
+	• 1: zona de sitios restringidos
+	• 0: zona de Internet
+	• 1: zona de sitios de confianza
+	• 1: zona de Intranet local
+	• 0: zona de equipo local</string>
+      <string id="VersionListAutomaticDownloadDisable">Desactivar la descarga automática de ActiveX VersionList</string>
+      <string id="IE_Explain_VersionListAutomaticDownloadDisable">Esta configuración determina si IE debe descargar de forma automática versiones actualizadas del archivo VersionList.XML de Microsoft. IE usa este archivo para determinar si un control ActiveX debe dejar de cargarse.
+
+Si habilitas esta configuración, IE parará la descarga de las versiones actualizadas de VersionList.XML. Si desactivas la descarga automática, se interrumpirá la característica de bloqueo de controles ActiveX obsoletos, y la lista de versiones no podrá actualizar los controles que lo necesiten; debido a ello, la seguridad del equipo puede verse comprometida.
+
+Si deshabilitas o no estableces esta configuración, IE seguirá descargando las versiones actualizadas de VersionList.XML.
+
+Para obtener más información, consulta "Bloqueo de controles ActiveX obsoletos" en la biblioteca TechNet de Internet Explorer.</string>
     </stringTable>
     <presentationTable>
       <presentation id="VerMgmtDomainAllowlist_1">
-        <listBox refId="DomainList">Lista de permitidos del dominio</listBox>
+        <listBox refId="DomainList">Lista de dominios permitidos</listBox>
       </presentation>
       <presentation id="AddonManagement_AddOnList_1">
         <listBox refId="AddOnList">Lista de complementos</listBox>
@@ -4076,6 +4252,12 @@ Si no establece esta configuración de directiva, los usuarios pueden activar y 
       </presentation>
       <presentation id="IZ_PolicyOnlyAllowApprovedDomainsToUseActiveXWithoutPrompt_DefaultOff">
         <dropdownList refId="IZ_Partname120b" noSort="true" defaultItem="1">Permitir que solo los dominios aprobados usen los controles ActiveX sin preguntar</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowTDCControl_DefaultOn">
+        <dropdownList refId="IZ_Partname120c" noSort="true" defaultItem="0">Permitir que solo los dominios aprobados usen el control ActiveX de TDC</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowTDCControl_DefaultOff">
+        <dropdownList refId="IZ_Partname120c" noSort="true" defaultItem="1">Permitir que solo los dominios aprobados usen el control ActiveX de TDC</dropdownList>
       </presentation>
       <presentation id="IZ_Policy_AllowDynsrcPlayback_1">
         <dropdownList refId="IZ_Partname120A" noSort="true" defaultItem="0">Permitir vídeo y animación en una página web que use un reproductor multimedia heredado</dropdownList>
@@ -4404,6 +4586,15 @@ Si no establece esta configuración de directiva, los usuarios pueden activar y 
       <presentation id="IZ_PolicyZoneElevationURLaction_5">
         <dropdownList refId="IZ_Partname2101" noSort="true" defaultItem="2">Los sitios web en zonas de contenido web con menores privilegios pueden desplazarse hacia esta zona</dropdownList>
       </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_1">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="0">Permitir que VBScript se ejecute en Internet Explorer</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_2">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="1">Permitir que VBScript se ejecute en Internet Explorer</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_3">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="2">Permitir que VBScript se ejecute en Internet Explorer</dropdownList>
+      </presentation>
       <presentation id="IZ_Zonemaps_1">
         <listBox refId="IZ_ZonemapPrompt">Escriba aquí las asignaciones de zona.</listBox>
       </presentation>
@@ -4559,8 +4750,11 @@ Si no establece esta configuración de directiva, los usuarios pueden activar y 
         <!-- defaultItem is zero based index into the item enumeration defined in inetres.admx. We want this to point at 'Use SSL 3.0 and TLS 1.0', the current default for IE -->
         <dropdownList refId="Advanced_WinInetProtocolOptions" noSort="true" defaultItem="6">Combinaciones de protocolos seguros</dropdownList>
       </presentation>
+      <presentation id="Advanced_EnableSSL3Fallback">
+        <dropdownList refId="Advanced_EnableSSL3FallbackOptions" noSort="true" defaultItem="0">Permitir reserva no segura para:</dropdownList>
+      </presentation>
       <presentation id="NewTabAction_1">
-        <dropdownList refId="NewTabActionOptions" noSort="true" defaultItem="2">Comportamiento de la nueva pestaña</dropdownList>
+        <dropdownList refId="NewTabActionOptions" noSort="true" defaultItem="0">Comportamiento de la nueva pestaña</dropdownList>
       </presentation>
       <presentation id="SecondaryHomePages">
         <listBox refId="SecondaryHomePagesList">Páginas principales secundarias</listBox>
@@ -4617,6 +4811,22 @@ Si no establece esta configuración de directiva, los usuarios pueden activar y 
       </presentation>
       <presentation id="DefaultLinksView_1">
         <dropdownList refId="DefaultViewOptions" noSort="true" defaultItem="0">Comportamiento predeterminado de inicio del explorador para los vínculos</dropdownList>
+      </presentation>
+      <presentation id="SiteDiscoveryEnableXML">
+        <textBox refId="SiteDiscoveryXMLPath">
+          <label>Ruta de salida</label>
+        </textBox>
+      </presentation>
+      <presentation id="SiteDiscoveryZoneAllowList">
+        <decimalTextBox refId="SiteDiscoveryZoneAllowList" defaultValue="31">Máscara de zona</decimalTextBox>
+      </presentation>
+      <presentation id="SiteDiscoveryDomainAllowList">
+        <multiTextBox refId="SiteDiscoveryDomainAllowList">Lista de dominios</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">Primera opción</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">Segunda opción</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">Tercera opción</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

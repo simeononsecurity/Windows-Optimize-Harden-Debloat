@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2013 Microsoft Corporation  -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
     <policyNamespaces>
@@ -864,7 +864,7 @@
         </policy>
         <policy name="SignatureUpdate_SharedSignaturesLocation" class="Machine" displayName="$(string.SignatureUpdate_SharedSignaturesLocation)" explainText="$(string.SignatureUpdate_SharedSignaturesLocation_Explain)" key="Software\Policies\Microsoft\Windows Defender\Signature Updates" presentation="$(presentation.SignatureUpdate_SharedSignaturesLocation)">
             <parentCategory ref="SignatureUpdate" />
-            <supportedOn ref="windows:SUPPORTED_Windows_10_0_19H1" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS6" />
             <elements>
                 <text id="SignatureUpdate_SharedSignaturesLocation" valueName="SharedSignatureRoot" required="true" />
             </elements>
@@ -1152,11 +1152,16 @@
                 <decimal value="0" />
                 </value>
             </item>
+            <item displayName="$(string.MpCloudBlockLevel_Moderate_Level)">
+                <value>
+                    <decimal value="1" />
+                </value>
+            </item>
             <item displayName="$(string.MpCloudBlockLevel_High_Level)">
                 <value>
                     <decimal value="2" />
                 </value>
-            </item>              
+            </item>
             <item displayName="$(string.MpCloudBlockLevel_High_Plus_Level)">
                 <value>
                     <decimal value="4" />
@@ -1176,6 +1181,16 @@
             <elements>
                 <decimal id="MpBafsExtendedTimeout" valueName="MpBafsExtendedTimeout" minValue="0" maxValue="50" />
             </elements>
+        </policy>
+        <policy name="MpEngine_EnableFileHashComputation" class="Machine" displayName="$(string.MpEngine_EnableFileHashComputation)" explainText="$(string.MpEngine_EnableFileHashComputation_Explain)" key="Software\Policies\Microsoft\Windows Defender\MpEngine" valueName="EnableFileHashComputation">
+            <parentCategory ref="MpEngine" />
+            <supportedOn ref="windows:supported_windows_10_0_rs7" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
         </policy>
         <policy name="ExploitGuard_EnableNetworkProtection" class="Machine" displayName="$(string.ExploitGuard_EnableNetworkProtection)" explainText="$(string.ExploitGuard_EnableNetworkProtection_Explain)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\Network Protection" valueName="EnableNetworkProtection" presentation="$(presentation.ExploitGuard_EnableNetworkProtection)">
             "<parentCategory ref="ExploitGuard_NetworkProtection" />

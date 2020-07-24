@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Gerente de paquetes AppX</displayName> 
+  <displayName>Gerente de paquetes AppX</displayName>
   <description>Gerente de paquetes AppX</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Si habilita esta configuración de directiva, la directiva de grupo permite real
 Si deshabilita o no establece esta configuración de directiva, la directiva de grupo bloquea las operaciones de implementación de aplicaciones de la Tienda Windows cuando se usa un perfil especial.</string>
       <string id="AllowDevelopmentWithoutDevLicense">Permitir el desarrollo de aplicaciones de la Tienda Windows y su instalación desde un entorno de desarrollo integrado (IDE)</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Permite o impide desarrollar aplicaciones de la Tienda Windows e instalarlas directamente desde un IDE.
+        Permite o impide desarrollar aplicaciones de Microsoft Store e instalarlas directamente desde un IDE.
 
-        Si habilitas esta configuración de directiva junto con la directiva de grupo "Permitir la instalación de todas las aplicaciones de confianza", podrás desarrollar aplicaciones de la Tienda Windows e instalarlas directamente desde un IDE.
-        
-        Si deshabilitas o no estableces esta configuración, no podrás desarrollar aplicaciones de la Tienda Windows ni instalarlas directamente desde un IDE.
+        Si habilitas esta configuración y habilitas la directiva de grupo "Permitir la instalación de todas las aplicaciones de confianza", podrás desarrollar aplicaciones de Microsoft Store e instalarlas directamente desde un IDE.
+
+        Si deshabilitas o no estableces esta configuración, no podrás desarrollar aplicaciones de Microsoft Store ni instalarlas directamente desde un IDE.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Deshabilitar la instalación de aplicaciones para Windows en volúmenes que no sean del sistema</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -53,11 +53,18 @@ Si deshabilita o no establece esta configuración de directiva, la directiva de 
         Si deshabilitas o no estableces esta configuración, cuando se mueva una aplicación a un volumen distinto, los datos de aplicaciones de los usuarios también se moverán a este volumen.
       </string>
       <string id="AllowSharedLocalAppData">Permitir que una aplicaciones para Windows comparta datos de aplicaciones entre los usuarios</string>
-      <string id="AllowSharedLocalAppDataExplanation">Administra la capacidad de una aplicación para Windows de compartir datos entre los usuarios que han instalado la aplicación.
-      
-        Si habilitas esta directiva, una aplicación para Windows podrá compartir datos de aplicaciones con otras instancias de dicha aplicación. Los datos se comparten a través de la carpeta SharedLocal. Esta carpeta está disponible en la API Windows.Storage.
+      <string id="AllowSharedLocalAppDataExplanation">Administra la capacidad de una aplicación de Windows de compartir datos entre los usuarios que tengan instalada la aplicación.
 
-        Si deshabilitas esta directiva, una aplicación para Windows no podrá compartir datos de aplicaciones con otras instancias de dicha aplicación. Si esta directiva estaba habilitadas previamente, todos los datos de aplicaciones compartidos anteriormente permanecerán en la carpeta SharedLocal. 
+        Si habilitas esta directiva, una aplicación de Windows podrá compartir datos de la aplicación con otras instancias de dicha aplicación. Los datos se comparten a través de la carpeta SharedLocal. Esta carpeta está disponible en la API Windows.Storage.
+
+        Si deshabilitas esta directiva, una aplicación de Windows no podrá compartir datos de la aplicación con otras instancias de esa aplicación. Si esta directiva se habilitó previamente, los datos de la aplicación que se hayan compartido anteriormente permanecerán en la carpeta SharedLocal.
+      </string>
+      <string id="BlockNonAdminUserInstall">Impedir que los usuarios que no sean administradores instalen aplicaciones empaquetadas de Windows</string>
+      <string id="BlockNonAdminUserInstallExplanation">Administra la capacidad de los usuarios que no sean administradores de instalar paquetes de aplicaciones de Windows.
+
+        Si habilitas esta directiva, los usuarios que no sean administradores no podrán iniciar la instalación de paquetes de aplicaciones de Windows. Los administradores que quieran instalar una aplicación deberán hacerlo desde un contexto de administrador (por ejemplo, una ventana de administrador de PowerShell). Todos los usuarios seguirán pudiendo instalar paquetes de aplicaciones de Windows a través de Microsoft Store, si así lo permiten otras directivas.
+
+        Si deshabilitas o no configuras esta directiva, todos los usuarios podrán iniciar la instalación de paquetes de aplicaciones de Windows.
       </string>
     </stringTable>
   </resources>

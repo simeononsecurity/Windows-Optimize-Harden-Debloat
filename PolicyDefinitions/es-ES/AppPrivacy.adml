@@ -321,6 +321,21 @@ Si deshabilitas o no estableces esta configuración de directiva, los empleados 
 
 Esta directiva se aplica a las aplicaciones de Windows y Cortana. Tiene preferencia la directiva "Permitir Cortana a pesar del bloqueo". Esta directiva solo es aplicable cuando la directiva "Permitir activación por voz" está configurada para permitir que las aplicaciones se activen mediante voz.
       </string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Name">Permitir que las aplicaciones de Windows tengan acceso a los movimientos del usuario mientras se ejecutan en segundo plano</string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Explain">Esta configuración de directiva especifica si las aplicaciones de Windows pueden acceder al movimiento de la cabeza, las manos, los controladores de movimiento y otros objetos de los que se hace un seguimiento del usuario, mientras se ejecutan en segundo plano.
+
+Si quieres, puedes especificar una configuración predeterminada para todas las aplicaciones o por aplicación. Para ello, debes especificar el nombre de una familia de paquetes. Puedes obtener este nombre para una aplicación mediante el uso del cmdlet Get-AppPackage de Windows PowerShell. Una configuración por aplicación reemplaza la configuración predeterminada.
+
+Si eliges la opción "El usuario tiene el control", los empleados de tu organización pueden decidir si las aplicaciones de Windows pueden acceder a los movimientos del usuario mientras se ejecutan en segundo plano a través de Configuración &gt; Privacidad en el dispositivo.
+
+Si eliges la opción "Forzar permiso", las aplicaciones de Windows pueden acceder a los movimientos del usuario mientras se ejecutan en segundo plano y los empleados de tu organización no pueden cambiarlo.
+
+Si eliges la opción "Forzar denegación", las aplicaciones de Windows no pueden acceder a los movimientos del usuario mientras se ejecutan en segundo plano y los empleados de tu organización no pueden cambiarlo.
+
+Si deshabilitas o no configuras esta configuración de directiva, los empleados de tu organización pueden decidir si las aplicaciones de Windows pueden acceder a los movimientos del usuario mientras se ejecutan en segundo plano a través de Configuración &gt; Privacidad en el dispositivo.
+
+Si una aplicación está abierta cuando se aplica este objeto de directiva de grupo en un dispositivo, los empleados deben reiniciar la aplicación o el dispositivo para que los cambios de la directiva se apliquen a la aplicación.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
@@ -499,6 +514,15 @@ Esta directiva se aplica a las aplicaciones de Windows y Cortana. Tiene preferen
       </presentation>
       <presentation id="LetAppsActivateWithVoiceAboveLock">
         <dropdownList refId="LetAppsActivateWithVoiceAboveLock_Enum" noSort="true" defaultItem="0">Valor predeterminado para todas las aplicaciones:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessBackgroundSpatialPerception">
+        <dropdownList refId="LetAppsAccessBackgroundSpatialPerception_Enum" noSort="true" defaultItem="0">Valor predeterminado para todas las aplicaciones:</dropdownList>
+        <text>Hacer que el usuario controle estas aplicaciones específicas (usar nombres de familia de paquete):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps_List"/>
+        <text>Forzar permiso de estas aplicaciones específicas (usar nombres de familia de paquete):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps_List"/>
+        <text>Forzar denegación de estas aplicaciones específicas (usar nombres de familia de paquete):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

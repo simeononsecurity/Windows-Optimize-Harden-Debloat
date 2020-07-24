@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  (c) 2006 Microsoft Corporation  -->
+<!-- Copyright (C) Microsoft Corporation. All rights reserved. -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <displayName>Configuración de directiva de grupo del Administrador de conexiones de Windows</displayName>
   <description>Configuración de directiva de grupo del Administrador de conexiones de Windows</description>
@@ -23,11 +23,11 @@ Intentos de conexión manual
 Si esta configuración de directiva está deshabilitada o no se establece, los equipos pueden conectarse de manera simultánea a ambos tipos de red: basada en dominio y no basada en dominio.
       </string>
       <string id="WCM_DisableRoaming">Prohibir la conexión a redes de banda ancha móvil de proveedores móviles</string>
-      <string id="WCM_DisableRoaming_Help">Esta configuración de directiva impide que los clientes se conecten a redes de banda ancha móvil cuando el cliente está registrado en una red de proveedores móviles. 
+      <string id="WCM_DisableRoaming_Help">Esta configuración de directiva impide que los clientes se conecten a redes de banda ancha móvil cuando el cliente está registrado en una red de proveedores móviles.
 
-Si esta configuración de directiva está habilitada, se bloquean todos los intentos de conexión manual y automática a redes de proveedores móviles hasta que el cliente se registre en la red del proveedor doméstico.
+Si se habilita esta configuración de sirectiva, se bloquean todos los intentos de conexión manual y automática a redes de proveedores móviles hasta que el cliente se registre en la red del proveedor principal.
 
-Si esta configuración de directiva está deshabilitada o no se establece, los clientes pueden conectarse a redes de banda ancha móvil de proveedores móviles.
+Si esta configuración de directiva no está configurada o está deshabilitada, los clientes pueden conectarse a redes de banda ancha móvil de proveedores móviles.
       </string>
       <string id="WCM_MinimizeConnections">Minimizar la cantidad de conexiones simultáneas a Internet o a un dominio de Windows</string>
       <string id="WCM_MinimizeConnections_AllowAllConnections">0 = Permitir conexiones simultáneas</string>
@@ -48,25 +48,25 @@ Si esta configuración de directiva está deshabilitada o no se establece, los c
         Esta configuración de directiva está relacionada con la configuración de directiva "Habilitar Windows para desconectar de forma no forzada un equipo de una red".
       </string>
       <string id="WCM_DisablePowerManagement">Deshabilitar la administración de energía en el modo de espera conectado</string>
-      <string id="WCM_DisablePowerManagement_Help">Esta configuración de directiva especifica que la administración de energía está deshabilitada cuando el equipo entra en modo de espera conectado. 
+      <string id="WCM_DisablePowerManagement_Help">Esta configuración de directiva especifica que la administración de energía está deshabilitada cuando el equipo entra en modo de espera conectado.
 
-Si esta configuración de directiva está habilitada, el Administrador de conexiones de Windows no administra adaptadores de radio para reducir el consumo de energía cuando el equipo entra en modo de espera conectado.
+Si se habilita esta configuración de directiva, el administrador de conexiones de Windows no administra adaptadores de radio para reducir el consumo de energía cuando el equipo entra en modo de espera conectado.
 
-Si esta configuración de directiva está deshabilitada o no se establece, la administración de energía está habilitada cuando el equipo entra en modo de espera conectado.
+Si esta configuración de directiva no está configurada o está deshabilitada, la administración de energía se habilita cuando el equipo entra en modo de espera conectado.
       </string>
       <string id="WCM_EnableSoftDisconnect">Habilitar Windows para desconectar de forma no forzada un equipo de una red</string>
       <string id="WCM_EnableSoftDisconnect_Help">Esta configuración de directiva determina si Windows desconectará de forma no forzada un equipo de una red.
 
-Si esta configuración de directiva está habilitada o no configurada, Windows desconectará de forma no forzada un equipo de una red cuando determine que el equipo ya no debe estar conectado a una red.
+Si esta configuración de directiva se habilita o no se configura, Windows desconectará de forma no forzada un equipo de una red cuando determine que el equipo ya no debe estar conectado a una red.
 
 Si esta configuración de directiva está deshabilitada, Windows desconectará un equipo de una red inmediatamente cuando determine que el equipo ya no debe estar conectado a una red.
 
-Cuando está activada la desconexión no forzada:
-- Cuando Windows decide que el equipo ya no debe estar conectado a una red, espera que el tráfico se calme en esa red. La sesión TCP existente continuará sin interrupciones.
-- Windows comprueba periódicamente el nivel de tráfico de la red. Si el nivel de tráfico está por encima de un determinado umbral, no se realizarán más acciones. El equipo permanece conectado a la red y la continua usando. Por ejemplo, si la conexión de red se utiliza actualmente para descargar archivos de Internet, los archivos se continuarán descargando mediante esa conexión de red.
-- Cuando el tráfico de la red desciende por debajo de este umbral, el equipo se desconectará de la red. Las aplicaciones que mantienen una conexión de red activa, incluso cuando no la están utilizando (por ejemplo, las aplicaciones de correo electrónico), pueden perder su conexión. Si esto sucede, estas aplicaciones deben restablecer la conexión a través de una red diferente.
+Cuando está habilitada la desconexión no forzada:
+-Cuando Windows decide que el equipo ya no debe estar conectado a una red, espera a que el tráfico se liquide en esa red. La sesión TCP existente continuará sin interrupciones.
+-Windows comprueba periódicamente el nivel de tráfico de la red. Si el nivel de tráfico está por encima de un determinado umbral, no se realiza ninguna otra acción. El equipo permanece conectado a la red y continúa utilizándolo. Por ejemplo, si la conexión de red se usa actualmente para descargar archivos de Internet, los archivos se continuarán descargando con esa conexión de red.
+-Cuando el tráfico de red cae por debajo de este umbral, el equipo se desconectará de la red. Las aplicaciones que mantengan una conexión de red activa incluso cuando no la estén usando (por ejemplo, aplicaciones de correo electrónico) podrían perder la conexión. Si esto sucede, estas aplicaciones deben restablecer la conexión a través de una red diferente.
 
-Esta configuración de directiva depende de otras opciones de configuración de directiva de grupo. Por ejemplo, si se deshabilita la opción "Minimizar el número de conexiones simultáneas a Internet o a un dominio de Windows", Windows no se desconectará de ninguna red.
+Esta configuración de directiva depende de otras opciones de directiva de grupo. Por ejemplo, si se deshabilita ' minimizar el número de conexiones simultáneas a Internet o a un dominio de Windows, Windows no se desconectará de ninguna red.
       </string>
     </stringTable>
     <presentationTable>

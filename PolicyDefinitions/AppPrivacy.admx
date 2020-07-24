@@ -657,5 +657,36 @@
         </enum>
       </elements>
     </policy>
+    <policy name="LetAppsAccessBackgroundSpatialPerception"
+            class="Machine"
+            displayName="$(string.LetAppsAccessBackgroundSpatialPerception_Name)"
+            explainText="$(string.LetAppsAccessBackgroundSpatialPerception_Explain)"
+            presentation="$(presentation.LetAppsAccessBackgroundSpatialPerception)"
+            key="Software\Policies\Microsoft\Windows\AppPrivacy">
+      <parentCategory ref="AppPrivacy" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0"/>
+      <elements>
+        <enum id="LetAppsAccessBackgroundSpatialPerception_Enum" valueName="LetAppsAccessBackgroundSpatialPerception">
+          <item displayName="$(string.UserInControl)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.ForceAllow)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.ForceDeny)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+        <multiText id="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps_List" valueName="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps" />
+        <multiText id="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps_List" valueName="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps" />
+        <multiText id="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps_List" valueName="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps" />
+      </elements>
+    </policy>
   </policies>
 </policyDefinitions>

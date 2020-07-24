@@ -59,7 +59,7 @@ Nota: Para ocultar páginas en la aplicación Configuración del sistema, usa el
       <string id="SettingsPageVisibility">Visibilidad de la página de configuración</string>
       <string id="SettingsPageVisibility_Help">Especifica la lista de páginas que se mostrarán o se ocultarán en la aplicación Configuración del sistema.
 
-Esta directiva permite que los administradores bloqueen un determinado conjunto de páginas de la aplicación Configuración del sistema. Las páginas bloqueadas no serán visibles en la aplicación y, si todas las páginas de una categoría están bloqueadas, también se ocultará la categoría. La navegación directa a una página bloqueada mediante un identificador URI, el menú contextual del explorador o cualquier otro método hará que se muestre la página principal de Configuración en su lugar.
+Esta directiva permite que los administradores bloqueen un determinado conjunto de páginas de la aplicación Configuración del sistema. Las páginas bloqueadas no serán visibles en la aplicación y, si todas las páginas de una categoría están bloqueadas, también se ocultará la categoría. La navegación directa a una página bloqueada mediante un URI, el menú contextual del explorador o cualquier otro método hará que se muestre la página principal de Configuración en su lugar.
 
 Esta directiva tiene dos modos: puede especificar una lista de páginas de configuración que se mostrarán o una lista de páginas que se ocultarán. Para especificar una lista de páginas que se mostrarán, la cadena de la directiva debe empezar por "showonly:" (sin las comillas) y para especificar una lista de páginas que se ocultará, debe empezar por "hide:". Si una página de la lista showonly estaría normalmente oculta por otros motivos (por ejemplo, falta un dispositivo de hardware), la directiva no forzará la aparición de la página. Después de esto, la cadena de la directiva debe contener una lista delimitada por punto y coma de identificadores de página de configuración. El identificador de cualquier página de configuración proporcionada es el URI publicado de la página, sin la parte del protocolo "ms-settings:".
 
@@ -69,7 +69,9 @@ showonly:about;bluetooth
 
 Ejemplo: para especificar que solo se debe ocultar la página Bluetooth (cuyo URI es ms-settings:bluetooth):
 
-hide:bluetooth</string>
+hide:bluetooth
+
+La disponibilidad de la compatibilidad por usuario está documentada aquí: https://go.microsoft.com/fwlink/?linkid=2102995</string>
       <string id="AllowOnlineTips">Permitir recomendaciones en línea</string>
       <string id="AllowOnlineTips_Help">Habilita o deshabilita la obtención de ayuda y las recomendaciones en línea para la aplicación Configuración.
 
