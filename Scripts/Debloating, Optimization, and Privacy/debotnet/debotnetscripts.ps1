@@ -44,7 +44,7 @@ Reg add "HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" /v DisableFeedb
 Reg add "HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" /v DisableEmailInput /t REG_DWORD /d 1 /f
 Reg add "HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" /v DisableScreenshotCapture /t REG_DWORD /d 1 /f
 sc stop "VSStandardCollectorService150"
-Run,net stop "VSStandardCollectorService150"
+Run net stop "VSStandardCollectorService150"
 sc config "VSStandardCollectorService150" start=disabled
 
 #Block Google Chrome Software Reporter Tool
@@ -64,8 +64,8 @@ Reg add "HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cService
 Reg add "HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" /v "bUpdater" /t REG_SZ /d 0 /f
 
 #Disable CCleaner Health Check
-TaskKill,ccleaner.exe,WARNING
-TaskKill,ccleaner64.exe,WARNING
+TaskKill /F ccleaner.exe
+TaskKill /F ccleaner64.exe
 Reg add "HKCU\Software\Piriform\CCleaner" /v "HomeScreen" /t REG_SZ /d 2 /f
 
 #Disable CCleaner Monitoring && more
@@ -83,10 +83,10 @@ Reg add "HKLM\Software\Piriform\CCleaner" /v "(Cfg)SoftwareUpdater" /t REG_SZ /d
 Reg add "HKLM\Software\Piriform\CCleaner" /v "(Cfg)SoftwareUpdaterIpm" /t REG_SZ /d 0 /f
 
 #Disable Dropbox Update service
-Task1=sc config dbupdate start=disabled
-Task2=sc config dbupdatem start=disabled
-Task3=schtasks /Change /TN "DropboxUpdateTaskMachineCore" /disable
-Task4=schtasks /Change /TN "DropboxUpdateTaskMachineUA" /disable
+sc config dbupdate start=disabled
+sc config dbupdatem start=disabled
+schtasks /Change /TN "DropboxUpdateTaskMachineCore" /disable
+schtasks /Change /TN "DropboxUpdateTaskMachineUA" /disable
 
 #Disable Google update service
 schtasks /Change /TN "GoogleUpdateTaskMachineCore" /disable
