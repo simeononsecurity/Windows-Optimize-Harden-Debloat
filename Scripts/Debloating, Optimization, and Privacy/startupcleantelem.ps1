@@ -130,3 +130,26 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" /v DisableScree
 sc stop "VSStandardCollectorService150"
 net stop "VSStandardCollectorService150"
 sc config "VSStandardCollectorService150" start=disabled
+#General Optmizations
+#Delete "windows.old" folder
+%SystemRoot%\System32\Cmd.exe /c Cleanmgr /sageset:65535 & Cleanmgr /sagerun:65535
+
+#Display full path in explorer
+@echo off
+
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState" /V FullPath /T REG_DWORD /D 1 /F
+
+taskkill /f /im explorer.exe
+start explorer.exe
+
+#Make icons easier to touch in exploere
+@echo off
+
+:: Needs: Windows 10 build 19592+
+
+REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V FileExplorerInTouchImprovement /T REG_DWORD /D 1 /F
+
+:: To kill and restart explorer
+taskkill /f /im explorer.exe
+start explorer.exe
+#disable

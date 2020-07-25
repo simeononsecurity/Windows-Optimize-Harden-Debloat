@@ -27,16 +27,17 @@ copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions 
 
 #Security Scripts Testing Required
 #Only enable after testing in your environment
-#.\Scripts\"Security, Hardening, and Mitigation"s\"SSL Hardening Registries.ps1"
+#.\Scripts\"Security, Hardening, and Mitigations"\"SSL Hardening Registries.ps1"
 
 #Debloating Scripts
 
 #ONLY ENABLE IF ON VM
 #.\Scripts\"Debloating, Optimization, and Privacy"\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
 
-.\Scripts\"Debloating, Optimization, and Privacy"\ultimate performance mode.ps1
-.\Scripts\"Debloating, Optimization, and Privacy"\startupcleantelem.ps1
-.\Scripts\"Debloating, Optimization, and Privacy"\optimizevmvirtalization.ps1
 .\Scripts\"Debloating, Optimization, and Privacy"\"Windows 10 Debloater"\Windows10SysPrepDebloater.ps1 -Sysprep -Debloat -Privacy
+.\Scripts\"Debloating, Optimization, and Privacy"\"Windows 10 telemetry.ps1"
+.\Scripts\"Debloating, Optimization, and Privacy"\ultimate performance mode.ps1
+.\Scripts\"Debloating, Optimization, and Privacy"\optimizevmvirtalization.ps1
+.\Scripts\"Debloating, Optimization, and Privacy"\startupcleantelem.ps1
 .\Scripts\"Debloating, Optimization, and Privacy"\sharpapp\sharpappscripts.ps1
 .\Scripts\"Debloating, Optimization, and Privacy"\debotnet\debotnetscripts.ps1
