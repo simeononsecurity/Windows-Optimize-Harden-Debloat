@@ -383,6 +383,53 @@
             </elements>
         </policy>
         
+        <!-- TLSv1.3 -->
+        <policy name="TLSv13" class="Machine" displayName="$(string.TLSv13)"
+                explainText="$(string.TLSv13_Help)"
+                presentation="$(presentation.TLSv13)"
+                key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3">
+            <parentCategory ref="Protocols" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS6_NOSERVER" />
+            <elements>
+                <boolean id="TLSv13_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Client" valueName="Enabled">
+                    <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Client">
+                        <item valueName="Enabled">
+                            <value><decimal value="1" /></value>
+                        </item>
+                        <item valueName="DisabledByDefault">
+                            <value><decimal value="0" /></value>
+                        </item>
+                    </trueList>
+                    <falseList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Client">
+                        <item valueName="Enabled">
+                            <value><decimal value="0" /></value>
+                        </item>
+                        <item valueName="DisabledByDefault">
+                            <value><decimal value="1" /></value>
+                        </item>
+                    </falseList>
+                </boolean>
+                <boolean id="TLSv13_ServerCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Server" valueName="Enabled">
+                    <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Server">
+                        <item valueName="Enabled">
+                            <value><decimal value="1" /></value>
+                        </item>
+                        <item valueName="DisabledByDefault">
+                            <value><decimal value="0" /></value>
+                        </item>
+                    </trueList>
+                    <falseList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Server">
+                        <item valueName="Enabled">
+                            <value><decimal value="0" /></value>
+                        </item>
+                        <item valueName="DisabledByDefault">
+                            <value><decimal value="1" /></value>
+                        </item>
+                    </falseList>
+                </boolean>
+            </elements>
+        </policy>
+        
         <!-- DTLSv1.0 -->
         <policy name="DTLSv10" class="Machine" displayName="$(string.DTLSv10)"
                 explainText="$(string.DTLSv10_Help)"
@@ -897,6 +944,16 @@
                         <decimal value="1" />
                     </value>
                 </item>
+                <item key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319" valueName="SystemDefaultTlsVersions">
+                    <value>
+                        <decimal value="1" />
+                    </value>
+                </item>
+                <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319" valueName="SystemDefaultTlsVersions">
+                    <value>
+                        <decimal value="1" />
+                    </value>
+                </item>
             </enabledList>
             <disabledList>
                 <item key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319" valueName="SchUseStrongCrypto">
@@ -905,6 +962,16 @@
                     </value>
                 </item>
                 <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319" valueName="SchUseStrongCrypto">
+                    <value>
+                        <decimal value="0" />
+                    </value>
+                  </item>
+                  <item key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319" valueName="SystemDefaultTlsVersions">
+                    <value>
+                        <decimal value="0" />
+                    </value>
+                </item>
+                <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319" valueName="SystemDefaultTlsVersions">
                     <value>
                         <decimal value="0" />
                     </value>
@@ -929,6 +996,16 @@
                     <decimal value="1" />
                   </value>
                 </item>
+                <item key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727" valueName="SystemDefaultTlsVersions">
+                  <value>
+                    <decimal value="1" />
+                  </value>
+                </item>
+                <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727" valueName="SystemDefaultTlsVersions">
+                  <value>
+                    <decimal value="1" />
+                  </value>
+                </item>
             </enabledList>
             <disabledList>
                 <item key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727" valueName="SchUseStrongCrypto">
@@ -937,6 +1014,16 @@
                   </value>
                 </item>
                 <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727" valueName="SchUseStrongCrypto">
+                  <value>
+                    <decimal value="0" />
+                  </value>
+                </item>
+                <item key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727" valueName="SystemDefaultTlsVersions">
+                  <value>
+                    <decimal value="0" />
+                  </value>
+                </item>
+                <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727" valueName="SystemDefaultTlsVersions">
                   <value>
                     <decimal value="0" />
                   </value>
