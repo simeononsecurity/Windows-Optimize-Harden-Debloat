@@ -60,6 +60,11 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 ```
 .\W10-Optimize-and-Harden-master\installallstandalone.ps1
 ```
+**Or with the optional executable**
+
+```
+.\W10-Optimize-and-Harden-master\installallstandalone.exe
+```
 The script we will be using must be launched from the directory containing all the other files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)
 
 **In order to enable the Windows 10 VDI Optimizations you must uncomment the line below:**
