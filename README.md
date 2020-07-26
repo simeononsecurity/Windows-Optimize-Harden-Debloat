@@ -2,7 +2,6 @@
 
 **Download all the required files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)**
 
-
 Windows 10 is an invasive and insecure operating system out of the box. 
 Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https://microsoft.com) and the 
 [Department of Defense](https://public.cyber.mil) have recomended configuration changes to lockdown, harden, and secure the operating system. These changes cover a wide range of mitigations including blocking telemetery, macros, removing bloatware, and preventing many physical attacks on a system.
@@ -19,7 +18,6 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [x] [Hardware Requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/requirements-and-deployment-planning-guidelines-for-virtualization-based-protection-of-code-integrity#baseline-protections) for [Memory integrity](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/memory-integrity)
 - [x] [Hardware Requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/reqs-wd-app-guard) for Windows [Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview) (WDAG)
 - [x] [Hardware Requirements](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-requirements) for Windows [Defender Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-how-it-works)
-
 
 ## A list of scripts and tools this collection utilizes:
 
@@ -52,7 +50,6 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 [Microsoft - Managing Windows 10 Telemetry and Callbacks](https://docs.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services)
 
 [Microsoft - Windows 10 VDI Recomendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909)
-
 
 ## How to run the script
 
