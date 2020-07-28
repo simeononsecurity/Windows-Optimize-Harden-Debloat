@@ -37,6 +37,8 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 
 7.) [NSACyber - Bitlocker Guidance](https://github.com/nsacyber/BitLocker-Guidance)
 
+8.) [0x6d69636b - Windows Hardening](https://github.com/0x6d69636b/windows_hardening)
+
 ## Additional configurations were considered from:
 
 [NSACyber - Hardware-and-Firmware-Security-Guidance](https://github.com/nsacyber/Hardware-and-Firmware-Security-Guidance)
@@ -87,16 +89,6 @@ The script we will be using must be launched from the directory containing all t
 
 ```
 ######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
-#Microsoft Security Baselines
-.\LGPO\LGPO.exe /g .\GPOs\Microsoft\"Windows 10 1909 Baseline"\GPOs
-.\LGPO\LGPO.exe /g .\GPOs\Microsoft\"Microsoft Edge v80"\GPOs
-.\LGPO\LGPO.exe /g .\GPOs\Microsoft\Office365-ProPlus-Sept2019-FINAL\GPOs
-#Cyber.mil GPOs
-.\LGPO\LGPO.exe /g .\GPOs\Cyber.mil
-#NSACyber GPOs
-.\LGPO\LGPO.exe /g .\GPOs\NSACyber\Computer
-#SIMEONONSECURITY GPOS
-.\LGPO\LGPO.exe /g .\GPOs\simeononsecurity
 
 #Windows 10 Defenter Exploit Guard Configuration File
 mkdir C:\temp\
@@ -114,6 +106,7 @@ copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions 
 .\Scripts\"Security, Hardening, and Mitigations"\"disable tcp timestamps.bat"
 .\Scripts\"Security, Hardening, and Mitigations"\"IE Scripting Engine Memory Corruption.bat"
 .\Scripts\"Security, Hardening, and Mitigations"\"specture meltdown mitigations.bat"
+.\Scripts\"Security, Hardening, and Mitigations"\HardeningKitty\soskitty.ps1
 
 #Security Scripts Testing Required
 #Only enable after testing in your environment
@@ -131,5 +124,17 @@ copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions 
 .\Scripts\"Debloating, Optimization, and Privacy"\startupcleantelem.ps1
 .\Scripts\"Debloating, Optimization, and Privacy"\sharpapp\sharpappscripts.ps1
 .\Scripts\"Debloating, Optimization, and Privacy"\debotnet\debotnetscripts.ps1
+
+#GPO Configurations
+#Microsoft Security Baselines
+.\LGPO\LGPO.exe /g .\GPOs\Microsoft\"Windows 10 1909 Baseline"\GPOs
+.\LGPO\LGPO.exe /g .\GPOs\Microsoft\"Microsoft Edge v80"\GPOs
+.\LGPO\LGPO.exe /g .\GPOs\Microsoft\Office365-ProPlus-Sept2019-FINAL\GPOs
+#Cyber.mil GPOs
+.\LGPO\LGPO.exe /g .\GPOs\Cyber.mil
+#NSACyber GPOs
+.\LGPO\LGPO.exe /g .\GPOs\NSACyber\Computer
+#SIMEONONSECURITY GPOS
+.\LGPO\LGPO.exe /g .\GPOs\simeononsecurity
 ```
 
