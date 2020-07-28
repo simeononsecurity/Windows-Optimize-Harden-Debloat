@@ -2,9 +2,10 @@
 
 **Download all the required files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)**
 
+
 Windows 10 is an invasive and insecure operating system out of the box. 
-Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https://microsoft.com) and the 
-[Department of Defense](https://public.cyber.mil) have recomended configuration changes to lockdown, harden, and secure the operating system. These changes cover a wide range of mitigations including blocking telemetery, macros, removing bloatware, and preventing many physical attacks on a system.
+Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https://microsoft.com),  
+[Department of Defense](https://public.cyber.mil), and the [National Security Agency](https://www.nsa.gov/) have recomended configuration changes to lockdown, harden, and secure the operating system. These changes cover a wide range of mitigations including blocking telemetery, macros, removing bloatware, and preventing many physical attacks on a system.
 
 ## Requirements
 - [x] [Standards](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure) for a highly secure Windows 10 device
@@ -18,6 +19,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [x] [Hardware Requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/requirements-and-deployment-planning-guidelines-for-virtualization-based-protection-of-code-integrity#baseline-protections) for [Memory integrity](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/memory-integrity)
 - [x] [Hardware Requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/reqs-wd-app-guard) for Windows [Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview) (WDAG)
 - [x] [Hardware Requirements](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-requirements) for Windows [Defender Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-how-it-works)
+
 
 ## A list of scripts and tools this collection utilizes:
 
@@ -33,9 +35,13 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 
 6.) [Mirinsoft - debotnet](https://github.com/builtbybel/debotnet)
 
+7.) [NSACyber - Bitlocker Guidance](https://github.com/nsacyber/BitLocker-Guidance)
+
 ## Additional configurations were considered from:
 
 [NSACyber - Hardware-and-Firmware-Security-Guidance](https://github.com/nsacyber/Hardware-and-Firmware-Security-Guidance)
+
+[NSACyber - Application Whitelisting Using Microsoft AppLocker](https://apps.nsa.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm)
 
 [Whonix - Disable TCP Timestamps](https://www.whonix.org/wiki/Disable_TCP_and_ICMP_Timestamps)
 
@@ -50,6 +56,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 [Microsoft - Managing Windows 10 Telemetry and Callbacks](https://docs.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services)
 
 [Microsoft - Windows 10 VDI Recomendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909)
+
 
 ## How to run the script
 
@@ -118,9 +125,11 @@ copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions 
 #.\Scripts\"Debloating, Optimization, and Privacy"\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
 
 .\Scripts\"Debloating, Optimization, and Privacy"\"Windows 10 Debloater"\Windows10SysPrepDebloater.ps1 -Sysprep -Debloat -Privacy
+.\Scripts\"Debloating, Optimization, and Privacy"\"Windows 10 telemetry.ps1"
 .\Scripts\"Debloating, Optimization, and Privacy"\ultimate performance mode.ps1
 .\Scripts\"Debloating, Optimization, and Privacy"\optimizevmvirtalization.ps1
 .\Scripts\"Debloating, Optimization, and Privacy"\startupcleantelem.ps1
 .\Scripts\"Debloating, Optimization, and Privacy"\sharpapp\sharpappscripts.ps1
 .\Scripts\"Debloating, Optimization, and Privacy"\debotnet\debotnetscripts.ps1
 ```
+
