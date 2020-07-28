@@ -116,7 +116,6 @@ copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions 
 #.\Scripts\"Debloating, Optimization, and Privacy"\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
 
 .\Scripts\"Debloating, Optimization, and Privacy"\"Windows 10 Debloater"\Windows10SysPrepDebloater.ps1 -Sysprep -Debloat -Privacy
-.\Scripts\"Debloating, Optimization, and Privacy"\"Windows 10 telemetry.ps1"
 .\Scripts\"Debloating, Optimization, and Privacy"\ultimate performance mode.ps1
 .\Scripts\"Debloating, Optimization, and Privacy"\optimizevmvirtalization.ps1
 .\Scripts\"Debloating, Optimization, and Privacy"\startupcleantelem.ps1
