@@ -5,6 +5,8 @@
 .\LGPO\LGPO.exe /g .\GPOs\Microsoft\Office365-ProPlus-Sept2019-FINAL\GPOs
 #Cyber.mil GPOs
 .\LGPO\LGPO.exe /g .\GPOs\Cyber.mil
+#NSACyber GPOs
+.\LGPO\LGPO.exe /g .\GPOs\NSACyber\Computer
 #SIMEONONSECURITY GPOS
 .\LGPO\LGPO.exe /g .\GPOs\simeononsecurity
 
