@@ -8,7 +8,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 
 ## Requirements:
 - [X] Windows 10 Professional or Windows 10 Enterprise (**Prefered**)
-- [X] - Windows 10 Home does not allow for GPO configurations. Windows 10 "N" Editions are not tested.
+  - Windows 10 Home does not allow for GPO configurations. Windows 10 "N" Editions are not tested.
 - [x] [Standards](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure) for a highly secure Windows 10 device
 - [x] Latest [Windows 10 stable version](https://www.microsoft.com/en-us/software-download/windows10)
 - [x] System is [fully up to date](https://support.microsoft.com/en-gb/help/4027667/windows-10-update)
