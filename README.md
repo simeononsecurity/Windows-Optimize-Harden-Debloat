@@ -7,13 +7,11 @@ Windows 10 is an invasive and insecure operating system out of the box.
 Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https://microsoft.com), [Cyber.mil](https://public.cyber.mil), the [Department of Defense](https://dod.gov), and the [National Security Agency](https://www.nsa.gov/) have recomended configuration changes to lockdown, harden, and secure the operating system. These changes cover a wide range of mitigations including blocking telemetery, macros, removing bloatware, and preventing many physical attacks on a system.
 
 ## Requirements:
+- [X] Windows 10 Enterprise **Prefered** or Windows 10 Pro. Windows 10 Home does not allow for GPO configurations. Windows 10 "N" Editions are not tested.
 - [x] [Standards](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure) for a highly secure Windows 10 device
 - [x] Latest [Windows 10 stable version](https://www.microsoft.com/en-us/software-download/windows10)
 - [x] System is [fully up to date](https://support.microsoft.com/en-gb/help/4027667/windows-10-update)
 - [x] (default activated) internal Windows Defender protection instead of external "Security" solutions
-- [x] Latest Driver and Program updates
-- [x] No "Tuning" tools
-- [x] Only necessary tools which you realy need
 - [x] [Hardware Requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-system-guard/system-guard-secure-launch-and-smm-protection#requirements-met-by-system-guard-enabled-machines) for [System Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows) / [Hardware-based Isolation](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/overview-hardware-based-isolation)
 - [x] [Hardware Requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/requirements-and-deployment-planning-guidelines-for-virtualization-based-protection-of-code-integrity#baseline-protections) for [Memory integrity](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/memory-integrity)
 - [x] [Hardware Requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/reqs-wd-app-guard) for Windows [Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview) (WDAG)
