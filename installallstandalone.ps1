@@ -17,6 +17,7 @@ copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions 
 .\Scripts\"Security, Hardening, and Mitigations"\"IE Scripting Engine Memory Corruption.bat"
 .\Scripts\"Security, Hardening, and Mitigations"\"specture meltdown mitigations.bat"
 .\Scripts\"Security, Hardening, and Mitigations"\HardeningKitty\soskitty.ps1
+.\Scripts\"Security, Hardening, and Mitigations"\FireFoxConfInstall.ps1
 
 #Security Scripts Testing Required
 #Only enable after testing in your environment
