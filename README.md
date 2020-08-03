@@ -65,8 +65,6 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 
 
 ## STIGS/SRGs Applied:
-
-"*" = Loosely Applied
  
 - [Windows 10 V1R23](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MS_Windows_10_V1R23_STIG.zip)
 
@@ -78,7 +76,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 
 - [Google Chrome V1R19](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_Google_Chrome_V1R19_STIG.zip)
 
-- [Firefox V4R29*](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MOZ_FireFox_V4R29_STIG.zip)
+- [Firefox V4R29*](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MOZ_FireFox_V4R29_STIG.zip) - **WIP**
 
 - [Adobe Reader Pro DC Continous V1R2](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_Adobe_Acrobat_Pro_DC_Continuous_V1R2_STIG.zip)
 
