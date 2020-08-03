@@ -151,8 +151,8 @@ reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Messaging" /v CloudServiceSyncEnab
 reg add "HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\SettingSync" /v DisableSettingSync /t REG_DWORD /d 2 /f
 reg add "HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\SettingSync" /v DisableSettingSyncUserOverride /t REG_DWORD /d 1 /f
 #Disable Teredo
-echo "Disable Teredo"
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\TCPIP\v6Transition" /v Teredo_State /t REG_SZ /d Disabled /f
+#echo "Disable Teredo"
+#reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\TCPIP\v6Transition" /v Teredo_State /t REG_SZ /d Disabled /f
 #Turn off Connect to suggested open hotspots and Connect to networks shared by my contacts
 echo "Turn off Connect to suggested open hotspots and Connect to networks shared by my contacts"
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\config" /v AutoConnectAllowedOEM /t REG_DWORD /d 0 /f
