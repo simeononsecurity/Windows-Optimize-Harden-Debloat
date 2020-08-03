@@ -118,14 +118,13 @@ The script we will be using must be launched from the directory containing all t
 
 ```
 ######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
+$ErrorActionPreference= 'silentlycontinue'
 
 #Windows 10 Defenter Exploit Guard Configuration File
-mkdir C:\temp\
-mkdir "C:\temp\Windows Defender"
-copy-item -Path .\Files\DOD_EP_V3.xml -Destination "C:\temp\Windows Defender" -Force -Recurse
+start-job -ScriptBlock {mkdir C:\temp\; mkdir "C:\temp\Windows Defender"; copy-item -Path .\Files\DOD_EP_V3.xml -Destination "C:\temp\Windows Defender" -Force -Recurse -ErrorAction SilentlyContinue}
 
 #Copy  Policy Definitions for gpedit.msc
-copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions -Force -Recurse
+start-job -ScriptBlock {copy-item -Path .\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions -Force -Recurse -ErrorAction SilentlyContinue}
 
 #Package Management Scripts
 #.\Scripts\"Package Management and Windows Updates"\installrsat.ps1
