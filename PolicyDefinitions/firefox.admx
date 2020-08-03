@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<policyDefinitions revision="2.01" schemaVersion="1.0">
+<policyDefinitions revision="2.1" schemaVersion="1.0">
   <policyNamespaces>
     <target prefix="firefox" namespace="Mozilla.Policies.Firefox"/>
     <using prefix="Mozilla" namespace="Mozilla.Policies"/>
   </policyNamespaces>
-  <resources minRequiredRevision="2.01"/>
+  <resources minRequiredRevision="2.1"/>
   <supportedOn>
     <definitions>
       <definition name="UNSUPPORTED" displayName="$(string.UNSUPPORTED)"/>
@@ -31,6 +31,9 @@
       <definition name="SUPPORTED_FF77" displayName="$(string.SUPPORTED_FF77)"/>
       <definition name="SUPPORTED_FF77_ONLY" displayName="$(string.SUPPORTED_FF77_ONLY)"/>
       <definition name="SUPPORTED_FF78" displayName="$(string.SUPPORTED_FF78)"/>
+      <definition name="SUPPORTED_FF79" displayName="$(string.SUPPORTED_FF79)"/>
+      <definition name="SUPPORTED_FF80" displayName="$(string.SUPPORTED_FF80)"/>
+      <definition name="SUPPORTED_FF81" displayName="$(string.SUPPORTED_FF81)"/>
     </definitions>
   </supportedOn>
   <categories>
@@ -278,6 +281,13 @@
       <supportedOn ref="SUPPORTED_FF60"/>
       <elements>
         <list id="Permissions" key="Software\Policies\Mozilla\Firefox\Cookies\Allow" valuePrefix=""/>
+      </elements>
+    </policy>
+    <policy name="Cookies_AllowSession" class="Both" displayName="$(string.AllowSession)" explainText="$(string.Cookies_AllowSession_Explain)" key="Software\Policies\Mozilla\Firefox" presentation="$(presentation.Permissions)">
+      <parentCategory ref="Cookies"/>
+      <supportedOn ref="SUPPORTED_FF79"/>
+      <elements>
+        <list id="Permissions" key="Software\Policies\Mozilla\Firefox\Cookies\AllowSession" valuePrefix=""/>
       </elements>
     </policy>
     <policy name="Cookies_Block" class="Both" displayName="$(string.Block)" explainText="$(string.Cookies_Block_Explain)" key="Software\Policies\Mozilla\Firefox" presentation="$(presentation.Permissions)">
@@ -3253,6 +3263,13 @@
         <text id="Preferences_String" valueName="media.peerconnection.ice.obfuscate_host_addresses.whitelist" required="true" />
       </elements>
     </policy>
+    <policy name="media_peerconnection_ice_obfuscate_host_addresses_blocklist" class="Both" displayName="$(string.media_peerconnection_ice_obfuscate_host_addresses_blocklist)" explainText="$(string.Preferences_String_Explain)" key="Software\Policies\Mozilla\Firefox\Preferences" presentation="$(presentation.Preferences_String)" >
+      <parentCategory ref="Preferences" />
+      <supportedOn ref="SUPPORTED_FF79" />
+      <elements >
+        <text id="Preferences_String" valueName="media.peerconnection.ice.obfuscate_host_addresses.blocklist" required="true" />
+      </elements>
+    </policy>
     <policy name="security_osclientcerts_autoload" class="Both" displayName="$(string.security_osclientcerts_autoload)" explainText="$(string.Preferences_Boolean_Explain)" key="Software\Policies\Mozilla\Firefox\Preferences" valueName="security.osclientcerts.autoload">
       <parentCategory ref="Preferences"/>
       <supportedOn ref="SUPPORTED_FF72"/>
@@ -3617,16 +3634,16 @@
         <decimal value="0"/>
       </disabledValue>
     </policy>
-<!--    <policy name="MasterPassword" class="Both" displayName="$(string.MasterPassword)" explainText="$(string.MasterPassword_Explain)" key="Software\Policies\Mozilla\Firefox" valueName="MasterPassword">
+    <policy name="PrimaryPassword" class="Both" displayName="$(string.PrimaryPassword)" explainText="$(string.PrimaryPassword_Explain)" key="Software\Policies\Mozilla\Firefox" valueName="PrimaryPassword">
       <parentCategory ref="firefox"/>
-      <supportedOn ref="SUPPORTED_FF78"/>
+      <supportedOn ref="SUPPORTED_FF79"/>
       <enabledValue>
         <decimal value="1"/>
       </enabledValue>
       <disabledValue>
         <decimal value="0"/>
       </disabledValue>
-    </policy> -->
+    </policy>
     <policy name="Handlers" class="Both" displayName="$(string.Handlers)"  key="Software\Policies\Mozilla\Firefox" explainText="$(string.Handlers_Explain)"  presentation="$(presentation.Handlers)">">
       <parentCategory ref="firefox"/>
       <supportedOn ref="SUPPORTED_FF78"/>

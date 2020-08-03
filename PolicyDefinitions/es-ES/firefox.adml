@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<policyDefinitionResources revision="2.01" schemaVersion="1.0" >
+<policyDefinitionResources revision="2.1" schemaVersion="1.0" >
   <displayName/>
   <description/>
   <resources >
@@ -29,6 +29,9 @@
       <string id="SUPPORTED_FF77">Firefox 77 o posterior, Firefox 68.9 ESR o posterior</string>
       <string id="SUPPORTED_FF77_ONLY">Firefox 77 o posterior</string>
       <string id="SUPPORTED_FF78">Firefox 78 o posterior</string>
+      <string id="SUPPORTED_FF79">Firefox 79 o posterior, Firefox 78.1 ESR o posterior</string>
+      <string id="SUPPORTED_FF80">Firefox 80 o posterior, Firefox 78.2 ESR o posterior</string>
+      <string id="SUPPORTED_FF81">Firefox 81 o posterior, Firefox 78.3 ESR o posterior</string>
       <string id="firefox">Firefox</string>
       <string id="Permissions_group">Permisos</string>
       <string id="Camera_group">Cámara</string>
@@ -52,6 +55,7 @@
       <string id="EncryptedMediaExtensions_group">Extensiones de medios cifrados</string>
       <string id="PDFjs_group">PDFjs</string>
       <string id="Allow">Sitios permitidos</string>
+      <string id="AllowSession">Sitios permitidos (Session Only)</string>
       <string id="Block">Sitios bloqueados</string>
       <string id="AppAutoUpdate">Actualización automática de aplicación</string>
       <string id="AppAutoUpdate_Explain">Si esta política está habilitada, Firefox se actualizará automáticamente sin la aprobación del usuario.
@@ -344,6 +348,9 @@ Si esta política no está configurada o habilitada, se podrán instalar complem
       <string id="Cookies_Allow_Explain">Si esta política está habilitada, las cookies siempre estarán permitidas para los orígenes indicados. Si se especifica un dominio de nivel superior (http://ejemplo.org), también se permitirán cookies para todos los subdominios.
 
 Si esta política está deshabilitada o no está configurada, se seguirá la política de cookies predeterminada.</string>
+      <string id="Cookies_AllowSession_Explain">If this policy is enabled, cookies are allowed for the origins indicated, but removed at the end of the session. If a top level domain is specified (http://example.org), cookies are allowed for all subdomains as well.
+
+If this policy is disabled or not configured, the default cookie policy is followed.</string>
       <string id="Cookies_Block_Explain">Si esta política está habilitada, las cookies estarán bloqueadas por los orígenes indicados. Si se especifica un dominio de nivel superior (http://ejemplo.org), también se bloquearán las cookies de todos los subdominios.
 
 Si esta política está deshabilitada o no está configurada, las cookies no estarán bloqueadas de manera predeterminada.</string>
@@ -770,12 +777,12 @@ Si esta política no está deshabilitada o no está configurada, se ignorarán l
       <string id="PictureInPicture_Explain">If this policy is disabled, the Picture-in-Picture toggle does not appear on videos.
 
 If this policy is enabled or not configured, the Picture-in-Picture toggle is available on videos.</string>
-      <string id="MasterPassword">Master Password</string>
-      <string id="MasterPassword_Explain">If this policy is enabled, a master password is required.
+      <string id="PrimaryPassword">Primary (Master) Password</string>
+      <string id="PrimaryPassword_Explain">If this policy is enabled, a primary password is required.
 
-If this policy is disabled, users cannot create a master password.
+If this policy is disabled, users cannot create a primary password.
 
-If this policy is not configured, users can choose to create a master password.</string>
+If this policy is not configured, users can choose to create a primary password.</string>
       <string id="Handlers">Handlers</string>
       <string id="Handlers_Explain">If this policy is enabled, you can use JSON to configure default application handlers.
 
@@ -847,7 +854,8 @@ https://github.com/mozilla/policy-templates/blob/master/README.md#preferences</s
       <string id="browser_newtabpage_activity-stream_default_sites">browser.newtabpage.activity-stream.default.sites</string>
       <string id="extensions_htmlaboutaddons_recommendations_enabled">extensions.htmlaboutaddons.recommendations.enabled</string>
       <string id="media_peerconnection_enabled">media.peerconnection.enabled</string>
-      <string id="media_peerconnection_ice_obfuscate_host_addresses_whitelist">media.peerconnection.ice.obfuscate_host_addresses.whitelist</string>
+      <string id="media_peerconnection_ice_obfuscate_host_addresses_whitelist">media.peerconnection.ice.obfuscate_host_addresses.whitelist (obsoleto)</string>
+      <string id="media_peerconnection_ice_obfuscate_host_addresses_blocklist">media.peerconnection.ice.obfuscate_host_addresses.blocklist</string>
       <string id="security_osclientcerts_autoload">security.osclientcerts.autoload</string>
       <string id="security_tls_hello_downgrade_check">security.tls.hello_downgrade_check</string>
       <string id="widget_content_gtk-theme-override">widget.content.gtk-theme-override</string>

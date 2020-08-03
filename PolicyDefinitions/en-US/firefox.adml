@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<policyDefinitionResources revision="2.01" schemaVersion="1.0" >
+<policyDefinitionResources revision="2.1" schemaVersion="1.0" >
   <displayName/>
   <description/>
   <resources >
@@ -29,6 +29,9 @@
       <string id="SUPPORTED_FF77">Firefox 77 or later, Firefox 68.9 ESR or later</string>
       <string id="SUPPORTED_FF77_ONLY">Firefox 77 or later</string>
       <string id="SUPPORTED_FF78">Firefox 78 or later</string>
+      <string id="SUPPORTED_FF79">Firefox 79 or later, Firefox 78.1 ESR or later</string>
+      <string id="SUPPORTED_FF80">Firefox 80 or later, Firefox 78.2 ESR or later</string>
+      <string id="SUPPORTED_FF81">Firefox 81 or later, Firefox 78.3 ESR or later</string>
       <string id="firefox">Firefox</string>
       <string id="Permissions_group">Permissions</string>
       <string id="Camera_group">Camera</string>
@@ -52,6 +55,7 @@
       <string id="EncryptedMediaExtensions_group">Encrypted Media Extensions</string>
       <string id="PDFjs_group">PDFjs</string>
       <string id="Allow">Allowed Sites</string>
+      <string id="AllowSession">Allowed Sites (Session Only)</string>
       <string id="Block">Blocked Sites</string>
       <string id="AppAutoUpdate">Application Autoupdate</string>
       <string id="AppAutoUpdate_Explain">If this policy is enabled, Firefox is automatically updated without user approval.
@@ -342,6 +346,9 @@ If this policy is disabled or not configured, the default add-on policy is follo
 
 If this policy is not configured or enabled, add-ons can be installed.</string>
       <string id="Cookies_Allow_Explain">If this policy is enabled, cookies are always allowed for the origins indicated. If a top level domain is specified (http://example.org), cookies are allowed for all subdomains as well.
+
+If this policy is disabled or not configured, the default cookie policy is followed.</string>
+      <string id="Cookies_AllowSession_Explain">If this policy is enabled, cookies are allowed for the origins indicated, but removed at the end of the session. If a top level domain is specified (http://example.org), cookies are allowed for all subdomains as well.
 
 If this policy is disabled or not configured, the default cookie policy is followed.</string>
       <string id="Cookies_Block_Explain">If this policy is enabled, cookies are blocked for the origins indicated. If a top level domain is specified (http://example.org), cookies are blocked from all subdomains as well.
@@ -729,7 +736,7 @@ If this policy is enabled or not configured, extensions will be recommended as t
       <string id="UserMessaging_FeatureRecommendations">Feature Recommendations</string>
       <string id="UserMessaging_FeatureRecommendations_Explain">If this policy is disabled, Firefox features will not be recommended as the user uses Firefox.
 
-If this policy is enabled or not configured, Firefox features wil be recommended as the user uses Firefox.</string>
+If this policy is enabled or not configured, Firefox features will be recommended as the user uses Firefox.</string>
       <string id="UserMessaging_UrlbarInterventions">Urlbar Interventions</string>
       <string id="UserMessaging_UrlbarInterventions_Explain">If this policy is disabled, actions will not be recommended based on what the user types in the URL bar.
 
@@ -770,12 +777,12 @@ If this policy is not disabled or not configured, document permissions are ignor
       <string id="PictureInPicture_Explain">If this policy is disabled, the Picture-in-Picture toggle does not appear on videos.
 
 If this policy is enabled or not configured, the Picture-in-Picture toggle is available on videos.</string>
-      <string id="MasterPassword">Master Password</string>
-      <string id="MasterPassword_Explain">If this policy is enabled, a master password is required.
+      <string id="PrimaryPassword">Primary (Master) Password</string>
+      <string id="PrimaryPassword_Explain">If this policy is enabled, a primary password is required.
 
-If this policy is disabled, users cannot create a master password.
+If this policy is disabled, users cannot create a primary password.
 
-If this policy is not configured, users can choose to create a master password.</string>
+If this policy is not configured, users can choose to create a primary password.</string>
       <string id="Handlers">Handlers</string>
       <string id="Handlers_Explain">If this policy is enabled, you can use JSON to configure default application handlers.
 
@@ -847,7 +854,8 @@ https://github.com/mozilla/policy-templates/blob/master/README.md#preferences.</
       <string id="browser_newtabpage_activity-stream_default_sites">browser.newtabpage.activity-stream.default.sites</string>
       <string id="extensions_htmlaboutaddons_recommendations_enabled">extensions.htmlaboutaddons.recommendations.enabled</string>
       <string id="media_peerconnection_enabled">media.peerconnection.enabled</string>
-      <string id="media_peerconnection_ice_obfuscate_host_addresses_whitelist">media.peerconnection.ice.obfuscate_host_addresses.whitelist</string>
+      <string id="media_peerconnection_ice_obfuscate_host_addresses_whitelist">media.peerconnection.ice.obfuscate_host_addresses.whitelist (Deprecated)</string>
+      <string id="media_peerconnection_ice_obfuscate_host_addresses_blocklist">media.peerconnection.ice.obfuscate_host_addresses.blocklist</string>
       <string id="security_osclientcerts_autoload">security.osclientcerts.autoload</string>
       <string id="security_tls_hello_downgrade_check">security.tls.hello_downgrade_check</string>
       <string id="widget_content_gtk-theme-override">widget.content.gtk-theme-override</string>
