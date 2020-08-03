@@ -21,26 +21,26 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
   - [System Guard Root of Trust](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
   - [Hardware-based Isolation](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/overview-hardware-based-isolation)
   - [Memory integrity](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/memory-integrity)
-  - [Windows Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview) (WDAG)
+  - [Windows Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview)
   - [Windows Defender Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-how-it-works)
 
 ## A list of scripts and tools this collection utilizes:
 
-1.) [Microsoft Security Compliance Toolkit 1.0](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
+- [Microsoft Security Compliance Toolkit 1.0](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
 
-2.) [Cyber.mil - Group Policy Objects](https://public.cyber.mil/stigs/gpo/)
+- [Cyber.mil - Group Policy Objects](https://public.cyber.mil/stigs/gpo/)
 
-3.) [Sycnex - Windows10Debloater](https://github.com/Sycnex/Windows10Debloater)
+- [Sycnex - Windows10Debloater](https://github.com/Sycnex/Windows10Debloater)
 
-4.) [TheVDIGuys - Windows 10 VDI Optimize](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize)
+- [TheVDIGuys - Windows 10 VDI Optimize](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize)
 
-5.) [Mirinsoft - SharpApp](https://github.com/builtbybel/sharpapp)
+- [Mirinsoft - SharpApp](https://github.com/builtbybel/sharpapp)
 
-6.) [Mirinsoft - debotnet](https://github.com/builtbybel/debotnet)
+- [Mirinsoft - debotnet](https://github.com/builtbybel/debotnet)
 
-7.) [NSACyber - Bitlocker Guidance](https://github.com/nsacyber/BitLocker-Guidance)
+- [NSACyber - Bitlocker Guidance](https://github.com/nsacyber/BitLocker-Guidance)
 
-8.) [0x6d69636b - Windows Hardening](https://github.com/0x6d69636b/windows_hardening)
+- [0x6d69636b - Windows Hardening](https://github.com/0x6d69636b/windows_hardening)
 
 ## Additional configurations were considered from:
 
