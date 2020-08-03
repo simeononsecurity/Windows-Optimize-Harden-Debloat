@@ -66,7 +66,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 
 ## STIGS/SRGs Applied:
 
-"* = Loosely Applied"
+* = Loosely Applied
  
 - [Windows 10 V1R23](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MS_Windows_10_V1R23_STIG.zip)
 
