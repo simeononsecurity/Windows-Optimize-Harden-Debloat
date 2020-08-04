@@ -1,0 +1,9 @@
+V-2372::"Store password using reversible encryption"::"Store passwords using reversible encryption"
+V-6836::"Minimum password length,"::"Minimum password length"
+V-6840::*::HardCodedRule(AuditSettingRule)@{DscResource = 'AuditSetting'; DesiredValue = $true; Operator = '-eq'; Property = 'PasswordExpires'; Query = "SELECT * FROM Win32_UserAccount WHERE Disabled=$false AND LocalAccount=$true"}
+V-7002::*::HardCodedRule(AuditSettingRule)@{DscResource = 'AuditSetting'; DesiredValue = $true; Operator = '-eq'; Property = 'PasswordRequired'; Query = "SELECT * FROM Win32_UserAccount WHERE Disabled=$false AND LocalAccount=$true"}
+V-36707::Value: 0x00000001 (1) ::Value: 1 Or 2
+V-36736::*::HardCodedRule(ServiceRule)@{DscResource = 'Service'; Ensure = 'Present'; ServiceName = $null; ServiceState = 'Running'; StartupType = $null; OrganizationValueTestString = 'ServiceName/StartupType is populated with correct Certificate Revocation Checking service information'}
+V-42420::*::HardCodedRule(ServiceRule)@{DscResource = 'Service'; Ensure = 'Present'; ServiceName = $null; ServiceState = 'Running'; StartupType = $null; OrganizationValueTestString = 'ServiceName/StartupType is populated with correct Firewall service information'}
+V-80473::*::HardCodedRule(AuditSettingRule)@{DscResource = 'AuditSetting'; DesiredValue = '6.3.9600.17415'; Operator = '-ge'; Property = 'Version'; Query = "SELECT * FROM CIM_Datafile WHERE FileName='powershell' AND Path LIKE '%\\Windows\\System32\\WindowsPowerShell\\v1.0\\%' AND Extension='exe'"}
+V-80475::Registry Path: \SOFTWARE\ Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging\::Registry Path: \SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging\

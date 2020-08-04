@@ -1,0 +1,9 @@
+V-75147::If the value "PUAProtection" does not exist, this is a finding.::""
+V-75237::Values of 0x0 through 0x7 are acceptable and not a finding.::Values of 0 through 7 are acceptable and not a finding.
+V-75167::REG_DWORD = 2 or REG_DWORD = 1::REG_DWORD = 2(or 1)
+V-75153::For Windows Server 2016/Windows Server 2019:::blank1
+V-75153::Note: This only applies when a third-party antivirus solution is enforced on the system.::blank2
+V-75153::Due to changes from Microsoft in the Server 2016/Server 2019 architecture, Windows Defender Antivirus will not disable itself when other antivirus products are detected. Microsoft has also removed API's for other Antivirus software to cleanly stop and disable Windows Defender AV. This was a design choice by Microsoft to maximize protection in Server 2016/Server 2019.::blank3
+V-75153::If there is a third-party antivirus product enforced on the system, the Windows Defender Antivirus must be uninstalled.::blank4
+V-75153::Procedure: Access Add Roles and Features Wizard >> Features::blank5
+V-75153::Criteria: If “Windows Defender Features (Installed) is selected, this is a finding.::blank6

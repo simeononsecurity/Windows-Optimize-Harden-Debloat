@@ -1,0 +1,71 @@
+<!--
+    The organizational settings file is used to define the local organizations
+    preferred setting within an allowed range of the STIG.
+
+    Each setting in this file is linked by STIG ID and the valid range is in an
+    associated comment.
+-->
+<OrganizationalSettings fullversion="2.17">
+  <!-- Ensure ''V-1090'' -le '4'-->
+  <OrganizationalSetting id="V-1090" ValueData="4" />
+  <!-- Ensure ''V-1097'' -le '3' -and ''V-1097'' -ne '0'-->
+  <OrganizationalSetting id="V-1097" PolicyValue="3" />
+  <!-- Ensure ''V-1098'' -ge '15'-->
+  <OrganizationalSetting id="V-1098" PolicyValue="15" />
+  <!-- Ensure ''V-1099'' -ge '15' -or ''V-1099'' -eq '0'-->
+  <OrganizationalSetting id="V-1099" PolicyValue="15" />
+  <!-- Ensure ''V-1104'' -le '60' -and ''V-1104'' -ne '0'-->
+  <OrganizationalSetting id="V-1104" PolicyValue="60" />
+  <!-- Ensure ''V-1105'' -ne '0'-->
+  <OrganizationalSetting id="V-1105" PolicyValue="1" />
+  <!-- Ensure ''V-1107'' -ge '24'-->
+  <OrganizationalSetting id="V-1107" PolicyValue="24" />
+  <!-- Ensure ''V-1114'' -ne 'Guest'-->
+  <OrganizationalSetting id="V-1114" OptionValue="" />
+  <!-- Ensure ''V-1115'' -ne 'Administrator'-->
+  <OrganizationalSetting id="V-1115" OptionValue="" />
+  <!-- Ensure ''V-1155'' -match 'Enterprise Admins,Domain Admins,(Local account and member of Administrators group|Local account),Guests'-->
+  <OrganizationalSetting id="V-1155" Identity="Enterprise Admins,Domain Admins,Local account and member of Administrators group,Guests" />
+  <!-- Ensure ''V-1157'' -match '1|2'-->
+  <OrganizationalSetting id="V-1157" ValueData="1" />
+  <!-- Ensure ''V-1172'' -ge '14'-->
+  <OrganizationalSetting id="V-1172" ValueData="14" />
+  <!-- Ensure ''V-1174'' -le '15'-->
+  <OrganizationalSetting id="V-1174" ValueData="15" />
+  <!-- Ensure ''V-3373'' -le '30' -and ''V-3373'' -gt '0'-->
+  <OrganizationalSetting id="V-3373" ValueData="30" />
+  <!-- Ensure ''V-4108'' -le '90'-->
+  <OrganizationalSetting id="V-4108" ValueData="90" />
+  <!-- Ensure ''V-4113'' -le '300000'-->
+  <OrganizationalSetting id="V-4113" ValueData="300000" />
+  <!-- Ensure ''V-4438'' -le '3'-->
+  <OrganizationalSetting id="V-4438" ValueData="3" />
+  <!-- Ensure ''V-4442'' -le '5'-->
+  <OrganizationalSetting id="V-4442" ValueData="5" />
+  <!-- Ensure ''V-6836'' -ge '14'-->
+  <OrganizationalSetting id="V-6836" PolicyValue="14" />
+  <!-- Ensure ''V-14235'' -le '4'-->
+  <OrganizationalSetting id="V-14235" ValueData="4" />
+  <!-- Ensure ''V-21956'' -le '3'-->
+  <OrganizationalSetting id="V-21956" ValueData="3" />
+  <!-- Ensure ''V-26359'' -match '^(DoD Notice and Consent Banner|US Department of Defense Warning Statement)$'-->
+  <OrganizationalSetting id="V-26359" ValueData="DoD Notice and Consent Banner" />
+  <!-- Ensure ''V-26482'' -match '^(Administrators,NT Virtual Machine\\Virtual Machines|Administrators)$'-->
+  <OrganizationalSetting id="V-26482" Identity="Administrators" />
+  <!-- Ensure ''V-26579'' -ge '32768'-->
+  <OrganizationalSetting id="V-26579" ValueData="32768" />
+  <!-- Ensure ''V-26580'' -ge '196608'-->
+  <OrganizationalSetting id="V-26580" ValueData="196608" />
+  <!-- Ensure ''V-26581'' -ge '32768'-->
+  <OrganizationalSetting id="V-26581" ValueData="32768" />
+  <!-- Ensure ''V-26582'' -ge '32768'-->
+  <OrganizationalSetting id="V-26582" ValueData="32768" />
+  <!-- Ensure ''V-36707'' -match '1|2'-->
+  <OrganizationalSetting id="V-36707" ValueData="1" />
+  <!-- Ensure ServiceName/StartupType is populated with correct Certificate Revocation Checking service information-->
+  <OrganizationalSetting id="V-36736" ServiceName="" StartupType="" />
+  <!-- Ensure ''V-36773'' -le '900' -and ''V-36773'' -gt '0'-->
+  <OrganizationalSetting id="V-36773" ValueData="900" />
+  <!-- Ensure ServiceName/StartupType is populated with correct Firewall service information-->
+  <OrganizationalSetting id="V-42420" ServiceName="" StartupType="" />
+</OrganizationalSettings>

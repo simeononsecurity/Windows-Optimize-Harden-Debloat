@@ -1,0 +1,15 @@
+<!--
+    The organizational settings file is used to define the local organizations
+    preferred setting within an allowed range of the STIG.
+
+    Each setting in this file is linked by STIG ID and the valid range is in an
+    associated comment.
+-->
+<OrganizationalSettings fullversion="1.3">
+  <!-- Ensure 'V-93955' is set to "Syslog.global.logHost" = "site specific log host"-->
+  <OrganizationalSetting id="V-93955" AdvancedSettings="" />
+  <!-- Ensure "'V-94037'" is set to "Syslog.global.logDir" = "site specific log storage location"-->
+  <OrganizationalSetting id="V-94037" AdvancedSettings="" />
+  <!-- Ensure 'V-94039.b' is set to a string array of authoritative DoD time sources-->
+  <OrganizationalSetting id="V-94039.b" NtpServer="" />
+</OrganizationalSettings>

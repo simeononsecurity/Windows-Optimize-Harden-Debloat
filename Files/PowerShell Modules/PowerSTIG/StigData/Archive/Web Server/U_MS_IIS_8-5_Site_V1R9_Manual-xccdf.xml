@@ -1,0 +1,1408 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type='text/xsl' href='STIG_unclass.xsl'?><Benchmark xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" id="IIS_8-5_Site_STIG" xml:lang="en" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.1 http://nvd.nist.gov/schema/xccdf-1.1.4.xsd http://cpe.mitre.org/dictionary/2.0 http://cpe.mitre.org/files/cpe-dictionary_2.1.xsd" xmlns="http://checklists.nist.gov/xccdf/1.1"><status date="2019-10-01">accepted</status><title>IIS 8.5 Site Security Technical Implementation Guide</title><description>This Security Technical Implementation Guide is published as a tool to improve the security of Department of Defense (DoD) information systems. The requirements are derived from the National Institute of Standards and Technology (NIST) 800-53 and related documents. Comments or proposed revisions to this document should be sent via email to the following address: disa.stig_spt@mail.mil.</description><notice id="terms-of-use" xml:lang="en"></notice><reference href="http://cyber.mil"><dc:publisher>DISA</dc:publisher><dc:source>STIG.DOD.MIL</dc:source></reference><plain-text id="release-info">Release: 9 Benchmark Date: 25 Oct 2019</plain-text><version>1</version><Profile id="MAC-1_Classified"><title>I - Mission Critical Classified</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-76775" selected="true" /><select idref="V-76777" selected="true" /><select idref="V-76779" selected="true" /><select idref="V-76781" selected="true" /><select idref="V-76783" selected="true" /><select idref="V-76785" selected="true" /><select idref="V-76787" selected="true" /><select idref="V-76789" selected="true" /><select idref="V-76791" selected="true" /><select idref="V-76795" selected="true" /><select idref="V-76797" selected="true" /><select idref="V-76799" selected="true" /><select idref="V-76801" selected="true" /><select idref="V-76803" selected="true" /><select idref="V-76805" selected="true" /><select idref="V-76807" selected="true" /><select idref="V-76809" selected="true" /><select idref="V-76811" selected="true" /><select idref="V-76813" selected="true" /><select idref="V-76815" selected="true" /><select idref="V-76817" selected="true" /><select idref="V-76819" selected="true" /><select idref="V-76821" selected="true" /><select idref="V-76823" selected="true" /><select idref="V-76825" selected="true" /><select idref="V-76827" selected="true" /><select idref="V-76829" selected="true" /><select idref="V-76831" selected="true" /><select idref="V-76835" selected="true" /><select idref="V-76837" selected="true" /><select idref="V-76839" selected="true" /><select idref="V-76841" selected="true" /><select idref="V-76843" selected="true" /><select idref="V-76845" selected="true" /><select idref="V-76847" selected="true" /><select idref="V-76849" selected="true" /><select idref="V-76851" selected="true" /><select idref="V-76855" selected="true" /><select idref="V-76859" selected="true" /><select idref="V-76861" selected="true" /><select idref="V-76865" selected="true" /><select idref="V-76867" selected="true" /><select idref="V-76869" selected="true" /><select idref="V-76871" selected="true" /><select idref="V-76873" selected="true" /><select idref="V-76875" selected="true" /><select idref="V-76877" selected="true" /><select idref="V-76879" selected="true" /><select idref="V-76881" selected="true" /><select idref="V-76885" selected="true" /><select idref="V-76887" selected="true" /><select idref="V-76889" selected="true" /><select idref="V-76891" selected="true" /></Profile><Profile id="MAC-1_Public"><title>I - Mission Critical Public</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-76775" selected="true" /><select idref="V-76777" selected="true" /><select idref="V-76779" selected="true" /><select idref="V-76781" selected="true" /><select idref="V-76783" selected="true" /><select idref="V-76785" selected="true" /><select idref="V-76787" selected="true" /><select idref="V-76789" selected="true" /><select idref="V-76791" selected="true" /><select idref="V-76795" selected="true" /><select idref="V-76797" selected="true" /><select idref="V-76799" selected="true" /><select idref="V-76801" selected="true" /><select idref="V-76803" selected="true" /><select idref="V-76805" selected="true" /><select idref="V-76807" selected="true" /><select idref="V-76809" selected="true" /><select idref="V-76811" selected="true" /><select idref="V-76813" selected="true" /><select idref="V-76815" selected="true" /><select idref="V-76817" selected="true" /><select idref="V-76819" selected="true" /><select idref="V-76821" selected="true" /><select idref="V-76823" selected="true" /><select idref="V-76825" selected="true" /><select idref="V-76827" selected="true" /><select idref="V-76829" selected="true" /><select idref="V-76831" selected="true" /><select idref="V-76835" selected="true" /><select idref="V-76837" selected="true" /><select idref="V-76839" selected="true" /><select idref="V-76841" selected="true" /><select idref="V-76843" selected="true" /><select idref="V-76845" selected="true" /><select idref="V-76847" selected="true" /><select idref="V-76849" selected="true" /><select idref="V-76851" selected="true" /><select idref="V-76855" selected="true" /><select idref="V-76859" selected="true" /><select idref="V-76861" selected="true" /><select idref="V-76865" selected="true" /><select idref="V-76867" selected="true" /><select idref="V-76869" selected="true" /><select idref="V-76871" selected="true" /><select idref="V-76873" selected="true" /><select idref="V-76875" selected="true" /><select idref="V-76877" selected="true" /><select idref="V-76879" selected="true" /><select idref="V-76881" selected="true" /><select idref="V-76885" selected="true" /><select idref="V-76887" selected="true" /><select idref="V-76889" selected="true" /><select idref="V-76891" selected="true" /></Profile><Profile id="MAC-1_Sensitive"><title>I - Mission Critical Sensitive</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-76775" selected="true" /><select idref="V-76777" selected="true" /><select idref="V-76779" selected="true" /><select idref="V-76781" selected="true" /><select idref="V-76783" selected="true" /><select idref="V-76785" selected="true" /><select idref="V-76787" selected="true" /><select idref="V-76789" selected="true" /><select idref="V-76791" selected="true" /><select idref="V-76795" selected="true" /><select idref="V-76797" selected="true" /><select idref="V-76799" selected="true" /><select idref="V-76801" selected="true" /><select idref="V-76803" selected="true" /><select idref="V-76805" selected="true" /><select idref="V-76807" selected="true" /><select idref="V-76809" selected="true" /><select idref="V-76811" selected="true" /><select idref="V-76813" selected="true" /><select idref="V-76815" selected="true" /><select idref="V-76817" selected="true" /><select idref="V-76819" selected="true" /><select idref="V-76821" selected="true" /><select idref="V-76823" selected="true" /><select idref="V-76825" selected="true" /><select idref="V-76827" selected="true" /><select idref="V-76829" selected="true" /><select idref="V-76831" selected="true" /><select idref="V-76835" selected="true" /><select idref="V-76837" selected="true" /><select idref="V-76839" selected="true" /><select idref="V-76841" selected="true" /><select idref="V-76843" selected="true" /><select idref="V-76845" selected="true" /><select idref="V-76847" selected="true" /><select idref="V-76849" selected="true" /><select idref="V-76851" selected="true" /><select idref="V-76855" selected="true" /><select idref="V-76859" selected="true" /><select idref="V-76861" selected="true" /><select idref="V-76865" selected="true" /><select idref="V-76867" selected="true" /><select idref="V-76869" selected="true" /><select idref="V-76871" selected="true" /><select idref="V-76873" selected="true" /><select idref="V-76875" selected="true" /><select idref="V-76877" selected="true" /><select idref="V-76879" selected="true" /><select idref="V-76881" selected="true" /><select idref="V-76885" selected="true" /><select idref="V-76887" selected="true" /><select idref="V-76889" selected="true" /><select idref="V-76891" selected="true" /></Profile><Profile id="MAC-2_Classified"><title>II - Mission Support Classified</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-76775" selected="true" /><select idref="V-76777" selected="true" /><select idref="V-76779" selected="true" /><select idref="V-76781" selected="true" /><select idref="V-76783" selected="true" /><select idref="V-76785" selected="true" /><select idref="V-76787" selected="true" /><select idref="V-76789" selected="true" /><select idref="V-76791" selected="true" /><select idref="V-76795" selected="true" /><select idref="V-76797" selected="true" /><select idref="V-76799" selected="true" /><select idref="V-76801" selected="true" /><select idref="V-76803" selected="true" /><select idref="V-76805" selected="true" /><select idref="V-76807" selected="true" /><select idref="V-76809" selected="true" /><select idref="V-76811" selected="true" /><select idref="V-76813" selected="true" /><select idref="V-76815" selected="true" /><select idref="V-76817" selected="true" /><select idref="V-76819" selected="true" /><select idref="V-76821" selected="true" /><select idref="V-76823" selected="true" /><select idref="V-76825" selected="true" /><select idref="V-76827" selected="true" /><select idref="V-76829" selected="true" /><select idref="V-76831" selected="true" /><select idref="V-76835" selected="true" /><select idref="V-76837" selected="true" /><select idref="V-76839" selected="true" /><select idref="V-76841" selected="true" /><select idref="V-76843" selected="true" /><select idref="V-76845" selected="true" /><select idref="V-76847" selected="true" /><select idref="V-76849" selected="true" /><select idref="V-76851" selected="true" /><select idref="V-76855" selected="true" /><select idref="V-76859" selected="true" /><select idref="V-76861" selected="true" /><select idref="V-76865" selected="true" /><select idref="V-76867" selected="true" /><select idref="V-76869" selected="true" /><select idref="V-76871" selected="true" /><select idref="V-76873" selected="true" /><select idref="V-76875" selected="true" /><select idref="V-76877" selected="true" /><select idref="V-76879" selected="true" /><select idref="V-76881" selected="true" /><select idref="V-76885" selected="true" /><select idref="V-76887" selected="true" /><select idref="V-76889" selected="true" /><select idref="V-76891" selected="true" /></Profile><Profile id="MAC-2_Public"><title>II - Mission Support Public</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-76775" selected="true" /><select idref="V-76777" selected="true" /><select idref="V-76779" selected="true" /><select idref="V-76781" selected="true" /><select idref="V-76783" selected="true" /><select idref="V-76785" selected="true" /><select idref="V-76787" selected="true" /><select idref="V-76789" selected="true" /><select idref="V-76791" selected="true" /><select idref="V-76795" selected="true" /><select idref="V-76797" selected="true" /><select idref="V-76799" selected="true" /><select idref="V-76801" selected="true" /><select idref="V-76803" selected="true" /><select idref="V-76805" selected="true" /><select idref="V-76807" selected="true" /><select idref="V-76809" selected="true" /><select idref="V-76811" selected="true" /><select idref="V-76813" selected="true" /><select idref="V-76815" selected="true" /><select idref="V-76817" selected="true" /><select idref="V-76819" selected="true" /><select idref="V-76821" selected="true" /><select idref="V-76823" selected="true" /><select idref="V-76825" selected="true" /><select idref="V-76827" selected="true" /><select idref="V-76829" selected="true" /><select idref="V-76831" selected="true" /><select idref="V-76835" selected="true" /><select idref="V-76837" selected="true" /><select idref="V-76839" selected="true" /><select idref="V-76841" selected="true" /><select idref="V-76843" selected="true" /><select idref="V-76845" selected="true" /><select idref="V-76847" selected="true" /><select idref="V-76849" selected="true" /><select idref="V-76851" selected="true" /><select idref="V-76855" selected="true" /><select idref="V-76859" selected="true" /><select idref="V-76861" selected="true" /><select idref="V-76865" selected="true" /><select idref="V-76867" selected="true" /><select idref="V-76869" selected="true" /><select idref="V-76871" selected="true" /><select idref="V-76873" selected="true" /><select idref="V-76875" selected="true" /><select idref="V-76877" selected="true" /><select idref="V-76879" selected="true" /><select idref="V-76881" selected="true" /><select idref="V-76885" selected="true" /><select idref="V-76887" selected="true" /><select idref="V-76889" selected="true" /><select idref="V-76891" selected="true" /></Profile><Profile id="MAC-2_Sensitive"><title>II - Mission Support Sensitive</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-76775" selected="true" /><select idref="V-76777" selected="true" /><select idref="V-76779" selected="true" /><select idref="V-76781" selected="true" /><select idref="V-76783" selected="true" /><select idref="V-76785" selected="true" /><select idref="V-76787" selected="true" /><select idref="V-76789" selected="true" /><select idref="V-76791" selected="true" /><select idref="V-76795" selected="true" /><select idref="V-76797" selected="true" /><select idref="V-76799" selected="true" /><select idref="V-76801" selected="true" /><select idref="V-76803" selected="true" /><select idref="V-76805" selected="true" /><select idref="V-76807" selected="true" /><select idref="V-76809" selected="true" /><select idref="V-76811" selected="true" /><select idref="V-76813" selected="true" /><select idref="V-76815" selected="true" /><select idref="V-76817" selected="true" /><select idref="V-76819" selected="true" /><select idref="V-76821" selected="true" /><select idref="V-76823" selected="true" /><select idref="V-76825" selected="true" /><select idref="V-76827" selected="true" /><select idref="V-76829" selected="true" /><select idref="V-76831" selected="true" /><select idref="V-76835" selected="true" /><select idref="V-76837" selected="true" /><select idref="V-76839" selected="true" /><select idref="V-76841" selected="true" /><select idref="V-76843" selected="true" /><select idref="V-76845" selected="true" /><select idref="V-76847" selected="true" /><select idref="V-76849" selected="true" /><select idref="V-76851" selected="true" /><select idref="V-76855" selected="true" /><select idref="V-76859" selected="true" /><select idref="V-76861" selected="true" /><select idref="V-76865" selected="true" /><select idref="V-76867" selected="true" /><select idref="V-76869" selected="true" /><select idref="V-76871" selected="true" /><select idref="V-76873" selected="true" /><select idref="V-76875" selected="true" /><select idref="V-76877" selected="true" /><select idref="V-76879" selected="true" /><select idref="V-76881" selected="true" /><select idref="V-76885" selected="true" /><select idref="V-76887" selected="true" /><select idref="V-76889" selected="true" /><select idref="V-76891" selected="true" /></Profile><Profile id="MAC-3_Classified"><title>III - Administrative Classified</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-76775" selected="true" /><select idref="V-76777" selected="true" /><select idref="V-76779" selected="true" /><select idref="V-76781" selected="true" /><select idref="V-76783" selected="true" /><select idref="V-76785" selected="true" /><select idref="V-76787" selected="true" /><select idref="V-76789" selected="true" /><select idref="V-76791" selected="true" /><select idref="V-76795" selected="true" /><select idref="V-76797" selected="true" /><select idref="V-76799" selected="true" /><select idref="V-76801" selected="true" /><select idref="V-76803" selected="true" /><select idref="V-76805" selected="true" /><select idref="V-76807" selected="true" /><select idref="V-76809" selected="true" /><select idref="V-76811" selected="true" /><select idref="V-76813" selected="true" /><select idref="V-76815" selected="true" /><select idref="V-76817" selected="true" /><select idref="V-76819" selected="true" /><select idref="V-76821" selected="true" /><select idref="V-76823" selected="true" /><select idref="V-76825" selected="true" /><select idref="V-76827" selected="true" /><select idref="V-76829" selected="true" /><select idref="V-76831" selected="true" /><select idref="V-76835" selected="true" /><select idref="V-76837" selected="true" /><select idref="V-76839" selected="true" /><select idref="V-76841" selected="true" /><select idref="V-76843" selected="true" /><select idref="V-76845" selected="true" /><select idref="V-76847" selected="true" /><select idref="V-76849" selected="true" /><select idref="V-76851" selected="true" /><select idref="V-76855" selected="true" /><select idref="V-76859" selected="true" /><select idref="V-76861" selected="true" /><select idref="V-76865" selected="true" /><select idref="V-76867" selected="true" /><select idref="V-76869" selected="true" /><select idref="V-76871" selected="true" /><select idref="V-76873" selected="true" /><select idref="V-76875" selected="true" /><select idref="V-76877" selected="true" /><select idref="V-76879" selected="true" /><select idref="V-76881" selected="true" /><select idref="V-76885" selected="true" /><select idref="V-76887" selected="true" /><select idref="V-76889" selected="true" /><select idref="V-76891" selected="true" /></Profile><Profile id="MAC-3_Public"><title>III - Administrative Public</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-76775" selected="true" /><select idref="V-76777" selected="true" /><select idref="V-76779" selected="true" /><select idref="V-76781" selected="true" /><select idref="V-76783" selected="true" /><select idref="V-76785" selected="true" /><select idref="V-76787" selected="true" /><select idref="V-76789" selected="true" /><select idref="V-76791" selected="true" /><select idref="V-76795" selected="true" /><select idref="V-76797" selected="true" /><select idref="V-76799" selected="true" /><select idref="V-76801" selected="true" /><select idref="V-76803" selected="true" /><select idref="V-76805" selected="true" /><select idref="V-76807" selected="true" /><select idref="V-76809" selected="true" /><select idref="V-76811" selected="true" /><select idref="V-76813" selected="true" /><select idref="V-76815" selected="true" /><select idref="V-76817" selected="true" /><select idref="V-76819" selected="true" /><select idref="V-76821" selected="true" /><select idref="V-76823" selected="true" /><select idref="V-76825" selected="true" /><select idref="V-76827" selected="true" /><select idref="V-76829" selected="true" /><select idref="V-76831" selected="true" /><select idref="V-76835" selected="true" /><select idref="V-76837" selected="true" /><select idref="V-76839" selected="true" /><select idref="V-76841" selected="true" /><select idref="V-76843" selected="true" /><select idref="V-76845" selected="true" /><select idref="V-76847" selected="true" /><select idref="V-76849" selected="true" /><select idref="V-76851" selected="true" /><select idref="V-76855" selected="true" /><select idref="V-76859" selected="true" /><select idref="V-76861" selected="true" /><select idref="V-76865" selected="true" /><select idref="V-76867" selected="true" /><select idref="V-76869" selected="true" /><select idref="V-76871" selected="true" /><select idref="V-76873" selected="true" /><select idref="V-76875" selected="true" /><select idref="V-76877" selected="true" /><select idref="V-76879" selected="true" /><select idref="V-76881" selected="true" /><select idref="V-76885" selected="true" /><select idref="V-76887" selected="true" /><select idref="V-76889" selected="true" /><select idref="V-76891" selected="true" /></Profile><Profile id="MAC-3_Sensitive"><title>III - Administrative Sensitive</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-76775" selected="true" /><select idref="V-76777" selected="true" /><select idref="V-76779" selected="true" /><select idref="V-76781" selected="true" /><select idref="V-76783" selected="true" /><select idref="V-76785" selected="true" /><select idref="V-76787" selected="true" /><select idref="V-76789" selected="true" /><select idref="V-76791" selected="true" /><select idref="V-76795" selected="true" /><select idref="V-76797" selected="true" /><select idref="V-76799" selected="true" /><select idref="V-76801" selected="true" /><select idref="V-76803" selected="true" /><select idref="V-76805" selected="true" /><select idref="V-76807" selected="true" /><select idref="V-76809" selected="true" /><select idref="V-76811" selected="true" /><select idref="V-76813" selected="true" /><select idref="V-76815" selected="true" /><select idref="V-76817" selected="true" /><select idref="V-76819" selected="true" /><select idref="V-76821" selected="true" /><select idref="V-76823" selected="true" /><select idref="V-76825" selected="true" /><select idref="V-76827" selected="true" /><select idref="V-76829" selected="true" /><select idref="V-76831" selected="true" /><select idref="V-76835" selected="true" /><select idref="V-76837" selected="true" /><select idref="V-76839" selected="true" /><select idref="V-76841" selected="true" /><select idref="V-76843" selected="true" /><select idref="V-76845" selected="true" /><select idref="V-76847" selected="true" /><select idref="V-76849" selected="true" /><select idref="V-76851" selected="true" /><select idref="V-76855" selected="true" /><select idref="V-76859" selected="true" /><select idref="V-76861" selected="true" /><select idref="V-76865" selected="true" /><select idref="V-76867" selected="true" /><select idref="V-76869" selected="true" /><select idref="V-76871" selected="true" /><select idref="V-76873" selected="true" /><select idref="V-76875" selected="true" /><select idref="V-76877" selected="true" /><select idref="V-76879" selected="true" /><select idref="V-76881" selected="true" /><select idref="V-76885" selected="true" /><select idref="V-76887" selected="true" /><select idref="V-76889" selected="true" /><select idref="V-76891" selected="true" /></Profile><Group id="V-76775"><title>SRG-APP-000001-WSR-000002</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91471r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000201</version><title>The IIS 8.5 website session state must be enabled.</title><description>&lt;VulnDiscussion&gt;When the session information is stored on the client, the session ID, along with the user authorization and identity information, is sent along with each client request and is stored in either a cookie, embedded in the uniform resource locator (URL), or placed in a hidden field on the displayed form. Each of these offers advantages and disadvantages. The biggest disadvantage to all three is the hijacking of a session along with all of the user's credentials.
+
+When the user authorization and identity information is stored on the server in a protected and encrypted database, the communication between the client and web server will only send the session identifier, and the server can then retrieve user credentials for the session when needed. If, during transmission, the session were to be hijacked, the user's credentials would not be compromised.
+
+ASP.NET provides a session state, which is available as the HttpSessionState class, as a method of storing session-specific information that is visible only within the session. ASP.NET session state identifies requests from the same browser during a limited time window as a session, and provides the ability to persist variable values for the duration of that session.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000054</ident><fixtext fixref="F-83471r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Under the "ASP.NET" section, select "Session State".
+
+Under "Session State Mode Settings", verify the "In Process" mode is selected.
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83471r1_fix" /><check system="C-76431r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Under the "ASP.NET" section, select "Session State".
+
+Under "Session State Mode Settings", verify the "In Process" mode is selected.
+
+If the "Session State Mode Settings" is set to "In Process", this is not a finding.
+
+Alternative method:
+
+Click the site name.
+
+Select "Configuration Editor" under the "Management" section.
+
+From the "Section:" drop-down list at the top of the configuration editor, locate "system.web/sessionState".
+
+Verify the "mode" reflects "InProc".
+
+If the "mode" is not set to "InProc", this is a finding.</check-content></check></Rule></Group><Group id="V-76777"><title>SRG-APP-000001-WSR-000002</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91473r3_rule" severity="medium" weight="10.0"><version>IISW-SI-000202</version><title>The IIS 8.5 website session state cookie settings must be configured to Use Cookies mode.</title><description>&lt;VulnDiscussion&gt;When the session information is stored on the client, the session ID, along with the user authorization and identity information, is sent along with each client request and is stored in either a cookie, embedded in the uniform resource locator (URL), or placed in a hidden field on the displayed form. Each of these offers advantages and disadvantages. The biggest disadvantage to all three is the hijacking of a session along with all of the user's credentials.
+
+When the user authorization and identity information is stored on the server in a protected and encrypted database, the communication between the client and website will only send the session identifier, and the server can then retrieve user credentials for the session when needed. If, during transmission, the session were to be hijacked, the user's credentials would not be compromised.
+
+ASP.NET provides a session state, which is available as the HttpSessionState class, as a method of storing session-specific information that is visible only within the session. ASP.NET session state identifies requests from the same browser during a limited time window as a session, and provides the ability to persist variable values for the duration of that session.
+
+Cookies associate session information with client information for the duration of a user’s connection to a website. Using cookies is a more efficient way to track session state than any of the methods that do not use cookies because cookies do not require any redirection.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000054</ident><fixtext fixref="F-83473r2_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server: 
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Under the ASP.NET section, select "Session State".
+
+Under "Cookie Settings", select the "Use Cookies" from the "Mode:" drop-down list.
+
+Select "Apply" from the "Actions" pane.
+</fixtext><fix id="F-83473r2_fix" /><check system="C-76433r4_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+Open the IIS 8.5 Manager.
+Click the site name.
+Under the "ASP.NET" section, select "Session State".
+Under "Cookie Settings", verify the "Use Cookies" mode is selected from the "Mode:" drop-down list.
+If the "Use Cookies" mode is selected, this is not a finding.
+
+Alternative method:
+Click the site name.
+Select "Configuration Editor" under the "Management" section.
+From the "Section:" drop-down list at the top of the configuration editor, locate "system.web/sessionState".
+Verify the "cookieless" is set to "UseCookies".
+If the "cookieless" is not set to "UseCookies", this is a finding.
+Note: If IIS 8.5 server/site is used only for system-to-system maintenance, does not allow users to connect to interface, and is restricted to specific system IPs, this is Not Applicable.</check-content></check></Rule></Group><Group id="V-76779"><title>SRG-APP-000014-WSR-000006</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91475r3_rule" severity="medium" weight="10.0"><version>IISW-SI-000203</version><title>A private IIS 8.5 website must only accept Secure Socket Layer connections.</title><description>&lt;VulnDiscussion&gt;Transport Layer Security (TLS) encryption is a required security setting for a private web server. Encryption of private information is essential to ensuring data confidentiality. If private information is not encrypted, it can be intercepted and easily read by an unauthorized party. A private web server must use a FIPS 140-2-approved TLS version, and all non-FIPS-approved SSL versions must be disabled.
+
+FIPS 140-2-approved TLS versions include TLS V1.1 or greater. NIST SP 800-52 specifies the preferred configurations for government systems.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000068</ident><fixtext fixref="F-83475r1_fix">Note: If the server being reviewed is a public IIS 8.5 web server, this is Not Applicable.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Double-click the "SSL Settings" icon.
+
+Select "Require SSL" check box.
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83475r1_fix" /><check system="C-76435r3_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: If the server being reviewed is a public IIS 8.5 web server, this is Not Applicable.
+
+Note: If SSL is installed on load balancer/proxy server through which traffic is routed to the IIS 8.5 server, and the IIS 8.5 server receives traffic from the load balancer/proxy server, the SSL requirement must be met on the load balancer/proxy server.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+Click the site name.
+Double-click the "SSL Settings" icon.
+Verify "Require SSL" check box is selected.
+
+If the "Require SSL" check box is not selected, this is a finding.</check-content></check></Rule></Group><Group id="V-76781"><title>SRG-APP-000014-WSR-000006</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91477r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000204</version><title>A public IIS 8.5 website must only accept Secure Socket Layer connections when authentication is required.</title><description>&lt;VulnDiscussion&gt;Transport Layer Security (TLS) encryption is a required security setting for a private web server. Encryption of private information is essential to ensuring data confidentiality. If private information is not encrypted, it can be intercepted and easily read by an unauthorized party. A private web server must use a FIPS 140-2-approved TLS version, and all non-FIPS-approved SSL versions must be disabled.
+
+FIPS 140-2-approved TLS versions include TLS V1.1 or greater. NIST SP 800-52 specifies the preferred configurations for government systems.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000068</ident><fixtext fixref="F-83477r1_fix">Note: If the server being reviewed is a private IIS 8.5 web server, this is Not Applicable.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Double-click the "SSL Settings" icon.
+
+Select "Require SSL" check box.
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83477r1_fix" /><check system="C-76437r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: If the server being reviewed is a private IIS 8.5 web server, this is Not Applicable.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Double-click the "SSL Settings" icon.
+
+Verify "Require SSL" check box is selected.
+
+If the "Require SSL" check box is not selected, this is a finding.</check-content></check></Rule></Group><Group id="V-76783"><title>SRG-APP-000092-WSR-000055</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91479r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000205</version><title>The enhanced logging for each IIS 8.5 website must be enabled and capture, record, and log all content related to a user session.</title><description>&lt;VulnDiscussion&gt;Log files are a critical component to the successful management of an IS used within the DoD. By generating log files with useful information web administrators can leverage them in the event of a disaster, malicious attack, or other site-specific needs.
+
+Ascertaining the correct order of the events that occurred is important during forensic analysis. Events that appear harmless by themselves might be flagged as a potential threat when properly viewed in sequence. By also establishing the event date and time, an event can be properly viewed with an enterprise tool to fully see a possible threat in its entirety.
+
+Without sufficient information establishing when the log event occurred, investigation into the cause of event is severely hindered. Log record content that may be necessary to satisfy the requirement of this control includes, but is not limited to, time stamps, source and destination IP addresses, user/process identifiers, event descriptions, application-specific events, success/fail indications, file names involved, access control, or flow control rules invoked.
+
+Satisfies: SRG-APP-000092-WSR-000055, SRG-APP-000093-WSR-000053&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001462</ident><ident system="http://iase.disa.mil/cci">CCI-001464</ident><fixtext fixref="F-83479r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Click the "Logging" icon.
+
+Under Format select "W3C".
+
+Select the following fields: Date, Time, Client IP Address, User Name, Method, URI Query, Protocol Status, and Referrer.
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83479r1_fix" /><check system="C-76439r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Click the "Logging" icon.
+
+Under Format select "W3C".
+
+Click “Select Fields”, verify at a minimum the following fields are checked: Date, Time, Client IP Address, User Name, Method, URI Query, Protocol Status, and Referrer.
+
+If the "W3C" is not selected as the logging format OR any of the required fields are not selected, this is a finding.</check-content></check></Rule></Group><Group id="V-76785"><title>SRG-APP-000092-WSR-000055</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91481r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000206</version><title>Both the log file and Event Tracing for Windows (ETW) for each IIS 8.5 website must be enabled.</title><description>&lt;VulnDiscussion&gt;Internet Information Services (IIS) on Windows Server 2012 provides basic logging capabilities. However, because IIS takes some time to flush logs to disk, administrators do not have access to logging information in real-time. In addition, text-based log files can be difficult and time-consuming to process.
+
+In IIS 8.5, the administrator has the option of sending logging information to Event Tracing for Windows (ETW). This option gives the administrator the ability to use standard query tools, or create custom tools, for viewing real-time logging information in ETW. This provides a significant advantage over parsing text-based log files that are not updated in real time.
+
+Satisfies: SRG-APP-000092-WSR-000055, SRG-APP-000108-WSR-000166&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000139</ident><ident system="http://iase.disa.mil/cci">CCI-001464</ident><fixtext fixref="F-83481r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Click the "Logging" icon.
+
+Under Log Event Destination, select the "Both log file and ETW event" radio button.
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83481r1_fix" /><check system="C-76441r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Click the "Logging" icon.
+
+Under Log Event Destination, verify the "Both log file and ETW event" radio button is selected.
+
+If the "Both log file and ETW event" radio button is not selected, this is a finding.</check-content></check></Rule></Group><Group id="V-76787"><title>SRG-APP-000098-WSR-000060</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91483r3_rule" severity="medium" weight="10.0"><version>IISW-SI-000208</version><title>An IIS 8.5 website behind a load balancer or proxy server, must produce log records containing the source client IP and destination information.</title><description>&lt;VulnDiscussion&gt;Web server logging capability is critical for accurate forensic analysis. Without sufficient and accurate information, a correct replay of the events cannot be determined. 
+
+Ascertaining the correct source, e.g. source IP, of the events is important during forensic analysis. Correctly determining the source of events will add information to the overall reconstruction of the logable event. By determining the source of the event correctly, analysis of the enterprise can be undertaken to determine if events tied to the source occurred in other areas within the enterprise.
+
+A web server behind a load balancer or proxy server, when not configured correctly, will record the load balancer or proxy server as the source of every logable event. When looking at the information forensically, this information is not helpful in the investigation of events. The web server must record with each event the client source of the event.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000133</ident><fixtext fixref="F-83483r1_fix">Access the proxy server through which inbound web traffic is passed and configure settings to pass web traffic to the IIS 8.5 web server transparently.</fixtext><fix id="F-83483r1_fix" /><check system="C-76443r3_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Interview the System Administrator to review the configuration of the IIS 8.5 architecture and determine if inbound web traffic is passed through a proxy.
+
+If the IIS 8.5 is receiving inbound web traffic through a proxy, the audit logs must be reviewed to determine if correct source information is being passed through by the proxy server.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Click the "Logging" icon.
+
+Click on "View log file" button.
+
+When log file is displaced, review source IP information in log entries and verify entries do not reflect the IP address of the proxy server.
+
+If the website is not behind a load balancer or proxy server, this is Not Applicable.
+
+If the log entries in the log file(s) reflect the IP address of the proxy server as the source, this is a finding.
+
+If provisions have been made to log the client IP via another field (i.e., utilizing X-Forwarded-For), this is not a finding.</check-content></check></Rule></Group><Group id="V-76789"><title>SRG-APP-000099-WSR-000061</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91485r2_rule" severity="medium" weight="10.0"><version>IISW-SI-000209</version><title>The IIS 8.5 website must produce log records that contain sufficient information to establish the outcome (success or failure) of IIS 8.5 website events.</title><description>&lt;VulnDiscussion&gt;Web server logging capability is critical for accurate forensic analysis. Without sufficient and accurate information, a correct replay of the events cannot be determined.
+
+Ascertaining the success or failure of an event is important during forensic analysis. Correctly determining the outcome will add information to the overall reconstruction of the logable event. By determining the success or failure of the event correctly, analysis of the enterprise can be undertaken to determine if events tied to the event occurred in other areas within the enterprise.
+
+Without sufficient information establishing the success or failure of the logged event, investigation into the cause of event is severely hindered. The success or failure also provides a means to measure the impact of an event and help authorized personnel to determine the appropriate response. Log record content that may be necessary to satisfy the requirement of this control includes, but is not limited to, time stamps, source and destination IP addresses, user/process identifiers, event descriptions, application-specific events, success/fail indications, file names involved, access control, or flow control rules invoked.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000134</ident><fixtext fixref="F-83485r2_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Select the website being reviewed.
+
+Under "IIS", double-click the "Logging" icon.
+
+Configure the "Format:" under "Log File" to "W3C".
+
+Select the "Fields" button.
+
+Under "Custom Fields", select the following fields:
+
+Request Header &gt;&gt; Connection
+
+Request Header &gt;&gt; Warning
+
+Click "OK".
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83485r2_fix" /><check system="C-76445r2_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Select the website being reviewed.
+
+Under "IIS", double-click the "Logging" icon.
+
+Verify the "Format:" under "Log File" is configured to "W3C".
+
+Select the "Fields" button.
+
+Under "Custom Fields", verify the following fields are selected:
+
+Request Header &gt;&gt; Connection
+
+Request Header &gt;&gt; Warning
+
+If any of the above fields are not selected, this is a finding.</check-content></check></Rule></Group><Group id="V-76791"><title>SRG-APP-000100-WSR-000064</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91487r3_rule" severity="medium" weight="10.0"><version>IISW-SI-000210</version><title>The IIS 8.5 website must produce log records containing sufficient information to establish the identity of any user/subject or process associated with an event.</title><description>&lt;VulnDiscussion&gt;Web server logging capability is critical for accurate forensic analysis. Without sufficient and accurate information, a correct replay of the events cannot be determined.
+
+Determining user accounts, processes running on behalf of the user, and running process identifiers also enable a better understanding of the overall event. User tool identification is also helpful to determine if events are related to overall user access or specific client tools.
+
+Log record content that may be necessary to satisfy the requirement of this control includes: time stamps, source and destination addresses, user/process identifiers, event descriptions, success/fail indications, file names involved, and access control or flow control rules invoked.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001487</ident><fixtext fixref="F-83487r3_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Access the IIS 8.5 web server IIS 8.5 Manager.
+
+Select the website being reviewed.
+
+Under "IIS", double-click the "Logging" icon.
+
+Configure the "Format:" under "Log File" to "W3C".
+
+Select the "Fields" button.
+
+Under "Standard Fields", select "User Agent", "User Name" and "Referrer".
+
+Under "Custom Fields", select the following fields:
+
+Request Header &gt;&gt; Authorization
+
+Response Header &gt;&gt; Content-Type
+
+Click "OK".
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83487r3_fix" /><check system="C-76447r3_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Access the IIS 8.5 web server IIS 8.5 Manager.
+
+Under "IIS", double-click the "Logging" icon.
+
+Verify the "Format:" under "Log File" is configured to "W3C".
+
+Select the "Fields" button.
+
+Under "Standard Fields", verify "User Agent", "User Name" and "Referrer" are selected.
+
+Under "Custom Fields", verify the following fields have been configured: 
+
+Request Header &gt;&gt; Authorization
+
+Response Header &gt;&gt; Content-Type
+
+If any of the above fields are not selected, this is a finding.</check-content></check></Rule></Group><Group id="V-76795"><title>SRG-APP-000120-WSR-000070</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91491r4_rule" severity="medium" weight="10.0"><version>IISW-SI-000213</version><title>The log information from the IIS 8.5 website must be protected from unauthorized modification or deletion.</title><description>&lt;VulnDiscussion&gt;A major tool in exploring the website use, attempted use, unusual conditions, and problems are the access and error logs. In the event of a security incident, these logs can provide the SA and the web manager with valuable information. Failure to protect log files could enable an attacker to modify the log file data or falsify events to mask an attacker's activity.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000163</ident><ident system="http://iase.disa.mil/cci">CCI-000164</ident><fixtext fixref="F-83491r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Click the "Logging" icon.
+
+Click "Browse" and navigate to the directory where the log files are stored.
+
+Right-click the log file name to review and click “Properties”.
+
+Click the “Security” tab.
+
+Set the log file permissions for the appropriate group.</fixtext><fix id="F-83491r1_fix" /><check system="C-76451r4_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+Click the site name.
+Click the "Logging" icon.
+Click "Browse" and navigate to the directory where the log files are stored.
+Right-click the log file name to review and click “Properties”.
+Click the “Security” tab.
+Verify only authorized groups are listed, if others are listed, this is a finding.
+
+Note: The log file should be restricted as follows:
+Auditors - Full Control
+SYSTEM - Full Control
+Administrators - Full Control
+Web Managers - Read</check-content></check></Rule></Group><Group id="V-76797"><title>SRG-APP-000141-WSR-000081</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91493r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000214</version><title>The IIS 8.5 website must have Multipurpose Internet Mail Extensions (MIME) that invoke OS shell programs disabled.</title><description>&lt;VulnDiscussion&gt;Controlling what a user of a hosted application can access is part of the security posture of the web server. Any time a user can access more functionality than is needed for the operation of the hosted application poses a security issue. A user with too much access can view information that is not needed for the user's job role, or the user could use the function in an unintentional manner.
+
+A MIME tells the web server what type of program various file types and extensions are and what external utilities or programs are needed to execute the file type.
+
+A shell is a program that serves as the basic interface between the user and the operating system, so hosted application users must not have access to these programs. Shell programs may execute shell escapes and can then perform unauthorized activities that could damage the security posture of the web server.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000381</ident><fixtext fixref="F-83493r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click on the IIS 8.5 site.
+
+Under IIS, double-click the “MIME Types” icon.
+
+From the "Group by:" drop-down list, select "Content Type".
+
+From the list of extensions under "Application", remove MIME types for OS shell program extensions, to include at a minimum, the following extensions:
+
+.exe
+.dll
+.com
+.bat
+.csh
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83493r1_fix" /><check system="C-76453r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click on the IIS 8.5 site.
+
+Under IIS, double-click the “MIME Types” icon.
+
+From the "Group by:" drop-down list, select "Content Type".
+
+From the list of extensions under "Application", verify MIME types for OS shell program extensions have been removed, to include at a minimum, the following extensions:
+
+.exe
+.dll
+.com
+.bat
+.csh
+
+If any OS shell MIME types are configured, this is a finding.</check-content></check></Rule></Group><Group id="V-76799"><title>SRG-APP-000141-WSR-000082</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91495r2_rule" severity="medium" weight="10.0"><version>IISW-SI-000215</version><title>Mappings to unused and vulnerable scripts on the IIS 8.5 website must be removed.</title><description>&lt;VulnDiscussion&gt;IIS 8.5 will either allow or deny script execution based on file extension. The ability to control script execution is controlled through two features with IIS 8.5, “Request Filtering” and "Handler Mappings".
+
+For "Request Filtering", the ISSO must document and approve all allowable file extensions the website allows (white list) and denies (black list) by the website. The white list and black list will be compared to the "Request Filtering" in IIS 8. "Request Filtering" at the site level take precedence over "Request Filtering" at the server level.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000381</ident><fixtext fixref="F-83495r2_fix">Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click Request Filtering-&gt;File Name Extensions Tab-&gt;Deny File Name Extension.
+
+Add any script file extensions listed on the black list that are not listed.
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83495r2_fix" /><check system="C-76455r3_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>For "Request Filtering", the ISSO must document and approve all allowable scripts the website allows (white list) and denies (black list) by the website. The white list and black list will be compared to the "Request Filtering" in IIS 8.5. "Request Filtering" at the site level take precedence over "Request Filtering" at the server level.
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click Request Filtering-&gt;File Name Extensions Tab.
+
+If any script file extensions from the black list are not denied, this is a finding.</check-content></check></Rule></Group><Group id="V-76801"><title>SRG-APP-000141-WSR-000083</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91497r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000216</version><title>The IIS 8.5 website must have resource mappings set to disable the serving of certain file types.</title><description>&lt;VulnDiscussion&gt;Resource mapping is the process of tying a particular file type to a process in the web server that can serve that type of file to a requesting client and to identify which file types are not to be delivered to a client.
+
+By not specifying which files can and which files cannot be served to a user, the web server could deliver to a user web server configuration files, log files, password files, etc.
+
+The web server must only allow hosted application file types to be served to a user and all other types must be disabled.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000381</ident><fixtext fixref="F-83497r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server: 
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click "Request Filtering".
+
+For any file name extensions from the black list which have "Allowed" set to "True", remove the file name extension.
+
+Select "Deny File Name Extension" from the "Actions" pane.
+
+Add each file name extension from the black list.
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83497r1_fix" /><check system="C-76457r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>For "Handler Mappings", the ISSO must document and approve all allowable file extensions the website allows (white list) and denies (black list) by the website. The white list and black list will be compared to the "Handler Mappings" in IIS 8.5. "Handler Mappings" at the site level take precedence over "Handler Mappings" at the server level.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server: 
+
+Open the IIS 8.5 Manager.
+
+Double-click "Request Filtering". 
+
+If any file name extensions from the black list have "Allowed" set to "True", this is a finding.</check-content></check></Rule></Group><Group id="V-76803"><title>SRG-APP-000141-WSR-000085</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91499r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000217</version><title>The IIS 8.5 website must have Web Distributed Authoring and Versioning (WebDAV) disabled.</title><description>&lt;VulnDiscussion&gt;A web server can be installed with functionality that, just by its nature, is not secure. Web Distributed Authoring (WebDAV) is an extension to the HTTP protocol that, when developed, was meant to allow users to create, change, and move documents on a server, typically a web server or web share. Allowing this functionality, development, and deployment is much easier for web authors.
+
+WebDAV is not widely used and has serious security concerns because it may allow clients to modify unauthorized files on the web server.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000381</ident><fixtext fixref="F-83499r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Access Server Manager on the IIS 8.5 website.
+
+Select the Local Server.
+
+Click on "Manage".
+
+Select "Add Roles and Features".
+
+Click "Next" on the "Before you begin" dialog box.
+
+Select "Role-based or feature-based installation" on the "Installation Type" dialog box and click on "Next".
+
+Select the IIS 8.5 web server on the "Server Selection" dialog box.
+
+From the "Windows Features" dialog box, navigate to "World Wide Web Services" &gt;&gt; "Common HTTP Features".
+
+De-select "WebDAV Publishing" and click "Next" to complete removing the WebDAV Publishing feature from the IIS 8.5 web server.
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83499r1_fix" /><check system="C-76459r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Select the IIS 8.5 website.
+
+Review the features listed under the "IIS" section.
+
+If the "WebDAV Authoring Rules" icon exists, this is a finding.</check-content></check></Rule></Group><Group id="V-76805"><title>SRG-APP-000141-WSR-000086</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91501r2_rule" severity="medium" weight="10.0"><version>IISW-SI-000218</version><title>The production website must configure the Global .NET Trust Level.</title><description>&lt;VulnDiscussion&gt;A web server may host too many applications. Each application will need certain system resources and privileged operations to operate correctly. An application's trust level determines the permissions granted by the ASP.NET Code Access Security (CAS) policy. An application with full trust permissions may access all resource types on a server and perform privileged operations, while applications running with partial trust have varying levels of operating permissions and access to resources. The CAS determines the permissions granted to the application on the server. Setting a level of trust compatible with the applications will limit the potential harm a compromised application could cause to a system. The web server must be configured to contain and control the applications and protect the system resources and privileged operations from those not needed by the application for operation.
+
+Limiting the application will confine the potential harm a compromised application could cause to a system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000381</ident><fixtext fixref="F-83501r2_fix">Note: If the server being reviewed is a non-production website, this is Not Applicable.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click the ".NET Trust Level" icon.
+
+Set the ".NET Trust Level" to Full or less and click “Apply”.
+
+Select "Apply" from the "Actions" pane.   
+</fixtext><fix id="F-83501r2_fix" /><check system="C-76461r3_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: If the server being reviewed is a non-production website, this is Not Applicable.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click the ".NET Trust Level" icon.
+
+If the ".NET Trust Level" is not set to Full or less, this is a finding.
+</check-content></check></Rule></Group><Group id="V-76807"><title>SRG-APP-000142-WSR-000089</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91503r3_rule" severity="medium" weight="10.0"><version>IISW-SI-000219</version><title>Each IIS 8.5 website must be assigned a default host header.</title><description>&lt;VulnDiscussion&gt;The web server must be configured to listen on a specified IP address and port. Without specifying an IP address and port for the web server to utilize, the web server will listen on all IP addresses available to the hosting server. If the web server has multiple IP addresses, i.e., a management IP address, the web server will also accept connections on the management IP address.
+
+Accessing the hosted application through an IP address normally used for non-application functions opens the possibility of user access to resources, utilities, files, ports, and protocols that are protected on the desired application IP address.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000382</ident><fixtext fixref="F-83503r2_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Right-click on the site name under review.
+
+Select “Edit Bindings”.
+
+Assign hostname entries and unique IP addresses to port 80 for HTTP and port 443 for HTTPS. Other approved and documented ports may be used.
+
+Click "OK".
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83503r2_fix" /><check system="C-76463r3_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+Right-click on the site name under review.
+Select “Edit Bindings”.
+
+Verify there are hostname entries and unique IP addresses assigned to port 80 for HTTP and port 443 for HTTPS. Other approved and documented ports may be used.
+
+If both hostname entries and unique IP addresses are not configure to port 80 for HTTP and port 443 for HTTPS (or other approved and documented port), this is a finding.
+
+Note: If certificate handling is performed at the Proxy/Load Balancer, this is not a finding.
+
+Note: If HTTP/Port 80 is not being used, and isn’t configured as above, this is not a finding.</check-content></check></Rule></Group><Group id="V-76809"><title>SRG-APP-000172-WSR-000104</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91505r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000220</version><title>A private websites authentication mechanism must use client certificates to transmit session identifier to assure integrity.</title><description>&lt;VulnDiscussion&gt;A DoD private website must utilize PKI as an authentication mechanism for web users. Information systems residing behind web servers requiring authorization based on individual identity must use the identity provided by certificate-based authentication to support access control decisions. Not using client certificates allows an attacker unauthenticated access to private websites.
+
+Satisfies: SRG-APP-000172-WSR-000104, SRG-APP-000224-WSR-000135, SRG-APP-000427-WSR-000186&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000197</ident><ident system="http://iase.disa.mil/cci">CCI-001188</ident><ident system="http://iase.disa.mil/cci">CCI-002470</ident><fixtext fixref="F-83505r1_fix">Note: If the server being reviewed is a public IIS 8.5 web server, this is Not Applicable
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Double-click the "SSL Settings" icon.
+
+Verify the "Clients Certificate Required" check box is selected.
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83505r1_fix" /><check system="C-76465r2_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: If the server being reviewed is a public IIS 8.5 web server, this is Not Applicable.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Double-click the "SSL Settings" icon.
+
+Verify the "Clients Certificate Required" check box is selected.
+
+If the "Clients Certificate Required" check box is not selected, this is a finding.</check-content></check></Rule></Group><Group id="V-76811"><title>SRG-APP-000211-WSR-000031</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91507r2_rule" severity="high" weight="10.0"><version>IISW-SI-000221</version><title>Anonymous IIS 8.5 website access accounts must be restricted.</title><description>&lt;VulnDiscussion&gt;Many of the security problems that occur are not the result of a user gaining access to files or data for which the user does not have permissions, but rather users are assigned incorrect permissions to unauthorized data. The files, directories, and data that are stored on the web server need to be evaluated and a determination made concerning authorized access to information and programs on the server. Only authorized users and administrative accounts will be allowed on the host server in order to maintain the web server, applications, and review the server operations.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001082</ident><fixtext fixref="F-83507r1_fix">Remove the Anonymous access account from all privileged accounts and all privileged groups.</fixtext><fix id="F-83507r1_fix" /><check system="C-76467r2_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Check the account used for anonymous access to the website.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+Open the IIS 8.5 Manager.
+
+Double-click "Authentication" in the IIS section of the website’s Home Pane.
+
+If Anonymous access is disabled, this is Not a Finding.
+
+If Anonymous access is enabled, click “Anonymous Authentication”.
+
+Click “Edit” in the "Actions" pane.
+
+If the “Specific user” radio button is enabled and an ID is specified in the adjacent control box, this is the ID being used for anonymous access. Note: account name.
+
+Check privileged groups that may allow the anonymous account inappropriate membership:
+Open “Server Manager” on the machine.
+
+Expand Configuration.
+
+Expand Local Users and Groups.
+
+Click “Groups”.
+
+Review members of any of the following privileged groups:
+
+Administrators
+Backup Operators
+Certificate Services (of any designation)
+Distributed COM Users
+Event Log Readers
+Network Configuration Operators
+Performance Log Users
+Performance Monitor Users
+Power Users
+Print Operators
+Remote Desktop Users
+Replicator
+Users
+
+Double-click each group and review its members.
+
+If the IUSR account or any account noted above used for anonymous access is a member of any group with privileged access, this is a finding.</check-content></check></Rule></Group><Group id="V-76813"><title>SRG-APP-000224-WSR-000136</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91509r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000223</version><title>The IIS 8.5 website must generate unique session identifiers that cannot be reliably reproduced.</title><description>&lt;VulnDiscussion&gt;Communication between a client and the web server is done using the HTTP protocol, but HTTP is a stateless protocol. In order to maintain a connection or session, a web server will generate a session identifier (ID) for each client session when the session is initiated. The session ID allows the web server to track a user session and, in many cases, the user, if the user previously logged into a hosted application.
+
+By being able to guess session IDs, an attacker can easily perform a man-in-the-middle attack. To truly generate random session identifiers that cannot be reproduced, the web server session ID generator, when used twice with the same input criteria, must generate an unrelated random ID.
+
+The session ID generator also needs to be a FIPS 140-2-approved generator.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001188</ident><fixtext fixref="F-83509r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Under the ASP.NET section, select "Session State".
+
+Under "Session State" Mode Settings, select the "In Process" mode.</fixtext><fix id="F-83509r1_fix" /><check system="C-76469r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Under the "ASP.NET" section, select "Session State".
+
+Under "Session State" Mode Settings, verify the "In Process" mode is selected.
+
+If the "In Process" mode is selected, this is not a finding.
+
+Alternative method:
+
+Click the site name.
+
+Select "Configuration Editor" under the "Management" section.
+
+From the "Section:" drop-down list at the top of the configuration editor, locate "system.web/sessionState".
+
+Verify the "mode" reflects "InProc".
+
+If the "mode" is not set to "InProc", this is a finding.</check-content></check></Rule></Group><Group id="V-76815"><title>SRG-APP-000233-WSR-000146</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91511r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000224</version><title>The IIS 8.5 website document directory must be in a separate partition from the IIS 8.5 websites system files.</title><description>&lt;VulnDiscussion&gt;The web document (home) directory is accessed by multiple anonymous users when the web server is in production. By locating the web document (home) directory on the same partition as the web server system file the risk for unauthorized access to these protected files is increased. Additionally, having the web document (home) directory path on the same drive as the system folders also increases the potential for a drive space exhaustion attack.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001084</ident><fixtext fixref="F-83511r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Click the “Advanced Settings” from the "Actions" pane.
+
+Change the Physical Path to the new partition and directory location.</fixtext><fix id="F-83511r1_fix" /><check system="C-76471r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Click the "Advanced Settings" from the "Actions" pane.
+
+Review the Physical Path.
+
+If the Path is on the same partition as the OS, this is a finding.</check-content></check></Rule></Group><Group id="V-76817"><title>SRG-APP-000246-WSR-000149</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91513r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000225</version><title>The IIS 8.5 website must be configured to limit the maxURL.</title><description>&lt;VulnDiscussion&gt;Request filtering replaces URLScan in IIS, enabling administrators to create a more granular rule set with which to allow or reject inbound web content. By setting limits on web requests, it helps to ensure availability of web services and may also help mitigate the risk of buffer overflow type attacks. The MaxURL Request Filter limits the number of bytes the server will accept in a URL.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001094</ident><fixtext fixref="F-83513r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Click the site name under review.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+Set the "maxURL" value to "4096" or less.</fixtext><fix id="F-83513r1_fix" /><check system="C-76473r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click on the site name.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+If the "maxUrl" value is not set to "4096" or less, this is a finding.</check-content></check></Rule></Group><Group id="V-76819"><title>SRG-APP-000246-WSR-000149</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91515r2_rule" severity="medium" weight="10.0"><version>IISW-SI-000226</version><title>The IIS 8.5 website must be configured to limit the size of web requests.</title><description>&lt;VulnDiscussion&gt;By setting limits on web requests, it ensures availability of web services and mitigates the risk of buffer overflow type attacks. The maxAllowedContentLength Request Filter limits the number of bytes the server will accept in a request.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001094</ident><fixtext fixref="F-83515r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+Set the "maxAllowedContentLength" value to "30000000" or less.</fixtext><fix id="F-83515r1_fix" /><check system="C-76475r2_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click on the site name.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+If the "maxAllowedContentLength" value is not explicitly set to "30000000" or less or a length documented and approved by the ISSO, this is a finding.
+</check-content></check></Rule></Group><Group id="V-76821"><title>SRG-APP-000246-WSR-000149</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91517r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000227</version><title>The IIS 8.5 websites Maximum Query String limit must be configured.</title><description>&lt;VulnDiscussion&gt;By setting limits on web requests, it helps to ensure availability of web services and may also help mitigate the risk of buffer overflow type attacks. The Maximum Query String Request Filter describes the upper limit on allowable query string lengths. Upon exceeding the configured value, IIS will generate a Status Code 404.15.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001094</ident><fixtext fixref="F-83517r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+Set the "Maximum Query String" value to "2048" or less.</fixtext><fix id="F-83517r1_fix" /><check system="C-76477r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click on the site name.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+If the "Maximum Query String" value is not set to "2048" or less, this is a finding.</check-content></check></Rule></Group><Group id="V-76823"><title>SRG-APP-000246-WSR-000149</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91519r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000228</version><title>Non-ASCII characters in URLs must be prohibited by any IIS 8.5 website.</title><description>&lt;VulnDiscussion&gt;By setting limits on web requests, it ensures availability of web services and mitigates the risk of buffer overflow type attacks. The allow high-bit characters Request Filter enables rejection of requests containing non-ASCII characters.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001094</ident><fixtext fixref="F-83519r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+Uncheck the "Allow high-bit characters" check box.</fixtext><fix id="F-83519r1_fix" /><check system="C-76479r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click on the site name.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+If the "Allow high-bit characters" check box is checked, this is a finding.</check-content></check></Rule></Group><Group id="V-76825"><title>SRG-APP-000246-WSR-000149</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91521r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000229</version><title>Double encoded URL requests must be prohibited by any IIS 8.5 website.</title><description>&lt;VulnDiscussion&gt;Request filtering enables administrators to create a more granular rule set with which to allow or reject inbound web content. By setting limits on web requests, it ensures availability of web services and mitigates the risk of buffer overflow type attacks. When the “Allow double escaping” option is disabled it prevents attacks that rely on double-encoded requests.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001094</ident><fixtext fixref="F-83521r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+Uncheck the "Allow double escaping" check box.</fixtext><fix id="F-83521r1_fix" /><check system="C-76481r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click on the site name.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+If the "Allow double escaping" check box is checked, this is a finding.</check-content></check></Rule></Group><Group id="V-76827"><title>SRG-APP-000246-WSR-000149</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91523r2_rule" severity="medium" weight="10.0"><version>IISW-SI-000230</version><title>Unlisted file extensions in URL requests must be filtered by any IIS 8.5 website.</title><description>&lt;VulnDiscussion&gt;Request filtering enables administrators to create a more granular rule set to allow or reject inbound web content. By setting limits on web requests it helps to ensure availability of web services and may also help mitigate the risk of buffer overflow type attacks. The allow unlisted property of the “File Extensions Request” filter enables rejection of requests containing specific file extensions not defined in the “File Extensions” filter. Tripping this filter will cause IIS to generate a Status Code 404.7.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001094</ident><fixtext fixref="F-83523r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+Uncheck the "Allow unlisted file extensions" check box.</fixtext><fix id="F-83523r1_fix" /><check system="C-76483r2_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click on the site name.
+
+Double-click the "Request Filtering" icon.
+
+Click “Edit Feature Settings” in the "Actions" pane.
+
+If "Allow unlisted file name extensions" check box is checked, this is a finding.</check-content></check></Rule></Group><Group id="V-76829"><title>SRG-APP-000251-WSR-000157</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91525r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000231</version><title>Directory Browsing on the IIS 8.5 website must be disabled.</title><description>&lt;VulnDiscussion&gt;Directory browsing allows the contents of a directory to be displayed upon request from a web client. If directory browsing is enabled for a directory in IIS, users could receive a web page listing the contents of the directory. If directory browsing is enabled the risk of inadvertently disclosing sensitive content is increased.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001310</ident><fixtext fixref="F-83525r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the Site.
+
+Double-click the "Directory Browsing" icon.
+
+Under the "Actions" pane click "Disabled".</fixtext><fix id="F-83525r1_fix" /><check system="C-76485r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Click the Site.
+
+Double-click the "Directory Browsing" icon.
+
+If the "Directory Browsing" is not installed, this is Not Applicable.
+
+Under the "Actions" pane verify "Directory Browsing" is "Disabled".
+
+If "Directory Browsing" is not "Disabled", this is a finding.</check-content></check></Rule></Group><Group id="V-76831"><title>SRG-APP-000266-WSR-000142</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91527r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000232</version><title>The IIS 8.5 website must prevent a web content directory from being displayed.</title><description>&lt;VulnDiscussion&gt;The goal is to control the web users experience in navigating any portion of the web document root directories. Ensuring all web content directories have at least the equivalent of an index.html file is a significant factor to accomplish this end. Also, enumeration techniques, such as URL parameter manipulation, rely upon being able to obtain information about the web server’s directory structure by locating directories with default pages. This practice helps ensure the anonymous web user will not obtain directory browsing information or an error message revealing the server type and version.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001312</ident><fixtext fixref="F-83527r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click "Default Document".
+
+In the “Actions” pane select "Enable".
+
+Click the "Content View" tab, click on each listed "Default Document" and click on "Explore" under the "Actions" pane. Create a valid document for the listed "Default Document".</fixtext><fix id="F-83527r1_fix" /><check system="C-76487r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: This requirement is only for each site's root directory.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Click the site name under review.
+
+Double-click "Default Document".
+
+In the "Actions" pane, verify the "Default Document" feature is enabled. 
+
+If an "Enable" option is listed under the "Actions" pane, the "Default Document" feature is not enabled and this is a finding.
+
+If "Default Document" is "Enabled, review the document types.
+
+Click the "Content View" tab, click on each listed "Default Document" and click on "Explore" under the "Actions" pane. Verify there is a document of that type in the directory.
+
+If "Default Document" is "Enabled" but no listed document types are present in the "Content View", this is a finding.</check-content></check></Rule></Group><Group id="V-76835"><title>SRG-APP-000266-WSR-000159</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91531r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000233</version><title>Warning and error messages displayed to clients must be modified to minimize the identity of the IIS 8.5 website, patches, loaded modules, and directory paths.</title><description>&lt;VulnDiscussion&gt;HTTP error pages contain information that could enable an attacker to gain access to an information system. Failure to prevent the sending of HTTP error pages with full information to remote requesters exposes internal configuration information to potential attackers.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001312</ident><fixtext fixref="F-83531r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click the "Error Pages" icon.
+
+Click each error message and click "Edit Feature" Setting from the "Actions" pane; set each error message to “Detailed errors for local requests and custom error pages for remote requests”.</fixtext><fix id="F-83531r1_fix" /><check system="C-76491r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click the "Error Pages" icon.
+
+Click each error message and click "Edit Feature" setting from the "Actions" pane.
+
+If any error message is not set to “Detailed errors for local requests and custom error pages for remote requests”, this is a finding.</check-content></check></Rule></Group><Group id="V-76837"><title>SRG-APP-000266-WSR-000160</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91533r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000234</version><title>Debugging and trace information used to diagnose the IIS 8.5 website must be disabled.</title><description>&lt;VulnDiscussion&gt;Setting compilation debug to false ensures detailed error information does not inadvertently display during live application usage, mitigating the risk of application information being displayed to users.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001312</ident><fixtext fixref="F-83533r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click ".NET Compilation".
+
+Scroll down to the "Behavior" section and set the value for "Debug" to "False".</fixtext><fix id="F-83533r1_fix" /><check system="C-76493r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: If the ".NET feature" is not installed, this check is Not Applicable.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Double-click ".NET Compilation".
+
+Scroll down to the "Behavior" section and verify the value for "Debug" is set to "False".
+
+If the "Debug" value is not set to "False", this is a finding.</check-content></check></Rule></Group><Group id="V-76839"><title>SRG-APP-000295-WSR-000012</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91535r2_rule" severity="medium" weight="10.0"><version>IISW-SI-000235</version><title>The Idle Time-out monitor for each IIS 8.5 website must be enabled.</title><description>&lt;VulnDiscussion&gt;The idle time-out attribute controls the amount of time a worker process will remain idle before it shuts down. A worker process is idle if it is not processing requests and no new requests are received.
+
+The purpose of this attribute is to conserve system resources; the default value for idle time-out is 20 minutes.
+
+By default, the World Wide Web (WWW) service establishes an overlapped recycle, in which the worker process to be shut down is kept running until after a new worker process is started.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002361</ident><fixtext fixref="F-83535r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the Application Pools.
+
+Highlight an Application Pool to review and click "Advanced Settings" in the "Actions" pane.
+
+Scroll down to the "Process Model" section and set the value for "Idle Time-out" to "20" or less.</fixtext><fix id="F-83535r1_fix" /><check system="C-76495r2_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+Click the Application Pools.
+Highlight an Application Pool to review and click "Advanced Settings" in the "Actions" pane.
+Scroll down to the "Process Model" section and verify the value for "Idle Time-out" is set to "20".
+
+If the "Idle Time-out" is not set to "20" or less, this is a finding.
+If the "Idle Time-out" is set to "0", this is a finding.</check-content></check></Rule></Group><Group id="V-76841"><title>SRG-APP-000295-WSR-000134</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91537r2_rule" severity="medium" weight="10.0"><version>IISW-SI-000236</version><title>The IIS 8.5 websites connectionTimeout setting must be explicitly configured to disconnect an idle session.</title><description>&lt;VulnDiscussion&gt;Leaving sessions open indefinitely is a major security risk. An attacker can easily use an already authenticated session to access the hosted application as the previously authenticated user. By closing sessions after a set period of inactivity, the web server can make certain that those sessions that are not closed through the user logging out of an application are eventually closed.
+
+Acceptable values are 5 minutes for high-value applications, 10 minutes for medium-value applications, and 20 minutes for low-value applications.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002361</ident><fixtext fixref="F-83537r2_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Select "Configuration Editor" under the "Management" section.
+
+From the "Section:" drop-down list at the top of the configuration editor, locate "system.web/sessionState". 
+
+Set the "timeout" to "00:20:00 or less”, using the lowest value possible depending upon the application.
+Acceptable values are 5 minutes for high-value applications, 10 minutes for medium-value applications, and 20 minutes for low-value applications.
+
+In the "Actions" pane, click "Apply".  
+</fixtext><fix id="F-83537r2_fix" /><check system="C-76497r2_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name.
+
+Select "Configuration Editor" under the "Management" section.
+
+From the "Section:" drop-down list at the top of the configuration editor, locate "system.web/sessionState".
+
+Verify the "timeout" is set to "00:20:00 or less”, using the lowest value possible depending upon the application.
+Acceptable values are 5 minutes for high-value applications, 10 minutes for medium-value applications, and 20 minutes for low-value applications.
+
+If "timeout" is not set to "00:20:00 or less”, this is a finding.
+
+</check-content></check></Rule></Group><Group id="V-76843"><title>SRG-APP-000316-WSR-000170</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91539r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000237</version><title>The IIS 8.5 website must provide the capability to immediately disconnect or disable remote access to the hosted applications.</title><description>&lt;VulnDiscussion&gt;During an attack on the web server or any of the hosted applications, the system administrator may need to disconnect or disable access by users to stop the attack.
+
+The web server must provide a capability to disconnect users to a hosted application without compromising other hosted applications unless deemed necessary to stop the attack. Methods to disconnect or disable connections are to stop the application service for a specified hosted application, stop the web server, or block all connections through web server access list.
+
+The web server capabilities used to disconnect or disable users from connecting to hosted applications and the web server must be documented to make certain that, during an attack, the proper action is taken to conserve connectivity to any other hosted application if possible and to make certain log data is conserved for later forensic analysis.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002322</ident><fixtext fixref="F-83539r1_fix">Prepare documented procedures for shutting down an IIS 8.5 website in the event of an attack. The procedure should, at a minimum, provide the following steps:
+
+Determine the respective website for the application at risk of an attack.
+
+Access the IIS 8.5 web server IIS 8.5 Manager.
+
+Select the respective website.
+
+In the "Actions" pane, under "Manage Website", click on "Stop".
+
+If necessary, stop all websites.
+
+If necessary, stop the IIS 8.5 web server by selecting the web server in the IIS 8.5 Manager.
+
+In the "Actions" pane, under "Manage Server", click on "Stop".</fixtext><fix id="F-83539r1_fix" /><check system="C-76499r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Interview the System Administrator and Web Manager.
+
+Ask for documentation for the IIS 8.5 web server administration.
+
+Verify there are documented procedures for shutting down an IIS 8.5 website in the event of an attack. The procedure should, at a minimum, provide the following steps:
+
+Determine the respective website for the application at risk of an attack.
+
+Access the IIS 8.5 web server IIS 8.5 Manager.
+
+Select the respective website.
+
+In the "Actions" pane, under "Manage Website", click on "Stop".
+
+If necessary, stop all websites.
+
+If necessary, stop the IIS 8.5 web server by selecting the web server in the IIS 8.5 Manager.
+
+In the "Actions" pane, under "Manage Server", click on "Stop".
+
+If there are not documented procedures with, at a minimum, the mentioned steps for stopping a website, this is a finding.</check-content></check></Rule></Group><Group id="V-76845"><title>SRG-APP-000357-WSR-000150</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91541r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000238</version><title>The IIS 8.5 website must use a logging mechanism that is configured to allocate log record storage capacity large enough to accommodate the logging requirements of the IIS 8.5 website.</title><description>&lt;VulnDiscussion&gt;In order to make certain that the logging mechanism used by the web server has sufficient storage capacity in which to write the logs, the logging mechanism needs to be able to allocate log record storage capacity.
+
+The task of allocating log record storage capacity is usually performed during initial installation of the logging mechanism. The system administrator will usually coordinate the allocation of physical drive space with the web server administrator along with the physical location of the partition and disk. Refer to NIST SP 800-92 for specific requirements on log rotation and storage dependent on the impact of the web server.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001849</ident><fixtext fixref="F-83541r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Under "IIS" double-click on the "Logging" icon.
+
+If necessary, in the "Logging" configuration box, redesignate a log path to a location able to house the logs.
+
+Under "Log File Rollover", deselect the "Do not create new log files" setting.
+
+Configure a schedule to rollover log files on a regular basis.</fixtext><fix id="F-83541r1_fix" /><check system="C-76501r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Access the IIS 8.5 web server IIS 8.5 Manager.
+
+Under "IIS" double-click on the "Logging" icon.
+
+In the "Logging" configuration box, determine the "Directory:" to which the "W3C" logging is being written.
+
+Confirm with the System Administrator that the designated log path is of sufficient size to maintain the logging.
+
+Under "Log File Rollover", verify the "Do not create new log files" is not selected.
+
+Verify a schedule is configured to rollover log files on a regular basis.
+
+Consult with the System Administrator to determine if there is a documented process for moving the log files off of the IIS 8.5 web server to another logging device.
+
+If the designated logging path device is not of sufficient space to maintain all log files and there is not a schedule to rollover files on a regular basis, this is a finding.</check-content></check></Rule></Group><Group id="V-76847"><title>SRG-APP-000383-WSR-000175</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91543r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000239</version><title>The IIS 8.5 websites must utilize ports, protocols, and services according to PPSM guidelines.</title><description>&lt;VulnDiscussion&gt;Web servers provide numerous processes, features, and functionalities that utilize TCP/IP ports. Some of these processes may be deemed unnecessary or too unsecure to run on a production system.
+
+The web server must provide the capability to disable or deactivate network-related services that are deemed to be non-essential to the server mission, are too unsecure, or are prohibited by the PPSM CAL and vulnerability assessments.
+
+Failure to comply with DoD ports, protocols, and services (PPS) requirements can result in compromise of enclave boundary protections and/or functionality of the AIS.
+
+The ISSM will ensure web servers are configured to use only authorized PPS in accordance with the Network Infrastructure STIG, DoD Instruction 8551.1, Ports, Protocols, and Services Management (PPSM), and the associated Ports, Protocols, and Services (PPS) Assurance Category Assignments List.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001762</ident><fixtext fixref="F-83543r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+In the “Action” Pane, click “Bindings".
+
+Edit to change an existing binding and set the correct ports and protocol.</fixtext><fix id="F-83543r1_fix" /><check system="C-76503r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Review the website to determine if HTTP and HTTPs (e.g., 80 and 443) are used in accordance with those ports and services registered and approved for use by the DoD PPSM. Any variation in PPS will be documented, registered, and approved by the PPSM.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+In the “Action” Pane, click “Bindings”.
+
+Review the ports and protocols. If unknown ports or protocols are used, then this is a finding.</check-content></check></Rule></Group><Group id="V-76849"><title>SRG-APP-000427-WSR-000186</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91545r3_rule" severity="medium" weight="10.0"><version>IISW-SI-000241</version><title>The IIS 8.5 private website have a server certificate issued by DoD PKI or DoD-approved PKI Certification Authorities (CAs).</title><description>&lt;VulnDiscussion&gt;The use of a DoD PKI certificate ensures clients the private website they are connecting to is legitimate, and is an essential part of the DoD defense-in-depth strategy.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002470</ident><fixtext fixref="F-83545r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the Server name.
+
+Double-click “Server Certificates”.
+
+Click “Import” under the "Actions" pane.
+
+Browse to the DoD certificate location, select it, and click “OK”.
+
+Remove any non-DoD certificates if present.
+
+Click on the site needing the certificate.
+
+Select “Bindings” under the "Actions" pane.
+
+Click on the binding needing a certificate and select “Edit”, or add a site binding for HTTPS.
+
+Assign the certificate to the website by choosing it under the “SSL Certificate” drop-down and clicking “OK”.</fixtext><fix id="F-83545r1_fix" /><check system="C-76505r2_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Click “Bindings” in the “Action” Pane.
+
+Click the “HTTPS type” from the box.
+
+Click “Edit”.
+
+Click “View” and then review and verify the certificate path.
+
+If the list of CAs in the trust hierarchy does not lead to the DoD PKI Root CA, DoD-approved external certificate authority (ECA), or DoD-approved external partner, this is a finding.
+
+If HTTPS is not an available type under site bindings, this is a finding.
+
+If HTTPS is not an available type under site bindings, and the Web Server ONLY communicates directly with a load balancer/proxy server, with IP address and Domain Restrictions in place, this is not a finding.</check-content></check></Rule></Group><Group id="V-76851"><title>SRG-APP-000429-WSR-000113</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91547r5_rule" severity="medium" weight="10.0"><version>IISW-SI-000242</version><title>The IIS 8.5 private website must employ cryptographic mechanisms (TLS) and require client certificates.</title><description>&lt;VulnDiscussion&gt;When data is written to digital media, such as hard drives, mobile computers, external/removable hard drives, personal digital assistants, flash/thumb drives, etc., there is risk of data loss and data compromise. User identities and passwords stored on the hard drive of the hosting hardware must be encrypted to protect the data from easily being discovered and used by an unauthorized user to access the hosted applications. The cryptographic libraries and functionality used to store and retrieve the user identifiers and passwords must be part of the web server.
+
+Preventing the disclosure of transmitted information requires that the web server take measures to employ some form of cryptographic mechanism in order to protect the information during transmission. This is usually achieved through the use of Transport Layer Security (TLS). 
+
+Transmission of data can take place between the web server and a large number of devices/applications external to the web server. Examples are a web client used by a user, a backend database, an audit server, or other web servers in a web cluster. 
+
+If data is transmitted unencrypted, the data then becomes vulnerable to disclosure. The disclosure may reveal user identifier/password combinations, website code revealing business logic, or other user personal information.
+
+Also satisfies: SRG-APP-000439-WSR-000151&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002476</ident><fixtext fixref="F-83547r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+
+Double-click the "SSL Settings" icon under the "IIS" section.
+
+Select the "Require SSL" setting.
+
+Select the "Client Certificates Required" setting.
+
+Click "Apply" in the "Actions" pane.
+
+Click the site under review.
+
+Select "Configuration Editor" under the "Management" section.
+
+From the "Section:" drop-down list at the top of the configuration editor, locate “system.webServer/security/access”.
+
+Click on the drop-down list for "sslFlags".
+
+Select the "Ssl128" check box.
+
+Click "Apply" in the "Actions" pane.</fixtext><fix id="F-83547r1_fix" /><check system="C-76507r4_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: If SSL is installed on load balancer/proxy server through which traffic is routed to the IIS 8.5 server, and the IIS 8.5 server receives traffic from the load balancer/proxy server, the SSL requirement must be met on the load balancer/proxy server.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+Double-click the "SSL Settings" icon under the "IIS" section.
+Verify "Require SSL" is checked.
+Verify "Client Certificates Required" is selected.
+Click the site under review.
+Select "Configuration Editor" under the "Management" section.
+From the "Section:" drop-down list at the top of the configuration editor, locate “system.webServer/security/access”.
+The value for "sslFlags" set must include "ssl128".
+
+If the "Require SSL" is not selected, this is a finding.
+If the "Client Certificates Required" is not selected, this is a finding.
+If the "sslFlags" is not set to "ssl128", this is a finding.</check-content></check></Rule></Group><Group id="V-76855"><title>SRG-APP-000439-WSR-000152</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91551r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000244</version><title>IIS 8.5 website session IDs must be sent to the client using TLS.</title><description>&lt;VulnDiscussion&gt;The HTTP protocol is a stateless protocol. To maintain a session, a session identifier is used. The session identifier is a piece of data that is used to identify a session and a user. If the session identifier is compromised by an attacker, the session can be hijacked. By encrypting the session identifier, the identifier becomes more difficult for an attacker to hijack, decrypt, and use before the session has expired.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002418</ident><fixtext fixref="F-83551r1_fix">Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Access the IIS 8.5 Manager.
+
+Select the website being reviewed.
+
+Under "Management" section, double-click the "Configuration Editor" icon.
+
+From the "Section:" drop-down list, select “system.webServer/asp".
+
+Expand the "session" section.
+
+Select "True" for the "keepSessionIdSecure" setting.
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83551r1_fix" /><check system="C-76511r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Access the IIS 8.5 Manager.
+
+Select the website being reviewed.
+
+Under "Management" section, double-click the "Configuration Editor" icon.
+
+From the "Section:" drop-down list, select “system.webServer/asp".
+
+Expand the "session" section.
+
+Verify the "keepSessionIdSecure" is set to "True".
+
+If the "keepSessionIdSecure" is not set to "True", this is a finding.</check-content></check></Rule></Group><Group id="V-76859"><title>SRG-APP-000439-WSR-000154</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91555r3_rule" severity="medium" weight="10.0"><version>IISW-SI-000246</version><title>Cookies exchanged between the IIS 8.5 website and the client must use SSL/TLS, have cookie properties set to prohibit client-side scripts from reading the cookie data and must not be compressed.</title><description>&lt;VulnDiscussion&gt;A cookie is used when a web server needs to share data with the client's browser. The data is often used to remember the client when the client returns to the hosted application at a later date. A session cookie is a special type of cookie used to remember the client during the session. The cookie will contain the session identifier (ID) and may contain authentication data to the hosted application. To protect this data from easily being compromised, the cookie must be encrypted. 
+
+When a cookie is sent encrypted via SSL/TLS, an attacker must spend a great deal of time and resources to decrypt the cookie. If, along with encryption, the cookie is compressed, the attacker can now use a combination of plaintext injection and inadvertent information leakage through data compression to reduce the time needed to decrypt the cookie. This attack is called Compression Ratio Info-leak Made Easy (CRIME). 
+
+Cookies shared between the web server and the client when encrypted should not also be compressed.
+
+A cookie can be read by client-side scripts easily if cookie properties are not set properly. By allowing cookies to be read by the client-side scripts, information such as session identifiers could be compromised and used by an attacker who intercepts the cookie. Setting cookie properties (i.e. HttpOnly property) to disallow client-side scripts from reading cookies better protects the information inside the cookie.
+
+
+
+Satisfies: SRG-APP-000439-WSR-000154, SRG-APP-000439-SSR-000155, SRG-APP-000439-WSR-000153&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002418</ident><fixtext fixref="F-83555r2_fix">Note: If the server being reviewed is a public IIS 8.5 web server, this is Not Applicable.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Access the IIS 8.5 Manager.
+Under "Management" section, double-click the "Configuration Editor" icon.
+From the "Section:" drop-down list, select "system.web/httpCookies".
+Set the "require SSL" to "True".
+
+From the "Section:" drop-down list, select "system.web/sessionState".
+Set the "compressionEnabled" to "False".
+
+Select "Apply" from the "Actions" pane.</fixtext><fix id="F-83555r2_fix" /><check system="C-76515r2_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: If the server being reviewed is a public IIS 8.5 web server, this is Not Applicable.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Access the IIS 8.5 Manager.
+Under "Management" section, double-click the "Configuration Editor" icon.
+From the "Section:" drop-down list, select "system.web/httpCookies".
+Verify the "require SSL" is set to "True".
+
+From the "Section:" drop-down list, select "system.web/sessionState".
+Verify the "compressionEnabled" is set to "False".
+
+If both the "system.web/httpCookies:require SSL" is set to "True" and the "system.web/sessionState:compressionEnabled" is set to "False", this is not a finding.</check-content></check></Rule></Group><Group id="V-76861"><title>SRG-APP-000441-WSR-000181</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91557r5_rule" severity="medium" weight="10.0"><version>IISW-SI-000249</version><title>The IIS 8.5 website must maintain the confidentiality and integrity of information during preparation for transmission and during reception.</title><description>&lt;VulnDiscussion&gt;Information can be either unintentionally or maliciously disclosed or modified during preparation for transmission, including, for example, during aggregation, at protocol transformation points, and during packing/unpacking. These unauthorized disclosures or modifications compromise the confidentiality or integrity of the information.
+
+An example of this would be an SMTP queue. This queue may be added to a web server through an SMTP module to enhance error reporting or to allow developers to add SMTP functionality to their applications. 
+
+Any modules used by the web server that queue data before transmission must maintain the confidentiality and integrity of the information before the data is transmitted.
+
+Information can be either unintentionally or maliciously disclosed or modified during reception, including, for example, during aggregation, at protocol transformation points, and during packing/unpacking. These unauthorized disclosures or modifications compromise the confidentiality or integrity of the information. 
+
+Protecting the confidentiality and integrity of received information requires that application servers take measures to employ approved cryptography in order to protect the information during transmission over the network. This is usually achieved through the use of Transport Layer Security (TLS), SSL VPN, or IPsec tunnel. 
+
+The web server must utilize approved encryption when receiving transmitted data.
+
+Also satisfies: SRG-APP-000442-WSR-000182&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002420</ident><ident system="http://iase.disa.mil/cci">CCI-002422</ident><fixtext fixref="F-83557r4_fix">Note: If the server being reviewed is a public IIS 8.5 web server, this is Not Applicable.
+
+Follow the procedures below for web server and each site under review:
+
+Open the IIS 8.5 Manager.
+Double-click the "SSL Settings" icon under the "IIS" section.
+Verify "Require SSL" is checked.
+Verify "Client Certificates Required" is selected.
+Click the site under review.
+Select "Configuration Editor" under the "Management" section.
+From the "Section:" drop-down list at the top of the configuration editor, locate “system.webServer/security/access”.
+The value for "sslFlags" should be “ssl128”.</fixtext><fix id="F-83557r4_fix" /><check system="C-76517r4_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: If the server being reviewed is a public IIS 8.5 web server, this is Not Applicable.
+
+Note: If SSL is installed on load balancer/proxy server through which traffic is routed to the IIS 8.5 server, and the IIS 8.5 server receives traffic from the load balancer/proxy server, the SSL requirement must be met on the load balancer/proxy server.
+
+Follow the procedures below for each site hosted on the IIS 8.5 web server:
+
+Open the IIS 8.5 Manager.
+Double-click the "SSL Settings" icon under the "IIS" section.
+Verify "Require SSL" is checked.
+Verify "Client Certificates Required" is selected.
+Click the site under review.
+Select "Configuration Editor" under the "Management" section.
+From the "Section:" drop-down list at the top of the configuration editor, locate “system.webServer/security/access”.
+The value for "sslFlags" should be “ssl128”.
+
+If the "Require SSL" is not selected, this is a finding.
+If the "Client Certificates Required" is not selected, this is a finding.
+If the "sslFlags" is not set to "ssl128", this is a finding.</check-content></check></Rule></Group><Group id="V-76865"><title>SRG-APP-000516-WSR-000174</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91561r3_rule" severity="medium" weight="10.0"><version>IISW-SI-000251</version><title>The IIS 8.5 website must have a unique application pool.</title><description>&lt;VulnDiscussion&gt;Application pools isolate sites and applications to address reliability, availability, and security issues. Sites and applications may be grouped according to configurations, although each site will be associated with a unique application pool.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000366</ident><fixtext fixref="F-83561r1_fix">Open the IIS 8.5 Manager.
+
+Click the site name under review.
+
+Assign a unique application pool to each website.</fixtext><fix id="F-83561r1_fix" /><check system="C-76521r3_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: If the IIS Application Pool is hosting Microsoft SharePoint, this is Not Applicable.
+
+Open the IIS 8.5 Manager.
+
+Click "Application Pools".
+
+In the list of Application Pools, review the "Applications" column and verify unique application pools for each website.
+
+If any Application Pools are being used for more than one website, this is a finding.</check-content></check></Rule></Group><Group id="V-76867"><title>SRG-APP-000516-WSR-000174</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91563r3_rule" severity="medium" weight="10.0"><version>IISW-SI-000252</version><title>The maximum number of requests an application pool can process for each IIS 8.5 website must be explicitly set.</title><description>&lt;VulnDiscussion&gt;IIS application pools can be periodically recycled to avoid unstable states possibly leading to application crashes, hangs, or memory leaks. By default, application pool recycling is overlapped, which means the worker process to be shut down is kept running until after a new worker process is started. After a new worker process starts, new requests are passed to it. The old worker process shuts down after it finishes processing its existing requests, or after a configured time-out, whichever comes first. This way of recycling ensures uninterrupted service to clients.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000366</ident><fixtext fixref="F-83563r2_fix">Open the IIS 8.5 Manager.
+
+Click on the “Application Pools”.
+
+Highlight an Application Pool and click "Advanced Settings" in the “Action” Pane.
+
+Scroll down to the "Recycling section" and set the value for "Request Limit" to greater than "0".
+
+Click “OK”.   
+</fixtext><fix id="F-83563r2_fix" /><check system="C-76523r2_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: Recycling Application Pools can create an unstable environment in a 64-bit SharePoint environment. If operational issues arise, with supporting documentation from the ISSO, this check can be downgraded to a Cat III.
+
+Note: If the IIS Application Pool is hosting Microsoft SharePoint, this is Not Applicable.
+
+Open the IIS 8.5 Manager.
+
+Perform for each Application Pool.
+
+Click the “Application Pools”.
+
+Highlight an Application Pool and click "Advanced Settings" in the “Action” Pane.
+
+Scroll down to the "Recycling section" and verify the value for "Request Limit" is set to a value other than "0".
+
+If the "Request Limit" is set to a value of "0", this is a finding.</check-content></check></Rule></Group><Group id="V-76869"><title>SRG-APP-000516-WSR-000174</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91565r3_rule" severity="medium" weight="10.0"><version>IISW-SI-000253</version><title>The amount of virtual memory an application pool uses for each IIS 8.5 website must be explicitly set.</title><description>&lt;VulnDiscussion&gt;IIS application pools can be periodically recycled to avoid unstable states possibly leading to application crashes, hangs, or memory leaks. By default, application pool recycling is overlapped, which means the worker process to be shut down is kept running until after a new worker process is started. After a new worker process starts, new requests are passed to it. The old worker process shuts down after it finishes processing its existing requests, or after a configured time-out, whichever comes first. This way of recycling ensures uninterrupted service to clients.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000366</ident><fixtext fixref="F-83565r1_fix">Open the IIS 8.5 Manager.
+
+Click on “Application Pools”.
+
+Perform for each Application Pool.
+
+Highlight an Application Pool and click "Advanced Settings" in the “Action” Pane.
+
+In the "Advanced Settings" dialog box scroll down to the "Recycling" section and set the value for "Virtual Memory Limit" to a value other than "0".
+
+Click “OK”.</fixtext><fix id="F-83565r1_fix" /><check system="C-76525r3_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: Recycling Application Pools can create an unstable environment in a 64-bit SharePoint environment. If operational issues arise, mitigation steps can be set, to include setting the “Fixed number or requests”, “Specific time”, and “Private memory usage” in the recycling conditions lieu of the “Virtual memory” setting. If mitigation is used in lieu of this requirement, with supporting documentation from the ISSO, this check can be downgraded to a Cat III.
+
+Note: If the IIS Application Pool is hosting Microsoft SharePoint, this is Not Applicable.
+
+Open the IIS 8.5 Manager.
+
+Perform for each Application Pool.
+
+Click on “Application Pools”.
+
+Highlight an Application Pool and click "Advanced Settings" in the Action Pane.
+
+In the "Advanced Settings" dialog box scroll down to the "Recycling" section and verify the value for "Virtual Memory Limit" is not set to 0.
+
+If the value for "Virtual Memory Limit" is set to 0, this is a finding.</check-content></check></Rule></Group><Group id="V-76871"><title>SRG-APP-000516-WSR-000174</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91567r2_rule" severity="medium" weight="10.0"><version>IISW-SI-000254</version><title>The amount of private memory an application pool uses for each IIS 8.5 website must be explicitly set.</title><description>&lt;VulnDiscussion&gt;IIS application pools can be periodically recycled to avoid unstable states possibly leading to application crashes, hangs, or memory leaks. By default, application pool recycling is overlapped, which means the worker process to be shut down is kept running until after a new worker process is started. After a new worker process starts, new requests are passed to it. The old worker process shuts down after it finishes processing its existing requests, or after a configured time-out, whichever comes first. This way of recycling ensures uninterrupted service to clients.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000366</ident><fixtext fixref="F-83567r1_fix">Open the IIS 8.5 Manager.
+
+Click the “Application Pools”.
+
+Perform for each Application Pool.
+
+Highlight an Application Pool and click "Advanced Settings" in the “Action” Pane. 
+
+Scroll down to the "Recycling" section and set the value for "Private Memory Limit" to a value other than "0".</fixtext><fix id="F-83567r1_fix" /><check system="C-76527r2_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: Recycling Application Pools can create an unstable environment in a 64-bit SharePoint environment. If operational issues arise, with supporting documentation from the ISSO this check can be downgraded to a Cat III.
+
+Note: If the IIS Application Pool is hosting Microsoft SharePoint, this is Not Applicable.
+
+Open the IIS 8.5 Manager.
+
+Perform for each Application Pool.
+
+Click the “Application Pools”.
+
+Highlight an Application Pool and click "Advanced Settings" in the “Action” Pane.
+
+Scroll down to the "Recycling" section and verify the value for "Private Memory Limit" is set to a value other than "0".
+
+If the "Private Memory Limit" is set to a value of "0", this is a finding.</check-content></check></Rule></Group><Group id="V-76873"><title>SRG-APP-000516-WSR-000174</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91569r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000255</version><title>The application pool for each IIS 8.5 website must have a recycle time explicitly set.</title><description>&lt;VulnDiscussion&gt;Application pools can be periodically recycled to avoid unstable states possibly leading to application crashes, hangs, or memory leaks.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000366</ident><fixtext fixref="F-83569r1_fix">Open the IIS 8.5 Manager.
+
+Click the “Application Pools”.
+
+Perform for each Application Pool.
+
+Highlight an Application Pool and click "Advanced Settings" in the “Action” Pane.
+
+Scroll down to the "Recycling" section and expand the "Generate Recycle Event Log Entry" section.
+
+Set both the "Regular time interval" and "Specific time" options to "True".</fixtext><fix id="F-83569r1_fix" /><check system="C-76529r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: Recycling Application Pools can create an unstable environment in a 64-bit SharePoint environment. If operational issues arise, with supporting documentation from the ISSO this check can be downgraded to a Cat III.
+
+Open the IIS 8.5 Manager.
+
+Perform for each Application Pool.
+
+Click the “Application Pools”.
+
+Highlight an Application Pool and click "Advanced Settings" in the “Action” Pane.
+
+Scroll down to the "Recycling" section and expand the "Generate Recycle Event Log Entry" section.
+
+Verify both the "Regular time interval" and "Specific time" options are set to "True".
+
+If both the "Regular time interval" and "Specific time" options are not set to "True", this is a finding.</check-content></check></Rule></Group><Group id="V-76875"><title>SRG-APP-000516-WSR-000174</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91571r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000256</version><title>The maximum queue length for HTTP.sys for each IIS 8.5 website must be explicitly configured.</title><description>&lt;VulnDiscussion&gt;In order to determine the possible causes of client connection errors and to conserve system resources, it is important to both log errors and manage those settings controlling requests to the application pool.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000366</ident><fixtext fixref="F-83571r1_fix">Open the IIS 8.5 Manager.
+
+Click the “Application Pools”.
+
+Highlight an Application Pool to review and click "Advanced Settings" in the "Actions" pane.
+
+Scroll down to the “General” section and set the value for “Queue Length” to “1000” or less.
+
+Click “OK”.</fixtext><fix id="F-83571r1_fix" /><check system="C-76531r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Open the IIS 8.5 Manager.
+
+Perform for each Application Pool.
+
+Click the “Application Pools”.
+
+Highlight an Application Pool to review and click "Advanced Settings" in the "Actions" pane.
+
+Scroll down to the "General" section and verify the value for "Queue Length" is set to 1000.
+
+If the "Queue Length" is set to "1000" or less, this is not a finding.</check-content></check></Rule></Group><Group id="V-76877"><title>SRG-APP-000516-WSR-000174</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91573r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000257</version><title>The application pools pinging monitor for each IIS 8.5 website must be enabled.</title><description>&lt;VulnDiscussion&gt;Windows Process Activation Service (WAS) manages application pool configurations and may flag a worker process as unhealthy and shut it down. An application pool’s pinging monitor must be enabled to confirm worker processes are functional. A lack of response from the worker process might mean the worker process does not have a thread to respond to the ping request, or it is hanging for some other reason. The ping interval and ping response time may need adjustment to gain access to timely information about application pool health without triggering false, unhealthy conditions; for example, instability caused by an application.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000366</ident><fixtext fixref="F-83573r1_fix">Open the IIS 8.5 Manager.
+
+Click the “Application Pools”.
+
+Perform for each Application Pool.
+
+Highlight an Application Pool to review and click "Advanced Settings" in the "Actions" pane.
+
+Scroll down to the "Process Model" section and set the value for "Ping Enabled" to "True".
+
+Click “OK”.</fixtext><fix id="F-83573r1_fix" /><check system="C-76533r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Open the Internet Information Services (IIS) Manager.
+
+Click the “Application Pools”.
+
+Perform for each Application Pool.
+
+Highlight an Application Pool to review and click "Advanced Settings" in the "Actions" pane.
+
+Scroll down to the "Process Model" section and verify the value for "Ping Enabled" is set to "True".
+
+If the value for "Ping Enabled" is not set to "True", this is a finding.</check-content></check></Rule></Group><Group id="V-76879"><title>SRG-APP-000516-WSR-000174</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91575r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000258</version><title>The application pools rapid fail protection for each IIS 8.5 website must be enabled.</title><description>&lt;VulnDiscussion&gt;Rapid fail protection is a feature that interrogates the health of worker processes associated with websites and web applications. It can be configured to perform a number of actions such as shutting down and restarting worker processes that have reached failure thresholds. By not setting rapid fail protection the web server could become unstable in the event of a worker process crash potentially leaving the web server unusable.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000366</ident><fixtext fixref="F-83575r1_fix">Open the IIS 8.5 Manager.
+
+Click the “Application Pools”.
+
+Perform for each Application Pool.
+
+Highlight an Application Pool to review and click "Advanced Settings" in the "Actions" pane.
+
+Scroll down to the "Rapid Fail Protection" section and set the value for "Enabled" to "True".
+
+Click “OK”.</fixtext><fix id="F-83575r1_fix" /><check system="C-76535r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Open the IIS 8.5 Manager.
+
+Click the “Application Pools”.
+
+Perform for each Application Pool.
+
+Highlight an Application Pool to review and click "Advanced Settings" in the "Actions" pane.
+
+Scroll down to the "Rapid Fail Protection" section and verify the value for "Enabled" is set to "True".
+
+If the "Rapid Fail Protection:Enabled" is not set to "True", this is a finding.</check-content></check></Rule></Group><Group id="V-76881"><title>SRG-APP-000516-WSR-000174</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91577r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000259</version><title>The application pools rapid fail protection settings for each IIS 8.5 website must be managed.</title><description>&lt;VulnDiscussion&gt;Windows Process Activation Service (WAS) manages application pool configuration and may flag a worker process as unhealthy and shut it down. The rapid fail protection must be set to a suitable value. A lack of response from the worker process might mean the worker process does not have a thread to respond to the ping request, or that it is hanging for some other reason. The ping interval and ping response time may need adjustment to gain access to timely information about application pool health without triggering false, unhealthy conditions.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000366</ident><fixtext fixref="F-83577r1_fix">Open the IIS 8.5 Manager.
+
+Click the “Application Pools”.
+
+Perform for each Application Pool.
+
+Highlight an Application Pool to review and click "Advanced Settings" in the "Actions" pane.
+
+Scroll down to the "Rapid Fail Protection" section and set the value for "Failure Interval" to "5" or less.
+
+Click “OK”.</fixtext><fix id="F-83577r1_fix" /><check system="C-76537r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Open the IIS 8.5 Manager.
+
+Click the “Application Pools”.
+
+Perform for each Application Pool.
+
+Highlight an Application Pool to review and click "Advanced Settings" in the "Actions" pane.
+
+Scroll down to the "Rapid Fail Protection" section and verify the value for "Failure Interval" is set to "5".
+
+If the "Failure Interval" is not set to "5" or less, this is a finding.</check-content></check></Rule></Group><Group id="V-76885"><title>SRG-APP-000141-WSR-000087</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91581r3_rule" severity="medium" weight="10.0"><version>IISW-SI-000261</version><title>Interactive scripts on the IIS 8.5 web server must be located in unique and designated folders.</title><description>&lt;VulnDiscussion&gt;CGI and ASP scripts represent one of the most common and exploitable means of compromising a web server. All CGI and ASP program files must be segregated into their own unique folder to simplify the protection of these files. ASP scripts must be placed into a unique folder only containing other ASP scripts. JAVA and other technology-specific scripts must also be placed into their own unique folders. The placement of CGI, ASP, or equivalent scripts to special folders gives the Web Manager or the SA control over what goes into those folders and to facilitate access control at the folder level.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000381</ident><fixtext fixref="F-83581r2_fix">All interactive programs must be placed in unique designated folders based on CGI or ASP script type.
+
+Open the IIS 8.5 Manager.
+
+Right-click the IIS 8.5 web server name and select Explore.
+
+Search for the listed script extensions.
+
+Move each script type to its unique designated folder.
+
+Set the permissions to the scripts folders as follows:
+
+Administrators: FULL
+TrustedInstaller: FULL
+SYSTEM: FULL
+ApplicationPoolId:READ
+Custom Service Account: READ
+Users: READ 
+ALL APPLICATION PACKAGES: READ  
+</fixtext><fix id="F-83581r2_fix" /><check system="C-76541r3_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Determine whether scripts are used on the web server for the target website. Common file extensions include, but are not limited to: .cgi, .pl, .vb, .class, .c, .php, and .asp. 
+
+All interactive programs must be placed in unique designated folders based on CGI or ASP script type.
+
+Open the IIS 8.5 Manager.
+
+Right-click the IIS 8.5 web site name and select Explore.
+
+Search for the listed script extensions. Each script type must be in its unique designated folder.
+
+If scripts are not segregated from web content and in their own unique folders, then this is a finding.</check-content></check></Rule></Group><Group id="V-76887"><title>SRG-APP-000141-WSR-000087</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91583r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000262</version><title>Interactive scripts on the IIS 8.5 web server must have restrictive access controls.</title><description>&lt;VulnDiscussion&gt;CGI is a programming standard for interfacing external applications with information servers, such as HTTP or web servers. CGI, represented by all upper case letters, should not be confused with the .cgi file extension. The .cgi file extension does represent a CGI script, but CGI scripts may be written in a number of programming languages (e.g., PERL, C, PHP, and JavaScript), each having their own unique file extension.
+
+The use of CGI scripts represent one of the most common and exploitable means of compromising a web server. By definition, CGI scripts are executable by the operating system of the host server. While access control is provided via the web service, the execution of CGI programs is not limited unless the SA or the Web Manager takes specific measures. CGI programs can access and alter data files, launch other programs, and use the network.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000381</ident><fixtext fixref="F-83583r1_fix">Determine whether scripts are used on the web server for the subject website. Common file extensions include, but are not limited to: .cgi, .pl, .vb, .class, .c, .php, .asp, and .aspx.
+
+If the website does not utilize CGI, this finding is NA.
+
+All interactive programs must have restrictive permissions.
+
+Open the IIS 8.5 Manager.
+
+Right-click the IIS 8.5 web server name and select “Explore”.
+
+Search for the listed script extensions.
+
+Set the permissions to the CGI scripts as follows:
+
+Administrators: FULL
+TrustedInstaller: FULL
+ALL APPLICATION PACKAGES: Read
+SYSTEM: FULL
+ApplicationPoolId: READ
+Custom Service Account: READ
+Users: READ</fixtext><fix id="F-83583r1_fix" /><check system="C-76543r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Determine whether scripts are used on the web server for the subject website. Common file extensions include, but are not limited to: .cgi, .pl, .vb, .class, .c, .php, .asp, and .aspx.
+
+If the website does not utilize CGI, this finding is Not Applicable.
+
+All interactive programs must have restrictive permissions.
+
+Open the IIS 8.5 Manager.
+
+Right-click the IIS 8.5 web site name and select “Explore”.
+
+Search for the listed script extensions.
+
+Review the permissions to the CGI scripts and verify only the permissions listed, or more restrictive permissions are assigned.
+
+Administrators: FULL
+TrustedInstaller: FULL
+ALL APPLICATION PACKAGES: Read
+SYSTEM: FULL
+ApplicationPoolId: READ
+Custom Service Account: READ
+Users: READ
+
+If the permissions are less restrictive than listed above, this is a finding.</check-content></check></Rule></Group><Group id="V-76889"><title>SRG-APP-000141-WSR-000087</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91585r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000263</version><title>Backup interactive scripts on the IIS 8.5 server must be removed.</title><description>&lt;VulnDiscussion&gt;Copies of backup files will not execute on the server, but they can be read by the anonymous user if special precautions are not taken. Such backup copies contain the same sensitive information as the actual script being executed and, as such, are useful to malicious users. Techniques and systems exist today to search web servers for such files and are able to exploit the information contained in them.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000381</ident><fixtext fixref="F-83585r1_fix">Remove the backup files from the production web server.</fixtext><fix id="F-83585r1_fix" /><check system="C-76545r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Determine whether scripts are used on the web server for the subject website. Common file extensions include, but are not limited to: .cgi, .pl, .vb, .class, .c, .php, .asp, and .aspx.
+
+If the website does not utilize CGI, this finding is Not Applicable.
+
+Open the IIS 8.5 Manager.
+
+Right-click the IIS 8.5 web site name and select “Explore”.
+
+Search for the listed script extensions
+
+Search for the following files: *.bak, *.old, *.temp, *.tmp, *.backup, or “copy of...”.
+
+If files with these extensions are found, this is a finding.</check-content></check></Rule></Group><Group id="V-76891"><title>SRG-APP-000516-WSR-000174</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-91587r1_rule" severity="medium" weight="10.0"><version>IISW-SI-000264</version><title>The required DoD banner page must be displayed to authenticated users accessing a DoD private website.</title><description>&lt;VulnDiscussion&gt;A consent banner will be in place to make prospective entrants aware that the website they are about to enter is a DoD web site and their activity is subject to monitoring. The document, DoDI 8500.01, establishes the policy on the use of DoD information systems. It requires the use of a standard Notice and Consent Banner and standard text to be included in user agreements. The requirement for the banner is for websites with security and access controls. These are restricted and not publicly accessible. If the website does not require authentication/authorization for use, then the banner does not need to be present. A manual check of the document root directory for a banner page file (such as banner.html) or navigation to the website via a browser can be used to confirm the information provided from interviewing the web staff.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target IIS Web Site 8.5</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>IIS Web Site 8.5</dc:subject><dc:identifier>2791</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000366</ident><fixtext fixref="F-83587r1_fix">Configure a DoD private website to display the required DoD banner page when authentication is required for user access.</fixtext><fix id="F-83587r1_fix" /><check system="C-76547r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_IIS_8-5_Site_STIG.xml" /><check-content>Note: This requirement is only applicable for private DoD websites.
+
+If a banner is required, the following banner page must be in place: 
+
+“You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only. 
+
+By using this IS (which includes any device attached to this IS), you consent to the following conditions: 
+
+-The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations. 
+
+- At any time, the USG may inspect and seize data stored on this IS. 
+
+- Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose. 
+
+- This IS includes security measures (e.g., authentication and access controls) to protect USG interests—not for your personal benefit or privacy. 
+
+- Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.” 
+
+OR 
+
+If your system cannot meet the character limits to store this amount of text in the banner, the following is another option for the warning banner: 
+
+"I've read &amp; consent to terms in IS user agreem't." 
+
+NOTE: While DoDI 8500.01 does not contain a copy of the banner to be used, it does point to the RMF Knowledge Service for a copy of the required text. It is also noted that the banner is to be displayed only once when the individual enters the site and not for each page. 
+
+If the access-controlled website does not display this banner page before entry, this is a finding.</check-content></check></Rule></Group></Benchmark>

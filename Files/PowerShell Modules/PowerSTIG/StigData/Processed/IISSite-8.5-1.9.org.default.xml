@@ -1,0 +1,31 @@
+<!--
+    The organizational settings file is used to define the local organizations
+    preferred setting within an allowed range of the STIG.
+
+    Each setting in this file is linked by STIG ID and the valid range is in an
+    associated comment.
+-->
+<OrganizationalSettings fullversion="1.9">
+  <!-- Ensure ''V-76805'' -cmatch '^(Full|High)$'-->
+  <OrganizationalSetting id="V-76805" Value="Full" />
+  <!-- Ensure 'V-76817' -le 4096-->
+  <OrganizationalSetting id="V-76817" Value="4096" />
+  <!-- Ensure 'V-76819' -le 30000000-->
+  <OrganizationalSetting id="V-76819" Value="30000000" />
+  <!-- Ensure 'V-76821' -le 2048-->
+  <OrganizationalSetting id="V-76821" Value="2048" />
+  <!-- Ensure [TimeSpan]'V-76839' -le [TimeSpan]'00:20:00' -and [TimeSpan]'V-76839' -gt [TimeSpan]'00:00:00'-->
+  <OrganizationalSetting id="V-76839" Value="'00:20:00'" />
+  <!-- Ensure ''V-76841'' -le '00:20:00'-->
+  <OrganizationalSetting id="V-76841" Value="00:20:00" />
+  <!-- Ensure 'V-76867' -ne 0-->
+  <OrganizationalSetting id="V-76867" Value="35000" />
+  <!-- Ensure 'V-76869' -ne 0-->
+  <OrganizationalSetting id="V-76869" Value="1000000" />
+  <!-- Ensure 'V-76871' -ne 0-->
+  <OrganizationalSetting id="V-76871" Value="1000000" />
+  <!-- Ensure 'V-76875' -le 1000-->
+  <OrganizationalSetting id="V-76875" Value="1000" />
+  <!-- Ensure [TimeSpan]'V-76881' -le [TimeSpan]'00:05:00'-->
+  <OrganizationalSetting id="V-76881" Value="'00:05:00'" />
+</OrganizationalSettings>

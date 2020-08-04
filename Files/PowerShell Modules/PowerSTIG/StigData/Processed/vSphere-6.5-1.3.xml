@@ -1,0 +1,1539 @@
+<DISASTIG version="1" classification="UNCLASSIFIED" customname="" stigid="VMware_vSphere_6-5_ESXi_STIG" description="This Security Technical Implementation Guide is published as a tool to improve the security of Department of Defense (DoD) information systems. The requirements are derived from the National Institute of Standards and Technology (NIST) 800-53 and related documents. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil." filename="U_VMware_vSphere_6-5_ESXi_STIG_V1R3_Manual-xccdf.xml" releaseinfo="Release: 3 Benchmark Date: 24 Jan 2020" title="VMware vSphere 6.5 ESXi Security Technical Implementation Guide" notice="terms-of-use" source="STIG.DOD.MIL" fullversion="1.3" created="4/22/2020">
+  <DocumentRule dscresourcemodule="None">
+    <Rule id="V-94025" severity="low" conversionstatus="pass" title="SRG-OS-000104-VMM-000500" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;When adding ESXi hosts to Active Directory, if the group "ESX Admins" exists, all user/group accounts assigned to the group will have full administrative access to the host. Discretion should be used when managing membership to the "ESX Admins" group.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configuration &gt;&gt; System &gt;&gt; Advanced System Settings. Click Edit and select the Config.HostAgent.plugins.hostsvc.esxAdminsGroup value and verify it is not set to "ESX Admins".
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Config.HostAgent.plugins.hostsvc.esxAdminsGroup
+
+For systems that do not use Active Directory and have no local user accounts, other than root and/or vpxuser, this is not applicable.
+
+For systems that do not use Active Directory and do have local user accounts, other than root and/or vpxuser, this is a finding.
+
+If the "Config.HostAgent.plugins.hostsvc.esxAdminsGroup" keyword is set to "ESX Admins", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94079" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;In order to communicate with virtual switches in VST mode, external switch ports must be configured as trunk ports. VST mode does not support Dynamic Trunking Protocol (DTP), so the trunk must be static and unconditional. The auto or desirable physical switch settings do not work with the ESXi Server because the physical switch communicates with the ESXi Server using DTP. The non-negotiate and on options unconditionally enable VLAN trunking on the physical switch and create a VLAN trunk link between the ESXi Server and the physical switch. The difference between non-negotiate and on options is that on mode still sends out DTP frames, whereas the non-negotiate option does not.  The non-negotiate option should be used for all VLAN trunks, to minimize unnecessary network traffic for virtual switches in VST mode.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Note that this check refers to an entity outside the physical scope of the ESXi server system. The configuration of external switch ports as trunk ports must be documented. Virtual Switch Tagging (VST) mode does not support Dynamic Trunking Protocol (DTP), so the trunk must be static and unconditional. Inspect the documentation and verify that the documentation is correct and updated on an organization defined frequency and/or whenever modifications are made to either ESXi hosts or the upstream external switch ports.
+
+If DTP is enabled on the physical switch ports connected to the ESXi Host, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94081" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Since VMware virtual switches do not support STP, the ESXi host-connected physical switch ports must have portfast configured if spanning tree is enabled to avoid loops within the physical switch network. If these are not set, potential performance and connectivity issues might arise.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Note that this check refers to an entity outside the physical scope of the ESXi server system. The configuration of upstream physical switches must be documented to ensure that spanning tree protocol is disabled and/or portfast is configured for all physical ports connected to ESXi hosts. Inspect the documentation and verify that the documentation is updated on an organization defined frequency and/or whenever modifications are made to either ESXi hosts or the upstream physical switches. Alternatively, log in to the physical switch and verify that spanning tree protocol is disabled and/or portfast is configured for all physical ports connected to ESXi hosts.
+
+If the physical switch's spanning tree protocol is not disabled or portfast is not configured for all physical ports connected to ESXi hosts, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94083" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;When defining a physical switch port for trunk mode, only specified VLANs must be configured on the VLAN trunk link. The risk with not fully documenting all VLANs on the vSwitch is that it is possible that a physical trunk port might be configured without needed VLANs, or with unneeded VLANs, potentially enabling an administrator to either accidentally or maliciously connect a VM to an unauthorized VLAN.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Note that this check refers to an entity outside the physical scope of the ESXi server system. The configuration of upstream physical switches must be documented to ensure that unneeded VLANs are configured for all physical ports connected to ESXi hosts. Inspect the documentation and verify that the documentation is updated on an organization defined frequency and/or whenever modifications are made to either ESXi hosts or the upstream physical switches. Alternatively, log in to the physical switch and verify that only needed VLANs are configured for all physical ports connected to ESXi hosts.
+
+If the physical switch's configuration is trunked VLANs that are not used by ESXi for all physical ports connected to ESXi hosts, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94509" severity="low" conversionstatus="pass" title="SRG-OS-000109-VMM-000550" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;When adding ESXi hosts to Active Directory, if the group "ESX Admins" exists, all user/group accounts assigned to the group will have full administrative access to the host. Discretion should be used when managing membership to the "ESX Admins" group.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that do not use Active Directory and have no local user accounts, other than "root" and/or "vpxuser", this is not applicable.
+
+From the vSphere Client select the ESXi host and go to Configuration &gt;&gt; Advanced Settings.  Select the "Config.HostAgent.plugins.hostsvc.esxAdminsGroup" value and verify it is not set to "ESX Admins".
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Config.HostAgent.plugins.hostsvc.esxAdminsGroup
+
+For systems that do not use Active Directory and do have local user accounts, other than "root" and/or "vpxuser", this is a finding.
+
+If the "Config.HostAgent.plugins.hostsvc.esxAdminsGroup" value is set to "ESX Admins", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94533" severity="low" conversionstatus="pass" title="SRG-OS-000112-VMM-000560" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;When adding ESXi hosts to Active Directory, if the group "ESX Admins" exists, all user/group accounts assigned to the group will have full administrative access to the host. Discretion should be used when managing membership to the "ESX Admins" group.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that do not use Active Directory and have no local user accounts, other than "root" and/or "vpxuser", this is not applicable.
+
+From the vSphere Client select the ESXi host and go to Configuration &gt;&gt; Advanced Settings.  Select the "Config.HostAgent.plugins.hostsvc.esxAdminsGroup" value and verify it is NOT set to "ESX Admins".
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Config.HostAgent.plugins.hostsvc.esxAdminsGroup
+
+For systems that do not use Active Directory and do have local user accounts, other than "root" and/or "vpxuser", this is a finding.
+
+If the "Config.HostAgent.plugins.hostsvc.esxAdminsGroup" value is set to "ESX Admins", this is a finding.</RawString>
+    </Rule>
+  </DocumentRule>
+  <ManualRule dscresourcemodule="None">
+    <Rule id="V-93949" severity="medium" conversionstatus="pass" title="SRG-OS-000027-VMM-000080" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Enabling lockdown mode disables direct access to an ESXi host requiring the host be managed remotely from vCenter Server. This is done to ensure the roles and access controls implemented in vCenter are always enforced and users cannot bypass them by logging into a host directly. By forcing all interaction to occur through vCenter Server, the risk of someone inadvertently attaining elevated privileges or performing tasks that are not properly audited is greatly reduced.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Security Profile.  Scroll down to "Lockdown Mode" and verify it is set to Enabled (Normal or Strict).
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Select Name,@{N="Lockdown";E={$_.Extensiondata.Config.LockdownMode}}
+
+If Lockdown Mode is disabled, this is a finding. 
+
+For environments that do not use vCenter server to manage ESXi, this is not applicable.</RawString>
+    </Rule>
+    <Rule id="V-93953" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;In vSphere you can add users to the Exception Users list from the vSphere Web Client. These users do not lose their permissions when the host enters lockdown mode. Usually you may want to add service accounts such as a backup agent to the Exception Users list. Verify that the list of users who are exempted from losing permissions is legitimate and as needed per your environment. Users who do not require special permissions should not be exempted from lockdown mode.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Security Profile.  Under lockdown mode review the exception users list.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following script:
+
+$vmhost = Get-VMHost | Get-View
+$lockdown = Get-View $vmhost.ConfigManager.HostAccessManager
+$lockdown.QueryLockdownExceptions()
+
+If the Exception users list contains accounts that do not require special permissions, this is a finding.
+
+Note - This list is not intended for system administrator accounts but for special circumstances such as a service account.
+
+For environments that do not use vCenter server to manage ESXi, this is not applicable.</RawString>
+    </Rule>
+    <Rule id="V-93965" severity="medium" conversionstatus="pass" title="SRG-OS-000023-VMM-000060" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;The warning message reinforces policy awareness during the logon process and facilitates possible legal action against attackers. Alternatively, systems whose ownership should not be obvious should ensure usage of a banner that does not provide easy attribution.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^Banner" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "Banner /etc/issue", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93967" severity="medium" conversionstatus="pass" title="SRG-OS-000033-VMM-000140" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Approved algorithms should impart some level of confidence in their implementation. Limit the ciphers to those algorithms which are FIPS-approved. Counter (CTR) mode is also preferred over cipher-block chaining (CBC) mode.
+
+Note: This does not imply FIPS 140-2 validation.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Only FIPS-approved ciphers should be used. To verify that only FIPS-approved ciphers are in use, run the following command from an SSH session connected to the ESXi host, or from the ESXi shell: 
+
+# grep -i "^Ciphers" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "Ciphers aes128-ctr,aes192-ctr,aes256-ctr", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93969" severity="high" conversionstatus="pass" title="SRG-OS-000033-VMM-000140" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;SSH protocol version 1 suffers from design flaws that result in security vulnerabilities and should not be used. Only SSH protocol version 2 connections should be permitted.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^Protocol" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "Protocol 2", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93971" severity="medium" conversionstatus="pass" title="SRG-OS-000107-VMM-000530" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;SSH trust relationships mean a compromise on one host can allow an attacker to move trivially to other hosts. SSH can emulate the behavior of the obsolete rsh command in allowing users to enable insecure access to their accounts via ".rhosts" files.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^IgnoreRhosts" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "IgnoreRhosts yes", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93973" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;SSH trust relationships mean a compromise on one host can allow an attacker to move trivially to other hosts. SSH's cryptographic host-based authentication is more secure than ".rhosts" authentication, since hosts are cryptographically authenticated. However, it is not recommended that hosts unilaterally trust one another, even within an organization.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^HostbasedAuthentication" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "HostbasedAuthentication no", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93975" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Permitting direct root login reduces auditable information about who ran privileged commands on the system and also allows direct attack attempts on root's password.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^PermitRootLogin" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "PermitRootLogin no", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93977" severity="high" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Configuring this setting for the SSH daemon provides additional assurance that remote login via SSH will require a password, even in the event of misconfiguration elsewhere.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^PermitEmptyPasswords" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "PermitEmptyPasswords no", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93979" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;SSH environment options potentially allow users to bypass access restriction in some configurations. Users must not be able to present environment options to the SSH daemon.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^PermitUserEnvironment" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "PermitUserEnvironment no", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93981" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;DoD information systems are required to use FIPS 140-2 approved cryptographic hash functions.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^MACs" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "MACs hmac-sha1,hmac-sha2-256,hmac-sha2-512", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93983" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;GSSAPI authentication is used to provide additional authentication mechanisms to applications. Allowing GSSAPI authentication through SSH exposes the system’s GSSAPI to remote hosts, increasing the attack surface of the system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^GSSAPIAuthentication" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "GSSAPIAuthentication no", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93985" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Kerberos authentication for SSH is often implemented using GSSAPI.  If Kerberos is enabled through SSH, the SSH daemon provides a means of access to the system's Kerberos implementation.  Vulnerabilities in the system's Kerberos implementation may then be subject to exploitation.  To reduce the attack surface of the system, the Kerberos authentication mechanism within SSH must be disabled for systems.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^KerberosAuthentication" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "KerberosAuthentication no", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93987" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;If other users have access to modify user-specific SSH configuration files, they may be able to log into the system as another user.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^StrictModes" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "StrictModes yes", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93989" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;If compression is allowed in an SSH connection prior to authentication, vulnerabilities in the compression software could result in compromise of the system from an unauthenticated connection, potentially with root privileges.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^Compression" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "Compression no", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93991" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;SSH TCP connection forwarding provides a mechanism to establish TCP connections proxied by the SSH server. This function can provide similar convenience to a Virtual Private Network (VPN) with the similar risk of providing a path to circumvent firewalls and network ACLs. Gateway ports allow remote forwarded ports to bind to non-loopback addresses on the server.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^GatewayPorts" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "GatewayPorts no", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93993" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;X11 forwarding over SSH allows for the secure remote execution of X11-based applications. This feature can increase the attack surface of an SSH connection.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^X11Forwarding" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "X11Forwarding no", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93995" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Environment variables can be used to change the behavior of remote sessions and should be limited. Locale environment variables that specify the language, character set, and other features modifying the operation of software to match the user's preferences.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^AcceptEnv" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "AcceptEnv", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93997" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;OpenSSH has the ability to create network tunnels (layer-2 and layer-3) over an SSH connection. This function can provide similar convenience to a Virtual Private Network (VPN) with the similar risk of providing a path to circumvent firewalls and network ACLs.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^PermitTunnel" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "PermitTunnel no", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93999" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;This ensures a user login will be terminated as soon as the "ClientAliveCountMax" is reached.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^ClientAliveCountMax" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "ClientAliveCountMax 3", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94001" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Causing idle users to be automatically logged out guards against compromises one system leading trivially to compromises on another.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^ClientAliveInterval" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "ClientAliveInterval 200", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94003" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;The SSH protocol has the ability to provide multiple sessions over a single connection without reauthentication. A compromised client could use this feature to establish additional sessions to a system without consent or knowledge of the user.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^MaxSessions" /etc/ssh/sshd_config
+
+If there is no output or the output is not exactly "MaxSessions 1", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94005" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;ESXi hosts come with SSH which can be enabled to allow remote access without requiring user authentication.  To enable password free access copy the remote users public key into the "/etc/ssh/keys-root/authorized_keys" file on the ESXi host.  The presence of the remote user's public key in the "authorized_keys" file identifies the user as trusted, meaning the user is granted access to the host without providing a password.  If using Lockdown Mode and SSH is disabled then login with authorized keys will have the same restrictions as username/password.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# ls -la /etc/ssh/keys-root/authorized_keys
+
+or
+
+# cat /etc/ssh/keys-root/authorized_keys
+
+If the authorized_keys file exists and is not empty, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94011" severity="medium" conversionstatus="pass" title="SRG-OS-000077-VMM-000440" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;If a user, or root, used the same password continuously or was allowed to change it back shortly after being forced to change it to something else, it would provide a potential intruder with the opportunity to keep guessing at one user's password until it was guessed correctly.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^password" /etc/pam.d/passwd | grep sufficient
+
+If the remember setting is not set or is not "remember=5", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94013" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Systems must employ cryptographic hashes for passwords using the SHA-2 family of algorithms or FIPS 140-2 approved successors. The use of unapproved algorithms may result in weak password hashes more vulnerable to compromise.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From an SSH session connected to the ESXi host, or from the ESXi shell, run the following command:
+
+# grep -i "^password" /etc/pam.d/passwd | grep sufficient
+
+If sha512 is not listed, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94021" severity="low" conversionstatus="pass" title="SRG-OS-000104-VMM-000500" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Join ESXi hosts to an Active Directory (AD) domain to eliminate the need to create and maintain multiple local user accounts. Using AD for user authentication simplifies the ESXi host configuration, ensures password complexity and reuse policies are enforced and reduces the risk of security breaches and unauthorized access.  Note: If the AD group "ESX Admins" (default) exists then all users and groups that are assigned as members to this group will have full administrative access to all ESXi hosts the domain.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Authentication Services.  Verify the Directory Services Type is set to Active Directory.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-VMHostAuthentication
+
+For systems that do not use Active Directory and have no local user accounts, other than root and/or vpxuser, this is not applicable.
+
+For systems that do not use Active Directory and do have local user accounts, other than root and/or vpxuser, this is a finding.
+
+If the Directory Services Type is not set to "Active Directory", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94023" severity="medium" conversionstatus="pass" title="SRG-OS-000104-VMM-000500" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;If you configure your host to join an Active Directory domain using Host Profiles the Active Directory credentials are saved in the host profile and are transmitted over the network. To avoid having to save Active Directory credentials in the Host Profile and to avoid transmitting Active Directory credentials over the network use the vSphere Authentication Proxy.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client go to Home &gt;&gt; Host Profiles &gt;&gt; and select a Host Profile to edit. View the settings under Security and Services &gt;&gt; Security Settings &gt;&gt; Authentication Configuration &gt;&gt; Active Directory Configuration &gt;&gt; Join Domain Method. Verify the method used to join hosts to a domain is set to "Use vSphere Authentication Proxy to add the host to domain".
+
+or
+
+From a PowerCLI command prompt while connected to vCenter run the following command:
+
+Get-VMHost | Select Name, ` @{N="HostProfile";E={$_ | Get-VMHostProfile}}, ` @{N="JoinADEnabled";E={($_ | Get-VmHostProfile).ExtensionData.Config.ApplyProfile.Authentication.ActiveDirectory.Enabled}}, ` @{N="JoinDomainMethod";E={(($_ | Get-VMHostProfile).ExtensionData.Config.ApplyProfile.Authentication.ActiveDirectory | Select -ExpandProperty Policy | Where {$_.Id -eq "JoinDomainMethodPolicy"}).Policyoption.Id}}
+
+Verify if JoinADEnabled is True then JoinDomainMethod should be "FixedCAMConfigOption".
+
+If you are not using Host Profiles to join active directory, this is not a finding.</RawString>
+    </Rule>
+    <Rule id="V-94027" severity="low" conversionstatus="pass" title="SRG-OS-000107-VMM-000530" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;To assure accountability and prevent unauthenticated access, privileged users must utilize multifactor authentication to prevent potential misuse and compromise of the system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Authentication Services and view the Smart Card Authentication status. If "Enable Smart Card Authentication" is checked, the system requires smart cards to authentication to an Active Directory Domain.
+
+For systems that have no local user accounts, other than root and/or vpxuser, this is not applicable.
+
+For environments that do not use vCenter server to manage ESXi, this is not applicable.
+
+For systems that do not use smart cards with Active Directory and do have local user accounts, other than root and/or vpxuser, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94043" severity="medium" conversionstatus="pass" title="SRG-OS-000423-VMM-001700" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;While encrypted vMotion is available now vMotion traffic should still be sequestered from other traffic to further protect it from attack. This network must be only be accessible to other ESXi hosts preventing outside access to the network.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>The vMotion VMKernel port group should in a dedicated VLAN that can be on a common standard or distributed virtual switch as long as the vMotion VLAN is not shared by any other function and it not routed to anything but ESXi hosts.  The check for this will be unique per environment.  From the vSphere Client select the ESXi host and go to Configuration &gt; Networking and review the VLAN associated with the vMotion VMkernel(s) and verify they are dedicated for that purpose and are logically separated from other functions.
+
+If long distance or cross vCenter vMotion is used the vMotion network can be routable but must be accessible to only the intended ESXi hosts.
+
+If the vMotion port group is not on an isolated VLAN and/or is routable to systems other than ESXi hosts, this is a finding.
+
+For environments that do not use vCenter server to manage ESXi, this is not applicable.</RawString>
+    </Rule>
+    <Rule id="V-94047" severity="medium" conversionstatus="pass" title="SRG-OS-000423-VMM-001700" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Virtual machines might share virtual switches and VLANs with the IP-based storage configurations. IP-based storage includes vSAN, iSCSI and NFS. This configuration might expose IP-based storage traffic to unauthorized virtual machine users. IP-based storage frequently is not encrypted. It can be viewed by anyone with access to this network. To restrict unauthorized users from viewing the IP-based storage traffic, the IP-based storage network must be logically separated from the production traffic. Configuring the IP-based storage adaptors on separate VLANs or network segments from other VMkernels and Virtual Machines will limit unauthorized users from viewing the traffic.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>IP-Based storage (iSCSI, NFS, vSAN) VMkernel port groups must be in a dedicated VLAN that can be on a common standard or distributed virtual switch that is logically separated from other traffic types.  The check for this will be unique per environment.  
+
+From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; Networking &gt;&gt; VMkernel adapters and review the VLANs associated with any IP-Based storage VMkernels and verify they are dedicated for that purpose and are logically separated from other functions.
+
+If any IP-Based storage networks are not isolated from other traffic types, this is a finding.
+
+If IP-based storage is not used, this is not applicable.</RawString>
+    </Rule>
+    <Rule id="V-94051" severity="low" conversionstatus="pass" title="SRG-OS-000423-VMM-001700" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;There are three different TCP/IP stacks by default available on ESXi now which are Default, Provisioning, and vMotion.  To better protect and isolate sensitive network traffic within ESXi admins must configure each of these stacks.  Additional custom TCP/IP stacks can be created if desired.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; Networking &gt;&gt; TCP/IP configuration. Review the default system TCP/IP stacks and verify they are configured with the appropriate IP address information.
+
+If vMotion and Provisioning VMKernels are in use and are not utilizing their own TCP/IP stack, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94055" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;When enabled, vSphere performs bidirectional authentication of both the iSCSI target and host. There is a potential for a MiTM attack, when not authenticating both the iSCSI target and host, in which an attacker might impersonate either side of the connection to steal data. Bidirectional authentication mitigates this risk.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; Storage &gt;&gt; Storage Adapters &gt;&gt; Select the iSCSI adapter &gt;&gt; Properties &gt;&gt; Authentication method and view the CHAP configuration and verify CHAP is "Required" for target and host authentication.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-VMHostHba | Where {$_.Type -eq "iscsi"} | Select AuthenticationProperties -ExpandProperty AuthenticationProperties
+
+If iSCSI is not used, this is not a finding.
+
+If iSCSI is used and CHAP is not set to "Required" for both the target and host, this is a finding.
+
+If iSCSI is used and unique CHAP secrets are not used for each host, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94059" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Unrestricted access to services running on an ESXi host can expose a host to outside attacks and unauthorized access. Reduce the risk by configuring the ESXi firewall to only allow access from authorized networks.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Security Profile. Under the Firewall section click Edit and for each enabled service click Firewall and review the allowed IPs. Check this for Incoming and Outgoing connections.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-VMHostFirewallException | Where {$_.Enabled -eq $true} | Select Name,Enabled,@{N="AllIPEnabled";E={$_.ExtensionData.AllowedHosts.AllIP}}
+
+If for an enabled service "Allow connections from any IP address" is selected, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94061" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;In addition to service specific firewall rules ESXi has a default firewall rule policy to allow or deny incoming and outgoing traffic.  Reduce the risk of attack by making sure this is set to deny incoming and outgoing traffic.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHostFirewallDefaultPolicy
+
+If the Incoming or Outgoing policies are True, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94349" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;The CIM system provides an interface that enables hardware-level management from remote applications via a set of standard APIs. Create a limited-privilege, read-only service account for CIM. Grant this role to the user on the ESXi server.  Place this user in the Exception Users list.  When/where write access is required, create/enable a limited-privilege, service account and grant only the minimum required privileges.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>The CIM system provides an interface that enables hardware-level management from remote applications via a set of standard APIs. Create a limited-privilege, read-only service account for CIM. Grant this role to the user on the ESXi server. Place this user in the Exception Users list. When/where write access is required, create/enable a limited-privilege, service account and grant only the minimum required privileges.
+
+From the Host Client, select the ESXi host, right click and go to "Permissions". Verify the CIM account user role is limited to read only and CIM permissions.
+
+If there is no dedicated CIM account and the root is used for CIM monitoring, this is a finding.
+
+If write access is not required and the access level is not "read-only", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94477" severity="high" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Always check the SHA1 or MD5 hash after downloading an ISO, offline bundle, or patch to ensure integrity and authenticity of the downloaded files.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>The downloaded ISO, offline bundle, or patch hash must be verified against the vendor's checksum to ensure the integrity and authenticity of the files. 
+
+See some typical command line example(s) for both the md5 and sha1 hash check(s) directly below.
+
+# md5sum &lt;filename&gt;.iso
+# sha1sum &lt;filename&gt;.iso
+
+If any of the system's downloaded ISO, offline bundle, or system patch hashes cannot be verified against the vendor's checksum, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94479" severity="high" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Installing software updates is a fundamental mitigation against the exploitation of publicly-known vulnerabilities.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>If vCenter Update Manager is used on the network it can be used to scan all hosts for missing patches.  From the vSphere Client go to Hosts and Clusters &gt; Update Manager tab and select scan to view all hosts compliance status.
+
+If vCenter Update Manager is not used a hosts compliance status must be manually determined by the build number.  The following VMware KB 1014508 can be used to correlate patches with build numbers.
+
+If the ESXi host does not have the latest patches, this is a finding.
+
+If the ESXi host is not on a supported release, this is a finding.
+
+VMware also publishes Advisories on security patches, and offers a way to subscribe to email alerts for them.
+https://www.vmware.com/support/policies/security_response</RawString>
+    </Rule>
+    <Rule id="V-94481" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;TLS 1.0 and 1.1 are deprecated protocols with well published shortcomings and vulnerabilities. TLS 1.2 should be enabled on all interfaces and SSLv3, TL 1.1 and 1.0 disabled where supported. Mandating TLS 1.2 may break third party integrations and add-ons to vSphere. Test these integrations carefully after implementing TLS 1.2 and roll back where appropriate. On interfaces where required functionality is broken with TLS 1.2 this finding is N/A until such time as the third party software supports TLS 1.2.
+
+Make sure you modify TLS settings in the following order: 1. Platform Services Controllers (if applicable), 2. vCenter, 3. ESXi&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Temporarily enable SSH, connect to the ESXi host and run the following command:
+
+grep "enableTLS" /etc/sfcb/sfcb.cfg
+
+If the output indicates that any protocol is enabled other than TLSv1_2, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94487" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Secure Boot is a protocol of UEFI firmware that ensures the integrity of the boot process from hardware up through to the OS. Secure Boot for ESXi requires support from the firmware and it requires that all ESXi kernel modules, drivers, and VIBs be signed by VMware or a partner subordinate.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Temporarily enable SSH, connect to the ESXi host and run the following command:
+
+/usr/lib/vmware/secureboot/bin/secureBoot.py -s
+
+If the output is not Enabled, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94489" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;The default self-signed, VMCA issued host certificate must be replaced with a DoD-approved certificate. The use of a DoD certificate on the host assures clients that the service they are connecting to is legitimate and properly secured.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Temporarily enable SSH, connect to the ESXi host and run the following command:
+
+# openssl x509 -in /etc/vmware/ssl/rui.crt -text | grep Issuer
+
+If the issuer is not a DoD approved certificate authority, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94505" severity="low" conversionstatus="pass" title="SRG-OS-000109-VMM-000550" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Join ESXi hosts to an Active Directory (AD) domain to eliminate the need to create and maintain multiple local user accounts. Using AD for user authentication simplifies the ESXi host configuration, ensures password complexity and reuse policies are enforced and reduces the risk of security breaches and unauthorized access.  Note: If the AD group "ESX Admins" (default) exists then all users and groups that are assigned as members to this group will have full administrative access to all ESXi hosts the domain.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that do not use Active Directory and have no local user accounts, other than "root" and/or "vpxuser", this is not applicable.
+
+From the vSphere Client select the ESXi host and go to Configuration &gt;&gt; Authentication Services. Verify the "Directory Services Type" is set to "Active Directory".
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-VMHostAuthentication
+
+For systems that do not use Active Directory and do have local user accounts, other than "root" and/or "vpxuser"", this is a finding.
+
+If the "Directory Services Type" is not set to "Active Directory", this is a finding.
+If you are not using Host Profiles to join active directory, this is not a finding.</RawString>
+    </Rule>
+    <Rule id="V-94507" severity="medium" conversionstatus="pass" title="SRG-OS-000109-VMM-000550" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;If you configure your host to join an Active Directory domain using Host Profiles the Active Directory credentials are saved in the host profile and are transmitted over the network. To avoid having to save Active Directory credentials in the Host Profile and to avoid transmitting Active Directory credentials over the network use the vSphere Authentication Proxy.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that do not use Active Directory and have no local user accounts, other than "root" and/or "vpxuser", this is not applicable.
+
+From the vSphere Client go to Home &gt;&gt; Host Profiles and select a Host Profile to edit. View the settings under Authentication Configuration &gt;&gt; Active Directory Configuration &gt;&gt; JoinDomain Method. Verify the method used to join hosts to a domain is set to "Use vSphere Authentication Proxy to add the host to domain".
+
+or
+
+From a PowerCLI command prompt while connected to vCenter run the following command:
+
+Get-VMHost | Select Name, ` @{N="HostProfile";E={$_ | Get-VMHostProfile}}, ` @{N="JoinADEnabled";E={($_ | Get-VmHostProfile).ExtensionData.Config.ApplyProfile.Authentication.ActiveDirectory.Enabled}}, ` @{N="JoinDomainMethod";E={(($_ | Get-VMHostProfile).ExtensionData.Config.ApplyProfile.Authentication.ActiveDirectory | Select -ExpandProperty Policy | Where {$_.Id -eq "JoinDomainMethodPolicy"}).Policyoption.Id}}
+
+Verify if JoinADEnabled is True then JoinDomainMethod should be "FixedCAMConfigOption".
+
+For systems that do not use Active Directory and do have local user accounts, other than "root" and/or "vpxuser", this is a finding.
+
+If vSphere Authentication Proxy is not used to join hosts to an Active Directory domain, this is a finding.
+If you are not using Host Profiles to join active directory, this is not a finding.</RawString>
+    </Rule>
+    <Rule id="V-94511" severity="low" conversionstatus="pass" title="SRG-OS-000376-VMM-001520" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;To assure accountability and prevent unauthenticated access, privileged users must utilize multifactor authentication to prevent potential misuse and compromise of the system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that have no local user accounts, other than "root" and/or "vpxuser", this is not applicable.
+
+For environments that do not use vCenter server to manage ESXi, this is not applicable.
+
+From the vSphere Web Client select the ESXi host and go to Manage &gt;&gt; Authentication Services and view the "Enable Smart Card Authentication" status.
+
+If "Enable Smart Card Authentication" is checked, the system requires smart cards to authentication to an Active Directory Domain.
+
+For systems that do not use smart cards with Active Directory and do have local user accounts, other than "root" and/or "vpxuser", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94529" severity="low" conversionstatus="pass" title="SRG-OS-000112-VMM-000560" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Join ESXi hosts to an Active Directory (AD) domain to eliminate the need to create and maintain multiple local user accounts. Using AD for user authentication simplifies the ESXi host configuration, ensures password complexity and reuse policies are enforced and reduces the risk of security breaches and unauthorized access.  Note: If the AD group "ESX Admins" (default) exists then all users and groups that are assigned as members to this group will have full administrative access to all ESXi hosts the domain.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that do not use Active Directory and have no local user accounts, other than "root" and/or "vpxuser", this is not applicable.
+
+From the vSphere Client select the ESXi host and go to Configuration &gt;&gt; Authentication Services. Verify the "Directory Services Type" is set to "Active Directory".
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-VMHostAuthentication
+
+For systems that do not use Active Directory and do have local user accounts, other than "root" and/or "vpxuser", this is a finding.
+
+If the "Directory Services Type" is not set to "Active Directory", this is a finding.
+If you are not using Host Profiles to join active directory, this is not a finding.</RawString>
+    </Rule>
+    <Rule id="V-94531" severity="medium" conversionstatus="pass" title="SRG-OS-000112-VMM-000560" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;If you configure your host to join an Active Directory domain using Host Profiles the Active Directory credentials are saved in the host profile and are transmitted over the network. To avoid having to save Active Directory credentials in the Host Profile and to avoid transmitting Active Directory credentials over the network use the vSphere Authentication Proxy.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that do not use Active Directory and have no local user accounts, other than "root" and/or "vpxuser", this is not applicable.
+
+From the vSphere Client go to Home &gt;&gt; Host Profiles and select a Host Profile to edit. View the settings under Authentication Configuration &gt;&gt; Active Directory Configuration &gt;&gt; JoinDomainMethod. Verify the method used to join hosts to a domain is set to "Use vSphere Authentication Proxy to add the host to domain".
+
+or
+
+From a PowerCLI command prompt while connected to vCenter run the following command:
+
+Get-VMHost | Select Name, ` @{N="HostProfile";E={$_ | Get-VMHostProfile}}, ` @{N="JoinADEnabled";E={($_ | Get-VmHostProfile).ExtensionData.Config.ApplyProfile.Authentication.ActiveDirectory.Enabled}}, ` @{N="JoinDomainMethod";E={(($_ | Get-VMHostProfile).ExtensionData.Config.ApplyProfile.Authentication.ActiveDirectory | Select -ExpandProperty Policy | Where {$_.Id -eq "JoinDomainMethodPolicy"}).Policyoption.Id}}
+
+Verify if "JoinADEnabled" is "True" then "JoinDomainMethod" should be "FixedCAMConfigOption".
+
+For systems that do not use Active Directory and do have local user accounts, other than "root" and/or "vpxuser", this is a finding.
+
+If vSphere Authentication Proxy is not used to join hosts to an Active Directory domain, this is a finding.
+If you are not using Host Profiles to join active directory, this is not a finding.
+</RawString>
+    </Rule>
+    <Rule id="V-94535" severity="low" conversionstatus="pass" title="SRG-OS-000377-VMM-001530" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;To assure accountability and prevent unauthenticated access, privileged users must utilize multifactor authentication to prevent potential misuse and compromise of the system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that have no local user accounts, other than "root" and/or "vpxuser", this is not applicable.
+
+For environments that do not use vCenter server to manage ESXi, this is not applicable.
+
+From the vSphere Web Client select the ESXi host and go to Manage &gt;&gt; Authentication Services and view the Smart Card Authentication status.
+
+If "Enable Smart Card Authentication" is checked, the system requires smart cards to authentication to an Active Directory Domain.
+
+For systems that do not use smart cards with Active Directory and do have local user accounts, other than "root" and/or "vpxuser", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94543" severity="low" conversionstatus="pass" title="SRG-OS-000113-VMM-000570" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Join ESXi hosts to an Active Directory (AD) domain to eliminate the need to create and maintain multiple local user accounts. Using AD for user authentication simplifies the ESXi host configuration, ensures password complexity and reuse policies are enforced and reduces the risk of security breaches and unauthorized access.  Note: If the AD group "ESX Admins" (default) exists then all users and groups that are assigned as members to this group will have full administrative access to all ESXi hosts the domain.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that do not use Active Directory and have no local user accounts, other than root and/or vpxuser, this is not applicable.
+
+From the vSphere Client select the ESXi host and go to Configuration &gt;&gt; Authentication Services. Verify the "Directory Services Type" is set to "Active Directory".
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-VMHostAuthentication
+
+For systems that do not use Active Directory and do have local user accounts, other than "root" and/or "vpxuser", this is a finding.
+
+If the "Directory Services Type" is not set to "Active Directory", this is a finding.
+If you are not using Host Profiles to join active directory, this is not a finding.</RawString>
+    </Rule>
+    <Rule id="V-94545" severity="medium" conversionstatus="pass" title="SRG-OS-000113-VMM-000570" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;If you configure your host to join an Active Directory domain using Host Profiles the Active Directory credentials are saved in the host profile and are transmitted over the network. To avoid having to save Active Directory credentials in the Host Profile and to avoid transmitting Active Directory credentials over the network use the vSphere Authentication Proxy.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that do not use Active Directory and have no local user accounts, other than root and/or vpxuser, this is not applicable.
+
+From the vSphere Client go to Home &gt;&gt; Host Profiles &gt;&gt; and select a Host Profile to edit. View the settings under Authentication Configuration &gt;&gt; Active Directory Configuration &gt;&gt; JoinDomainMethod. Verify the method used to join hosts to a domain is set to "Use vSphere Authentication Proxy to add the host to domain".
+
+or
+
+From a PowerCLI command prompt while connected to vCenter run the following command:
+
+Get-VMHost | Select Name, ` @{N="HostProfile";E={$_ | Get-VMHostProfile}}, ` @{N="JoinADEnabled";E={($_ | Get-VmHostProfile).ExtensionData.Config.ApplyProfile.Authentication.ActiveDirectory.Enabled}}, ` @{N="JoinDomainMethod";E={(($_ | Get-VMHostProfile).ExtensionData.Config.ApplyProfile.Authentication.ActiveDirectory | Select -ExpandProperty Policy | Where {$_.Id -eq "JoinDomainMethodPolicy"}).Policyoption.Id}}
+
+Verify if "JoinADEnabled" is "True" then "JoinDomainMethod" should be "FixedCAMConfigOption".
+
+For systems that do not use Active Directory and do have local user accounts, other than "root" and/or "vpxuser", this is a finding.
+
+If vSphere Authentication Proxy is not used to join hosts to an Active Directory domain, this is a finding.
+If you are not using Host Profiles to join active directory, this is not a finding.</RawString>
+    </Rule>
+    <Rule id="V-94549" severity="low" conversionstatus="pass" title="SRG-OS-000403-VMM-001640" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;To assure accountability and prevent unauthenticated access, privileged users must utilize multifactor authentication to prevent potential misuse and compromise of the system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that have no local user accounts, other than root and/or vpxuser, this is not applicable.
+
+For environments that do not use vCenter server to manage ESXi, this is not applicable.
+
+From the vSphere Web Client select the ESXi host and go to Manage &gt;&gt; Authentication Services and view the Smart Card Authentication status.
+
+If "Enable Smart Card Authentication" is checked, the system requires smart cards to authentication to an Active Directory Domain.
+
+For systems that do not use smart cards with Active Directory and do have local user accounts, other than "root" and/or "vpxuser", this is a finding.</RawString>
+    </Rule>
+  </ManualRule>
+  <VsphereAcceptanceLevelRule dscresourcemodule="Vmware.vSphereDSC">
+    <Rule id="V-94041" severity="high" conversionstatus="pass" title="SRG-OS-000366-VMM-001430" dscresource="VMHostAcceptanceLevel">
+      <Description>&lt;VulnDiscussion&gt;Verify the ESXi Image Profile to only allow signed VIBs.  An unsigned VIB represents untested code installed on an ESXi host.  The ESXi Image profile supports four acceptance levels: 
+
+(1) VMwareCertified - VIBs created, tested and signed by VMware
+(2) VMwareAccepted - VIBs created by a VMware partner but tested and signed by VMware, 
+(3) PartnerSupported - VIBs created, tested and signed by a certified VMware partner 
+(4) CommunitySupported - VIBs that have not been tested by VMware or a VMware partner.  
+
+Community Supported VIBs are not supported and do not have a digital signature.  To protect the security and integrity of your ESXi hosts do not allow unsigned (CommunitySupported) VIBs to be installed on your hosts.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Level>PartnerSupported</Level>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Security Profile. Under "Host Image Profile Acceptance Level" view the acceptance level.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following commands:
+
+$esxcli = Get-EsxCli
+$esxcli.software.acceptance.get()
+
+If the acceptance level is CommunitySupported, this is a finding.</RawString>
+    </Rule>
+  </VsphereAcceptanceLevelRule>
+  <VsphereAdvancedSettingsRule dscresourcemodule="Vmware.vSphereDSC">
+    <Rule id="V-93951" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'DCUI.Access' = 'root'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;Lockdown mode disables direct host access requiring that admins manage hosts from vCenter Server.  However, if a host becomes isolated from vCenter Server, the admin is locked out and can no longer manage the host. If you are using normal lockdown mode, you can avoid becoming locked out of an ESXi host that is running in lockdown mode, by setting DCUI.Access to a list of highly trusted users who can override lockdown mode and access the DCUI. The DCUI is not running in strict lockdown mode.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings.  Select the DCUI.Access value and verify only the root user is listed.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name DCUI.Access and verify it is set to root.
+
+If the DCUI.Access is not restricted to root, this is a finding.
+
+Note: This list is only for local user accounts and should only contain the root user.
+
+For environments that do not use vCenter server to manage ESXi, this is not applicable.</RawString>
+    </Rule>
+    <Rule id="V-93955" severity="medium" conversionstatus="pass" title="SRG-OS-000032-VMM-000130" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>
+      </AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;Remote logging to a central log host provides a secure, centralized store for ESXi logs. By gathering host log files onto a central host it can more easily monitor all hosts with a single tool. It can also do aggregate analysis and searching to look for such things as coordinated attacks on multiple hosts. Logging to a secure, centralized log server also helps prevent log tampering and also provides a long-term audit record.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>True</OrganizationValueRequired>
+      <OrganizationValueTestString>{0} is set to "Syslog.global.logHost" = "site specific log host"</OrganizationValueTestString>
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings.  Select the Syslog.global.logHost value and verify it is set to a site specific syslog server hostname.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Syslog.global.logHost
+
+If the Syslog.global.logHost setting is not set to a site specific syslog server, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93957" severity="medium" conversionstatus="pass" title="SRG-OS-000021-VMM-000050" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'Security.AccountLockFailures' = '3'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;By limiting the number of failed login attempts, the risk of unauthorized access via user password guessing, otherwise known as brute-forcing, is reduced. Limits are imposed by locking the account.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings.  Select the Security.AccountLockFailures value and verify it is set to 3.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Security.AccountLockFailures and verify it is set to 3.
+
+If the Security.AccountLockFailures is set to a value other than 3, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93959" severity="medium" conversionstatus="pass" title="SRG-OS-000329-VMM-001180" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'Security.AccountUnlockTime' = '900'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;By limiting the number of failed login attempts, the risk of unauthorized access via user password guessing, otherwise known as brute-forcing, is reduced. Limits are imposed by locking the account.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings.  Select the Security.AccountUnlockTime value and verify it is set to 900.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Security.AccountUnlockTime and verify it is set to 900.
+
+If the Security.AccountUnlockTime is set to a value other than 900, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93961" severity="medium" conversionstatus="pass" title="SRG-OS-000023-VMM-000060" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'Annotations.WelcomeMessage' = 'You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+
+By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+
+-The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+
+-At any time, the USG may inspect and seize data stored on this IS.
+
+-Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+
+-This IS includes security measures (e.g., authentication and access controls) to protect USG interests- -not for your personal benefit or privacy.
+
+-Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;Failure to display the DoD logon banner prior to a log in attempt will negate legal proceedings resulting from unauthorized access to system resources.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings. Select the Annotations.WelcomeMessage value and verify it contains the DoD logon banner to follow.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Annotations.WelcomeMessage
+
+Check for either of the following login banners based on the character limitations imposed by the system. An exact match of the text is required. If one of these banners is not displayed, this is a finding.
+
+You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+
+By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+
+-The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+
+-At any time, the USG may inspect and seize data stored on this IS.
+
+-Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+
+-This IS includes security measures (e.g., authentication and access controls) to protect USG interests- -not for your personal benefit or privacy.
+
+-Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.
+
+OR
+
+I've read &amp; consent to terms in IS user agreem't.
+
+If the DCUI logon screen does not display the DoD logon banner, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-93963" severity="medium" conversionstatus="pass" title="SRG-OS-000023-VMM-000060" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'Config.Etc.issue' = 'You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only. By using this IS (which includes any device attached to this IS), you consent to the following conditions: -The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations. -At any time, the USG may inspect and seize data stored on this IS. -Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose. -This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy. -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;Failure to display the DoD logon banner prior to a log in attempt will negate legal proceedings resulting from unauthorized access to system resources.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings.  Select the Config.Etc.issue value and verify it is set to DoD logon banner below.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Config.Etc.issue
+
+If the Config.Etc.issue setting (/etc/issue file) does not contain the logon banner exactly as shown below this is a finding.
+
+"You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only. By using this IS (which includes any device attached to this IS), you consent to the following conditions: -The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations. -At any time, the USG may inspect and seize data stored on this IS. -Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose. -This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy. -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details."</RawString>
+    </Rule>
+    <Rule id="V-94007" severity="low" conversionstatus="pass" title="SRG-OS-000037-VMM-000150" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'Config.HostAgent.log.level' = 'info'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;Without establishing what types of events occurred, it would be difficult to establish, correlate, and investigate the events leading up to an outage or attack.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings.  Select the Config.HostAgent.log.level value and verify it is set to "info".
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Config.HostAgent.log.level
+
+If the Config.HostAgent.log.level setting is not set to info, this is a finding.
+
+Note: Verbose logging level is acceptable for troubleshooting purposes.</RawString>
+    </Rule>
+    <Rule id="V-94009" severity="medium" conversionstatus="pass" title="SRG-OS-000069-VMM-000360" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'Security.PasswordQualityControl' = 'similar=deny retry=3 min=disabled,disabled,disabled,disabled,15'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;To enforce the use of complex passwords, minimum numbers of characters of different classes are mandated. The use of complex passwords reduces the ability of attackers to successfully obtain valid passwords using guessing or exhaustive search techniques. Complexity requirements increase the password search space by requiring users to construct passwords from a larger character set than they may otherwise use.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings. Select the Security.PasswordQualityControl value and verify it is set to "similar=deny retry=3 min=disabled,disabled,disabled,disabled,15"
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Security.PasswordQualityControl
+
+If the Security.PasswordQualityControl setting is not set to "similar=deny retry=3 min=disabled,disabled,disabled,disabled,15", this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94015" severity="medium" conversionstatus="pass" title="SRG-OS-000095-VMM-000480" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'Config.HostAgent.plugins.solo.enableMob' = 'false'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;The Managed Object Browser (MOB) provides a way to explore the object model used by the VMkernel to manage the host and enables configurations to be changed as well. This interface is meant to be used primarily for debugging the vSphere SDK, but because there are no access controls it could also be used as a method obtain information about a host being targeted for unauthorized access.  By default this is disabled for ESXi in version 6.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings. Select the Config.HostAgent.plugins.solo.enableMob value and verify it is set to false.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Config.HostAgent.plugins.solo.enableMob
+
+If the Config.HostAgent.plugins.solo.enableMob setting is not set to false, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94029" severity="medium" conversionstatus="pass" title="SRG-OS-000163-VMM-000700" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'UserVars.ESXiShellInteractiveTimeOut' = '600'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;If a user forgets to log out of their SSH session, the idle connection will remains open indefinitely, increasing the potential for someone to gain privileged access to the host.  The ESXiShellInteractiveTimeOut allows you to automatically terminate idle shell sessions.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings. Select the UserVars.ESXiShellInteractiveTimeOut value and verify it is set to 600 (10 Minutes).
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name UserVars.ESXiShellInteractiveTimeOut
+
+If the UserVars.ESXiShellInteractiveTimeOut setting is not set to 600, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94031" severity="medium" conversionstatus="pass" title="SRG-OS-000163-VMM-000700" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'UserVars.ESXiShellTimeOut' = '600'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;When the ESXi Shell or SSH services are enabled on a host they will run indefinitely.  To avoid having these services left running set the ESXiShellTimeOut.  The ESXiShellTimeOut defines a window of time after which the ESXi Shell and SSH services will automatically be terminated.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings. Select the UserVars.ESXiShellTimeOut value and verify it is set to 600 (10 Minutes).
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name UserVars.ESXiShellTimeOut
+
+If the UserVars.ESXiShellTimeOut setting is not set to 600, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94033" severity="medium" conversionstatus="pass" title="SRG-OS-000163-VMM-000700" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'UserVars.DcuiTimeOut' = '600'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;When the Direct console user interface (DCUI) is enabled and logged in it should be automatically logged out if left logged in to avoid unauthorized privilege gains.  The DcuiTimeOut defines a window of time after which the DCUI will be logged out.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings. Select the UserVars.DcuiTimeOut value and verify it is set to 600 (10 Minutes).
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name UserVars.DcuiTimeOut
+
+If the UserVars.DcuiTimeOut setting is not set to 600, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94037" severity="medium" conversionstatus="pass" title="SRG-OS-000341-VMM-001220" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>
+      </AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;ESXi can be configured to store log files on an in-memory file system.  This occurs when the host's "/scratch" directory is linked to "/tmp/scratch". When this is done only a single day's worth of logs are stored at any time. In addition log files will be reinitialized upon each reboot.  This presents a security risk as user activity logged on the host is only stored temporarily and will not persistent across reboots.  This can also complicate auditing and make it harder to monitor events and diagnose issues.  ESXi host logging should always be configured to a persistent datastore.
+
+Note: Scratch space is configured automatically during installation or first boot of an ESXi host, and does not usually need to be manually configured. ESXi Installable creates a 4 GB Fat16 partition on the target device during installation if there is sufficient space, and if the device is considered Local.  If ESXi is installed on an SD card or USB device a persistent log location may not be configured upon install as normal.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>True</OrganizationValueRequired>
+      <OrganizationValueTestString>"{0}" is set to "Syslog.global.logDir" = "site specific log storage location"</OrganizationValueTestString>
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings. Select the Syslog.global.logDir value and verify it is set to a persistent location.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following commands:
+
+Get-VMHost | Get-AdvancedSetting -Name Syslog.global.logDir
+
+or
+
+$esxcli = Get-EsxCli
+$esxcli.system.syslog.config.get() | Select LocalLogOutput,LocalLogOutputIsPersistent
+
+If the Syslog.global.logDir or LocalLogOutput value is not on persistent storage, this is a finding.
+
+If the LocalLogOutputIsPersistent value is not true, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94057" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'Mem.ShareForceSalting' = '2'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;Published academic papers have demonstrated that by forcing a flush and reload of cache memory, it is possible to measure memory timings to try and determine an AES encryption key in use on another virtual machine running on the same physical processor of the host server if Transparent Page Sharing is enabled between the two virtual machines. This technique works only in a highly controlled system configured in a non-standard way that VMware believes would not be recreated in a production environment.
+
+Even though VMware believes information being disclosed in real world conditions is unrealistic, out of an abundance of caution upcoming ESXi Update releases will no longer enable TPS between Virtual Machines by default (TPS will still be utilized within individual VMs).&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings. Select the Mem.ShareForceSalting value and verify it is set to 2.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Mem.ShareForceSalting
+
+If the Mem.ShareForceSalting setting is not set to 2, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94063" severity="low" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'Net.BlockGuestBPDU' = '1'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;BPDU Guard and Portfast are commonly enabled on the physical switch to which the ESXi host is directly connected to reduce the STP convergence delay. If a BPDU packet is sent from a virtual machine on the ESXi host to the physical switch so configured, a cascading lockout of all the uplink interfaces from the ESXi host can occur. To prevent this type of lockout, BPDU Filter can be enabled on the ESXi host to drop any BPDU packets being sent to the physical switch. The caveat is that certain SSL VPN which use Windows bridging capability can legitimately generate BPDU packets. The administrator should verify that there are no legitimate BPDU packets generated by virtual machines on the ESXi host prior to enabling BPDU Filter.  If BPDU Filter is enabled in this situation, enabling Reject Forged Transmits on the virtual switch port group adds protection against Spanning Tree loops.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings. Select the Net.BlockGuestBPDU value and verify it is set to 1.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Net.BlockGuestBPDU
+
+If the Net.BlockGuestBPDU setting is not set to 1, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94071" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'Net.DVFilterBindIpAddress' = ''</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;If you are not using products that make use of the dvfilter network API, the host should not be configured to send network information to a VM. If the API is enabled an attacker might attempt to connect a VM to it thereby potentially providing access to the network of other VMs on the host. If you are using a product that makes use of this API then verify that the host has been configured correctly. If you are not using such a product make sure the setting is blank.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Advanced System Settings. Select the Net.DVFilterBindIpAddress value and verify the value is blank or the correct IP address of a security appliance if in use.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Net.DVFilterBindIpAddress
+
+If the Net.DVFilterBindIpAddress is not blank and security appliances are not in use on the host, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94483" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>'UserVars.ESXiVPsDisabledProtocols' = 'tlsv1,tlsv1.1,sslv3'</AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;TLS 1.0 and 1.1 are deprecated protocols with well published shortcomings and vulnerabilities. TLS 1.2 should be enabled on all interfaces and SSLv3, TL 1.1 and 1.0 disabled where supported. Mandating TLS 1.2 may break third party integrations and add-ons to vSphere. Test these integrations carefully after implementing TLS 1.2 and roll back where appropriate. On interfaces where required functionality is broken with TLS 1.2 this finding is N/A until such time as the third party software supports TLS 1.2.
+
+Make sure you modify TLS settings in the following order: 1. Platform Services Controllers (if applicable), 2. vCenter, 3. ESXi&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client, select the host and then click Configure &gt;&gt; System &gt;&gt; Advanced System Settings. Find the UserVars.ESXiVPsDisabledProtocols value and verify that it is set to the following:
+
+tlsv1,tlsv1.1,sslv3
+
+If the value is not set as above or it does not exist, this is a finding.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name UserVars.ESXiVPsDisabledProtocols
+
+If the value returned is not "tlsv1,tlsv1.1,sslv3" or the setting does not exist, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94547" severity="low" conversionstatus="pass" title="SRG-OS-000113-VMM-000570" dscresource="VMHostAdvancedSettings">
+      <AdvancedSettings>
+      </AdvancedSettings>
+      <Description>&lt;VulnDiscussion&gt;When adding ESXi hosts to Active Directory, if the group "ESX Admins" exists, all user/group accounts assigned to the group will have full administrative access to the host. Discretion should be used when managing membership to the "ESX Admins" group.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>For systems that do not use Active Directory and have no local user accounts, other than root and/or vpxuser, this is not applicable.
+
+From the vSphere Client select the ESXi host and go to Configuration &gt;&gt; Advanced Settings.  Select the "Config.HostAgent.plugins.hostsvc.esxAdminsGroup" value and verify it is not set to "ESX Admins".
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-AdvancedSetting -Name Config.HostAgent.plugins.hostsvc.esxAdminsGroup
+
+For systems that do not use Active Directory and do have local user accounts, other than "root" and/or "vpxuser", this is a finding.
+
+If the "Config.HostAgent.plugins.hostsvc.esxAdminsGroup" value is set to "ESX Admins", this is a finding.</RawString>
+    </Rule>
+  </VsphereAdvancedSettingsRule>
+  <VsphereKernelActiveDumpPartitionRule dscresourcemodule="Vmware.vSphereDSC">
+    <Rule id="V-94035" severity="low" conversionstatus="pass" title="SRG-OS-000269-VMM-000950" dscresource="VMHostKernelActiveDumpPartition">
+      <Description>&lt;VulnDiscussion&gt;In the event of a system failure, the system must preserve any information necessary to determine cause of failure and any information necessary to return to operations with least disruption to mission processes.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Enabled>$true</Enabled>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and right click.  If the "Add Diagnostic Partition" option is greyed out then core dumps are configured.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following commands:
+
+$esxcli = Get-EsxCli
+$esxcli.system.coredump.partition.get()
+$esxcli.system.coredump.network.get()
+
+The first command prepares for the other two. The second command shows whether there is an active core dump partition configured. The third command shows whether a network core dump collector is configured and enabled, via the "HostVNic", "NetworkServerIP", "NetworkServerPort", and "Enabled" variables. 
+
+If there is no active core dump partition or the network core dump collector is not configured and enabled, this is a finding.</RawString>
+    </Rule>
+  </VsphereKernelActiveDumpPartitionRule>
+  <VsphereNtpSettingsRule dscresourcemodule="Vmware.vSphereDSC">
+    <Rule id="V-94039.b" severity="medium" conversionstatus="pass" title="SRG-OS-000355-VMM-001330" dscresource="VMHostNtpSettings">
+      <Description>&lt;VulnDiscussion&gt;To assure the accuracy of the system clock, it must be synchronized with an authoritative time source within DoD. Many system functions, including time-based login and activity restrictions, automated reports, system logs, and audit records depend on an accurate system clock. If there is no confidence in the correctness of the system clock, time-based functions may not operate as intended and records may be of diminished value.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <NtpServer />
+      <OrganizationValueRequired>True</OrganizationValueRequired>
+      <OrganizationValueTestString>{0} is set to a string array of authoritative DoD time sources</OrganizationValueTestString>
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Time Configuration. Click Edit to verify the configured NTP servers and service startup policy.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-VMHostNTPServer
+Get-VMHost | Get-VMHostService | Where {$_.Label -eq "NTP Daemon"}
+
+If the NTP service is not configured with authoritative DoD time sources and the service is not configured to start and stop with the host and is running, this is a finding.</RawString>
+    </Rule>
+  </VsphereNtpSettingsRule>
+  <VspherePortGroupSecurityRule dscresourcemodule="Vmware.vSphereDSC">
+    <Rule id="V-94065.a" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostVssPortGroupSecurity">
+      <AllowPromiscuousInherited />
+      <Description>&lt;VulnDiscussion&gt;If the virtual machine operating system changes the MAC address, the operating system can send frames with an impersonated source MAC address at any time. This allows an operating system to stage malicious attacks on the devices in a network by impersonating a network adaptor authorized by the receiving network. 
+ 
+This means the virtual switch does not compare the source and effective MAC addresses. 
+ 
+To protect against MAC address impersonation, all virtual switches should have forged transmissions set to Reject. Reject Forged Transmit can be set at the vSwitch and/or the Portgroup level. You can override switch level settings at the Portgroup level.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <ForgedTransmitsInherited>$true</ForgedTransmitsInherited>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <MacChangesInherited />
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client go to Configure &gt;&gt; Networking &gt;&gt; Virtual Switches. View the properties on each virtual switch and port group and verify "Forged Transmits" is set to reject.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following commands:
+
+Get-VirtualSwitch | Get-SecurityPolicy
+Get-VirtualPortGroup | Get-SecurityPolicy
+
+If the "Forged Transmits" policy is set to accept, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94067.a" severity="high" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostVssPortGroupSecurity">
+      <AllowPromiscuousInherited />
+      <Description>&lt;VulnDiscussion&gt;If the virtual machine operating system changes the MAC address, it can send frames with an impersonated source MAC address at any time. This allows it to stage malicious attacks on the devices in a network by impersonating a network adaptor authorized by the receiving network. This will prevent VMs from changing their effective MAC address. It will affect applications that require this functionality. This will also affect how a layer 2 bridge will operate. This will also affect applications that require a specific MAC address for licensing. Reject MAC Changes can be set at the vSwitch and/or the Portgroup level. You can override switch level settings at the Portgroup level.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <ForgedTransmitsInherited />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <MacChangesInherited>$true</MacChangesInherited>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client go to Configure &gt;&gt; Networking &gt;&gt; Virtual Switches. View the properties on each virtual switch and port group and verify "MAC Address Changes" is set to reject.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following commands:
+
+Get-VirtualSwitch | Get-SecurityPolicy
+Get-VirtualPortGroup | Get-SecurityPolicy
+
+If the "MAC Address Changes" policy is set to accept, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94069.a" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostVssPortGroupSecurity">
+      <AllowPromiscuousInherited>$true</AllowPromiscuousInherited>
+      <Description>&lt;VulnDiscussion&gt;When promiscuous mode is enabled for a virtual switch all virtual machines connected to the Portgroup have the potential of reading all packets across that network, meaning only the virtual machines connected to that Portgroup. Promiscuous mode is disabled by default on the ESXi Server, and this is the recommended setting. Promiscous mode can be set at the vSwitch and/or the Portgroup level. You can override switch level settings at the Portgroup level.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <ForgedTransmitsInherited />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <MacChangesInherited />
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client go to Configure &gt;&gt; Networking &gt;&gt; Virtual Switches. View the properties on each virtual switch and port group and verify "Promiscuous Mode" is set to reject.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following commands:
+
+Get-VirtualSwitch | Get-SecurityPolicy
+Get-VirtualPortGroup | Get-SecurityPolicy
+
+If the "Promiscuous Mode" policy is set to accept, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94073" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostVssPortGroupSecurity">
+      <AllowPromiscuousInherited />
+      <Description>&lt;VulnDiscussion&gt;ESXi does not use the concept of native VLAN. Frames with VLAN specified in the port group will have a tag, but frames with VLAN not specified in the port group are not tagged and therefore will end up as belonging to native VLAN of the physical switch. For example, frames on VLAN 1 from a Cisco physical switch will be untagged, because this is considered as the native VLAN. However, frames from ESXi specified as VLAN 1 will be tagged with a "1"; therefore, traffic from ESXi that is destined for the native VLAN will not be correctly routed (because it is tagged with a "1" instead of being untagged), and traffic from the physical switch coming from the native VLAN will not be visible (because it is not tagged). If the ESXi virtual switch port group uses the native VLAN ID, traffic from those VMs will not be visible to the native VLAN on the switch, because the switch is expecting untagged traffic.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <ForgedTransmitsInherited />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <MacChangesInherited />
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; Networking &gt;&gt; Virtual switches. For each virtual switch, review the port group VLAN tags and verify they are not set to the native VLAN ID of the attached physical switch.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VirtualPortGroup | Select Name, VLanId
+
+If any port group is configured with the native VLAN of the ESXi hosts attached physical switch, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94075" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostVssPortGroupSecurity">
+      <AllowPromiscuousInherited />
+      <Description>&lt;VulnDiscussion&gt;When a port group is set to VLAN 4095, this activates VGT mode. In this mode, the vSwitch passes all network frames to the guest VM without modifying the VLAN tags, leaving it up to the guest to deal with them. VLAN 4095 should be used only if the guest has been specifically configured to manage VLAN tags itself. If VGT is enabled inappropriately, it might cause denial-of-service or allow a guest VM to interact with traffic on an unauthorized VLAN.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <ForgedTransmitsInherited />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <MacChangesInherited />
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; Networking &gt;&gt; Virtual switches. For each virtual switch, review the port group VLAN tags and verify they are not set to 4095.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VirtualPortGroup | Select Name, VLanID
+
+If any port group is configured with VLAN 4095 and is not documented as a needed exception, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94077" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostVssPortGroupSecurity">
+      <AllowPromiscuousInherited />
+      <Description>&lt;VulnDiscussion&gt;Certain physical switches reserve certain VLAN IDs for internal purposes and often disallow traffic configured to these values. For example, Cisco Catalyst switches typically reserve VLANs 1001–1024 and 4094, while Nexus switches typically reserve 3968–4047 and 4094. Check with the documentation for your specific switch. Using a reserved VLAN might result in a denial of service on the network.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <ForgedTransmitsInherited />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <MacChangesInherited />
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; Networking &gt;&gt; Virtual switches. For each virtual switch, review the port group VLAN tags and verify they are not set to a reserved VLAN ID.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VirtualPortGroup | Select Name, VLanId
+
+If any port group is configured with a reserved VLAN ID, this is a finding.</RawString>
+    </Rule>
+  </VspherePortGroupSecurityRule>
+  <VsphereServiceRule dscresourcemodule="Vmware.vSphereDSC">
+    <Rule id="V-94017" severity="medium" conversionstatus="pass" title="SRG-OS-000095-VMM-000480" dscresource="VMHostService">
+      <Description>&lt;VulnDiscussion&gt;The ESXi Shell is an interactive command line interface (CLI) available at the ESXi server console. The ESXi shell provides temporary access to commands essential for server maintenance. Intended primarily for use in break-fix scenarios, the ESXi shell is well suited for checking and modifying configuration details, not always generally accessible, using the vSphere Client. The ESXi shell is accessible remotely using SSH by users with the Administrator role. Under normal operating conditions, SSH access to the host must be disabled as is the default.  As with the ESXi shell, SSH is also intended only for temporary use during break-fix scenarios. SSH must therefore be disabled under normal operating conditions and must only be enabled for diagnostics or troubleshooting. Remote access to the host must therefore be limited to the vSphere Client at all other times.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>TSM-SSH</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <Policy>off</Policy>
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Security Profile. Under Services select Edit and view the "SSH" service and verify it is stopped.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-VMHostService | Where {$_.Label -eq "SSH"}
+
+If the ESXi SSH service is running, this is a finding.</RawString>
+      <Running>False</Running>
+    </Rule>
+    <Rule id="V-94019" severity="medium" conversionstatus="pass" title="SRG-OS-000095-VMM-000480" dscresource="VMHostService">
+      <Description>&lt;VulnDiscussion&gt;The ESXi Shell is an interactive command line environment available locally from the DCUI or remotely via SSH. Activities performed from the ESXi Shell bypass vCenter RBAC and audit controls. The ESXi shell should only be turned on when needed to troubleshoot/resolve problems that cannot be fixed through the vSphere client.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>TSM</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <Policy>off</Policy>
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Security Profile.  Under Services select Edit and view the "ESXi Shell" service and verify it is stopped.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-VMHostService | Where {$_.Label -eq "ESXi Shell"}
+
+If the ESXi Shell service is running, this is a finding.</RawString>
+      <Running>False</Running>
+    </Rule>
+    <Rule id="V-94039.a" severity="medium" conversionstatus="pass" title="SRG-OS-000355-VMM-001330" dscresource="VMHostService">
+      <Description>&lt;VulnDiscussion&gt;To assure the accuracy of the system clock, it must be synchronized with an authoritative time source within DoD. Many system functions, including time-based login and activity restrictions, automated reports, system logs, and audit records depend on an accurate system clock. If there is no confidence in the correctness of the system clock, time-based functions may not operate as intended and records may be of diminished value.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>ntpd</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <Policy>Automatic</Policy>
+      <RawString>From the vSphere Web Client select the ESXi Host and go to Configure &gt;&gt; System &gt;&gt; Time Configuration. Click Edit to verify the configured NTP servers and service startup policy.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHost | Get-VMHostNTPServer
+Get-VMHost | Get-VMHostService | Where {$_.Label -eq "NTP Daemon"}
+
+If the NTP service is not configured with authoritative DoD time sources and the service is not configured to start and stop with the host and is running, this is a finding.</RawString>
+      <Running>True</Running>
+    </Rule>
+  </VsphereServiceRule>
+  <VsphereSnmpAgentRule dscresourcemodule="Vmware.vSphereDSC">
+    <Rule id="V-94053" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostSnmpAgent">
+      <Description>&lt;VulnDiscussion&gt;If SNMP is not being used, it must remain disabled. If it is being used, the proper trap destination must be configured. If SNMP is not properly configured, monitoring information can be sent to a malicious host that can then use this information to plan an attack.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Enabled>$false</Enabled>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From a PowerCLI command prompt while connected to the ESXi host run the following command:
+
+Get-VMHostSnmp | Select *
+
+or
+
+From a console or ssh session run the follow command:
+
+esxcli system snmp get
+
+If SNMP is not in use and is enabled, this is a finding.
+
+If SNMP is enabled and read only communities is set to public, this is a finding.
+
+If SNMP is enabled and is not using v3 targets, this is a finding.
+
+Note: SNMP v3 targets can only be viewed and configured from the esxcli command.</RawString>
+    </Rule>
+  </VsphereSnmpAgentRule>
+  <VsphereVssSecurityRule dscresourcemodule="Vmware.vSphereDSC">
+    <Rule id="V-94065.b" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostVssSecurity">
+      <AllowPromiscuous />
+      <Description>&lt;VulnDiscussion&gt;If the virtual machine operating system changes the MAC address, the operating system can send frames with an impersonated source MAC address at any time. This allows an operating system to stage malicious attacks on the devices in a network by impersonating a network adaptor authorized by the receiving network. 
+ 
+This means the virtual switch does not compare the source and effective MAC addresses. 
+ 
+To protect against MAC address impersonation, all virtual switches should have forged transmissions set to Reject. Reject Forged Transmit can be set at the vSwitch and/or the Portgroup level. You can override switch level settings at the Portgroup level.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <ForgedTransmits>$false</ForgedTransmits>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <MacChanges />
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client go to Configure &gt;&gt; Networking &gt;&gt; Virtual Switches. View the properties on each virtual switch and port group and verify "Forged Transmits" is set to reject.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following commands:
+
+Get-VirtualSwitch | Get-SecurityPolicy
+Get-VirtualPortGroup | Get-SecurityPolicy
+
+If the "Forged Transmits" policy is set to accept, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94067.b" severity="high" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostVssSecurity">
+      <AllowPromiscuous />
+      <Description>&lt;VulnDiscussion&gt;If the virtual machine operating system changes the MAC address, it can send frames with an impersonated source MAC address at any time. This allows it to stage malicious attacks on the devices in a network by impersonating a network adaptor authorized by the receiving network. This will prevent VMs from changing their effective MAC address. It will affect applications that require this functionality. This will also affect how a layer 2 bridge will operate. This will also affect applications that require a specific MAC address for licensing. Reject MAC Changes can be set at the vSwitch and/or the Portgroup level. You can override switch level settings at the Portgroup level.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <ForgedTransmits />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <MacChanges>$false</MacChanges>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client go to Configure &gt;&gt; Networking &gt;&gt; Virtual Switches. View the properties on each virtual switch and port group and verify "MAC Address Changes" is set to reject.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following commands:
+
+Get-VirtualSwitch | Get-SecurityPolicy
+Get-VirtualPortGroup | Get-SecurityPolicy
+
+If the "MAC Address Changes" policy is set to accept, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-94069.b" severity="medium" conversionstatus="pass" title="SRG-OS-000480-VMM-002000" dscresource="VMHostVssSecurity">
+      <AllowPromiscuous>$false</AllowPromiscuous>
+      <Description>&lt;VulnDiscussion&gt;When promiscuous mode is enabled for a virtual switch all virtual machines connected to the Portgroup have the potential of reading all packets across that network, meaning only the virtual machines connected to that Portgroup. Promiscuous mode is disabled by default on the ESXi Server, and this is the recommended setting. Promiscous mode can be set at the vSwitch and/or the Portgroup level. You can override switch level settings at the Portgroup level.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <ForgedTransmits />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <MacChanges />
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the vSphere Web Client go to Configure &gt;&gt; Networking &gt;&gt; Virtual Switches. View the properties on each virtual switch and port group and verify "Promiscuous Mode" is set to reject.
+
+or
+
+From a PowerCLI command prompt while connected to the ESXi host run the following commands:
+
+Get-VirtualSwitch | Get-SecurityPolicy
+Get-VirtualPortGroup | Get-SecurityPolicy
+
+If the "Promiscuous Mode" policy is set to accept, this is a finding.</RawString>
+    </Rule>
+  </VsphereVssSecurityRule>
+</DISASTIG>

@@ -1,0 +1,165 @@
+﻿TOPIC
+    PowerShell Access Control Module
+
+SHORT DESCRIPTION
+    Module for managing security descriptors in PowerShell.
+
+LONG DESCRIPTION
+    The PowerShell Access Control Module is a module written for Windows 
+    PowerShell version 2.0 and higher. It can be used as a supplement or 
+    a full replacement to the native Get-Acl and Set-Acl cmdlets.
+
+
+SUPPLEMENT TO NATIVE CMDLETS
+----------------------------
+    Modifying security descriptors for objects that Get-Acl supports generally 
+    follows this pattern:
+
+    1. Call Get-Acl to get the security descriptor:
+
+       PS> $Acl = Get-Acl C:\temp
+
+    2. View the Access and/or Audit properties to view currentl ACLs:
+
+       PS> $Acl.Access
+
+    3. Use .NET object constructors to build an access control entry (the 
+       object type varies depending on the object being secured:
+
+       PS> $Ace = New-Object System.Security.AccessControl.FileSystemAccessRule (
+               "Everyone",
+               "Modify",
+               "ContainerInherit, ObjectInherit",
+               "None",
+               "Allow"
+           )
+
+    4. Use .NET methods on the security descriptor object to add/remove/modify 
+       access control lists (either discretionary or system ACLs) with the ACE 
+       created in step 2:
+
+       PS> $Acl.AddAccessRule($Ace)
+
+    5. Call Set-Acl to commit the changes (or call SetAccessControl() .NET 
+       method):
+
+       PS> $Acl | Set-Acl
+        # or
+       PS> [System.IO.File]::SetAccessControl($Acl.Path, $Acl)
+
+
+    When used as a supplement to the native cmdlets, the PowerShell Access 
+    Control module can be used to simplify or completely remove step 3 above. 
+    Using the New-AccessControlEntry function, step #3 above can become the 
+    following:
+
+    PS> $Ace = New-AccessControlEntry -Principal Everyone -FolderRights Modify
+
+
+    See the help for the New-AccessControlEntry to see how to set other 
+    properties of the ACE, such as the type and what it applies to.
+
+    Instead of using the AddAccessRule() .NET method in step #4, the 
+    Add-AccessConrolEntry can be used:
+    
+    PS> $Acl | Add-AccessControlEntry -AceObject $Ace
+
+
+    Instead of doing that, steps #3 and #4 can actually be combined:
+    
+    PS> $Acl | Add-AccessControlEnry -Principal Everyone -FolderRights Modify
+
+
+    That single line will take care of steps #3 and #4 above. See the help for 
+    the Add-AccessControlEntry and Remove-AccessControlEntry for more 
+    information about modifying access control lists.
+
+    The Get-AccessControlEntry function can be used to replace step #2:
+    
+    PS> $Acl | Get-AccessControlEntry
+
+
+    See the help for that function to see other options, including how to 
+    filter ACEs that are displayed.
+
+    The module can also be used to change access and audit rule protection with 
+    the Enable-AclInheritance and Disable-AclInheritance functions.
+
+
+REPLACEMENT FOR NATIVE CMDLETS
+------------------------------
+    The PowerShell Access Control module has two functions that replace Get-Acl
+    and Set-Acl: Get-SecurityDescriptor and Set-SecurityDescriptor. Please see 
+    the help sections for each function for more information about them.
+
+    The Get/Modify/Set pattern mentioned above can still be used with the 
+    module. Look at the following example, where the 'Everyone' group is given 
+    modify rights over the 'c:\temp' folder (except it can't delete the folder 
+    itself):
+
+    PS> $SD = Get-SecurityDescriptor c:\temp
+    PS> $SD | Add-AccessControlEntry -Principal Everyone -FolderRights Modify
+    PS> $SD | Remove-AccessControlEntry -Principal Everyon -FolderRights Delete -AppliesTo Object
+    PS> $SD | Set-SecurityDescriptor
+
+
+    The first and last steps can actually be skipped, though. Each of the SD 
+    modification functions will attempt to call Get-SecurityDescriptor on any 
+    non-SD object, e.g., a path string, a service object, a printer object, an 
+    AD object, etc. If a non-SD object is provided, the SD modification 
+    functions will attempt to call Set-SecurityDescriptor (the function behaves
+    as if the -Apply switch was passed). If in the previous example we just 
+    wanted to call the Add-AccessControlEntry function, the following would add 
+    the ACE in one step:
+
+    PS> Add-AccessControlentry -Path c:\temp -Principal Everyone -FolderRights Modify
+
+    Note that you will be prompted before saving the security descriptor unless 
+    the -Force switch is provided. Also, the following two commands will do the 
+    same thing:
+
+    PS> "c:\temp" | Add-AccessControlentry -Principal Everyone -FolderRights Modify
+    PS> Get-Item c:\temp | Add-AccessControlentry -Principal Everyone -FolderRights Modify
+
+
+    To make more than one change to the security descriptor, multiple functions 
+    can be chained together by using the -PassThru switch. The -PassThru switch 
+    makes the functions output the security descriptor (normally there is no 
+    output). So the previous Get-SecurityDescriptor/Set-SecurityDescriptor 
+    example could be taken care of with the following one-line command:
+
+    PS> Get-Item c:\temp | 
+        Add-AccessControlentry -Principal Everyone -FolderRights Modify -PassThru | 
+        Remove-AccessControlEntry -Principal Everyon -FolderRights Delete -AppliesTo Object -Apply
+
+    Note that the -Apply switch was provided to the last function call. Since 
+    that function received a security descriptor as input, -Apply was not the 
+    default action.
+
+    For more information, please see the help topics for each of the security 
+    descriptor modification functions.
+
+
+DESIRED STATE CONFIGURATION
+---------------------------
+Please see the about_PowerShellAccessControl_DscResources help topic.
+
+
+SEE ALSO
+    about_PowerShellAccessControl_DscResources
+    Add-AccessControlEntry
+    ConvertTo-Win32SecurityDescriptor
+    Disable-AclInheritance
+    Enable-AclInheritance
+    Get-AccessControlEntry
+    Get-ADObjectAceGuid
+    Get-EffectiveAccess
+    Get-MandatoryIntegrityLabel
+    Get-SecurityDescriptor
+    Get-Win32SecurityDescriptor
+    New-AccessControlEntry
+    New-AdaptedSecurityDescriptor
+    Remove-AccessControlEntry
+    Repair-AclCanonicalOrder
+    Set-Owner
+    Set-SecurityDescriptor

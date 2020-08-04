@@ -1,0 +1,1173 @@
+<DISASTIG version="1" classification="UNCLASSIFIED" customname="" stigid="Microsoft_Outlook_2016" description="The Microsoft Outlook 2016 Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems.  Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil." filename="U_Microsoft_Outlook_2016_STIG_V1R2_Manual-xccdf.xml" releaseinfo="Release: 2 Benchmark Date: 28 Jul 2017" title="Microsoft Outlook 2016 Security Technical Implementation Guide" notice="terms-of-use" source="STIG.DOD.MIL" fullversion="1.2" created="9/6/2019">
+  <RegistryRule dscresourcemodule="PSDscResources">
+    <Rule id="V-71109" severity="medium" conversionstatus="pass" title="SRG-APP-000210" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The Uniform Resource Locator (URL) standard allows user authentication to be included in URL strings in the form http://username:password@example.com. A malicious user might use this URL syntax to create a hyperlink that appears to open a legitimate website but actually opens a deceptive (spoofed) website. For example, the URL http://www.wingtiptoys.com@example.com appears to open http://www.wingtiptoys.com but actually opens http://example.com. To protect users from such attacks, Internet Explorer usually blocks any URLs using this syntax.
+
+This functionality can be controlled separately for instances of Internet Explorer spawned by Office applications (for example, if a user clicks a link in an Office document or selects a menu option that loads a website). If user names and passwords in URLs are allowed, users could be diverted to dangerous Web pages, which could pose a security risk.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_HTTP_USERNAME_PASSWORD_DISABLE</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2016 (Machine) -&gt; Security Settings -&gt; IE Security "Disable user name and password" is set to "Enabled" and 'outlook.exe' is checked.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+HKLM\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_HTTP_USERNAME_PASSWORD_DISABLE
+
+Criteria: If the value outlook.exe is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>outlook.exe</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71111" severity="medium" conversionstatus="pass" title="SRG-APP-000112" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Internet Explorer performs a number of safety checks before initializing an ActiveX control. It will not initialize a control if the kill bit for the control is set in the registry, or if the security settings for the zone in which the control is located do not allow it to be initialized.
+This functionality can be controlled separately for instances of Internet Explorer spawned by Office applications (for example, if a user clicks a link in an Office document or selects a menu option that loads a web page). A security risk could occur if potentially dangerous controls are allowed to load.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_SAFE_BINDTOOBJECT</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2016 (Machine) -&gt; Security Settings -&gt; IE Security "Bind to Object" is set to "Enabled" and 'outlook.exe' is checked.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_SAFE_BINDTOOBJECT
+
+Criteria: If the value outlook.exe is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>outlook.exe</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71113" severity="medium" conversionstatus="pass" title="SRG-APP-000210" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Typically, when Internet Explorer loads a web page from a Universal Naming Convention (UNC) share that contains a Mark of the Web (MOTW) comment, indicating the page was saved from a site on the Internet, Internet Explorer runs the page in the Internet security zone instead of the less restrictive Local Intranet security zone. This functionality can be controlled separately for instances of Internet Explorer spawned by Office applications (for example, if a user clicks a link in an Office document or selects a menu option that loads a web page). If Internet Explorer does not evaluate the page for a MOTW, potentially dangerous code could be allowed to run.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_UNC_SAVEDFILECHECK</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2016 (Machine) -&gt; Security Settings -&gt; IE Security "Saved from URL" is set to "Enabled" and 'outlook.exe' is checked.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_UNC_SAVEDFILECHECK
+
+Criteria: If the value outlook.exe is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>outlook.exe</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71115" severity="medium" conversionstatus="pass" title="SRG-APP-000210" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;To protect users from attacks, Internet Explorer usually does not attempt to load malformed URLs. This functionality can be controlled separately for instances of Internet Explorer spawned by Office applications (for example, if a user clicks a link in an Office document or selects a menu option that loads a web page). If Internet Explorer attempts to load a malformed URL, a security risk could occur.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_VALIDATE_NAVIGATE_URL</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2016 (Machine) -&gt; Security Settings -&gt; IE Security "Navigate URL" is set to "Enabled" and 'outlook.exe' is checked.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_VALIDATE_NAVIGATE_URL
+
+Criteria: If the value outlook.exe is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>outlook.exe</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71117" severity="medium" conversionstatus="pass" title="SRG-APP-000112" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Malicious websites often try to confuse or trick users into giving a site permission to perform an action allowing the site to take control of the users' computers in some manner. Disabling or not configuring this setting allows unknown websites to:
+-Create browser windows appearing to be from the local operating system.
+-Draw active windows displaying outside of the viewable areas of the screen capturing keyboard input.
+-Overlay parent windows with their own browser windows to hide important system information, choices or prompts.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_WINDOW_RESTRICTIONS</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2016 (Machine) -&gt; Security Settings -&gt; IE Security "Scripted Window Security Restrictions" is set to "Enabled" and 'outlook.exe' is checked.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_WINDOW_RESTRICTIONS
+
+Criteria: If the value outlook.exe is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>outlook.exe</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71119" severity="medium" conversionstatus="pass" title="SRG-APP-000207" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Internet Explorer add-ons are pieces of code, run in Internet Explorer, to provide additional functionality. Rogue add-ons may contain viruses or other malicious code. Disabling or not configuring this setting could allow malicious code or users to become active on user computers or the network. For example, a malicious user can monitor and then use keystrokes users type into Internet Explorer. Even legitimate add-ons may demand resources, compromising the performance of Internet Explorer, and the operating systems for user computers.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_ADDON_MANAGEMENT</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2016 (Machine) -&gt; Security Settings -&gt; IE Security "Add-on Management" is set to "Enabled" and 'outlook.exe' is checked.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_ADDON_MANAGEMENT
+
+Criteria: If the value outlook.exe is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>outlook.exe</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71121" severity="medium" conversionstatus="pass" title="SRG-APP-000207" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The Pop-up Blocker feature in Internet Explorer can be used to block most unwanted pop-up and pop-under windows from appearing. This functionality can be controlled separately for instances of Internet Explorer spawned by Office applications (for example, if a user clicks a link in an Office document or selects a menu option that loads a web page). If the Pop-up Blocker is disabled, disruptive and potentially dangerous pop-up windows could load and present a security risk.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_WEBOC_POPUPMANAGEMENT</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2016 (Machine) -&gt; Security Settings -&gt; IE Security "Block popups" is set to "Enabled" and 'outlook.exe' is checked.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_WEBOC_POPUPMANAGEMENT
+
+Criteria: If the value outlook.exe is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>outlook.exe</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71123" severity="medium" conversionstatus="pass" title="SRG-APP-000209" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Disabling this setting allows websites to present file download prompts via code without the user specifically initiating the download. User preferences may also allow the download to occur without prompting or interaction with the user. Even if Internet Explorer prompts the user to accept the download, some websites abuse this functionality. Malicious websites may continually prompt users to download a file or present confusing dialog boxes to trick users into downloading or running a file. If the download occurs and it contains malicious code, the code could become active on user computers or the network.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_RESTRICT_FILEDOWNLOAD</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2016 (Machine) -&gt; Security Settings -&gt; IE Security "Restrict File Download" is set to "Enabled" and 'outlook.exe' is checked.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_RESTRICT_FILEDOWNLOAD
+
+Criteria: If the value of outlook.exe is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>outlook.exe</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71125" severity="medium" conversionstatus="pass" title="SRG-APP-000112" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Internet Explorer places restrictions on each web page users can use the browser to open. Web pages on a user's local computer have the fewest security restrictions and reside in the Local Machine zone, making this security zone a prime target for malicious users and code. Disabling or not configuring this setting could allow pages in the Internet zone to navigate to pages in the Local Machine zone to then run code to elevate privileges. This could allow malicious code or users to become active on user computers or the network.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_ZONE_ELEVATION</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2016 (Machine) -&gt; Security Settings -&gt; IE Security "Protection From Zone Elevation" is set to "Enabled" and 'outlook.exe' is checked.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_ZONE_ELEVATION
+
+Criteria: If the value outlook.exe is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>outlook.exe</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71127" severity="medium" conversionstatus="pass" title="SRG-APP-000488" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Microsoft ActiveX controls allow unmanaged, unprotected code to run on the user computers. ActiveX controls do not run within a protected container in the browser like the other types of HTML or Microsoft Silverlight-based controls. Disabling or not configuring this setting does not block prompts for ActiveX control installations, and these prompts display to users. This could allow malicious code to become active on user computers or the network.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_RESTRICT_ACTIVEXINSTALL</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2016 (Machine) -&gt; Security Settings -&gt; IE Security "Restrict ActiveX Install" is set to "Enabled" and 'outlook.exe' is checked.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_RESTRICT_ACTIVEXINSTALL
+
+Criteria: If the value outlook.exe is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>outlook.exe</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71129" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook users can publish their calendars to the Office.com Calendar Sharing Service. If you enable this policy setting, Outlook users cannot publish their calendars to Office.com. If you disable do not configure this policy setting, Outlook users can share their calendars with selected others by publishing them to the Microsoft Outlook Calendar Sharing Service. Users can control who can view their calendar and at what level of detail.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\pubcal</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Outlook Options -&gt; Preferences -&gt; Calendar Options -&gt; Office.com Sharing Service "Prevent publishing to Office.com" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\pubcal
+
+Criteria: If the value DisableOfficeOnline is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>DisableOfficeOnline</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71131" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook users can publish their calendars to a DAV server. If you enable this policy setting, Outlook users cannot publish their calendars to a DAV server. If you disable or do not configure this policy setting, Outlook users can share their calendars with others by publishing them to a server that supports the World Wide Web Distributed Authoring and Versioning (WebDAV) protocol.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\pubcal</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Outlook Options -&gt; Preferences -&gt; Calendar Options -&gt; Office.com Sharing Service "Prevent publishing to a DAV server" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\pubcal
+
+Criteria: If the value DisableDav is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>DisableDav</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71133" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls the level of calendar details that Outlook users can publish to the Microsoft Outlook Calendar Sharing Service. If you enable this policy setting, you can choose from three levels of detail: * All options are available - This level of detail is the default configuration. * Disables 'Full details' * Disables 'Full details' and 'Limited details'. If you disable or do not configure this policy setting, Outlook users can share their calendars with selected others by publishing them to the Microsoft Outlook Calendar Sharing Service. Users can choose from three levels of detail: * Availability only - Authorized visitors will see the user's time marked as Free, Busy, Tentative, or Out of Office, but will not be able to see the subjects or details of calendar items. * Limited details - Authorized visitors can see the user's availability and the subjects of calendar items only. They will not be able to view the details of calendar items. Optionally, users can allow visitors to see the existence of private items. * Full details - Authorized visitors can see the full details of calendar items. Optionally, users can allow visitors to see the existence of private items.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\pubcal</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Outlook Options -&gt; Preferences -&gt; Calendar Options -&gt; Office.com Sharing Service "Restrict level of calendar details users can publish" is set to "Enabled (Disables 'Full details' and 'Limited details')".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\pubcal
+
+Criteria: If the value PublishCalendarDetailsPolicy is REG_DWORD = 4000 (hex) or 16384 (Decimal), this is not a finding.</RawString>
+      <ValueData>16384</ValueData>
+      <ValueName>PublishCalendarDetailsPolicy</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71135" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting determines what restrictions apply to users who publish their calendars on Office.com or third-party World Wide Web Distributed Authoring and Versioning (WebDAV) servers. If you enable or disable this policy setting, calendars that are published on Office.com must have restricted access (users other than the calendar owner/publisher who wish to view the calendar can only do so if they receive invitations from the calendar owner), and users cannot publish their calendars to third-party DAV servers. If you do not configure this policy setting, users can share their calendars with others by publishing them to the Office.com Calendar Sharing Services and to a server that supports the World Wide Web Distributed Authoring and Versioning (WebDAV) protocol. Office.com allows users to choose whether to restrict access to their calendars to people they invite, or allow unrestricted access to anyone who knows the URL to reach the calendar. DAV access restrictions can only be achieved through server and folder permissions, and might require the assistance of a server administrator to set up and maintain.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\pubcal</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Outlook Options -&gt; Preferences -&gt; Calendar Options -&gt; Office.com Sharing Service "Access to published calendars" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\pubcal
+
+Criteria: If the value RestrictedAccessOnly is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>RestrictedAccessOnly</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71145" severity="medium" conversionstatus="pass" title="SRG-APP-000210" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook executes scripts associated with custom forms or folder home pages for shared folders. If you enable this policy setting, Outlook cannot execute any scripts associated with shared folders, overriding any configuration changes on users' computers. If you disable this policy setting, Outlook will automatically run any scripts associated with custom forms or folder home pages for shared folders. If you do not configure this policy setting, the behavior is the equivalent of setting the policy to Enabled.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Outlook Options -&gt; Other -&gt; Advanced "Do not allow Outlook object model scripts to run for shared folders" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value SharedFolderScript is REG_DWORD = 0, this is not a finding.
+</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>SharedFolderScript</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71147" severity="medium" conversionstatus="pass" title="SRG-APP-000210" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook executes scripts that are associated with custom forms or folder home pages for public folders. If you enable this policy setting, Outlook cannot execute any scripts associated with public folders, overriding any configuration changes on users' computers. If you disable this policy setting, Outlook will automatically run any scripts associated with custom forms or folder home pages for public folders, overriding any configuration changes on users' computers. If you do not configure this policy setting,  Outlook will not run any scripts associated with public folders by default. Users can configure the setting in the Trust Center by selecting the ôAllow script in public foldersö check box.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Outlook Options -&gt; Other -&gt; Advanced "Do not allow Outlook object model scripts to run for public folders" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value PublicFolderScript is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>PublicFolderScript</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71149" severity="medium" conversionstatus="pass" title="SRG-APP-000210" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;By default, third-party ActiveX controls are not allowed to run in one-off forms in Outlook. You can change this behavior so that Safe Controls (Microsoft Forms 2.0 controls and the Outlook Recipient and Body controls) are allowed in one-off forms, or so that all ActiveX controls are allowed to run.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security "Allow Active X One Off Forms" is set to "Enabled: Load only Outlook Controls".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value AllowActiveXOneOffForms is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>AllowActiveXOneOffForms</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71151" severity="medium" conversionstatus="pass" title="SRG-APP-000210" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;All installed trusted COM addins can be trusted.  Exchange Settings for the addins still override if present and this option is selected.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security "Configure Add-In Trust Level" is set to "Enabled (Trust all loaded and installed COM addins)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value AddinTrust is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>AddinTrust</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71153" severity="medium" conversionstatus="pass" title="SRG-APP-000400" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Use this option to hide your user's ability to cache passwords locally in the computer's registry. When configured, this policy will hide the 'Remember Password' checkbox and not allow users to have Outlook remember their password. Note that POP3, IMAP, and HTTP e-mail accounts are all considered Internet e-mail accounts in Outlook. E-mail account options are listed on the Server Type dialog box when users choose 'New' under Tools | Account Settings.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security "Disable 'Remember password' for Internet e-mail accounts" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value EnableRememberPwd is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>EnableRememberPwd</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71155" severity="medium" conversionstatus="pass" title="SRG-APP-000210" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting prevents users from overriding the set of attachments blocked by Outlook. If you enable this policy setting users will be prevented from overriding the set of attachments blocked by Outlook.  Outlook also checks the "Level1Remove" registry key when this setting is specified. If you disable or do not configure this policy setting, users will be allowed to override the set of attachments blocked by Outlook.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security "Prevent users from customizing attachment security settings" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook
+
+Criteria: If the value DisallowAttachmentCustomization is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>DisallowAttachmentCustomization</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71157" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls which set of security settings are enforced in Outlook. If you enable this policy setting, you can choose from four options for enforcing Outlook security settings: * Outlook Default Security - This option is the default configuration in Outlook. Users can configure security themselves, and Outlook ignores any security-related settings configured in Group Policy. * Use Security Form from 'Outlook Security Settings' Public Folder - Outlook uses the settings from the security form published in the designated public folder. * Use Security Form from 'Outlook 10 Security Settings' Public Folder - Outlook uses the settings from the security form published in the designated public folder. * Use Outlook Security Group Policy - Outlook uses security settings from Group Policy. Important -  You must enable this policy setting if you want to apply the other Outlook security policy settings mentioned in this guide. If you disable or do not configure this policy setting, Outlook users can configure security for themselves, and Outlook ignores any security-related settings that are configured in Group Policy. Note -  In previous versions of Outlook, when security settings were published in a form in Exchange Server public folders, users who needed these settings required the HKEY_CURRENT_USER\Software\Policies\Microsoft\Security\CheckAdminSettings registry key to be set on their computers for the settings to apply. In Outlook, the CheckAdminSettings registry key is no longer used to determine users' security settings. Instead, the Outlook Security Mode setting can be used to determine whether Outlook security should be controlled directly by Group Policy, by the security form from the Outlook Security Settings Public Folder, or by the settings on users' own computers.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings "Outlook Security Mode" is set to "Enabled (Use Outlook Security Group Policy)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value AdminSecurityMode is REG_DWORD = 3, this is not a finding.</RawString>
+      <ValueData>3</ValueData>
+      <ValueName>AdminSecurityMode</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71159" severity="medium" conversionstatus="pass" title="SRG-APP-000207" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook blocks potentially dangerous attachments designated Level 1. Outlook uses two levels of security to restrict users' access to files attached to e-mail messages or other items. Files with specific extensions can be categorized as Level 1 (users cannot view the file) or Level 2 (users can open the file after saving it to disk). Users can freely open files of types that are not categorized as Level 1 or Level 2.  If you enable this policy setting, Outlook users can gain access to Level 1 file type attachments by first saving the attachments to disk and then opening them, as with Level 2 attachments. If you disable this policy setting, Level 1 attachments do not display under any circumstances. If you do not configure this policy setting, Outlook completely blocks access to Level 1 files, and requires users to save Level 2 files to disk before opening them.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Attachment Security "Display Level 1 attachments" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value ShowLevel1Attach is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>ShowLevel1Attach</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71161" severity="medium" conversionstatus="pass" title="SRG-APP-000207" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls which types of attachments (determined by file extension) Outlook prevents from being delivered. Outlook uses two levels of security to restrict users' access to files attached to e-mail messages or other items. Files with specific extensions can be categorized as Level 1 (users cannot view the file) or Level 2 (users can open the file after saving it to disk). Users can freely open files of types that are not categorized as Level 1 or Level 2. If you enable this policy setting, you can specify the removal of file type extensions as that Outlook classifies as Level 1--that is, to be blocked from delivery--by entering them in the text field provided separated by semicolons. If you disable or do not configure this policy setting, Outlook classifies a number of potentially harmful file types (such as those with .exe, .reg, and .vbs extensions) as Level 1 and blocks files with those extensions from being delivered. Important: This policy setting only applies if the "Outlook Security Mode" policy setting under "Microsoft Outlook 2016\Security\Security Form Settings" is configured to "Use Outlook Security Group Policy."&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Absent</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Attachment Security "Remove file extensions blocked as Level 1" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security\FileExtensionsRemoveLevel1
+
+Criteria: If the registry key exists, this is a finding.</RawString>
+      <ValueData>
+      </ValueData>
+      <ValueName>FileExtensionsRemoveLevel1</ValueName>
+      <ValueType>None</ValueType>
+    </Rule>
+    <Rule id="V-71163" severity="medium" conversionstatus="pass" title="SRG-APP-000207" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls which types of attachments (determined by file extension) must be saved to disk before users can open them.  Files with specific extensions can be categorized as Level 1 (users cannot view the file) or Level 2 (users can open the file after saving it to disk). Users can freely open files of types that are not categorized as Level 1 or Level 2. If you enable this policy setting, you can specify a list of attachment file types to classify as Level 2, which forces users to actively decide to download the attachment to view it. If you disable or do not configure this policy setting, Outlook does not classify any file type extensions as Level 2. Important: This policy setting only applies if the "Outlook Security Mode" policy setting under "Microsoft Outlook 2016\Security\Security Form Settings" is configured to "Use Outlook Security Group Policy."&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Absent</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Attachment Security "Remove file extensions blocked as Level 2" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security\FileExtensionsRemoveLevel2
+
+Criteria: If the registry key exists, this is a finding.</RawString>
+      <ValueData>
+      </ValueData>
+      <ValueName>FileExtensionsRemoveLevel2</ValueName>
+      <ValueType>None</ValueType>
+    </Rule>
+    <Rule id="V-71165" severity="medium" conversionstatus="pass" title="SRG-APP-000210" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether scripts can run in Outlook forms in which the script and layout are contained within the message. If you enable this policy setting, scripts can run in one-off Outlook forms. If you disable or do not configure this policy setting, Outlook does not run scripts in forms in which the script and the layout are contained within the message. Important: This policy setting only applies if the "Outlook Security Mode" policy setting under "Microsoft Outlook 2016\Security\Security Form Settings" is configured to "Use Outlook Security Group Policy."
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Custom Form Security "Allow scripts in one-off Outlook forms" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value EnableOneOffFormScripts is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>EnableOneOffFormScripts</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71167" severity="medium" conversionstatus="pass" title="SRG-APP-000488" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook prompts users before executing a custom action. Custom actions add functionality to Outlook that can be triggered as part of a rule. Among other possible features, custom actions can be created that reply to messages in ways that circumvent the Outlook model's programmatic send protections. If you enable this policy setting, you can choose from four options to control how Outlook functions when a custom action is executed that uses the Outlook object model: * Prompt User * Automatically Approve * Automatically Deny * Prompt user based on computer security. This option enforces the default configuration in Outlook. If you disable or do not configure this policy setting, when Outlook or another program initiates a custom action using the Outlook object model, users are prompted to allow or reject the action. If this configuration is changed, malicious code can use the Outlook object model to compromise sensitive information or otherwise cause data and computing resources to be at risk. This is the equivalent of choosing Enabled -- Prompt user based on computer security.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Custom Form Security "Set Outlook object model Custom Actions execution prompt" is set to "Enabled (Automatically Deny)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value PromptOOMCustomAction is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>PromptOOMCustomAction</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71169" severity="medium" conversionstatus="pass" title="SRG-APP-000488" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls what happens when an untrusted program attempts to send e-mail programmatically using the Outlook object model. If you enable this policy setting, you can choose from four different options when an untrusted program attempts to send e-mail programmatically using the Outlook object model: - Prompt user - The user will be prompted to approve every access attempt.- Automatically approve - Outlook will automatically grant programmatic access requests from any program. This option can create a significant vulnerability, and is not recommended. - Automatically deny - Outlook will automatically deny programmatic access requests from any program. - Prompt user based on computer security. Outlook will only prompt users when antivirus software is out of date or not running. Important: This policy setting only applies if the 'Outlook Security Mode' policy setting under 'Microsoft Outlook 2016\Security\Security Form Settings' is configured to 'Use Outlook Security Group Policy'.  If you disable or do not configure this policy setting, when an untrusted application attempts to send mail programmatically, Outlook relies on the setting configured in the 'Programmatic Access' section of the Trust Center. &lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Programmatic Security "Configure Outlook object model prompt when sending mail" is set to "Enabled (Automatically Deny)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value PromptOOMSend is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>PromptOOMSend</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71171" severity="medium" conversionstatus="pass" title="SRG-APP-000488" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls what happens when an untrusted program attempts to gain access to an Address Book using the Outlook object model. If you enable this policy setting, you can choose from four different options when an untrusted program attempts to programmatically access an Address Book using the Outlook object model:- Prompt user - Users are prompted to approve every access attempt. - Automatically approve - Outlook will automatically grant programmatic access requests from any program. This option can create a significant vulnerability, and is not recommended. - Automatically deny - Outlook will automatically deny programmatic access requests from any program.- Prompt user based on computer security - Outlook will rely on the setting in the 'Programmatic Access' section of the Trust Center. This is the default behavior. If you disable or do not configure this policy setting, when an untrusted application attempts to access the address book programmatically, Outlook relies on the setting configured in the 'Programmatic Access' section of the Trust Center.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Programmatic Security "Configure Outlook object model prompt when accessing an address book" is set to "Enabled (Automatically Deny)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value PromptOOMAddressBookAccess is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>PromptOOMAddressBookAccess</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71173" severity="medium" conversionstatus="pass" title="SRG-APP-000488" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls what happens when an untrusted program attempts to gain access to a recipient field, such as the 'To:' field, using the Outlook object model. If you enable this policy setting,  you can choose from four different options when an untrusted program attempts to access a recipient field using the Outlook object model:- Prompt user. The user will be prompted to approve every access attempt.- Automatically approve. Outlook will automatically grant programmatic access requests from any program. This option can create a significant vulnerability, and is not recommended.- Automatically deny. Outlook will automatically deny programmatic access requests from any program.- Prompt user based on computer security. Outlook will only prompt users when antivirus software is out of date or not running. This is the default configuration. If you disable or do not configure this policy setting, when an untrusted application attempts to access recipient fields, Outlook relies on the setting configured in the 'Programmatic Access' section of the Trust Center.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Programmatic Security "Configure Outlook object model prompt when reading address information" is set to "Enabled (Automatically Deny)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value PromptOOMAddressInformationAccess is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>PromptOOMAddressInformationAccess</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71175" severity="medium" conversionstatus="pass" title="SRG-APP-000488" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls what happens when an untrusted program attempts to programmatically send e-mail in Outlook using the Response method of a task or meeting request. If you enable this policy setting, you can choose from four different options when an untrusted program attempts to programmatically send e-mail using the Response method of a task or meeting request:- Prompt user. The user will be prompted to approve every access attempt.- Automatically approve. Outlook will automatically grant programmatic access requests from any program. This option can create a significant vulnerability, and is not recommended.- Automatically deny. Outlook will automatically deny programmatic access requests from any program. - Prompt user based on computer security. Outlook only prompts users when antivirus software is out of date or not running. This is the default configuration. If you disable or do not configure this policy setting, when an untrusted application attempts to respond to tasks or meeting requests programmatically, Outlook relies on the setting configured in the 'Programmatic Access' section of the Trust Center.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Programmatic Security "Configure Outlook object model prompt when responding to meeting and task requests" is set to "Enabled (Automatically Deny)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value PromptOOMMeetingTaskRequestResponse is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>PromptOOMMeetingTaskRequestResponse</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71177" severity="medium" conversionstatus="pass" title="SRG-APP-000488" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls what happens when an untrusted program attempts to use the Save As command to programmatically save an item. If you enable this policy setting, you can choose from four different options when an untrusted program attempts to use the Save As command to programmatically save an item:- Prompt user. The user will be prompted to approve every access attempt. - Automatically approve. Outlook will automatically grant programmatic access requests from any program. This option can create a significant vulnerability, and is not recommended. - Automatically deny. Outlook will automatically deny programmatic access requests from any program.- Prompt user based on computer security. Outlook will only prompt users when antivirus software is out of date or not running. This is the default configuration. If you disable or do not configure this policy setting, when an untrusted application attempts to use the Save As command, Outlook relies on the setting configured in the 'Programmatic Access' section of the Trust Center.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Programmatic Security "Configure Outlook object model prompt when executing Save As" is set to "Enabled (Automatically Deny)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value PromptOOMSaveAs is REG_DWORD = 0, this is not a finding.
+</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>PromptOOMSaveAs</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71179" severity="medium" conversionstatus="pass" title="SRG-APP-000488" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls what happens when a user designs a custom form in Outlook and attempts to bind an Address Information field to a combination or formula custom field. If you enable this policy setting, you can choose from four different options when an untrusted program attempts to access address information using the UserProperties. Find method of the Outlook object model: - Prompt user. The user will be prompted to approve every access attempt. - Automatically approve. Outlook will automatically grant programmatic access requests from any program. This option can create a significant vulnerability, and is not recommended. - Automatically deny. Outlook will automatically deny programmatic access requests from any program. - Prompt user based on computer security. Outlook will only prompt users when antivirus software is out of date or not running. If you disable or do not configure this policy setting, when a user tries to bind an address information field to a combination or formula custom field in a custom form, Outlook relies on the setting configured in the 'Programmatic Access' section of the Trust Center.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Programmatic Security "Configure Outlook object model prompt When accessing the Formula property of a UserProperty object" is set to "Enabled (Automatically Deny)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value PromptOOMFormulaAccess is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>PromptOOMFormulaAccess</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71193" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting can be used to specify a list of trusted add-ins that can be run without being restricted by the security measures in Outlook. If you enable this policy setting, a list of trusted add-ins and hashes is made available that you can modify by adding and removing entries. The list is empty by default. To create a new entry, enter a DLL file name in the 'Value Name' column and the hash result in the 'Value' column. If you disable or do not configure this policy setting, the list of trusted add-ins is empty and unused, so the recommended EC and SSLF settings do not create any usability issues. However, users who rely on add-ins that access the Outlook object model might be repeatedly prompted unless administrators enable this setting and add the add-ins to the list.Note - You can also configure Exchange Security Form settings by enabling the 'Outlook Security Mode' setting in User Configuration\Administrative Templates\Microsoft Outlook 2016\Security\Security Form Settings\Microsoft Outlook 2016 Security and selecting 'Use Outlook Security Group Policy' from the drop-down list.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\Outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Security Form Settings -&gt; Programmatic Security -&gt; Trusted Add-ins "Configure trusted add-ins" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\Outlook\security
+
+Criteria: If the value trustedaddins does not exist, this is not a finding. If the value trustedaddins exists, but with no entries, this is not a finding.
+If the value trustedaddins exists, with entries, this is a finding.
+
+In some reported configurations, the value remains after disabling the setting but the value is empty.
+
+</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>trustedaddins</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71195" severity="medium" conversionstatus="pass" title="SRG-APP-000179" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook decodes encrypted messages itself or passes them to an external program for processing. If you enable this policy setting, you can choose from three options for configuring external S/MIME clients:- Handle internally. Outlook decrypts all S/MIME messages itself.- Handle externally. Outlook hands all S/MIME messages off to the configured external program.- Handle if possible. Outlook attempts to decrypt all S/MIME messages itself. If it cannot decrypt a message, Outlook hands the message off to the configured external program. This option is the default configuration. If you disable or do not configure this policy setting, the behavior is the equivalent of selecting Enabled: Handle if possible.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Cryptography "S/MIME interoperability with external clients" is set to "Enabled (Handle internally)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value ExternalSMime is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>ExternalSMime</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71227" severity="medium" conversionstatus="pass" title="SRG-APP-000179" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls which message encryption formats Outlook can use. Outlook supports three formats for encrypting and signing messages: S/MIME, Exchange, and Fortezza. If you enable this policy setting, you can specify whether Outlook can use S/MIME (the default), Exchange, or Fortezza encryption, or any combination of any of these options. Users will not be able to change this configuration. If you disable or do not configure this policy setting, Outlook only uses S/MIME to encrypt and sign messages. If you disable this policy setting, users will not be able to change this configuration.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Cryptography "Message Formats" is set to "Enabled (S\MIME)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value MsgFormats is REG_DWORD = 1, this is not a finding.
+</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>MsgFormats</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71229" severity="medium" conversionstatus="pass" title="SRG-APP-000179" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook is required to use FIPS-compliant algorithms when signing and encrypting messages.  Outlook can run in a mode that complies with Federal Information Processing Standards (FIPS), a set of standards published by the National Institute of Standards and Technology (NIST) for use by non-military United States government agencies and by government contractors. If you enable this policy setting, Outlook runs in a mode that complies with the FIPS 140-1 standard for cryptographic modules. This mode requires the use of the SHA-1 algorithm for signing and 3DES for encryption. If you disable or do not configure this policy setting, Outlook does not run in FIPS-compliant mode. Organizations that do business with the United States government but do not run Outlook in FIPS-compliant mode risk violating the U.S. government's rules regarding the handling of sensitive information.For more information about FIPS, see FIPS - General Information at http://www.itl.nist.gov/fipspubs/geninfo.htm
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Cryptography "Run in FIPS compliant mode" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value FIPSMode is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>FIPSMode</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71231" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook sends signed messages as clear text signed messages. If you enable this policy setting, the "Send clear text signed message when sending signed messages" option is selected in the E-mail Security section of the Trust Center. If you disable or do not configure this policy setting, when users sign e-mail messages with their digital signature and send them, Outlook uses the signature's private key to encrypt the digital signature but sends the messages as clear text, unless they are encrypted separately.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Cryptography "Send all signed messages as clear signed messages" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value ClearSign is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>ClearSign</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71233" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls how Outlook handles S/MIME receipt requests. If you enable this policy setting, you can choose from four options for handling S/MIME receipt requests in Outlook:- Open message if receipt can't be sent- Don't open message if receipt can't be sent- Always prompt before sending receipt- Never send S/MIME receipts. If you disable or do not configure this policy setting, when users open messages with attached receipt requests, Outlook prompts them to decide whether to send a receipt to the sender with information about the identity of the user who opened the message and the time it was opened. If Outlook cannot send the receipt, the user is still allowed to open the message.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Cryptography "S/MIME receipt requests behavior" is set to "Enabled (Never send S\MIME receipts)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value RespondToReceiptRequests is REG_DWORD = 2, this is not a finding.</RawString>
+      <ValueData>2</ValueData>
+      <ValueName>RespondToReceiptRequests</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71235" severity="medium" conversionstatus="pass" title="SRG-APP-000175" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls how Outlook retrieves Certificate Revocation Lists to verify the validity of certificates.Certificate revocation lists (CRLs) are lists of digital certificates that have been revoked by their controlling certificate authorities (CAs), typically because the certificates were issued improperly or their associated private keys were compromised. If you enable this policy setting, you can choose from three options to govern how Outlook uses CRLs: - Use system Default. Outlook relies on the CRL download schedule that is configured for the operating system. - When online always retrieve the CRL. This option is the default configuration in Outlook. - Never retrieve the CRL. Outlook will not attempt to download the CRL for a certificate, even if it is online. This option can reduce security. If you disable or do not configure this policy setting, when Outlook handles a certificate that includes a URL from which a CRL can be downloaded, Outlook will retrieve the CRL from the provided URL if Outlook is online.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Cryptography -&gt; Signature Status dialog box "Retrieving CRLs (Certificate Revocation Lists)" is set to "Enabled (When online always retrieve the CRL)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value UseCRLChasing is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>UseCRLChasing</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71237" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting setting controls whether Outlook downloads untrusted pictures and external content located in HTML e-mail messages without users explicitly choosing to download them. If you enable this policy setting, Outlook will not automatically download content from external servers unless the sender is included in the Safe Senders list. Recipients can choose to download external content from untrusted senders on a message-by-message basis. If you disable this policy setting, Outlook will display pictures and external content in HTML e-mail automatically.If you do not configure this policy setting, Outlook does not download external content in HTML e-mail and RSS items unless the content is considered safe. Content that Outlook can be configured to consider safe includes: - Content in e-mail messages from senders and to recipients defined in the Safe Senders and Safe Recipients lists. - Content from Web sites in Internet Explorer's Trusted Sites security zone. - Content in RSS items. - Content from SharePoint Discussion Boards. Users can control what content is considered safe by changing the options in the "Automatic Download" section of the Trust Center. If Outlook's default blocking configuration is overridden, in the Trust Center or by some other method, Outlook will display external content in all HTML e-mail messages, including any that include Web beacons.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\mail</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Outlook 2016 &gt;&gt; Security &gt;&gt; Automatic Picture Download Settings "Display pictures and external content in HTML e-mail" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\mail
+
+Criteria: If the value BlockExtContent is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>BlockExtContent</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71239" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook automatically downloads external content in e-mail from senders in the Safe Senders List or Safe Recipients List. If you enable this policy setting, Outlook automatically downloads content for e-mail from people in Safe Senders and Safe Recipients lists. If you disable this policy setting, Outlook will not automatically download content from external servers for messages sent by people listed in users' Safe Senders Lists or Safe Recipients Lists. Recipients can choose to download external content on a message-by-message basis. If you do not configure this policy setting, downloads are permitted when users receive e-mail from people listed in the user's Safe Senders List or Safe Recipients List.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\mail</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Automatic Picture Download Settings "Automatically download content for e-mail from people in Safe Senders and Safe Recipients Lists" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\mail
+
+Criteria: If the value UnblockSpecificSenders is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>UnblockSpecificSenders</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71241" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook automatically downloads content from safe zones when displaying messages. If you enable this policy setting content from safe zones will be downloaded automatically. If you disable this policy Outlook will not automatically download content from safe zones. Recipients can choose to download external content from untrusted senders on a message-by-message basis. If you do not configure this policy setting, Outlook automatically downloads content from sites that are considered "safe," as defined in the Security tab of the Internet Options dialog box in Internet Explorer. Important - Note that this policy setting is "backward." Despite the name, disabling the policy setting prevents the download of content from safe zones and enabling the policy setting allows it.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\mail</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Automatic Picture Download Settings "Do not permit download of content from safe zones" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\mail
+
+Criteria: If the value UnblockSafeZone is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>UnblockSafeZone</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71243" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether pictures from sites in the Trusted Sites security zone are automatically downloaded in Outlook e-mail messages and other items. If you enable this policy setting, Outlook does not automatically download content from Web sites in the Trusted sites zone in Internet Explorer. Recipients can choose to download external content on a message-by-message basis. If you disable or do not configure this policy setting, Outlook automatically downloads content from Web sites in the Trusted sites zone in Internet Explorer.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\mail</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Automatic Picture Download Settings "Block Trusted Zones" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\mail
+
+Criteria: If the value TrustedZone is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>TrustedZone</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71245" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether pictures and external content in HTML e-mail messages from untrusted senders on the Internet are downloaded without Outlook users explicitly choosing to do so. If you enable this policy setting, Outlook will automatically download external content in all e-mail messages sent over the Internet and users will not be able to change the setting. If you disable or do not configure this policy setting, Outlook does not consider the Internet a safe zone, which means that Outlook will not automatically download content from external servers unless the sender is included in the Safe Senders list. Recipients can choose to download external content from untrusted senders on a message-by-message basis.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\mail</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Automatic Picture Download Settings "Include Internet in Safe Zones for Automatic Picture Download" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\mail
+
+Criteria: If the value Internet is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>Internet</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71247" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether pictures and external content in HTML e-mail messages from untrusted senders on the local intranet are downloaded without Outlook users explictly choosing to do so. If you enable this policy setting, Outlook will automatically download external content in all e-mail messages sent over the local intranet and users will not be able to change the setting. If you disable or do not configure this policy setting, Outlook does not consider the local intranet a safe zone, which means that Outlook will not automatically download content from other servers in the Local Intranet zone unless the sender is included in the Safe Senders list. Recipients can choose to download external content from untrusted senders on a message-by-message basis.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\mail</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Automatic Picture Download Settings "Include Intranet in Safe Zones for Automatic Picture Download" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\mail
+
+Criteria: If the value Intranet is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>Intranet</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71249" severity="medium" conversionstatus="pass" title="SRG-APP-000207" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls the security level for macros in Outlook. If you enable this policy setting, you can choose from four options for handling macros in Outlook: - Always warn. This option corresponds to the "Warnings for all macros" option in the "Macro Security" section of the Outlook Trust Center. Outlook disables all macros that are not opened from a trusted location, even if the macros are signed by a trusted publisher. For each disabled macro, Outlook displays a security alert dialog box with information about the macro and its digital signature (if present), and allows users to enable the macro or leave it disabled. - Never warn, disable all. This option corresponds to the "No warnings and disable all macros" option in the Trust Center. Outlook disables all macros that are not opened from trusted locations, and does not notify users. - Warning for signed, disable unsigned. This option corresponds to the "Warnings for signed macros; all unsigned macros are disabled" option in the Trust Center. Outlook handles macros as follows: --If a macro is digitally signed by a trusted publisher, the macro can run if the user has already trusted the publisher. --If a macro has a valid signature from a publisher that the user has not trusted, the security alert dialog box for the macro lets the user choose whether to enable the macro for the current session, disable the macro for the current session, or to add the publisher to the Trusted Publishers list so that it will run without prompting the user in the future. --If a macro does not have a valid signature, Outlook disables it without prompting the user, unless it is opened from a trusted location. This option is the default configuration in Outlook. - No security check. This option corresponds to the "No security check for macros (Not recommended)" option in the Trust Center. Outlook runs all macros without prompting users. This configuration makes users' computers vulnerable to potentially malicious code and is not recommended. If you disable or do not configure this policy setting, the behavior is the equivalent of Enabled -- Warning for signed, disable unsigned.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Trust Center "Security setting for macros" is set to "Enabled (Warn for signed, disable unsigned)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value Level is REG_DWORD = 3, this is not a finding.</RawString>
+      <ValueData>3</ValueData>
+      <ValueName>Level</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71251" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether hyperlinks in suspected phishing e-mail messages in Outlook are allowed. If you enable this policy setting, Outlook will allow hyperlinks in suspected phishing messages that are not also classified as junk e-mail. If you disable or do not configure this policy setting, Outlook will not allow hyperlinks in suspected phishing messages, even if they are not classified as junk e-mail.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\mail</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Trust Center "Allow hyperlinks in suspected phishing e-mail messages" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\mail
+
+Criteria: If the value JunkMailEnableLinks is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>JunkMailEnableLinks</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71253" severity="medium" conversionstatus="pass" title="SRG-APP-000395" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook uses remote procedure call (RPC) encryption to communicate with Microsoft Exchange servers. If you enable this policy setting, Outlook uses RPC encryption when communicating with an Exchange server. Note - RPC encryption only encrypts the data from the Outlook client computer to the Exchange server. It does not encrypt the messages themselves as they traverse the Internet. If you disable or do not configure this policy setting, RPC encryption is still used by default.  This setting allows you to override the corresponding per-profile setting.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\rpc</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Account Settings -&gt; Exchange "Enable RPC encryption" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\rpc
+
+Criteria: If the value EnableRPCEncryption is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>EnableRPCEncryption</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71255" severity="medium" conversionstatus="pass" title="SRG-APP-000395" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls which authentication method Outlook uses to authenticate with Microsoft Exchange Server. Note - Exchange Server supports the Kerberos authentication protocol and NTLM for authentication. The Kerberos protocol is the more secure authentication method and is supported on Windows 2000 Server and later versions. NTLM authentication is supported in pre-Windows 2000 environments. If you enable this policy setting, you can choose from three different options for controlling how Outlook authenticates with Microsoft Exchange Server:- Kerberos/NTLM password authentication. Outlook attempts to authenticate using the Kerberos authentication protocol. If this attempt fails, Outlook attempts to authenticate using NTLM. This option is the default configuration.- Kerberos password authentication. Outlook attempts to authenticate using the Kerberos protocol only.- NTLM password authentication. Outlook attempts to authenticate using NTLM only. If you disable or do not configure this policy setting, Outlook will attempt to authenticate using the Kerberos authentication protocol. If it cannot (because no Windows 2000 or later domain controllers are available), it will authenticate using NTLM.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Account Settings -&gt; Exchange "Authentication with Exchange Server" is set to "Enabled (Kerberos Password Authentication)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value AuthenticationService is REG_DWORD = 16 (decimal) or 10 (hex), this is not a finding.</RawString>
+      <ValueData>16</ValueData>
+      <ValueName>AuthenticationService</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71259" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook automatically makes an offline copy of the RSS items as HTML attachments. If you enable this policy setting, Outlook automatically makes an offline copy of RSS items as HTML attachments. If you disable or do not configure this policy setting, Outlook will not automatically make an offline copy of RSS items as HTML attachments.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\rss</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Account Settings -&gt; RSS Feeds "Download full text of articles as HTML attachments" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\rss
+
+Criteria: If the value EnableFullTextHTML is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>EnableFullTextHTML</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71261" severity="medium" conversionstatus="pass" title="SRG-APP-000209" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook downloads files attached to Internet Calendar appointments. If you enable this policy setting, Outlook automatically downloads all Internet Calendar appointment attachments. If you disable or do not configure this policy setting, Outlook does not download attachments when retrieving Internet Calendar appointments.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\webcal</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Account Settings -&gt; Internet Calendars "Automatically download attachments" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\webcal
+
+Criteria: If the value EnableAttachments is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>EnableAttachments</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71263" severity="medium" conversionstatus="pass" title="SRG-APP-000141" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting allows you to determine whether or not you want to include Internet Calendar integration in Outlook. The Internet Calendar feature in Outlook enables users to publish calendars online (using the webcal:// protocol) and subscribe to calendars that others have published. When users subscribe to an Internet calendar, Outlook queries the calendar at regular intervals and downloads any changes as they are posted. If you enable this policy setting, all Internet calendar functionality in Outlook is disabled. If you disable or do not configure this policy setting, Outlook allows users to subscribe to Internet calendars.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\webcal</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Account Settings -&gt; Internet Calendars "Do not include Internet Calendar integration in Outlook" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\webcal
+
+Criteria: If the value Disable is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>Disable</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71265" severity="medium" conversionstatus="pass" title="SRG-APP-000141" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook users can add entries to the list of SharePoint servers when establishing a meeting workspace. If you enable this policy setting, you can choose between two options to determine whether Outlook users can add entries to the published server list: - Publish default, allow others. This option is the default configuration in Outlook. - Publish default, disallow others. This option prevents users from adding servers to the default published server list. If you disable or do not configure this policy setting, when users create a meeting workspace, they can choose a server from a default list provided by administrators or manually enter the address of a server that is not listed. This is the equivalent of Enabled -- Publish default, allow others.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\meetings\profile</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Meeting Workspace "Disable user entries to server list" is set to "Enabled (Publish default, disallow others)".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\meetings\profile
+
+Criteria: If the value ServerUI is REG_DWORD = 2, this is not a finding.</RawString>
+      <ValueData>2</ValueData>
+      <ValueName>ServerUI</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71267" severity="medium" conversionstatus="pass" title="SRG-APP-000141" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting allows you to control whether Outlook automatically downloads enclosures on RSS items. If you enable this policy setting, Outlook will automatically download enclosures on RSS items. If you disable or do not configure this policy setting, enclosures on RSS items are not downloaded by default.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\options\rss</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Account Settings -&gt; RSS Feeds "Automatically download enclosures" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\options\rss
+
+Criteria: If the value EnableAttachments is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>EnableAttachments</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71271" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Check to prompt the user to choose security settings if default settings fail; uncheck to automatically select.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security "Prompt user to choose security settings if default settings fail" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value ForceDefaultProfile is REG_DWORD = 0, this is not a finding.</RawString>
+      <ValueData>0</ValueData>
+      <ValueName>ForceDefaultProfile</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71273" severity="medium" conversionstatus="pass" title="SRG-APP-000514" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting allows you to set the minimum key length for an encrypted e-mail message. If you enable this policy setting, you may set the minimum key length for an encrypted e-mail message.  Outlook will display a warning dialog if the user tries to send a message using an encryption key that is below the minimum encryption key value set. The user can still choose to ignore the warning and send using the encryption key originally chosen. If you disable or do not configure this policy setting, a dialog warning will be shown to the user if the user attempts to send a message using encryption.  The user can still choose to ignore the warning and send using the encryption key originally chosen.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Cryptography "Minimum encryption settings" is set to "Enabled: 168 bits".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value MinEncKey is REG_DWORD = a8 (hex) or 168 (decimal), this is not a finding.</RawString>
+      <ValueData>168</ValueData>
+      <ValueName>MinEncKey</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71275" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether replies and forwards to signed/encrypted mail should also be signed/encrypted. If you enable this policy setting, signing/encryption will be turned on when replying/forwarding a signed or encrypted message, even if the user is not configured for SMIME. If you disable or do not configure this policy setting, signing/encryption is not enforced.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Cryptography "Replies or forwards to signed/encrypted messages are signed/encrypted" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value NoCheckOnSessionSecurity is REG_DWORD = 1, this is not a finding.
+
+</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>NoCheckOnSessionSecurity</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-71277" severity="medium" conversionstatus="pass" title="SRG-APP-000516" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether Outlook verifies the user's e-mail address with the address associated with the certificate used for signing. If you enable this policy setting, users can send messages signed with certificates that do not match their e-mail addresses. If you disable or do not configure this policy setting, Outlook verifies that the user's e-mail address matches the certificate being used for signing.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\16.0\outlook\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration -&gt; Administrative Templates -&gt; Microsoft Outlook 2016 -&gt; Security -&gt; Cryptography "Do not check e-mail address against address of certificates being used" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKCU\Software\Policies\Microsoft\Office\16.0\outlook\security
+
+Criteria: If the value SupressNameChecks is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>SupressNameChecks</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+  </RegistryRule>
+</DISASTIG>

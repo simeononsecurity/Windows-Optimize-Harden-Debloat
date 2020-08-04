@@ -1,0 +1,993 @@
+<DISASTIG version="1" classification="UNCLASSIFIED" customname="" stigid="Microsoft_Office_System_2013" description="The Microsoft Office System 2013 STIG is published as a tool to improve the security of Department of Defense (DoD) information systems. The requirements are derived from the NIST 800-53 and related documents. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil." filename="U_MS_OfficeSystem_2013_STIG_V1R9_Manual-xccdf.xml" releaseinfo="Release: 9 Benchmark Date: 25 Oct 2019" title="Microsoft Office System 2013 STIG" notice="terms-of-use" source="STIG.DOD.MIL" fullversion="1.9" created="12/4/2019">
+  <RegistryRule dscresourcemodule="PSDscResources">
+    <Rule id="V-17547.a" severity="medium" conversionstatus="pass" title="DTOO191-ActiveX Control Initialization for Office" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;ActiveX controls can adversely affect a computer directly. In addition, malicious code can be used to compromise an ActiveX control and attack a computer. To indicate the safety of an ActiveX control, developers can denote them as Safe For Initialization (SFI). SFI indicates a control is safe to open and run, and it is not capable of causing a problem for any computer, regardless of whether it has persisted data values or not.
+If a control is not marked SFI, it is possible the control could adversely affect a computer—or it could mean the developers did not test the control in all situations and are not sure whether it might be compromised in the future.
+By default, if a control is marked SFI, the application loads the control in safe mode and uses persisted values (if any). If the control is not marked SFI, the application loads the control in unsafe mode with persisted values (if any), or uses the default (first-time initialization) settings. In both situations, the Message Bar informs users the controls have been disabled and prompts them to respond.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\Common\Security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "ActiveX Control Initialization" is set to "Disabled".
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\Common\Security
+
+If the value “UFIControls” exists, this is a finding.
+                </RawString>
+      <ValueData />
+      <ValueName>**del.uficontrols</ValueName>
+      <ValueType>String</ValueType>
+    </Rule>
+    <Rule id="V-17547.b" severity="medium" conversionstatus="pass" title="DTOO191-ActiveX Control Initialization for Office" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;ActiveX controls can adversely affect a computer directly. In addition, malicious code can be used to compromise an ActiveX control and attack a computer. To indicate the safety of an ActiveX control, developers can denote them as Safe For Initialization (SFI). SFI indicates a control is safe to open and run, and it is not capable of causing a problem for any computer, regardless of whether it has persisted data values or not.
+If a control is not marked SFI, it is possible the control could adversely affect a computer—or it could mean the developers did not test the control in all situations and are not sure whether it might be compromised in the future.
+By default, if a control is marked SFI, the application loads the control in safe mode and uses persisted values (if any). If the control is not marked SFI, the application loads the control in unsafe mode with persisted values (if any), or uses the default (first-time initialization) settings. In both situations, the Message Bar informs users the controls have been disabled and prompts them to respond.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Absent</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\Common\Security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "ActiveX Control Initialization" is set to "Disabled".
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\Common\Security
+
+If the value “UFIControls” exists, this is a finding.
+                </RawString>
+      <ValueData />
+      <ValueName>uficontrols</ValueName>
+      <ValueType>String</ValueType>
+    </Rule>
+    <Rule id="V-17560" severity="medium" conversionstatus="pass" title="DTOO196 - Mix of Policy and User Locations " dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;When Microsoft Office files are opened from trusted locations, all the content in the files is enabled and active. Users are not notified about any potential risks that might be contained in the files, such as unsigned macros, ActiveX controls, or links to content on the Internet.
+By default, users can specify any location as a trusted location, and a computer can have a combination of user-created, OCT-created, and Group Policy–created trusted locations.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\security\trusted locations</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings &gt;&gt; Trust Center "Allow mix of policy and user locations" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\security\trusted locations
+
+If the value “Allow User Locations” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>Allow User Locations</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17581" severity="medium" conversionstatus="pass" title="DTOO212 - Control Blogging " dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The blogging feature in Office products enables users to compose blog entries and post them to their blogs directly from Office, without using any additional software.
+By default, users can post blog entries to any compatible blogging service provider, including Windows Live Spaces, Blogger, a SharePoint or Community Server site, and others. Leaving this capability enabled introduces the risk of users posting confidential and FOUO date to non-DoD sites.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\Common\Blog</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Miscellaneous "Control Blogging" is set to "Enabled (Only SharePoint blogs allowed)".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\Common\Blog
+
+If the value “DisableBlog” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>DisableBlog</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17583" severity="medium" conversionstatus="pass" title="DTOO200 - Allow users to read with browsers" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The Windows Rights Management Add-on for Internet Explorer provides a way for users who do not use the 2013 Office release to view, but not alter, files with restricted permissions. By default, IRM-enabled files are saved in a format that cannot be viewed by using the Windows Rights Management Add-on. If this setting is enabled, an embedded rights-managed HTML version of the content is saved with each IRM-enabled file, which can be viewed in Internet Explorer using the add-on, representing the risk of documents being read by those without the rights and not intended to have access to the document.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\drm</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Manage Restricted Permissions "Allow users with earlier versions of Office to read with browsers" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\drm
+
+If the value “IncludeHTML” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>IncludeHTML</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17590" severity="medium" conversionstatus="pass" title="DTOO186 - Trust Bar Notifications" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The Message Bar in Office applications is used to identify security issues, such as unsigned macros or potentially unsafe add-ins. When such issues are detected, the application disables the unsafe feature or content and displays the Message Bar at the top of the active window. The Message Bar informs the users about the nature of the security issue and, in some cases, provides the users with an option to enable the potentially unsafe feature or content, which could harm the user's computer.
+By default, if an Office application detects a security issue, the Message Bar is displayed. However, this configuration can be modified by users in the Trust Center.
+&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\trustcenter</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Disable all Trust Bar notifications for security issues" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\trustcenter
+
+If the value “TrustBar” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>TrustBar</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17605" severity="medium" conversionstatus="pass" title="DTOO207 - Document Info Beaconing UI " dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether users see a security warning when they open custom Document Information Panels that contain a web beaconing threat.  Web beacons can be used to contact an external server when users open forms. Information could be gathered by the form, or information entered by users could be sent to an external server, exposing the internal users and systems to additional attacks.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\documentinformationpanel</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Document Information Panel "Document Information Panel Beaconing UI" is set to "Enabled (Always show UI)".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\documentinformationpanel
+
+If the value “Beaconing” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>Beaconing</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17612" severity="medium" conversionstatus="pass" title="DTOO184 - Cust. Experience Improvement Program" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;When users choose to participate in the Customer Experience Improvement Program (CEIP), Office applications automatically send information to Microsoft about how the applications are used. This information is combined with other CEIP data to help Microsoft solve problems and to improve the products and features customers use most often. This feature does not collect users' names, addresses, or any other identifying information except the IP address that is used to send the data.
+By default, users have the opportunity to opt into participation in the CEIP the first time they run an Office application. If an organization has policies that govern the use of external resources such as the CEIP, allowing users to opt in to the program might cause them to violate these policies.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Privacy &gt;&gt; Trust Center "Enable Customer Experience Improvement Program" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common
+
+Criteria: If the value “QMEnable” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>QMEnable</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17617" severity="medium" conversionstatus="pass" title="DTOO190 - Encr. type for Password Protected files" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;If unencrypted files are intercepted, sensitive information in the files can be compromised. To protect information confidentiality, Microsoft Office application files can be encrypted and password protected. Only users who know the correct password will be able to decrypt such files. Since some encryption types are less secure and easier to breach, Microsoft Enhanced RSA and AES Cryptographic Provider, AES-256, 256-bit should be used when encrypting documents.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Encryption type for password protected Office 97-2003 files" is set to "Enabled (Microsoft Enhanced RSA and AES Cryptographic Provider, AES 256,256)".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\security
+
+If the value “DefaultEncryption12” is REG_SZ = "Microsoft Enhanced RSA and AES Cryptographic Provider, AES 256,256", this is not a finding.
+
+                </RawString>
+      <ValueData>Microsoft Enhanced RSA and AES Cryptographic Provider AES 256 256</ValueData>
+      <ValueName>DefaultEncryption12</ValueName>
+      <ValueType>String</ValueType>
+    </Rule>
+    <Rule id="V-17619" severity="medium" conversionstatus="pass" title="DTOO189 - Encryption Type for Pwd Protected files " dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;If unencrypted files are intercepted, sensitive information in the files can be compromised. To protect information confidentiality, Microsoft Office application files can be encrypted and password protected. Only users who know the correct password will be able to decrypt such files. Since some encryption types are less secure and easier to breach, Microsoft Enhanced RSA and AES Cryptographic Provider, AES-256, 256-bit should be used when encrypting documents.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Encryption type for password protected Office Open XML files" is set to "Enabled (Microsoft Enhanced RSA and AES Cryptographic Provider, AES 256,256)".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\security
+
+If the value “OpenXMLEncryption” is REG_SZ = "Microsoft Enhanced RSA and AES Cryptographic Provider, AES 256,256", this is not a finding.
+                </RawString>
+      <ValueData>Microsoft Enhanced RSA and AES Cryptographic Provider AES 256 256</ValueData>
+      <ValueName>OpenXMLEncryption</ValueName>
+      <ValueType>String</ValueType>
+    </Rule>
+    <Rule id="V-17627" severity="medium" conversionstatus="pass" title="DTOO182 - Improve Proofing Tools " dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The "Help Improve Proofing Tools" feature collects data about use of the Proofing Tools, such as additions to the custom dictionary, and sends it to Microsoft. After about six months, the feature stops sending data to Microsoft and deletes the data collection file from the user's computer. Although this feature does not intentionally collect personal information, some of the content sent could include items that were marked as spelling or grammar errors, such as proper names and account numbers. However, any numbers such as account numbers, street addresses, and phone numbers are converted to zeroes when the data is collected. Microsoft uses this information solely to improve the effectiveness of the Office Proofing Tools, not to identify users.
+By default, this feature is enabled, if users choose to participate in the Customer Experience Improvement Program (CEIP). If an organization has policies that govern the use of external resources such as the CEIP, allowing the use of the "Help Improve Proofing Tools" feature might cause them to violate these policies.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\ptwatson</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Tools &gt;&gt; Options &gt;&gt; Spelling &gt;&gt; Proofing Data Collection "Improve Proofing Tools" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following. HKCU\Software\Policies\Microsoft\Office\15.0\common\ptwatson
+
+If the value “PTWOptIn” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>PTWOptIn</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17659" severity="medium" conversionstatus="pass" title="DTOO194 - Hyperlink warnings for Office" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Unsafe hyperlinks are links that might pose a security risk if users click them. Clicking an unsafe link could compromise the security of sensitive information or harm the computer.
+Links that Office considers unsafe include links to executable files, TIFF files, and Microsoft Document Imaging (MDI) files. Other unsafe links are those using protocols considered to be unsafe, including msn, nntp, mms, outlook, and stssync.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Suppress hyperlink warnings" is set to "Disabled".
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\security
+
+Criteria: If the value “DisableHyperLinkWarning” is REG_DWORD = 0, this is not a finding.
+
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>DisableHyperLinkWarning</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17660" severity="medium" conversionstatus="pass" title="DTOO206 - Incl. Doc. properties for PDF and XPS" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;If the Microsoft Save as PDF or XPS Add-in for Microsoft Office Programs is installed, document properties are saved as metadata when users save or publish files using the PDF or XPS commands in Access 2013, Excel 2013, InfoPath 2013, PowerPoint 2013, and Word 2013 using the PDF or XPS or Publish. If this metadata contains sensitive information, saving it with the file could compromise security.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\fixedformat</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Microsoft Save As PDF and XPS add-ins "Disable inclusion of document properties in PDF and XPS output" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\fixedformat
+
+If the value “DisableFixedFormatDocProperties” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>DisableFixedFormatDocProperties</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17661" severity="medium" conversionstatus="pass" title="DTOO198 - Internet Fax Feature" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Excel, PowerPoint, and Word users can use the Internet Fax feature to send documents to fax recipients through an Internet fax service provider. If your organization has policies that govern the time, place, or manner in which faxes are sent, this feature could help users evade those policies.
+By default, Office users can use the Internet Fax feature. &lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\services\fax</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Services &gt;&gt; Fax "Disable Internet Fax feature" to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\services\fax
+
+If the value “NoFax” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>NoFax</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17664" severity="medium" conversionstatus="pass" title="DTOO183 - Opt-In Wizard on first run use" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The Opt-in Wizard displays the first time users run a 2013 Microsoft Office application, which allows them to opt into Internet-based services that will help improve their Office experience, such as Microsoft Update, the Customer Experience Improvement Program, Office Diagnostics, and Online Help. If an organization has policies that govern the use of such external resources, allowing users to opt in to these services might cause them to violate the policies.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\general</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Privacy &gt;&gt; Trust Center "Disable Opt-in Wizard on first run" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\general
+
+If the value “ShownFirstRunOptin” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>ShownFirstRunOptin</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17665" severity="medium" conversionstatus="pass" title="DTOO195 - Disable Password to Open UI" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;If 2013 Office users add passwords to documents, other users can be prevented from opening the documents. This capability can provide an extra level of protection to documents already protected by access control lists, or provide a means of securing documents not protected by file-level security.
+By default, users can add passwords to Excel 2013 workbooks, PowerPoint 2013 presentations, and Word 2013 documents from the Save or Save As dialog box by clicking Tools, clicking General Options, and entering appropriate passwords to open or modify the documents. If this configuration is changed, the General Options dialog box for saving with a password will not be available for the user to password-protect their documents.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Disable password to open UI" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following key:
+HKCU\Software\Policies\Microsoft\Office\15.0\common\security
+
+If the value “DisablePasswordUI” is REG_DWORD = 0, this is not a finding.
+
+Fix Text: Set the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Disable password to open UI" to "Disabled".
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>DisablePasswordUI</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17669" severity="medium" conversionstatus="pass" title="DTOO197 - Document Manifests" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;An XML expansion pack is the group of files that constitutes a Smart Document in Excel and Word. One or more components that provide the logic needed for a Smart Document are packaged by using an XML expansion pack. These components can include any type of file, including XML schemas, Extensible Stylesheet Language Transforms (XSLTs), dynamic-link libraries (DLLs), and image files, as well as additional XML files, HTML files, Word files, Excel files, and text files.
+The key component to building an XML expansion pack is creating an XML expansion pack manifest file. By creating this file, the locations of all files that make up the XML expansion pack are specified, as well as information that instructs Office 2013 how to set up the files for the Smart Document. The XML expansion pack can also contain information about how to set up other files, such as how to install and register a COM object required by the XML expansion pack.
+XML expansion packs can be used to initialize and load malicious code, which might affect the stability of a computer and lead to data loss. Office applications can load an XML expansion pack manifest file with a Smart Document.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\Common\Smart Tag</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Smart Documents (Word, Excel) "Disable Smart Document's use of manifests" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\Common\Smart Tag
+
+If the value “NeverLoadManifests” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>NeverLoadManifests</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17670" severity="medium" conversionstatus="pass" title="DTOO208 - Office client polling from Office Server" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Users of Office applications can see and use links to Microsoft Office SharePoint Server sites from those applications. Administrators configure published links to Office applications during initial deployment, and can add or change links as part of regular operations. These links appear on the My SharePoint Sites tab of the Open, Save, and Save As dialog boxes when opening and saving documents from these applications. Links can be targeted so that they only appear to users who are members of particular audiences.
+If a malicious person gains access to the list of published links, they could modify the links to point to unapproved sites, which could make sensitive data vulnerable to exposure.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\portal</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Server Settings "Disable the Office client from polling the SharePoint Server for published links" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\portal
+
+If the value “LinkPublishingDisabled” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>LinkPublishingDisabled</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17731" severity="medium" conversionstatus="pass" title="DTOO201 - Connection permissions verification" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Users are not required to connect to the network to verify permissions. If users do not need their licenses confirmed when attempting to open Office documents, they might be able to access documents after their licenses have been revoked. Also, it is not possible to log the usage of files with restricted permissions if users' licenses are not confirmed.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\drm</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Manage Restricted Permissions "Always require users to connect to verify permission" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\drm
+
+Criteria: If the value “RequireConnection” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>RequireConnection</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17740" severity="medium" conversionstatus="pass" title="DTOO185 - Do not receive Automatic small updates " dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Having access to updates, add-ins, and patches on the Office Online website can help users ensure computers are up to date and equipped with the latest security patches. However, to ensure updates are tested and applied in a consistent manner, many organizations prefer to roll out updates using a centralized mechanism such as Microsoft Systems Center or Windows Server Update Services.
+By default, users are allowed to download updates, add-ins, and patches from the Office Online Web site to keep their Office applications running smoothly and securely. If an organization has policies that govern the use of external resources such as Office Online, allowing users to download updates might cause them to violate these policies.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Privacy &gt;&gt; Trust Center "Automatically receive small updates to improve reliability" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common
+
+If the value “UpdateReliabilityData” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>UpdateReliabilityData</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17741" severity="medium" conversionstatus="pass" title="DTOO193 - Automation Security" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;When a separate program is used to launch Microsoft Office Excel, PowerPoint, or Word programmatically, any macros can run in the programmatically opened application without being blocked. This functionality could allow an attacker to use automation to run malicious code in Excel, PowerPoint, or Word.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\Common\Security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Automation Security" is set to "Enabled (Use application macro security level)".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\Common\Security
+
+If the value “AutomationSecurity” is REG_DWORD = 2 for all user profile hives, this is not a finding.
+                </RawString>
+      <ValueData>2</ValueData>
+      <ValueName>AutomationSecurity</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17749" severity="medium" conversionstatus="pass" title="DTOO203 - Legacy Format signatures " dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Office applications use the XML-based XMLDSIG format to attach digital signatures to documents, including Office 97-2003 binary documents. XMLDSIG signatures are not recognized by Office 2003 applications or previous versions. If an Office user opens an Excel, PowerPoint, or Word binary document with an XMLDSIG signature attached, the signature will be lost.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\signatures</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Signing "Legacy format signatures" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\signatures
+
+If the value “EnableCreationOfWeakXPSignatures” is REG_DWORD = 1, this is not a finding.
+
+Fix Text: Set the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Signing "Legacy format signatures" to "Enabled".
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>EnableCreationOfWeakXPSignatures</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17750.a" severity="medium" conversionstatus="pass" title="DTOO192 - Load controls for forms3 " dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;ActiveX controls are Component Object Model (COM) objects and have unrestricted access to users' computers. ActiveX controls can access the local file system and change the registry settings of the operating system. If a malicious user repurposes an ActiveX control to take over a user's computer, the effect could be significant.
+To help improve security, ActiveX developers can mark controls as Safe For Initialization (SFI), which means that the developer states that the controls are safe to open and run and not capable of causing harm to any computers. If a control is not marked SFI, the control could adversely affect a computer--or it could mean the developers did not test the control in all situations and are not sure whether their control might be compromised at some future date.
+SFI controls run in safe mode, which limits their access to the computer. For example, a worksheet control can both read and write files when it is in unsafe mode, but perhaps only read from files when it is in safe mode. This functionality allows the control to be used in very powerful ways when safety is not important, but the control would still be safe for use in a Web page.
+If a control is not marked as SFI, it is marked Unsafe For Initialization (UFI), which means that it is capable of affecting a user's computer. If UFI ActiveX controls are loaded, they are always loaded in unsafe mode.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\VBA\Security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Load Controls in Forms3" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\keycupoliciesmsvbasecurity
+
+If the value “LoadControlsInForms” exists, this is a finding.
+                </RawString>
+      <ValueData />
+      <ValueName>**del.loadcontrolsinforms</ValueName>
+      <ValueType>String</ValueType>
+    </Rule>
+    <Rule id="V-17750.b" severity="medium" conversionstatus="pass" title="DTOO192 - Load controls for forms3 " dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;ActiveX controls are Component Object Model (COM) objects and have unrestricted access to users' computers. ActiveX controls can access the local file system and change the registry settings of the operating system. If a malicious user repurposes an ActiveX control to take over a user's computer, the effect could be significant.
+To help improve security, ActiveX developers can mark controls as Safe For Initialization (SFI), which means that the developer states that the controls are safe to open and run and not capable of causing harm to any computers. If a control is not marked SFI, the control could adversely affect a computer--or it could mean the developers did not test the control in all situations and are not sure whether their control might be compromised at some future date.
+SFI controls run in safe mode, which limits their access to the computer. For example, a worksheet control can both read and write files when it is in unsafe mode, but perhaps only read from files when it is in safe mode. This functionality allows the control to be used in very powerful ways when safety is not important, but the control would still be safe for use in a Web page.
+If a control is not marked as SFI, it is marked Unsafe For Initialization (UFI), which means that it is capable of affecting a user's computer. If UFI ActiveX controls are loaded, they are always loaded in unsafe mode.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Absent</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\VBA\Security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Load Controls in Forms3" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\keycupoliciesmsvbasecurity
+
+If the value “LoadControlsInForms” exists, this is a finding.
+                </RawString>
+      <ValueData />
+      <ValueName>loadcontrolsinforms</ValueName>
+      <ValueType>String</ValueType>
+    </Rule>
+    <Rule id="V-17759" severity="medium" conversionstatus="pass" title="DTOO179 - Open as Read/Write when browsing" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;By default, when an Office 2013 document on a web server is opened using Internet Explorer, the appropriate application opens the file in read-only mode. However, if the default configuration is changed, the document is opened as read/write. Users could potentially make changes to documents and resave them in situations where the web server security is not configured to prevent such changes.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\internet</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Tools | Options | General | Web Options... &gt;&gt; Files "Open Office documents as read/write while browsing" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\internet
+
+If the value “OpenDocumentsReadWriteWhileBrowsing” for REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>OpenDocumentsReadWriteWhileBrowsing</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17765" severity="medium" conversionstatus="pass" title="DTOO199 - Permissions on managed content" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This setting controls whether Office 2013 users can change permissions for content that is protected with Information Rights Management (IRM). The Information Rights Management feature of Office 2013 allows individuals and administrators to specify access permissions to Word documents, Excel workbooks, PowerPoint presentations, InfoPath templates and forms, and Outlook email messages. This functionality helps prevent sensitive information from being printed, forwarded, or copied by unauthorized people.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\drm</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Manage Restricted Permissions "Prevent users from changing permissions on rights managed content" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\drm
+
+Criteria: If the value “DisableCreation” is REG_DWORD = 0 for every users profile hive, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>DisableCreation</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17768" severity="medium" conversionstatus="pass" title="DTOO188 - Protect document metadata " dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;When an Office Open XML document is protected with a password and saved, any metadata associated with the document is encrypted along with the rest of the document's contents. If this configuration is changed, potentially sensitive information such as the document author and hyperlink references could be exposed to unauthorized people. &lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Protect document metadata for password protected files" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\security
+
+If the value “OpenXMLEncryptProperty” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>OpenXMLEncryptProperty</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17769" severity="medium" conversionstatus="pass" title="DTOO187 - Protect metadata / rights managed docs" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;When Information Rights Management (IRM) is used to restrict access to an Office Open XML document, any metadata associated with the document is not encrypted. This configuration could allow potentially sensitive information such as the document author and hyperlink references to be exposed to unauthorized individuals.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Protect document metadata for rights managed Office Open XML Files" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\security
+
+If the value “DRMEncryptProperty” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>DRMEncryptProperty</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17773" severity="medium" conversionstatus="pass" title="DTOO180 - Vector Markup Lang (VML) / IE graphics " dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;When saving documents as web pages, Excel, PowerPoint, and Word can save vector-based graphics in Vector Markup Language (VML), which enables Internet Explorer to display them smoothly at any resolution. By default, when saving VML graphics, Office applications also save copies of the graphics in a standard raster file format (GIF or PNG) for use by browsers that cannot display VML. If the "Rely on VML for displaying graphics in browsers" check box in the web Options dialog box is selected, applications will not save raster copies of VML graphics, which means those graphics will not display in non-Microsoft browsers.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\internet</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Tools &gt;&gt; Options &gt;&gt; General &gt;&gt; Web Options &gt;&gt; Browsers "Rely on VML for displaying graphics in browsers" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\internet.
+
+If the value “RelyOnVML” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>RelyOnVML</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-17805" severity="medium" conversionstatus="pass" title="DTOO204 - External Signature Services menu" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Users can select Add Signature Services (from the Signature Line drop-down menu on the Insert tab of the Ribbon in Excel 2013, PowerPoint 2013, and Word 2013) to see a list of signature service providers on the Microsoft Office website. If an organization has policies that govern the use of external resources such as signature providers or Office Marketplace, allowing users to access the Add Signature Services menu item might enable them to violate those policies.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\signatures</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Signing "Suppress external signature services menu item" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\signatures
+
+Criteria: If the value “SuppressExtSigningSvcs” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>SuppressExtSigningSvcs</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-26630" severity="medium" conversionstatus="pass" title="DTOO345 - Online content options" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The Office 2013 Help system automatically searches MicrosoftOffice.com for content when a computer is connected to the Internet. Users can change this default by clearing the Search Microsoft Office.com for Help content when I'm connected to the Internet check box in the Privacy Options section of the Trust Center. If an organization has policies that govern the use of external resources such as Office.com, allowing the Help system to download content might cause users to violate these policies.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\internet</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Note: This check is Not Applicable when the use of Office 365 is against the specific DoD instance of O365.
+
+The use of Offline Content for Non-DoD instances of O365 is prohibited and it must not allow for personal account synchronization.
+
+All non-DoD instances are subject to this requirement.
+
+Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Tools &gt;&gt; Options &gt;&gt; General &gt;&gt; Service Options... &gt;&gt; Online Content "Online content options" is set to "Enabled: Do not allow Office to connect to the internet".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\internet
+
+If the value “UseOnlineContent” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>UseOnlineContent</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-26704" severity="medium" conversionstatus="pass" title="DTOO321 - Encrypt document properties" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting allows a document's properties to be encrypted.  This applies to OLE documents (Office 97-2003 compatible) if the application is configured for CAPI RC4.  Disabling this setting will prevent the encryption of document properties, which may expose sensitive data.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\security</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings "Encrypt document properties" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\security
+
+Criteria: If the value “EncryptDocProps” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>EncryptDocProps</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40858.a" severity="medium" conversionstatus="pass" title="DTOO401 - Office Automatic Updates" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether the Office automatic updates are enabled or disabled for all Office products installed via Click-to-Run. This policy has no effect on Office products installed via Windows Installer. If this policy setting is enabled, Office periodically checks for updates. When updates are detected, Office downloads and applies them in the background. If policy setting is disabled, Office will not check for updates. Without receiving automatic updates, vulnerabilities found within the Office products will not be applied, leaving the vulnerabilities exposed.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Office\15.0\Common\OfficeUpdate</Key>
+      <OrganizationValueRequired>True</OrganizationValueRequired>
+      <OrganizationValueTestString>this value is set to 1 to enable AutomaticUpdates for Office </OrganizationValueTestString>
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2013 (Machine)-&gt;Updates-&gt;"Enable Automatic Updates" is set to "Enabled".
+Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Windows Updates -&gt; "Specify intranet Microsoft update service location" is set to "Enabled" and the "Set the intranet update service for detecting updates:" and the "Set the intranet statistics server:" both point to an Intranet system.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\software\policies\Microsoft\office\15.0\common\officeupdate
+Criteria: If the value EnableAutomaticUpdates is REG_DWORD = 1, this is not a finding.
+If the registry key is missing, this is an Open finding. This setting is, by default, enabled and must be explicitly configured to be disabled.
+HKLM\software\policies\Microsoft\Windows\WindowsUpdate
+Criteria: If the value of WUServer and WUStatusServer are populated with an Intranet system, this is not a finding.</RawString>
+      <ValueData />
+      <ValueName>EnableAutomaticUpdates</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40858.b" severity="medium" conversionstatus="pass" title="DTOO401 - Office Automatic Updates" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether the Office automatic updates are enabled or disabled for all Office products installed via Click-to-Run. This policy has no effect on Office products installed via Windows Installer. If this policy setting is enabled, Office periodically checks for updates. When updates are detected, Office downloads and applies them in the background. If policy setting is disabled, Office will not check for updates. Without receiving automatic updates, vulnerabilities found within the Office products will not be applied, leaving the vulnerabilities exposed.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate</Key>
+      <OrganizationValueRequired>True</OrganizationValueRequired>
+      <OrganizationValueTestString>WindowsUpdate server is specified for this rule </OrganizationValueTestString>
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2013 (Machine)-&gt;Updates-&gt;"Enable Automatic Updates" is set to "Enabled".
+Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Windows Updates -&gt; "Specify intranet Microsoft update service location" is set to "Enabled" and the "Set the intranet update service for detecting updates:" and the "Set the intranet statistics server:" both point to an Intranet system.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\software\policies\Microsoft\office\15.0\common\officeupdate
+Criteria: If the value EnableAutomaticUpdates is REG_DWORD = 1, this is not a finding.
+If the registry key is missing, this is an Open finding. This setting is, by default, enabled and must be explicitly configured to be disabled.
+HKLM\software\policies\Microsoft\Windows\WindowsUpdate
+Criteria: If the value of WUServer and WUStatusServer are populated with an Intranet system, this is not a finding.</RawString>
+      <ValueData />
+      <ValueName>WUServer</ValueName>
+      <ValueType>String</ValueType>
+    </Rule>
+    <Rule id="V-40858.c" severity="medium" conversionstatus="pass" title="DTOO401 - Office Automatic Updates" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether the Office automatic updates are enabled or disabled for all Office products installed via Click-to-Run. This policy has no effect on Office products installed via Windows Installer. If this policy setting is enabled, Office periodically checks for updates. When updates are detected, Office downloads and applies them in the background. If policy setting is disabled, Office will not check for updates. Without receiving automatic updates, vulnerabilities found within the Office products will not be applied, leaving the vulnerabilities exposed.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate</Key>
+      <OrganizationValueRequired>True</OrganizationValueRequired>
+      <OrganizationValueTestString>WindowsUpdate statistics server is specified for this rule </OrganizationValueTestString>
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2013 (Machine)-&gt;Updates-&gt;"Enable Automatic Updates" is set to "Enabled".
+Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Windows Updates -&gt; "Specify intranet Microsoft update service location" is set to "Enabled" and the "Set the intranet update service for detecting updates:" and the "Set the intranet statistics server:" both point to an Intranet system.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\software\policies\Microsoft\office\15.0\common\officeupdate
+Criteria: If the value EnableAutomaticUpdates is REG_DWORD = 1, this is not a finding.
+If the registry key is missing, this is an Open finding. This setting is, by default, enabled and must be explicitly configured to be disabled.
+HKLM\software\policies\Microsoft\Windows\WindowsUpdate
+Criteria: If the value of WUServer and WUStatusServer are populated with an Intranet system, this is not a finding.</RawString>
+      <ValueData />
+      <ValueName>WUStatusServer</ValueName>
+      <ValueType>String</ValueType>
+    </Rule>
+    <Rule id="V-40858.d" severity="medium" conversionstatus="pass" title="DTOO401 - Office Automatic Updates" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting controls whether the Office automatic updates are enabled or disabled for all Office products installed via Click-to-Run. This policy has no effect on Office products installed via Windows Installer. If this policy setting is enabled, Office periodically checks for updates. When updates are detected, Office downloads and applies them in the background. If policy setting is disabled, Office will not check for updates. Without receiving automatic updates, vulnerabilities found within the Office products will not be applied, leaving the vulnerabilities exposed.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU</Key>
+      <OrganizationValueRequired>True</OrganizationValueRequired>
+      <OrganizationValueTestString>this value is set to 1 to enable the use of a WindowsUpdate Server </OrganizationValueTestString>
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2013 (Machine)-&gt;Updates-&gt;"Enable Automatic Updates" is set to "Enabled".
+Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Windows Updates -&gt; "Specify intranet Microsoft update service location" is set to "Enabled" and the "Set the intranet update service for detecting updates:" and the "Set the intranet statistics server:" both point to an Intranet system.
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\software\policies\Microsoft\office\15.0\common\officeupdate
+Criteria: If the value EnableAutomaticUpdates is REG_DWORD = 1, this is not a finding.
+If the registry key is missing, this is an Open finding. This setting is, by default, enabled and must be explicitly configured to be disabled.
+HKLM\software\policies\Microsoft\Windows\WindowsUpdate
+Criteria: If the value of WUServer and WUStatusServer are populated with an Intranet system, this is not a finding.</RawString>
+      <ValueData />
+      <ValueName>UseWUServer</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40859" severity="medium" conversionstatus="pass" title="DTOO402 - The Enable Updates and Disable Updates UI options" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting allows the user interface (UI) options to enable or disable Office automatic updates to be hidden from users. These options are found in the Product Information area of all Office applications installed via Click-to-Run. This policy setting has no effect on Office applications installed via Windows Installer. If this policy setting is enabled, the "Enable Updates" and "Disable Updates" options in the UI are hidden from users. If this policy setting is not configured, the "Enable Updates" and "Disable Updates" options are visible, and users can enable or disable Office automatic updates from the UI.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_LOCAL_MACHINE\software\policies\Microsoft\office\15.0\common\officeupdate</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Microsoft Office 2013 (Machine)-&gt;Updates-&gt;"Hide option to enable or disable updates" is set to "Enabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following key:
+
+HKLM\software\policies\Microsoft\office\15.0\common\officeupdate
+
+Criteria: If the value HideEnableDisableUpdates is REG_DWORD = 1, this is not a finding.</RawString>
+      <ValueData>1</ValueData>
+      <ValueName>HideEnableDisableUpdates</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40860" severity="medium" conversionstatus="pass" title="DTOO403 - Office365 sign-in video" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Office 365 is a subscription-based service which offers access to various Microsoft Office applications.  Access to Office 365 will not be permitted; only locally installed and configured Office 2013 installations will be used. Since the ability to sign into Office 365 will be disabled, this policy, which determines whether a video about signing into Office365 is played when Office first runs, will also be disabled.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\firstrun</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; First Run &gt;&gt; "Disable First Run Movie" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\firstrun
+
+Criteria: If the value “disablemovie” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>disablemovie</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40861" severity="medium" conversionstatus="pass" title="DTOO404 - Office365 first-run prompt" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Office 365 functionality allows users to provide credentials for accessing Office 365 using either their Microsoft Account, or the user ID assigned by the organization. Access to Office 365 will not be permitted; only locally installed and configured Office 2013 installations will be used. Since the ability to sign into Office 365 will be disabled, this policy, which determines whether the Office First Run comes up on first application boot if not previously viewed, will also be disabled.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\firstrun</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; First Run &gt;&gt; "Disable Office First Run on application boot" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\firstrun
+
+Criteria: If the value “bootedrtm” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>bootedrtm</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40862" severity="medium" conversionstatus="pass" title="DTOO405 - Block Office365 sign-in ability" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Office 2013 can be configured to prompt users for credentials to Office365 using either their Microsoft Account or the user ID assigned by an organization for accessing Office 365.  Access to Office 365 will not be permitted and only locally installed and configured Office installations will be used.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\signin</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Miscellaneous &gt;&gt; "Block signing into Office" is set to "Enabled: org ID only".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\signin
+
+If the value “signinoptions” is REG_DWORD = 2, this is not a finding.
+                </RawString>
+      <ValueData>2</ValueData>
+      <ValueName>signinoptions</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40863" severity="medium" conversionstatus="pass" title="DTOO406 - Disable automatic screenshot hyperlinking" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The ability to automatically bind hyperlink to a screenshot inserted through the Insert Screenshot tool introduces the possibility of a malicious URL or website being imbedded in the Word, PowerPoint, Excel or Outlook document. Disabling the hyperlink in those screenshots will ensure users do not have the ability to directly open the hyperlinks.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\gfx</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Miscellaneous &gt;&gt; "Do not automatically hyperlink screenshots" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\gfx
+
+If the value “disablescreenshotautohyperlink” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>disablescreenshotautohyperlink</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40864" severity="medium" conversionstatus="pass" title="DTOO407 - Disable prompt to save to OneDrive (formerly SkyDrive)" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;OneDrive (formerly SkyDrive) is a cloud based storage feature that introduces the capability for users to save documents to locations outside of protected enclaves. This feature introduces the risk that FOUO and PII data, as well as other DoD protected data, may be inadvertently stored in a nonsecure location.  This setting, which will prompt the user to sign in to OneDrive while performing a file save operation, must be disabled.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\general</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Miscellaneous .&gt; "Show OneDrive Sign In" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\general
+
+If the value “SkyDriveSignInOption” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>SkyDriveSignInOption</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40875" severity="medium" conversionstatus="pass" title="DTOO408 - Office Presentation Service must be removed" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The Office Presentation Service is a free, public service that allows others to  follow along in a web browser. Allowing this feature could result in presentations with DoD FOUO, PII and other protected data to be viewed in a nonsecure location. By disabling this policy, the user will not have the ability to deliver a presentation online.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\broadcast</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Present Online &gt;&gt; "Remove Office Presentation Service from the list of online presentation services in PowerPoint and Word" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\broadcast
+
+If the value “disabledefaultservice” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>disabledefaultservice</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40879" severity="medium" conversionstatus="pass" title="DTOO409 - Disable programmatic creation of online presentation" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Allowing online presentations to be created programmatically allows for the capability of malicious content to become imbedded in those programmatically created presentations.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\broadcast</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Present Online &gt;&gt; "Restrict programmatic access for creating online presentations in PowerPoint and Word" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\broadcast
+
+If the value “disableprogrammaticaccess” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>disableprogrammaticaccess</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40880" severity="medium" conversionstatus="pass" title="DTOO410 - Office Feedback tool" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The "Office Feedback" tool, also called "Send-a-Smile", allows a user to click on an icon and send feedback to Microsoft. The "Office Feedback" Tool must be configured to be disabled. In the event that the Office Feedback Tool has not been configured correctly as disabled, this policy configures whether the uploading of screenshots via the tool is allowed and should also be disabled. Uploading screenshots to a commercial vendor from a DoD computer may unintentionally reveal configuration and/or FOUO content.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\feedback</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Privacy &gt;&gt; Trust Center &gt;&gt;"Allow including screenshot with Office Feedback" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\feedback
+
+If the value “includescreenshot” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>includescreenshot</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40881" severity="medium" conversionstatus="pass" title="DTOO411 - Disable Office Feedback" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;The "Office Feedback" tool, also called "Send-a-Smile", allows a user to click on an icon and send feedback to Microsoft. Applications used by DoD users should not be able to provide feedback to commercial vendors regarding their positive and negative experiences when using Office due to the potential of unintentionally revealing FOUO or other protected content.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\feedback</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Privacy &gt;&gt; Trust Center &gt;&gt; "Send Office Feedback" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\feedback
+
+If the value “enabled” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>enabled</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40882" severity="medium" conversionstatus="pass" title="DTOO412 - Disable run unsecure Office apps" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Unsecure apps for Office, which are apps that have web page or catalog locations that are not SSL-secured (https://), and/or are not in users' Internet zones may allow data to be transmitted/accessed via clear text to outside sources. By configuring this policy to be disabled, users will be prevented from transmitting/accessing data in a nonsecure manner.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\wef\trustedcatalogs</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings &gt;&gt; Trust Center &gt;&gt; Trusted Catalogs "Allow Unsecure Apps and Catalogs" is set to "Disabled".
+
+Procedure: Use the Windows Registry Editor to navigate to the following hive:
+
+HKCU\Software\Policies\Microsoft\Office\15.0\wef\trustedcatalogs
+
+If the value “requireserververification” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>requireserververification</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40883" severity="medium" conversionstatus="pass" title="DTOO413 - Block Apps for Office" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting allows users to be prevented from using or inserting apps that come from the Office Store. If this policy setting is enabled, apps from the Office Store are blocked. If this policy setting is disabled or not configured, apps from the Office Store are allowed, unless the "Block Apps for Office" policy setting is enabled.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\wef\trustedcatalogs</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Security Settings &gt;&gt; Trust Center &gt;&gt; Trusted Catalogs "Block the Office Store" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\wef\trustedcatalogs
+
+If the value “disableomexcatalogs” is REG_DWORD = 1, this is not a finding.
+
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>disableomexcatalogs</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40884" severity="medium" conversionstatus="pass" title="DTOO414 - Roaming settings must be stored locally and not synchronized" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Microsoft Office includes the ability to roam settings for specific Office features amongst devices by storing this data in the cloud. This data includes user activity such as the list of most recently used documents as well as user preferences such as the Office theme. This policy setting controls whether this data is allowed to be stored in the cloud. If this policy setting is enabled, roaming settings are only stored locally and not synchronized to the Microsoft Office roaming settings web service. If this policy setting is disabled or not configured, roaming settings are synchronized with the Microsoft Office roaming settings web service and users can access their data from other devices. Existing data in the cloud is not affected by this policy.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\common\roaming</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Services &gt;&gt; "Disable Roaming Office User Settings" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\common\roaming
+
+If the value “roamingsettingsdisabled” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>roamingsettingsdisabled</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40885" severity="medium" conversionstatus="pass" title="DTOO415 - Data upload for Office Telemetry Agent" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Office Telemetry is a new compatibility monitoring framework. When an Office document or solution is loaded, used, closed, or raises an error in certain Office 2013 applications, the Office Telemetry application adds a record about the event to a local data store. Each record includes a description of the problem and a link to more information. Inventory and usage data is also tracked. The actual logging capability will be enabled, but this policy allows that data to be uploaded to a remote location which, if enabled, could pass information about the internal network and configuration to that remote site.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\osm</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Telemetry Dashboard &gt;&gt; "Turn on data uploading for Office Telemetry Agent" is set to "Disabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\osm
+
+If the value “enableupload” is REG_DWORD = 0, this is not a finding.
+                </RawString>
+      <ValueData>0</ValueData>
+      <ValueName>enableupload</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40886" severity="medium" conversionstatus="pass" title="DTOO416 - Telemetry Agent privacy setting" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;This policy setting configures the Office Telemetry Agent to disguise, or obfuscate, certain file properties that are reported in telemetry data. If this policy setting is enabled, Office Telemetry Agent obfuscates the file name, file path, and title of Office documents before uploading telemetry data to the shared folder. If this policy setting is disabled or not configured, the Office Telemetry Agent uploads telemetry data that shows the full file name, file path, and title of all Office documents.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\osm</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Telemetry Dashboard &gt;&gt; "Turn on privacy setting in Office Telemetry Agent" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\osm
+
+If the value “enablefileobfuscation” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>enablefileobfuscation</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+    <Rule id="V-40887" severity="medium" conversionstatus="pass" title="DTOO417 - Enable Telemetry data collection" dscresource="RegistryPolicyFile">
+      <Description>&lt;VulnDiscussion&gt;Office Telemetry is a new compatibility monitoring framework. When an Office document or solution is loaded, used, closed, or raises an error in certain Office 2013 applications, the Office Telemetry application adds a record about the event to a local data store. Each record includes a description of the problem and a link to more information. Inventory and usage data is also tracked. This policy setting allows the data collection features in Office that are used by the Office Telemetry Dashboard and Office Telemetry Log to be turned on. If this policy setting is enabled, Office Telemetry Agent and Office applications will collect telemetry data, which includes Office application usage, most recently used Office documents (including file names) and solutions usage, compatibility issues, and critical errors that occur on the local computers. Office Telemetry Dashboard can be used to view this data remotely, and users can use Office Telemetry Log to view this data on their local computers. If this policy setting is disabled or not configured, the Office Telemetry Agent and Office applications do not generate or collect telemetry data.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;Responsibility&gt;Information Assurance Officer&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <Ensure>Present</Ensure>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <Key>HKEY_CURRENT_USER\Software\Policies\Microsoft\Office\15.0\osm</Key>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify the policy value for User Configuration &gt;&gt; Administrative Templates &gt;&gt; Microsoft Office 2013 &gt;&gt; Telemetry Dashboard &gt;&gt; "Turn on telemetry data collection" is set to "Enabled".
+
+Use the Windows Registry Editor to navigate to the following HKCU\Software\Policies\Microsoft\Office\15.0\osm
+
+If the value “enablelogging” is REG_DWORD = 1, this is not a finding.
+                </RawString>
+      <ValueData>1</ValueData>
+      <ValueName>enablelogging</ValueName>
+      <ValueType>Dword</ValueType>
+    </Rule>
+  </RegistryRule>
+</DISASTIG>

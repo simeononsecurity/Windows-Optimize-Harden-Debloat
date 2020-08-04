@@ -1,0 +1,802 @@
+<DISASTIG version="1" classification="UNCLASSIFIED" customname="" stigid="MS_SQL_Server_2012_STIG" description="The Microsoft SQL Server 2012 Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil." filename="U_MS_SQL_Server_2012_Database_STIG_V1R19_Manual-xccdf.xml" releaseinfo="Release: 19 Benchmark Date: 26 Jul 2019" title="Microsoft SQL Server 2012 Security Technical Implementation Guide" notice="terms-of-use" source="STIG.DOD.MIL" fullversion="1.19" created="8/22/2019">
+  <DocumentRule dscresourcemodule="None">
+    <Rule id="V-41389" severity="medium" conversionstatus="pass" title="SRG-APP-000006-DB-000183" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Security attributes are abstractions representing the basic properties or characteristics of an entity (e.g., subjects and objects) with respect to safeguarding information.
+
+These attributes are typically associated with internal data structures (e.g., records, buffers, files) within the information system and are used to enable the implementation of access control and flow control policies; reflect special dissemination, handling, or distribution instructions; or support other aspects of the information security policy.
+
+One example includes marking data as classified or FOUO. These security attributes may be assigned manually or during data processing but, either way, it is imperative these assignments are maintained while the data is in storage. If the security attributes are lost when the data is stored, there is the risk of a data compromise.
+
+The sensitivity marking or labeling of stored data items promotes the correct handling and protection of data.  Without such notification, the user may unwittingly disclose sensitive data to unauthorized users.
+
+(Earlier releases of this STIG suggested using the SQL Server Label Security Toolkit, from codeplex.com.  However, codeplex.com has been shut down, and it is unclear whether the Toolkit is still supported.  If the organization does have access to the Toolkit, it may still be used, provided the organization accepts responsibility for its support.)&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Review system documentation to determine if the labeling of sensitive data is required under organization-defined guidelines.
+If the labeling of sensitive data is not required, this is NA.
+
+Obtain system configuration settings to determine how data labeling is being performed. This can be through triggers or some other SQL-developed means or via a third-party tool. Spot check data and ensure the appropriate labels have been applied to stored data.   
+
+If the labeling of sensitive data is required and is not being performed, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41391" severity="medium" conversionstatus="pass" title="SRG-APP-000007-DB-000184" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Security attributes are abstractions representing the basic properties or characteristics of an entity (e.g., subjects and objects) with respect to safeguarding information.
+
+These attributes are typically associated with internal data structures (e.g., records, buffers, files) within the application and are used to enable the implementation of access control and flow control policies; reflect special dissemination, handling, or distribution instructions; or support other aspects of the information security policy.
+
+Organizations define the security attributes of their data (e.g., classified, FOUO). Applications generating and/or processing data assigned these organization-defined security attributes must maintain the binding of these attributes to the data when the data is transmitted.
+
+If the application does not maintain the data security attributes when it transmits the data, there is a risk of data compromise.
+
+The sensitivity marking or labeling of data items promotes the correct handling and protection of data. Without such notification, the user may unwittingly disclose sensitive data to unauthorized users. Security labels must be correctly maintained throughout transmission.
+
+(Earlier releases of this STIG suggested using the SQL Server Label Security Toolkit, from codeplex.com.  However, codeplex.com has been shut down, and it is unclear whether the Toolkit is still supported.  If the organization does have access to the Toolkit, it may still be used, provided the organization accepts responsibility for its support.)&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Review system documentation to determine if the labeling of sensitive data is required under organization-defined guidelines.
+
+If the labeling of sensitive data is not required, this is NA.
+
+Obtain system configuration settings to determine how data labeling is being performed. This can be through triggers or some other SQL-developed means or via a third-party tool.  
+
+If the labeling of sensitive information in process is not being performed, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41392" severity="medium" conversionstatus="pass" title="SRG-APP-000008-DB-000185" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Security attributes are abstractions representing the basic properties or characteristics of an entity (e.g., subjects and objects) with respect to safeguarding information.
+
+These attributes are typically associated with internal data structures (e.g., records, buffers, files) within the application and are used to enable the implementation of access control and flow control policies; reflect special dissemination, handling, or distribution instructions; or support other aspects of the information security policy.
+
+Organizations define the security attributes of their data (e.g., classified, FOUO). Applications generating and/or processing data assigned these organization-defined security attributes must maintain the binding of these attributes to the data when the data is transmitted.
+
+If the application does not maintain the data security attributes when it transmits the data, there is a risk of data compromise.
+
+The sensitivity marking or labeling of data items promotes the correct handling and protection of data. Without such notification, the user may unwittingly disclose sensitive data to unauthorized users. Security labels must be correctly maintained throughout transmission.
+
+(Earlier releases of this STIG suggested using the SQL Server Label Security Toolkit, from codeplex.com.  However, codeplex.com has been shut down, and it is unclear whether the Toolkit is still supported.  If the organization does have access to the Toolkit, it may still be used, provided the organization accepts responsibility for its support.)&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Review system documentation to determine if the labeling of sensitive data is required under organization-defined guidelines.
+If the labeling of sensitive data is not required, this is NA.
+
+Obtain system configuration settings to determine how data labeling is being performed. This can be through triggers or some other SQL-developed means or via a third-party tool.  
+
+If the labeling of sensitive data in transmission is not being performed, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41393" severity="medium" conversionstatus="pass" title="SRG-APP-000012-DB-000192" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Security attributes are abstractions representing the basic properties or characteristics of an entity (e.g., subjects and objects) with respect to safeguarding information.
+
+These attributes are typically associated with internal data structures (e.g., records, buffers, files) within the information system and are used to enable the implementation of access control and flow control policies; reflect special dissemination, handling, or distribution instructions, or support other aspects of the information security policy.
+
+Examples of application security attributes are classified, FOUO, sensitive, etc.
+
+Throughout the course of normal usage, authorized users of applications that handle sensitive data will have the need to associate security attributes with information. Applications that maintain the binding of organization-defined security attributes to data must ensure authorized users can associate security attributes with information. For databases, this is accomplished via labeling.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Review system documentation to determine if the labeling of sensitive data is required under organization-defined guidelines.
+If the labeling of sensitive data is not required, this is NA.
+
+Obtain system configuration setting to determine how data labeling is being performed. This can be through triggers or some other SQL-developed means or via a third-party tool. Determine how authorized users associate security information to data. If authorized users are not able to associate security labels to data, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41394" severity="medium" conversionstatus="pass" title="SRG-APP-000085-DB-000038" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Discretionary Access Control (DAC) is based on the premise that individual users are "owners" of objects and therefore have discretion over who should be authorized to access the object and in which mode (e.g., read or write). Ownership is usually acquired as a consequence of creating the object or via specified ownership assignment.
+
+DAC allows the owner to determine who will have access to objects they control. An example of DAC includes user-controlled file permissions. DAC models have the potential for the access controls to propagate without limit, resulting in unauthorized access to said objects.
+
+When applications provide a discretionary access control mechanism, the application must be able to limit the propagation of those access rights.
+
+The DBMS must ensure the recipient of object permissions possesses only the access intended. The database must enforce the ability to limit unauthorized rights propagation. If propagation is not prevented, users can continue to grant rights to other users without limit.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;true&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Check for rights propagation assignment to database permissions by running the following query:
+
+USE &lt;name of database being reviewed&gt;;
+SELECT * 
+FROM sys.database_permissions
+WHERE state_desc = 'GRANT_WITH_GRANT_OPTION';
+
+If any of the permissions listed have not been documented and approved as requiring GRANT_WITH_GRANT_OPTION, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41396" severity="medium" conversionstatus="pass" title="SRG-APP-000062-DB-000015" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Applications employ the concept of least privilege for specific duties and information systems (including specific functions, ports, protocols, and services). The concept of least privilege is also applied to information system processes, ensuring that the processes operate at privilege levels no higher than necessary to accomplish required organizational missions and/or functions. Organizations consider the creation of additional processes, roles, and information system accounts as necessary to achieve least privilege. Organizations also apply least privilege concepts to the design, development, implementation, and operations of information systems.
+
+Developers granted elevated database and/or operating system privileges on systems that support both development and production databases can affect the operation and/or security of the production database system. Operating system and database privileges assigned to developers on shared development and production systems must be restricted.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Identify whether SQL Server contains both development and production databases from the system documentation.
+
+If SQL Server is not hosting both production and development databases, this is NA.
+
+
+If SQL Server is hosting both development and production databases, but this is not clearly documented in the system documentation, this is a finding.
+Check the list of SQL Server users against the list of developer accounts by running the following SQL Server query:
+
+SELECT name AS 'Account Name'
+     , create_date AS 'Account Create Date'
+     , LOGINPROPERTY(name, 'PasswordLastSetTime') AS 'Password Last Set on'
+  FROM sys.server_principals
+ WHERE NOT TYPE IN ('C', 'R', 'U') -- ('C', 'G', 'K', 'R', 'S', 'U')
+  AND NOT name IN ('##MS_PolicyEventProcessingLogin##', '##MS_PolicyTsqlExecutionLogin##')
+  AND sid &lt;&gt; CONVERT(VARBINARY(85), 0x01) -- no 'sa' account
+  AND is_disabled &lt;&gt; 1
+ ORDER BY name
+
+
+If no developer user account is listed, this is not a finding.
+
+Check each developer user account privilege listed above.
+
+Navigate to SQL Server Management Studio &gt;&gt; Object Explorer &gt;&gt; &lt;'SQL Server name'&gt; &gt;&gt; Security &gt;&gt; Logins &gt;&gt; right click &lt;'developer account name'&gt; &gt;&gt; Properties &gt;&gt; User &gt;&gt; Securables.
+
+If any item in the 'Permission' listing, for each highlighted item that exists in the 'Securables' listing, grants production privileges, this is a finding.
+
+Navigate from 'Securables' to 'Server Roles'.
+
+If any 'Server roles' are checked that grant production privileges, this is a finding.
+
+Navigate from 'Server Roles' to 'Users mapped to the login'.
+
+If any checked 'Database role membership' of each highlighted and checked 'Database' are determined to be granting production privileges, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41399" severity="medium" conversionstatus="pass" title="SRG-APP-999999-DB-000209" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;When dealing with unauthorized SQL Server job submissions, it should be noted any unauthorized job submissions to SQL Server job/batch queues can potentially have significant effects on the overall security of the system.
+
+If SQL Server were to allow any user to make SQL Server job/batch queue submissions, then those submissions might lead to a compromise of system integrity and/or data. This requirement is contingent upon the SQL Server job/batch queue being review regularly for unauthorized submissions.
+
+Accordingly, only qualified and authorized individuals shall be allowed to obtain access to submit SQL Server jobs. Job/batch queue submissions must adhere to an organization-defined job submission process. 
+
+Unmanaged changes that occur to SQL Server job/batch queues can lead to a compromised system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Check system documentation for procedures that are regularly implemented in an effort to detect unauthorized SQL Server job submissions.
+
+If procedures that are regularly implemented are not documented in the system documentation, this is a finding.
+
+If the procedures are not implemented regularly or do not detect for unauthorized SQL Server job submissions, this is a finding.
+
+Review Stored Procedures that are able to automatically execute jobs scheduled to start automatically at system startup by running the following query:
+SELECT name
+  FROM master.sys.procedures
+ WHERE is_auto_executed = 1
+
+If any Stored Procedures listed are not documented as authorized, this is a finding.  
+
+Review the SQL Server job history by running the following query:
+
+SELECT *   FROM msdb.dbo.sysjobhistory 
+
+
+If any jobs listed are not documented as authorized, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41409" severity="medium" conversionstatus="pass" title="SRG-APP-000141-DB-000091" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Information systems are capable of providing a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions).
+
+It is detrimental for applications to provide or install by default, functionality exceeding requirements or mission objectives. Examples include, but are not limited to, installing advertising software demonstrations or browser plug-ins not related to requirements or providing a wide array of functionality not required for every mission, yet cannot be disabled.
+
+Applications must adhere to the principles of least functionality by providing only essential capabilities.
+
+Unused and unnecessary SQL Server components increase the number of available attack vectors to SQL Server by introducing additional targets for attack. By minimizing the services and applications installed on the system, the number of potential vulnerabilities is reduced.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Review the list of components or optional features installed with SQL Server.
+If optional features or components are NOT installed, this is not a finding.
+
+If unused components or features of SQL Server are installed, then review the system documentation to verify unused components or features are documented and authorized.
+
+If any are not documented and authorized, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41417" severity="medium" conversionstatus="pass" title="SRG-APP-000231-DB-000154" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Data within the database is protected by use of encryption. The symmetric keys are critical for this process. If the symmetric keys were to be compromised the data could be disclosed to unauthorized personnel.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;true&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>In a query tool:
+USE &lt;database name&gt;;
+GO
+SELECT s.name, k.crypt_type_desc
+FROM sys.symmetric_keys s, sys.key_encryptions k
+WHERE s.symmetric_key_id = k.key_id
+AND s.name &lt;&gt; '##MS_DatabaseMasterKey##'
+AND k.crypt_type IN ('ESKP', 'ESKS')
+ORDER BY s.name, k.crypt_type_desc;
+GO
+
+Review any symmetric keys that have been defined against the System Security Plan.
+
+If any keys are defined that are not documented in the System Security Plan, this is a finding.
+
+Review the System Security Plan to review the encryption mechanism specified for each symmetric key. If the method does not indicate use of certificates, this is a finding.
+
+If the certificate specified is not a DoD PKI certificate, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41421" severity="medium" conversionstatus="pass" title="SRG-APP-000243-DB-000128" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;The purpose of this control is to prevent information, including encrypted representations of information, produced by the actions of a prior user/role (or the actions of a process acting on behalf of a prior user/role) from being available to any current user/role (or current process) that obtains access to a shared system resource (e.g., registers, main memory, secondary storage) after the resource has been released back to the information system. Control of information in shared resources is also referred to as object reuse.
+
+Data used for the development and testing of applications often involves copying data from production. It is important that specific procedures exist for this process, so copies of sensitive data are not misplaced or left in a temporary location without the proper controls.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Verify there are proper procedures in place for the transfer of development/test data from production. Review any scripts or code that exists for the movement of production data to development/test and verify copies of production data are not left in unprotected locations.
+
+If there is no documented procedure for data movement from production to development/test, this is a finding.
+
+If data movement code that copies from production to development/test does exist and leaves any copies of production data in unprotected locations, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-60671" severity="medium" conversionstatus="pass" title="SRG-APP-000133-DB-000200" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;SQL Server's fixed (built-in) server roles, especially [sysadmin], have powerful capabilities that could cause great harm if misused, so their use must be tightly controlled.
+
+The SQL Server instance uses each database's TRUSTWORTHY property to guard against tampering that could enable unwarranted privilege escalation.  When TRUSTWORTHY is 0/False/Off, SQL Server prevents the database from accessing resources in other databases.  When TRUSTWORTHY is 1/True/On, SQL Server permits access to other databases (subject to other protections).  SQL Server sets TRUSTWORTHY OFF when it creates a new database.  SQL Server forces TRUSTWORTHY OFF, irrespective of its prior value, when an existing database is attached to it, to address the possibility that an adversary may have tampered with the database, introducing malicious code.  To set TRUSTWORTHY ON, an account with the [sysadmin] role must issue an ALTER DATABASE command.
+
+Although SQL Server itself treats this property conservatively, application installer programs may set TRUSTWORTHY ON and leave it on.  This provides an opportunity for misuse.
+
+When TRUSTWORTHY is ON, users of the database can take advantage of the database owner's privileges, by impersonating the owner.  This can have particularly serious consequences if the database owner is the [sa] login (which may have been renamed in accordance with SQL2-00-010200, and disabled in accordance with SQL2-00-017100, but nonetheless can be invoked in an EXECUTE AS USER = 'dbo' statement, or CREATE PROCEDURE ... WITH EXECUTE AS OWNER ...).   The [sa] login cannot be removed from the [sysadmin] role.  The user impersonating [sa] - or another [sysadmin] account - is then able to perform administrative actions across all databases under the instance, including making any himself or any other login a member of [sysadmin].
+
+Most of the other fixed server roles could be similarly abused.
+
+Therefore, TRUSTWORTHY must not be used on databases owned by logins that are members of the fixed server roles.  Further, if TRUSTWORTHY is to be used for any other database, the need must be documented and approved.
+
+The system database [msdb] is an exception: it is required to be TRUSTWORTHY.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>If the database is owned by an account that is directly or indirectly a member of a fixed (built-in) server role, this is not applicable (NA).
+
+Run the query:
+USE &lt;database name&gt;;
+GO
+SELECT 
+       DB_NAME()                  AS [Database], 
+       SUSER_SNAME(D.owner_sid)   AS [Database Owner], 
+       CASE WHEN D.is_trustworthy_on = 1 THEN 'ON' ELSE 'off' END
+                                  AS [Trustworthy]
+FROM
+       sys.databases D 
+WHERE
+       D.[name] = DB_NAME()
+AND    DB_NAME() &lt;&gt; 'msdb'
+AND    D.is_trustworthy_on = 1;
+GO
+If the query returns a row indicating that the TRUSTWORTHY setting is OFF, or returns no rows, this is not a finding. 
+
+Review the system security plan to determine whether the need for TRUSTWORTHY is documented and approved.  If not, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-70627" severity="low" conversionstatus="pass" title=" SRG-APP-000144-DB-000101" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;It is important for the appropriate personnel to be aware if the system is at risk of failing to record transaction log data.  The transaction log is the heart of a SQL Server database.  If it fails, processing will stop.  It must always have enough available storage space to cope with peak load.  Administrators must be warned about abnormally high space consumption soon enough to take corrective action before all space is used up.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Review system documentation and/or organizational procedures to determine the threshold value for the storage used by the transaction log, above which staff must be alerted.  The threshold may be expressed as an absolute quantity, or a percentage of total available space.
+
+If this threshold has not been defined, this is a finding.
+
+If monitoring software is in use, and has been configured to alert system and database administrators when the threshold is exceeded, this is not a finding.
+
+If manual procedures exist for frequently checking the space used and alerting system and database administrators, and there is evidence that the procedures are adhered to, this is not a finding.
+
+Otherwise, this is a finding.</RawString>
+    </Rule>
+  </DocumentRule>
+  <ManualRule dscresourcemodule="None">
+    <Rule id="V-40911" severity="medium" conversionstatus="pass" title="SRG-APP-000231-DB-000154" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;This control is intended to address the confidentiality and integrity of information at rest in non-mobile devices and covers user information and system information.  Information at rest refers to the state of information when it is located on a secondary storage device (e.g., disk drive, tape drive) within an organizational information system. Applications and application users generate information throughout the course of their application use.
+
+User-generated data, as well as, application-specific configuration data, needs to be protected. Configurations and/or rule sets for firewalls, gateways, intrusion detection/prevention systems, filtering routers, and authenticator content are examples of system information likely requiring protection. Organizations may choose to employ different mechanisms to achieve confidentiality and integrity protections, as appropriate.
+
+If the confidentiality and integrity of SQL Server data is not protected, the data will be open to compromise and unauthorized modification.
+
+Protective measures include encryption, physical security of the facility where the storage devices reside, operating system file permissions, and organizational controls.  Each of these should be applied as necessary and appropriate.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>If the application owner and Authorizing Official have determined that encryption of data at rest is NOT required, this is not a finding.
+
+If the application owner and Authorizing Official have determined that encryption of data at rest is required, 
+ensure the data on secondary devices is encrypted. If full-disk encryption is being used, this is not a finding.
+
+If DBMS data encryption is required, ensure the data is encrypted before being put on the secondary device by executing:
+
+SELECT 
+    d.name AS [Database Name],
+    CASE e.encryption_state 
+        WHEN 0 THEN 'No database encryption key present, no encryption' 
+        WHEN 1 THEN 'Unencrypted' 
+        WHEN 2 THEN 'Encryption in progress' 
+        WHEN 3 THEN 'Encrypted' 
+        WHEN 4 THEN 'Key change in progress' 
+        WHEN 5 THEN 'Decryption in progress' 
+        WHEN 6 THEN 'Protection change in progress' 
+    END AS [Encryption State]
+FROM sys.dm_database_encryption_keys e 
+RIGHT JOIN sys.databases d ON DB_NAME(e.database_id) = d.name 
+WHERE d.name NOT IN ('master','model','msdb')
+ORDER BY 1
+;
+
+For each user database where encryption is required, verify that encryption is in effect. If not, this is a finding.
+
+Verify that there are physical security measures, operating system access control lists and organizational controls appropriate to the sensitivity level of the data in the database(s).  If not, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41395" severity="medium" conversionstatus="pass" title="SRG-APP-000062-DB-000014" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Applications employ the concept of least privilege for specific duties and information systems (including specific functions, ports, protocols, and services). The concept of least privilege is also applied to information system processes, ensuring that the processes operate at privilege levels no higher than necessary to accomplish required organizational missions and/or functions. Organizations consider the creation of additional processes, roles, and information system accounts as necessary to achieve least privilege. Organizations also apply least privilege concepts to the design, development, implementation, and operations of information systems.
+
+Developers granted elevated database and/or operating system privileges on production databases can affect the operation and/or security of the database system. Operating system and database privileges assigned to developers on production systems should not be allowed.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Check the list of SQL Server users against the list of developer accounts by running the following SQL Server query:
+
+SELECT name AS 'Account Name'
+     , create_date AS 'Account Create Date'
+     , LOGINPROPERTY(name, 'PasswordLastSetTime') AS 'Password Last Set on'
+FROM sys.server_principals
+WHERE NOT TYPE IN ('C', 'R', 'U') 
+AND NOT name IN ('##MS_PolicyEventProcessingLogin##', '##MS_PolicyTsqlExecutionLogin##')
+AND sid &lt;&gt; CONVERT(VARBINARY(85), 0x01) -- no 'sa' account
+AND is_disabled &lt;&gt; 1
+ORDER BY name; 
+
+For each developer account found on a production machine, verify if the developer account can change or alter database objects or data in the production database. If any developer account can change or alter database objects or data in a production database, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41397" severity="medium" conversionstatus="pass" title="SRG-APP-000062-DB-000034" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;SQL Server must employ the concept of least privilege for specific duties and information systems (including specific functions, ports, protocols, and services). The concept of least privilege is also applied to information system processes, ensuring that the processes operate at privilege levels no higher than necessary to accomplish required organizational missions and/or functions. Organizations consider the creation of additional processes, roles, and information system accounts as necessary to achieve least privilege. Organizations also apply least privilege concepts to the design, development, implementation, and operations of information systems.
+
+Privileges granted outside the role of the application user job function are more likely to go unmanaged or without oversight for authorization. Maintenance of privileges using roles defined for discrete job functions offers improved oversight of application user privilege assignments and helps to protect against unauthorized privilege assignment.
+
+SQL Server built-in administrative privileges, built-in server roles and built-in database roles must not be assigned directly to administrative user accounts (that is, server logins and database users). If administrative user accounts have direct access to administrative roles, this access must be removed, with the exception of administrative roles that the DBMS assigns to the special database principal [dbo], and will not allow to be altered.
+
+The built-in server role "sysadmin" is a partial exception. This cannot be granted to a user-defined role, only to a login account. Most (not necessarily all) database administrators will need to be members of sysadmin. Without this, most DBCC commands and the system stored procedures/functions listed below are unavailable. The users who require such access must be documented and approved.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;true&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Check administrative accounts for direct database role membership:
+
+Navigate to SQL Server Management Studio &gt;&gt; Object Explorer &gt;&gt; &lt;'SQL Server name'&gt; &gt;&gt; Security &gt;&gt; Logins &gt;&gt; right click &lt;'administrator account name'&gt; &gt;&gt; Properties &gt;&gt; User Mapping &gt;&gt; &lt;'highlight database'&gt; &gt;&gt; review 'Database role membership' for each database.
+
+If any administration accounts have a direct privilege to any 'Database role membership' that is part of the SQL Server system, this is a finding.
+
+Check administrative accounts for direct server role membership:
+
+Navigate to SQL Server Management Studio &gt;&gt; Object Explorer &gt;&gt; &lt;'SQL Server name'&gt; &gt;&gt; Security &gt;&gt; Logins &gt;&gt; right click &lt;'administrator account name'&gt; &gt;&gt; Properties &gt;&gt; Server Roles.
+
+If any administration accounts have direct access to any 'Server roles' privilege that is part of the SQL Server system, this is a finding.
+
+The special database principal [dbo] is an exception.  It is mapped to the server login that is the database owner.  Some roles cannot be mapped to it or unmapped from it.  These role assignments are not a finding.
+
+The built-in server role "sysadmin" is a partial exception.  See the Vulnerability Discussion.</RawString>
+    </Rule>
+    <Rule id="V-41403" severity="medium" conversionstatus="pass" title="SRG-APP-000133-DB-000179" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;When dealing with change control issues, it should be noted, any changes to the hardware, software, and/or firmware components of SQL Server and/or application can potentially have significant effects on the overall security of the system.
+
+If SQL Server were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
+
+This requirement is contingent upon the language in which the application is programmed, as many application architectures in use today incorporate their software libraries into, and make them inseparable from, their compiled distributions, rendering them static and version-dependent. However, this requirement does apply to applications with software libraries accessible and configurable, as in the case of interpreted languages.
+
+Accordingly, only qualified and authorized individuals shall be allowed to obtain access to SQL Server components for purposes of initiating changes, including upgrades and modifications.
+
+Unmanaged changes that occur to the SQL Server software libraries or configuration, such as Functions, can lead to unauthorized or compromised installations.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;true&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Check the SQL Server configuration for a timed job that automatically checks all system and user-defined Functions for being modified by running the following SQL Server query:
+EXEC msdb.dbo.sp_help_job  @job_name = '&lt;enter . . . job name&gt;';
+
+(Alternatively, in SQL Server Management Studio, navigate to SQL Server Agent and examine the job from there.)
+
+If a timed job or some other method is not implemented to check for Functions being modified, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41404" severity="medium" conversionstatus="pass" title="SRG-APP-000133-DB-000179" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;When dealing with change control issues, it should be noted, any changes to the hardware, software, and/or firmware components of SQL Server and/or application can potentially have significant effects on the overall security of the system.
+
+If SQL Server were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
+
+This requirement is contingent upon the language in which the application is programmed, as many application architectures in use today incorporate their software libraries into, and make them inseparable from, their compiled distributions, rendering them static and version-dependent. However, this requirement does apply to applications with software libraries accessible and configurable, as in the case of interpreted languages.
+
+Accordingly, only qualified and authorized individuals shall be allowed to obtain access to SQL Server components for purposes of initiating changes, including upgrades and modifications.
+
+Unmanaged changes that occur to the SQL Server software libraries or configuration, such as Triggers, can lead to unauthorized or compromised installations.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Check the SQL Server configuration for the timed job that automatically checks all system and user-defined Triggers for being modified by running the following SQL Server query:
+EXEC msdb.dbo.sp_help_job  @job_name = '&lt;enter . . . job name&gt;';
+
+(Alternatively, in SQL Server Management Studio, navigate to SQL Server Agent and examine the job from there.)
+
+If such a job, or an alternative method of monitoring triggers for modification, does not exist, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41406" severity="medium" conversionstatus="pass" title="SRG-APP-000133-DB-000179" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;When dealing with change control issues, it should be noted, any changes to the hardware, software, and/or firmware components of SQL Server and/or application can potentially have significant effects on the overall security of the system.
+
+If SQL Server were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.
+
+This requirement is contingent upon the language in which the application is programmed, as many application architectures in use today incorporate their software libraries into, and make them inseparable from, their compiled distributions, rendering them static and version-dependent. However, this requirement does apply to applications with software libraries accessible and configurable, as in the case of interpreted languages.
+
+Accordingly, only qualified and authorized individuals shall be allowed to obtain access to SQL Server components for purposes of initiating changes, including upgrades and modifications.
+
+Unmanaged changes that occur to the SQL Server software libraries or configuration, such as Stored Procedures, can lead to unauthorized or compromised installations.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Check for the existence of a job to monitor for changes to stored procedures:
+EXEC msdb.dbo.sp_help_job  @job_name = '&lt;enter . . . job name&gt;';
+
+(Alternatively, in SQL Server Management Studio, navigate to SQL Server Agent and examine the job from there.)
+
+If such a job, or an alternative method of monitoring stored procedures for modification, does not exist, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41411" severity="medium" conversionstatus="pass" title="SRG-APP-000188-DB-000121" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;When data is written to digital media, such as hard drives, mobile computers, external/removable hard drives, personal digital assistants, flash/thumb drives, etc., there is risk of data loss and/or compromise.
+
+An organizational assessment of risk guides the selection of media and associated information contained on that media requiring restricted access. Organizations need to document, in policy and procedures, the media requiring restricted access, individuals authorized to access the media, and the specific measures taken to restrict access.
+
+Fewer protection measures are needed for media containing information determined by the organization to be in the public domain, to be publicly releasable, or to have limited or no adverse impact if accessed by other than authorized personnel. In these situations, it is assumed the physical access controls where the media resides provide adequate protection.
+
+As part of a defense-in-depth strategy, the organization considers routinely encrypting information at rest on selected secondary storage devices. The decision whether to employ cryptography is the responsibility of the information owner/steward, who exercises discretion within the framework of applicable rules, policies and law. The selection of the cryptographic mechanisms used is based upon maintaining the confidentiality and integrity of the information.
+
+The strength of mechanisms is commensurate with the classification and sensitivity of the information.
+
+Information at rest, when not encrypted, is open to compromise from attackers who have gained unauthorized access to the data files.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Review SQL Server's cryptographic settings to determine whether data stored in databases is encrypted according to organizational requirements and the system owner.
+
+If all of the data on SQL Server is unclassified and encryption of information is not required, this requirement is NA.
+
+Ensure the data is encrypted by executing:
+USE &lt;databse name&gt;;
+IF NOT EXISTS
+      (
+      SELECT 1
+      FROM sys.dm_database_encryption_keys
+      WHERE DB_NAME(database_id) = DB_NAME()
+      )
+      SELECT
+            DB_NAME() AS [Database Name],
+            'No database encryption key present, no encryption' AS [Encryption State]
+ELSE
+      SELECT
+            DB_NAME(database_id) AS [Database Name],
+            CASE encryption_state
+                  WHEN 0 THEN 'No database encryption key present, no encryption'
+                  WHEN 1 THEN 'Unencrypted'
+                  WHEN 2 THEN 'Encryption in progress'
+                  WHEN 3 THEN 'Encrypted'
+                  WHEN 4 THEN 'Key change in progress'
+                  WHEN 5 THEN 'Decryption in progress'
+                  WHEN 6 THEN 'Protection change in progress'
+            END AS [Encryption State]
+      FROM sys.dm_database_encryption_keys
+      WHERE DB_NAME(database_id) = DB_NAME()
+;
+
+If any database that is supposed to have encryption enabled is not listed as such, this is a finding.
+
+If encryption is required by the information owner and an approved, NIST-certified cryptography is not used to encrypt stored sensitive information, this is a finding.
+
+Verify all sensitive information is encrypted: entire database, tables, columns and/or data elements, as required by the organization and the system owner.</RawString>
+    </Rule>
+    <Rule id="V-41412" severity="medium" conversionstatus="pass" title="SRG-APP-000196-DB-000140" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Cryptography is only as strong as the encryption modules/algorithms employed to encrypt the data.
+
+Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to protect data.
+
+Use of cryptography to provide confidentiality and non-repudiation is not effective unless strong methods are employed with its use. Many earlier encryption methods and modules have been broken and/or overtaken by increasing computing power. The NIST FIPS 140-2 cryptographic standards provide proven methods and strengths to employ cryptography effectively.
+
+Detailed information on the NIST Cryptographic Module Validation Program (CMVP) is available at the following website:  http://csrc.nist.gov/groups/STM/cmvp/index.html.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>If encryption is not required for this database, this is not a finding.
+
+Run the following SQL queries to review SQL Server's cryptographic settings for the database:
+
+USE &lt;database name&gt; ;
+IF NOT EXISTS
+       (
+       SELECT 1 
+       FROM sys.dm_database_encryption_keys
+       WHERE DB_NAME(database_id) = DB_NAME()
+       )
+       SELECT 
+             DB_NAME() AS [Database Name],
+             'No database encryption key present, no encryption' AS [Encryption State],
+                     NULL AS [Algorithm],
+                     NULL AS [Key Length]
+ELSE
+       SELECT
+             DB_NAME(database_id) AS [Database Name],
+             CASE encryption_state 
+                   WHEN 0 THEN 'No database encryption key present, no encryption' 
+                   WHEN 1 THEN 'Unencrypted' 
+                   WHEN 2 THEN 'Encryption in progress' 
+                   WHEN 3 THEN 'Encrypted' 
+                   WHEN 4 THEN 'Key change in progress' 
+                   WHEN 5 THEN 'Decryption in progress' 
+                   WHEN 6 THEN 'Protection change in progress' 
+             END AS [Encryption State],
+                     key_algorithm AS [Algorithm],
+                     key_length AS [Key Length]
+       FROM sys.dm_database_encryption_keys
+       WHERE DB_NAME(database_id) = DB_NAME()
+
+SELECT DB_NAME() AS [Database], name, algorithm_desc 
+FROM sys.symmetric_keys 
+ORDER BY name, algorithm_desc;
+
+Note:  The acceptable algorithms are:  "AES 128", "AES 192", "AES 256" and "Triple DES".
+
+If SQL Server cryptographic algorithms are not listed or are found not to be compliant with applicable federal laws, Executive Orders, directives, policies, regulations, standards and guidance, this is a finding.
+
+If the encryption state indicates that the database is unencrypted, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41415" severity="medium" conversionstatus="pass" title="SRG-APP-000231-DB-000154" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;When not encrypted by the Service Master Key, system administrators or application administrators may access and use the Database Master Key to view sensitive data that they are not authorized to view. Where alternate encryption means are not feasible, encryption by the Service Master Key may be necessary. To help protect sensitive data from unauthorized access by DBAs, mitigations may be in order. Mitigations may include automatic alerts or other audit events when the Database Master Key is accessed outside of the application or by a DBA account.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;true&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the query prompt:
+SELECT name
+FROM [master].sys.databases
+WHERE is_master_key_encrypted_by_server = 1
+AND owner_sid &lt;&gt; 1
+AND state = 0
+If no databases are returned, this is not a finding.
+For any databases returned, verify in the System Security Plan that encryption of the Database
+Master Key using the Service Master Key is acceptable and approved by the Information Owner, and the encrypted data does not require additional protections to deter or detect DBA access. If not approved, this is a finding.
+
+If approved and additional protections are required, then verify the additional requirements are in place in accordance with the System Security Plan. These may include additional auditing on access of the Database Master Key with alerts or other automated monitoring.
+
+If the additional requirements are not in place, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41416" severity="medium" conversionstatus="pass" title="SRG-APP-000231-DB-000154" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Storage of the Database Master Key password in a database credential allows decryption of sensitive data by privileged users who may not have a need-to-know requirement to access the
+data.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>From the query prompt:
+SELECT COUNT(credential_id)
+FROM [master].sys.master_key_passwords
+
+If count is not 0, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41420" severity="medium" conversionstatus="pass" title="SRG-APP-000232-DB-000155" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;This control is intended to address the confidentiality and integrity of information at rest in non-mobile devices and covers user information and system information. If the data is not encrypted, it is subject to compromise and unauthorized disclosure.
+
+Note:  the system databases (master, msdb, model, resource and tempdb) cannot be encrypted.
+
+The decision whether to employ cryptography is the responsibility of the information owner/steward, who exercises discretion within the framework of applicable rules, policies and law.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>If this is a system database (master, msdb, resource, tempdb or model), this is not applicable (NA).
+
+If the application owner and authorizing official have determined that the database does not require encryption, this is not a finding.
+
+Ensure the data is encrypted by executing:
+USE &lt;database name&gt;;
+IF NOT EXISTS
+    (
+    SELECT 1 
+    FROM sys.dm_database_encryption_keys
+    WHERE DB_NAME(database_id) = DB_NAME()
+    )
+    SELECT 
+        DB_NAME() AS [Database Name],
+        'No database encryption key present, no encryption' AS [Encryption State]
+ELSE
+    SELECT
+        DB_NAME(database_id)  AS [Database Name],
+        CASE encryption_state 
+            WHEN 0 THEN 'No database encryption key present, no encryption' 
+            WHEN 1 THEN 'Unencrypted' 
+            WHEN 2 THEN 'Encryption in progress' 
+            WHEN 3 THEN 'Encrypted' 
+            WHEN 4 THEN 'Key change in progress' 
+            WHEN 5 THEN 'Decryption in progress' 
+            WHEN 6 THEN 'Protection change in progress' 
+        END AS [Encryption State] 
+    FROM sys.dm_database_encryption_keys
+    WHERE DB_NAME(database_id) = DB_NAME()
+;
+
+For each user database, ensure that encryption is in effect.  If not, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41422" severity="medium" conversionstatus="pass" title="SRG-APP-000245-DB-000132" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Application management includes the ability to control the number of users and user sessions utilizing an application. Limiting the number of allowed users, and sessions per user, is helpful in limiting risks related to DoS attacks.
+
+This requirement addresses concurrent session control for a single information system account and does not address concurrent sessions by a single user via multiple system accounts.
+
+This requirement may be met via the application or by utilizing information system session control provided by a web server with specialized session management capabilities. If it has been specified that this requirement will be handled by the application, the capability to limit the maximum number of concurrent single user sessions must be designed and built into the application.
+
+The organization will need to define the maximum number of concurrent sessions for SQL Server accounts by account type, by account, or a combination thereof and SQL Server shall enforce this requirement.
+
+Unlimited concurrent connections to SQL Server could allow a successful DoS attack by exhausting connection resources.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Check SQL Server settings for the number of concurrent Check SQL Server settings for the number of concurrent sessions by running the following script:
+
+USE MASTER
+GO
+
+EXEC sys.sp_configure N'show advanced options', N'1'  RECONFIGURE WITH OVERRIDE
+GO
+EXEC sys.sp_configure N'user connections'
+EXEC sys.sp_configure N'show advanced options', N'0'  RECONFIGURE WITH OVERRIDE
+GO
+
+If SQL Server settings for concurrent sessions is not lower than or equal to the organization-defined maximum number of sessions, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-41424" severity="medium" conversionstatus="pass" title="SRG-APP-000251-DB-000160" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;Invalid user input occurs when a user inserts data or characters into an application’s data entry fields and the application is unprepared to process that data. This results in unanticipated application behavior potentially leading to an application or information system compromise. Invalid user input is one of the primary methods employed when attempting to compromise an application.
+
+SQL Server needs to validate the data user’s attempt to input to the application for processing. Rules for checking the valid syntax and semantics of information system inputs (e.g., character set, length, numerical range, acceptable values) are in place to verify inputs match specified definitions for format and content. Inputs passed to interpreters are prescreened to prevent the content from being unintentionally interpreted as commands.
+
+A poorly designed database system can have many problems. A common issue with these types of systems is the missed opportunity to use constraints.
+
+While this matter is of great importance to the secure operation of database management systems, the DBA in a typical installation will communicate with the application development/support staff to obtain assurance that this requirement is met.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Review SQL Server field definitions, constraints, and foreign keys to determine whether or not data being input into the database is valid.
+If field definitions are not reflective of the data, this is a finding.
+
+If column data types are not assigned correctly where required within the database, this is a finding.
+
+If columns do not contain reasonable constraints based on column use, this is a finding.</RawString>
+    </Rule>
+    <Rule id="V-60781" severity="medium" conversionstatus="pass" title="SRG-APP-000133-DB-000200" dscresource="None">
+      <Description>&lt;VulnDiscussion&gt;SQL Server's fixed (built-in) server roles, especially [sysadmin], have powerful capabilities that could cause great harm if misused, so their use must be tightly controlled.
+
+The SQL Server instance uses each database's TRUSTWORTHY property to guard against tampering that could enable unwarranted privilege escalation.  When TRUSTWORTHY is 0/False/Off, SQL Server prevents the database from accessing resources in other databases.  When TRUSTWORTHY is 1/True/On, SQL Server permits access to other databases (subject to other protections).  SQL Server sets TRUSTWORTHY OFF when it creates a new database.  SQL Server forces TRUSTWORTHY OFF, irrespective of its prior value, when an existing database is attached to it, to address the possibility that an adversary may have tampered with the database, introducing malicious code.  To set TRUSTWORTHY ON, an account with the [sysadmin] role must issue an ALTER DATABASE command.
+
+Although SQL Server itself treats this property conservatively, application installer programs may set TRUSTWORTHY ON and leave it on.  This provides an opportunity for misuse.
+
+When TRUSTWORTHY is ON, users of the database can take advantage of the database owner's privileges, by impersonating the owner.  This can have particularly serious consequences if the database owner is the [sa] login (which may have been renamed in accordance with SQL2-00-010200, and disabled in accordance with SQL2-00-017100, but nonetheless can be invoked in an EXECUTE AS USER = 'dbo' statement, or CREATE PROCEDURE ... WITH EXECUTE AS OWNER ...).   The [sa] login cannot be removed from the [sysadmin] role.  The user impersonating [sa] - or another [sysadmin] account - is then able to perform administrative actions across all databases under the instance, including making any himself or any other login a member of [sysadmin].
+
+Most of the other fixed server roles could be similarly abused.
+
+Therefore, TRUSTWORTHY must not be used on databases owned by logins that are members of the fixed server roles.  Further, if TRUSTWORTHY is to be used for any other database, the need must be documented and approved.
+
+The system database [msdb] is an exception: it is required to be TRUSTWORTHY.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>USE &lt;database name&gt;;
+GO
+WITH FixedServerRoles(RoleName) AS
+(
+    SELECT 'sysadmin'
+    UNION SELECT 'securityadmin'
+    UNION SELECT 'serveradmin'
+    UNION SELECT 'setupadmin'
+    UNION SELECT 'processadmin'
+    UNION SELECT 'diskadmin'
+    UNION SELECT 'dbcreator'
+    UNION SELECT 'bulkadmin'
+)
+SELECT 
+    DB_NAME() AS [Database], 
+    SUSER_SNAME(D.owner_sid) AS [Database Owner], 
+    F.RoleName AS [Fixed Server Role],
+    CASE WHEN D.is_trustworthy_on = 1 THEN 'ON' ELSE 'off' END
+        AS [Trustworthy]    
+FROM
+    FixedServerRoles F
+    INNER JOIN sys.databases D ON D.Name = DB_NAME()
+WHERE 
+    IS_SRVROLEMEMBER(F.RoleName, SUSER_SNAME(D.owner_sid)) = 1
+AND DB_NAME()  &lt;&gt;  'msdb'
+AND D.is_trustworthy_on = 1;
+GO
+If the query returns any rows, this is a finding.  </RawString>
+    </Rule>
+  </ManualRule>
+  <SqlScriptQueryRule dscresourcemodule="SqlServerDsc">
+    <Rule id="V-41402" severity="medium" conversionstatus="pass" title="SRG-APP-000089-DB-000064" dscresource="SqlScriptQuery">
+      <Description>&lt;VulnDiscussion&gt;Audit records can be generated from various components within the information system (e.g., network interface, hard disk, modem, etc.). From an application perspective, certain specific application functionalities may be audited as well.
+
+The list of audited events is the set of events for which audits are to be generated. This set of events is typically a subset of the list of all events for which the system is capable of generating audit records.  Examples are auditable events, time stamps, source and destination addresses, user/process identifiers, event descriptions, success/fail indications, file names involved, and access control or flow control rules invoked.
+
+Organizations define which application components shall provide auditable events. 
+
+The DBMS must provide auditing for the list of events defined by the organization or risk negatively impacting forensic investigations into malicious behavior in the information system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <GetScript>BEGIN IF OBJECT_ID('TempDB.dbo.#StigEvent') IS NOT NULL BEGIN DROP TABLE #StigEvent END IF OBJECT_ID('TempDB.dbo.#Trace') IS NOT NULL BEGIN DROP TABLE #Trace END IF OBJECT_ID('TempDB.dbo.#TraceEvent') IS NOT NULL BEGIN DROP TABLE #TraceEvent END CREATE TABLE #StigEvent (EventId INT) CREATE TABLE #Trace (TraceId INT) CREATE TABLE #TraceEvent (TraceId INT, EventId INT) INSERT INTO #StigEvent (EventId) VALUES (14),(15),(18),(20),(102),(103),(104),(105),(106),(107),(108),(109),(110),(111),(112),(113),(115),(116),(117),(118),(128),(129),(130),(131),(132),(133),(134),(135),(152),(153),(170),(171),(172),(173),(175),(176),(177),(178) INSERT INTO #Trace (TraceId) SELECT DISTINCT TraceId FROM sys.fn_trace_getinfo(0) DECLARE cursorTrace CURSOR FOR SELECT TraceId FROM #Trace OPEN cursorTrace DECLARE @traceId INT FETCH NEXT FROM cursorTrace INTO @traceId WHILE @@FETCH_STATUS = 0 BEGIN INSERT INTO #TraceEvent (TraceId, EventId) SELECT DISTINCT @traceId, EventId FROM sys.fn_trace_geteventinfo(@traceId) FETCH NEXT FROM cursorTrace INTO @TraceId END CLOSE cursorTrace DEALLOCATE cursorTrace SELECT * FROM #StigEvent SELECT SE.EventId AS NotFound FROM #StigEvent SE LEFT JOIN #TraceEvent TE ON SE.EventId = TE.EventId WHERE TE.EventId IS NULL END</GetScript>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>False</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Check to see that all required events are being audited.
+From the query prompt:
+     SELECT DISTINCT traceid FROM sys.fn_trace_getinfo(0);
+All currently defined traces for the SQL server instance will be listed. If no traces are returned, this is a finding.
+
+Determine the trace(s) being used for the auditing requirement. 
+In the following, replace # with a trace ID being used for the auditing requirements.
+From the query prompt:
+     SELECT DISTINCT(eventid) FROM sys.fn_trace_geteventinfo(#);
+The following required event IDs should be listed:
+     14, 15, 18, 20, 
+     102, 103, 104, 105, 106, 107, 108, 109, 110, 
+     111, 112, 113, 115, 116, 117, 118, 
+     128, 129, 130, 
+     131, 132, 133, 134, 135, 
+     152, 153, 
+     170, 171, 172, 173, 175, 176, 177, 178.
+If any of the audit event IDs required above is not listed, this is a finding.
+
+Notes:
+1. It is acceptable to have the required event IDs spread across multiple traces, provided all of the traces are always active, and the event IDs are grouped in a logical manner.
+2. It is acceptable, from an auditing point of view, to include the same event IDs in multiple traces.  However, the effect of this redundancy on performance, storage, and the consolidation of audit logs into a central repository, should be taken into account.
+3. It is acceptable to trace additional event IDs. This is the minimum list.
+4. Once this check is satisfied, the DBA may find it useful to disable or modify the default trace that is set up by the SQL Server installation process. (Note that the Fix does NOT include code to do this.)  
+Use the following query to obtain a list of all event IDs, and their meaning:
+     SELECT * FROM sys.trace_events; 
+5. Because this check procedure is designed to address multiple requirements/vulnerabilities, it may appear to exceed the needs of some individual requirements.  However, it does represent the aggregate of all such requirements.
+6. Microsoft has flagged the trace techniques and tools used in this Check and Fix as deprecated.  They will be removed at some point after SQL Server 2014.  The replacement feature is Extended Events.  If Extended Events are in use, and cover all the required audit events listed above, this is not a finding.</RawString>
+      <SetScript>BEGIN IF OBJECT_ID('TempDB.dbo.#StigEvent') IS NOT NULL BEGIN DROP TABLE #StigEvent END IF OBJECT_ID('TempDB.dbo.#Trace') IS NOT NULL BEGIN DROP TABLE #Trace END IF OBJECT_ID('TempDB.dbo.#TraceEvent') IS NOT NULL BEGIN DROP TABLE #TraceEvent END CREATE TABLE #StigEvent (EventId INT) INSERT INTO #StigEvent (EventId) VALUES (14),(15),(18),(20),(102),(103),(104),(105),(106),(107),(108),(109),(110),(111),(112),(113),(115),(116),(117),(118),(128),(129),(130),(131),(132),(133),(134),(135),(152),(153),(170),(171),(172),(173),(175),(176),(177),(178) CREATE TABLE #Trace (TraceId INT) INSERT INTO #Trace (TraceId) SELECT DISTINCT TraceId FROM sys.fn_trace_getinfo(0)ORDER BY TraceId DESC CREATE TABLE #TraceEvent (TraceId INT, EventId INT) DECLARE cursorTrace CURSOR FOR SELECT TraceId FROM #Trace OPEN cursorTrace DECLARE @currentTraceId INT FETCH NEXT FROM cursorTrace INTO @currentTraceId WHILE @@FETCH_STATUS = 0 BEGIN INSERT INTO #TraceEvent (TraceId, EventId) SELECT DISTINCT @currentTraceId, EventId FROM sys.fn_trace_geteventinfo(@currentTraceId) FETCH NEXT FROM cursorTrace INTO @currentTraceId END CLOSE cursorTrace DEALLOCATE cursorTrace DECLARE @missingStigEventCount INT SET @missingStigEventCount = (SELECT COUNT(*) FROM #StigEvent SE LEFT JOIN #TraceEvent TE ON SE.EventId = TE.EventId WHERE TE.EventId IS NULL) IF @missingStigEventCount &gt; 0 BEGIN DECLARE @dir nvarchar(4000) DECLARE @tracefile nvarchar(4000) DECLARE @returnCode INT DECLARE @newTraceId INT DECLARE @maxFileSize BIGINT = 5 EXEC master.dbo.xp_instance_regread N'HKEY_LOCAL_MACHINE', N'Software\Microsoft\MSSQLServer\Setup', N'SQLPath', @dir OUTPUT, 'no_output' SET @tracefile = @dir + N'\Log\PowerStig' EXEC @returnCode = sp_trace_create @traceid = @newTraceId OUTPUT, @options = 2, @tracefile = @tracefile, @maxfilesize = @maxFileSize, @stoptime = NULL, @filecount = 2; IF @returnCode = 0 BEGIN EXEC sp_trace_setstatus @traceid = @newTraceId, @status = 0 DECLARE cursorMissingStigEvent CURSOR FOR SELECT DISTINCT SE.EventId FROM #StigEvent SE LEFT JOIN #TraceEvent TE ON SE.EventId = TE.EventId WHERE TE.EventId IS NULL OPEN cursorMissingStigEvent DECLARE @currentStigEventId INT FETCH NEXT FROM cursorMissingStigEvent INTO @currentStigEventId WHILE @@FETCH_STATUS = 0 BEGIN EXEC sp_trace_setevent @traceid = @newTraceId, @eventid = @currentStigEventId, @columnid = NULL, @on = 1 FETCH NEXT FROM cursorMissingStigEvent INTO @currentStigEventId END CLOSE cursorMissingStigEvent DEALLOCATE cursorMissingStigEvent EXEC sp_trace_setstatus @traceid = @newTraceId, @status = 1 END END END</SetScript>
+      <TestScript>BEGIN IF OBJECT_ID('TempDB.dbo.#StigEvent') IS NOT NULL BEGIN DROP TABLE #StigEvent END IF OBJECT_ID('TempDB.dbo.#Trace') IS NOT NULL BEGIN DROP TABLE #Trace END IF OBJECT_ID('TempDB.dbo.#TraceEvent') IS NOT NULL BEGIN DROP TABLE #TraceEvent END CREATE TABLE #StigEvent (EventId INT) CREATE TABLE #Trace (TraceId INT) CREATE TABLE #TraceEvent (TraceId INT, EventId INT) INSERT INTO #StigEvent (EventId) VALUES (14),(15),(18),(20),(102),(103),(104),(105),(106),(107),(108),(109),(110),(111),(112),(113),(115),(116),(117),(118),(128),(129),(130),(131),(132),(133),(134),(135),(152),(153),(170),(171),(172),(173),(175),(176),(177),(178) INSERT INTO #Trace (TraceId) SELECT DISTINCT TraceId FROM sys.fn_trace_getinfo(0) DECLARE cursorTrace CURSOR FOR SELECT TraceId FROM #Trace OPEN cursorTrace DECLARE @traceId INT FETCH NEXT FROM cursorTrace INTO @traceId WHILE @@FETCH_STATUS = 0 BEGIN INSERT INTO #TraceEvent (TraceId, EventId) SELECT DISTINCT @traceId, EventId FROM sys.fn_trace_geteventinfo(@traceId) FETCH NEXT FROM cursorTrace INTO @TraceId END CLOSE cursorTrace DEALLOCATE cursorTrace SELECT SE.EventId AS NotFound FROM #StigEvent SE LEFT JOIN #TraceEvent TE ON SE.EventId = TE.EventId WHERE TE.EventId IS NULL END</TestScript>
+      <Variable />
+      <VariableValue />
+    </Rule>
+    <Rule id="V-41407" severity="medium" conversionstatus="pass" title="SRG-APP-000133-DB-000200" dscresource="SqlScriptQuery">
+      <Description>&lt;VulnDiscussion&gt;SQL Server database ownership is a higher level privilege that grants full rights to everything in that database, including the right to grant privileges to others. SQL Server requires that the owner of a database object be a user, and only one user can be the assigned owner of a database object. This tends to minimize the risk that multiple users could gain unauthorized access, except the one individual who is the owner.
+
+Within the database, object ownership implies full privileges to the owned object, including the privilege to assign access to the owned objects to other subjects. Unmanaged or uncontrolled ownership of databases can lead to unauthorized granting of privileges and database alterations.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</Description>
+      <DuplicateOf />
+      <GetScript>select suser_sname(owner_sid) AS 'Owner' from sys.databases where name = $(Database)</GetScript>
+      <IsNullOrEmpty>False</IsNullOrEmpty>
+      <OrganizationValueRequired>True</OrganizationValueRequired>
+      <OrganizationValueTestString />
+      <RawString>Review system documentation to identify SQL Server accounts authorized to own database objects.
+
+If the SQL Server database ownership list does not exist or needs to be updated, this is a finding.
+
+Run the following SQL query to determine SQL Server ownership of all database objects:
+SELECT name AS 'Database name'
+     , SUSER_SNAME(owner_sid) AS 'Database Owner'
+     , state_desc AS 'Database state'
+  FROM sys.databases
+</RawString>
+      <SetScript>ALTER AUTHORIZATION ON DATABASE::$(Database) to $(DatabaseOwner)</SetScript>
+      <TestScript>SELECT suser_sname(owner_sid) AS 'Owner' FROM sys.databases WHERE name = N'$(Database)' and suser_sname(owner_sid) != N'$(DatabaseOwner)';</TestScript>
+      <Variable>DatabaseOwner={0}</Variable>
+      <VariableValue />
+    </Rule>
+  </SqlScriptQueryRule>
+</DISASTIG>

@@ -1,0 +1,65 @@
+<!--
+    The organizational settings file is used to define the local organizations
+    preferred setting within an allowed range of the STIG.
+
+    Each setting in this file is linked by STIG ID and the valid range is in an
+    associated comment.
+-->
+<OrganizationalSettings fullversion="1.2">
+  <!-- Ensure ''V-92961'' -le '900' -and ''V-92961'' -gt '0'-->
+  <OrganizationalSetting id="V-92961" ValueData="900" />
+  <!-- Ensure ''V-93149'' -match '^(DoD Notice and Consent Banner|US Department of Defense Warning Statement)$'-->
+  <OrganizationalSetting id="V-93149" ValueData="DoD Notice and Consent Banner" />
+  <!-- Ensure ''V-93177'' -ge '32768'-->
+  <OrganizationalSetting id="V-93177" ValueData="32768" />
+  <!-- Ensure ''V-93179'' -ge '196608'-->
+  <OrganizationalSetting id="V-93179" ValueData="196608" />
+  <!-- Ensure ''V-93181'' -ge '32768'-->
+  <OrganizationalSetting id="V-93181" ValueData="32768" />
+  <!-- Ensure ServiceName/StartupType is populated with correct AntiVirus service information-->
+  <OrganizationalSetting id="V-93217" ServiceName="" StartupType="" />
+  <!-- Ensure ''V-93245.b'' -match '1|3'-->
+  <OrganizationalSetting id="V-93245.b" ValueData="1" />
+  <!-- Ensure ''V-93249'' -match '1|3|8|ShouldBeAbsent'-->
+  <OrganizationalSetting id="V-93249" ValueData="8" />
+  <!-- Ensure ''V-93257'' -match '0|1'-->
+  <OrganizationalSetting id="V-93257" ValueData="0" />
+  <!-- Ensure ''V-93259'' -match '0|1|2|99|100'-->
+  <OrganizationalSetting id="V-93259" ValueData="0" />
+  <!-- Ensure ''V-93285'' -le '30' -and ''V-93285'' -gt '0'-->
+  <OrganizationalSetting id="V-93285" ValueData="30" />
+  <!-- Ensure ''V-93287'' -match '1|2'-->
+  <OrganizationalSetting id="V-93287" ValueData="1" />
+  <!-- Ensure ''V-93445'' -le '600' -and ''V-93445'' -ne '0'-->
+  <OrganizationalSetting id="V-93445" PolicyValue="600" />
+  <!-- Ensure ''V-93447'' -le '10' -and ''V-93447'' -ne '0'-->
+  <OrganizationalSetting id="V-93447" PolicyValue="10" />
+  <!-- Ensure ''V-93449'' -le '7'-->
+  <OrganizationalSetting id="V-93449" PolicyValue="7" />
+  <!-- Ensure ''V-93451'' -le '5'-->
+  <OrganizationalSetting id="V-93451" PolicyValue="5" />
+  <!-- Ensure ''V-93523'' -match '1|2'-->
+  <OrganizationalSetting id="V-93523" ValueData="1" />
+  <!-- Ensure ServiceName/StartupType is populated with correct Firewall service information-->
+  <OrganizationalSetting id="V-93571" ServiceName="" StartupType="" />
+  <!-- Ensure ''V-93063'' -match '^(Administrators,NT Virtual Machine\\Virtual Machines|Administrators)$'-->
+  <OrganizationalSetting id="V-93063" Identity="Administrators" />
+  <!-- Ensure ''V-93141'' -le '3' -and ''V-93141'' -ne '0'-->
+  <OrganizationalSetting id="V-93141" PolicyValue="3" />
+  <!-- Ensure ''V-93143'' -ge '15'-->
+  <OrganizationalSetting id="V-93143" PolicyValue="15" />
+  <!-- Ensure ''V-93145'' -ge '15' -or ''V-93145'' -eq '0'-->
+  <OrganizationalSetting id="V-93145" PolicyValue="15" />
+  <!-- Ensure ''V-93281'' -ne 'Administrator'-->
+  <OrganizationalSetting id="V-93281" OptionValue="" />
+  <!-- Ensure ''V-93283'' -ne 'Guest'-->
+  <OrganizationalSetting id="V-93283" OptionValue="" />
+  <!-- Ensure ''V-93463'' -ge '14'-->
+  <OrganizationalSetting id="V-93463" PolicyValue="14" />
+  <!-- Ensure ''V-93471'' -ne '0'-->
+  <OrganizationalSetting id="V-93471" PolicyValue="1" />
+  <!-- Ensure ''V-93477'' -le '60' -and ''V-93477'' -ne '0'-->
+  <OrganizationalSetting id="V-93477" PolicyValue="60" />
+  <!-- Ensure ''V-93479'' -ge '24'-->
+  <OrganizationalSetting id="V-93479" PolicyValue="24" />
+</OrganizationalSettings>
