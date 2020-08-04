@@ -1,6 +1,6 @@
 # Optimizing and Hardening Windows 10 Deployments
 
-**75% Works offline. Working to make it fully indepented from internet connections** 
+**75% Works offline. Working to make it fully indepentent from internet connections** 
 
 **Download all the required files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)**
 
