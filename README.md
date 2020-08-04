@@ -1,5 +1,7 @@
 # Optimizing and Hardening Windows 10 Deployments
 
+**Works offline, all dependencies are contained in this repo** 
+
 **Download all the required files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)**
 
 Windows 10 is an invasive and insecure operating system out of the box. 
