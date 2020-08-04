@@ -5,10 +5,10 @@
 **Download all the required files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)**
 
 Windows 10 is an invasive and insecure operating system out of the box. 
-Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https://microsoft.com), [Cyber.mil](https://public.cyber.mil), the [Department of Defense](https://dod.gov), and the [National Security Agency](https://www.nsa.gov/) have recomended configuration changes to lockdown, harden, and secure the operating system. These changes cover a wide range of mitigations including blocking telemetery, macros, removing bloatware, and preventing many physical attacks on a system.
+Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https://microsoft.com), [Cyber.mil](https://public.cyber.mil), the [Department of Defense](https://dod.gov), and the [National Security Agency](https://www.nsa.gov/) have recommended configuration changes to lockdown, harden, and secure the operating system. These changes cover a wide range of mitigations including blocking telemetry, macros, removing bloatware, and preventing many physical attacks on a system.
 
 ## Requirements:
-- [X] Windows 10 Professional or Windows 10 Enterprise (**Prefered**)
+- [X] Windows 10 Professional or Windows 10 Enterprise (**Preferred**)
   - Windows 10 Home does not allow for GPO configurations. 
   - Windows 10 "N" Editions are not tested.
 - [x] [Standards](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure) for a highly secure Windows 10 device
