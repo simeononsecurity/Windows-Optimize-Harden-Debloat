@@ -1,7 +1,5 @@
 # Optimizing and Hardening Windows 10 Deployments
 
-**75% Works offline. Working to make it fully independent from internet connections** 
-
 **Download all the required files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)**
 
 Windows 10 is an invasive and insecure operating system out of the box. 
@@ -44,6 +42,8 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [NSACyber - Bitlocker Guidance](https://github.com/nsacyber/BitLocker-Guidance)
 
 - [0x6d69636b - Windows Hardening](https://github.com/0x6d69636b/windows_hardening)
+
+- [SysInternals - AccessChk](https://docs.microsoft.com/en-us/sysinternals/downloads/accesschk)
 
 ## Additional configurations were considered from:
 
