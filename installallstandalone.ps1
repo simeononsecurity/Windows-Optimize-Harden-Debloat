@@ -1,6 +1,9 @@
 ######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
 $ErrorActionPreference= 'silentlycontinue'
 
+#Unblock all files required for script
+start-job -ScriptBlock {ls *.ps*1 -recurse | Unblock-File}
+
 #Copy Files to Required Directories
 #Install PowerShell Modules
 #start-job -ScriptBlock {copy-item -Path .\Files\"PowerShell Modules"\*  -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse -ErrorAction SilentlyContinue}
