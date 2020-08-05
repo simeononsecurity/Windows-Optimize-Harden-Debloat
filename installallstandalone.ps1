@@ -4,7 +4,6 @@ $ErrorActionPreference= 'silentlycontinue'
 Write-Output "Elevating priviledges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
-
 #Unblock all files required for script
 start-job -ScriptBlock {ls *.ps*1 -recurse | Unblock-File}
 

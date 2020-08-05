@@ -115,8 +115,10 @@ The script we will be using must be launched from the directory containing all t
 
 ```
 ######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
-######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
 $ErrorActionPreference= 'silentlycontinue'
+
+Write-Output "Elevating priviledges for this process"
+do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 #Unblock all files required for script
 start-job -ScriptBlock {ls *.ps*1 -recurse | Unblock-File}
@@ -155,6 +157,7 @@ start-script -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Ge
 .\Files\Scripts\"Debloating, Optimization, and Privacy"\startupcleantelem.ps1
 .\Files\Scripts\"Debloating, Optimization, and Privacy"\sharpapp\sharpappscripts.ps1
 .\Files\Scripts\"Debloating, Optimization, and Privacy"\debotnet\debotnetscripts.ps1
+.\Files\Scripts\"Debloating, Optimization, and Privacy"\W4H4Wk\sosw4h4wk.ps1
 
 #GPO Configurations
 #Microsoft Security Baselines
