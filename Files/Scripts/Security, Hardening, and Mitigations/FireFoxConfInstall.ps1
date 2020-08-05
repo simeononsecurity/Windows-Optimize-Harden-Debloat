@@ -7,6 +7,7 @@ If (Test-Path -Path $firefox64){
     Copy-Item -Path ".\Files\FireFox Configuration Files\defaults" -Destination $firefox64 -Force -Recurse
     Copy-Item -Path ".\Files\FireFox Configuration Files\mozilla.cfg" -Destination $firefox64 -Force
     Copy-Item -Path ".\Files\FireFox Configuration Files\local-settings.js" -Destination $firefox64 -Force 
+    Write-Host "Firefox 64-Bit Configurations Installed"
 }Else {
     Write-Host "FireFox 64-Bit Is Not Installed"
 }
@@ -14,6 +15,7 @@ If (Test-Path -Path $firefox32){
     Copy-Item -Path ".\Files\FireFox Configuration Files\defaults" -Destination $firefox32 -Force -Recurse
     Copy-Item -Path ".\Files\FireFox Configuration Files\mozilla.cfg" -Destination $firefox32 -Force
     Copy-Item -Path ".\Files\FireFox Configuration Files\local-settings.js" -Destination $firefox32 -Force 
+    Write-Host "Firefox 32-Bit Configurations Installed"
 }Else {
     Write-Host "FireFox 32-Bit Is Not Installed"
 }
