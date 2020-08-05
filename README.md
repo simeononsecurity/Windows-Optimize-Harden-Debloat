@@ -130,7 +130,7 @@ ls *.ps*1 -recurse | Unblock-File
 start-job -ScriptBlock {mkdir C:\temp\; mkdir "C:\temp\Windows Defender"; copy-item -Path .\Files\DOD_EP_V3.xml -Destination "C:\temp\Windows Defender" -Force -Recurse -ErrorAction SilentlyContinue} 
 
 #Install Required PSModules
-.\Files\Scripts\'Package Management and Windows Updates"\sos-installpsmodules.ps1
+.\Files\Scripts\"Package Management and Windows Updates"\sos-installpsmodules.ps1
 
 ##Install Latest Windows Updates
 start-script -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot}
