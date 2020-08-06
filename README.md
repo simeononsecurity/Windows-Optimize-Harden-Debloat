@@ -149,6 +149,7 @@ start-script -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Ge
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-IE-Scripting-Engine-Memory-Corruption.bat
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-specture-meltdown-mitigations.bat
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-FireFoxConfInstall.ps1
+.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-install-java-config.ps1
 .\Files\Scripts\"Security, Hardening, and Mitigations"\HardeningKitty\sos-kitty.ps1
 
 #Debloating Scripts
