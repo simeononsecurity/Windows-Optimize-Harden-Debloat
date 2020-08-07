@@ -13,7 +13,7 @@ If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\"){
 }Else {
     Mkdir "C:\Windows\Sun\Java\Deployment\"
     Mkdir "C:\temp\JAVA"
-    Copy-Item -Path .\Files\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force
-    Copy-Item -Path .\Files\deployment.properties -Destination "C:\temp\JAVA\" -Force
-    Copy-Item -Path .\Files\exception.sites -Destination "C:\temp\JAVA\" -Force
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\temp\JAVA\" -Force
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\exception.sites -Destination "C:\temp\JAVA\" -Force
 }
