@@ -5,15 +5,20 @@
 #- or -
 #<JRE Installation Directory>\lib\deployment.config
 
-Write-Output "Installing Java Configurations - Please Wait."
-Write-Output "Window will close after install is complete"
-
-If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\"){
+If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\deployment.config"){
+    Write-Host "Deployment Config Already Installed"
+}Else {
+    Write-Output "Installing Java Deployment Config...."
+    Mkdir "C:\Windows\Sun\Java\Deployment\"
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force
+    Write-Output "JAVA Configs Installed"
+}
+If (Test-Path -Path "C:\temp\JAVA\"){
     Write-Host "Configs Already Deployed"
 }Else {
-    Mkdir "C:\Windows\Sun\Java\Deployment\"
+    Write-Output "Installing Java Configurations...."
     Mkdir "C:\temp\JAVA"
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force
     Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\temp\JAVA\" -Force
     Copy-Item -Path .\Files\"JAVA Configuration Files"\exception.sites -Destination "C:\temp\JAVA\" -Force
+    Write-Output "JAVA Configs Installed"
 }
