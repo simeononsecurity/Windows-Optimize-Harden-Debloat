@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (c) Microsoft Corporation.  All rights reserved. --><GroupPolicyBackupScheme bkp:version="2.0" bkp:type="GroupPolicyBackupTemplate" xmlns:bkp="http://www.microsoft.com/GroupPolicy/GPOOperations" xmlns="http://www.microsoft.com/GroupPolicy/GPOOperations">
+    <GroupPolicyObject><SecurityGroups><Group bkp:Source="FromDACL"><Sid><![CDATA[S-1-5-21-3670114615-2946967469-3843750203-519]]></Sid><SamAccountName><![CDATA[Enterprise Admins]]></SamAccountName><Type><![CDATA[UniversalGroup]]></Type><NetBIOSDomainName><![CDATA[SOS]]></NetBIOSDomainName><DnsDomainName><![CDATA[sos.lan]]></DnsDomainName><UPN><![CDATA[Enterprise Admins@sos.lan]]></UPN></Group><Group bkp:Source="FromDACL"><Sid><![CDATA[S-1-5-21-3670114615-2946967469-3843750203-512]]></Sid><SamAccountName><![CDATA[Domain Admins]]></SamAccountName><Type><![CDATA[GlobalGroup]]></Type><NetBIOSDomainName><![CDATA[SOS]]></NetBIOSDomainName><DnsDomainName><![CDATA[sos.lan]]></DnsDomainName><UPN><![CDATA[Domain Admins@sos.lan]]></UPN></Group></SecurityGroups><FilePaths/><GroupPolicyCoreSettings><ID><![CDATA[{719BA146-5569-44A3-BB33-E20DF0887169}]]></ID><Domain><![CDATA[sos.lan]]></Domain><SecurityDescriptor>01 00 04 9c 00 00 00 00 00 00 00 00 00 00 00 00 14 00 00 00 04 00 ec 00 08 00 00 00 05 02 28 00 00 01 00 00 01 00 00 00 8f fd ac ed b3 ff d1 11 b4 1d 00 a0 c9 68 f9 39 01 01 00 00 00 00 00 05 0b 00 00 00 00 00 24 00 ff 00 0f 00 01 05 00 00 00 00 00 05 15 00 00 00 37 81 c1 da ad 27 a7 af 3b f9 1a e5 00 02 00 00 00 02 24 00 ff 00 0f 00 01 05 00 00 00 00 00 05 15 00 00 00 37 81 c1 da ad 27 a7 af 3b f9 1a e5 00 02 00 00 00 02 24 00 ff 00 0f 00 01 05 00 00 00 00 00 05 15 00 00 00 37 81 c1 da ad 27 a7 af 3b f9 1a e5 07 02 00 00 00 02 14 00 94 00 02 00 01 01 00 00 00 00 00 05 09 00 00 00 00 02 14 00 94 00 02 00 01 01 00 00 00 00 00 05 0b 00 00 00 00 02 14 00 ff 00 0f 00 01 01 00 00 00 00 00 05 12 00 00 00 00 0a 14 00 ff 00 0f 00 01 01 00 00 00 00 00 03 00 00 00 00</SecurityDescriptor><DisplayName><![CDATA[SOS Netbanner]]></DisplayName><Options><![CDATA[1]]></Options><UserVersionNumber><![CDATA[65537]]></UserVersionNumber><MachineVersionNumber><![CDATA[196611]]></MachineVersionNumber><MachineExtensionGuids><![CDATA[[{35378EAC-683F-11D2-A89A-00C04FBBCFA2}{D02B1F72-3407-48AE-BA88-E8213C6761F1}][{C6DC5466-785A-11D2-84D0-00C04FB169F7}{942A8E4F-A261-11D1-A760-00C04FB9603F}]]]></MachineExtensionGuids><UserExtensionGuids/><WMIFilter/></GroupPolicyCoreSettings> 
+        <GroupPolicyExtension bkp:ID="{35378EAC-683F-11D2-A89A-00C04FBBCFA2}" bkp:DescName="Registry">
+            <FSObjectFile bkp:Path="%GPO_MACH_FSPATH%\registry.pol" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\registry.pol" bkp:Location="DomainSysvol\GPO\Machine\registry.pol"/>
+            
+            <FSObjectFile bkp:Path="%GPO_FSPATH%\Adm\*.*" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Adm\*.*"/>
+        </GroupPolicyExtension>
+        
+        
+        
+        
+        
+        
+        
+        
+        <GroupPolicyExtension bkp:ID="{c6dc5466-785a-11d2-84d0-00c04fb169f7}" bkp:DescName="Software Installation">
+            
+        <DSObject bkp:Path="cn=Class Store,%GPO_MACH_DSPATH%" bkp:ObjectClass="classStore" bkp:SourceExpandedPath="cn=Class Store,cn=Machine,cn={719BA146-5569-44A3-BB33-E20DF0887169},CN=Policies,CN=System,DC=sos,DC=lan">
+                <DSObject bkp:Path="cn=Packages,cn=Class Store,%GPO_MACH_DSPATH%" bkp:ObjectClass="classStore" bkp:SourceExpandedPath="cn=Packages,cn=Class Store,cn=Machine,cn={719BA146-5569-44A3-BB33-E20DF0887169},CN=Policies,CN=System,DC=sos,DC=lan">
+                    <DSObject bkp:Path="*,cn=Packages,cn=Class Store,%GPO_MACH_DSPATH%" bkp:ObjectClass="packageRegistration" bkp:SourceExpandedPath="*,cn=Packages,cn=Class Store,cn=Machine,cn={719BA146-5569-44A3-BB33-E20DF0887169},CN=Policies,CN=System,DC=sos,DC=lan" bkp:ReEvaluateFunction="SIProcessAllPackageObjects"><DSObject bkp:ObjectClass="packageRegistration" bkp:Path="CN=e675d6ec-baaf-4472-9053-c9b114ce5f04,CN=Packages,CN=Class Store,%GPO_MACH_DSPATH%" bkp:SourceExpandedPath="CN=e675d6ec-baaf-4472-9053-c9b114ce5f04,CN=Packages,CN=Class Store,cn=Machine,cn={719BA146-5569-44A3-BB33-E20DF0887169},CN=Policies,CN=System,DC=sos,DC=lan" bkp:ReEvaluateFunction="SIProcessPackageObject"><FSObjectFile bkp:Path="%GPO_MACH_FSPATH%\Applications\{4D009A37-7EEA-422A-9098-482E3BA1BFED}.aas" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\Applications\{4D009A37-7EEA-422A-9098-482E3BA1BFED}.aas" bkp:Location="DomainSysvol\GPO\Machine\Applications\{4D009A37-7EEA-422A-9098-482E3BA1BFED}.aas"/>
+                        <SecurityDescriptor>01 00 04 8c 00 00 00 00 00 00 00 00 00 00 00 00 14 00 00 00 04 00 14 01 0a 00 00 00 00 00 24 00 ff 01 0f 00 01 05 00 00 00 00 00 05 15 00 00 00 37 81 c1 da ad 27 a7 af 3b f9 1a e5 00 02 00 00 00 00 14 00 94 00 02 00 01 01 00 00 00 00 00 05 0b 00 00 00 00 00 14 00 ff 01 0f 00 01 01 00 00 00 00 00 05 12 00 00 00 05 12 28 00 00 01 00 00 01 00 00 00 8f fd ac ed b3 ff d1 11 b4 1d 00 a0 c9 68 f9 39 01 01 00 00 00 00 00 05 0b 00 00 00 00 12 24 00 ff 00 0f 00 01 05 00 00 00 00 00 05 15 00 00 00 37 81 c1 da ad 27 a7 af 3b f9 1a e5 00 02 00 00 00 12 24 00 ff 00 0f 00 01 05 00 00 00 00 00 05 15 00 00 00 37 81 c1 da ad 27 a7 af 3b f9 1a e5 07 02 00 00 00 12 14 00 94 00 02 00 01 01 00 00 00 00 00 05 09 00 00 00 00 12 14 00 94 00 02 00 01 01 00 00 00 00 00 05 0b 00 00 00 00 12 14 00 ff 00 0f 00 01 01 00 00 00 00 00 05 12 00 00 00 00 1a 14 00 ff 00 0f 00 01 01 00 00 00 00 00 03 00 00 00 00</SecurityDescriptor>
+                        <DSAttributeBinary bkp:DSAttrName="objectGUID"><DSValue><![CDATA[61 62 8d 91 50 f0 2f 4a 9c b6 e3 b5 6a 3f da 0c]]></DSValue></DSAttributeBinary>
+                        <DSAttributeMultiString bkp:DSAttrName="cOMClassID"><DSValue><![CDATA[00000000-0000-0000-0000-000000000000:0]]></DSValue></DSAttributeMultiString>
+                        <DSAttributeMultiString bkp:DSAttrName="cOMProgID"/>
+                        <DSAttributeMultiString bkp:DSAttrName="fileExtPriority"/>
+                        <DSAttributeMultiDWORD bkp:DSAttrName="localeID"><DSValue><![CDATA[1033]]></DSValue></DSAttributeMultiDWORD>
+                        <DSAttributeMultiDWORD bkp:DSAttrName="machineArchitecture"><DSValue><![CDATA[1282]]></DSValue></DSAttributeMultiDWORD>
+                        <DSAttributeDWORD bkp:DSAttrName="versionNumberHi"><DSValue><![CDATA[2]]></DSValue></DSAttributeDWORD>
+                        <DSAttributeDWORD bkp:DSAttrName="versionNumberLo"><DSValue><![CDATA[1]]></DSValue></DSAttributeDWORD>
+                        <DSAttributeDWORD bkp:DSAttrName="revision"><DSValue><![CDATA[0]]></DSValue></DSAttributeDWORD>
+                        <DSAttributeDWORD bkp:DSAttrName="packageType"><DSValue><![CDATA[5]]></DSValue></DSAttributeDWORD>
+                        <DSAttributeDWORD bkp:DSAttrName="packageFlags"><DSValue><![CDATA[2684354832]]></DSValue></DSAttributeDWORD>
+                        <DSAttributeString bkp:DSAttrName="packageName"><DSValue><![CDATA[Microsoft NetBanner]]></DSValue></DSAttributeString>
+                        <DSAttributeString bkp:DSAttrName="msiScriptPath"><DSValue><![CDATA[\\sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\Applications\{4D009A37-7EEA-422A-9098-482E3BA1BFED}.aas]]></DSValue></DSAttributeString>
+                        <DSAttributeString bkp:DSAttrName="msiScriptName"><DSValue><![CDATA[R]]></DSValue></DSAttributeString>
+                        <DSAttributeDWORD bkp:DSAttrName="msiScriptSize"/>
+                        <DSAttributeMultiString bkp:DSAttrName="url"/>
+                        <DSAttributeString bkp:DSAttrName="setupCommand"/>
+                        <DSAttributeString bkp:DSAttrName="lastUpdateSequence"><DSValue><![CDATA[20200812164024]]></DSValue></DSAttributeString>
+                        <DSAttributeMultiString bkp:DSAttrName="msiFileList"><DSValue><![CDATA[0:\\sim.lan\SYSVOL\sim.lan\Software\NetBanner.Setup 2.1.161.msi]]></DSValue></DSAttributeMultiString>
+                        <DSAttributeMultiString bkp:DSAttrName="categories"/>
+                        <DSAttributeMultiString bkp:DSAttrName="canUpgradeScript"/>
+                        <DSAttributeDWORD bkp:DSAttrName="installUiLevel"><DSValue><![CDATA[5]]></DSValue></DSAttributeDWORD>
+                        <DSAttributeBinary bkp:DSAttrName="msiScript"/>
+                        <DSAttributeString bkp:DSAttrName="displayName"><DSValue><![CDATA[Microsoft NetBanner]]></DSValue></DSAttributeString>
+                        <DSAttributeBinary bkp:DSAttrName="productCode"><DSValue><![CDATA[fe 52 75 57 33 aa 14 49 90 a4 5c 99 58 47 bb 8e]]></DSValue></DSAttributeBinary>
+                        <DSAttributeBinary bkp:DSAttrName="upgradeProductCode"><DSValue><![CDATA[32 ab e1 5f ca 72 2c 42 a8 52 21 1d 9d 71 42 48]]></DSValue></DSAttributeBinary>
+                        <DSAttributeString bkp:DSAttrName="Vendor"/>
+                    </DSObject>
+                        <SecurityDescriptor/>
+                        <DSAttributeBinary bkp:DSAttrName="objectGUID"/>
+                        <DSAttributeMultiString bkp:DSAttrName="cOMClassID"/>
+                        <DSAttributeMultiString bkp:DSAttrName="cOMProgID"/>
+                        <DSAttributeMultiString bkp:DSAttrName="fileExtPriority"/>
+                        <DSAttributeMultiDWORD bkp:DSAttrName="localeID"/>
+                        <DSAttributeMultiDWORD bkp:DSAttrName="machineArchitecture"/>
+                        <DSAttributeDWORD bkp:DSAttrName="versionNumberHi"/>
+                        <DSAttributeDWORD bkp:DSAttrName="versionNumberLo"/>
+                        <DSAttributeDWORD bkp:DSAttrName="revision"/>
+                        <DSAttributeDWORD bkp:DSAttrName="packageType"/>
+                        <DSAttributeDWORD bkp:DSAttrName="packageFlags"/>
+                        <DSAttributeString bkp:DSAttrName="packageName"/>
+                        <DSAttributeString bkp:DSAttrName="msiScriptPath"/>
+                        <DSAttributeString bkp:DSAttrName="msiScriptName"/>
+                        <DSAttributeDWORD bkp:DSAttrName="msiScriptSize"/>
+                        <DSAttributeMultiString bkp:DSAttrName="url"/>
+                        <DSAttributeString bkp:DSAttrName="setupCommand"/>
+                        <DSAttributeString bkp:DSAttrName="lastUpdateSequence"/>
+                        <DSAttributeMultiString bkp:DSAttrName="msiFileList"/>
+                        <DSAttributeMultiString bkp:DSAttrName="categories"/>
+                        <DSAttributeMultiString bkp:DSAttrName="canUpgradeScript"/>
+                        <DSAttributeDWORD bkp:DSAttrName="installUiLevel"/>
+                        <DSAttributeBinary bkp:DSAttrName="msiScript"/>
+                        <DSAttributeString bkp:DSAttrName="displayName"/>
+                        <DSAttributeBinary bkp:DSAttrName="productCode"/>
+                        <DSAttributeBinary bkp:DSAttrName="upgradeProductCode"/>
+                        <DSAttributeString bkp:DSAttrName="Vendor"/>
+                    </DSObject>
+                </DSObject>
+                <DSAttributeDWORD bkp:DSAttrName="appSchemaVersion"><DSValue><![CDATA[1740]]></DSValue></DSAttributeDWORD>
+                <DSAttributeString bkp:DSAttrName="extensionName"><DSValue><![CDATA[SOS Netbanner]]></DSValue></DSAttributeString>
+                <DSAttributeString bkp:DSAttrName="description"><DSValue><![CDATA[Application Store]]></DSValue></DSAttributeString>
+                <DSAttributeExpandedString bkp:DSAttrName="displayName">
+                    <DSValue>LDAP://%GPO_DSPATH%</DSValue>
+                </DSAttributeExpandedString>
+            </DSObject>
+        </GroupPolicyExtension>
+    <GroupPolicyExtension bkp:ID="{F15C46CD-82A0-4C2D-A210-5D0D3182A418}" bkp:DescName="Unknown Extension"><FSObjectDir bkp:Path="%GPO_MACH_FSPATH%\Applications" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\Applications" bkp:Location="DomainSysvol\GPO\Machine\Applications"/><FSObjectFile bkp:Path="%GPO_MACH_FSPATH%\comment.cmtx" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\comment.cmtx" bkp:Location="DomainSysvol\GPO\Machine\comment.cmtx"/><FSObjectDir bkp:Path="%GPO_MACH_FSPATH%\Microsoft" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\Microsoft" bkp:Location="DomainSysvol\GPO\Machine\Microsoft"/><FSObjectDir bkp:Path="%GPO_MACH_FSPATH%\Microsoft\Windows NT" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\Microsoft\Windows NT" bkp:Location="DomainSysvol\GPO\Machine\Microsoft\Windows NT"/><FSObjectDir bkp:Path="%GPO_MACH_FSPATH%\Microsoft\Windows NT\SecEdit" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\Microsoft\Windows NT\SecEdit" bkp:Location="DomainSysvol\GPO\Machine\Microsoft\Windows NT\SecEdit"/><FSObjectFile bkp:Path="%GPO_MACH_FSPATH%\Microsoft\Windows NT\SecEdit\GptTmpl.inf" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\Microsoft\Windows NT\SecEdit\GptTmpl.inf" bkp:Location="DomainSysvol\GPO\Machine\Microsoft\Windows NT\SecEdit\GptTmpl.inf"/><FSObjectDir bkp:Path="%GPO_MACH_FSPATH%\Scripts" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\Scripts" bkp:Location="DomainSysvol\GPO\Machine\Scripts"/><FSObjectDir bkp:Path="%GPO_MACH_FSPATH%\Scripts\Shutdown" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\Scripts\Shutdown" bkp:Location="DomainSysvol\GPO\Machine\Scripts\Shutdown"/><FSObjectDir bkp:Path="%GPO_MACH_FSPATH%\Scripts\Startup" bkp:SourceExpandedPath="\\SOSDC1.sos.lan\sysvol\sos.lan\Policies\{719BA146-5569-44A3-BB33-E20DF0887169}\Machine\Scripts\Startup" bkp:Location="DomainSysvol\GPO\Machine\Scripts\Startup"/></GroupPolicyExtension></GroupPolicyObject>
+</GroupPolicyBackupScheme>
