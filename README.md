@@ -120,6 +120,6 @@ The script we will be using must be launched from the directory containing all t
 
 **In order to enable the SSL Hardening you must uncomment the line below:**
 ```
-.\Files\Scripts\Package Management and Windows Updates\sos-installpsmodules.ps1
+.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-ssl-hardening.ps1
 
 ```
