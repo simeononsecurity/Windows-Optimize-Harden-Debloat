@@ -22,6 +22,9 @@ start-script -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Ge
 #.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-ssl-hardening.ps1
 #.\Files\Scripts\"Debloating, Optimization, and Privacy"\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
 
+#Customization Scripts
+.\Files\Scripts\"Customization and Branding"\sos-copybranding.ps1
+
 #Security Scripts
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-installadmxtemplates.ps1
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-disable-tcp-timestamps.bat
@@ -31,7 +34,6 @@ start-script -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Ge
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-install-java-config.ps1
 #.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-.net-4-stig.ps1
 .\Files\Scripts\"Security, Hardening, and Mitigations"\HardeningKitty\sos-kitty.ps1
-
 
 #Debloating Scripts
 .\Files\Scripts\"Debloating, Optimization, and Privacy"\"Windows 10 Debloater"\Windows10SysPrepDebloater.ps1 -Sysprep -Debloat -Privacy
@@ -43,13 +45,4 @@ start-script -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Ge
 .\Files\Scripts\"Debloating, Optimization, and Privacy"\W4H4Wk\sos-w4h4wk.ps1
 
 #GPO Configurations
-#Microsoft Security Baselines
-.\Files\LGPO\LGPO.exe /g .\Files\GPOs\Microsoft\"Windows 10 1909 Baseline"\GPOs
-.\Files\LGPO\LGPO.exe /g .\Files\GPOs\Microsoft\"Microsoft Edge v80"\GPOs
-.\Files\LGPO\LGPO.exe /g .\Files\GPOs\Microsoft\Office365-ProPlus-Sept2019-FINAL\GPOs
-#Cyber.mil GPOs
-.\Files\LGPO\LGPO.exe /g .\Files\GPOs\Cyber.mil
-#NSACyber GPOs
-.\Files\LGPO\LGPO.exe /g .\Files\GPOs\NSACyber\Computer
-#SIMEONONSECURITY GPOS
-.\Files\LGPO\LGPO.exe /g .\Files\GPOs\simeononsecurity
+.\Files\LGPO\LGPO.exe /g .\Files\GPOs\
