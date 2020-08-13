@@ -64,12 +64,12 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureL
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bUpdater" -Type REG_SZ -Value 0 -Force
 
 #Disable CCleaner Health Check
-TaskKill -Force ccleaner.exe
-TaskKill -Force ccleaner64.exe
+TASKKILL /f ccleaner.exe
+TASKKILL /f ccleaner64.exe
 Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "HomeScreen" -Type REG_SZ -Value 2 -Force
 
 #Disable CCleaner Monitoring && more
-TASKKILL -Force -ForceI "IMAGENAME eq CCleaner*"
+TASKKILL /f /fI "IMAGENAME eq CCleaner*"
 schtasks /Change -TypeN "CCleaner Update" -Valueisable
 Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "Monitoring" -Type REG_SZ -Value 0 -Force
 Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "HelpImproveCCleaner" -Type REG_SZ -Value 0 -Force

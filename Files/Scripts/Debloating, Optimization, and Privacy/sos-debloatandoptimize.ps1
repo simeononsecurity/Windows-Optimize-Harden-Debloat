@@ -262,10 +262,10 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureL
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bAdobeSendPluginToggle" -Type REG_SZ -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bUpdater" -Type REG_SZ -Value 0 -Force
 Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "HomeScreen" -Type REG_SZ -Value 2 -Force
-schtasks /Change -TypeN "DropboxUpdateTaskMachineCore" /disable
-schtasks /Change -TypeN "DropboxUpdateTaskMachineUA" /disable
-schtasks /Change -TypeN "GoogleUpdateTaskMachineCore" /disable
-schtasks /Change -TypeN "GoogleUpdateTaskMachineUA" /disable
+schtasks /Change /TN "DropboxUpdateTaskMachineCore" /disable
+schtasks /Change /TN "DropboxUpdateTaskMachineUA" /disable
+schtasks /Change /TN "GoogleUpdateTaskMachineCore" /disable
+schtasks /Change /TN "GoogleUpdateTaskMachineUA" /disable
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Office\15.0\osm" -Name "Enablelogging" -Type REG_DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Office\15.0\osm" -Name "EnableUpload" -Type REG_DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Office\16.0\osm" -Name "Enablelogging" -Type REG_DWORD -Value 0 -Force
