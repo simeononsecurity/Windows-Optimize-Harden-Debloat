@@ -1,118 +1,118 @@
 #Opt-out nVidia telemetry
-Reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global\FTS" /v EnableRID44231 /t REG_DWORD /d 0 /f
-Reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global\FTS" /v EnableRID64640 /t REG_DWORD /d 0 /f
-Reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global\FTS" /v EnableRID66610 /t REG_DWORD /d 0 /f
-Reg add "HKLM\SOFTWARE\NVIDIA Corporation\NvControlPanel2\Client" /v OptInOrOutPreference /t REG_DWORD /d 0 /f
-Reg add "HKLM\SYSTEM\CurrentControlSet\services\NvTelemetryContainer" /v Start /t REG_DWORD /d 4 /f
-Reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global\Startup\SendTelemetryData" /v 0 /t REG_DWORD /d 0 /f
+Set-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global\FTS" -Name EnableRID44231 -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global\FTS" -Name EnableRID64640 -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global\FTS" -Name EnableRID66610 -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\NvControlPanel2\Client" -Name OptInOrOutPreference -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\services\NvTelemetryContainer" -Name Start -Type REG_DWORD -Value 4 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global\Startup\SendTelemetryData" -Name 0 -Type REG_DWORD -Value 0 -Force
 sc stop NvTelemetryContainer
 sc config NvTelemetryContainer start=disabled
-schtasks /change /TN NvTmRep_CrashReport1_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /disable
-schtasks /change /TN NvTmRep_CrashReport2_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /disable
-schtasks /change /TN NvTmRep_CrashReport3_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /disable
-schtasks /change /TN NvTmRep_CrashReport4_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} /disable
+schtasks /change -TypeN NvTmRep_CrashReport1_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} -Valueisable
+schtasks /change -TypeN NvTmRep_CrashReport2_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} -Valueisable
+schtasks /change -TypeN NvTmRep_CrashReport3_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} -Valueisable
+schtasks /change -TypeN NvTmRep_CrashReport4_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8} -Valueisable
 
 #Disable Razer Game Scanner service
 sc stop "Razer Game Scanner Service"
 sc config "Razer Game Scanner Service" start=disabled
 
 #Disable Game Bar features
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR" /v AllowgameDVR /t REG_DWORD /d 0 /f
-Reg add "HKCU\System\GameConfigStore" /v GameDVR_Enabled /t REG_DWORD /d 0 /f
-Reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v AppCaptureEnabled /t REG_DWORD /d 0 /f
-Reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v  HistoricalCaptureEnabled /t REG_DWORD /d 0 /f
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" -Name AllowgameDVR -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\System\GameConfigStore" -Name GameDVR_Enabled -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" -Name AppCaptureEnabled -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" -Name  HistoricalCaptureEnabled -Type REG_DWORD -Value 0 -Force
 
 #Disable Logitech Gaming service
 sc stop "LogiRegistryService"
 sc config "LogiRegistryService" start=disabled
 
 #Disable Visual Studio telemetry
-Reg add "HKLM\SOFTWARE\Wow6432Node\Microsoft\VSCommon\14.0\SQM" /v OptIn /t REG_DWORD /d 0 /f
-Reg add "HKLM\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM" /v OptIn /t REG_DWORD /d 0 /f
-Reg add "HKLM\SOFTWARE\Wow6432Node\Microsoft\VSCommon\16.0\SQM" /v OptIn /t REG_DWORD /d 0 /f
-Reg add "HKLM\SOFTWARE\Microsoft\VSCommon\14.0\SQM" /v OptIn /t REG_DWORD /d 0 /f
-Reg add "HKLM\SOFTWARE\Microsoft\VSCommon\15.0\SQM" /v OptIn /t REG_DWORD /d 0 /f
-Reg add "HKLM\SOFTWARE\Microsoft\VSCommon\16.0\SQM" /v OptIn /t REG_DWORD /d 0 /f
-Reg add "HKLM\Software\Policies\Microsoft\VisualStudio\SQM" /v OptIn /t REG_DWORD /d 0 /f
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Reporting" /v "DisableGenericRePorts" /t REG_DWORD /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /v "LocalSettingOverrideSpynetReporting" /t REG_DWORD /d 0 /f
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /v "SpynetReporting" /t REG_DWORD /d 0 /f
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /v "SubmitSamplesConsent" /t REG_DWORD /d 2 /f
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\MRT" /v "DontReportInfectionInformation" /t REG_DWORD /d 1 /f
-Reg add "HKCU\Software\Microsoft\VisualStudio\Telemetry" /v TurnOffSwitch /t REG_DWORD /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" /v DisableFeedbackDialog /t REG_DWORD /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" /v DisableEmailInput /t REG_DWORD /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" /v DisableScreenshotCapture /t REG_DWORD /d 1 /f
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\VSCommon\14.0\SQM" -Name OptIn -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM" -Name OptIn -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\VSCommon\16.0\SQM" -Name OptIn -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\VSCommon\14.0\SQM" -Name OptIn -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\VSCommon\15.0\SQM" -Name OptIn -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\VSCommon\16.0\SQM" -Name OptIn -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\VisualStudio\SQM" -Name OptIn -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Reporting" -Name "DisableGenericRePorts" -Type REG_DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" -Name "LocalSettingOverrideSpynetReporting" -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" -Name "SpynetReporting" -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" -Name "SubmitSamplesConsent" -Type REG_DWORD -Value 2 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\MRT" -Name "DontReportInfectionInformation" -Type REG_DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\VisualStudio\Telemetry" -Name TurnOffSwitch -Type REG_DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" -Name DisableFeedbackDialog -Type REG_DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" -Name DisableEmailInput -Type REG_DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" -Name DisableScreenshotCapture -Type REG_DWORD -Value 1 -Force
 sc stop "VSStandardCollectorService150"
 Run net stop "VSStandardCollectorService150"
 sc config "VSStandardCollectorService150" start=disabled
 
 #Block Google Chrome Software Reporter Tool
-Reg add "HKLM\SOFTWARE\Policies\Google\Chrome" /v "ChromeCleanupEnabled" /t REG_SZ /d 0 /f
-Reg add "HKLM\SOFTWARE\Policies\Google\Chrome" /v "ChromeCleanupReportingEnabled" /t REG_SZ /d 0 /f
-Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\software_reporter_tool.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f
-Reg add "HKLM\SOFTWARE\Policies\Google\Chrome" /v "MetricsReportingEnabled" /t REG_SZ /d 0 /f
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "ChromeCleanupEnabled" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "ChromeCleanupReportingEnabled" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\software_reporter_tool.exe" -Name Debugger -Type REG_SZ -Value "%windir%\System32\taskkill.exe" -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "MetricsReportingEnabled" -Type REG_SZ -Value 0 -Force
 
 #Disable storing sensitive data in Acrobat Reader DC
-Reg add "HKCU\Software\Adobe\Adobe ARM\1.0\ARM" /v "iCheck" /t REG_SZ /d 0 /f
-Reg add "HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" /v "cSharePoint" /t REG_SZ /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" /v "bToggleAdobeDocumentServices" /t REG_SZ /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" /v "bToggleAdobeSign" /t REG_SZ /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" /v "bTogglePrefSync" /t REG_SZ /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" /v "bToggleWebConnectors" /t REG_SZ /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" /v "bAdobeSendPluginToggle" /t REG_SZ /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" /v "bUpdater" /t REG_SZ /d 0 /f
+Set-ItemProperty -Path "HKCU:\Software\Adobe\Adobe ARM\1.0\ARM" -Name "iCheck" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name "cSharePoint" -Type REG_SZ -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bToggleAdobeDocumentServices" -Type REG_SZ -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bToggleAdobeSign" -Type REG_SZ -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bTogglePrefSync" -Type REG_SZ -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bToggleWebConnectors" -Type REG_SZ -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bAdobeSendPluginToggle" -Type REG_SZ -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bUpdater" -Type REG_SZ -Value 0 -Force
 
 #Disable CCleaner Health Check
-TaskKill /F ccleaner.exe
-TaskKill /F ccleaner64.exe
-Reg add "HKCU\Software\Piriform\CCleaner" /v "HomeScreen" /t REG_SZ /d 2 /f
+TaskKill -Force ccleaner.exe
+TaskKill -Force ccleaner64.exe
+Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "HomeScreen" -Type REG_SZ -Value 2 -Force
 
 #Disable CCleaner Monitoring && more
-TASKKILL /F /FI "IMAGENAME eq CCleaner*"
-schtasks /Change /TN "CCleaner Update" /Disable
-Reg add "HKCU\Software\Piriform\CCleaner" /v "Monitoring" /t REG_SZ /d 0 /f
-Reg add "HKCU\Software\Piriform\CCleaner" /v "HelpImproveCCleaner" /t REG_SZ /d 0 /f
-Reg add "HKCU\Software\Piriform\CCleaner" /v "SystemMonitoring" /t REG_SZ /d 0 /f
-Reg add "HKCU\Software\Piriform\CCleaner" /v "SystemMonitoringRunningNotification" /t REG_SZ /d 0 /f
-Reg add "HKCU\Software\Piriform\CCleaner" /v "UpdateAuto" /t REG_SZ /d 0 /f
-Reg add "HKCU\Software\Piriform\CCleaner" /v "UpdateCheck" /t REG_SZ /d 0 /f
-Reg add "HKCU\Software\Piriform\CCleaner" /v "CheckTrialOffer" /t REG_SZ /d 0 /f
-Reg add "HKLM\Software\Piriform\CCleaner" /v "(Cfg)GetIpmForTrial" /t REG_SZ /d 0 /f
-Reg add "HKLM\Software\Piriform\CCleaner" /v "(Cfg)SoftwareUpdater" /t REG_SZ /d 0 /f
-Reg add "HKLM\Software\Piriform\CCleaner" /v "(Cfg)SoftwareUpdaterIpm" /t REG_SZ /d 0 /f
+TASKKILL -Force -ForceI "IMAGENAME eq CCleaner*"
+schtasks /Change -TypeN "CCleaner Update" -Valueisable
+Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "Monitoring" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "HelpImproveCCleaner" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "SystemMonitoring" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "SystemMonitoringRunningNotification" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "UpdateAuto" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "UpdateCheck" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "CheckTrialOffer" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Piriform\CCleaner" -Name "(Cfg)GetIpmForTrial" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Piriform\CCleaner" -Name "(Cfg)SoftwareUpdater" -Type REG_SZ -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Piriform\CCleaner" -Name "(Cfg)SoftwareUpdaterIpm" -Type REG_SZ -Value 0 -Force
 
 #Disable Dropbox Update service
 sc config dbupdate start=disabled
 sc config dbupdatem start=disabled
-schtasks /Change /TN "DropboxUpdateTaskMachineCore" /disable
-schtasks /Change /TN "DropboxUpdateTaskMachineUA" /disable
+schtasks /Change -TypeN "DropboxUpdateTaskMachineCore" -Valueisable
+schtasks /Change -TypeN "DropboxUpdateTaskMachineUA" -Valueisable
 
 #Disable Google update service
-schtasks /Change /TN "GoogleUpdateTaskMachineCore" /disable
-schtasks /Change /TN "GoogleUpdateTaskMachineUA" /disable
+schtasks /Change -TypeN "GoogleUpdateTaskMachineCore" -Valueisable
+schtasks /Change -TypeN "GoogleUpdateTaskMachineUA" -Valueisable
 
 #Disable Media Player telemetry
-Reg add "HKCU\SOFTWARE\Microsoft\MediaPlayer\Preferences" /v "UsageTracking" /t REG_DWORD /d 0 /f
-Reg add "HKCU\Software\Policies\Microsoft\WindowsMediaPlayer" /v "PreventCDDVDMetadataRetrieval" /t REG_DWORD /d 1 /f
-Reg add "HKCU\Software\Policies\Microsoft\WindowsMediaPlayer" /v "PreventMusicFileMetadataRetrieval" /t REG_DWORD /d 1 /f
-Reg add "HKCU\Software\Policies\Microsoft\WindowsMediaPlayer" /v "PreventRadioPresetsRetrieval" /t REG_DWORD /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Microsoft\WMDRM" /v "DisableOnline" /t REG_DWORD /d 1 /f
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\MediaPlayer\Preferences" -Name "UsageTracking" -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\WindowsMediaPlayer" -Name "PreventCDDVDMetadataRetrieval" -Type REG_DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\WindowsMediaPlayer" -Name "PreventMusicFileMetadataRetrieval" -Type REG_DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\WindowsMediaPlayer" -Name "PreventRadioPresetsRetrieval" -Type REG_DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WMDRM" -Name "DisableOnline" -Type REG_DWORD -Value 1 -Force
 sc config WMPNetworkSvc start=disabled
 
 #Disable Microsoft Office telemetry
-Reg add "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /v "Enablelogging" /t REG_DWORD /d 0 /f
-Reg add "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /v "EnableUpload" /t REG_DWORD /d 0 /f
-Reg add "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /v "Enablelogging" /t REG_DWORD /d 0 /f
-Reg add "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /v "EnableUpload" /t REG_DWORD /d 0 /f
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Office\15.0\osm" -Name "Enablelogging" -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Office\15.0\osm" -Name "EnableUpload" -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Office\16.0\osm" -Name "Enablelogging" -Type REG_DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Office\16.0\osm" -Name "EnableUpload" -Type REG_DWORD -Value 0 -Force
 
 #Disable Microsoft Windows Live ID service
-Reg add "HKLM\SYSTEM\CurrentControlSet\services\wlidsvc" /v Start /t REG_DWORD /d 4 /f
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\services\wlidsvc" -Name Start -Type REG_DWORD -Value 4 -Force
 sc config wlidsvc start=disabled
 
 #Disable Mozilla Firefox telemetry
-Reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /v "DisableTelemetry" /t REG_DWORD /d 1 /f
-Reg add "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /v "DisableDefaultBrowserAgent" /t REG_DWORD /d 1 /f
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Mozilla\Firefox" -Name "DisableTelemetry" -Type REG_DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Mozilla\Firefox" -Name "DisableDefaultBrowserAgent" -Type REG_DWORD -Value 1 -Force
 
 #Remove Windows Bloatware
 powershell -command "Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers"

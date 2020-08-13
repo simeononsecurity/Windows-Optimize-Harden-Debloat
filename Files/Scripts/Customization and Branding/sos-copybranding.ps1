@@ -9,5 +9,5 @@ copy-item -Path .\Files\Branding\wallpaper.jpg -Destination C:\Windows\Web\Wallp
 copy-item -Path .\Files\Branding\oemlogo.bmp -Destination "C:\ProgramData\Microsoft\User Account Pictures" -Force
 copy-item -Path .\Files\Branding\user*.png -Destination "C:\ProgramData\Microsoft\User Account Pictures" -Force
 copy-item -Path .\Files\Branding\user*.bmp -Destination "C:\ProgramData\Microsoft\User Account Pictures" -Force
-reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d C:\Windows\Web\Wallpaper\Theme1\wallpaper.jpg /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v Logo /t REG_SZ /d "C:\ProgramData\Microsoft\User Account Pictures\oemlogo.bmp" /f
+Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name Wallpaper -Type REG_SZ -Value C:\Windows\Web\Wallpaper\Theme1\wallpaper.jpg -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" -Name Logo -Type REG_SZ -Value "C:\ProgramData\Microsoft\User Account Pictures\oemlogo.bmp" -Force

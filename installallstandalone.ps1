@@ -7,7 +7,7 @@ Write-Output "Elevating priviledges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 #Unblock all files required for script
-ls *.ps*1 -recurse | Unblock-File
+Get-ChildItem *.ps*1 -recurse | Unblock-File
 
 #Windows 10 Defenter Exploit Guard Configuration File
 start-job -ScriptBlock {mkdir C:\temp\; mkdir "C:\temp\Windows Defender"; copy-item -Path .\Files\DOD_EP_V3.xml -Destination "C:\temp\Windows Defender" -Force -Recurse -ErrorAction SilentlyContinue} 
@@ -28,9 +28,9 @@ start-script -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Ge
 
 #Security Scripts
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-installadmxtemplates.ps1
-.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-disable-tcp-timestamps.bat
+.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-disable-tcp-timestamps.ps1
+.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-specture-meltdown-mitigations.ps1
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-IE-Scripting-Engine-Memory-Corruption.bat
-.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-specture-meltdown-mitigations.bat
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-FireFoxConfInstall.ps1
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-install-java-config.ps1
 #.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-.net-4-stig.ps1
@@ -39,8 +39,7 @@ start-script -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Ge
 #Debloating Scripts
 .\Files\Scripts\"Debloating, Optimization, and Privacy"\"Windows 10 Debloater"\Windows10SysPrepDebloater.ps1 -Sysprep -Debloat -Privacy
 .\Files\Scripts\"Debloating, Optimization, and Privacy"\sos-ultimate-performance-mode.ps1
-.\Files\Scripts\"Debloating, Optimization, and Privacy"\sos-optimizevmvirtalization.ps1
-.\Files\Scripts\"Debloating, Optimization, and Privacy"\sos-startupcleantelem.ps1
+.\Files\Scripts\"Debloating, Optimization, and Privacy"\sos-debloatandoptimize.ps1
 .\Files\Scripts\"Debloating, Optimization, and Privacy"\sharpapp\sos-sharpappscripts.ps1
 .\Files\Scripts\"Debloating, Optimization, and Privacy"\debotnet\sos-debotnetscripts.ps1
 .\Files\Scripts\"Debloating, Optimization, and Privacy"\W4H4Wk\sos-w4h4wk.ps1
