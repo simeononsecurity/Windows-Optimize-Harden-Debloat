@@ -248,10 +248,10 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" -Name
 Set-ItemProperty -Path "HKCU:\System\GameConfigStore" -Name GameDVR_Enabled -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" -Name AppCaptureEnabled -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" -Name  HistoricalCaptureEnabled -Type DWORD -Value 0 -Force
-sc stop "LogiRegistryService"
-sc config "LogiRegistryService" start=disabled
-sc stop "Razer Game Scanner Service"
-sc config "Razer Game Scanner Service" start=disabled
+Stop-Service "LogiRegistryService"
+Set-Service  "LogiRegistryService" -StartupType Disabled
+Stop-Service "Razer Game Scanner Service"
+Set-Service  "Razer Game Scanner Service" -StartupType Disabled
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CredUI" -Name DisablePasswordReveal -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKCU:\Software\Adobe\Adobe ARM\1.0\ARM" -Name "iCheck" -Type String -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name "cSharePoint" -Type String -Value 1 -Force
@@ -271,7 +271,7 @@ Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Office\15.0\osm" -Name
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Office\16.0\osm" -Name "Enablelogging" -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Office\16.0\osm" -Name "EnableUpload" -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\services\wlidsvc" -Name Start -Type DWORD -Value 4 -Force
-sc config wlidsvc start=disabled
+Set-Service  wlidsvc -StartupType Disabled
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Mozilla\Firefox" -Name "DisableTelemetry" -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Mozilla\Firefox" -Name "DisableDefaultBrowserAgent" -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\VSCommon\14.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
@@ -289,12 +289,13 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\VisualStudio\Telemetry" -Name T
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" -Name DisableFeedbackDialog -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" -Name DisableEmailInput -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\VisualStudio\Feedback" -Name DisableScreenshotCapture -Type DWORD -Value 1 -Force
-sc stop "VSStandardCollectorService150"
+Stop-Service "VSStandardCollectorService150"
 net stop "VSStandardCollectorService150"
-sc config "VSStandardCollectorService150" start=disabled
+Set-Service  "VSStandardCollectorService150" -StartupType Disabled
 #General Optmizations
 #Delete "windows.old" folder
-%SystemRoot%\System32\Cmd.exe /c Cleanmgr /sageset:65535 && Cleanmgr /sagerun:65535
+%SystemRoot%\System32\Cmd.exe /c Cleanmgr /sageset:65535 
+%SystemRoot%\System32\Cmd.exe /c Cleanmgr /sagerun:65535
 
 #Display full path in explorer
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState" -Name FullPath -Type DWORD -Value 1 -Force
