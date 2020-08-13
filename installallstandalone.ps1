@@ -24,6 +24,7 @@ start-script -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Ge
 
 #Customization Scripts
 .\Files\Scripts\"Customization and Branding"\sos-copybranding.ps1
+.\Files\Scripts\"Customization and Branding"\sos-darkmode.ps1
 
 #Security Scripts
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-installadmxtemplates.ps1
