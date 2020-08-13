@@ -1,4 +1,4 @@
-https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV200001
+# https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV200001
 
 
 takeown /f %windir%\syswow64\jscript.dll

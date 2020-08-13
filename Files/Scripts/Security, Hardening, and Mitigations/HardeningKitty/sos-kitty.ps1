@@ -1,4 +1,0 @@
-Import-Module .\Scripts\"Security, Hardening, and Mitigations"\HardeningKitty\Invoke-HardeningKitty.ps1
-Invoke-HardeningKitty -EmojiSupport -Log $true -Report $true -Mode HailMary -FileFindingList .\Files\Scripts\"Security, Hardening, and Mitigations"\HardeningKitty\lists\finding_list_0x6d69636b_machine.csv -BinaryAccesschk .\Files\AccessChk\accesschk64.exe
-Invoke-HardeningKitty -EmojiSupport -Log $true -Report $true -Mode HailMary -FileFindingList .\Files\Scripts\"Security, Hardening, and Mitigations"\HardeningKitty\lists\finding_list_0x6d69636b_user.csv -BinaryAccesschk .\Files\AccessChk\accesschk64.exe 
-Invoke-HardeningKitty -EmojiSupport -Log $true -Report $true -Mode HailMary -FileFindingList .\Files\Scripts\"Security, Hardening, and Mitigations"\HardeningKitty\lists\finding_list_msft_edge_machine.csv -BinaryAccesschk .\Files\AccessChk\accesschk64.exe

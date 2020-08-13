@@ -1,6 +1,6 @@
 ######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
 #Continue on error
-$ErrorActionPreference= 'silentlycontinue'
+#$ErrorActionPreference= 'silentlycontinue'
 
 #Require elivation for script run
 Write-Output "Elevating priviledges for this process"
@@ -16,7 +16,7 @@ start-job -ScriptBlock {mkdir C:\temp\; mkdir "C:\temp\Windows Defender"; copy-i
 .\Files\Scripts\"Package Management and Windows Updates"\sos-installpsmodules.ps1
 
 ##Install Latest Windows Updates
-start-script -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot}
+start-job -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot}
 
 #Optional Scripts 
 #.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-ssl-hardening.ps1
@@ -34,7 +34,6 @@ start-script -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Ge
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-FireFoxConfInstall.ps1
 .\Files\Scripts\"Security, Hardening, and Mitigations"\sos-install-java-config.ps1
 #.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-.net-4-stig.ps1
-.\Files\Scripts\"Security, Hardening, and Mitigations"\HardeningKitty\sos-kitty.ps1
 
 #Debloating Scripts
 .\Files\Scripts\"Debloating, Optimization, and Privacy"\"Windows 10 Debloater"\Windows10SysPrepDebloater.ps1 -Sysprep -Debloat -Privacy

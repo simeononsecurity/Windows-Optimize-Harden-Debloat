@@ -50,10 +50,6 @@ This script is designed for operation in both **DoD** and **Personal Use** envir
 
 - [NSACyber - Bitlocker Guidance](https://github.com/nsacyber/BitLocker-Guidance)
 
-- [0x6d69636b - Windows Hardening](https://github.com/0x6d69636b/windows_hardening)
-
-- [SysInternals - AccessChk](https://docs.microsoft.com/en-us/sysinternals/downloads/accesschk)
-
 - [W4H4WK - Debloat Windows 10](https://github.com/W4RH4WK/Debloat-Windows-10/tree/master/scripts)
 
 ## Additional configurations were considered from:
