@@ -110,12 +110,12 @@ The script we will be using must be launched from the directory containing all t
 
 **In order to enable the Windows 10 VDI Optimizations you must uncomment the line below:**
 ```
-.\Files\Scripts\"Debloating, Optimization, and Privacy"\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
+.\Files\Optional\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
 
 ```
 
 **In order to enable the SSL Hardening you must uncomment the line below:**
 ```
-.\Files\Scripts\"Security, Hardening, and Mitigations"\sos-ssl-hardening.ps1
+.\Files\Optional\"SSL Hardening Registries.ps1"
 
 ```
