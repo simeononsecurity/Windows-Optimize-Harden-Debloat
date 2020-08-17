@@ -103,14 +103,14 @@ This script is designed for operation in both **DoD** and **Personal Use** envir
 
 **The script may be lauched from the extracted GitHub download like this:**
 ```
-.\W10-Optimize-and-Harden-master\installallstandalone.ps1
+.\W10-Optimize-and-Harden-master\optimize-standalone.ps1
 ```
-The script we will be using must be launched from the directory containing all the other files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)
+The script we will be using must be launched from the directory containing all the other files from the [GitHub Repository](https://github.com/simeononsecurity/W10-Optimize-and-Harden)
 
 
-**In order to enable the Windows 10 VDI Optimizations you must uncomment the line below:**
+**In order to enable the Windows 10 VDI Optimizations you must run the alternative script**
 ```
-.\Files\Optional\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
+.\W10-Optimize-and-Harden-master\optmize-vdi.ps1
 
 ```
 

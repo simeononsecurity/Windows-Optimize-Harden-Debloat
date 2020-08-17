@@ -3,6 +3,7 @@
 $ErrorActionPreference= 'silentlycontinue'
 
 #Require elivation for script run
+#Requires -RunAsAdministrator
 Write-Output "Elevating priviledges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
@@ -24,6 +25,7 @@ Import-Module -Name PowerShellAccessControl -Force -Global
 #Optional Scripts 
 #.\Files\Optional\sos-ssl-hardening.ps1
 #.\Files\Optional\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
+# powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 
 #Disabled - Work In Progress
 #.\Files\Optional\sos-.net-4-stig.ps1
@@ -1100,7 +1102,6 @@ CheckDMWService
 CheckInstallService
 Write-Output "Finished all tasks."
 
-powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 #https://docs.microsoft.com/en-us/windows/privacy/
 #https://docs.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services
 #https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
@@ -2021,39 +2022,6 @@ New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
     -Action Block -RemoteAddress ([string[]]$ips)
 
 #   Description:
-# This script disables unwanted Windows services. If you do not want to disable
-# certain services comment out the corresponding lines below.
-
-$services = @(
-    "diagnosticshub.standardcollector.service" # Microsoft (R) Diagnostics Hub Standard Collector Service
-    "DiagTrack"                                # Diagnostics Tracking Service
-    "dmwappushservice"                         # WAP Push Message Routing Service (see known issues)
-    "lfsvc"                                    # Geolocation Service
-    "MapsBroker"                               # Downloaded Maps Manager
-    "NetTcpPortSharing"                        # Net.Tcp Port Sharing Service
-    "RemoteAccess"                             # Routing and Remote Access
-    "RemoteRegistry"                           # Remote Registry
-    "SharedAccess"                             # Internet Connection Sharing (ICS)
-    "TrkWks"                                   # Distributed Link Tracking Client
-    "WbioSrvc"                                 # Windows Biometric Service (required for Fingerprint reader / facial detection)
-    #"WlanSvc"                                 # WLAN AutoConfig
-    "WMPNetworkSvc"                            # Windows Media Player Network Sharing Service
-    "wscsvc"                                   # Windows Security Center Service
-    #"WSearch"                                 # Windows Search
-    "XblAuthManager"                           # Xbox Live Auth Manager
-    "XblGameSave"                              # Xbox Live Game Save Service
-    "XboxNetApiSvc"                            # Xbox Live Networking Service
-    "ndu"                                      # Windows Network Data Usage Monitor
-    # Services which cannot be disabled
-    #"WdNisSvc"
-)
-
-foreach ($service in $services) {
-    Write-Output "Trying to disable $service"
-    Get-Service -Name $service | Set-Service -StartupType Disabled
-}
-
-#   Description:
 # This script will try to fix many of the privacy settings for the user. This
 # is work in progress!
 
@@ -2211,9 +2179,9 @@ $apps = @(
     #"Microsoft.WindowsStore"   # can't be re-installed
     "Microsoft.Xbox.TCUI"
     "Microsoft.XboxApp"
-    "Microsoft.XboxGameOverlay"
-    "Microsoft.XboxGamingOverlay"
-    "Microsoft.XboxSpeechToTextOverlay"
+    #"Microsoft.XboxGameOverlay"
+    #"Microsoft.XboxGamingOverlay"
+    #"Microsoft.XboxSpeechToTextOverlay"
     "Microsoft.YourPhone"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
