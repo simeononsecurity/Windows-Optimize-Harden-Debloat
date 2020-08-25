@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<policyDefinitions revision="2.1" schemaVersion="1.0">
+<policyDefinitions revision="2.2" schemaVersion="1.0">
   <policyNamespaces>
     <target prefix="firefox" namespace="Mozilla.Policies.Firefox"/>
     <using prefix="Mozilla" namespace="Mozilla.Policies"/>
   </policyNamespaces>
-  <resources minRequiredRevision="2.1"/>
+  <resources minRequiredRevision="2.2"/>
   <supportedOn>
     <definitions>
       <definition name="UNSUPPORTED" displayName="$(string.UNSUPPORTED)"/>
@@ -86,6 +86,9 @@
       <parentCategory ref="Permissions"/>
     </category>
     <category displayName="$(string.Autoplay_group)" name="Autoplay">
+      <parentCategory ref="Permissions"/>
+    </category>
+    <category displayName="$(string.VirtualReality_group)" name="VirtualReality">
       <parentCategory ref="Permissions"/>
     </category>
     <category displayName="$(string.Preferences_group)" name="Preferences">
@@ -542,6 +545,40 @@
           </item>
         </enum>
       </elements>
+    </policy>
+    <policy name="VirtualReality_Allow" class="Both" displayName="$(string.Allow)" explainText="$(string.VirtualReality_Allow_Explain)" key="Software\Policies\Mozilla\Firefox\Permissions" presentation="$(presentation.Permissions)">
+      <parentCategory ref="VirtualReality"/>
+      <supportedOn ref="SUPPORTED_FF80"/>
+      <elements>
+        <list id="Permissions" key="Software\Policies\Mozilla\Firefox\Permissions\VirtualReality\Allow" valuePrefix=""/>
+      </elements>
+    </policy>
+    <policy name="VirtualReality_Block" class="Both" displayName="$(string.Block)" explainText="$(string.VirtualReality_Block_Explain)" key="Software\Policies\Mozilla\Firefox\Permissions" presentation="$(presentation.Permissions)">
+      <parentCategory ref="VirtualReality"/>
+      <supportedOn ref="SUPPORTED_FF80"/>
+      <elements>
+        <list id="Permissions" key="Software\Policies\Mozilla\Firefox\Permissions\VirtualReality\Block" valuePrefix=""/>
+      </elements>
+    </policy>
+    <policy name="VirtualReality_BlockNewRequests" class="Both" displayName="$(string.VirtualReality_BlockNewRequests)" explainText="$(string.VirtualReality_BlockNewRequests_Explain)" key="Software\Policies\Mozilla\Firefox\Permissions\VirtualReality" valueName="BlockNewRequests">
+      <parentCategory ref="VirtualReality"/>
+      <supportedOn ref="SUPPORTED_FF80"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
+    </policy>
+    <policy name="VirtualReality_Locked" class="Both" displayName="$(string.VirtualReality_Locked)" explainText="$(string.VirtualReality_Locked_Explain)" key="Software\Policies\Mozilla\Firefox\Permissions\VirtualReality" valueName="Locked">
+      <parentCategory ref="VirtualReality"/>
+      <supportedOn ref="SUPPORTED_FF80"/>
+      <enabledValue>
+        <decimal value="1"/>
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0"/>
+      </disabledValue>
     </policy>
     <policy name="DefaultDownloadDirectory" class="Both" displayName="$(string.DefaultDownloadDirectory)" explainText="$(string.DefaultDownloadDirectory_Explain)" key="Software\Policies\Mozilla\Firefox" presentation="$(presentation.Preferences_String)">
       <parentCategory ref="firefox"/>
