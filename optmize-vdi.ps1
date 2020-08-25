@@ -2494,9 +2494,6 @@ Remove-Item -Path $env:windir\Temp\* -Recurse -Force -ErrorAction SilentlyContin
 Remove-Item -Path $env:TEMP\* -Recurse -Force -ErrorAction SilentlyContinue
 #endregion
 
-
-########################  END OF SCRIPT  ########################
-
 #GPO Configurations
 .\Files\LGPO\LGPO.exe /g .\Files\GPOs\
 
