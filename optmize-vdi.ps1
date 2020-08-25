@@ -2425,213 +2425,6 @@ Try
 }
 Catch { }
 
-#endregion
-
-#region Begin Clean APPX Packages
-Set-Location $PSScriptRoot
-$AppxPackage = "Microsoft.BingWeather
-Microsoft.GetHelp
-Microsoft.Getstarted
-Microsoft.Messaging
-Microsoft.MicrosoftOfficeHub
-Microsoft.MicrosoftSolitaireCollection
-Microsoft.MicrosoftStickyNotes
-Microsoft.MSPaint
-Microsoft.Office.OneNote
-Microsoft.OneConnect
-Microsoft.People
-Microsoft.Print3D
-Microsoft.SkypeApp
-Microsoft.Wallet
-Microsoft.Windows.Photos
-Microsoft.WindowsAlarms
-Microsoft.WindowsCalculator
-Microsoft.WindowsCamera
-microsoft.windowscommunicationsapps
-Microsoft.WindowsFeedbackHub
-Microsoft.WindowsMaps
-Microsoft.Xbox.TCUI
-Microsoft.XboxApp
-Microsoft.XboxGameOverlay
-Microsoft.XboxGamingOverlay
-Microsoft.XboxIdentityProvider
-Microsoft.XboxSpeechToTextOverlay
-Microsoft.YourPhone
-Microsoft.ZuneMusic
-Microsoft.ZuneVideo"
-
-If ($AppxPackage.Count -gt 0)
-{
-    Foreach ($Item in $AppxPackage)
-    {
-        $Package = "*$Item*"
-        Get-AppxPackage                    | Where-Object {$_.PackageFullName -like $Package} | Remove-AppxPackage
-        Get-AppxPackage -AllUsers          | Where-Object {$_.PackageFullName -like $Package} | Remove-AppxPackage -AllUsers
-        Get-AppxProvisionedPackage -Online | Where-Object {$_.PackageName -like $Package}     | Remove-AppxProvisionedPackage -Online
-    }
-}
-#endregion
-
-#region Disable Scheduled Tasks
-
-# This section is for disabling scheduled tasks.  If you find a task that should not be disabled
-# comment or delete from the "SchTaskList.txt" file.
-$SchTasksList = "BgTaskRegistrationMaintenanceTask
-Consolidator
-Diagnostics
-FamilySafetyMonitor
-FamilySafetyRefreshTask
-MapsToastTask
-*Compatibility*
-Microsoft-Windows-DiskDiagnosticDataCollector
-*MNO*
-NotificationTask
-PerformRemediation
-ProactiveScan
-ProcessMemoryDiagnosticEvents
-Proxy
-QueueReporting
-RecommendedTroubleshootingScanner
-ReconcileLanguageResources
-RegIdleBackup
-RunFullMemoryDiagnostic
-Scheduled
-ScheduledDefrag
-SilentCleanup
-SpeechModelDownloadTask
-Sqm-Tasks
-SR
-StartupAppTask
-SyspartRepair
-UpdateLibrary
-WindowsActionDialog
-WinSAT
-XblGameSaveTask"
-If ($SchTasksList.count -gt 0)
-{
-    $EnabledScheduledTasks = Get-ScheduledTask | Where-Object {$_.State -ne "Disabled"}
-    Foreach ($Item in $SchTasksList)
-    {
-        $Task = (($Item -split ":")[0]).Trim()
-        $EnabledScheduledTasks | Where-Object { $_.TaskName -like "*$Task*" } | Disable-ScheduledTask
-    }
-}
-#endregion
-#region Customize Default User Profile
-# Apply appearance customizations to default user registry hive, then close hive file
-$DefaultUserSettings = "Load HKLM\Temp C:\Users\Default\NTUSER.DAT
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\Explorer" /v ShellState /t REG_BINARY /d 240000003C2800000000000000000000 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v IconsOnly /t REG_DWORD /d 1 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ListviewAlphaSelect /t REG_DWORD /d 0 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ListviewShadow /t REG_DWORD /d 0 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ShowCompColor /t REG_DWORD /d 1 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ShowInfoTip /t REG_DWORD /d 1 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v TaskbarAnimations /t REG_DWORD /d 0 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" /v VisualFXSetting /t REG_DWORD /d 3 /f
-add HKLM\Temp\Software\Microsoft\Windows\DWM /v EnableAeroPeek /t REG_DWORD /d 0 /f
-add HKLM\Temp\Software\Microsoft\Windows\DWM /v AlwaysHiberNateThumbnails /t REG_DWORD /d 0 /f
-add "HKLM\Temp\Control Panel\Desktop" /v DragFullWindows /t REG_SZ /d 0 /f
-add "HKLM\Temp\Control Panel\Desktop" /v FontSmoothing /t REG_SZ /d 2 /f
-add "HKLM\Temp\Control Panel\Desktop" /v UserPreferencesMask /t REG_BINARY /d 9032078010000000 /f
-add "HKLM\Temp\Control Panel\Desktop\WindowMetrics" /v MinAnimate /t REG_SZ /d 0 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
-add HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v SubscribedContent-338393Enabled /t REG_DWORD /d 0 /f
-add HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v SubscribedContent-353694Enabled /t REG_DWORD /d 0 /f
-add HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v SubscribedContent-353696Enabled /t REG_DWORD /d 0 /f
-add HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v SubscribedContent-338388Enabled /t REG_DWORD /d 0 /f
-add HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v SubscribedContent-338389Enabled /t REG_DWORD /d 0 /f
-add HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v SystemPaneSuggestionsEnabled /t REG_DWORD /d 0 /f
-add "HKLM\Temp\Control Panel\International\User Profile" /v HttpAcceptLanguageOptOut /t REG_DWORD /d 1 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Windows.Photos_8wekyb3d8bbwe" /v Disabled /t REG_DWORD /d 1 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Windows.Photos_8wekyb3d8bbwe" /v DisabledByUser /t REG_DWORD /d 1 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.SkypeApp_kzf8qxf38zg5c" /v Disabled /t REG_DWORD /d 1 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.SkypeApp_kzf8qxf38zg5c" /v DisabledByUser /t REG_DWORD /d 1 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.YourPhone_8wekyb3d8bbwe" /v Disabled /t REG_DWORD /d 1 /f
-add "HKLM\Temp\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.YourPhone_8wekyb3d8bbwe" /v DisabledByUser /t REG_DWORD /d 1 /f
-Unload HKLM\Temp"
-
-If ($DefaultUserSettings.count -gt 0)
-{
-    Foreach ($Item in $DefaultUserSettings)
-    {
-        Start-Process C:\Windows\System32\Reg.exe -ArgumentList "$Item" -Wait 
-    }
-}
-#endregion
-
-#region Disable Windows Traces
-$DisableAutologgers = "HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\AppModel\
-HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\CloudExperienceHostOOBE\
-HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\DiagLog\
-HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\ReadyBoot\
-HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\WDIContextLog\
-HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\WiFiDriverIHVSession\
-HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\WiFiSession\
-HKLM:\SYSTEM\CurrentControlSet\Control\WMI\Autologger\WinPhoneCritical\"
-
-
-If ($DisableAutologgers.count -gt 0)
-{
-    Foreach ($Item in $DisableAutologgers)
-    {
-        Write-Host "Processing $Item"
-        New-ItemProperty -Path "$Item" -Name "Start" -PropertyType "DWORD" -Value "0" -Force
-    }
-}
-#endregion
-
-#region Disable Services
-#################### BEGIN: DISABLE SERVICES section ###########################
-$ServicesToDisable = "autotimesvc
-BcastDVRUserService
-CDPSvc
-CDPUserSvc
-CscService
-defragsvc
-DiagSvc
-DiagTrack
-DPS
-DsmSvc
-DusmSvc
-icssvc
-InstallService
-lfsvc
-MapsBroker
-MessagingService
-OneSyncSvc
-PimIndexMaintenanceSvc
-Power
-SEMgrSvc
-SmsRouter
-SysMain
-TabletInputService
-UsoSvc
-VSS
-WdiSystemHost
-WerSvc
-WSearch
-XblAuthManager
-XblGameSave
-XboxGipSvc
-XboxNetApiSvc"
-
-
-If ($ServicesToDisable.count -gt 0)
-{
-    Foreach ($Item in $ServicesToDisable)
-    {
-        Write-Host "Processing $Item"
-        Stop-Service $Item -Force -ErrorAction SilentlyContinue
-        Set-Service $Item -StartupType Disabled 
-        #New-ItemProperty -Path "$Item" -Name "Start" -PropertyType "DWORD" -Value "4" -Force
-    }
-}
-#endregion
-
-#region Disk Cleanup
-#################### BEGIN: DISK CLEANUP section ###########################
-
-
 # Disk Cleanup Wizard automation (Cleanmgr.exe /SAGESET:11)
 # If you prefer to skip a particular disk cleanup category, edit the "Win10_1909_DiskCleanRegSettings.txt"
 $DiskCleanupSettings = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Active Setup Temp Folders\
@@ -2701,6 +2494,12 @@ Remove-Item -Path $env:windir\Temp\* -Recurse -Force -ErrorAction SilentlyContin
 Remove-Item -Path $env:TEMP\* -Recurse -Force -ErrorAction SilentlyContinue
 #endregion
 
+
+########################  END OF SCRIPT  ########################
+
+#GPO Configurations
+.\Files\LGPO\LGPO.exe /g .\Files\GPOs\
+
 Add-Type -AssemblyName PresentationFramework
 $Answer = [System.Windows.MessageBox]::Show("Reboot to make changes effective?", "Restart Computer", "YesNo", "Question")
 Switch ($Answer)
@@ -2709,8 +2508,3 @@ Switch ($Answer)
     "No"    { Write-Warning "A reboot is required for all changed to take effect" }
     Default { Write-Warning "A reboot is required for all changed to take effect" }
 }
-
-########################  END OF SCRIPT  ########################
-
-#GPO Configurations
-.\Files\LGPO\LGPO.exe /g .\Files\GPOs\
