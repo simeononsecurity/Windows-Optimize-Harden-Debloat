@@ -2254,15 +2254,6 @@ $apps = @(
     "king.com.CandyCrushSaga"
     "king.com.CandyCrushSodaSaga"
 
-    # apps which cannot be removed using Remove-AppxPackage
-    #"Microsoft.BioEnrollment"
-    #"Microsoft.MicrosoftEdge"
-    #"Microsoft.Windows.Cortana"
-    #"Microsoft.WindowsFeedback"
-    #"Microsoft.XboxGameCallableUI"
-    #"Microsoft.XboxIdentityProvider"
-    #"Windows.ContactSupport"
-
     # apps which other apps depend on
     "Microsoft.Advertising.Xaml"
 )
