@@ -2370,7 +2370,6 @@ foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
     Remove-Item -Recurse -Force $item.FullName
 }
 
-
 #GPO Configurations
 .\Files\LGPO\LGPO.exe /g .\Files\GPOs\
 
