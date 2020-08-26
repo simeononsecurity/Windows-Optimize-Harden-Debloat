@@ -57,6 +57,21 @@ start-job -ScriptBlock {takeown /f C:\WINDOWS\Policydefinitions /r /a; icacls C:
 #Disable TCP Timestamps
 netsh int tcp set global timestamps=disabled
 
+#Disable Powershell v2
+Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root
+
+#Enable DEP
+BCDEDIT /set {"current"} nx OptOut
+
+#Basic authentication for RSS feeds over HTTP must not be used.
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer\Feeds" -Name AllowBasicAuthInClear -Type DWORD -Value 1 -Force
+#InPrivate browsing in Microsoft Edge must be disabled.
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" -Name AllowInPrivate -Type DWORD -Value 0 -Force
+#Windows 10 must be configured to prevent Microsoft Edge browser data from being cleared on exit.
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Privacy" -Name ClearBrowsingHistoryOnExit -Type DWORD -Value 0 -Force
+
+
+
 #####SPECTURE MELTDOWN#####
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name FeatureSettingsOverride -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name FeatureSettingsOverrideMask -Type DWORD -Value 3 -Force
