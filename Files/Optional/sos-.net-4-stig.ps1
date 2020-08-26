@@ -12,7 +12,7 @@ If (Test-Path -Path C:\Windows\Microsoft.NET\Framework\v4.0.30319){
     C:\Windows\Microsoft.NET\Framework\v4.0.30319\caspol.exe -m -lg
     New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
     New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    Copy-Item -Path .\Files\".Net Configuration Files"\machine.config -Destination C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config -Force 
+    #Copy-Item -Path .\Files\".Net Configuration Files"\machine.config -Destination C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config -Force 
 }Else {
     Write-Host ".Net 32-Bit Is Not Installed"
 }
@@ -23,7 +23,7 @@ If (Test-Path -Path C:\Windows\Microsoft.NET\Framework64\v4.0.30319){
     New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
     New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
     New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    Copy-Item -Path .\Files\".Net Configuration Files"\machine.config -Destination C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config -Force 
+    #Copy-Item -Path .\Files\".Net Configuration Files"\machine.config -Destination C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config -Force 
 }Else {
     Write-Host ".Net 64-Bit Is Not Installed"
 }

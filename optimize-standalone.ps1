@@ -24,7 +24,6 @@ Import-Module -Name PowerShellAccessControl -Force -Global
 
 #Optional Scripts 
 #.\Files\Optional\sos-ssl-hardening.ps1
-#.\Files\Optional\"Windows_10_VDI"\1909_WindowsUpdateEnabled\Win10_1909_VDI_Optimize.ps1
 # powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 
 #Disabled - Work In Progress
