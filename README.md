@@ -101,7 +101,7 @@ This script is designed for operation in both **Commercial** and **Personal Use*
 
 ## How to run the script
 
-**The script may be lauched from the extracted GitHub download like this:**
+**The script may be launched from the extracted GitHub download like this:**
 ```
 .\W10-Optimize-and-Harden-master\optimize-standalone.ps1
 ```
