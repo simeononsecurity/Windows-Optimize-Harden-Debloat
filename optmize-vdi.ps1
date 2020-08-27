@@ -61,7 +61,7 @@ netsh int tcp set global timestamps=disabled
 Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root
 
 #Enable DEP
-BCDEDIT /set {"current"} nx OptOut
+BCDEDIT /set "{current}" nx OptOut
 
 #Basic authentication for RSS feeds over HTTP must not be used.
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer\Feeds" -Name AllowBasicAuthInClear -Type DWORD -Value 1 -Force
