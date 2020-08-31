@@ -13,6 +13,8 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 
 This script is designed for operation in both **Commercial** and **Personal Use** environments. With that in mind, certain settings are not implemented. This script is not designed to bring a system to 100% compliance. Rather it should be used as a stepping stone to complete most, if not all, the configuration changes that can be scripted while skipping past issues like branding and banners where those should not be implemented even in a hardened personal use environment. 
 
+If you seek a minimized script targeted only to commercial environments, please see this [GitHub Repository](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
+
 ## Requirements:
 - [X] Windows 10 Enterprise (**Preferred**) or Windows 10 Professional
   - Windows 10 Home does not allow for GPO configurations. 
