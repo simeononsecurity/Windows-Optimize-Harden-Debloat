@@ -1,4 +1,4 @@
-# Optimizing and Hardening Windows 10 Deployments
+# Optimize, Harden, and Debloat Windows 10 Deployments
 
 **Download all the required files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)**
 
