@@ -13,7 +13,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 
 This script is designed for operation in both **Commercial** and **Personal Use** environments. With that in mind, certain settings are not implemented. This script is not designed to bring a system to 100% compliance. Rather it should be used as a stepping stone to complete most, if not all, the configuration changes that can be scripted while skipping past issues like branding and banners where those should not be implemented even in a hardened personal use environment. 
 
-This script is designed in such a way that the optimizations, unlike some other scripts, will not break core windows functionality. Hardening for the "every day man".
+This script is designed in such a way that the optimizations, unlike some other scripts, will not break core windows functionality.
 - Features like Windows Update, Windows Defender, the Windows Store, and Cortona have been restricted, but are not in a disfunctional state like most other Windows 10 Privacy scripts.
 
 If you seek a minimized script targeted only to commercial environments, please see this [GitHub Repository](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
@@ -113,16 +113,3 @@ If you seek a minimized script targeted only to commercial environments, please 
 .\W10-Optimize-and-Harden-master\optimize-standalone.ps1
 ```
 The script we will be using must be launched from the directory containing all the other files from the [GitHub Repository](https://github.com/simeononsecurity/W10-Optimize-and-Harden)
-
-
-**In order to enable the Windows 10 VDI Optimizations you must run the alternative script**
-```
-.\W10-Optimize-and-Harden-master\optmize-vdi.ps1
-
-```
-
-**In order to enable the SSL Hardening you must uncomment the line below:**
-```
-.\Files\Optional\"SSL Hardening Registries.ps1"
-
-```
