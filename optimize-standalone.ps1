@@ -24,10 +24,7 @@ Import-Module -Name PowerShellAccessControl -Force -Global
 
 #Optional Scripts 
 #.\Files\Optional\sos-ssl-hardening.ps1
-# powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
-
-#Disabled - Work In Progress
-#.\Files\Optional\sos-.net-4-stig.ps1
+#powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 
 #Branding
 if (test-path C:\temp\branding){
@@ -113,6 +110,162 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\M
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name FeatureSettingsOverrideMask -Type DWORD -Value 3 -Force
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization" -Name MinVmVersionForCpuBasedMitigations -Type String -Value "1.0" -Force
 
+#SimeonOnSecurity - Microsoft .Net Framework 4 STIG Script
+#https://github.com/simeononsecurity
+#https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MS_DotNet_Framework_4-0_V1R9_STIG.zip
+#https://docs.microsoft.com/en-us/dotnet/framework/tools/caspol-exe-code-access-security-policy-tool
+
+If (Test-Path -Path "HKLM:\Software\Microsoft\StrongName\Verification"){
+    Remove-Item "HKLM:\Software\Microsoft\StrongName\Verification" -Recurse -Force
+    Write-Host ".Net StrongName Verification Registry Removed"
+}
+
+# .Net 32-Bit
+If (Test-Path -Path C:\Windows\Microsoft.NET\Framework\v2.0.50727){
+    Write-Host ".Net 32-Bit v2.0.50727 Is Installed"
+    C:\Windows\Microsoft.NET\Framework\v2.0.50727\caspol.exe -q -f -pp on 
+    C:\Windows\Microsoft.NET\Framework\v2.0.50727\caspol.exe -m -lg
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass"){
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v2.0.50727\SchUseStrongCrypto"){
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v2.0.50727\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v2.0.50727\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }
+}Else {
+    Write-Host ".Net 32-Bit v2.0.50727 Is Not Installed"
+}
+If (Test-Path -Path C:\Windows\Microsoft.NET\Framework\v3.0){
+    Write-Host ".Net 32-Bit v3.0 Is Installed"
+    C:\Windows\Microsoft.NET\Framework\v3.0\caspol.exe -q -f -pp on 
+    C:\Windows\Microsoft.NET\Framework\v3.0\caspol.exe -m -lg
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass"){
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v3.0\SchUseStrongCrypto"){
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v3.0\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v3.0\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }
+}Else {
+    Write-Host ".Net 32-Bit v3.0 Is Not Installed"
+}
+If (Test-Path -Path C:\Windows\Microsoft.NET\Framework\v3.5){
+    Write-Host ".Net 32-Bit v3.5 Is Installed"
+    C:\Windows\Microsoft.NET\Framework\v3.5\caspol.exe -q -f -pp on 
+    C:\Windows\Microsoft.NET\Framework\v3.5\caspol.exe -m -lg
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass"){
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v3.5\SchUseStrongCrypto"){
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v3.5\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v3.5\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }
+}Else {
+    Write-Host ".Net 32-Bit v3.5 Is Not Installed"
+}
+If (Test-Path -Path C:\Windows\Microsoft.NET\Framework\v4.0.30319){
+    Write-Host ".Net 32-Bit v4.0.30319 Is Installed"
+    C:\Windows\Microsoft.NET\Framework\v4.0.30319\caspol.exe -q -f -pp on 
+    C:\Windows\Microsoft.NET\Framework\v4.0.30319\caspol.exe -m -lg
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass"){
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\SchUseStrongCrypto"){
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }
+    #Copy-Item -Path .\Files\machine.config -Destination C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config -Force 
+}Else {
+    Write-Host ".Net 32-Bit v4.0.30319 Is Not Installed"
+}
+
+
+# .Net 64-Bit
+If (Test-Path -Path C:\Windows\Microsoft.NET\Framework64\v2.0.50727){
+    Write-Host ".Net 64-Bit v2.0.50727 Is Installed"
+    C:\Windows\Microsoft.NET\Framework64\v2.0.50727\caspol.exe -q -f -pp on 
+    C:\Windows\Microsoft.NET\Framework64\v2.0.50727\caspol.exe -m -lg
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass") {
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }
+    If (Test-Path -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727\") {
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }
+}Else {
+    Write-Host ".Net 64-Bit v2.0.50727 Is Not Installed"
+}
+If (Test-Path -Path C:\Windows\Microsoft.NET\Framework64\v3.0){
+    Write-Host ".Net 64-Bit v3.0 Is Installed"
+    C:\Windows\Microsoft.NET\Framework64\v3.0\caspol.exe -q -f -pp on 
+    C:\Windows\Microsoft.NET\Framework64\v3.0\caspol.exe -m -lg
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass") {
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }
+    If (Test-Path -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v3.0\") {
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v3.0\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v3.0\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }
+}Else {
+    Write-Host ".Net 64-Bit v3.0 Is Not Installed"
+}
+If (Test-Path -Path C:\Windows\Microsoft.NET\Framework64\v3.5){
+    Write-Host ".Net 64-Bit v3.5 Is Installed"
+    C:\Windows\Microsoft.NET\Framework64\v3.5\caspol.exe -q -f -pp on 
+    C:\Windows\Microsoft.NET\Framework64\v3.5\caspol.exe -m -lg
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass") {
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }
+    If (Test-Path -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v3.5\") {
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v3.5\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v3.5\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }
+}Else {
+    Write-Host ".Net 64-Bit v3.5 Is Not Installed"
+}
+If (Test-Path -Path C:\Windows\Microsoft.NET\Framework64\v4.0.30319){
+    Write-Host ".Net 64-Bit v4.0.30319 Is Installed"
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\caspol.exe -q -f -pp on 
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\caspol.exe -m -lg
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass") {
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+    }
+    If (Test-Path -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319\") {
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }Else {
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    }
+    #Copy-Item -Path .\Files\machine.config -Destination C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config -Force 
+}Else {
+    Write-Host ".Net 64-Bit v4.0.30319 Is Not Installed"
+}
+
+FINDSTR /i /s "NetFx40_LegacySecurityPolicy" c:\*.exe.config 
+
+##Firefox Config Import
 #https://www.itsupportguides.com/knowledge-base/tech-tips-tricks/how-to-customise-firefox-installs-using-mozilla-cfg/
 $firefox64 = "C:\Program Files\Mozilla Firefox"
 $firefox32 = "C:\Program Files (x86)\Mozilla Firefox"
@@ -135,6 +288,7 @@ If (Test-Path -Path $firefox32){
     Write-Host "FireFox 32-Bit Is Not Installed"
 }
 
+#Java Config Import
 #https://gist.github.com/MyITGuy/9628895
 #http://stu.cbu.edu/java/docs/technotes/guides/deploy/properties.html
 
