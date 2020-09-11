@@ -1828,7 +1828,7 @@ foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
 }
 
 #GPO Configurations
-$gposdir "$(Get-Location)\Files\GPOs"
+$gposdir = "$(Get-Location)\Files\GPOs"
 Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
     
     Write-Output "Importing $gpocategory GPOs"
