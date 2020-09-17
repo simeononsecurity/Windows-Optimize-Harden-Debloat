@@ -62,7 +62,7 @@ Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2
 BCDEDIT /set "{current}" nx OptOut
 
 #Basic authentication for RSS feeds over HTTP must not be used.
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer\Feeds" -Name AllowBasicAuthInClear -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer\Feeds" -Name AllowBasicAuthInClear -Type DWORD -Value 0 -Force
 #InPrivate browsing in Microsoft Edge must be disabled.
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" -Name AllowInPrivate -Type DWORD -Value 0 -Force
 #Windows 10 must be configured to prevent Microsoft Edge browser data from being cleared on exit.
