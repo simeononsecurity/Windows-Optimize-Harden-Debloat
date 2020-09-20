@@ -594,11 +594,14 @@ Set-SmbServerConfiguration -RequireSecuritySignature $True -Force
 Set-SmbServerConfiguration -EnableSecuritySignature $True -Force 
 Set-SmbServerConfiguration -EncryptData $True -Force 
 Set-SmbServerConfiguration -MaxChannelPerSession 16 -Force
-Set-SmbServerConfiguration -ServerHidden $False -AnnounceServer $False -Force 
+Set-SmbServerConfiguration -ServerHidden $False -AnnounceServer $False -Force
+Set-SmbServerConfiguration -EnableLeasing $false  
 Set-SmbClientConfiguration -EnableLargeMtu $true -Force
 Set-SmbClientConfiguration -EnableMultiChannel $true -Force
 Set-SmbClientConfiguration -RequireSecuritySignature $True -Force
 Set-SmbClientConfiguration -EnableSecuritySignature $True -Force
+Set-SmbClientConfiguration -EnableBandwidthThrottling 0
+
 #onedrive
 Write-Output "remove onedrive automatic start"
 # Remove the automatic start item for OneDrive from the default user profile registry hive
