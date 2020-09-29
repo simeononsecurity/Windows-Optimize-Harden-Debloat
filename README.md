@@ -65,7 +65,7 @@ If you seek a minimized script targeted only to commercial environments, please 
 
 - [NSACyber - Application Whitelisting Using Microsoft AppLocker](https://apps.nsa.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm)
 
-- [NSACyber - Secure Host Baseline](https://github.com/nsacyber/Windows-Secure-Host-Baseline)
+- [NSACyber - Windows Secure Host Baseline](https://github.com/nsacyber/Windows-Secure-Host-Baseline)
 
 - [Whonix - Disable TCP Timestamps](https://www.whonix.org/wiki/Disable_TCP_and_ICMP_Timestamps)
 
