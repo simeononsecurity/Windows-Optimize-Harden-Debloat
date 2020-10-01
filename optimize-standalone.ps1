@@ -26,20 +26,6 @@ Import-Module -Name PowerShellAccessControl -Force -Global
 #.\Files\Optional\sos-ssl-hardening.ps1
 #powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 
-#Branding
-if (test-path C:\temp\branding){
-    Write-host branding files already moved
-    }else {
-    mkdir C:\temp\Branding
-    Copy-Item -Path .\Files\Branding\* -Destination C:\temp\Branding\ -Recurse -Force
-    }
-    Copy-Item -Path .\Files\Branding\wallpaper.jpg -Destination C:\Windows\Web\Screen\lockscreen.jpg -Force
-    Copy-Item -Path .\Files\Branding\wallpaper.jpg -Destination C:\Windows\Web\Wallpaper\Theme1\wallpaper.jpg -Force
-    Copy-Item -Path .\Files\Branding\oemlogo.bmp -Destination "C:\ProgramData\Microsoft\User Account Pictures" -Force
-    Copy-Item -Path .\Files\Branding\user*.png -Destination "C:\ProgramData\Microsoft\User Account Pictures" -Force
-    Copy-Item -Path .\Files\Branding\user*.bmp -Destination "C:\ProgramData\Microsoft\User Account Pictures" -Force
-    Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name Wallpaper -Type String -Value C:\Windows\Web\Wallpaper\Theme1\wallpaper.jpg -Force
-    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" -Name Logo -Type String -Value "C:\ProgramData\Microsoft\User Account Pictures\oemlogo.bmp" -Force
 #Enable Darkmode 
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name AppsUseLightTheme -Type DWORD -Value "00000000" -Force
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name SystemUsesLightTheme -Type DWORD -Value "00000000" -Force
