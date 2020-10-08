@@ -11,7 +11,7 @@ do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 Get-ChildItem *.ps*1 -recurse | Unblock-File
 
 #Windows 10 Defenter Exploit Guard Configuration File
-start-job -ScriptBlock {mkdir "C:\temp\Windows Defender"; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\DOD_EP_V3.xml -Destination "C:\temp\Windows Defender\DOD_EP_V3.xml" -Force -Recurse -ErrorAction SilentlyContinue} 
+start-job -ScriptBlock {mkdir "C:\temp"; mkdir "C:\temp\Windows Defender"; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination C:\temp\"Windows Defender"\ -Force -Recurse -ErrorAction SilentlyContinue} 
 
 #Install PowerShell Modules
 Copy-Item -Path .\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
