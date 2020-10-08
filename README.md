@@ -81,6 +81,7 @@ If you seek a minimized script targeted only to commercial environments, please 
 
 - [Microsoft - Windows 10 VDI Recomendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909)
 
+- [Microsoft - Windows Defender Application Control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-design-guide)
 
 ## STIGS/SRGs Applied:
  
