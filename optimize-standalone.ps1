@@ -45,6 +45,11 @@ netsh int tcp set global timestamps=disabled
 #Disable Powershell v2
 Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root
 
+#Disable LLMNR
+#https://www.blackhillsinfosec.com/how-to-disable-llmnr-why-you-want-to/
+REG ADD  “HKLM\Software\policies\Microsoft\Windows NT\DNSClient”
+REG ADD  “HKLM\Software\policies\Microsoft\Windows NT\DNSClient” /v ” EnableMulticast” /t REG_DWORD /d “0” /f
+
 #Enable DEP
 BCDEDIT /set "{current}" nx OptOut
 
