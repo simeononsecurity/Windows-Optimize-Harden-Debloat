@@ -119,4 +119,4 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 ```ps
 iex ((New-Object System.Net.WebClient).DownloadString('https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'))
 ```
-If manually downloaded the script must be launched from the directory containing all the other files from the [GitHub Repository](https://github.com/simeononsecurity/W10-Optimize-and-Harden)
+If manually downloaded, the script must be launched from the directory containing all the other files from the [GitHub Repository](https://github.com/simeononsecurity/W10-Optimize-and-Harden)
