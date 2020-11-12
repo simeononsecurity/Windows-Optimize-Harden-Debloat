@@ -52,6 +52,7 @@ REG ADD  “HKLM\Software\policies\Microsoft\Windows NT\DNSClient” /v ” Enab
 
 #Enable DEP
 BCDEDIT /set "{current}" nx OptOut
+Set-Processmitigation -System -Enable DEP
 
 #Basic authentication for RSS feeds over HTTP must not be used.
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer\Feeds" -Name AllowBasicAuthInClear -Type DWORD -Value 0 -Force
