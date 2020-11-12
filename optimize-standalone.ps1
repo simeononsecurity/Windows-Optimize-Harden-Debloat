@@ -54,6 +54,10 @@ Set-Processmitigation -System -Enable DEP
 #Windows Defender Configuration Files
 mkdir "C:\temp\Windows Defender"; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination C:\temp\"Windows Defender"\ -Force -Recurse -ErrorAction SilentlyContinue
 
+#Enable Windows Defender Application Control
+#https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/select-types-of-rules-to-create
+Set-RuleOption -FilePath "C:\temp\Windows Defender\WDAC_V1_Audit.xml" -Option 0
+
 #Windows Defender Hardening
 #https://www.powershellgallery.com/packages/WindowsDefender_InternalEvaluationSetting
 #Enable real-time monitoring
