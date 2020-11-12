@@ -1,4 +1,4 @@
-﻿######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
+######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
 #Continue on error
 $ErrorActionPreference= 'silentlycontinue'
 
@@ -54,42 +54,45 @@ Set-Processmitigation -System -Enable DEP
 #Windows Defender Configuration Files
 mkdir "C:\temp\Windows Defender"; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination C:\temp\"Windows Defender"\ -Force -Recurse -ErrorAction SilentlyContinue
 
+#Windows Defender Hardening
+#https://www.powershellgallery.com/packages/WindowsDefender_InternalEvaluationSetting
+#Enable real-time monitoring
 Write-Host "Enable real-time monitoring"
 Set-MpPreference -DisableRealtimeMonitoring 0
-
+#Enable cloud-deliveredprotection
 Write-Host "Enable cloud-deliveredprotection"
 Set-MpPreference -MAPSReporting Advanced
-
+#Enable sample submission
 Write-Host "Enable sample submission"
 Set-MpPreference -SubmitSamplesConsent Always
-
+#Enable checking signatures before scanning
 Write-Host "Enable checking signatures before scanning"
 Set-MpPreference -CheckForSignaturesBeforeRunningScan 1
-
+#Enable behavior monitoring
 Write-Host "Enable behavior monitoring"
 Set-MpPreference -DisableBehaviorMonitoring 0
-
+#Enable IOAV protection
 Write-Host "Enable IOAV protection"
 Set-MpPreference -DisableIOAVProtection 0
-
+#Enable script scanning
 Write-Host "Enable script scanning"
 Set-MpPreference -DisableScriptScanning 0
-
+#Enable removable drive scanning
 Write-Host "Enable removable drive scanning"
 Set-MpPreference -DisableRemovableDriveScanning 0
-
+#Enable Block at first sight
 Write-Host "Enable Block at first sight"
 Set-MpPreference -DisableBlockAtFirstSeen 0
-
+#Enable potentially unwanted apps
 Write-Host "Enable potentially unwanted apps"
 Set-MpPreference -PUAProtection Enabled
-
+#Schedule signature updates every 8 hours
 Write-Host "Schedule signature updates every 8 hours"
 Set-MpPreference -SignatureUpdateInterval 8
-
+#Enable archive scanning
 Write-Host "Enable archive scanning"
 Set-MpPreference -DisableArchiveScanning 0
-
+#Enable email scanning
 Write-Host "Enable email scanning"
 Set-MpPreference -DisableEmailScanning 0
 
@@ -98,22 +101,17 @@ if (!(Check-IsWindows10-1709))
 #Enable Windows Defender Exploit Protection
 Write-Host "Enabling Exploit Protection"
 Set-ProcessMitigation -PolicyFilePath C:\temp\"Windows Defender"\DOD_EP_V3.xml
-
-#"Set cloud block level to 'High'"
-write-host "Set cloud block level to 'High'"
+#Set cloud block level to 'High'
+Write-Host "Set cloud block level to 'High'"
 Set-MpPreference -CloudBlockLevel High
-
-#"Set cloud block timeout to 1 minute"
-write-host "Set cloud block timeout to 1 minute"
+#Set cloud block timeout to 1 minute
+Write-Host "Set cloud block timeout to 1 minute"
 Set-MpPreference -CloudExtendedTimeout 50
-
 Write-Host "`nUpdating Windows Defender Exploit Guard settings`n" -ForegroundColor Green 
-
-#"Enabling Controlled Folder Access and setting to block mode"
+#Enabling Controlled Folder Access and setting to block mode
 Write-Host "Enabling Controlled Folder Access and setting to block mode"
 Set-MpPreference -EnableControlledFolderAccess Enabled 
-
-#Enabling Network Protection and setting to block mode"
+#Enabling Network Protection and setting to block mode
 Write-Host "Enabling Network Protection and setting to block mode"
 Set-MpPreference -EnableNetworkProtection Enabled
 
@@ -154,7 +152,6 @@ Add-MpPreference -AttackSurfaceReductionRules_Ids 26190899-1602-49e8-8b27-eb1d0a
 Add-MpPreference -AttackSurfaceReductionRules_Ids 7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c -AttackSurfaceReductionRules_Actions Enabled
 #Block persistence through WMI event subscription
 Add-MpPreference -AttackSurfaceReductionRules_Ids e6db77e5-3df2-4cf1-b95a-636979351e5b -AttackSurfaceReductionRules_Actions Enabled
-
 }else{
     ## Workaround for Windows 10 version 1703
     "Set cloud block level to 'High'"
