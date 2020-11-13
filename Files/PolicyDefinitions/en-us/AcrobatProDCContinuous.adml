@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xsi:schemaLocation="" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" >
+
+
+	<displayName >Adobe Acrobat Pro DC Continuous ADMX File</displayName>
+	<description >ADMX File for Adobe Acrobat Pro DC Continuous</description>
+	<resources >
+		<stringTable >
+			<string id="Cat_Adobe_Pro_DC" >Adobe Acrobat Pro DC Continuous</string>
+			<string id="Cat_Preferences" >Preferences</string>
+			<string id="Cat_General" >General</string>
+			<string id="Cat_Security" >Security (Enhanced)</string>
+			<string id="Cat_Help" >Help</string>
+			<string id="Cat_TrustManager" >Trust Manager</string>
+			<string id="Cat_Startup" >Startup</string>
+			
+			<string id="Disable_PDF_handler" >Disable PDF handler switching</string>
+			<string id="Explain_Disable_PDF_handler" >Disables the ability to change the specified default handler (PDF viewer).
+			
+The UI configuration does not set any key in HKCU. Instead, changing the setting via the UI invokes the installer which sets the key in HKLM. The default application behavior varies depending on what is installed. A value of 1 disables the user's ability to change the default handler.
+Possible values include:
+Disabled (0): Allow the user to change the default viewer. 
+Enabled  (1): Don't allow the user to change the default viewer. 
+
+GUI mapping - Edit &gt; Preferences &gt; General &gt; Select as Default PDF Handler</string>
+			<string id="Enable_Enhanced_security_standalone" >Enable Enhanced Security Standalone</string>
+			<string id="Explain_Enable_Enhanced_security_standalone" >Enhanced security is a sandbox capability that restricts access to system resources. Standalone mode is when Acrobat opens the desktop PDF client.
+			
+Disabled (0): Disables enhanced security.
+Enabled  (1): Enables enhanced security. 
+
+GUI mapping - Edit &gt; Preferences &gt; Security (Enhanced) &gt; Enhanced Security panel &gt; Enable Enhanced Security</string>
+			<string id="Enable_Enhanced_security_inbrowser" >Enable Enhanced Security In Browser</string>
+			<string id="Explain_Enable_Enhanced_security_inbrowser" >Enhanced security is a sandbox capability that restricts access to system resources. Browser mode is when a PDF is opened via the browser plugin. 
+
+Disabled (0): Disables enhanced security.
+Enabled  (1): Enables enhanced security. 
+
+GUI mapping - Edit &gt; Preferences &gt; Security (Enhanced) &gt; Enhanced Security panel &gt; Enable Enhanced Security</string>
+			<string id="Non_PDF_attachments" >Allow opening of non-PDF file attachments with external applications</string>
+			<string id="Explain_Non_PDF_attachments" >Allows for files to be attached to PDF documents.
+ 
+Enabled:  (0): Allows opening of non-PDF file attachments. 
+Disabled: (1): Blocks opening of non-PDF file attachments. 
+
+GUI mapping - Edit &gt; Preferences &gt; Trust Manager &gt; PDF File Attachment panel &gt; Allow opening of non-PDF file attachments with external applications
+			</string>
+			<string id="Access_to_unknown_websites" >Access to unknown websites</string>
+			<string id="Explain_Access_to_unknown_websites" >Acrobat provides the ability for the user to store a list of websites with an associated behavior of allow, ask or block. Websites not in this list is unknown.  
+
+Possible values include: 
+1: Always ask 
+2: Allow access 
+3: Block access
+ 
+GUI mapping - Edit &gt; Preferences &gt; Trust Manager &gt; Internet Access from PDF Files outside the web browser panel &gt; Change Options &gt; Default behavior for web sites that are not in the above list  
+</string>
+			<string id="Access_to_websites" >Access to websites</string>
+			<string id="Explain_Access_to_websites" > PDF files can contain URLs that initiate connections to websites in order to share or get information. Any Internet access introduces a security risk.  
+
+Possible values include: 
+2: Allow PDF files to access all web sites 
+0: Custom setting 
+1: Block PDF files access to all web sites
+ 
+GUI mapping - Edit &gt; Preferences &gt; Trust Manager &gt; Internet Access from PDF Files outside the web browser panel &gt; Change Options &gt; PDF files may connect to web sites to share or get information  
+</string>
+<string id="Access_to_unknown_websites_AlwaysAsk">Always ask</string>
+<string id="Access_to_unknown_websites_AllowAccess">Allow access</string>
+<string id="Access_to_unknown_websites_BlockAccess">Block access</string>
+<string id="Access_to_websites_AllowPDF">Allow PDF files to access all web sites</string>
+<string id="Access_to_websites_CustomSetting">Custom setting</string>
+<string id="Access_to_websites_BlockPDF">Block PDF files access to all web sites</string>
+<string id="Protected_View_Off">Off</string>
+<string id="Protected_View_Locations">Files from potentially unsafe locations</string>
+<string id="Protected_View_All">All files</string>
+	<string id="Enable_Flash" >Enable Flash</string>
+	<string id="Explain_Enable_Flash" >Flash has a long history of vulnerabilities and therefore should be disabled. 
+
+Disabled (0): Disables flash content.
+Enabled  (1): Enables flash content. 
+</string>	
+	<string id="Privilege_folder_location" >Privileged folder locations</string>
+	<string id="Explain_Privilege_folder_location" >Privileged folder locations are the primary method Acrobat uses to allow users and admins to specify trusted content that should be exempt from security restrictions. 
+
+Enabled  (0): Enables trusted folder locations
+Disabled (1): Disables trusted folder locations 
+
+GUI mapping - Edit &gt; Preferences &gt; Security (Enhanced) &gt; Privileged locations
+</string>
+	<string id="Send_and_Track_plugin" >Send and Track plugin</string>
+	<string id="Explain_Send_and_Track_plugin" >When enabled, Send and Track button appears in Outlook. When an email is composed it enables the ability to send large files as public links through Outlook. 
+
+Enabled (0): Enables Send and Track plugin
+Disabled  (1): Disables Send and Track plugin. 
+</string>
+<string id="Enable_FIPS" >Enable FIPS</string>
+	<string id="Explain_Enable_FIPS" >Use of weak or untrusted encryption algorithms undermines the purpose of using encryption to protect data. 
+
+Enabled  (1): Enables FIPS
+Disabled (0): Disables FIPS 
+</string>	
+		<string id="European_certificates" >Load trusted certificates from an Adobe EUTL server</string>
+	<string id="Explain_European_certificates" >The user can update Adobe European certificates from an Adobe server through the GUI.  
+
+Enabled  (1): Allows download and installation of European certificates
+Disabled (0): Prevents download and installation of European certificates 
+
+GUI mapping - Edit &gt; Preferences &gt; Trust Manager &gt; Automatic European Union Trust Lists
+</string>
+<string id="Protected_Mode" >Protected Mode</string>
+	<string id="Explain_Protected_Mode" >Protected Mode is a sandbox that is essentially read-only mode.  
+
+Enabled  (1): Turns on Protected Mode
+Disabled (0): Turns off Protected Mode 
+</string>
+<string id="Protected_View" >Protected View</string>
+			<string id="Explain_Protected_View" > Protected View is a super-sandbox that is essentially a read-only mode.
+
+Possible values include: 
+0: Off 
+1: Files from potentially unsafe locations 
+2: All files
+ 
+GUI mapping - Edit &gt; Preferences &gt; Security (Enhanced) &gt; Protected View
+</string>
+<string id="Store_files" >Store files on Adobe.com</string>
+	<string id="Explain_Store_files" >Acrobat provides the ability to store PDF files on Adobe.com servers.  
+
+Enabled  (0): Turns on the ability to store files on Adobe.com
+Disabled (1): Turns off the ability to store files on Adobe.com
+</string>
+<string id="Cloud_Synchronization" >Cloud Synchronization</string>
+	<string id="Explain_Cloud_Synchronization" >Acrobat online services are tightly integrated in Adobe content.  
+
+Enabled  (0): Synchronization of desktop preferences across devices is allowed
+Disabled (1): Prevents synchronization of desktop preferences across devices
+</string>
+<string id="Repair_installation_32" >Repair Installation on 32 bit</string>
+	<string id="Explain_Repair_installation_32" >User has the option or ability to repair an Adobe Acrobat Pro DC install.   
+
+Enabled  (0): Allows user the ability to repair Adobe install
+Disabled (1): Prevents user from repairing Adobe install
+
+GUI mapping - Help &gt; Repair Installation
+</string>
+<string id="Repair_installation_64" >Repair Installation on 64 bit</string>
+	<string id="Explain_Repair_installation_64" >User has the option or ability to repair an Adobe Acrobat Pro DC install.   
+
+Enabled  (0): Allows user the ability to repair Adobe install
+Disabled (1): Prevents user from repairing Adobe install
+
+GUI mapping - Help &gt; Repair Installation
+</string>
+	<string id="Web_connectors" >Third-party web connectors</string>
+	<string id="Explain_Web_connectors" >Third-party web connectors allow access to third-party services for file storage.   
+
+Enabled  (0): Allows access to third-party services 
+Disabled (1): Prevents access to third-party services
+</string>
+<string id="WebMail" >WebMail</string>
+	<string id="Explain_WebMail" >WebMail allows users to send PDFs as email attachments using any mail account. 
+
+Enabled  (0): Allows users to send PDFs to any mail account 
+Disabled (1): Prevents users from sending PDFs to any mail account
+</string>
+<string id="WelcomeScreen" >Welcome Screen</string>
+	<string id="Explain_WelcomeScreen" >Welcome screen provides marketing material and online links.
+
+Enabled  (1): Shows welcome screen
+Disabled (0): Disables welcome screen
+</string>
+<string id="Cloud_features" >SharePoint and Office 365 access</string>
+	<string id="Explain_Cloud_features" >Users have the ability to use both SharePoint and Office 365 cloud features.
+
+Enabled  (0): Enables users ability to access SharePoint and Office 365 cloud features
+Disabled (1): Disables users ability to access SharePoint and Office 365 cloud features
+</string>
+<string id="Adobe_certificates" >Load trusted certificates from an Adobe AATL server</string>
+	<string id="Explain_Adobe_certificates" >The user can update Adobe certificates from an Adobe server through the GUI.  
+
+Enabled  (1): Allows download and installation of Adobe certificates
+Disabled (0): Prevents download and installation of Adobe certificates
+
+GUI mapping - Edit &gt; Preferences &gt; Trust Manager &gt; Automatic Adobe Approved Trust List
+</string>
+<string id="Trusted_Host" >Privileged host locations</string>
+	<string id="Explain_Trusted_Host" >Privileged host locations are the primary method Acrobat uses to allow users and admins to specify trusted content that should be exempt from security restrictions.  
+
+Enabled  (0): Enables trusted host locations
+Disabled (1): Disables trusted host locations 
+
+GUI mapping - Edit &gt; Preferences &gt; Security (Enhanced) &gt; Privileged locations
+</string>
+<string id="Trusted_sites" >Automatically trust sites from my Win OS security zones</string>
+	<string id="Explain_Trusted_sites" >Privileged site locations are the primary method Acrobat uses to allow users and admins to specify trusted content that should be exempt from security restrictions.  
+
+Enabled  (0): Enables trusted sites locations
+Disabled (1): Disables trusted sites locations
+ 
+GUI mapping - Edit &gt; Preferences &gt; Security (Enhanced) &gt; Privileged locations
+</string>
+<string id="Certificate_trust" >Automatically trust documents with valid certification</string>
+	<string id="Explain_Certificate_trust" >Certified document trust elevates signed PDF files to a privileged location and bypasses privileged view security protections.
+
+Enabled  (1): Enables certified documents
+Disabled (0): Disables certified documents
+ 
+GUI mapping - Edit &gt; Preferences &gt; Security (Enhanced) &gt; Privileged locations
+</string>
+		</stringTable>
+		<presentationTable>
+		<presentation id="Access_to_unknown_websites">
+	 <dropdownList refId="Access_to_unknown_websitesDropID" noSort="true" defaultItem="2">Default behavior for web sites that are not in the above list</dropdownList>
+	 </presentation>
+		<presentation id="Access_to_websites">
+	 <dropdownList refId="Access_to_websitesDropID" noSort="true" defaultItem="2">PDF files may connect to webs sites to share or get information</dropdownList>
+	 </presentation>
+	 <presentation id="Protected_View">
+	 <dropdownList refId="Protected_ViewDropID" noSort="true" defaultItem="2">Protected View</dropdownList>
+	 </presentation>
+	 </presentationTable>
+	</resources>
+</policyDefinitionResources>
