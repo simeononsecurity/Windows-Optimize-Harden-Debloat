@@ -54,6 +54,9 @@ Set-Processmitigation -System -Enable DEP
 #Windows Defender Configuration Files
 mkdir "C:\temp\Windows Defender"; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination C:\temp\"Windows Defender"\ -Force -Recurse -ErrorAction SilentlyContinue
 
+#Enable Windows Defender Exploit Protection
+Set-ProcessMitigation -PolicyFilePath "C:\temp\Windows Defender\DOD_EP_V3.xml"
+
 #Enable Windows Defender Application Control
 #https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/select-types-of-rules-to-create
 Set-RuleOption -FilePath "C:\temp\Windows Defender\WDAC_V1_Audit.xml" -Option 0
