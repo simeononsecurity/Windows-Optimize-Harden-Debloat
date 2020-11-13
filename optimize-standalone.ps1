@@ -99,6 +99,12 @@ Set-MpPreference -DisableArchiveScanning 0
 #Enable email scanning
 Write-Host "Enable email scanning"
 Set-MpPreference -DisableEmailScanning 0
+#Enable File Hash Computation
+Write-Host "Enable File Hash Computation"
+Set-MpPreference -EnableFileHashComputation 1
+#Enable Intrusion Prevention System
+Write-Host "Enable Intrusion Prevention System"
+Set-MpPreference -DisableIntrusionPreventionSystem $false
 
 if (!(Check-IsWindows10-1709))
 {
