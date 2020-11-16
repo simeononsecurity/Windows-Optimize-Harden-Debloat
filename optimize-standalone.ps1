@@ -51,6 +51,22 @@ REG ADD  “HKLM\Software\policies\Microsoft\Windows NT\DNSClient” /v ” Enab
 BCDEDIT /set "{current}" nx OptOut
 Set-Processmitigation -System -Enable DEP
 
+#WinRM Hardening
+#https://4sysops.com/archives/powershell-remoting-over-https-with-a-self-signed-ssl-certificate/
+$Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName (cmd /c hostname) 
+Export-Certificate -Cert $Cert -FilePath C:\temp\cert
+#Remove Previous WinRM Listeners
+Get-ChildItem WSMan:\Localhost\listener | Where -Property Keys -eq "Transport=HTTP" | Remove-Item -Recurse
+Remove-Item -Path WSMan:\Localhost\listener\listener* -Recurse
+#Add New HTTPS (ONLY) Listener
+New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint $Cert.Thumbprint –Force
+#Start the service at boot
+Set-Service -Name "WinRM" -StartupType Automatic -Status Running
+#Enable Firewall rule
+New-NetFirewallRule -DisplayName "Windows Remote Management (HTTPS-In)" -Name "Windows Remote Management (HTTPS-In)" -Profile Private, Domain -LocalPort 5986 -Protocol TCP
+#Enable PSRemoting
+Enable-PSRemoting -SkipNetworkProfileCheck -Force
+
 #Windows Defender Configuration Files
 mkdir "C:\temp\Windows Defender"; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination C:\temp\"Windows Defender"\ -Force -Recurse -ErrorAction SilentlyContinue
 
