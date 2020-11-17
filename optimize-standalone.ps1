@@ -54,7 +54,7 @@ Set-Processmitigation -System -Enable DEP
 $Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName (cmd /c hostname) 
 Export-Certificate -Cert $Cert -FilePath C:\temp\cert
 #Remove Previous WinRM Listeners
-Get-ChildItem WSMan:\Localhost\listener | Where -Property Keys -eq "Transport=HTTP" | Remove-Item -Recurse
+Get-ChildItem WSMan:\Localhost\listener | Where-Object -Property Keys -eq "Transport=HTTP" | Remove-Item -Recurse
 Remove-Item -Path WSMan:\Localhost\listener\listener* -Recurse
 #Add New HTTPS (ONLY) Listener
 New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint $Cert.Thumbprint –Force
