@@ -44,8 +44,8 @@ Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2
 
 #Disable LLMNR
 #https://www.blackhillsinfosec.com/how-to-disable-llmnr-why-you-want-to/
-New-Item -Path "HKLM:\Software\policies\Microsoft\Windows NT\" -Name DNSClient
-Set-ItemProperty -Path "HKLM:\Software\policies\Microsoft\Windows NT\DNSClient"" -Name EnableMulticast -Type DWORD -Value 0 -Force
+REG ADD  “HKLM\Software\policies\Microsoft\Windows NT\DNSClient”
+REG ADD  “HKLM\Software\policies\Microsoft\Windows NT\DNSClient” /v ” EnableMulticast” /t REG_DWORD /d “0” /f
 
 #Enable DEP
 BCDEDIT /set "{current}" nx OptOut
