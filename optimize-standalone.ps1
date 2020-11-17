@@ -36,6 +36,19 @@ start-job -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-W
 Start-Job -ScriptBlock {takeown /f C:\WINDOWS\Policydefinitions /r /a; icacls C:\WINDOWS\PolicyDefinitions /grant "Administrators:(OI)(CI)F" /t}
 Copy-Item -Path .\Files\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions -Force -Recurse -ErrorAction SilentlyContinue
 
+#GPO Configurations
+$gposdir = "$(Get-Location)\Files\GPOs"
+Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
+    
+    Write-Output "Importing $gpocategory GPOs"
+
+    Foreach ($gpo in (Get-ChildItem "$(Get-Location)\Files\GPOs\$gpocategory")) {
+        $gpopath = "$gposdir\$gpocategory\$gpo"
+        Write-Output "Importing $gpo"
+        .\Files\LGPO\LGPO.exe /g $gpopath
+    }
+}
+
 #Disable TCP Timestamps
 netsh int tcp set global timestamps=disabled
 
@@ -1964,19 +1977,6 @@ Write-Output "Removing additional OneDrive leftovers"
 foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
     Takeown-Folder $item.FullName
     Remove-Item -Recurse -Force $item.FullName
-}
-
-#GPO Configurations
-$gposdir = "$(Get-Location)\Files\GPOs"
-Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
-    
-    Write-Output "Importing $gpocategory GPOs"
-
-    Foreach ($gpo in (Get-ChildItem "$(Get-Location)\Files\GPOs\$gpocategory")) {
-        $gpopath = "$gposdir\$gpocategory\$gpo"
-        Write-Output "Importing $gpo"
-        .\Files\LGPO\LGPO.exe /g $gpopath
-    }
 }
 
 Add-Type -AssemblyName PresentationFramework
