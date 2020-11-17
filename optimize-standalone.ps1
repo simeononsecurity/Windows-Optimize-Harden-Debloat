@@ -51,6 +51,7 @@ REG ADD  “HKLM\Software\policies\Microsoft\Windows NT\DNSClient” /v ”Enabl
 BCDEDIT /set "{current}" nx OptOut
 Set-Processmitigation -System -Enable DEP
 
+<<<<<<< HEAD
 #WinRM Hardening
 #https://4sysops.com/archives/powershell-remoting-over-https-with-a-self-signed-ssl-certificate/
 $Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName (cmd /c hostname) 
@@ -138,6 +139,8 @@ Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
     }
 }
 
+=======
+>>>>>>> parent of 2009d52... WinRM HTTPS
 #Windows Defender Configuration Files
 mkdir "C:\temp\Windows Defender"; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination C:\temp\"Windows Defender"\ -Force -Recurse -ErrorAction SilentlyContinue
 
