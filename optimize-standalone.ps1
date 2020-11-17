@@ -14,10 +14,8 @@ Get-ChildItem *.ps*1 -recurse | Unblock-File
 Copy-Item -Path .\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
 #Unblock New PowerShell Modules
 Get-ChildItem C:\Windows\System32\WindowsPowerShell\v1.0\Modules\PSWindowsUpdate\ -recurse | Unblock-File
-Get-ChildItem C:\Windows\System32\WindowsPowerShell\v1.0\Modules\PowerShellAccessControl\ -recurse | Unblock-File
-#Import New PowerShell Modules
+#Install PSWindowsUpdate
 Import-Module -Name PSWindowsUpdate -Force -Global
-Import-Module -Name PowerShellAccessControl -Force -Global
 
 #Optional Scripts 
 #.\Files\Optional\sos-ssl-hardening.ps1
@@ -44,8 +42,8 @@ Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2
 
 #Disable LLMNR
 #https://www.blackhillsinfosec.com/how-to-disable-llmnr-why-you-want-to/
-#New-Item -Path "HKLM:\Software\policies\Microsoft\Windows NT\" -Name "DNSClient"
-#Set-ItemProperty -Path "HKLM:\Software\policies\Microsoft\Windows NT\DNSClient" -Name "EnableMulticast" -Type "DWORD" -Value 0 -Force
+New-Item -Path "HKLM:\Software\policies\Microsoft\Windows NT\" -Name "DNSClient"
+Set-ItemProperty -Path "HKLM:\Software\policies\Microsoft\Windows NT\DNSClient" -Name "EnableMulticast" -Type "DWORD" -Value 0 -Force
 
 #Enable DEP
 BCDEDIT /set "{current}" nx OptOut
