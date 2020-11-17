@@ -1979,6 +1979,19 @@ foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
     Remove-Item -Recurse -Force $item.FullName
 }
 
+#GPO Configurations
+$gposdir = "$(Get-Location)\Files\GPOs"
+Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
+    
+    Write-Output "Importing $gpocategory GPOs"
+
+    Foreach ($gpo in (Get-ChildItem "$(Get-Location)\Files\GPOs\$gpocategory")) {
+        $gpopath = "$gposdir\$gpocategory\$gpo"
+        Write-Output "Importing $gpo"
+        .\Files\LGPO\LGPO.exe /g $gpopath
+    }
+}
+
 Add-Type -AssemblyName PresentationFramework
 $Answer = [System.Windows.MessageBox]::Show("Reboot to make changes effective?", "Restart Computer", "YesNo", "Question")
 Switch ($Answer)
