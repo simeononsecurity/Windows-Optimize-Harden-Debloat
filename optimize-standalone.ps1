@@ -40,6 +40,14 @@ netsh int tcp set global timestamps=disabled
 #Disable Powershell v2
 Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root
 
+#Enable PowerShell Logging
+#https://www.digitalshadows.com/blog-and-research/powershell-security-best-practices/
+#https://www.cyber.gov.au/acsc/view-all-content/publications/securing-powershell-enterprise
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription" -Name "OutputDirectory" -Type "STRING" -Value "C:\PowershellLogs" -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging\" -Name "EnableScriptBlockLogging" -Type "DWORD" -Value "1" -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription\" -Name "EnableTranscripting" -Type "DWORD" -Value "1" -Force
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription\" -Name "EnableInvocationHeader" -Type "DWORD" -Value "1" -Force
+
 #Disable LLMNR
 #https://www.blackhillsinfosec.com/how-to-disable-llmnr-why-you-want-to/
 New-Item -Path "HKLM:\Software\policies\Microsoft\Windows NT\" -Name "DNSClient"
