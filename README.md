@@ -1,8 +1,8 @@
 # Optimize, Harden, and Debloat Windows 10 Deployments
 
-**Download all the required files from the [GitHub Repository](https://github.com/smiltech/W10-Optimize-and-Harden)**
+**Download all the required files from the [GitHub Repository](https://github.com/smiltech/Windows-Optimize-Harden-Debloat)**
 
-**We are seeking help with the following [.Net issue](https://github.com/simeononsecurity/W10-Optimize-and-Harden/issues/3)** 
+**We are seeking help with the following [.Net issue](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/3)** 
 
 ## Introduction:
 
@@ -86,4 +86,4 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 ```ps
 iex ((New-Object System.Net.WebClient).DownloadString('https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'))
 ```
-If manually downloaded, the script must be launched from the directory containing all the other files from the [GitHub Repository](https://github.com/simeononsecurity/W10-Optimize-and-Harden)
+If manually downloaded, the script must be launched from the directory containing all the other files from the [GitHub Repository](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat)
