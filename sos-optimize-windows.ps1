@@ -4,11 +4,13 @@ $ErrorActionPreference= 'silentlycontinue'
 
 #Require elivation for script run
 #Requires -RunAsAdministrator
-Write-Output "Elevating priviledges for this process"
-do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 #Unblock all files required for script
 Get-ChildItem *.ps*1 -recurse | Unblock-File
+
+#change path to script location
+#https://stackoverflow.com/questions/4724290/powershell-run-command-from-scripts-directory
+$currentPath=Split-Path ((Get-Variable MyInvocation -Scope 0).Value).MyCommand.Path
 
 #Install PowerShell Modules
 Copy-Item -Path .\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
