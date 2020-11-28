@@ -4,11 +4,13 @@ $ErrorActionPreference= 'silentlycontinue'
 
 #Require elivation for script run
 #Requires -RunAsAdministrator
-Write-Output "Elevating priviledges for this process"
-do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 #Unblock all files required for script
 Get-ChildItem *.ps*1 -recurse | Unblock-File
+
+#change path to script location
+#https://stackoverflow.com/questions/4724290/powershell-run-command-from-scripts-directory
+$currentPath=Split-Path ((Get-Variable MyInvocation -Scope 0).Value).MyCommand.Path
 
 #Install PowerShell Modules
 Copy-Item -Path .\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
@@ -18,7 +20,7 @@ Get-ChildItem C:\Windows\System32\WindowsPowerShell\v1.0\Modules\PSWindowsUpdate
 Import-Module -Name PSWindowsUpdate -Force -Global
 
 #Optional Scripts 
-#.\Files\Optional\sos-ssl-hardening.ps1
+#$currentPath\Files\Optional\sos-ssl-hardening.ps1
 #powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 
 #Enable Darkmode 
@@ -74,7 +76,7 @@ Set-Processmitigation -System -Enable DEP
 #Enable-PSRemoting -SkipNetworkProfileCheck -Force
 
 #Windows Defender Configuration Files
-mkdir "C:\temp\Windows Defender"; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination C:\temp\"Windows Defender"\ -Force -Recurse -ErrorAction SilentlyContinue
+mkdir "C:\temp\Windows Defender"; Copy-Item -Path $currentPath\Files\"Windows Defender Configuration Files"\* -Destination C:\temp\"Windows Defender"\ -Force -Recurse -ErrorAction SilentlyContinue
 
 #Enable Windows Defender Exploit Protection
 Set-ProcessMitigation -PolicyFilePath "C:\temp\Windows Defender\DOD_EP_V3.xml"
@@ -408,17 +410,17 @@ $firefox32 = "C:\Program Files (x86)\Mozilla Firefox"
 Write-Output "Installing Firefox Configurations - Please Wait."
 Write-Output "Window will close after install is complete"
 If (Test-Path -Path $firefox64){
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\defaults -Destination $firefox64 -Force -Recurse
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\mozilla.cfg -Destination $firefox64 -Force
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\local-settings.js -Destination $firefox64 -Force 
+    Copy-Item -Path $currentPath\Files\"FireFox Configuration Files"\defaults -Destination $firefox64 -Force -Recurse
+    Copy-Item -Path $currentPath\Files\"FireFox Configuration Files"\mozilla.cfg -Destination $firefox64 -Force
+    Copy-Item -Path $currentPath\Files\"FireFox Configuration Files"\local-settings.js -Destination $firefox64 -Force 
     Write-Host "Firefox 64-Bit Configurations Installed"
 }Else {
     Write-Host "FireFox 64-Bit Is Not Installed"
 }
 If (Test-Path -Path $firefox32){
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\defaults -Destination $firefox32 -Force -Recurse
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\mozilla.cfg -Destination $firefox32 -Force
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\local-settings.js -Destination $firefox32 -Force 
+    Copy-Item -Path $currentPath\Files\"FireFox Configuration Files"\defaults -Destination $firefox32 -Force -Recurse
+    Copy-Item -Path $currentPath\Files\"FireFox Configuration Files"\mozilla.cfg -Destination $firefox32 -Force
+    Copy-Item -Path $currentPath\Files\"FireFox Configuration Files"\local-settings.js -Destination $firefox32 -Force 
     Write-Host "Firefox 32-Bit Configurations Installed"
 }Else {
     Write-Host "FireFox 32-Bit Is Not Installed"
@@ -437,7 +439,7 @@ If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\deployment.config"){
 }Else {
     Write-Output "Installing Java Deployment Config...."
     Mkdir "C:\Windows\Sun\Java\Deployment\"
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force
+    Copy-Item -Path $currentPath\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force
     Write-Output "JAVA Configs Installed"
 }
 If (Test-Path -Path "C:\temp\JAVA\"){
@@ -445,8 +447,8 @@ If (Test-Path -Path "C:\temp\JAVA\"){
 }Else {
     Write-Output "Installing Java Configurations...."
     Mkdir "C:\temp\JAVA"
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\temp\JAVA\" -Force
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\exception.sites -Destination "C:\temp\JAVA\" -Force
+    Copy-Item -Path $currentPath\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\temp\JAVA\" -Force
+    Copy-Item -Path $currentPath\Files\"JAVA Configuration Files"\exception.sites -Destination "C:\temp\JAVA\" -Force
     Write-Output "JAVA Configs Installed"
 }
 
@@ -1970,15 +1972,15 @@ foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
 }
 
 #GPO Configurations
-$gposdir = "$(Get-Location)\Files\GPOs"
-Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
+$gposdir = "$currentPath\Files\GPOs"
+Foreach ($gpocategory in Get-ChildItem "$currentPath\Files\GPOs") {
     
     Write-Output "Importing $gpocategory GPOs"
 
-    Foreach ($gpo in (Get-ChildItem "$(Get-Location)\Files\GPOs\$gpocategory")) {
+    Foreach ($gpo in (Get-ChildItem "$currentPath\Files\GPOs\$gpocategory")) {
         $gpopath = "$gposdir\$gpocategory\$gpo"
         Write-Output "Importing $gpo"
-        .\Files\LGPO\LGPO.exe /g $gpopath
+        $currentPath\Files\LGPO\LGPO.exe /g $gpopath
     }
 }
 
