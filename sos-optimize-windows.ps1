@@ -519,8 +519,8 @@ Function Remove-Keys {
         "HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
         "HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.MicrosoftOfficeHub_17.7909.7600.0_x64__8wekyb3d8bbwe"
         "HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.PPIProjection_10.0.15063.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
+        #"HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
+        #"HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
         
         #Windows File
         "HKCR:\Extensions\ContractId\Windows.File\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
@@ -529,8 +529,8 @@ Function Remove-Keys {
         "HKCR:\Extensions\ContractId\Windows.Launch\PackageId\46928bounde.EclipseManager_2.2.4.51_neutral__a5h4egax66k6y"
         "HKCR:\Extensions\ContractId\Windows.Launch\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
         "HKCR:\Extensions\ContractId\Windows.Launch\PackageId\Microsoft.PPIProjection_10.0.15063.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.Launch\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.Launch\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
+        #"HKCR:\Extensions\ContractId\Windows.Launch\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
+        #"HKCR:\Extensions\ContractId\Windows.Launch\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
         
         #Scheduled Tasks to delete
         "HKCR:\Extensions\ContractId\Windows.PreInstalledConfigTask\PackageId\Microsoft.MicrosoftOfficeHub_17.7909.7600.0_x64__8wekyb3d8bbwe"
@@ -538,8 +538,8 @@ Function Remove-Keys {
         #Windows Protocol Keys
         "HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
         "HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\Microsoft.PPIProjection_10.0.15063.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
+        #"HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
+        #"HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
            
         #Windows Share Target
         "HKCR:\Extensions\ContractId\Windows.ShareTarget\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
@@ -800,8 +800,8 @@ Get-AppxProvisionedPackage -Online | Where-Object {$_.PackageName -Like"Microsof
 Write-Output "removing Twitter App"
 Get-AppxProvisionedPackage -Online | Where-Object {$_.PackageName -Like"*.Twitter"} | ForEach-Object { Remove-AppxProvisionedPackage -Online -PackageName $_.PackageName}
 #XBOX App
-Write-Output "removing XBOX App"
-Get-AppxProvisionedPackage -Online | Where-Object {$_.PackageName -Like"Microsoft.XboxApp"} | ForEach-Object { Remove-AppxProvisionedPackage -Online -PackageName $_.PackageName}
+#Write-Output "removing XBOX App"
+#Get-AppxProvisionedPackage -Online | Where-Object {$_.PackageName -Like"Microsoft.XboxApp"} | ForEach-Object { Remove-AppxProvisionedPackage -Online -PackageName $_.PackageName}
 #Sway App
 Write-Output "removing Sway App"
 Get-AppxProvisionedPackage -Online | Where-Object {$_.PackageName -Like"Microsoft.Office.Sway"} | ForEach-Object { Remove-AppxProvisionedPackage -Online -PackageName $_.PackageName}
@@ -871,8 +871,8 @@ Set-ItemProperty -Path "HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\confi
 Write-Output "Delivery Optimization"
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DeliveryOptimization" -Name DODownloadMode -Type DWORD -Value 99 -Force
 Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
+#Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
+#Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.BingWeather* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage -AllUsers
@@ -905,7 +905,7 @@ Get-AppxPackage -allusers *Microsoft.DrawboardPDF* | Remove-AppxPackage -AllUser
 Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *FarmHeroesSaga* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
+#Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.GetHelp* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.BingNews* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage -AllUsers
@@ -1354,8 +1354,8 @@ Set-ItemProperty -Path "HKLM:\Software\Policies\Mozilla\Firefox" -Name "DisableD
 
 #Remove Windows Bloatware
 Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
+#Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
+#Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.BingWeather* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage -AllUsers
@@ -1388,7 +1388,7 @@ Get-AppxPackage -allusers *Microsoft.DrawboardPDF* | Remove-AppxPackage -AllUser
 Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *FarmHeroesSaga* | Remove-AppxPackage 
 Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
+#Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.GetHelp* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.BingNews* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage -AllUsers
@@ -1555,9 +1555,9 @@ $domains = @(
     #"dns.msftncsi.com"                         # This causes Windows to think it doesn't have internet
     #"storeedgefd.dsx.mp.microsoft.com"         # breaks Windows Store
     "wdcpalt.microsoft.com"
-    "settings-ssl.xboxlive.com"
-    "settings-ssl.xboxlive.com-c.edgekey.net"
-    "settings-ssl.xboxlive.com-c.edgekey.net.globalredir.akadns.net"
+    #"settings-ssl.xboxlive.com"                # Breaks XBOX Live Games
+    #"settings-ssl.xboxlive.com-c.edgekey.net"  # Breaks XBOX Live Games
+    #"settings-ssl.xboxlive.com-c.edgekey.net.globalredir.akadns.net" # Breaks XBOX Live Games
     "e87.dspb.akamaidege.net"
     "insiderservice.microsoft.com"
     "insiderservice.trafficmanager.net"
@@ -1787,8 +1787,8 @@ $apps = @(
     "Microsoft.WindowsPhone"
     "Microsoft.WindowsSoundRecorder"
     #"Microsoft.WindowsStore"   # can't be re-installed
-    "Microsoft.Xbox.TCUI"
-    "Microsoft.XboxApp"
+    #"Microsoft.Xbox.TCUI"
+    #"Microsoft.XboxApp"
     #"Microsoft.XboxGameOverlay"
     #"Microsoft.XboxGamingOverlay"
     #"Microsoft.XboxSpeechToTextOverlay"
@@ -1819,7 +1819,7 @@ $apps = @(
     # Redstone 5 apps
     "Microsoft.MixedReality.Portal"
     "Microsoft.ScreenSketch"
-    "Microsoft.XboxGamingOverlay"
+    #"Microsoft.XboxGamingOverlay"
     "Microsoft.YourPhone"
 
     # non-Microsoft
