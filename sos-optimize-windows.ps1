@@ -13,7 +13,7 @@ Get-ChildItem *.ps*1 -recurse | Unblock-File
 $currentPath=Split-Path ((Get-Variable MyInvocation -Scope 0).Value).MyCommand.Path
 
 #Install PowerShell Modules
-Copy-Item -Path .\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
+Copy-Item -Path $currentPath\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
 #Unblock New PowerShell Modules
 Get-ChildItem C:\Windows\System32\WindowsPowerShell\v1.0\Modules\PSWindowsUpdate\ -recurse | Unblock-File
 #Install PSWindowsUpdate
@@ -33,18 +33,22 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\P
 start-job -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot}
 
 #Import PolicyDefinitions
-Start-Job -ScriptBlock {takeown /f C:\WINDOWS\Policydefinitions /r /a; icacls C:\WINDOWS\PolicyDefinitions /grant "Administrators:(OI)(CI)F" /t}
-Copy-Item -Path .\Files\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions -Force -Recurse -ErrorAction SilentlyContinue
+Start-Job -ScriptBlock {takeown /f C:\WINDOWS\Policydefinitions /r /a; icacls C:\WINDOWS\PolicyDefinitions /grant "Administrators:(OI)(CI)F" /t; Copy-Item -Path $currentPath\Files\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions -Force -Recurse -ErrorAction SilentlyContinue}
 
 #Disable TCP Timestamps
 netsh int tcp set global timestamps=disabled
 
 #Disable Powershell v2
-Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root
+Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root -NoRestart
 
 #Enable PowerShell Logging
 #https://www.digitalshadows.com/blog-and-research/powershell-security-best-practices/
 #https://www.cyber.gov.au/acsc/view-all-content/publications/securing-powershell-enterprise
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\" -Name "Transcription" -Force
+New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription" -Name "OutputDirectory" -Type "STRING" -Value "C:\PowershellLogs" -Force
+New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging\" -Name "EnableScriptBlockLogging" -Type "DWORD" -Value "1" -Force
+New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription\" -Name "EnableTranscripting" -Type "DWORD" -Value "1" -Force
+New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription\" -Name "EnableInvocationHeader" -Type "DWORD" -Value "1" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription" -Name "OutputDirectory" -Type "STRING" -Value "C:\PowershellLogs" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging\" -Name "EnableScriptBlockLogging" -Type "DWORD" -Value "1" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription\" -Name "EnableTranscripting" -Type "DWORD" -Value "1" -Force
@@ -52,7 +56,7 @@ Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Tra
 
 #Disable LLMNR
 #https://www.blackhillsinfosec.com/how-to-disable-llmnr-why-you-want-to/
-New-Item -Path "HKLM:\Software\policies\Microsoft\Windows NT\" -Name "DNSClient"
+New-Item -Path "HKLM:\Software\policies\Microsoft\Windows NT\" -Name "DNSClient" -Force
 Set-ItemProperty -Path "HKLM:\Software\policies\Microsoft\Windows NT\DNSClient" -Name "EnableMulticast" -Type "DWORD" -Value 0 -Force
 
 #Enable DEP
@@ -76,7 +80,7 @@ Set-Processmitigation -System -Enable DEP
 #Enable-PSRemoting -SkipNetworkProfileCheck -Force
 
 #Windows Defender Configuration Files
-mkdir "C:\temp\Windows Defender"; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination C:\temp\"Windows Defender"\ -Force -Recurse -ErrorAction SilentlyContinue
+New-Item -Path "C:\" -Name "Temp" -ItemType "directory" -Force; New-Item -Path "C:\temp\" -Name "Windows Defender" -ItemType "directory" -Force; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination "C:\temp\Windows Defender\" -Force -Recurse -ErrorAction SilentlyContinue
 
 #Enable Windows Defender Exploit Protection
 Set-ProcessMitigation -PolicyFilePath "C:\temp\Windows Defender\DOD_EP_V3.xml"
@@ -132,9 +136,6 @@ Set-MpPreference -EnableFileHashComputation 1
 #Enable Intrusion Prevention System
 Write-Host "Enable Intrusion Prevention System"
 Set-MpPreference -DisableIntrusionPreventionSystem $false
-
-if (!(Check-IsWindows10-1709))
-{
 #Enable Windows Defender Exploit Protection
 Write-Host "Enabling Exploit Protection"
 Set-ProcessMitigation -PolicyFilePath C:\temp\"Windows Defender"\DOD_EP_V3.xml
@@ -189,38 +190,35 @@ Add-MpPreference -AttackSurfaceReductionRules_Ids 26190899-1602-49e8-8b27-eb1d0a
 Add-MpPreference -AttackSurfaceReductionRules_Ids 7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c -AttackSurfaceReductionRules_Actions Enabled
 #Block persistence through WMI event subscription
 Add-MpPreference -AttackSurfaceReductionRules_Ids e6db77e5-3df2-4cf1-b95a-636979351e5b -AttackSurfaceReductionRules_Actions Enabled
-}else{
-    ## Workaround for Windows 10 version 1703
-    "Set cloud block level to 'High'"
-    SetRegistryKey -key MpCloudBlockLevel -value 2
-
-    "Set cloud block timeout to 1 minute"
-    SetRegistryKey -key MpBafsExtendedTimeout -value 50
-}
 
 #Basic authentication for RSS feeds over HTTP must not be used.
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Feeds" -Name AllowBasicAuthInClear -Type DWORD -Value 0 -Force
 #InPrivate browsing in Microsoft Edge must be disabled.
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\Main" -Name AllowInPrivate -Type DWORD -Value 0 -Force
 #Windows 10 must be configured to prevent Microsoft Edge browser data from being cleared on exit.
+New-Item -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\" -Name "Privacy" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\Privacy" -Name ClearBrowsingHistoryOnExit -Type DWORD -Value 0 -Force
 #Check for publishers certificate revocation must be enforced.
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\Software Publishing" -Name State -Type DWORD -Value 23C00 -Force
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\Software Publishing" -Name State -Type DWORD -Value 23C00 -Force
+New-Item -Path "HKLM:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\" -Name "Software Publishing" -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\Software Publishing" -Name State -Type DWORD -Value 146432 -Force
+New-Item -Path "HKCU:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\" -Name "Software Publishing" -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\Software Publishing" -Name State -Type DWORD -Value 146432 -Force
 #AutoComplete feature for forms must be disallowed.
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\" -Name "Main Criteria" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "Use FormSuggest" -Type STRING -Value no -Force
+New-Item -Path "HKCU:\Software\Policies\Microsoft\Internet Explorer\" -Name "Main Criteria" -Force
 Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "Use FormSuggest" -Type STRING -Value no -Force
 #Turn on the auto-complete feature for user names and passwords on forms must be disabled.
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "FormSuggest PW Ask" -Type STRING -Value no -Force
 Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "FormSuggest PW Ask" -Type STRING -Value no -Force
 
 #Adobe Reader DC STIG
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cCloud
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cDefaultLaunchURLPerms
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cServices
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cSharePoint
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cWebmailProfiles
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cWelcomeScreen
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cCloud -Force
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cDefaultLaunchURLPerms -Force
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cServices -Force
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cSharePoint -Force
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cWebmailProfiles -Force
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cWelcomeScreen -Force
 Set-ItemProperty -Path "HKLM:\Software\Adobe\Acrobat Reader\DC\Installer" -Name DisableMaintenance -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bAcroSuppressUpsell -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bDisablePDFHandlerSwitching -Type DWORD -Value 1 -Force
@@ -256,152 +254,56 @@ Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Virtu
 #https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MS_DotNet_Framework_4-0_V1R9_STIG.zip
 #https://docs.microsoft.com/en-us/dotnet/framework/tools/caspol-exe-code-access-security-policy-tool
 
+$netframework32="C:\Windows\Microsoft.NET\Framework"
+$netframework64="C:\Windows\Microsoft.NET\Framework64"
+$netframeworks=($netframework32,$netframework64)
+
+#Vul ID: V-7055	   	Rule ID: SV-7438r3_rule	   	STIG ID: APPNET0031
 If (Test-Path -Path "HKLM:\Software\Microsoft\StrongName\Verification"){
     Remove-Item "HKLM:\Software\Microsoft\StrongName\Verification" -Recurse -Force
     Write-Host ".Net StrongName Verification Registry Removed"
 }
-
 # .Net 32-Bit
-If (Test-Path -Path C:\Windows\Microsoft.NET\Framework\v2.0.50727){
-    Write-Host ".Net 32-Bit v2.0.50727 Is Installed"
-    C:\Windows\Microsoft.NET\Framework\v2.0.50727\caspol.exe -q -f -pp on 
-    C:\Windows\Microsoft.NET\Framework\v2.0.50727\caspol.exe -m -lg
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\AllowStrongNameBypass"){
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+ForEach ($dotnet32version in (Get-ChildItem $netframework32 | ?{ $_.PSIsContainer }).Name){
+    $netframework32="C:\Windows\Microsoft.NET\Framework"
+    Write-Host ".Net 32-Bit $dotnet32version Is Installed"
+    cmd /c $netframework32\$dotnet32version\caspol.exe -q -f -pp on 
+    cmd /c $netframework32\$dotnet32version\caspol.exe -m -lg
+    #Vul ID: V-30935	   	Rule ID: SV-40977r3_rule	   	STIG ID: APPNET0063
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass"){
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -Value "0" -Force
     }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0" -Force
     }
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\v2.0.50727\SchUseStrongCrypto"){
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\v2.0.50727\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    #Vul ID: V-81495	   	Rule ID: SV-96209r2_rule	   	STIG ID: APPNET0075	
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\$dotnet32version\SchUseStrongCrypto"){
+        Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\.NETFramework\"$dotnet32version"\ -Name "SchUseStrongCrypto" -Value "1" -Force
     }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\v2.0.50727\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+        New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\.NETFramework\"$dotnet32version"\ -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1" -Force
     }
-}Else {
-    Write-Host ".Net 32-Bit v2.0.50727 Is Not Installed"
 }
-If (Test-Path -Path C:\Windows\Microsoft.NET\Framework\v3.0){
-    Write-Host ".Net 32-Bit v3.0 Is Installed"
-    C:\Windows\Microsoft.NET\Framework\v3.0\caspol.exe -q -f -pp on 
-    C:\Windows\Microsoft.NET\Framework\v3.0\caspol.exe -m -lg
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\AllowStrongNameBypass"){
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+# .Net 64-Bit
+ForEach ($dotnet64version in (Get-ChildItem $netframework64 | ?{ $_.PSIsContainer }).Name){
+    $netframework64="C:\Windows\Microsoft.NET\Framework64"
+    Write-Host ".Net 64-Bit $dotnet64version Is Installed"
+    cmd /c $netframework64\$dotnet64version\caspol.exe -q -f -pp on 
+    cmd /c $netframework64\$dotnet64version\caspol.exe -m -lg
+    #Vul ID: V-30935	   	Rule ID: SV-40977r3_rule	   	STIG ID: APPNET0063
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass") {
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -Value "0" -Force
     }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0" -Force
     }
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\v3.0\SchUseStrongCrypto"){
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\v3.0\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+    #Vul ID: V-81495	   	Rule ID: SV-96209r2_rule	   	STIG ID: APPNET0075	
+    If (Test-Path -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\$dotnet64version\") {
+        Set-ItemProperty -Path HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\"$dotnet64version"\ -Name "SchUseStrongCrypto" -Value "1" -Force
     }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\v3.0\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
+        New-ItemProperty -Path HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\"$dotnet64version"\ -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1" -Force
     }
-}Else {
-    Write-Host ".Net 32-Bit v3.0 Is Not Installed"
-}
-If (Test-Path -Path C:\Windows\Microsoft.NET\Framework\v3.5){
-    Write-Host ".Net 32-Bit v3.5 Is Installed"
-    C:\Windows\Microsoft.NET\Framework\v3.5\caspol.exe -q -f -pp on 
-    C:\Windows\Microsoft.NET\Framework\v3.5\caspol.exe -m -lg
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\AllowStrongNameBypass"){
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\v3.5\SchUseStrongCrypto"){
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\v3.5\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\v3.5\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }
-}Else {
-    Write-Host ".Net 32-Bit v3.5 Is Not Installed"
-}
-If (Test-Path -Path C:\Windows\Microsoft.NET\Framework\v4.0.30319){
-    Write-Host ".Net 32-Bit v4.0.30319 Is Installed"
-    C:\Windows\Microsoft.NET\Framework\v4.0.30319\caspol.exe -q -f -pp on 
-    C:\Windows\Microsoft.NET\Framework\v4.0.30319\caspol.exe -m -lg
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\AllowStrongNameBypass"){
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\v4.0.30319\SchUseStrongCrypto"){
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }
-    #Copy-Item -Path .\Files\machine.config -Destination C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config -Force 
-}Else {
-    Write-Host ".Net 32-Bit v4.0.30319 Is Not Installed"
 }
 
-# .Net 64-Bit
-If (Test-Path -Path C:\Windows\Microsoft.NET\Framework64\v2.0.50727){
-    Write-Host ".Net 64-Bit v2.0.50727 Is Installed"
-    C:\Windows\Microsoft.NET\Framework64\v2.0.50727\caspol.exe -q -f -pp on 
-    C:\Windows\Microsoft.NET\Framework64\v2.0.50727\caspol.exe -m -lg
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\AllowStrongNameBypass") {
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }
-    If (Test-Path -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v2.0.50727\") {
-        Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v2.0.50727\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v2.0.50727\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }
-}Else {
-    Write-Host ".Net 64-Bit v2.0.50727 Is Not Installed"
-}
-If (Test-Path -Path C:\Windows\Microsoft.NET\Framework64\v3.0){
-    Write-Host ".Net 64-Bit v3.0 Is Installed"
-    C:\Windows\Microsoft.NET\Framework64\v3.0\caspol.exe -q -f -pp on 
-    C:\Windows\Microsoft.NET\Framework64\v3.0\caspol.exe -m -lg
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\AllowStrongNameBypass") {
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }
-    If (Test-Path -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v3.0\") {
-        Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v3.0\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v3.0\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }
-}Else {
-    Write-Host ".Net 64-Bit v3.0 Is Not Installed"
-}
-If (Test-Path -Path C:\Windows\Microsoft.NET\Framework64\v3.5){
-    Write-Host ".Net 64-Bit v3.5 Is Installed"
-    C:\Windows\Microsoft.NET\Framework64\v3.5\caspol.exe -q -f -pp on 
-    C:\Windows\Microsoft.NET\Framework64\v3.5\caspol.exe -m -lg
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\AllowStrongNameBypass") {
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }
-    If (Test-Path -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v3.5\") {
-        Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v3.5\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v3.5\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }
-}Else {
-    Write-Host ".Net 64-Bit v3.5 Is Not Installed"
-}
-If (Test-Path -Path C:\Windows\Microsoft.NET\Framework64\v4.0.30319){
-    Write-Host ".Net 64-Bit v4.0.30319 Is Installed"
-    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\caspol.exe -q -f -pp on 
-    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\caspol.exe -m -lg
-    If (Test-Path -Path "HKLM:\Software\Microsoft\.NETFramework\AllowStrongNameBypass") {
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0"
-    }
-    If (Test-Path -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v4.0.30319\") {
-        Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }Else {
-        New-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\.NETFramework\v4.0.30319\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1"
-    }
-    #Copy-Item -Path .\Files\machine.config -Destination C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config -Force 
-}Else {
-    Write-Host ".Net 64-Bit v4.0.30319 Is Not Installed"
-}
+#Vul ID: V-30937	   	Rule ID: SV-40979r3_rule	   	STIG ID: APPNET0064	  
+#FINDSTR /i /s "NetFx40_LegacySecurityPolicy" c:\*.exe.config 
 
 ##Firefox Config Import
 #https://www.itsupportguides.com/knowledge-base/tech-tips-tricks/how-to-customise-firefox-installs-using-mozilla-cfg/
@@ -410,17 +312,17 @@ $firefox32 = "C:\Program Files (x86)\Mozilla Firefox"
 Write-Output "Installing Firefox Configurations - Please Wait."
 Write-Output "Window will close after install is complete"
 If (Test-Path -Path $firefox64){
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\defaults -Destination $firefox64 -Force -Recurse
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\mozilla.cfg -Destination $firefox64 -Force
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\local-settings.js -Destination $firefox64 -Force 
+    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\defaults" -Destination $firefox64 -Force -Recurse
+    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\mozilla.cfg" -Destination $firefox64 -Force
+    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\local-settings.js" -Destination $firefox64 -Force 
     Write-Host "Firefox 64-Bit Configurations Installed"
 }Else {
     Write-Host "FireFox 64-Bit Is Not Installed"
 }
 If (Test-Path -Path $firefox32){
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\defaults -Destination $firefox32 -Force -Recurse
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\mozilla.cfg -Destination $firefox32 -Force
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\local-settings.js -Destination $firefox32 -Force 
+    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\defaults" -Destination $firefox32 -Force -Recurse
+    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\mozilla.cfg" -Destination $firefox32 -Force
+    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\local-settings.js" -Destination $firefox32 -Force 
     Write-Host "Firefox 32-Bit Configurations Installed"
 }Else {
     Write-Host "FireFox 32-Bit Is Not Installed"
@@ -439,7 +341,7 @@ If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\deployment.config"){
 }Else {
     Write-Output "Installing Java Deployment Config...."
     Mkdir "C:\Windows\Sun\Java\Deployment\"
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force
+    Copy-Item -Path "$currentPath\Files\JAVA Configuration Files\deployment.config" -Destination "C:\Windows\Sun\Java\Deployment\" -Force
     Write-Output "JAVA Configs Installed"
 }
 If (Test-Path -Path "C:\temp\JAVA\"){
@@ -447,8 +349,8 @@ If (Test-Path -Path "C:\temp\JAVA\"){
 }Else {
     Write-Output "Installing Java Configurations...."
     Mkdir "C:\temp\JAVA"
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\temp\JAVA\" -Force
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\exception.sites -Destination "C:\temp\JAVA\" -Force
+    Copy-Item -Path "$currentPath\Files\JAVA Configuration Files\deployment.properties" -Destination "C:\temp\JAVA\" -Force
+    Copy-Item -Path "$currentPath\Files\JAVA Configuration Files\exception.sites" -Destination "C:\temp\JAVA\" -Force
     Write-Output "JAVA Configs Installed"
 }
 
@@ -724,12 +626,12 @@ Set-SmbServerConfiguration -EnableSecuritySignature $True -Force
 Set-SmbServerConfiguration -EncryptData $True -Force 
 Set-SmbServerConfiguration -MaxChannelPerSession 16 -Force
 Set-SmbServerConfiguration -ServerHidden $False -AnnounceServer $False -Force
-Set-SmbServerConfiguration -EnableLeasing $false  
+Set-SmbServerConfiguration -EnableLeasing $false -Force
 Set-SmbClientConfiguration -EnableLargeMtu $true -Force
 Set-SmbClientConfiguration -EnableMultiChannel $true -Force
 Set-SmbClientConfiguration -RequireSecuritySignature $True -Force
 Set-SmbClientConfiguration -EnableSecuritySignature $True -Force
-Set-SmbClientConfiguration -EnableBandwidthThrottling 0
+Set-SmbClientConfiguration -EnableBandwidthThrottling 0 -Force
 
 #onedrive
 Write-Output "remove onedrive automatic start"
@@ -746,6 +648,7 @@ Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Search
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Search" -Name ConnectedSearchUseWeb -Type DWORD -Value 0 -Force
 #Disable Device Metadata Retrieval
 Write-Output "Disable Device Metadata Retrieval"
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\" -Name "Device Metadata" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Device Metadata" -Name PreventDeviceMetadataFromNetwork -Type DWORD -Value 1 -Force
 #Disable Find My Device
 Write-Output "Disable Find My Device"
@@ -759,10 +662,14 @@ Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PreviewBuilds"
 #IE Optimizations
 Write-Output "IE Optimizations"
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\PhishingFilter" -Name EnabledV9 -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\" -Name "Geolocation" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Geolocation" -Name PolicyDisableGeolocation -Type DWORD -Value 1 -Force
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\CurrentVersion\Explorer\" -Name "AutoComplete" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" -Name AutoSuggest -Type String -Value no -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer" -Name AllowServicePoweredQSA -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\" -Name "Suggested Sites" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Suggested Sites" -Name Enabled -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\" -Name "FlipAhead" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\FlipAhead" -Name Enabled -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Feeds" -Name BackgroundSyncStatus -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name AllowOnlineTips -Type DWORD -Value 0 -Force
@@ -820,17 +727,18 @@ Write-Output "Auto Cert Update"
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\SystemCertificates\AuthRoot" -Name DisableRootAutoUpdate -Type DWORD -Value 0 -Force
 #Turn off Let websites provide locally relevant content by accessing my language list
 Write-Output "Turn off Let websites provide locally relevant content by accessing my language list"
-Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\International\User Profile" -Name HttpAcceptLanguageOptOut -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKCU:\Control Panel\International\User Profile" -Name HttpAcceptLanguageOptOut -Type DWORD -Value 1 -Force
 #Turn off Let Windows track app launches to improve Start and search results
 Write-Output "Turn off Let Windows track app launches to improve Start and search results"
-Set-ItemProperty -Path "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name Start_TrackProgs -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name Start_TrackProgs -Type DWORD -Value 0 -Force
 #Turn off Let apps use my advertising ID for experiences across apps (turning this off will reset your ID
 Write-Output "Turn off Let apps use my advertising ID for experiences across apps (turning this off will reset your ID"
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo" -Name Enabled -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\" -Name "AdvertisingInfo"
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\AdvertisingInfo" -Name DisabledByGroupPolicy -Type DWORD -Value 1 -Force
 #Turn off Let websites provide locally relevant content by accessing my language list
 Write-Output "Turn off Let websites provide locally relevant content by accessing my language list"
-Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\International\User Profile" -Name HttpAcceptLanguageOptOut -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKCU:\Control Panel\International\User Profile" -Name HttpAcceptLanguageOptOut -Type DWORD -Value 1 -Force
 #Turn off Let apps on my other devices open apps and continue experiences on this device
 Write-Output "Turn off Let apps on my other devices open apps and continue experiences on this device"
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\System" -Name EnableCdp -Type DWORD -Value 1 -Force
@@ -847,21 +755,27 @@ Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DataCollection
 #Turn off tailored experiences with relevant tips and recommendations by using your diagnostics data
 Write-Output "Turn off tailored experiences with relevant tips and recommendations by using your diagnostics data"
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\CloudContent" -Name DisableWindowsConsumerFeatures -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKEY_Current_User\Software\Policies\Microsoft\Windows\CloudContent" -Name DisableTailoredExperiencesWithDiagnosticData -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\CloudContent" -Name DisableTailoredExperiencesWithDiagnosticData -Type DWORD -Value 1 -Force
+New-Item -Path "HKCU:\Software\Policies\Microsoft\Windows\" -Name "CloudContent" -Force
+Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\CloudContent" -Name DisableTailoredExperiencesWithDiagnosticData -Type DWORD -Value 1 -Force
 #Turn off Let apps run in the background
 Write-Output "Turn off Let apps run in the background"
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy" -Name LetAppsRunInBackground -Type DWORD -Value 2 -Force
 #Software Protection Platform
 #Opt out of sending KMS client activation data to Microsoft
 Write-Output "Opt out of sending KMS client activation data to Microsoft"
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows NT\CurrentVersion\" -Name "Software Protection Platform" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform" -Name NoGenTicket -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform" -Name NoAcquireGT -Type DWORD -Value 1 -Force
 #Turn off Messaging cloud sync
 Write-Output "Turn off Messaging cloud sync"
-Set-ItemProperty -Path "HKEY_CURRENT_USER\Software\Microsoft\Messaging" -Name CloudServiceSyncEnabled -Type DWORD -Value 0 -Force
+New-Item -Path "HKCU:\Software\Microsoft\" -Name "Messaging" -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Messaging" -Name CloudServiceSyncEnabled -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Messaging" -Name CloudServiceSyncEnabled -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\SettingSync" -Name DisableSettingSync -Type DWORD -Value 2 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\SettingSync" -Name DisableSettingSyncUserOverride -Type DWORD -Value 1 -Force
 #Disable Teredo
+#Broke too many things. Should be disabled in an enterprise, but not for personal systems
 #Write-Output "Disable Teredo"
 #Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\TCPIP\v6Transition" -Name Teredo_State -Type String -Value Disabled -Force
 #Turn off Connect to suggested open hotspots and Connect to networks shared by my contacts
@@ -870,6 +784,9 @@ Set-ItemProperty -Path "HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\confi
 #Delivery Optimization
 Write-Output "Delivery Optimization"
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DeliveryOptimization" -Name DODownloadMode -Type DWORD -Value 99 -Force
+
+#Removing Windows Bloatware
+Write-Host "Removing Bloatware"
 Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
 #Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
 #Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
@@ -923,45 +840,66 @@ Get-AppxPackage -allusers *Microsoft.MSPaint* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *PandoraMediaInc* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
 Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage -AllUsers
+Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage -AllUsers
+
+#Disabling Telemetry and Services
+Write-Host "Disabling Telemetry and Services"
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name BingSearchEnabled -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name CortanaConsent -Type DWORD -Value 0 -Force
-Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Search" -Name BingSearchEnabled -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Search" -Name CortanaConsent -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Search" -Name AllowCortana -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\" -Name "Search" -Force
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Search" -Name BingSearchEnabled -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules" -Name "{2765E0F4-2918-4A46-B9C9-43CDD8FCBA2B}" -Type String -Value  "BlockCortana|Action=Block|Active=TRUE|Dir=Out|App=C:\windows\systemapps\microsoft.windows.cortana_cw5n1h2txyewy\searchui.exe|Name=Search and Cortana application|AppPkgId=S-1-15-2-1861897761-1695161497-2927542615-642690995-327840285-2659745135-2630312742|" -Force
-Set-MpPreference -PUAProtection Enabled
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\" -Name "AU" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name NoAutoUpdate -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name AUOptions -Type DWORD -Value 2 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name ScheduledInstallDay -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name ScheduledInstallTime -Type DWORD -Value 3 -Force
+New-Item -Path "HKLM:\Software\Microsoft\PolicyManager\current\device\" -Name "Update" -Force
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\current\device\Update" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\default\Update" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
+New-Item -Path "HKLM:\Software\Microsoft\PolicyManager\default\Update\" -Name "ExcludeWUDriversInQualityUpdates" -Force
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\default\Update\ExcludeWUDriversInQualityUpdates" -Name Value -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\WindowsUpdate\UX\Settings" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeCleanupEnabled" -Type String -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeCleanupReportingEnabled" -Type String -Value 0 -Force
+New-Item -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" -Name "software_reporter_tool.exe" -Force
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\software_reporter_tool.exe" -Name Debugger -Type String -Value "%windir%\System32\taskkill.exe" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "MetricsReportingEnabled" -Type String -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\WMDRM" -Name DisableOnline -Type DWORD -Value 1 -Force
+New-Item -Path "HKLM:\Software\NVIDIA Corporation\Global\" -Name "FTS" -Force
 Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\Global\FTS" -Name EnableRID44231 -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\Global\FTS" -Name EnableRID64640 -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\Global\FTS" -Name EnableRID66610 -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\NVIDIA Corporation\NvControlPanel2\" -Name "OptInOrOutPreference" -Force
 Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\NvControlPanel2\Client" -Name OptInOrOutPreference -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\SYSTEM\CurrentControlSet\services\" -Name "NvTelemetryContainer" -Force
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\services\NvTelemetryContainer" -Name Start -Type DWORD -Value 4 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name BlockThirdPartyCookies -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name AutofillCreditCardEnabled -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name SyncDisabled -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\Main" -Name AllowPrelaunch -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\" -Name "TabPreloader" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\TabPreloader" -Name AllowTabPreloading -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" -Name "MicrosoftEdge.exe" -Force
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\MicrosoftEdge.exe" -Name Debugger -Type String -Value "%windir%\System32\taskkill.exe" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name BackgroundModeEnabled -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\Microsoft" -Name DoNotUpdateToEdgeWithChromium -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\GameDVR" -Name AllowgameDVR -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKCU:\System\GameConfigStore" -Name GameDVR_Enabled -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\System\" -Name "GameConfigStore" -Force
+Set-ItemProperty -Path "HKLM:\System\GameConfigStore" -Name GameDVR_Enabled -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\CurrentControlSet\" -Name "Control" -Force
 Set-ItemProperty -Path "HKLM:\Software\CurrentControlSet\Control" -Name SvcHostSplitThresholdInKB -Type DWORD -Value 04000000 -Force
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\" -Name "GameDVR" -Force
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name AppCaptureEnabled -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name  HistoricalCaptureEnabled -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\" -Name "GameDVR" -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name AppCaptureEnabled -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLm:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name  HistoricalCaptureEnabled -Type DWORD -Value 0 -Force
 Stop-Service "LogiRegistryService"
 Set-Service  "LogiRegistryService" -StartupType Disabled
 Stop-Service "Razer Game Scanner Service"
@@ -1008,23 +946,17 @@ net stop "VSStandardCollectorService150"
 Set-Service  "VSStandardCollectorService150" -StartupType Disabled
 #General Optmizations
 #Delete "windows.old" folder
-Cmd.exe /c Cleanmgr /sageset:65535 
+#Cmd.exe /c Cleanmgr /sageset:65535 
 Cmd.exe /c Cleanmgr /sagerun:65535
 
 #Display full path in explorer
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\" -Name "CabinetState" -Force
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState" -Name FullPath -Type DWORD -Value 1 -Force
 
-taskkill -Force /im explorer.exe
-Start-Process explorer.exe
-
 #Make icons easier to touch in exploere
-:: Needs: Windows 10 build 19592+
-
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name FileExplorerInTouchImprovement -Type DWORD -Value 1 -Force
 
-:: To kill and restart explorer
-taskkill -Force /im explorer.exe
-Start-Process explorer.exe
+
 #disable
 ### Disable app access to account info
 New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation" -Name Value -Type String -Value Deny -Force
@@ -1130,6 +1062,7 @@ New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\CloudContent" 
 
 ### Disable Clipboard history ### 
 ### With Windows 10 build 17666 or later, Microsoft has allowed cloud synchronization of clipboard. It is a special feature to sync clipboard content across all your devices connected with your Microsoft Account.
+New-Item -Path "HKCU:\Software\Microsoft\" -Name "Clipboard" -Force
 New-ItemProperty -Path "HKCU:\Software\Microsoft\Clipboard" -Name "EnableClipboardHistory" -Type DWord -Value 0 -Force
 ### Disable Compatibility Telemetry ###
 ### The Windows Compatibility Telemetry process is periodically collecting a variety of technical data about your computer and its performance and sending it to Microsoft for its Windows Customer Experience Improvement Program. It is enabled by default, and the data points are useful for Microsoft to improve Windows 10. ###
@@ -1159,6 +1092,7 @@ New-ItemProperty -Path "HKLM:\SYSTEM\ControlSet001\Services\DiagTrack" -Name "St
 Stop-Service -Name DiagTrack
 Set-Service -Name DiagTrack -StartupType Disabled
 # Stop and Disable dmwappushservice Service
+New-Item -Path "HKLM:\SYSTEM\ControlSet001\Services\" -Name "dmwappushsvc" -Force
 New-ItemProperty -Path "HKLM:\SYSTEM\ControlSet001\Services\dmwappushsvc" -Name "Start" -Type DWord -Value 4 -Force
 Stop-Service -Name dmwappushservice
 Set-Service -Name dmwappushservice -StartupType Disabled
@@ -1417,10 +1351,10 @@ Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage -AllUsers
 # Please see the related issue:
 # <https://github.com/W4RH4WK/Debloat-Windows-10/issues/79>
 
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Force-Mkdir.psm1
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Mkdir -Force .psm1
 
 Write-Output "Disabling telemetry via Group Policies"
-Force-Mkdir "HKLM:\Software\Policies\Microsoft\Windows\DataCollection"
+Mkdir -Force  "HKLM:\Software\Policies\Microsoft\Windows\DataCollection"
 Set-ItemProperty "HKLM:\Software\Policies\Microsoft\Windows\DataCollection" "AllowTelemetry" 0
 
 # Entries related to Akamai have been reported to cause issues with Widevine
@@ -1635,11 +1569,8 @@ New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
 # This script will try to fix many of the privacy settings for the user. This
 # is work in progress!
 
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Force-Mkdir.psm1
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Mkdir -Force .psm1
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
-
-Write-Output "Elevating priviledges for this process"
-do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 Write-Output "Defuse Windows search settings"
 Set-WindowsSearchSetting -EnableWebResultsSetting $false
@@ -1648,13 +1579,14 @@ Write-Output "Set general privacy options"
 # "Let websites provide locally relevant content by accessing my language list"
 Set-ItemProperty "HKCU:\Control Panel\International\User Profile" "HttpAcceptLanguageOptOut" 1
 # Locaton aware printing (changes default based on connected network)
-Force-Mkdir "HKCU:\Printers\Defaults"
+Mkdir "HKCU:\Printers\Defaults" -Force
+New-Item -Path "HKCU:\Printers\" -Name "Defaults" -Force
 Set-ItemProperty "HKCU:\Printers\Defaults" "NetID" "{00000000-0000-0000-0000-000000000000}"
 # "Send Microsoft info about how I write to help us improve typing and writing in the future"
-Force-Mkdir "HKCU:\Software\Microsoft\Input\TIPC"
+Mkdir "HKCU:\Software\Microsoft\Input\TIPC" -Force
 Set-ItemProperty "HKCU:\Software\Microsoft\Input\TIPC" "Enabled" 0
 # "Let apps use my advertising ID for experiencess across apps"
-Force-Mkdir "HKCU:\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo"
+Mkdir -Force  "HKCU:\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo"
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo" "Enabled" 0
 # "Turn on SmartScreen Filter to check web content"
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\AppHost" "EnableWebContentEvaluation" 0
@@ -1677,35 +1609,35 @@ $groups = @(
     "Windows"
 )
 foreach ($group in $groups) {
-    Force-Mkdir "HKCU:\Software\Microsoft\Windows\CurrentVersion\SettingSync\Groups\$group"
+    Mkdir -Force  "HKCU:\Software\Microsoft\Windows\CurrentVersion\SettingSync\Groups\$group"
     Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\SettingSync\Groups\$group" "Enabled" 0
 }
 
 Write-Output "Set privacy policy accepted state to 0"
 # Prevents sending speech, inking and typing samples to MS (so Cortana
 # can learn to recognise you)
-Force-Mkdir "HKCU:\Software\Microsoft\Personalization\Settings"
+Mkdir -Force  "HKCU:\Software\Microsoft\Personalization\Settings"
 Set-ItemProperty "HKCU:\Software\Microsoft\Personalization\Settings" "AcceptedPrivacyPolicy" 0
 
 Write-Output "Do not scan contact informations"
 # Prevents sending contacts to MS (so Cortana can compare speech etc samples)
-Force-Mkdir "HKCU:\Software\Microsoft\InputPersonalization\TrainedDataStore"
+Mkdir -Force  "HKCU:\Software\Microsoft\InputPersonalization\TrainedDataStore"
 Set-ItemProperty "HKCU:\Software\Microsoft\InputPersonalization\TrainedDataStore" "HarvestContacts" 0
 
 Write-Output "Inking and typing settings"
 # Handwriting recognition personalization
-Force-Mkdir "HKCU:\Software\Microsoft\InputPersonalization"
+Mkdir -Force  "HKCU:\Software\Microsoft\InputPersonalization"
 Set-ItemProperty "HKCU:\Software\Microsoft\InputPersonalization" "RestrictImplicitInkCollection" 1
 Set-ItemProperty "HKCU:\Software\Microsoft\InputPersonalization" "RestrictImplicitTextCollection" 1
 
 Write-Output "Microsoft Edge settings"
-Force-Mkdir "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main"
+Mkdir -Force  "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main"
 Set-ItemProperty "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main" "DoNotTrack" 1
-Force-Mkdir "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\User\Default\SearchScopes"
+Mkdir -Force  "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\User\Default\SearchScopes"
 Set-ItemProperty "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\User\Default\SearchScopes" "ShowSearchSuggestionsGlobal" 0
-Force-Mkdir "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\FlipAhead"
+Mkdir -Force  "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\FlipAhead"
 Set-ItemProperty "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\FlipAhead" "FPEnabled" 0
-Force-Mkdir "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\PhishingFilter"
+Mkdir -Force  "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\PhishingFilter"
 Set-ItemProperty "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\PhishingFilter" "EnabledV9" 0
 
 Write-Output "Disable background access of default apps"
@@ -1728,7 +1660,7 @@ foreach ($key in (Get-ChildItem "HKCU:\Software\Microsoft\Windows\CurrentVersion
 }
 
 Write-Output "Disable location sensor"
-Force-Mkdir "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Sensor\Permissions\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}"
+Mkdir -Force  "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Sensor\Permissions\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}"
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Sensor\Permissions\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}" "SensorPermissionState" 0
 
 Write-Output "Disable submission of Windows Defender findings (w/ elevated privileges)"
@@ -1739,7 +1671,7 @@ Set-ItemProperty "HKLM:\Software\Microsoft\Windows Defender\Spynet" "SubmitSampl
 Write-Output "Do not share wifi networks"
 $user = New-Object System.Security.Principal.NTAccount($env:UserName)
 $sid = $user.Translate([System.Security.Principal.SecurityIdentifier]).value
-Force-Mkdir ("HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\features\" + $sid)
+Mkdir -Force  ("HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\features\" + $sid)
 Set-ItemProperty ("HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\features\" + $sid) "FeatureStates" 0x33c
 Set-ItemProperty "HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\features" "WiFiSenseCredShared" 0
 Set-ItemProperty "HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\features" "WiFiSenseOpen" 0
@@ -1749,7 +1681,7 @@ Set-ItemProperty "HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\features" "
 # to remove certain Apps comment out the corresponding lines below.
 
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Force-Mkdir.psm1
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Mkdir -Force .psm1
 
 Write-Output "Elevating privileges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
@@ -1895,23 +1827,23 @@ $cdm = @(
     "SystemPaneSuggestionsEnabled"
 )
 
-Force-Mkdir "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
+Mkdir -Force  "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
 foreach ($key in $cdm) {
     Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" $key 0
 }
 
-Force-Mkdir "HKLM:\Software\Policies\Microsoft\WindowsStore"
+Mkdir -Force  "HKLM:\Software\Policies\Microsoft\WindowsStore"
 Set-ItemProperty "HKLM:\Software\Policies\Microsoft\WindowsStore" "AutoDownload" 2
 
 # Prevents "Suggested Applications" returning
-Force-Mkdir "HKLM:\Software\Policies\Microsoft\Windows\CloudContent"
+Mkdir -Force  "HKLM:\Software\Policies\Microsoft\Windows\CloudContent"
 Set-ItemProperty "HKLM:\Software\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
 
 
 #   Description:
 # This script will remove and disable OneDrive integration.
 
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Force-Mkdir.psm1
+Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Mkdir -Force .psm1
 Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
 Write-Output "Kill OneDrive process"
@@ -1936,7 +1868,7 @@ If ((Get-ChildItem "$env:userprofile\OneDrive" -Recurse | Measure-Object).Count 
 }
 
 Write-Output "Disable OneDrive via Group Policies"
-Force-Mkdir "HKLM:\Software\Wow6432Node\Policies\Microsoft\Windows\OneDrive"
+Mkdir -Force  "HKLM:\Software\Wow6432Node\Policies\Microsoft\Windows\OneDrive"
 Set-ItemProperty "HKLM:\Software\Wow6432Node\Policies\Microsoft\Windows\OneDrive" "DisableFileSyncNGSC" 1
 
 Write-Output "Remove Onedrive from explorer sidebar"
