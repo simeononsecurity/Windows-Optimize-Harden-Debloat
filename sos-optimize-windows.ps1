@@ -32,8 +32,19 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\P
 ##Install Latest Windows Updates
 start-job -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot}
 
-#Import PolicyDefinitions
-Start-Job -ScriptBlock {takeown /f C:\WINDOWS\Policydefinitions /r /a; icacls C:\WINDOWS\PolicyDefinitions /grant "Administrators:(OI)(CI)F" /t; Copy-Item -Path $currentPath\Files\PolicyDefinitions\* -Destination C:\Windows\PolicyDefinitions -Force -Recurse -ErrorAction SilentlyContinue}
+#Enable Disk Compression and Disable File Indexing
+start-job -ScriptBlock {
+	$DriveLetters=(Get-WmiObject -Class Win32_Volume).DriveLetter
+	ForEach ($Drive in $DriveLetters){
+    		$indexing = $Drive.IndexingEnabled
+    		#Write-Host "Enabling Disk Compression on the $Drive Drive"
+    		#Enable-NtfsCompression -Path "$Drive"\ -Recurse
+		if("$indexing" -eq $True){
+    			Write-Host "Disabling File Index on the $Drive Drive"
+   			Get-WmiObject -Class Win32_Volume -Filter "DriveLetter='$Drive'" | Set-WmiInstance -Arguments @{IndexingEnabled=$False} | Out-Null
+		}
+	}
+}
 
 #Disable TCP Timestamps
 netsh int tcp set global timestamps=disabled
