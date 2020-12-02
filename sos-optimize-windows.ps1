@@ -1,6 +1,6 @@
 ######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
 #Continue on error
-#$ErrorActionPreference= 'silentlycontinue'
+$ErrorActionPreference= 'silentlycontinue'
 
 #Require elivation for script run
 #Requires -RunAsAdministrator
@@ -26,9 +26,9 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\P
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name EnableTransparency -Type DWORD -Value "00000001" -Force | Out-Null
 
 ##Install Latest Windows Updates
-Script-Job -Name "Windows Updates" -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot}
+Start-Job -Name "Windows Updates" -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot}
 
-Script-Job -Name "Mitigations" -ScriptBlock {
+Start-Job -Name "Mitigations" -ScriptBlock {
 #####SPECTURE MELTDOWN#####
 #https://support.microsoft.com/en-us/help/4073119/protect-against-speculative-execution-side-channel-vulnerabilities-in
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name FeatureSettingsOverride -Type DWORD -Value 72 -Force
@@ -48,7 +48,7 @@ BCDEDIT /set "{current}" nx OptOut
 Set-Processmitigation -System -Enable DEP
 }
 
-Script-Job -Name "PowerShell Hardening" -ScriptBlock {
+Start-Job -Name "PowerShell Hardening" -ScriptBlock {
 #Disable Powershell v2
 Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root -NoRestart
 
@@ -85,7 +85,7 @@ Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Tra
 #Windows Defender Configuration Files
 New-Item -Path "C:\" -Name "Temp" -ItemType "directory" -Force | Out-Null; New-Item -Path "C:\temp\" -Name "Windows Defender" -ItemType "directory" -Force | Out-Null; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination "C:\temp\Windows Defender\" -Force -Recurse -ErrorAction SilentlyContinue| Out-Null
 
-Script-Job -Name "Windows Defender Hardening" -ScriptBlock {
+Start-Job -Name "Windows Defender Hardening" -ScriptBlock {
 #Enable Windows Defender Exploit Protection
 Set-ProcessMitigation -PolicyFilePath "C:\temp\Windows Defender\DOD_EP_V3.xml"
 
@@ -197,12 +197,12 @@ Add-MpPreference -AttackSurfaceReductionRules_Ids e6db77e5-3df2-4cf1-b95a-636979
 }
 
 #Debloating Scripts
-#This Script-Job -Name "finds any AppX/AppXProvisioned package and uninstalls it, except for Freshpaint, Windows Calculator, Windows Store, and Windows Photos.
+#This Start-Job -Name "finds any AppX/AppXProvisioned package and uninstalls it, except for Freshpaint, Windows Calculator, Windows Store, and Windows Photos.
 #Also, to note - This does NOT remove essential system services/software/etc such as .NET framework installations, Cortana, Edge, etc.
 
 #Creates a PSDrive to be able to access the 'HKCR' tree
 New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
-Script-Job -Name "Start-Debloat" -ScriptBlock {
+Start-Job -Name "Start-Debloat" -ScriptBlock {
     
     param([switch]$Debloat)
 
@@ -222,7 +222,7 @@ Script-Job -Name "Start-Debloat" -ScriptBlock {
         }
 }
 
-Script-Job -Name "Remove-Keys" -ScriptBlock {
+Start-Job -Name "Remove-Keys" -ScriptBlock {
         
     Param([switch]$Debloat)    
     
@@ -268,7 +268,7 @@ Script-Job -Name "Remove-Keys" -ScriptBlock {
     }
 }
         
-Script-Job -Name "Protect-Privacy" -ScriptBlock {
+Start-Job -Name "Protect-Privacy" -ScriptBlock {
     
     Param([switch]$Debloat)    
 
@@ -371,7 +371,7 @@ Script-Job -Name "Protect-Privacy" -ScriptBlock {
 }
 
 #This includes fixes by xsisbest
-Script-Job -Name "FixWhitelistedApps" -ScriptBlock {
+Start-Job -Name "FixWhitelistedApps" -ScriptBlock {
     
     Param([switch]$Debloat)
     
@@ -387,7 +387,7 @@ Script-Job -Name "FixWhitelistedApps" -ScriptBlock {
     Get-AppxPackage -allusers Microsoft.Windows.Photos | ForEach-Object {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"} }
 }
 
-Script-Job -Name "CheckDMWService" -ScriptBlock {
+Start-Job -Name "CheckDMWService" -ScriptBlock {
 
   Param([switch]$Debloat)
   
@@ -398,7 +398,7 @@ If(Get-Service -Name dmwappushservice | Where-Object {$_.Status -eq "Stopped"}) 
    Start-Service -Name dmwappushservice} 
   }
 
-Script-Job -Name "CheckInstallService" -ScriptBlock {
+Start-Job -Name "CheckInstallService" -ScriptBlock {
   Param([switch]$Debloat)
           If (Get-Service -Name InstallService | Where-Object {$_.Status -eq "Stopped"}) {  
             Start-Service -Name InstallService
@@ -406,7 +406,7 @@ Script-Job -Name "CheckInstallService" -ScriptBlock {
             }
         }
 
-Script-Job -Name "SMB Optimizations" -ScriptBlock {
+Start-Job -Name "SMB Optimizations" -ScriptBlock {
 #https://docs.microsoft.com/en-us/windows/privacy/
 #https://docs.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services
 #https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
@@ -433,7 +433,7 @@ Set-SmbClientConfiguration -EnableSecuritySignature $True -Force
 Set-SmbClientConfiguration -EnableBandwidthThrottling 0 -Force
 }
 
-Script-Job -Name "Remove Windows Bloatware" -ScriptBlock {
+Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
 #Removing Windows Bloatware
 Write-Host "Removing Bloatware"
 #Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
@@ -545,7 +545,7 @@ Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
 Get-AppxPackage Microsoft3DViewer | Remove-AppxPackage
 }
 
-Script-Job -Name "Disable Telemetry and Services" -ScriptBlock {
+Start-Job -Name "Disable Telemetry and Services" -ScriptBlock {
 #Disabling Telemetry and Services
 Write-Host "Disabling Telemetry and Services"
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name BingSearchEnabled -Type DWORD -Value 0 -Force
@@ -654,7 +654,7 @@ Set-Service  "VSStandardCollectorService150" -StartupType Disabled
 Cmd.exe /c Cleanmgr /sagerun:65535
 }
 
-Script-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
+Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
 
 #onedrive
 Write-Output "remove onedrive automatic start"
@@ -1486,7 +1486,7 @@ foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
 }
 }
 
-Script-Job -Name "STIG Addendum" -ScriptBlock {
+Start-Job -Name "STIG Addendum" -ScriptBlock {
 #Basic authentication for RSS feeds over HTTP must not be used.
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Feeds" -Name AllowBasicAuthInClear -Type DWORD -Value 0 -Force
 #InPrivate browsing in Microsoft Edge must be disabled.
@@ -1509,7 +1509,7 @@ Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Main
 Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "FormSuggest PW Ask" -Type STRING -Value no -Force
 }
 
-Script-Job -Name "Adobe Reader DC STIG" -ScriptBlock {
+Start-Job -Name "Adobe Reader DC STIG" -ScriptBlock {
 #Adobe Reader DC STIG
 New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cCloud -Force
 New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cDefaultLaunchURLPerms -Force
@@ -1542,7 +1542,7 @@ Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureL
 Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Adobe\Acrobat Reader\DC\Installer" -Name DisableMaintenance -Type DWORD -Value 1 -Force
 }
 
-Script-Job -Name "Microsoft .Net Framework 4 STIG Script" -ScriptBlock {
+Start-Job -Name "Microsoft .Net Framework 4 STIG Script" -ScriptBlock {
 #SimeonOnSecurity - Microsoft .Net Framework 4 STIG Script
 #https://github.com/simeononsecurity
 #https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MS_DotNet_Framework_4-0_V1R9_STIG.zip
@@ -1847,7 +1847,7 @@ New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
 
 #Enable Disk Compression and Disable File Indexing
 Write-Host "Enable Disk Compression and Disable File Indexing"
-Script-Job -Name "Enable Disk Compression and Disable File Indexing" -ScriptBlock {
+Start-Job -Name "Enable Disk Compression and Disable File Indexing" -ScriptBlock {
 	$DriveLetters=(Get-WmiObject -Class Win32_Volume).DriveLetter
 	ForEach ($Drive in $DriveLetters){
     		$indexing = $Drive.IndexingEnabled
