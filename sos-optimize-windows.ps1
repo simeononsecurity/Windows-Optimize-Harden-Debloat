@@ -1852,17 +1852,17 @@ Remove-NetFirewallRule -DisplayName "Block Telemetry IPs" -ErrorAction SilentlyC
 New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
     -Action Block -RemoteAddress ([string[]]$ips) | Out-Null
 
-Write-Host "Importing GPO Configurations"
+Write-Host "Importing Policies"
 #GPO Configurations
 $gposdir = "$(Get-Location)\Files\GPOs"
 Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
     
-    Write-Output "Importing $gpocategory GPOs"
+    Write-Output "Importing $gpocategory Policies"
 
     Foreach ($gpo in (Get-ChildItem "$(Get-Location)\Files\GPOs\$gpocategory")) {
         $gpopath = "$gposdir\$gpocategory\$gpo"
         Write-Output "Importing $gpo"
-        .\Files\LGPO\LGPO.exe /g $gpopath
+        .\Files\LGPO\LGPO.exe /g $gpopath | Out-Null
     }
 }
 
