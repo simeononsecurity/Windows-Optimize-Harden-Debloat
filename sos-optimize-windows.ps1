@@ -1868,7 +1868,7 @@ Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
     Foreach ($gpo in (Get-ChildItem "$(Get-Location)\Files\GPOs\$gpocategory")) {
         $gpopath = "$gposdir\$gpocategory\$gpo"
         Write-Output "Importing $gpo"
-        .\Files\LGPO\LGPO.exe /g $gpopath > $null
+        .\Files\LGPO\LGPO.exe /g $gpopath > $null 2>&1
     }
 }
 
