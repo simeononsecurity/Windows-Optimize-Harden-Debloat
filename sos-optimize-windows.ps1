@@ -1876,7 +1876,7 @@ Add-Type -AssemblyName PresentationFramework
 $Answer = [System.Windows.MessageBox]::Show("Reboot to make changes effective?", "Restart Computer", "YesNo", "Question")
 Switch ($Answer)
 {
-    "Yes"   { Gpupdate /force /boot; Write-Warning "Restarting Computer in 15 Seconds"; Start-sleep -seconds 15; Restart-Computer -Force }
-    "No"    { Gpupdate /force ; Write-Warning "A reboot is required for all changed to take effect" }
+    "Yes"   { Write-Host "Performing Gpupdate"; Gpupdate /force /boot; Write-Warning "Restarting Computer in 15 Seconds"; Start-sleep -seconds 15; Restart-Computer -Force }
+    "No"    { Write-Host "Performing Gpupdate"; Gpupdate /force ; Write-Warning "A reboot is required for all changed to take effect" }
     Default { Write-Warning "A reboot is required for all changed to take effect" }
 }
