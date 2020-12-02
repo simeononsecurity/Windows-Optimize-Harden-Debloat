@@ -1,54 +1,54 @@
 ######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
 #Continue on error
-$ErrorActionPreference= 'silentlycontinue'
+#$ErrorActionPreference= 'silentlycontinue'
 
 #Require elivation for script run
 #Requires -RunAsAdministrator
 
-#Unblock all files required for script
-Get-ChildItem *.ps*1 -recurse | Unblock-File
-
-#change path to script location
-#https://stackoverflow.com/questions/4724290/powershell-run-command-from-scripts-directory
-$currentPath=Split-Path ((Get-Variable MyInvocation -Scope 0).Value).MyCommand.Path
-
 #Install PowerShell Modules
-Copy-Item -Path $currentPath\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
+Copy-Item -Path .\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
 #Unblock New PowerShell Modules
 Get-ChildItem C:\Windows\System32\WindowsPowerShell\v1.0\Modules\PSWindowsUpdate\ -recurse | Unblock-File
 #Install PSWindowsUpdate
 Import-Module -Name PSWindowsUpdate -Force -Global
+
+#Unblock all files required for script
+Get-ChildItem *.ps*1 -recurse | Unblock-File
 
 #Optional Scripts 
 #.\Files\Optional\sos-ssl-hardening.ps1
 #powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 
 #Enable Darkmode 
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name AppsUseLightTheme -Type DWORD -Value "00000000" -Force
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name SystemUsesLightTheme -Type DWORD -Value "00000000" -Force
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name ColorPrevalence -Type DWORD -Value "00000000" -Force
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name EnableTransparency -Type DWORD -Value "00000001" -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name AppsUseLightTheme -Type DWORD -Value "00000000" -Force | Out-Null
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name SystemUsesLightTheme -Type DWORD -Value "00000000" -Force | Out-Null
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name ColorPrevalence -Type DWORD -Value "00000000" -Force | Out-Null
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name EnableTransparency -Type DWORD -Value "00000001" -Force | Out-Null
 
 ##Install Latest Windows Updates
-start-job -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot}
+Script-Job -Name "Windows Updates" -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot}
 
-#Enable Disk Compression and Disable File Indexing
-start-job -ScriptBlock {
-	$DriveLetters=(Get-WmiObject -Class Win32_Volume).DriveLetter
-	ForEach ($Drive in $DriveLetters){
-    		$indexing = $Drive.IndexingEnabled
-    		#Write-Host "Enabling Disk Compression on the $Drive Drive"
-    		#Enable-NtfsCompression -Path "$Drive"\ -Recurse
-		if("$indexing" -eq $True){
-    			Write-Host "Disabling File Index on the $Drive Drive"
-   			Get-WmiObject -Class Win32_Volume -Filter "DriveLetter='$Drive'" | Set-WmiInstance -Arguments @{IndexingEnabled=$False} | Out-Null
-		}
-	}
-}
+Script-Job -Name "Mitigations" -ScriptBlock {
+#####SPECTURE MELTDOWN#####
+#https://support.microsoft.com/en-us/help/4073119/protect-against-speculative-execution-side-channel-vulnerabilities-in
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name FeatureSettingsOverride -Type DWORD -Value 72 -Force
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name FeatureSettingsOverrideMask -Type DWORD -Value 3 -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Virtualization" -Name MinVmVersionForCpuBasedMitigations -Type String -Value "1.0" -Force
+
+#Disable LLMNR
+#https://www.blackhillsinfosec.com/how-to-disable-llmnr-why-you-want-to/
+New-Item -Path "HKLM:\Software\policies\Microsoft\Windows NT\" -Name "DNSClient" -Force
+Set-ItemProperty -Path "HKLM:\Software\policies\Microsoft\Windows NT\DNSClient" -Name "EnableMulticast" -Type "DWORD" -Value 0 -Force
 
 #Disable TCP Timestamps
 netsh int tcp set global timestamps=disabled
 
+#Enable DEP
+BCDEDIT /set "{current}" nx OptOut
+Set-Processmitigation -System -Enable DEP
+}
+
+Script-Job -Name "PowerShell Hardening" -ScriptBlock {
 #Disable Powershell v2
 Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2Root -NoRestart
 
@@ -65,15 +65,6 @@ Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Scr
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription\" -Name "EnableTranscripting" -Type "DWORD" -Value "1" -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription\" -Name "EnableInvocationHeader" -Type "DWORD" -Value "1" -Force
 
-#Disable LLMNR
-#https://www.blackhillsinfosec.com/how-to-disable-llmnr-why-you-want-to/
-New-Item -Path "HKLM:\Software\policies\Microsoft\Windows NT\" -Name "DNSClient" -Force
-Set-ItemProperty -Path "HKLM:\Software\policies\Microsoft\Windows NT\DNSClient" -Name "EnableMulticast" -Type "DWORD" -Value 0 -Force
-
-#Enable DEP
-BCDEDIT /set "{current}" nx OptOut
-Set-Processmitigation -System -Enable DEP
-
 #WinRM Hardening
 #https://4sysops.com/archives/powershell-remoting-over-https-with-a-self-signed-ssl-certificate/
 #$Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName (cmd /c hostname) 
@@ -89,10 +80,12 @@ Set-Processmitigation -System -Enable DEP
 #New-NetFirewallRule -DisplayName "Windows Remote Management (HTTPS-In)" -Name "Windows Remote Management (HTTPS-In)" -Profile Private, Domain -LocalPort 5986 -Protocol TCP
 #Enable PSRemoting
 #Enable-PSRemoting -SkipNetworkProfileCheck -Force
+}
 
 #Windows Defender Configuration Files
-New-Item -Path "C:\" -Name "Temp" -ItemType "directory" -Force; New-Item -Path "C:\temp\" -Name "Windows Defender" -ItemType "directory" -Force; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination "C:\temp\Windows Defender\" -Force -Recurse -ErrorAction SilentlyContinue
+New-Item -Path "C:\" -Name "Temp" -ItemType "directory" -Force | Out-Null; New-Item -Path "C:\temp\" -Name "Windows Defender" -ItemType "directory" -Force | Out-Null; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination "C:\temp\Windows Defender\" -Force -Recurse -ErrorAction SilentlyContinue| Out-Null
 
+Script-Job -Name "Windows Defender Hardening" -ScriptBlock {
 #Enable Windows Defender Exploit Protection
 Set-ProcessMitigation -PolicyFilePath "C:\temp\Windows Defender\DOD_EP_V3.xml"
 
@@ -201,209 +194,15 @@ Add-MpPreference -AttackSurfaceReductionRules_Ids 26190899-1602-49e8-8b27-eb1d0a
 Add-MpPreference -AttackSurfaceReductionRules_Ids 7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c -AttackSurfaceReductionRules_Actions Enabled
 #Block persistence through WMI event subscription
 Add-MpPreference -AttackSurfaceReductionRules_Ids e6db77e5-3df2-4cf1-b95a-636979351e5b -AttackSurfaceReductionRules_Actions Enabled
-
-#Basic authentication for RSS feeds over HTTP must not be used.
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Feeds" -Name AllowBasicAuthInClear -Type DWORD -Value 0 -Force
-#InPrivate browsing in Microsoft Edge must be disabled.
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\Main" -Name AllowInPrivate -Type DWORD -Value 0 -Force
-#Windows 10 must be configured to prevent Microsoft Edge browser data from being cleared on exit.
-New-Item -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\" -Name "Privacy" -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\Privacy" -Name ClearBrowsingHistoryOnExit -Type DWORD -Value 0 -Force
-#Check for publishers certificate revocation must be enforced.
-New-Item -Path "HKLM:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\" -Name "Software Publishing" -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\Software Publishing" -Name State -Type DWORD -Value 146432 -Force
-New-Item -Path "HKCU:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\" -Name "Software Publishing" -Force
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\Software Publishing" -Name State -Type DWORD -Value 146432 -Force
-#AutoComplete feature for forms must be disallowed.
-New-Item -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\" -Name "Main Criteria" -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "Use FormSuggest" -Type STRING -Value no -Force
-New-Item -Path "HKCU:\Software\Policies\Microsoft\Internet Explorer\" -Name "Main Criteria" -Force
-Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "Use FormSuggest" -Type STRING -Value no -Force
-#Turn on the auto-complete feature for user names and passwords on forms must be disabled.
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "FormSuggest PW Ask" -Type STRING -Value no -Force
-Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "FormSuggest PW Ask" -Type STRING -Value no -Force
-
-#Adobe Reader DC STIG
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cCloud -Force
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cDefaultLaunchURLPerms -Force
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cServices -Force
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cSharePoint -Force
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cWebmailProfiles -Force
-New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cWelcomeScreen -Force
-Set-ItemProperty -Path "HKLM:\Software\Adobe\Acrobat Reader\DC\Installer" -Name DisableMaintenance -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bAcroSuppressUpsell -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bDisablePDFHandlerSwitching -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bDisableTrustedFolders -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bDisableTrustedSites -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bEnableFlash -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bEnhancedSecurityInBrowser -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bEnhancedSecurityStandalone -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bProtectedMode -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name iFileAttachmentPerms -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name iProtectedView -Type DWORD -Value 2 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cCloud" -Name bAdobeSendPluginToggle -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cDefaultLaunchURLPerms" -Name iURLPerms -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cDefaultLaunchURLPerms" -Name iUnknownURLPerms -Type DWORD -Value 3 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices" -Name bToggleAdobeDocumentServices -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices" -Name bToggleAdobeSign -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices" -Name bTogglePrefsSync -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices" -Name bToggleWebConnectors -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices" -Name bUpdater -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cSharePoint" -Name bDisableSharePointFeatures -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cWebmailProfiles" -Name bDisableWebmail -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cWelcomeScreen" -Name bShowWelcomeScreen -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Adobe\Acrobat Reader\DC\Installer" -Name DisableMaintenance -Type DWORD -Value 1 -Force
-
-#####SPECTURE MELTDOWN#####
-#https://support.microsoft.com/en-us/help/4073119/protect-against-speculative-execution-side-channel-vulnerabilities-in
-Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name FeatureSettingsOverride -Type DWORD -Value 72 -Force
-Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name FeatureSettingsOverrideMask -Type DWORD -Value 3 -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Virtualization" -Name MinVmVersionForCpuBasedMitigations -Type String -Value "1.0" -Force
-
-#SimeonOnSecurity - Microsoft .Net Framework 4 STIG Script
-#https://github.com/simeononsecurity
-#https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MS_DotNet_Framework_4-0_V1R9_STIG.zip
-#https://docs.microsoft.com/en-us/dotnet/framework/tools/caspol-exe-code-access-security-policy-tool
-
-$netframework32="C:\Windows\Microsoft.NET\Framework"
-$netframework64="C:\Windows\Microsoft.NET\Framework64"
-$netframeworks=($netframework32,$netframework64)
-
-#Vul ID: V-7055	   	Rule ID: SV-7438r3_rule	   	STIG ID: APPNET0031
-If (Test-Path -Path "HKLM:\Software\Microsoft\StrongName\Verification"){
-    Remove-Item "HKLM:\Software\Microsoft\StrongName\Verification" -Recurse -Force
-    Write-Host ".Net StrongName Verification Registry Removed"
 }
-# .Net 32-Bit
-ForEach ($dotnet32version in (Get-ChildItem $netframework32 | ?{ $_.PSIsContainer }).Name){
-    $netframework32="C:\Windows\Microsoft.NET\Framework"
-    Write-Host ".Net 32-Bit $dotnet32version Is Installed"
-    cmd /c $netframework32\$dotnet32version\caspol.exe -q -f -pp on 
-    cmd /c $netframework32\$dotnet32version\caspol.exe -m -lg
-    #Vul ID: V-30935	   	Rule ID: SV-40977r3_rule	   	STIG ID: APPNET0063
-    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass"){
-        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -Value "0" -Force
-    }Else {
-        New-Item -Path "HKLM:\SOFTWARE\Microsoft\" -Name ".NETFramework" -Force
-        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0" -Force
-    }
-    #Vul ID: V-81495	   	Rule ID: SV-96209r2_rule	   	STIG ID: APPNET0075	
-    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\$dotnet32version\SchUseStrongCrypto"){
-        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\$dotnet32version\" -Name "SchUseStrongCrypto" -Value "1" -Force
-    }Else {
-        New-Item -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework" -Name "$dotnet32version" -Force
-        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\$dotnet32version\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1" -Force
-    }
-}
-# .Net 64-Bit
-ForEach ($dotnet64version in (Get-ChildItem $netframework64 | ?{ $_.PSIsContainer }).Name){
-    $netframework64="C:\Windows\Microsoft.NET\Framework64"
-    Write-Host ".Net 64-Bit $dotnet64version Is Installed"
-    cmd /c $netframework64\$dotnet64version\caspol.exe -q -f -pp on 
-    cmd /c $netframework64\$dotnet64version\caspol.exe -m -lg
-    #Vul ID: V-30935	   	Rule ID: SV-40977r3_rule	   	STIG ID: APPNET0063
-    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass") {
-        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -Value "0" -Force
-    }Else {
-        New-Item -Path "HKLM:\SOFTWARE\Microsoft\" -Name ".NETFramework" -Force
-        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0" -Force
-    }
-    #Vul ID: V-81495	   	Rule ID: SV-96209r2_rule	   	STIG ID: APPNET0075	
-    If (Test-Path -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\$dotnet64version\") {
-        Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\$dotnet64version\" -Name "SchUseStrongCrypto" -Value "1" -Force
-    }Else {
-        New-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\" -Name "$dotnet64version" -Force
-        New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\$dotnet64version\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1" -Force
-    }
-}
-
-#Vul ID: V-30937	   	Rule ID: SV-40979r3_rule	   	STIG ID: APPNET0064	  
-#FINDSTR /i /s "NetFx40_LegacySecurityPolicy" c:\*.exe.config 
-
-##Firefox Config Import
-#https://www.itsupportguides.com/knowledge-base/tech-tips-tricks/how-to-customise-firefox-installs-using-mozilla-cfg/
-$firefox64 = "C:\Program Files\Mozilla Firefox"
-$firefox32 = "C:\Program Files (x86)\Mozilla Firefox"
-Write-Output "Installing Firefox Configurations - Please Wait."
-Write-Output "Window will close after install is complete"
-If (Test-Path -Path $firefox64){
-    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\defaults" -Destination $firefox64 -Force -Recurse
-    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\mozilla.cfg" -Destination $firefox64 -Force
-    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\local-settings.js" -Destination $firefox64 -Force 
-    Write-Host "Firefox 64-Bit Configurations Installed"
-}Else {
-    Write-Host "FireFox 64-Bit Is Not Installed"
-}
-If (Test-Path -Path $firefox32){
-    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\defaults" -Destination $firefox32 -Force -Recurse
-    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\mozilla.cfg" -Destination $firefox32 -Force
-    Copy-Item -Path "$currentPath\Files\FireFox Configuration Files\local-settings.js" -Destination $firefox32 -Force 
-    Write-Host "Firefox 32-Bit Configurations Installed"
-}Else {
-    Write-Host "FireFox 32-Bit Is Not Installed"
-}
-
-#Java Config Import
-#https://gist.github.com/MyITGuy/9628895
-#http://stu.cbu.edu/java/docs/technotes/guides/deploy/properties.html
-
-#<Windows Directory>\Sun\Java\Deployment\deployment.config
-#- or -
-#<JRE Installation Directory>\lib\deployment.config
-
-If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\deployment.config"){
-    Write-Host "Deployment Config Already Installed"
-}Else {
-    Write-Output "Installing Java Deployment Config...."
-    Mkdir "C:\Windows\Sun\Java\Deployment\"
-    Copy-Item -Path "$currentPath\Files\JAVA Configuration Files\deployment.config" -Destination "C:\Windows\Sun\Java\Deployment\" -Force
-    Write-Output "JAVA Configs Installed"
-}
-If (Test-Path -Path "C:\temp\JAVA\"){
-    Write-Host "Configs Already Deployed"
-}Else {
-    Write-Output "Installing Java Configurations...."
-    Mkdir "C:\temp\JAVA"
-    Copy-Item -Path "$currentPath\Files\JAVA Configuration Files\deployment.properties" -Destination "C:\temp\JAVA\" -Force
-    Copy-Item -Path "$currentPath\Files\JAVA Configuration Files\exception.sites" -Destination "C:\temp\JAVA\" -Force
-    Write-Output "JAVA Configs Installed"
-}
-
 
 #Debloating Scripts
-#This function finds any AppX/AppXProvisioned package and uninstalls it, except for Freshpaint, Windows Calculator, Windows Store, and Windows Photos.
+#This Script-Job -Name "finds any AppX/AppXProvisioned package and uninstalls it, except for Freshpaint, Windows Calculator, Windows Store, and Windows Photos.
 #Also, to note - This does NOT remove essential system services/software/etc such as .NET framework installations, Cortana, Edge, etc.
 
-#This is the switch parameter for running this script as a 'silent' script, for use in MDT images or any type of mass deployment without user interaction.
-
-param (
-  [switch]$Debloat, [switch]$SysPrep
-)
-
-Function Begin-SysPrep {
-
-    param([switch]$SysPrep)
-        Write-Verbose -Message ('Starting Sysprep Fixes')
- 
-        # Disable Windows Store Automatic Updates
-       <# Write-Verbose -Message "Adding Registry key to Disable Windows Store Automatic Updates"
-        $registryPath = "HKLM:\Software\Policies\Microsoft\WindowsStore"
-        If (!(Test-Path $registryPath)) {
-            Mkdir $registryPath -ErrorAction SilentlyContinue
-            New-ItemProperty $registryPath -Name AutoDownload -Value 2 
-        }
-        Else {
-            Set-ItemProperty $registryPath -Name AutoDownload -Value 2 
-        }
-        #Stop WindowsStore Installer Service and set to Disabled
-        Write-Verbose -Message ('Stopping InstallService')
-        Stop-Service InstallService 
-        #>
- } 
-
 #Creates a PSDrive to be able to access the 'HKCR' tree
-New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT
-Function Start-Debloat {
+New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
+Script-Job -Name "Start-Debloat" -ScriptBlock {
     
     param([switch]$Debloat)
 
@@ -423,7 +222,7 @@ Function Start-Debloat {
         }
 }
 
-Function Remove-Keys {
+Script-Job -Name "Remove-Keys" -ScriptBlock {
         
     Param([switch]$Debloat)    
     
@@ -469,7 +268,7 @@ Function Remove-Keys {
     }
 }
         
-Function Protect-Privacy {
+Script-Job -Name "Protect-Privacy" -ScriptBlock {
     
     Param([switch]$Debloat)    
 
@@ -572,7 +371,7 @@ Function Protect-Privacy {
 }
 
 #This includes fixes by xsisbest
-Function FixWhitelistedApps {
+Script-Job -Name "FixWhitelistedApps" -ScriptBlock {
     
     Param([switch]$Debloat)
     
@@ -588,7 +387,7 @@ Function FixWhitelistedApps {
     Get-AppxPackage -allusers Microsoft.Windows.Photos | ForEach-Object {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"} }
 }
 
-Function CheckDMWService {
+Script-Job -Name "CheckDMWService" -ScriptBlock {
 
   Param([switch]$Debloat)
   
@@ -599,7 +398,7 @@ If(Get-Service -Name dmwappushservice | Where-Object {$_.Status -eq "Stopped"}) 
    Start-Service -Name dmwappushservice} 
   }
 
-Function CheckInstallService {
+Script-Job -Name "CheckInstallService" -ScriptBlock {
   Param([switch]$Debloat)
           If (Get-Service -Name InstallService | Where-Object {$_.Status -eq "Stopped"}) {  
             Start-Service -Name InstallService
@@ -607,22 +406,7 @@ Function CheckInstallService {
             }
         }
 
-Write-Output "Initiating Sysprep"
-Begin-SysPrep
-Write-Output "Removing bloatware apps."
-Start-Debloat
-Write-Output "Removing leftover bloatware registry keys."
-Remove-Keys
-Write-Output "Checking to see if any Whitelisted Apps were removed, and if so re-adding them."
-FixWhitelistedApps
-Write-Output "Stopping telemetry, disabling unneccessary scheduled tasks, and preventing bloatware from returning."
-Protect-Privacy
-#Write-Output "Stopping Edge from taking over as the default PDF Viewer."
-#Stop-EdgePDF
-CheckDMWService
-CheckInstallService
-Write-Output "Finished all tasks."
-
+Script-Job -Name "SMB Optimizations" -ScriptBlock {
 #https://docs.microsoft.com/en-us/windows/privacy/
 #https://docs.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services
 #https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
@@ -647,6 +431,230 @@ Set-SmbClientConfiguration -EnableMultiChannel $true -Force
 Set-SmbClientConfiguration -RequireSecuritySignature $True -Force
 Set-SmbClientConfiguration -EnableSecuritySignature $True -Force
 Set-SmbClientConfiguration -EnableBandwidthThrottling 0 -Force
+}
+
+Script-Job -Name "Remove Windows Bloatware" -ScriptBlock {
+#Removing Windows Bloatware
+Write-Host "Removing Bloatware"
+#Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
+#Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
+#Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
+#Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
+#Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
+#Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
+Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *ConnectivityStore* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *ConnectivityStore* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *DolbyLaboratories.DolbyAccess* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *DolbyLaboratories.DolbyAccess* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *FarmHeroesSaga* | Remove-AppxPackage
+Get-AppxPackage -allusers *FarmHeroesSaga* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.3dbuilder* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.3dbuilder* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Appconnector* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Appconnector* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Asphalt8Airborne* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Asphalt8Airborne* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.BingNews* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.BingNews* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.BingWeather* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.BingWeather* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.DrawboardPDF* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.DrawboardPDF* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.GetHelp* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.GetHelp* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Getstarted* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Getstarted* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.MSPaint* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.MSPaint* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Messaging* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Messaging* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.MixedReality.Portal* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.MixedReality.Portal* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.OneConnect* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.OneConnect* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Print3D* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Print3D* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.SkypeApp* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.SkypeApp* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Whiteboard* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.Whiteboard* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.WindowsAlarms* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.WindowsAlarms* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.WindowsMaps* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.WindowsMaps* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.YourPhone* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.YourPhone* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.ZuneMusic* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.ZuneMusic* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.ZuneVideo* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft.ZuneVideo* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft3DViewer* |  Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft3DViewer* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Microsoft3DViewer* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *MinecraftUWP* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *MinecraftUWP* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Netflix* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Netflix* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Office.Sway* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Office.Sway* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *OneNote* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *OneNote* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *PandoraMediaInc* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *PandoraMediaInc* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Todos* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Todos* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Twitter* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *Twitter* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *WindowsScan* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *WindowsScan* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *bingsports* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *bingsports* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *candycrush* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *candycrush* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *empires* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *empires* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *microsoft.windowscommunicationsapps* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *microsoft.windowscommunicationsapps* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *spotify* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *spotify* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
+Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
+Get-AppxPackage Microsoft3DViewer | Remove-AppxPackage
+}
+
+Script-Job -Name "Disable Telemetry and Services" -ScriptBlock {
+#Disabling Telemetry and Services
+Write-Host "Disabling Telemetry and Services"
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name BingSearchEnabled -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name CortanaConsent -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Search" -Name BingSearchEnabled -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Search" -Name CortanaConsent -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Search" -Name AllowCortana -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\" -Name "Search" -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Search" -Name BingSearchEnabled -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules" -Name "{2765E0F4-2918-4A46-B9C9-43CDD8FCBA2B}" -Type String -Value  "BlockCortana|Action=Block|Active=TRUE|Dir=Out|App=C:\windows\systemapps\microsoft.windows.cortana_cw5n1h2txyewy\searchui.exe|Name=Search and Cortana application|AppPkgId=S-1-15-2-1861897761-1695161497-2927542615-642690995-327840285-2659745135-2630312742|" -Force
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\" -Name "AU" -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name NoAutoUpdate -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name AUOptions -Type DWORD -Value 2 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name ScheduledInstallDay -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name ScheduledInstallTime -Type DWORD -Value 3 -Force
+New-Item -Path "HKLM:\Software\Microsoft\PolicyManager\current\device\" -Name "Update" -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\current\device\Update" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\default\Update" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
+New-Item -Path "HKLM:\Software\Microsoft\PolicyManager\default\Update\" -Name "ExcludeWUDriversInQualityUpdates" -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\default\Update\ExcludeWUDriversInQualityUpdates" -Name Value -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\WindowsUpdate\UX\Settings" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeCleanupEnabled" -Type String -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeCleanupReportingEnabled" -Type String -Value 0 -Force
+New-Item -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" -Name "software_reporter_tool.exe" -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\software_reporter_tool.exe" -Name Debugger -Type String -Value "%windir%\System32\taskkill.exe" -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "MetricsReportingEnabled" -Type String -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\WMDRM" -Name DisableOnline -Type DWORD -Value 1 -Force
+New-Item -Path "HKLM:\Software\NVIDIA Corporation\Global\" -Name "FTS" -Force
+Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\Global\FTS" -Name EnableRID44231 -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\Global\FTS" -Name EnableRID64640 -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\Global\FTS" -Name EnableRID66610 -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\NVIDIA Corporation\NvControlPanel2\" -Name "OptInOrOutPreference" -Force
+Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\NvControlPanel2\Client" -Name OptInOrOutPreference -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\SYSTEM\CurrentControlSet\services\" -Name "NvTelemetryContainer" -Force
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\services\NvTelemetryContainer" -Name Start -Type DWORD -Value 4 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name BlockThirdPartyCookies -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name AutofillCreditCardEnabled -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name SyncDisabled -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\Main" -Name AllowPrelaunch -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\" -Name "TabPreloader" -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\TabPreloader" -Name AllowTabPreloading -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" -Name "MicrosoftEdge.exe" -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\MicrosoftEdge.exe" -Name Debugger -Type String -Value "%windir%\System32\taskkill.exe" -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name BackgroundModeEnabled -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft" -Name DoNotUpdateToEdgeWithChromium -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\GameDVR" -Name AllowgameDVR -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\System\GameConfigStore" -Name GameDVR_Enabled -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\System\" -Name "GameConfigStore" -Force
+Set-ItemProperty -Path "HKLM:\System\GameConfigStore" -Name GameDVR_Enabled -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\CurrentControlSet\" -Name "Control" -Force
+Set-ItemProperty -Path "HKLM:\Software\CurrentControlSet\Control" -Name SvcHostSplitThresholdInKB -Type DWORD -Value 04000000 -Force
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\" -Name "GameDVR" -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name AppCaptureEnabled -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name  HistoricalCaptureEnabled -Type DWORD -Value 0 -Force
+New-Item -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\" -Name "GameDVR" -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name AppCaptureEnabled -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLm:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name  HistoricalCaptureEnabled -Type DWORD -Value 0 -Force
+Stop-Service "LogiRegistryService"
+Set-Service  "LogiRegistryService" -StartupType Disabled
+Stop-Service "Razer Game Scanner Service"
+Set-Service  "Razer Game Scanner Service" -StartupType Disabled
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\CredUI" -Name DisablePasswordReveal -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKCU:\Software\Adobe\Adobe ARM\1.0\ARM" -Name "iCheck" -Type String -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name "cSharePoint" -Type String -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bToggleAdobeDocumentServices" -Type String -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bToggleAdobeSign" -Type String -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bTogglePrefSync" -Type String -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bToggleWebConnectors" -Type String -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bAdobeSendPluginToggle" -Type String -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bUpdater" -Type String -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "HomeScreen" -Type String -Value 2 -Force
+Set-Service "DropboxUpdateTaskMachineCore" -StartupType Disabled
+Set-Service "DropboxUpdateTaskMachineUA" -StartupType Disabled
+Set-Service "GoogleUpdateTaskMachineCore" -StartupType Disabled
+Set-Service "GoogleUpdateTaskMachineUA" -StartupType Disabled
+Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Office\15.0\osm" -Name "Enablelogging" -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Office\15.0\osm" -Name "EnableUpload" -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Office\16.0\osm" -Name "Enablelogging" -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Office\16.0\osm" -Name "EnableUpload" -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\services\wlidsvc" -Name Start -Type DWORD -Value 4 -Force
+Set-Service  wlidsvc -StartupType Disabled
+Set-ItemProperty -Path "HKLM:\Software\Policies\Mozilla\Firefox" -Name "DisableTelemetry" -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Mozilla\Firefox" -Name "DisableDefaultBrowserAgent" -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\VSCommon\14.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\VSCommon\15.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\VSCommon\16.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\VSCommon\14.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\VSCommon\15.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\VSCommon\16.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender\Reporting" -Name "DisableGenericRePorts" -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender\Spynet" -Name "LocalSettingOverrideSpynetReporting" -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender\Spynet" -Name "SpynetReporting" -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender\Spynet" -Name "SubmitSamplesConsent" -Type DWORD -Value 2 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MRT" -Name "DontReportInfectionInformation" -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\VisualStudio\Telemetry" -Name TurnOffSwitch -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\VisualStudio\Feedback" -Name DisableFeedbackDialog -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\VisualStudio\Feedback" -Name DisableEmailInput -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\VisualStudio\Feedback" -Name DisableScreenshotCapture -Type DWORD -Value 1 -Force
+Stop-Service "VSStandardCollectorService150"
+net stop "VSStandardCollectorService150"
+Set-Service  "VSStandardCollectorService150" -StartupType Disabled
+#General Optmizations
+#Delete "windows.old" folder
+#Cmd.exe /c Cleanmgr /sageset:65535 
+Cmd.exe /c Cleanmgr /sagerun:65535
+}
+
+Script-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
 
 #onedrive
 Write-Output "remove onedrive automatic start"
@@ -800,179 +808,6 @@ Set-ItemProperty -Path "HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\confi
 Write-Output "Delivery Optimization"
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DeliveryOptimization" -Name DODownloadMode -Type DWORD -Value 99 -Force
 
-#Removing Windows Bloatware
-Write-Host "Removing Bloatware"
-Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
-#Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
-#Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.BingWeather* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft3DViewer* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Twitter* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Getstarted* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Office.Sway* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *spotify* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *bingsports* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.SkypeApp* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *WindowsScan* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Print3D* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Messaging* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *empires* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *microsoft.windowscommunicationsapps* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.ZuneMusic* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.WindowsMaps* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.3dbuilder* | Remove-AppxPackage -AllUsers
-Get-AppxPackage Microsoft3DViewer  Remove-AppxPackage
-Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.WindowsAlarms* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Appconnector* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.YourPhone* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Asphalt8Airborne* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *candycrush* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *DolbyLaboratories.DolbyAccess* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.DrawboardPDF* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *FarmHeroesSaga* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage -AllUsers
-#Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.GetHelp* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.BingNews* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Todos* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Whiteboard* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *ConnectivityStore* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *MinecraftUWP* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.MixedReality.Portal* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.OneConnect* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.ZuneVideo* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Netflix* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *OneNote* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.MSPaint* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *PandoraMediaInc* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage -AllUsers
-Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage -AllUsers
-
-#Disabling Telemetry and Services
-Write-Host "Disabling Telemetry and Services"
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name BingSearchEnabled -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name CortanaConsent -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Search" -Name BingSearchEnabled -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Search" -Name CortanaConsent -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Windows Search" -Name AllowCortana -Type DWORD -Value 0 -Force
-New-Item -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\" -Name "Search" -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Search" -Name BingSearchEnabled -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules" -Name "{2765E0F4-2918-4A46-B9C9-43CDD8FCBA2B}" -Type String -Value  "BlockCortana|Action=Block|Active=TRUE|Dir=Out|App=C:\windows\systemapps\microsoft.windows.cortana_cw5n1h2txyewy\searchui.exe|Name=Search and Cortana application|AppPkgId=S-1-15-2-1861897761-1695161497-2927542615-642690995-327840285-2659745135-2630312742|" -Force
-New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\" -Name "AU" -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name NoAutoUpdate -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name AUOptions -Type DWORD -Value 2 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name ScheduledInstallDay -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name ScheduledInstallTime -Type DWORD -Value 3 -Force
-New-Item -Path "HKLM:\Software\Microsoft\PolicyManager\current\device\" -Name "Update" -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\current\device\Update" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\default\Update" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
-New-Item -Path "HKLM:\Software\Microsoft\PolicyManager\default\Update\" -Name "ExcludeWUDriversInQualityUpdates" -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\PolicyManager\default\Update\ExcludeWUDriversInQualityUpdates" -Name Value -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\WindowsUpdate\UX\Settings" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeCleanupEnabled" -Type String -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeCleanupReportingEnabled" -Type String -Value 0 -Force
-New-Item -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" -Name "software_reporter_tool.exe" -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\software_reporter_tool.exe" -Name Debugger -Type String -Value "%windir%\System32\taskkill.exe" -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "MetricsReportingEnabled" -Type String -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\WMDRM" -Name DisableOnline -Type DWORD -Value 1 -Force
-New-Item -Path "HKLM:\Software\NVIDIA Corporation\Global\" -Name "FTS" -Force
-Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\Global\FTS" -Name EnableRID44231 -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\Global\FTS" -Name EnableRID64640 -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\Global\FTS" -Name EnableRID66610 -Type DWORD -Value 0 -Force
-New-Item -Path "HKLM:\Software\NVIDIA Corporation\NvControlPanel2\" -Name "OptInOrOutPreference" -Force
-Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\NvControlPanel2\Client" -Name OptInOrOutPreference -Type DWORD -Value 0 -Force
-New-Item -Path "HKLM:\SYSTEM\CurrentControlSet\services\" -Name "NvTelemetryContainer" -Force
-Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\services\NvTelemetryContainer" -Name Start -Type DWORD -Value 4 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name BlockThirdPartyCookies -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name AutofillCreditCardEnabled -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name SyncDisabled -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\Main" -Name AllowPrelaunch -Type DWORD -Value 0 -Force
-New-Item -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\" -Name "TabPreloader" -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\TabPreloader" -Name AllowTabPreloading -Type DWORD -Value 0 -Force
-New-Item -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" -Name "MicrosoftEdge.exe" -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\MicrosoftEdge.exe" -Name Debugger -Type String -Value "%windir%\System32\taskkill.exe" -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Edge" -Name BackgroundModeEnabled -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft" -Name DoNotUpdateToEdgeWithChromium -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\GameDVR" -Name AllowgameDVR -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKCU:\System\GameConfigStore" -Name GameDVR_Enabled -Type DWORD -Value 0 -Force
-New-Item -Path "HKLM:\System\" -Name "GameConfigStore" -Force
-Set-ItemProperty -Path "HKLM:\System\GameConfigStore" -Name GameDVR_Enabled -Type DWORD -Value 0 -Force
-New-Item -Path "HKLM:\Software\CurrentControlSet\" -Name "Control" -Force
-Set-ItemProperty -Path "HKLM:\Software\CurrentControlSet\Control" -Name SvcHostSplitThresholdInKB -Type DWORD -Value 04000000 -Force
-New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\" -Name "GameDVR" -Force
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name AppCaptureEnabled -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name  HistoricalCaptureEnabled -Type DWORD -Value 0 -Force
-New-Item -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\" -Name "GameDVR" -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name AppCaptureEnabled -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLm:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name  HistoricalCaptureEnabled -Type DWORD -Value 0 -Force
-Stop-Service "LogiRegistryService"
-Set-Service  "LogiRegistryService" -StartupType Disabled
-Stop-Service "Razer Game Scanner Service"
-Set-Service  "Razer Game Scanner Service" -StartupType Disabled
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\CredUI" -Name DisablePasswordReveal -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKCU:\Software\Adobe\Adobe ARM\1.0\ARM" -Name "iCheck" -Type String -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name "cSharePoint" -Type String -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bToggleAdobeDocumentServices" -Type String -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bToggleAdobeSign" -Type String -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bTogglePrefSync" -Type String -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bToggleWebConnectors" -Type String -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bAdobeSendPluginToggle" -Type String -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockdown\cServices" -Name "bUpdater" -Type String -Value 0 -Force
-Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "HomeScreen" -Type String -Value 2 -Force
-Set-Service "DropboxUpdateTaskMachineCore" -StartupType Disabled
-Set-Service "DropboxUpdateTaskMachineUA" -StartupType Disabled
-Set-Service "GoogleUpdateTaskMachineCore" -StartupType Disabled
-Set-Service "GoogleUpdateTaskMachineUA" -StartupType Disabled
-Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Office\15.0\osm" -Name "Enablelogging" -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Office\15.0\osm" -Name "EnableUpload" -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Office\16.0\osm" -Name "Enablelogging" -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Office\16.0\osm" -Name "EnableUpload" -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\services\wlidsvc" -Name Start -Type DWORD -Value 4 -Force
-Set-Service  wlidsvc -StartupType Disabled
-Set-ItemProperty -Path "HKLM:\Software\Policies\Mozilla\Firefox" -Name "DisableTelemetry" -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Mozilla\Firefox" -Name "DisableDefaultBrowserAgent" -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\VSCommon\14.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\VSCommon\15.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\VSCommon\16.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\VSCommon\14.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\VSCommon\15.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\VSCommon\16.0\SQM" -Name OptIn -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender\Reporting" -Name "DisableGenericRePorts" -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender\Spynet" -Name "LocalSettingOverrideSpynetReporting" -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender\Spynet" -Name "SpynetReporting" -Type DWORD -Value 0 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender\Spynet" -Name "SubmitSamplesConsent" -Type DWORD -Value 2 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MRT" -Name "DontReportInfectionInformation" -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\VisualStudio\Telemetry" -Name TurnOffSwitch -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\VisualStudio\Feedback" -Name DisableFeedbackDialog -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\VisualStudio\Feedback" -Name DisableEmailInput -Type DWORD -Value 1 -Force
-Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\VisualStudio\Feedback" -Name DisableScreenshotCapture -Type DWORD -Value 1 -Force
-Stop-Service "VSStandardCollectorService150"
-net stop "VSStandardCollectorService150"
-Set-Service  "VSStandardCollectorService150" -StartupType Disabled
-#General Optmizations
-#Delete "windows.old" folder
-#Cmd.exe /c Cleanmgr /sageset:65535 
-Cmd.exe /c Cleanmgr /sagerun:65535
-
-#Display full path in explorer
-New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\" -Name "CabinetState" -Force
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState" -Name FullPath -Type DWORD -Value 1 -Force
-
-#Make icons easier to touch in exploere
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name FileExplorerInTouchImprovement -Type DWORD -Value 1 -Force
-
-
-#disable
 ### Disable app access to account info
 New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation" -Name Value -Type String -Value Deny -Force
 ### Disable app access to calendar
@@ -1026,6 +861,16 @@ If (!(Test-Path "HKLM:\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters
 }
 New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules" -Name "{2765E0F4-2918-4A46-B9C9-43CDD8FCBA2B}" -Type String -Value "BlockCortana|Action=Block|Active=TRUE|Dir=Out|App=C:\windows\systemapps\microsoft.windows.cortana_cw5n1h2txyewy\searchui.exe|Name=Search and Cortana application|AppPkgId=S-1-15-2-1861897761-1695161497-2927542615-642690995-327840285-2659745135-2630312742|" -Force
 
+#Display full path in explorer
+New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\" -Name "CabinetState" -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState" -Name FullPath -Type DWORD -Value 1 -Force
+
+#Make icons easier to touch in explorer
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name FileExplorerInTouchImprovement -Type DWORD -Value 1 -Force
+
+Write-Output "Disabling telemetry via Group Policies"
+New-Item -Force  "HKLM:\Software\Policies\Microsoft\Windows\DataCollection"
+Set-ItemProperty "HKLM:\Software\Policies\Microsoft\Windows\DataCollection" "AllowTelemetry" 0 
  
 ### Prevent Edge from running in background ###
 ### On the new Chromium version of Microsoft Edge, extensions and other services can keep the browser running in the background even after it's closed. ###
@@ -1185,6 +1030,7 @@ New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DeliveryOptimi
 ### The error reporting feature in Windows is what produces those alerts after certain program or operating system errors, prompting you to send the information about the problem to Microsoft.
 New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\Windows Error Reporting" -Name "Disabled" -Type DWord -Value 1 -Force
 Get-ScheduledTask -TaskName "QueueReporting" | Disable-ScheduledTask
+
 #Opt-out nVidia telemetry
 Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\Global\FTS" -Name EnableRID44231 -Type DWORD -Value 0 -Force
 Set-ItemProperty -Path "HKLM:\Software\NVIDIA Corporation\Global\FTS" -Name EnableRID64640 -Type DWORD -Value 0 -Force
@@ -1300,285 +1146,6 @@ Set-Service wlidsvc -StartupType Disabled
 #Disable Mozilla Firefox telemetry
 Set-ItemProperty -Path "HKLM:\Software\Policies\Mozilla\Firefox" -Name "DisableTelemetry" -Type DWORD -Value 1 -Force
 Set-ItemProperty -Path "HKLM:\Software\Policies\Mozilla\Firefox" -Name "DisableDefaultBrowserAgent" -Type DWORD -Value 1 -Force
-
-#Remove Windows Bloatware
-Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
-#Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
-#Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.BingWeather* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft3DViewer* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Twitter* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Getstarted* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Office.Sway* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *spotify* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *bingsports* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.SkypeApp* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *WindowsScan* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Print3D* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Messaging* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *empires* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *microsoft.windowscommunicationsapps* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.ZuneMusic* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.WindowsMaps* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.3dbuilder* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft3DViewer* |  Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.WindowsAlarms* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Appconnector* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.YourPhone* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Asphalt8Airborne* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *candycrush* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *DolbyLaboratories.DolbyAccess* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.DrawboardPDF* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *FarmHeroesSaga* | Remove-AppxPackage 
-Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage -AllUsers
-#Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.GetHelp* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.BingNews* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Todos* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.Whiteboard* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *ConnectivityStore* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *MinecraftUWP* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.MixedReality.Portal* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.OneConnect* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.ZuneVideo* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Netflix* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *OneNote* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *Microsoft.MSPaint* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *PandoraMediaInc* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
-Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage -AllUsers
-
-#   Description:
-# This script blocks telemetry related domains via the hosts file and related
-# IPs via Windows Firewall.
-#
-# Please note that adding these domains may break certain software like iTunes
-# or Skype. As this issue is location dependent for some domains, they are not
-# commented by default. The domains known to cause issues marked accordingly.
-# Please see the related issue:
-# <https://github.com/W4RH4WK/Debloat-Windows-10/issues/79>
-
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Mkdir -Force .psm1
-
-Write-Output "Disabling telemetry via Group Policies"
-Mkdir -Force  "HKLM:\Software\Policies\Microsoft\Windows\DataCollection"
-Set-ItemProperty "HKLM:\Software\Policies\Microsoft\Windows\DataCollection" "AllowTelemetry" 0
-
-# Entries related to Akamai have been reported to cause issues with Widevine
-# DRM.
-
-Write-Output "Adding telemetry domains to hosts file"
-$hosts_file = "$env:systemroot\System32\drivers\etc\hosts"
-$domains = @(
-    "184-86-53-99.deploy.static.akamaitechnologies.com"
-    "a-0001.a-msedge.net"
-    "a-0002.a-msedge.net"
-    "a-0003.a-msedge.net"
-    "a-0004.a-msedge.net"
-    "a-0005.a-msedge.net"
-    "a-0006.a-msedge.net"
-    "a-0007.a-msedge.net"
-    "a-0008.a-msedge.net"
-    "a-0009.a-msedge.net"
-    "a1621.g.akamai.net"
-    "a1856.g2.akamai.net"
-    "a1961.g.akamai.net"
-    #"a248.e.akamai.net"            # makes iTunes download button disappear (#43)
-    "a978.i6g1.akamai.net"
-    "a.ads1.msn.com"
-    "a.ads2.msads.net"
-    "a.ads2.msn.com"
-    "ac3.msn.com"
-    "ad.doubleclick.net"
-    "adnexus.net"
-    "adnxs.com"
-    "ads1.msads.net"
-    "ads1.msn.com"
-    "ads.msn.com"
-    "aidps.atdmt.com"
-    "aka-cdn-ns.adtech.de"
-    "a-msedge.net"
-    "any.edge.bing.com"
-    "a.rad.msn.com"
-    "az361816.vo.msecnd.net"
-    "az512334.vo.msecnd.net"
-    "b.ads1.msn.com"
-    "b.ads2.msads.net"
-    "bingads.microsoft.com"
-    "b.rad.msn.com"
-    "bs.serving-sys.com"
-    "c.atdmt.com"
-    "cdn.atdmt.com"
-    "cds26.ams9.msecn.net"
-    "choice.microsoft.com"
-    "choice.microsoft.com.nsatc.net"
-    "compatexchange.cloudapp.net"
-    "corpext.msitadfs.glbdns2.microsoft.com"
-    "corp.sts.microsoft.com"
-    "cs1.wpc.v0cdn.net"
-    "db3aqu.atdmt.com"
-    "df.telemetry.microsoft.com"
-    "diagnostics.support.microsoft.com"
-    "e2835.dspb.akamaiedge.net"
-    "e7341.g.akamaiedge.net"
-    "e7502.ce.akamaiedge.net"
-    "e8218.ce.akamaiedge.net"
-    "ec.atdmt.com"
-    "fe2.update.microsoft.com.akadns.net"
-    "feedback.microsoft-hohm.com"
-    "feedback.search.microsoft.com"
-    "feedback.windows.com"
-    "flex.msn.com"
-    "g.msn.com"
-    "h1.msn.com"
-    "h2.msn.com"
-    "hostedocsp.globalsign.com"
-    "i1.services.social.microsoft.com"
-    "i1.services.social.microsoft.com.nsatc.net"
-    "ipv6.msftncsi.com"
-    "ipv6.msftncsi.com.edgesuite.net"
-    "lb1.www.ms.akadns.net"
-    "live.rads.msn.com"
-    "m.adnxs.com"
-    "msedge.net"
-    "msftncsi.com"
-    "msnbot-65-55-108-23.search.msn.com"
-    "msntest.serving-sys.com"
-    "oca.telemetry.microsoft.com"
-    "oca.telemetry.microsoft.com.nsatc.net"
-    "onesettings-db5.metron.live.nsatc.net"
-    "pre.footprintpredict.com"
-    "preview.msn.com"
-    "rad.live.com"
-    "rad.msn.com"
-    "redir.metaservices.microsoft.com"
-    "reports.wes.df.telemetry.microsoft.com"
-    "schemas.microsoft.akadns.net"
-    "secure.adnxs.com"
-    "secure.flashtalking.com"
-    "services.wes.df.telemetry.microsoft.com"
-    "settings-sandbox.data.microsoft.com"
-    #"settings-win.data.microsoft.com"       # may cause issues with Windows Updates
-    "sls.update.microsoft.com.akadns.net"
-    #"sls.update.microsoft.com.nsatc.net"    # may cause issues with Windows Updates
-    "sqm.df.telemetry.microsoft.com"
-    "sqm.telemetry.microsoft.com"
-    "sqm.telemetry.microsoft.com.nsatc.net"
-    "ssw.live.com"
-    "static.2mdn.net"
-    "statsfe1.ws.microsoft.com"
-    "statsfe2.update.microsoft.com.akadns.net"
-    "statsfe2.ws.microsoft.com"
-    "survey.watson.microsoft.com"
-    "telecommand.telemetry.microsoft.com"
-    "telecommand.telemetry.microsoft.com.nsatc.net"
-    "telemetry.appex.bing.net"
-    "telemetry.microsoft.com"
-    "telemetry.urs.microsoft.com"
-    "vortex-bn2.metron.live.com.nsatc.net"
-    "vortex-cy2.metron.live.com.nsatc.net"
-    "vortex.data.microsoft.com"
-    "vortex-sandbox.data.microsoft.com"
-    "vortex-win.data.microsoft.com"
-    "cy2.vortex.data.microsoft.com.akadns.net"
-    "watson.live.com"
-    "watson.microsoft.com"
-    "watson.ppe.telemetry.microsoft.com"
-    "watson.telemetry.microsoft.com"
-    "watson.telemetry.microsoft.com.nsatc.net"
-    "wes.df.telemetry.microsoft.com"
-    "win10.ipv6.microsoft.com"
-    "www.bingads.microsoft.com"
-    "www.go.microsoft.akadns.net"
-    "www.msftncsi.com"
-    "client.wns.windows.com"
-    #"wdcp.microsoft.com"                       # may cause issues with Windows Defender Cloud-based protection
-    #"dns.msftncsi.com"                         # This causes Windows to think it doesn't have internet
-    #"storeedgefd.dsx.mp.microsoft.com"         # breaks Windows Store
-    "wdcpalt.microsoft.com"
-    #"settings-ssl.xboxlive.com"                # Breaks XBOX Live Games
-    #"settings-ssl.xboxlive.com-c.edgekey.net"  # Breaks XBOX Live Games
-    #"settings-ssl.xboxlive.com-c.edgekey.net.globalredir.akadns.net" # Breaks XBOX Live Games
-    "e87.dspb.akamaidege.net"
-    "insiderservice.microsoft.com"
-    "insiderservice.trafficmanager.net"
-    "e3843.g.akamaiedge.net"
-    "flightingserviceweurope.cloudapp.net"
-    #"sls.update.microsoft.com"                 # may cause issues with Windows Updates
-    "static.ads-twitter.com"                    # may cause issues with Twitter login
-    "www-google-analytics.l.google.com"
-    "p.static.ads-twitter.com"                  # may cause issues with Twitter login
-    "hubspot.net.edge.net"
-    "e9483.a.akamaiedge.net"
-
-    #"www.google-analytics.com"
-    #"padgead2.googlesyndication.com"
-    #"mirror1.malwaredomains.com"
-    #"mirror.cedia.org.ec"
-    "stats.g.doubleclick.net"
-    "stats.l.doubleclick.net"
-    "adservice.google.de"
-    "adservice.google.com"
-    "googleads.g.doubleclick.net"
-    "pagead46.l.doubleclick.net"
-    "hubspot.net.edgekey.net"
-    "insiderppe.cloudapp.net"                   # Feedback-Hub
-    "livetileedge.dsx.mp.microsoft.com"
-
-    # extra
-    "fe2.update.microsoft.com.akadns.net"
-    "s0.2mdn.net"
-    "statsfe2.update.microsoft.com.akadns.net"
-    "survey.watson.microsoft.com"
-    "view.atdmt.com"
-    "watson.microsoft.com"
-    "watson.ppe.telemetry.microsoft.com"
-    "watson.telemetry.microsoft.com"
-    "watson.telemetry.microsoft.com.nsatc.net"
-    "wes.df.telemetry.microsoft.com"
-    "m.hotmail.com"
-
-    # can cause issues with Skype (#79) or other services (#171)
-    "apps.skype.com"
-    "c.msn.com"
-    # "login.live.com"                  # prevents login to outlook and other live apps
-    "pricelist.skype.com"
-    "s.gateway.messenger.live.com"
-    "ui.skype.com"
-)
-Write-Output "" | Out-File -Encoding ASCII -Append $hosts_file
-foreach ($domain in $domains) {
-    if (-Not (Select-String -Path $hosts_file -Pattern $domain)) {
-        Write-Output "0.0.0.0 $domain" | Out-File -Encoding ASCII -Append $hosts_file
-    }
-}
-
-Write-Output "Adding telemetry ips to firewall"
-$ips = @(
-    "134.170.30.202"
-    "137.116.81.24"
-    "157.56.106.189"
-    "184.86.53.99"
-    "2.22.61.43"
-    "2.22.61.66"
-    "204.79.197.200"
-    "23.218.212.69"
-    "65.39.117.230"
-    "65.52.108.33"   # Causes problems with Microsoft Store
-    "65.55.108.23"
-    "64.4.54.254"
-)
-Remove-NetFirewallRule -DisplayName "Block Telemetry IPs" -ErrorAction SilentlyContinue
-New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
-    -Action Block -RemoteAddress ([string[]]$ips)
 
 #   Description:
 # This script will try to fix many of the privacy settings for the user. This
@@ -1917,7 +1484,383 @@ foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
     Takeown-Folder $item.FullName
     Remove-Item -Recurse -Force $item.FullName
 }
+}
 
+Script-Job -Name "STIG Addendum" -ScriptBlock {
+#Basic authentication for RSS feeds over HTTP must not be used.
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Feeds" -Name AllowBasicAuthInClear -Type DWORD -Value 0 -Force
+#InPrivate browsing in Microsoft Edge must be disabled.
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\Main" -Name AllowInPrivate -Type DWORD -Value 0 -Force
+#Windows 10 must be configured to prevent Microsoft Edge browser data from being cleared on exit.
+New-Item -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\" -Name "Privacy" -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\Privacy" -Name ClearBrowsingHistoryOnExit -Type DWORD -Value 0 -Force
+#Check for publishers certificate revocation must be enforced.
+New-Item -Path "HKLM:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\" -Name "Software Publishing" -Force
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\Software Publishing" -Name State -Type DWORD -Value 146432 -Force
+New-Item -Path "HKCU:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\" -Name "Software Publishing" -Force
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\Current Version\WinTrust\Trust Providers\Software Publishing" -Name State -Type DWORD -Value 146432 -Force
+#AutoComplete feature for forms must be disallowed.
+New-Item -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\" -Name "Main Criteria" -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "Use FormSuggest" -Type STRING -Value no -Force
+New-Item -Path "HKCU:\Software\Policies\Microsoft\Internet Explorer\" -Name "Main Criteria" -Force
+Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "Use FormSuggest" -Type STRING -Value no -Force
+#Turn on the auto-complete feature for user names and passwords on forms must be disabled.
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "FormSuggest PW Ask" -Type STRING -Value no -Force
+Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "FormSuggest PW Ask" -Type STRING -Value no -Force
+}
+
+Script-Job -Name "Adobe Reader DC STIG" -ScriptBlock {
+#Adobe Reader DC STIG
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cCloud -Force
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cDefaultLaunchURLPerms -Force
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cServices -Force
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cSharePoint -Force
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cWebmailProfiles -Force
+New-Item -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\" -Name cWelcomeScreen -Force
+Set-ItemProperty -Path "HKLM:\Software\Adobe\Acrobat Reader\DC\Installer" -Name DisableMaintenance -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bAcroSuppressUpsell -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bDisablePDFHandlerSwitching -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bDisableTrustedFolders -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bDisableTrustedSites -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bEnableFlash -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bEnhancedSecurityInBrowser -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bEnhancedSecurityStandalone -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name bProtectedMode -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name iFileAttachmentPerms -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown" -Name iProtectedView -Type DWORD -Value 2 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cCloud" -Name bAdobeSendPluginToggle -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cDefaultLaunchURLPerms" -Name iURLPerms -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cDefaultLaunchURLPerms" -Name iUnknownURLPerms -Type DWORD -Value 3 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices" -Name bToggleAdobeDocumentServices -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices" -Name bToggleAdobeSign -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices" -Name bTogglePrefsSync -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices" -Name bToggleWebConnectors -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices" -Name bUpdater -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cSharePoint" -Name bDisableSharePointFeatures -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cWebmailProfiles" -Name bDisableWebmail -Type DWORD -Value 1 -Force
+Set-ItemProperty -Path "HKLM:\Software\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cWelcomeScreen" -Name bShowWelcomeScreen -Type DWORD -Value 0 -Force
+Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Adobe\Acrobat Reader\DC\Installer" -Name DisableMaintenance -Type DWORD -Value 1 -Force
+}
+
+Script-Job -Name "Microsoft .Net Framework 4 STIG Script" -ScriptBlock {
+#SimeonOnSecurity - Microsoft .Net Framework 4 STIG Script
+#https://github.com/simeononsecurity
+#https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MS_DotNet_Framework_4-0_V1R9_STIG.zip
+#https://docs.microsoft.com/en-us/dotnet/framework/tools/caspol-exe-code-access-security-policy-tool
+
+$netframework32="C:\Windows\Microsoft.NET\Framework"
+$netframework64="C:\Windows\Microsoft.NET\Framework64"
+$netframeworks=($netframework32,$netframework64)
+
+#Vul ID: V-7055	   	Rule ID: SV-7438r3_rule	   	STIG ID: APPNET0031
+If (Test-Path -Path "HKLM:\Software\Microsoft\StrongName\Verification"){
+    Remove-Item "HKLM:\Software\Microsoft\StrongName\Verification" -Recurse -Force
+    Write-Host ".Net StrongName Verification Registry Removed"
+}
+# .Net 32-Bit
+ForEach ($dotnet32version in (Get-ChildItem $netframework32 | ?{ $_.PSIsContainer }).Name){
+    $netframework32="C:\Windows\Microsoft.NET\Framework"
+    Write-Host ".Net 32-Bit $dotnet32version Is Installed"
+    cmd /c $netframework32\$dotnet32version\caspol.exe -q -f -pp on 
+    cmd /c $netframework32\$dotnet32version\caspol.exe -m -lg
+    #Vul ID: V-30935	   	Rule ID: SV-40977r3_rule	   	STIG ID: APPNET0063
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass"){
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -Value "0" -Force
+    }Else {
+        New-Item -Path "HKLM:\SOFTWARE\Microsoft\" -Name ".NETFramework" -Force
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0" -Force
+    }
+    #Vul ID: V-81495	   	Rule ID: SV-96209r2_rule	   	STIG ID: APPNET0075	
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\$dotnet32version\SchUseStrongCrypto"){
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\$dotnet32version\" -Name "SchUseStrongCrypto" -Value "1" -Force
+    }Else {
+        New-Item -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework" -Name "$dotnet32version" -Force
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\$dotnet32version\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1" -Force
+    }
+}
+# .Net 64-Bit
+ForEach ($dotnet64version in (Get-ChildItem $netframework64 | ?{ $_.PSIsContainer }).Name){
+    $netframework64="C:\Windows\Microsoft.NET\Framework64"
+    Write-Host ".Net 64-Bit $dotnet64version Is Installed"
+    cmd /c $netframework64\$dotnet64version\caspol.exe -q -f -pp on 
+    cmd /c $netframework64\$dotnet64version\caspol.exe -m -lg
+    #Vul ID: V-30935	   	Rule ID: SV-40977r3_rule	   	STIG ID: APPNET0063
+    If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass") {
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -Value "0" -Force
+    }Else {
+        New-Item -Path "HKLM:\SOFTWARE\Microsoft\" -Name ".NETFramework" -Force
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0" -Force
+    }
+    #Vul ID: V-81495	   	Rule ID: SV-96209r2_rule	   	STIG ID: APPNET0075	
+    If (Test-Path -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\$dotnet64version\") {
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\$dotnet64version\" -Name "SchUseStrongCrypto" -Value "1" -Force
+    }Else {
+        New-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\" -Name "$dotnet64version" -Force
+        New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\$dotnet64version\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1" -Force
+    }
+}
+
+#Vul ID: V-30937	   	Rule ID: SV-40979r3_rule	   	STIG ID: APPNET0064	  
+#FINDSTR /i /s "NetFx40_LegacySecurityPolicy" c:\*.exe.config 
+}
+
+##Firefox Config Import
+#https://www.itsupportguides.com/knowledge-base/tech-tips-tricks/how-to-customise-firefox-installs-using-mozilla-cfg/
+#https://github.com/simeononsecurity/FireFox-STIG-Script/blob/master/sos-firefoxstig.ps1
+Write-Host "Implementing FireFox STIG"
+$firefox64 = "C:\Program Files\Mozilla Firefox"
+$firefox32 = "C:\Program Files (x86)\Mozilla Firefox"
+Copy-Item -Path ".\Files\FireFox Configuration Files\defaults" -Destination $firefox64 -Force -Recurse | Out-Null
+Copy-Item -Path ".\Files\FireFox Configuration Files\mozilla.cfg" -Destination $firefox64 -Force | Out-Null
+Copy-Item -Path ".\Files\FireFox Configuration Files\local-settings.js" -Destination $firefox64 -Force | Out-Null
+Copy-Item -Path ".\Files\FireFox Configuration Files\defaults" -Destination $firefox32 -Force -Recurse | Out-Null
+Copy-Item -Path ".\Files\FireFox Configuration Files\mozilla.cfg" -Destination $firefox32 -Force | Out-Null
+Copy-Item -Path ".\Files\FireFox Configuration Files\local-settings.js" -Destination $firefox32 -Force | Out-Null
+
+#Java Config Import
+#https://gist.github.com/MyITGuy/9628895
+#http://stu.cbu.edu/java/docs/technotes/guides/deploy/properties.html
+#https://github.com/simeononsecurity/JAVA-STIG-Script
+Write-Host "Implementing Java JRE 8 STIG"
+New-Item "C:\Windows\Sun\Java\" -ItemType "directory" -Value "Deployment" -Force -ErrorAction SilentlyContinue | Out-Null
+New-Item "C:\temp\" -ItemType "directory" -Value "JAVA" -Force -ErrorAction SilentlyContinue | Out-Null
+Copy-Item -Path ".\Files\JAVA Configuration Files\deployment.config" -Destination "C:\Windows\Sun\Java\Deployment\" -Force | Out-Null
+Copy-Item -Path ".\Files\JAVA Configuration Files\deployment.properties" -Destination "C:\temp\JAVA\" -Force | Out-Null
+Copy-Item -Path ".\Files\JAVA Configuration Files\exception.sites" -Destination "C:\temp\JAVA\" -Force | Out-Null
+
+#   Description:
+# This script blocks telemetry related domains via the hosts file and related
+# IPs via Windows Firewall.
+#
+# Please note that adding these domains may break certain software like iTunes
+# or Skype. As this issue is location dependent for some domains, they are not
+# commented by default. The domains known to cause issues marked accordingly.
+# Please see the related issue:
+# <https://github.com/W4RH4WK/Debloat-Windows-10/issues/79>
+# Entries related to Akamai have been reported to cause issues with Widevine
+# DRM.
+
+Write-Output "Adding telemetry domains to hosts file"
+$hosts_file = "$env:systemroot\System32\drivers\etc\hosts"
+$domains = @(
+    "184-86-53-99.deploy.static.akamaitechnologies.com"
+    "a-0001.a-msedge.net"
+    "a-0002.a-msedge.net"
+    "a-0003.a-msedge.net"
+    "a-0004.a-msedge.net"
+    "a-0005.a-msedge.net"
+    "a-0006.a-msedge.net"
+    "a-0007.a-msedge.net"
+    "a-0008.a-msedge.net"
+    "a-0009.a-msedge.net"
+    "a1621.g.akamai.net"
+    "a1856.g2.akamai.net"
+    "a1961.g.akamai.net"
+    #"a248.e.akamai.net"            # makes iTunes download button disappear (#43)
+    "a978.i6g1.akamai.net"
+    "a.ads1.msn.com"
+    "a.ads2.msads.net"
+    "a.ads2.msn.com"
+    "ac3.msn.com"
+    "ad.doubleclick.net"
+    "adnexus.net"
+    "adnxs.com"
+    "ads1.msads.net"
+    "ads1.msn.com"
+    "ads.msn.com"
+    "aidps.atdmt.com"
+    "aka-cdn-ns.adtech.de"
+    "a-msedge.net"
+    "any.edge.bing.com"
+    "a.rad.msn.com"
+    "az361816.vo.msecnd.net"
+    "az512334.vo.msecnd.net"
+    "b.ads1.msn.com"
+    "b.ads2.msads.net"
+    "bingads.microsoft.com"
+    "b.rad.msn.com"
+    "bs.serving-sys.com"
+    "c.atdmt.com"
+    "cdn.atdmt.com"
+    "cds26.ams9.msecn.net"
+    "choice.microsoft.com"
+    "choice.microsoft.com.nsatc.net"
+    "compatexchange.cloudapp.net"
+    "corpext.msitadfs.glbdns2.microsoft.com"
+    "corp.sts.microsoft.com"
+    "cs1.wpc.v0cdn.net"
+    "db3aqu.atdmt.com"
+    "df.telemetry.microsoft.com"
+    "diagnostics.support.microsoft.com"
+    "e2835.dspb.akamaiedge.net"
+    "e7341.g.akamaiedge.net"
+    "e7502.ce.akamaiedge.net"
+    "e8218.ce.akamaiedge.net"
+    "ec.atdmt.com"
+    "fe2.update.microsoft.com.akadns.net"
+    "feedback.microsoft-hohm.com"
+    "feedback.search.microsoft.com"
+    "feedback.windows.com"
+    "flex.msn.com"
+    "g.msn.com"
+    "h1.msn.com"
+    "h2.msn.com"
+    "hostedocsp.globalsign.com"
+    "i1.services.social.microsoft.com"
+    "i1.services.social.microsoft.com.nsatc.net"
+    "ipv6.msftncsi.com"
+    "ipv6.msftncsi.com.edgesuite.net"
+    "lb1.www.ms.akadns.net"
+    "live.rads.msn.com"
+    "m.adnxs.com"
+    "msedge.net"
+    "msftncsi.com"
+    "msnbot-65-55-108-23.search.msn.com"
+    "msntest.serving-sys.com"
+    "oca.telemetry.microsoft.com"
+    "oca.telemetry.microsoft.com.nsatc.net"
+    "onesettings-db5.metron.live.nsatc.net"
+    "pre.footprintpredict.com"
+    "preview.msn.com"
+    "rad.live.com"
+    "rad.msn.com"
+    "redir.metaservices.microsoft.com"
+    "reports.wes.df.telemetry.microsoft.com"
+    "schemas.microsoft.akadns.net"
+    "secure.adnxs.com"
+    "secure.flashtalking.com"
+    "services.wes.df.telemetry.microsoft.com"
+    "settings-sandbox.data.microsoft.com"
+    #"settings-win.data.microsoft.com"       # may cause issues with Windows Updates
+    "sls.update.microsoft.com.akadns.net"
+    #"sls.update.microsoft.com.nsatc.net"    # may cause issues with Windows Updates
+    "sqm.df.telemetry.microsoft.com"
+    "sqm.telemetry.microsoft.com"
+    "sqm.telemetry.microsoft.com.nsatc.net"
+    "ssw.live.com"
+    "static.2mdn.net"
+    "statsfe1.ws.microsoft.com"
+    "statsfe2.update.microsoft.com.akadns.net"
+    "statsfe2.ws.microsoft.com"
+    "survey.watson.microsoft.com"
+    "telecommand.telemetry.microsoft.com"
+    "telecommand.telemetry.microsoft.com.nsatc.net"
+    "telemetry.appex.bing.net"
+    "telemetry.microsoft.com"
+    "telemetry.urs.microsoft.com"
+    "vortex-bn2.metron.live.com.nsatc.net"
+    "vortex-cy2.metron.live.com.nsatc.net"
+    "vortex.data.microsoft.com"
+    "vortex-sandbox.data.microsoft.com"
+    "vortex-win.data.microsoft.com"
+    "cy2.vortex.data.microsoft.com.akadns.net"
+    "watson.live.com"
+    "watson.microsoft.com"
+    "watson.ppe.telemetry.microsoft.com"
+    "watson.telemetry.microsoft.com"
+    "watson.telemetry.microsoft.com.nsatc.net"
+    "wes.df.telemetry.microsoft.com"
+    "win10.ipv6.microsoft.com"
+    "www.bingads.microsoft.com"
+    "www.go.microsoft.akadns.net"
+    "www.msftncsi.com"
+    "client.wns.windows.com"
+    #"wdcp.microsoft.com"                       # may cause issues with Windows Defender Cloud-based protection
+    #"dns.msftncsi.com"                         # This causes Windows to think it doesn't have internet
+    #"storeedgefd.dsx.mp.microsoft.com"         # breaks Windows Store
+    "wdcpalt.microsoft.com"
+    #"settings-ssl.xboxlive.com"                # Breaks XBOX Live Games
+    #"settings-ssl.xboxlive.com-c.edgekey.net"  # Breaks XBOX Live Games
+    #"settings-ssl.xboxlive.com-c.edgekey.net.globalredir.akadns.net" # Breaks XBOX Live Games
+    "e87.dspb.akamaidege.net"
+    "insiderservice.microsoft.com"
+    "insiderservice.trafficmanager.net"
+    "e3843.g.akamaiedge.net"
+    "flightingserviceweurope.cloudapp.net"
+    #"sls.update.microsoft.com"                 # may cause issues with Windows Updates
+    "static.ads-twitter.com"                    # may cause issues with Twitter login
+    "www-google-analytics.l.google.com"
+    "p.static.ads-twitter.com"                  # may cause issues with Twitter login
+    "hubspot.net.edge.net"
+    "e9483.a.akamaiedge.net"
+
+    #"www.google-analytics.com"
+    #"padgead2.googlesyndication.com"
+    #"mirror1.malwaredomains.com"
+    #"mirror.cedia.org.ec"
+    "stats.g.doubleclick.net"
+    "stats.l.doubleclick.net"
+    "adservice.google.de"
+    "adservice.google.com"
+    "googleads.g.doubleclick.net"
+    "pagead46.l.doubleclick.net"
+    "hubspot.net.edgekey.net"
+    "insiderppe.cloudapp.net"                   # Feedback-Hub
+    "livetileedge.dsx.mp.microsoft.com"
+
+    # extra
+    "fe2.update.microsoft.com.akadns.net"
+    "s0.2mdn.net"
+    "statsfe2.update.microsoft.com.akadns.net"
+    "survey.watson.microsoft.com"
+    "view.atdmt.com"
+    "watson.microsoft.com"
+    "watson.ppe.telemetry.microsoft.com"
+    "watson.telemetry.microsoft.com"
+    "watson.telemetry.microsoft.com.nsatc.net"
+    "wes.df.telemetry.microsoft.com"
+    "m.hotmail.com"
+
+    # can cause issues with Skype (#79) or other services (#171)
+    "apps.skype.com"
+    "c.msn.com"
+    # "login.live.com"                  # prevents login to outlook and other live apps
+    "pricelist.skype.com"
+    "s.gateway.messenger.live.com"
+    "ui.skype.com"
+)
+Write-Output "" | Out-File -Encoding ASCII -Append $hosts_file
+foreach ($domain in $domains) {
+    if (-Not (Select-String -Path $hosts_file -Pattern $domain)) {
+        Write-Output "0.0.0.0 $domain" | Out-File -Encoding ASCII -Append $hosts_file
+    }
+}
+
+Write-Output "Adding telemetry ips to firewall"
+$ips = @(
+    "134.170.30.202"
+    "137.116.81.24"
+    "157.56.106.189"
+    "184.86.53.99"
+    "2.22.61.43"
+    "2.22.61.66"
+    "204.79.197.200"
+    "23.218.212.69"
+    "65.39.117.230"
+    "65.52.108.33"   # Causes problems with Microsoft Store
+    "65.55.108.23"
+    "64.4.54.254"
+)
+Remove-NetFirewallRule -DisplayName "Block Telemetry IPs" -ErrorAction SilentlyContinue | Out-Null
+New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
+    -Action Block -RemoteAddress ([string[]]$ips) | Out-Null
+
+#Enable Disk Compression and Disable File Indexing
+Write-Host "Enable Disk Compression and Disable File Indexing"
+Script-Job -Name "Enable Disk Compression and Disable File Indexing" -ScriptBlock {
+	$DriveLetters=(Get-WmiObject -Class Win32_Volume).DriveLetter
+	ForEach ($Drive in $DriveLetters){
+    		$indexing = $Drive.IndexingEnabled
+    		#Write-Host "Enabling Disk Compression on the $Drive Drive"
+    		#Enable-NtfsCompression -Path "$Drive"\ -Recurse
+		if("$indexing" -eq $True){
+    			Write-Host "Disabling File Index on the $Drive Drive"
+   			Get-WmiObject -Class Win32_Volume -Filter "DriveLetter='$Drive'" | Set-WmiInstance -Arguments @{IndexingEnabled=$False} | Out-Null
+		}
+	}
+}
+
+Write-Host "Importing GPO Configurations"
 #GPO Configurations
 $gposdir = "$(Get-Location)\Files\GPOs"
 Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
