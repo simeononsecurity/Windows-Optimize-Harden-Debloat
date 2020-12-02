@@ -1479,6 +1479,21 @@ foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
 }
 }
 
+#Enable Disk Compression and Disable File Indexing
+Write-Host "Enable Disk Compression and Disable File Indexing"
+Start-Job -Name "Enable Disk Compression and Disable File Indexing" -ScriptBlock {
+	$DriveLetters=(Get-WmiObject -Class Win32_Volume).DriveLetter
+	ForEach ($Drive in $DriveLetters){
+    		$indexing = $Drive.IndexingEnabled
+    		#Write-Host "Enabling Disk Compression on the $Drive Drive"
+    		#Enable-NtfsCompression -Path "$Drive"\ -Recurse
+		if("$indexing" -eq $True){
+    			Write-Host "Disabling File Index on the $Drive Drive"
+   			Get-WmiObject -Class Win32_Volume -Filter "DriveLetter='$Drive'" | Set-WmiInstance -Arguments @{IndexingEnabled=$False} | Out-Null
+		}
+	}
+}
+
 Start-Job -Name "STIG Addendum" -ScriptBlock {
 #Basic authentication for RSS feeds over HTTP must not be used.
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Feeds" -Name AllowBasicAuthInClear -Type DWORD -Value 0 -Force
@@ -1837,21 +1852,6 @@ $ips = @(
 Remove-NetFirewallRule -DisplayName "Block Telemetry IPs" -ErrorAction SilentlyContinue | Out-Null
 New-NetFirewallRule -DisplayName "Block Telemetry IPs" -Direction Outbound `
     -Action Block -RemoteAddress ([string[]]$ips) | Out-Null
-
-#Enable Disk Compression and Disable File Indexing
-Write-Host "Enable Disk Compression and Disable File Indexing"
-Start-Job -Name "Enable Disk Compression and Disable File Indexing" -ScriptBlock {
-	$DriveLetters=(Get-WmiObject -Class Win32_Volume).DriveLetter
-	ForEach ($Drive in $DriveLetters){
-    		$indexing = $Drive.IndexingEnabled
-    		#Write-Host "Enabling Disk Compression on the $Drive Drive"
-    		#Enable-NtfsCompression -Path "$Drive"\ -Recurse
-		if("$indexing" -eq $True){
-    			Write-Host "Disabling File Index on the $Drive Drive"
-   			Get-WmiObject -Class Win32_Volume -Filter "DriveLetter='$Drive'" | Set-WmiInstance -Arguments @{IndexingEnabled=$False} | Out-Null
-		}
-	}
-}
 
 Write-Host "Importing GPO Configurations"
 #GPO Configurations
