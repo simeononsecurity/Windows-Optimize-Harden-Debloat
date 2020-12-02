@@ -1480,7 +1480,6 @@ foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
 }
 
 #Enable Disk Compression and Disable File Indexing
-Write-Host "Enable Disk Compression and Disable File Indexing"
 Start-Job -Name "Enable Disk Compression and Disable File Indexing" -ScriptBlock {
 	$DriveLetters=(Get-WmiObject -Class Win32_Volume).DriveLetter
 	ForEach ($Drive in $DriveLetters){
