@@ -1867,11 +1867,12 @@ Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
 
     Foreach ($gpo in (Get-ChildItem "$(Get-Location)\Files\GPOs\$gpocategory")) {
         $gpopath = "$gposdir\$gpocategory\$gpo"
-        Write-Output "Importing $gpo"
-        .\Files\LGPO\LGPO.exe /g $gpopath 2> $null
+        Write-Output "Importing $gpo ...."
+        .\Files\LGPO\LGPO.exe /g $gpopath > $null 2>&1
+	Write-Output "Done"
     }
 }
-
+Get-Job
 Add-Type -AssemblyName PresentationFramework
 $Answer = [System.Windows.MessageBox]::Show("Reboot to make changes effective?", "Restart Computer", "YesNo", "Question")
 Switch ($Answer)
