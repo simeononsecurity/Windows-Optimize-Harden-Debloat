@@ -29,7 +29,6 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
   - [Hardware Requirements for Windows Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/reqs-wd-app-guard)
   - [Hardware Requirements for Windows Defender Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-requirements)
 
-  
 ## Recommended reading material:
   - [System Guard Secure Launch](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-system-guard/system-guard-secure-launch-and-smm-protection#requirements-met-by-system-guard-enabled-machines)
   - [System Guard Root of Trust](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
@@ -41,12 +40,6 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 ## A list of scripts and tools this collection utilizes:
 - [Cyber.mil - Group Policy Objects](https://public.cyber.mil/stigs/gpo/)
 - [Microsoft Security Compliance Toolkit 1.0](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
-- [Mirinsoft - SharpApp](https://github.com/builtbybel/sharpapp)
-- [Mirinsoft - debotnet](https://github.com/builtbybel/debotnet)
-- [NSACyber - Bitlocker Guidance](https://github.com/nsacyber/BitLocker-Guidance)
-- [Sycnex - Windows10Debloater](https://github.com/Sycnex/Windows10Debloater)
-- [TheVDIGuys - Windows 10 VDI Optimize](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize)
-- [W4H4WK - Debloat Windows 10](https://github.com/W4RH4WK/Debloat-Windows-10/tree/master/scripts)
 
 ## Additional configurations were considered from:
 - [CERT - IE Scripting Engine Memory Corruption](https://kb.cert.org/vuls/id/573168/)
@@ -57,9 +50,16 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [Microsoft - Windows 10 Privacy](https://docs.microsoft.com/en-us/windows/privacy/)
 - [Microsoft - Windows 10 VDI Recomendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909)
 - [Microsoft - Windows Defender Application Control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-design-guide)
+- [Mirinsoft - SharpApp](https://github.com/builtbybel/sharpapp)
+- [Mirinsoft - debotnet](https://github.com/builtbybel/debotnet)
 - [NSACyber - Application Whitelisting Using Microsoft AppLocker](https://apps.nsa.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm)
+- [NSACyber - Bitlocker Guidance](https://github.com/nsacyber/BitLocker-Guidance)
 - [NSACyber - Hardware-and-Firmware-Security-Guidance](https://github.com/nsacyber/Hardware-and-Firmware-Security-Guidance)
 - [NSACyber - Windows Secure Host Baseline](https://github.com/nsacyber/Windows-Secure-Host-Baseline)
+- [Sycnex - Windows10Debloater](https://github.com/Sycnex/Windows10Debloater)
+- [The-Virtual-Desktop-Team - Virtual-Desktop-Optimization-Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
+- [TheVDIGuys - Windows 10 VDI Optimize](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize)
+- [W4H4WK - Debloat Windows 10](https://github.com/W4RH4WK/Debloat-Windows-10/tree/master/scripts)
 - [Whonix - Disable TCP Timestamps](https://www.whonix.org/wiki/Disable_TCP_and_ICMP_Timestamps)
 
 ## STIGS/SRGs Applied:
