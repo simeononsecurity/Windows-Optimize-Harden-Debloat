@@ -82,7 +82,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 
 ### Automated Install:
 **The script may be launched from the extracted GitHub download like this:**
-```ps
+```powershell
 iex ((New-Object System.Net.WebClient).DownloadString('https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'))
 ```
 ### Manual Install:
