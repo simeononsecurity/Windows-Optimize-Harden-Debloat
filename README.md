@@ -28,7 +28,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
   - [Hardware Requirements for Windows Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/reqs-wd-app-guard)
   - [Hardware Requirements for Windows Defender Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-requirements)
 - [X] Bitlocker must be suspended or turned off prior to implementing this script, it can be enabled again after rebooting.
-  - Followup runs of this script can be run without disabling bitlocker.
+  - Follow-up runs of this script can be run without disabling bitlocker.
 
 ## Recommended reading material:
   - [System Guard Secure Launch](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-system-guard/system-guard-secure-launch-and-smm-protection#requirements-met-by-system-guard-enabled-machines)
