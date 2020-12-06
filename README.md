@@ -22,13 +22,14 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [X] System is [fully up to date](https://support.microsoft.com/en-gb/help/4027667/windows-10-update)
   - Currently Windows 10 **v1909** or **v2004**. 
   - Run the [Windows 10 Upgrade Assistant](https://support.microsoft.com/en-us/help/3159635/windows-10-update-assistant) to be update and verify latest major release.
+- [X] Bitlocker must be suspended or turned off prior to implementing this script, it can be enabled again after rebooting.
+  - Follow-up runs of this script can be run without disabling bitlocker.
 - [X] Hardware Requirements
   - [Hardware Requirements for Memory Integrity](https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/requirements-and-deployment-planning-guidelines-for-virtualization-based-protection-of-code-integrity#baseline-protections) 
   - [Hardware Requirements for Virtualization-Based Security](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-vbs)
   - [Hardware Requirements for Windows Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/reqs-wd-app-guard)
   - [Hardware Requirements for Windows Defender Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-requirements)
-- [X] Bitlocker must be suspended or turned off prior to implementing this script, it can be enabled again after rebooting.
-  - Follow-up runs of this script can be run without disabling bitlocker.
+
 
 ## Recommended reading material:
   - [System Guard Secure Launch](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-system-guard/system-guard-secure-launch-and-smm-protection#requirements-met-by-system-guard-enabled-machines)
