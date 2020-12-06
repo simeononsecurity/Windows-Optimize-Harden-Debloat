@@ -13,7 +13,8 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - This script is designed in such a way that the optimizations, unlike some other scripts, will not break core windows functionality.
  - Features like Windows Update, Windows Defender, the Windows Store, and Cortona have been restricted, but are not in a disfunctional state like most other Windows 10 Privacy scripts.
 - If you seek a minimized script targeted only to commercial environments, please see this [GitHub Repository](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
-- Bitlocker must be suspended prior to implementing this script, it can be enabled again after rebooting.
+- **Bitlocker must be suspended** prior to implementing this script, it can be enabled again after rebooting.
+ - Followup runs of this script can be run without disabling bitlocker.
 
 ## Requirements:
 - [X] Windows 10 Enterprise (**Preferred**) or Windows 10 Professional
