@@ -94,4 +94,4 @@ The script may be launched from the extracted GitHub download like this:
 iex ((New-Object System.Net.WebClient).DownloadString('https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'))
 ```
 <img src="https://raw.githubusercontent.com/simeononsecurity/Windows-Optimize-Harden-Debloat/master/.github/images/w10automatic.gif" alt="Example of 
-Windows-Optimize-Harden-Debloat automatic install" width="500px">
+Windows-Optimize-Harden-Debloat automatic install">
