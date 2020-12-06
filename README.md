@@ -13,8 +13,6 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - This script is designed in such a way that the optimizations, unlike some other scripts, will not break core windows functionality.
  - Features like Windows Update, Windows Defender, the Windows Store, and Cortona have been restricted, but are not in a disfunctional state like most other Windows 10 Privacy scripts.
 - If you seek a minimized script targeted only to commercial environments, please see this [GitHub Repository](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
-- **Bitlocker must be suspended** prior to implementing this script, it can be enabled again after rebooting.
- - Followup runs of this script can be run without disabling bitlocker.
 
 ## Requirements:
 - [X] Windows 10 Enterprise (**Preferred**) or Windows 10 Professional
@@ -29,6 +27,8 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
   - [Hardware Requirements for Virtualization-Based Security](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-vbs)
   - [Hardware Requirements for Windows Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/reqs-wd-app-guard)
   - [Hardware Requirements for Windows Defender Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-requirements)
+- [X] Bitlocker must be suspended or turned off prior to implementing this script, it can be enabled again after rebooting.
+ - Followup runs of this script can be run without disabling bitlocker.
 
 ## Recommended reading material:
   - [System Guard Secure Launch](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-system-guard/system-guard-secure-launch-and-smm-protection#requirements-met-by-system-guard-enabled-machines)
