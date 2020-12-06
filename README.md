@@ -21,7 +21,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [X] [Standards](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure) for a highly secure Windows 10 device
 - [X] System is [fully up to date](https://support.microsoft.com/en-gb/help/4027667/windows-10-update)
   - Currently Windows 10 **v1909** or **v2004**. 
-  - Run the [Windows 10 Upgrade Assistant](https://support.microsoft.com/en-us/help/3159635/windows-10-update-assistant) to be update and verify latest major release.
+  - Run the [Windows 10 Upgrade Assistant](https://support.microsoft.com/en-us/help/3159635/windows-10-update-assistant) to update and verify latest major release.
 - [X] Bitlocker must be suspended or turned off prior to implementing this script, it can be enabled again after rebooting.
   - Follow-up runs of this script can be run without disabling bitlocker.
 - [X] Hardware Requirements
