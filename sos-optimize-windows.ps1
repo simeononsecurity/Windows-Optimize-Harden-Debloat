@@ -366,8 +366,6 @@ Start-Job -Name "Protect-Privacy" -ScriptBlock {
 #This includes fixes by xsisbest
 Start-Job -Name "FixWhitelistedApps" -ScriptBlock {
     
-    Param([switch]$Debloat)
-    
     If (!(Get-AppxPackage -AllUsers | Select-Object Microsoft.Paint3D, Microsoft.MSPaint, Microsoft.WindowsCalculator, Microsoft.WindowsStore, Microsoft.MicrosoftStickyNotes, Microsoft.WindowsSoundRecorder, Microsoft.Windows.Photos)) {
     
         #Credit to abulgatz for the 4 lines of code
@@ -382,8 +380,6 @@ Start-Job -Name "FixWhitelistedApps" -ScriptBlock {
 }
 
 Start-Job -Name "CheckDMWService" -ScriptBlock {
-
-    Param([switch]$Debloat)
   
     If (Get-Service -Name dmwappushservice | Where-Object { $_.StartType -eq "Disabled" }) {
         Set-Service -Name dmwappushservice -StartupType Automatic
@@ -395,7 +391,6 @@ Start-Job -Name "CheckDMWService" -ScriptBlock {
 }
 
 Start-Job -Name "CheckInstallService" -ScriptBlock {
-    Param([switch]$Debloat)
     If (Get-Service -Name InstallService | Where-Object { $_.Status -eq "Stopped" }) {  
         Start-Service -Name InstallService
         Set-Service -Name InstallService -StartupType Automatic 
@@ -438,107 +433,61 @@ Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
     #Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
     #Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
     #Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *ConnectivityStore* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *ConnectivityStore* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *DolbyLaboratories.DolbyAccess* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *DolbyLaboratories.DolbyAccess* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *FarmHeroesSaga* | Remove-AppxPackage
-    Get-AppxPackage -allusers *FarmHeroesSaga* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.3dbuilder* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.3dbuilder* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Appconnector* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Appconnector* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Asphalt8Airborne* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Asphalt8Airborne* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.BingNews* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.BingNews* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.BingWeather* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.BingWeather* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.DrawboardPDF* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.DrawboardPDF* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.GetHelp* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.GetHelp* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Getstarted* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Getstarted* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MSPaint* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MSPaint* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Messaging* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Messaging* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MixedReality.Portal* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MixedReality.Portal* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.OneConnect* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.OneConnect* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Print3D* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Print3D* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.SkypeApp* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.SkypeApp* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Whiteboard* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Whiteboard* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsAlarms* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsAlarms* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsMaps* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsMaps* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.YourPhone* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.YourPhone* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.ZuneMusic* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.ZuneMusic* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.ZuneVideo* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.ZuneVideo* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft3DViewer* |  Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft3DViewer* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft3DViewer* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *MinecraftUWP* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *MinecraftUWP* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Netflix* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Netflix* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Office.Sway* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Office.Sway* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *OneNote* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *OneNote* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *PandoraMediaInc* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *PandoraMediaInc* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Todos* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Todos* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Twitter* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Twitter* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *WindowsScan* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *WindowsScan* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *bingsports* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *bingsports* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *candycrush* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *candycrush* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *empires* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *empires* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *microsoft.windowscommunicationsapps* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *microsoft.windowscommunicationsapps* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *spotify* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *spotify* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage Microsoft3DViewer | Remove-AppxPackage
+    Get-AppxPackage *Microsoft.549981C3F5F10*|Remove-AppxPackage|Remove-AppxPackage
+    Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *CommsPhone*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *ConnectivityStore*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *DolbyLaboratories.DolbyAccess*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Facebook*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *FarmHeroesSaga*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.3dbuilder*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Appconnector*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Asphalt8Airborne*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.BingNews*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.BingWeather*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.DrawboardPDF*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.GamingApp*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.GetHelp*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Getstarted*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MSPaint*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Messaging*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Microsoft3DViewer*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeHub*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeOneNote*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MicrosoftStickyNotes*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MixedReality.Portal*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.OneConnect*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.People*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Print3D*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.SkypeApp*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Wallet*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Whiteboard*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.WindowsAlarms*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.WindowsCommunicationsApps*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.WindowsMaps*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.YourPhone*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.ZuneMusic*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.ZuneVideo*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft3DViewer*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *MinecraftUWP*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Netflix*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Office.Sway*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *OneNote*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *PandoraMediaInc*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Todos*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Twitter*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *WindowsScan*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *bingsports*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *candycrush*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *empires*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *microsoft.windowscommunicationsapps*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *spotify*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *windowsphone*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *xing*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage Microsoft3DViewer
 }
 
 Start-Job -Name "Disable Telemetry and Services" -ScriptBlock {
