@@ -18,14 +18,14 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\P
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name ColorPrevalence -Type DWORD -Value "00000000" -Force | Out-Null
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name EnableTransparency -Type DWORD -Value "00000001" -Force | Out-Null
 
-#Install Latest Windows Updates
-Start-Job -Name "Windows Updates" -ScriptBlock { Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot }
-
 #Remove and Refresh Local Policies
 Remove-Item -Recurse -Force "$env:WinDir\System32\GroupPolicy" | Out-Null
 Remove-Item -Recurse -Force "$env:WinDir\System32\GroupPolicyUsers" | Out-Null
 secedit /configure /cfg "$env:WinDir\inf\defltbase.inf" /db defltbase.sdb /verbose | Out-Null
 gpupdate /force | Out-Null
+
+#Install Latest Windows Updates
+Start-Job -Name "Windows Updates" -ScriptBlock { Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot }
 
 Start-Job -Name "Mitigations" -ScriptBlock {
     #####SPECTURE MELTDOWN#####
