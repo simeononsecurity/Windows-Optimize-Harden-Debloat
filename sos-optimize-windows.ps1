@@ -747,10 +747,12 @@ Start-Job -Name "Disable Telemetry and Services" -ScriptBlock {
     #Disable PowerShell 7+ Telemetry
     $POWERSHELL_Telemetry_OPTOUT = $true
     [System.Environment]::SetEnvironmentVariable('POWERSHELL_Telemetry_OPTOUT', 1 , [System.EnvironmentVariableTarget]::Machine)
-    
+    Write-Host $POWERSHELL_Telemetry_OPTOUT
+
     #Disable NET Core CLI Telemetry
     $DOTNET_CLI_Telemetry_OPTOUT = $true
     [System.Environment]::SetEnvironmentVariable('DOTNET_CLI_Telemetry_OPTOUT', 1 , [System.EnvironmentVariableTarget]::Machine)
+    Write-Host $DOTNET_CLI_Telemetry_OPTOUT
 
     #Disable Office Telemetry
     Set-ItemProperty -Path "HKCU\SOFTWARE\Microsoft\Office\Common\ClientTelemetry" -Name "DisableTelemetry" -Type "DWORD" -Value 1 -Force
