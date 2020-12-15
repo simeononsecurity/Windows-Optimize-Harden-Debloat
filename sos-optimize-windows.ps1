@@ -12,12 +12,6 @@ Get-ChildItem C:\Windows\System32\WindowsPowerShell\v1.0\Modules\PSWindowsUpdate
 #Install PSWindowsUpdate
 Import-Module -Name PSWindowsUpdate -Force -Global
 
-#Enable Darkmode 
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name AppsUseLightTheme -Type DWORD -Value "00000000" -Force | Out-Null
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name SystemUsesLightTheme -Type DWORD -Value "00000000" -Force | Out-Null
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name ColorPrevalence -Type DWORD -Value "00000000" -Force | Out-Null
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name EnableTransparency -Type DWORD -Value "00000001" -Force | Out-Null
-
 #Remove and Refresh Local Policies
 Remove-Item -Recurse -Force "$env:WinDir\System32\GroupPolicy" | Out-Null
 Remove-Item -Recurse -Force "$env:WinDir\System32\GroupPolicyUsers" | Out-Null
@@ -25,8 +19,64 @@ secedit /configure /cfg "$env:WinDir\inf\defltbase.inf" /db defltbase.sdb /verbo
 gpupdate /force | Out-Null
 
 #Install Latest Windows Updates
-Start-Job -Name "Windows Updates" -ScriptBlock { Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot }
+Start-Job -Name "Windows Updates" -ScriptBlock {Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot }
 
+
+Start-Job -Name "Customizations" -ScriptBlock {
+    #Enable Darkmode 
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name AppsUseLightTheme -Type DWORD -Value "00000000" -Force | Out-Null
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name SystemUsesLightTheme -Type DWORD -Value "00000000" -Force | Out-Null
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name ColorPrevalence -Type DWORD -Value "00000000" -Force | Out-Null
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name EnableTransparency -Type DWORD -Value "00000001" -Force | Out-Null
+
+    #Clear Start Menu
+    #https://github.com/builtbybel/privatezilla/blob/master/scripts/Unpin%20Startmenu%20Tiles.ps1
+    $START_MENU_LAYOUT = @"
+<LayoutModificationTemplate xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" Version="1" xmlns:taskbar="http://schemas.microsoft.com/Start/2014/TaskbarLayout" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification">
+    <LayoutOptions StartTileGroupCellWidth="6" />
+    <DefaultLayoutOverride>
+        <StartLayoutCollection>
+            <defaultlayout:StartLayout GroupCellWidth="6" />
+        </StartLayoutCollection>
+    </DefaultLayoutOverride>
+</LayoutModificationTemplate>
+"@
+    $layoutFile = "C:\Windows\StartMenuLayout.xml"
+
+    #Delete layout file if it already exists
+    If (Test-Path $layoutFile) {
+        Remove-Item $layoutFile
+    }
+    #Creates the blank layout file
+    $START_MENU_LAYOUT | Out-File $layoutFile -Encoding ASCII
+    $regAliases = @("HKLM", "HKCU")
+    #Assign the start layout and force it to apply with "LockedStartLayout" at both the machine and user level
+    foreach ($regAlias in $regAliases) {
+        $basePath = $regAlias + ":\SOFTWARE\Policies\Microsoft\Windows"
+        $keyPath = $basePath + "\Explorer" 
+        IF (!(Test-Path -Path $keyPath)) { 
+            New-Item -Path $basePath -Name "Explorer"
+        }
+        Set-ItemProperty -Path $keyPath -Name "LockedStartLayout" -Value 1
+        Set-ItemProperty -Path $keyPath -Name "StartLayoutFile" -Value $layoutFile
+    }
+    #Restart Explorer, open the start menu (necessary to load the new layout), and give it a few seconds to process
+    Stop-Process -name explorer
+    Start-Sleep -s 5
+    $wshell = New-Object -ComObject wscript.shell; $wshell.SendKeys('^{ESCAPE}')
+    Start-Sleep -s 5
+    #Enable the ability to pin items again by disabling "LockedStartLayout"
+    foreach ($regAlias in $regAliases) {
+        $basePath = $regAlias + ":\SOFTWARE\Policies\Microsoft\Windows"
+        $keyPath = $basePath + "\Explorer" 
+        Set-ItemProperty -Path $keyPath -Name "LockedStartLayout" -Value 0
+    }
+    #Restart Explorer and delete the layout file
+    Stop-Process -name explorer
+    # Uncomment the next line to make clean start menu default for all new users
+    Import-StartLayout -LayoutPath $layoutFile -MountPath $env:SystemDrive\
+    Remove-Item $layoutFile
+}
 Start-Job -Name "Mitigations" -ScriptBlock {
     #####SPECTURE MELTDOWN#####
     #https://support.microsoft.com/en-us/help/4073119/protect-against-speculative-execution-side-channel-vulnerabilities-in
@@ -361,6 +411,8 @@ Start-Job -Name "Protect-Privacy" -ScriptBlock {
     Get-ScheduledTask -TaskName UsbCeip | Disable-ScheduledTask -ErrorAction SilentlyContinue
     Get-ScheduledTask -TaskName DmClient | Disable-ScheduledTask -ErrorAction SilentlyContinue
     Get-ScheduledTask -TaskName DmClientOnScenarioDownload | Disable-ScheduledTask -ErrorAction SilentlyContinue
+    
+    
 }
 
 #This includes fixes by xsisbest
@@ -433,60 +485,60 @@ Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
     #Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
     #Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
     #Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage *Microsoft.549981C3F5F10*|Remove-AppxPackage|Remove-AppxPackage
-    Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *CommsPhone*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *ConnectivityStore*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *DolbyLaboratories.DolbyAccess*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Facebook*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *FarmHeroesSaga*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.3dbuilder*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Appconnector*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Asphalt8Airborne*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.BingNews*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.BingWeather*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.DrawboardPDF*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.GamingApp*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.GetHelp*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Getstarted*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MSPaint*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Messaging*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Microsoft3DViewer*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeHub*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeOneNote*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftStickyNotes*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MixedReality.Portal*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.OneConnect*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.People*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Print3D*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.SkypeApp*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Wallet*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Whiteboard*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsAlarms*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsCommunicationsApps*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsMaps*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.YourPhone*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.ZuneMusic*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.ZuneVideo*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft3DViewer*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *MinecraftUWP*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Netflix*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Office.Sway*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *OneNote*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *PandoraMediaInc*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Todos*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Twitter*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *WindowsScan*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *bingsports*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *candycrush*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *empires*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *microsoft.windowscommunicationsapps*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *spotify*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *windowsphone*|Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *xing*|Remove-AppxPackage -AllUsers
+    Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage | Remove-AppxPackage
+    Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *ConnectivityStore* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *DolbyLaboratories.DolbyAccess* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *FarmHeroesSaga* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.3dbuilder* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Appconnector* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Asphalt8Airborne* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.BingNews* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.BingWeather* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.DrawboardPDF* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.GetHelp* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Getstarted* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MSPaint* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Messaging* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Microsoft3DViewer* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeOneNote* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.MixedReality.Portal* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.OneConnect* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.People* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Print3D* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.SkypeApp* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Wallet* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.Whiteboard* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.WindowsAlarms* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.WindowsCommunicationsApps* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.WindowsMaps* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.YourPhone* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.ZuneMusic* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft.ZuneVideo* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Microsoft3DViewer* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *MinecraftUWP* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Netflix* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Office.Sway* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *OneNote* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *PandoraMediaInc* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Todos* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *Twitter* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *WindowsScan* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *bingsports* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *candycrush* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *empires* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *microsoft.windowscommunicationsapps* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *spotify* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage -AllUsers
+    Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
     Get-AppxPackage Microsoft3DViewer
 }
 
@@ -515,6 +567,9 @@ Start-Job -Name "Disable Telemetry and Services" -ScriptBlock {
     Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate" -Name ExcludeWUDriversInQualityUpdate -Type DWORD -Value 1 -Force
     Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeCleanupEnabled" -Type String -Value 0 -Force
     Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeCleanupReportingEnabled" -Type String -Value 0 -Force
+    New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name ChromeCleanupEnabled -Type String -Value 0 -Force
+    New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name ChromeCleanupReportingEnabled -Type String -Value 0 -Force
+    New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name MetricsReportingEnabled -Type String -Value 0 -Force
     New-Item -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\" -Name "software_reporter_tool.exe" -Force
     Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\software_reporter_tool.exe" -Name Debugger -Type String -Value "%windir%\System32\taskkill.exe" -Force
     Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "MetricsReportingEnabled" -Type String -Value 0 -Force
@@ -1046,6 +1101,7 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     #Disable CCleaner Monitoring && more
     Stop-Process -Force -Name "IMAGENAME eq CCleaner*"
     schtasks /Change /TN "CCleaner Update" /Disable
+    Get-ScheduledTask -TaskName "CCleaner Update" | Disable-ScheduledTask
     Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "Monitoring" -Type STRING -Value 0 -Force
     Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "HelpImproveCCleaner" -Type STRING -Value 0 -Force
     Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "SystemMonitoring" -Type STRING -Value 0 -Force
@@ -1060,12 +1116,16 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     #Disable Dropbox Update service
     Set-Service dbupdate -StartupType Disabled
     Set-Service dbupdatem -StartupType Disabled
-    schtasks /Change /TN "DropboxUpdateTaskMachineCore" /Disable
-    schtasks /Change /TN "DropboxUpdateTaskMachineUA" /Disable
+    Get-ScheduledTask -TaskName "DropboxUpdateTaskMachineCore" | Disable-ScheduledTask
+    Get-ScheduledTask -TaskName "DropboxUpdateTaskMachineUA" | Disable-ScheduledTask
+    #schtasks /Change /TN "DropboxUpdateTaskMachineCore" /Disable
+    #schtasks /Change /TN "DropboxUpdateTaskMachineUA" /Disable
 
     #Disable Google update service
-    schtasks /Change /TN "GoogleUpdateTaskMachineCore" /Disable
-    schtasks /Change /TN "GoogleUpdateTaskMachineUA" /Disable
+    Get-ScheduledTask -TaskName "GoogleUpdateTaskMachineCore" | Disable-ScheduledTask
+    Get-ScheduledTask -TaskName "GoogleUpdateTaskMachineUA" | Disable-ScheduledTask
+    #schtasks /Change /TN "GoogleUpdateTaskMachineCore" /Disable
+    #schtasks /Change /TN "GoogleUpdateTaskMachineUA" /Disable
 
     #Disable Media Player telemetry
     Set-ItemProperty -Path "HKCU:\Software\Microsoft\MediaPlayer\Preferences" -Name "UsageTracking" -Type DWORD -Value 0 -Force
@@ -1076,6 +1136,8 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     Set-Service WMPNetworkSvc -StartupType Disabled
 
     #Disable Microsoft Office telemetry
+    Get-ScheduledTask -TaskName "OfficeTelemetryAgentFallBack2016" | Disable-ScheduledTask
+    Get-ScheduledTask -TaskName "OfficeTelemetryAgentLogOn2016" | Disable-ScheduledTask
     Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Office\15.0\osm" -Name "Enablelogging" -Type DWORD -Value 0 -Force
     Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Office\15.0\osm" -Name "EnableUpload" -Type DWORD -Value 0 -Force
     Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Office\16.0\osm" -Name "Enablelogging" -Type DWORD -Value 0 -Force
