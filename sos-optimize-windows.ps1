@@ -1641,11 +1641,6 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     del /s %systemdrive%\System32\DriverStore\FileRepository\NvTelemetry*.dll
     rmdir /s /q "%ProgramFiles(x86)%\NVIDIA Corporation\NvTelemetry" 2>nul
     rmdir /s /q "%ProgramFiles%\NVIDIA Corporation\NvTelemetry" 2>nul
-    #Uninstall NVIDIA telemetry tasks
-    if exist "%ProgramFiles%\NVIDIA Corporation\Installer2\InstallerCore\NVI2.DLL" (
-        rundll32 "%PROGRAMFILES%\NVIDIA Corporation\Installer2\InstallerCore\NVI2.DLL", UninstallPackage NvTelemetryContainer
-        rundll32 "%PROGRAMFILES%\NVIDIA Corporation\Installer2\InstallerCore\NVI2.DLL", UninstallPackage NvTelemetry
-    )
 
     #Disable Razer Game Scanner service
     Stop-Service "Razer Game Scanner Service"
@@ -1854,14 +1849,6 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled" "Type" "LooselyCoupled"
     Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled" "Value" "Deny"
     Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled" "InitialAppValue" "Unspecified"
-    foreach ($key in (Get-ChildItem "HKCU:\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global")) {
-        if ($key.PSChildName -EQ "LooselyCoupled") {
-            continue
-        }
-        Set-ItemProperty ("HKCU:\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\" + $key.PSChildName) "Type" "InterfaceClass"
-        Set-ItemProperty ("HKCU:\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\" + $key.PSChildName) "Value" "Deny"
-        Set-ItemProperty ("HKCU:\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\" + $key.PSChildName) "InitialAppValue" "Unspecified"
-    }
 
     Write-Output "Disable location sensor"
     Mkdir -Force  "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Sensor\Permissions\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}"
@@ -2301,12 +2288,6 @@ Start-Job -Name "Image Cleanup" -ScriptBlock {
     Powershell -Command "$bin = (New-Object -ComObject Shell.Application).NameSpace(10);$bin.items() | ForEach { Write-Host "Deleting $($_.Name) from Recycle Bin"; Remove-Item $_.Path -Recurse -Force}"
     #Delete controversial default0 user
     net user defaultuser0 /delete 2>nul
-    #Clear credentials from Windows Credential Manager
-    cmdkey.exe /list > "$env:TEMP\List.txt"
-    findstr.exe Target "$env:TEMP\List.txt" > "$env:TEMP\tokensonly.txt"
-    FOR /F "tokens=1,2 delims= " %%G IN ($env:TEMP\tokensonly.txt) DO cmdkey.exe /delete:%%H
-    del "$env:TEMP\List.txt" /s /f /q
-    del "$env:TEMP\tokensonly.txt" /s /f /q
     #Clear thumbnail cache
     del /f /s /q /a $env:LocalAppData\Microsoft\Windows\Explorer\*.db
     #Clear Windows temp files
