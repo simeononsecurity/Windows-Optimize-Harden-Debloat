@@ -44,6 +44,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [Microsoft Security Compliance Toolkit 1.0](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
 
 ## Additional configurations were considered from:
+- [BuiltByBel - PrivateZilla](https://github.com/builtbybel/privatezilla)
 - [CERT - IE Scripting Engine Memory Corruption](https://kb.cert.org/vuls/id/573168/)
 - [Dirteam - SSL Hardening](https://dirteam.com/sander/2019/07/30/howto-disable-weak-protocols-cipher-suites-and-hashing-algorithms-on-web-application-proxies-ad-fs-servers-and-windows-servers-running-azure-ad-connect/)
 - [Microsoft - Managing Windows 10 Telemetry and Callbacks](https://docs.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services)
