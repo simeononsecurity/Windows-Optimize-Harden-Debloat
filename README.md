@@ -59,6 +59,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [NSACyber - Bitlocker Guidance](https://github.com/nsacyber/BitLocker-Guidance)
 - [NSACyber - Hardware-and-Firmware-Security-Guidance](https://github.com/nsacyber/Hardware-and-Firmware-Security-Guidance)
 - [NSACyber - Windows Secure Host Baseline](https://github.com/nsacyber/Windows-Secure-Host-Baseline)
+- [UnderGroundWires - Privacy.S**Y](https://github.com/undergroundwires/privacy.sexy)
 - [Sycnex - Windows10Debloater](https://github.com/Sycnex/Windows10Debloater)
 - [The-Virtual-Desktop-Team - Virtual-Desktop-Optimization-Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
 - [TheVDIGuys - Windows 10 VDI Optimize](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize)
