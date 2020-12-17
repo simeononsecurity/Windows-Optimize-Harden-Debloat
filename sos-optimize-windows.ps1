@@ -170,7 +170,7 @@ Start-Job -Name "Windows Defender Hardening" -ScriptBlock {
 
     #Enable Windows Defender Application Control
     #https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/select-types-of-rules-to-create
-    Set-RuleOption -FilePath "C:\temp\Windows Defender\WDAC_V1_Audit.xml" -Option 0
+    Set-RuleOption -FilePath "C:\temp\Windows Defender\WDAC_V1_Recommended_Audit.xml" -Option 0
 
     #Windows Defender Hardening
     #https://www.powershellgallery.com/packages/WindowsDefender_InternalEvaluationSetting
