@@ -2448,27 +2448,45 @@ Start-Job -Name "Image Cleanup" -ScriptBlock {
 
 ##Firefox Config Import
 #https://www.itsupportguides.com/knowledge-base/tech-tips-tricks/how-to-customise-firefox-installs-using-mozilla-cfg/
-#https://github.com/simeononsecurity/FireFox-STIG-Script/blob/master/sos-firefoxstig.ps1
+#https://github.com/simeononsecurity/FireFox-STIG-Script
 Write-Host "Implementing FireFox STIG"
 $firefox64 = "C:\Program Files\Mozilla Firefox"
 $firefox32 = "C:\Program Files (x86)\Mozilla Firefox"
-Copy-Item -Path ".\Files\FireFox Configuration Files\defaults" -Destination $firefox64 -Force -Recurse | Out-Null
-Copy-Item -Path ".\Files\FireFox Configuration Files\mozilla.cfg" -Destination $firefox64 -Force | Out-Null
-Copy-Item -Path ".\Files\FireFox Configuration Files\local-settings.js" -Destination $firefox64 -Force | Out-Null
-Copy-Item -Path ".\Files\FireFox Configuration Files\defaults" -Destination $firefox32 -Force -Recurse | Out-Null
-Copy-Item -Path ".\Files\FireFox Configuration Files\mozilla.cfg" -Destination $firefox32 -Force | Out-Null
-Copy-Item -Path ".\Files\FireFox Configuration Files\local-settings.js" -Destination $firefox32 -Force | Out-Null
+If ((Test-Path -Path $firefox64) -eq $true){
+    Copy-Item -Path .\Files\"FireFox Configuration Files"\* -Destination $firefox64 -Force -Recurse | Out-Null
+    Write-Host "Firefox 64-Bit Configurations Installed"
+}Else {
+    Write-Host "FireFox 64-Bit Is Not Installed"
+}
+If ((Test-Path -Path $firefox32) -eq $true){
+    Copy-Item -Path .\Files\"FireFox Configuration Files"\* -Destination $firefox32 -Force -Recurse | Out-Null
+    Write-Host "Firefox 32-Bit Configurations Installed"
+}Else {
+    Write-Host "FireFox 32-Bit Is Not Installed"
+}
 
 #Java Config Import
 #https://gist.github.com/MyITGuy/9628895
 #http://stu.cbu.edu/java/docs/technotes/guides/deploy/properties.html
 #https://github.com/simeononsecurity/JAVA-STIG-Script
 Write-Host "Implementing Java JRE 8 STIG"
-New-Item "C:\Windows\Sun\Java\" -ItemType "directory" -Value "Deployment" -Force -ErrorAction SilentlyContinue | Out-Null
-New-Item "C:\temp\" -ItemType "directory" -Value "JAVA" -Force -ErrorAction SilentlyContinue | Out-Null
-Copy-Item -Path ".\Files\JAVA Configuration Files\deployment.config" -Destination "C:\Windows\Sun\Java\Deployment\" -Force | Out-Null
-Copy-Item -Path ".\Files\JAVA Configuration Files\deployment.properties" -Destination "C:\temp\JAVA\" -Force | Out-Null
-Copy-Item -Path ".\Files\JAVA Configuration Files\exception.sites" -Destination "C:\temp\JAVA\" -Force | Out-Null
+If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\deployment.config"){
+    Write-Host "Deployment Config Already Installed"
+}Else {
+    Write-Output "Installing Java Deployment Config...."
+    Mkdir "C:\Windows\Sun\Java\Deployment\"
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force | Out-Null
+    Write-Output "JAVA Configs Installed"
+}
+If (Test-Path -Path "C:\temp\JAVA\"){
+    Write-Host "Configs Already Deployed"
+}Else {
+    Write-Output "Installing Java Configurations...."
+    Mkdir "C:\temp\JAVA"
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\temp\JAVA\" -Force | Out-Null
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\exception.sites -Destination "C:\temp\JAVA\" -Force | Out-Null
+    Write-Output "JAVA Configs Installed"
+}
 
 #  Description:
 #This script blocks Telemetry related domains via the hosts file and related
