@@ -1393,9 +1393,6 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     #Broke too many things. Should be disabled in an enterprise, but not for personal systems
     #Write-Output "Disable Teredo"
     #Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\TCPIP\v6Transition" -Name Teredo_State -Type "String" -Value Disabled -Force
-    #Turn off Connect to suggested open hotspots and Connect to networks shared by my contacts
-    Write-Output "Turn off Connect to suggested open hotspots and Connect to networks shared by my contacts"
-    Set-ItemProperty -Path "HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\config" -Name AutoConnectAllowedOEM -Type "DWORD" -Value 0 -Force
     #Delivery Optimization
     Write-Output "Delivery Optimization"
     Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\DeliveryOptimization" -Name DODownloadMode -Type "DWORD" -Value 99 -Force
@@ -1551,10 +1548,6 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     ###Disable Timeline history ###
     ###Microsoft made Timeline available to the public with Windows 10 build 17063. It collects a history of activities you've performed, including files you've opened and web pages you've viewed in Edge.
     New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\System" -Name "EnableActivityFeed" -Type "DWORD" -Value 0 -Force
-    ###Disable Wi-Fi Sense ###
-    ###Wi-Fi Sense is a feature in Windows 10 that allows you to connect to your friends shared Wi-Fi connections. That is, you and your friends may opt to share your or their Wi-Fi connections. If your computer is logged into a Microsoft account, by default it will share your Wi-Fi password with your Skype, Outlook and Facebook friends, which means your Wi-Fi password will be sent to Microsoft. ###
-    ###You should at least stop your PC from sending your Wi-Fi password.
-    New-ItemProperty -Path "HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\config" -Name "AutoConnectAllowedOEM" -Type "DWORD" -Value 0 -Force
     ###Disable Windows Tips ###
     ###Microsoft uses diagnostic information to determine which tips are appropriate. If you enable this policy, you will no longer see Windows Tips, e.g. Spotlight and Consumer Features, Feedback Notifications etc.
     New-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\CloudContent" -Name "DisableSoftLanding" -Type "DWORD" -Value 1 -Force
