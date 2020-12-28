@@ -50,10 +50,10 @@ Start-Job -Name "Mitigations" -ScriptBlock {
     #Disable NetBIOS by updating Registry
     #http://blog.dbsnet.fr/disable-netbios-with-powershell#:~:text=Disabling%20NetBIOS%20over%20TCP%2FIP,connection%2C%20then%20set%20NetbiosOptions%20%3D%202
     $key = "HKLM:SYSTEM\CurrentControlSet\services\NetBT\Parameters\Interfaces"
-    Get-ChildItem $key | foreach { 
-    Write-Host("Modify $key\$($_.pschildname)")
-    $NetbiosOptions_Value = (Get-ItemProperty "$key\$($_.pschildname)").NetbiosOptions
-    Write-Host("NetbiosOptions updated value is $NetbiosOptions_Value")
+    Get-ChildItem $key | ForEach-Object { 
+        Write-Host("Modify $key\$($_.pschildname)")
+        $NetbiosOptions_Value = (Get-ItemProperty "$key\$($_.pschildname)").NetbiosOptions
+        Write-Host("NetbiosOptions updated value is $NetbiosOptions_Value")
     }
     
     #Disable WPAD
@@ -79,13 +79,12 @@ Start-Job -Name "Mitigations" -ScriptBlock {
 
     #Block Untrusted Fonts
     #https://adsecurity.org/?p=3299
-    New-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\" -Name "Kernel" -Force
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Kernel\" -Name "MitigationOptions" -Type "QWORD" -Value "1000000000000" -Force
     
     #Disable Office OLE
     #https://adsecurity.org/?p=3299
-    $officeversions = '16.0','15.0','14.0','12.0'
-    ForEach ($officeversion in $officeversions){
+    $officeversions = '16.0', '15.0', '14.0', '12.0'
+    ForEach ($officeversion in $officeversions) {
         New-Item -Path "HKLM:\SOFTWARE\Microsoft\Office\$officeversion\Outlook\" -Name "Security" -Force
         New-Item -Path "HKCU:\SOFTWARE\Microsoft\Office\$officeversion\Outlook\" -Name "Security" -Force
         Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Office\$officeversion\Outlook\Security\" -Name "ShowOLEPackageObj" -Type "DWORD" -Value "0" -Force
@@ -2420,16 +2419,18 @@ Start-Job -Name "Image Cleanup" -ScriptBlock {
 Write-Host "Implementing FireFox STIG"
 $firefox64 = "C:\Program Files\Mozilla Firefox"
 $firefox32 = "C:\Program Files (x86)\Mozilla Firefox"
-If ((Test-Path -Path $firefox64) -eq $true){
+If ((Test-Path -Path $firefox64) -eq $true) {
     Copy-Item -Path .\Files\"FireFox Configuration Files"\* -Destination $firefox64 -Force -Recurse | Out-Null
     Write-Host "Firefox 64-Bit Configurations Installed"
-}Else {
+}
+Else {
     Write-Host "FireFox 64-Bit Is Not Installed"
 }
-If ((Test-Path -Path $firefox32) -eq $true){
+If ((Test-Path -Path $firefox32) -eq $true) {
     Copy-Item -Path .\Files\"FireFox Configuration Files"\* -Destination $firefox32 -Force -Recurse | Out-Null
     Write-Host "Firefox 32-Bit Configurations Installed"
-}Else {
+}
+Else {
     Write-Host "FireFox 32-Bit Is Not Installed"
 }
 
@@ -2438,17 +2439,19 @@ If ((Test-Path -Path $firefox32) -eq $true){
 #http://stu.cbu.edu/java/docs/technotes/guides/deploy/properties.html
 #https://github.com/simeononsecurity/JAVA-STIG-Script
 Write-Host "Implementing Java JRE 8 STIG"
-If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\deployment.config"){
+If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\deployment.config") {
     Write-Host "Deployment Config Already Installed"
-}Else {
+}
+Else {
     Write-Output "Installing Java Deployment Config...."
     Mkdir "C:\Windows\Sun\Java\Deployment\"
     Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force | Out-Null
     Write-Output "JAVA Configs Installed"
 }
-If (Test-Path -Path "C:\temp\JAVA\"){
+If (Test-Path -Path "C:\temp\JAVA\") {
     Write-Host "Configs Already Deployed"
-}Else {
+}
+Else {
     Write-Output "Installing Java Configurations...."
     Mkdir "C:\temp\JAVA"
     Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\temp\JAVA\" -Force | Out-Null
