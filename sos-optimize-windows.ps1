@@ -692,6 +692,232 @@ Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
     Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage -AllUsers
     Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
     Get-AppxPackage Microsoft3DViewer | Remove-AppxPackage -AllUsers
+    #  Description:
+    #This script removes unwanted Apps that come with Windows. If you  do not want
+    #to remove certain Apps comment out the corresponding lines below.
+
+    Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
+    Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Mkdir -Force .psm1
+
+    Write-Output "Elevating privileges for this process"
+    do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
+
+    Write-Output "Uninstalling default apps"
+    $apps = @(
+        #default Windows 10 apps
+        "Microsoft.3DBuilder"
+        "Microsoft.Appconnector"
+        "Microsoft.BingFinance"
+        "Microsoft.BingNews"
+        "Microsoft.BingSports"
+        "Microsoft.BingTranslator"
+        "Microsoft.BingWeather"
+        #"Microsoft.FreshPaint"
+        "Microsoft.GamingServices"
+        "Microsoft.Microsoft3DViewer"
+        "Microsoft.MicrosoftOfficeHub"
+        "Microsoft.MicrosoftPowerBIForWindows"
+        "Microsoft.MicrosoftSolitaireCollection"
+        #"Microsoft.MicrosoftStickyNotes"
+        "Microsoft.MinecraftUWP"
+        "Microsoft.NetworkSpeedTest"
+        "Microsoft.Office.OneNote"
+        "Microsoft.People"
+        "Microsoft.Print3D"
+        "Microsoft.SkypeApp"
+        "Microsoft.Wallet"
+        #"Microsoft.Windows.Photos"
+        "Microsoft.WindowsAlarms"
+        #"Microsoft.WindowsCalculator"
+        "Microsoft.WindowsCamera"
+        "microsoft.windowscommunicationsapps"
+        "Microsoft.WindowsMaps"
+        "Microsoft.WindowsPhone"
+        "Microsoft.WindowsSoundRecorder"
+        #"Microsoft.WindowsStore"   #can't be re-installed
+        #"Microsoft.Xbox.TCUI"
+        #"Microsoft.XboxApp"
+        #"Microsoft.XboxGameOverlay"
+        #"Microsoft.XboxGamingOverlay"
+        #"Microsoft.XboxSpeechToTextOverlay"
+        "Microsoft.YourPhone"
+        "Microsoft.ZuneMusic"
+        "Microsoft.ZuneVideo"
+
+        #Threshold 2 apps
+        "Microsoft.CommsPhone"
+        "Microsoft.ConnectivityStore"
+        "Microsoft.GetHelp"
+        "Microsoft.Getstarted"
+        "Microsoft.Messaging"
+        "Microsoft.Office.Sway"
+        "Microsoft.OneConnect"
+        "Microsoft.WindowsFeedbackHub"
+
+        #Creators Update apps
+        "Microsoft.Microsoft3DViewer"
+        #"Microsoft.MSPaint"
+
+        #Redstone apps
+        "Microsoft.BingFoodAndDrink"
+        "Microsoft.BingHealthAndFitness"
+        "Microsoft.BingTravel"
+        "Microsoft.WindowsReadingList"
+
+        #Redstone 5 apps
+        "Microsoft.MixedReality.Portal"
+        "Microsoft.ScreenSketch"
+        #"Microsoft.XboxGamingOverlay"
+        "Microsoft.YourPhone"
+
+        #non-Microsoft
+        "2FE3CB00.PicsArt-PhotoStudio"
+        "46928bounde.EclipseManager"
+        "4DF9E0F8.Netflix"
+        "613EBCEA.PolarrPhotoEditorAcademicEdition"
+        "6Wunderkinder.Wunderlist"
+        "7EE7776C.LinkedInforWindows"
+        "89006A2E.AutodeskSketchBook"
+        "9E2F88E3.Twitter"
+        "A278AB0D.DisneyMagicKingdoms"
+        "A278AB0D.MarchofEmpires"
+        "ActiproSoftwareLLC.562882FEEB491" #next one is for the Code Writer from Actipro Software LLC
+        "CAF9E577.Plex"  
+        "ClearChannelRadioDigital.iHeartRadio"
+        "D52A8D61.FarmVille2CountryEscape"
+        "D5EA27B7.Duolingo-LearnLanguagesforFree"
+        "DB6EA5DB.CyberLinkMediaSuiteEssentials"
+        "DolbyLaboratories.DolbyAccess"
+        "DolbyLaboratories.DolbyAccess"
+        "Drawboard.DrawboardPDF"
+        "Facebook.Facebook"
+        "Fitbit.FitbitCoach"
+        "Flipboard.Flipboard"
+        "GAMELOFTSA.Asphalt8Airborne"
+        "KeeperSecurityInc.Keeper"
+        "NORDCURRENT.COOKINGFEVER"
+        "PandoraMediaInc.29680B314EFC2"
+        "Playtika.CaesarsSlotsFreeCasino"
+        "ShazamEntertainmentLtd.Shazam"
+        "SlingTVLLC.SlingTV"
+        "SpotifyAB.SpotifyMusic"
+        #"TheNewYorkTimes.NYTCrossword"
+        "ThumbmunkeysLtd.PhototasticCollage"
+        "TuneIn.TuneInRadio"
+        "WinZipComputing.WinZipUniversal"
+        "XINGAG.XING"
+        "flaregamesGmbH.RoyalRevolt2"
+        "king.com.*"
+        "king.com.BubbleWitch3Saga"
+        "king.com.CandyCrushSaga"
+        "king.com.CandyCrushSodaSaga"
+
+        #apps which other apps depend on
+        "Microsoft.Advertising.Xaml"
+    )
+
+    foreach ($app in $apps) {
+        Write-Output "Trying to remove $app"
+
+        Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -AllUsers
+
+        Get-AppXProvisionedPackage -Online |
+        Where-Object DisplayName -EQ $app |
+        Remove-AppxProvisionedPackage -Online
+    }
+
+    #Prevents Apps from re-installing
+    $cdm = @(
+        "ContentDeliveryAllowed"
+        "FeatureManagementEnabled"
+        "OemPreInstalledAppsEnabled"
+        "PreInstalledAppsEnabled"
+        "PreInstalledAppsEverEnabled"
+        "SilentInstalledAppsEnabled"
+        "SubscribedContent-314559Enabled"
+        "SubscribedContent-338387Enabled"
+        "SubscribedContent-338388Enabled"
+        "SubscribedContent-338389Enabled"
+        "SubscribedContent-338393Enabled"
+        "SubscribedContentEnabled"
+        "SystemPaneSuggestionsEnabled"
+    )
+
+    Mkdir -Force  "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
+    foreach ($key in $cdm) {
+        Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" $key 0
+    }
+
+    Mkdir -Force  "HKLM:\Software\Policies\Microsoft\WindowsStore"
+    Set-ItemProperty "HKLM:\Software\Policies\Microsoft\WindowsStore" "AutoDownload" 2
+
+    #Prevents "Suggested Applications" returning
+    Mkdir -Force  "HKLM:\Software\Policies\Microsoft\Windows\CloudContent"
+    Set-ItemProperty "HKLM:\Software\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
+
+
+    #  Description:
+    #This script will remove and disable OneDrive integration.
+
+    Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Mkdir -Force .psm1
+    Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
+
+    Write-Output "Kill OneDrive process"
+    Stop-Process -Force -Force -Name "OneDrive.exe"
+    Stop-Process -Force -Force -Name "explorer.exe"
+
+    Write-Output "Remove OneDrive"
+    if (Test-Path "$env:systemroot\System32\OneDriveSetup.exe") {
+        & "$env:systemroot\System32\OneDriveSetup.exe" /uninstall
+    }
+    if (Test-Path "$env:systemroot\SysWOW64\OneDriveSetup.exe") {
+        & "$env:systemroot\SysWOW64\OneDriveSetup.exe" /uninstall
+    }
+
+    Write-Output "Removing OneDrive leftovers"
+    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:localappdata\Microsoft\OneDrive"
+    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:programdata\Microsoft OneDrive"
+    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:systemdrive\OneDriveTemp"
+    #check if directory is empty before removing:
+    If ((Get-ChildItem "$env:userprofile\OneDrive" -Recurse | Measure-Object).Count -eq 0) {
+        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:userprofile\OneDrive"
+    }
+
+    Write-Output "Disable OneDrive via Group Policies"
+    Mkdir -Force  "HKLM:\Software\Wow6432Node\Policies\Microsoft\Windows\OneDrive"
+    Set-ItemProperty "HKLM:\Software\Wow6432Node\Policies\Microsoft\Windows\OneDrive" "DisableFileSyncNGSC" 1
+
+    Write-Output "Remove Onedrive from explorer sidebar"
+    New-PSDrive -PSProvider "Registry" -Root "HKEY_CLASSES_ROOT" -Name "HKCR"
+    mkdir -Force "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
+    Set-ItemProperty "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" "System.IsPinnedToNameSpaceTree" 0
+    mkdir -Force "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
+    Set-ItemProperty "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" "System.IsPinnedToNameSpaceTree" 0
+    Remove-PSDrive "HKCR"
+
+    #Thank you Matthew Israelsson
+    Write-Output "Removing run hook for new users"
+    reg load "hku\Default" "C:\Users\Default\NTUSER.DAT"
+    reg delete "HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\Run" /v "OneDriveSetup" /f
+    reg unload "hku\Default"
+
+    Write-Output "Removing startmenu entry"
+    Remove-Item -Force -ErrorAction SilentlyContinue "$env:userprofile\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
+
+    Write-Output "Removing scheduled task"
+    Get-ScheduledTask -TaskPath '\' -TaskName 'OneDrive*' -ea SilentlyContinue | Unregister-ScheduledTask -Confirm:$false
+
+    Write-Output "Restarting explorer"
+    Start-Process "explorer.exe"
+
+    Write-Output "Waiting for explorer to complete loading"
+    Start-Sleep 10
+
+    Write-Output "Removing additional OneDrive leftovers"
+    foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
+        Takeown-Folder $item.FullName
+        Remove-Item -Recurse -Force $item.FullName
+    }
 }
 
 Start-Job -Name "Disable Telemetry and Services" -ScriptBlock {
@@ -1830,233 +2056,6 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     Set-ItemProperty ("HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\features\" + $sid) "FeatureStates" 0x33c
     Set-ItemProperty "HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\features" "WiFiSenseCredShared" 0
     Set-ItemProperty "HKLM:\Software\Microsoft\WcmSvc\wifinetworkmanager\features" "WiFiSenseOpen" 0
-
-    #  Description:
-    #This script removes unwanted Apps that come with Windows. If you  do not want
-    #to remove certain Apps comment out the corresponding lines below.
-
-    Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
-    Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Mkdir -Force .psm1
-
-    Write-Output "Elevating privileges for this process"
-    do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
-
-    Write-Output "Uninstalling default apps"
-    $apps = @(
-        #default Windows 10 apps
-        "Microsoft.3DBuilder"
-        "Microsoft.Appconnector"
-        "Microsoft.BingFinance"
-        "Microsoft.BingNews"
-        "Microsoft.BingSports"
-        "Microsoft.BingTranslator"
-        "Microsoft.BingWeather"
-        #"Microsoft.FreshPaint"
-        "Microsoft.GamingServices"
-        "Microsoft.Microsoft3DViewer"
-        "Microsoft.MicrosoftOfficeHub"
-        "Microsoft.MicrosoftPowerBIForWindows"
-        "Microsoft.MicrosoftSolitaireCollection"
-        #"Microsoft.MicrosoftStickyNotes"
-        "Microsoft.MinecraftUWP"
-        "Microsoft.NetworkSpeedTest"
-        "Microsoft.Office.OneNote"
-        "Microsoft.People"
-        "Microsoft.Print3D"
-        "Microsoft.SkypeApp"
-        "Microsoft.Wallet"
-        #"Microsoft.Windows.Photos"
-        "Microsoft.WindowsAlarms"
-        #"Microsoft.WindowsCalculator"
-        "Microsoft.WindowsCamera"
-        "microsoft.windowscommunicationsapps"
-        "Microsoft.WindowsMaps"
-        "Microsoft.WindowsPhone"
-        "Microsoft.WindowsSoundRecorder"
-        #"Microsoft.WindowsStore"   #can't be re-installed
-        #"Microsoft.Xbox.TCUI"
-        #"Microsoft.XboxApp"
-        #"Microsoft.XboxGameOverlay"
-        #"Microsoft.XboxGamingOverlay"
-        #"Microsoft.XboxSpeechToTextOverlay"
-        "Microsoft.YourPhone"
-        "Microsoft.ZuneMusic"
-        "Microsoft.ZuneVideo"
-
-        #Threshold 2 apps
-        "Microsoft.CommsPhone"
-        "Microsoft.ConnectivityStore"
-        "Microsoft.GetHelp"
-        "Microsoft.Getstarted"
-        "Microsoft.Messaging"
-        "Microsoft.Office.Sway"
-        "Microsoft.OneConnect"
-        "Microsoft.WindowsFeedbackHub"
-
-        #Creators Update apps
-        "Microsoft.Microsoft3DViewer"
-        #"Microsoft.MSPaint"
-
-        #Redstone apps
-        "Microsoft.BingFoodAndDrink"
-        "Microsoft.BingHealthAndFitness"
-        "Microsoft.BingTravel"
-        "Microsoft.WindowsReadingList"
-
-        #Redstone 5 apps
-        "Microsoft.MixedReality.Portal"
-        "Microsoft.ScreenSketch"
-        #"Microsoft.XboxGamingOverlay"
-        "Microsoft.YourPhone"
-
-        #non-Microsoft
-        "2FE3CB00.PicsArt-PhotoStudio"
-        "46928bounde.EclipseManager"
-        "4DF9E0F8.Netflix"
-        "613EBCEA.PolarrPhotoEditorAcademicEdition"
-        "6Wunderkinder.Wunderlist"
-        "7EE7776C.LinkedInforWindows"
-        "89006A2E.AutodeskSketchBook"
-        "9E2F88E3.Twitter"
-        "A278AB0D.DisneyMagicKingdoms"
-        "A278AB0D.MarchofEmpires"
-        "ActiproSoftwareLLC.562882FEEB491" #next one is for the Code Writer from Actipro Software LLC
-        "CAF9E577.Plex"  
-        "ClearChannelRadioDigital.iHeartRadio"
-        "D52A8D61.FarmVille2CountryEscape"
-        "D5EA27B7.Duolingo-LearnLanguagesforFree"
-        "DB6EA5DB.CyberLinkMediaSuiteEssentials"
-        "DolbyLaboratories.DolbyAccess"
-        "DolbyLaboratories.DolbyAccess"
-        "Drawboard.DrawboardPDF"
-        "Facebook.Facebook"
-        "Fitbit.FitbitCoach"
-        "Flipboard.Flipboard"
-        "GAMELOFTSA.Asphalt8Airborne"
-        "KeeperSecurityInc.Keeper"
-        "NORDCURRENT.COOKINGFEVER"
-        "PandoraMediaInc.29680B314EFC2"
-        "Playtika.CaesarsSlotsFreeCasino"
-        "ShazamEntertainmentLtd.Shazam"
-        "SlingTVLLC.SlingTV"
-        "SpotifyAB.SpotifyMusic"
-        #"TheNewYorkTimes.NYTCrossword"
-        "ThumbmunkeysLtd.PhototasticCollage"
-        "TuneIn.TuneInRadio"
-        "WinZipComputing.WinZipUniversal"
-        "XINGAG.XING"
-        "flaregamesGmbH.RoyalRevolt2"
-        "king.com.*"
-        "king.com.BubbleWitch3Saga"
-        "king.com.CandyCrushSaga"
-        "king.com.CandyCrushSodaSaga"
-
-        #apps which other apps depend on
-        "Microsoft.Advertising.Xaml"
-    )
-
-    foreach ($app in $apps) {
-        Write-Output "Trying to remove $app"
-
-        Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -AllUsers
-
-        Get-AppXProvisionedPackage -Online |
-        Where-Object DisplayName -EQ $app |
-        Remove-AppxProvisionedPackage -Online
-    }
-
-    #Prevents Apps from re-installing
-    $cdm = @(
-        "ContentDeliveryAllowed"
-        "FeatureManagementEnabled"
-        "OemPreInstalledAppsEnabled"
-        "PreInstalledAppsEnabled"
-        "PreInstalledAppsEverEnabled"
-        "SilentInstalledAppsEnabled"
-        "SubscribedContent-314559Enabled"
-        "SubscribedContent-338387Enabled"
-        "SubscribedContent-338388Enabled"
-        "SubscribedContent-338389Enabled"
-        "SubscribedContent-338393Enabled"
-        "SubscribedContentEnabled"
-        "SystemPaneSuggestionsEnabled"
-    )
-
-    Mkdir -Force  "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
-    foreach ($key in $cdm) {
-        Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" $key 0
-    }
-
-    Mkdir -Force  "HKLM:\Software\Policies\Microsoft\WindowsStore"
-    Set-ItemProperty "HKLM:\Software\Policies\Microsoft\WindowsStore" "AutoDownload" 2
-
-    #Prevents "Suggested Applications" returning
-    Mkdir -Force  "HKLM:\Software\Policies\Microsoft\Windows\CloudContent"
-    Set-ItemProperty "HKLM:\Software\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
-
-
-    #  Description:
-    #This script will remove and disable OneDrive integration.
-
-    Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Mkdir -Force .psm1
-    Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
-
-    Write-Output "Kill OneDrive process"
-    Stop-Process -Force -Force -Name "OneDrive.exe"
-    Stop-Process -Force -Force -Name "explorer.exe"
-
-    Write-Output "Remove OneDrive"
-    if (Test-Path "$env:systemroot\System32\OneDriveSetup.exe") {
-        & "$env:systemroot\System32\OneDriveSetup.exe" /uninstall
-    }
-    if (Test-Path "$env:systemroot\SysWOW64\OneDriveSetup.exe") {
-        & "$env:systemroot\SysWOW64\OneDriveSetup.exe" /uninstall
-    }
-
-    Write-Output "Removing OneDrive leftovers"
-    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:localappdata\Microsoft\OneDrive"
-    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:programdata\Microsoft OneDrive"
-    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:systemdrive\OneDriveTemp"
-    #check if directory is empty before removing:
-    If ((Get-ChildItem "$env:userprofile\OneDrive" -Recurse | Measure-Object).Count -eq 0) {
-        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:userprofile\OneDrive"
-    }
-
-    Write-Output "Disable OneDrive via Group Policies"
-    Mkdir -Force  "HKLM:\Software\Wow6432Node\Policies\Microsoft\Windows\OneDrive"
-    Set-ItemProperty "HKLM:\Software\Wow6432Node\Policies\Microsoft\Windows\OneDrive" "DisableFileSyncNGSC" 1
-
-    Write-Output "Remove Onedrive from explorer sidebar"
-    New-PSDrive -PSProvider "Registry" -Root "HKEY_CLASSES_ROOT" -Name "HKCR"
-    mkdir -Force "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
-    Set-ItemProperty "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" "System.IsPinnedToNameSpaceTree" 0
-    mkdir -Force "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
-    Set-ItemProperty "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" "System.IsPinnedToNameSpaceTree" 0
-    Remove-PSDrive "HKCR"
-
-    #Thank you Matthew Israelsson
-    Write-Output "Removing run hook for new users"
-    reg load "hku\Default" "C:\Users\Default\NTUSER.DAT"
-    reg delete "HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\Run" /v "OneDriveSetup" /f
-    reg unload "hku\Default"
-
-    Write-Output "Removing startmenu entry"
-    Remove-Item -Force -ErrorAction SilentlyContinue "$env:userprofile\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
-
-    Write-Output "Removing scheduled task"
-    Get-ScheduledTask -TaskPath '\' -TaskName 'OneDrive*' -ea SilentlyContinue | Unregister-ScheduledTask -Confirm:$false
-
-    Write-Output "Restarting explorer"
-    Start-Process "explorer.exe"
-
-    Write-Output "Waiting for explorer to complete loading"
-    Start-Sleep 10
-
-    Write-Output "Removing additional OneDrive leftovers"
-    foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
-        Takeown-Folder $item.FullName
-        Remove-Item -Recurse -Force $item.FullName
-    }
 }
 
 #Enable Disk Compression and Disable File Indexing
