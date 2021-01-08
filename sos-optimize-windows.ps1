@@ -2062,12 +2062,14 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
 Start-Job -Name "Enable Disk Compression and Disable File Indexing" -ScriptBlock {
     $DriveLetters = (Get-WmiObject -Class Win32_Volume).DriveLetter
     ForEach ($Drive in $DriveLetters) {
-        $indexing = $Drive.IndexingEnabled
-        #Write-Host "Enabling Disk Compression on the $Drive Drive"
-        #Enable-NtfsCompression -Path "$Drive"\ -Recurse
-        if ("$indexing" -eq $True) {
-            Write-Host "Disabling File Index on the $Drive Drive"
-            Get-WmiObject -Class Win32_Volume -Filter "DriveLetter='$Drive'" | Set-WmiInstance -Arguments @{IndexingEnabled = $False } | Out-Null
+        If (-not ([string]::IsNullOrEmpty($Drive))) {
+            $indexing = $Drive.IndexingEnabled
+            #Write-Host "Enabling Disk Compression on the $Drive Drive"
+            #Enable-NtfsCompression -Path "$Drive"\ -Recurse
+            if ("$indexing" -eq $True) {
+                Write-Host "Disabling File Index on the $Drive Drive"
+                Get-WmiObject -Class Win32_Volume -Filter "DriveLetter='$Drive'" | Set-WmiInstance -Arguments @{IndexingEnabled = $False } | Out-Null
+            }
         }
     }
 }
