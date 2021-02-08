@@ -1474,7 +1474,6 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     #Disable Insider Preview Builds
     Write-Output "Disable Insider Preview Builds"
     Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\PreviewBuilds" -Name AllowBuildPreview -Type "DWORD" -Value 0 -Force
-    #IE Optimizations
     Write-Output "IE Optimizations"
     Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\PhishingFilter" -Name EnabledV9 -Type "DWORD" -Value 0 -Force
     New-Item -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\" -Name "Geolocation" -Force
@@ -1537,6 +1536,9 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     Write-Output "removing skype App"
     Get-AppxProvisionedPackage -Online | Where-Object { $_.PackageName -Like "Microsoft.SkypeApp" } | ForEach-Object { Remove-AppxProvisionedPackage -Online -PackageName $_.PackageName }
     ##General VM Optimizations
+    #Change TTL for ISP throttling workaround
+    int ipv4 set glob defaultcurhoplimit=65
+    int ipv6 set glob defaultcurhoplimit=65
     #Auto Cert Update
     Write-Output "Auto Cert Update"
     Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\SystemCertificates\AuthRoot" -Name DisableRootAutoUpdate -Type "DWORD" -Value 0 -Force
