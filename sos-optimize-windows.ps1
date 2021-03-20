@@ -705,6 +705,7 @@ Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
     Write-Output "Uninstalling default apps"
     $apps = @(
         #default Windows 10 apps
+        "Microsoft.549981C3F5F10" #Cortana
         "Microsoft.3DBuilder"
         "Microsoft.Appconnector"
         "Microsoft.BingFinance"
