@@ -853,7 +853,7 @@ Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
     Set-ItemProperty "HKLM:\Software\Policies\Microsoft\WindowsStore" "AutoDownload" 2
 
     #Prevents "Suggested Applications" returning
-    Mkdir -Force  "HKLM:\Software\Policies\Microsoft\Windows\CloudContent"
+    New-Item -Force  "HKLM:\Software\Policies\Microsoft\Windows\CloudContent"
     Set-ItemProperty "HKLM:\Software\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
 
 
