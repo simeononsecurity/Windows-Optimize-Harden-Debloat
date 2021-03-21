@@ -94,7 +94,7 @@ Get-ChildItem -Recurse *.ps1 | Unblock-File
 .\sos-optimize-windows.ps1
 ```
 ### Automated Install:
-The script may be launched from the extracted GitHub download like this:
+Use this one-liner to automatically download, unzip all supporting files, and run the latest version of the script.
 ```powershell
 iwr -useb 'https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'|iex
 ```
