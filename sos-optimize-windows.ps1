@@ -173,7 +173,7 @@ Start-Job -Name "Windows Defender Hardening" -ScriptBlock {
     #Enable Block at first sight
     Write-Host "Enable Block at first sight"
     Set-MpPreference -DisableBlockAtFirstSeen 0
-    #Enable potentially unwanted apps
+    #Enable potentially unwanted 
     Write-Host "Enable potentially unwanted apps"
     Set-MpPreference -PUAProtection Enabled
     #Schedule signature updates every 8 hours
@@ -594,237 +594,47 @@ Start-Job -Name "SSL Hardening" -ScriptBlock {
 }
 
 Start-Job -Name "SMB Optimizations and Hardening" -ScriptBlock {
-    #SMB Hardening
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters" -Name "RestrictNullSessAccess" -Type "DWORD" -Value 1 -Force
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" -Name "RestrictAnonymousSAM" -Type "DWORD" -Value 1 -Force   
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\LSA" -Name "RestrictAnonymous" -Type "DWORD" -Value 1 -Force
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -Name "NoLMHash" -Type "DWORD" -Value 1 -Force
-    Disable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol" -NoRestart
-    Disable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol-Client" -NoRestart
-    Disable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol-Server" -NoRestart
-
     #https://docs.microsoft.com/en-us/windows/privacy/
     #https://docs.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services
     #https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909
     #https://docs.microsoft.com/en-us/powershell/module/smbshare/set-smbserverconfiguration?view=win10-ps
     #SMB Optimizations
-    Write-Output "setting smb optimizations"
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" DisableBandwidthThrottling -Value 1 -Force
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" FileInfoCacheEntriesMax -Value 1024 -Force
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" DirectoryCacheEntriesMax -Value 1024 -Force
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" FileNotFoundCacheEntriesMax -Value 2048 -Force
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" RequireSecuritySignature -Value 256 -Force
+    Write-Output "SMB Optimizations"
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" -Name "DisableBandwidthThrottling" -Type "DWORD" -Value 1 -Force
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" -Name "FileInfoCacheEntriesMax" -Type "DWORD" -Value 1024 -Force
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" -Name "DirectoryCacheEntriesMax" -Type "DWORD" -Value 1024 -Force
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" -Name "FileNotFoundCacheEntriesMax"-Type "DWORD" -Value 2048 -Force
     Set-SmbServerConfiguration -EnableMultiChannel $true -Force 
-    Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force 
-    Set-SmbServerConfiguration -RequireSecuritySignature $True -Force 
-    Set-SmbServerConfiguration -EnableSecuritySignature $True -Force 
-    Set-SmbServerConfiguration -EncryptData $True -Force 
     Set-SmbServerConfiguration -MaxChannelPerSession 16 -Force
     Set-SmbServerConfiguration -ServerHidden $False -AnnounceServer $False -Force
     Set-SmbServerConfiguration -EnableLeasing $false -Force
     Set-SmbClientConfiguration -EnableLargeMtu $true -Force
     Set-SmbClientConfiguration -EnableMultiChannel $true -Force
+    
+    #SMB Hardening
+    Write-Output "SMB Hardening"
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters" -Name "RestrictNullSessAccess" -Type "DWORD" -Value 1 -Force
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" -Name "RestrictAnonymousSAM" -Type "DWORD" -Value 1 -Force
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" "RequireSecuritySignature" -Value 256 -Force
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\LSA" -Name "RestrictAnonymous" -Type "DWORD" -Value 1 -Force
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" -Name "NoLMHash" -Type "DWORD" -Value 1 -Force
+    Disable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol" -NoRestart
+    Disable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol-Client" -NoRestart
+    Disable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol-Server" -NoRestart
     Set-SmbClientConfiguration -RequireSecuritySignature $True -Force
     Set-SmbClientConfiguration -EnableSecuritySignature $True -Force
+    Set-SmbServerConfiguration -EncryptData $True -Force 
+    Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force 
 }
 
 Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
     #Removing Windows Bloatware
     Write-Host "Removing Bloatware"
-    #Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
-    #Get-AppxPackage -allusers *Microsoft.XboxApp* | Remove-AppxPackage -AllUsers
-    #Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
-    #Get-AppxPackage -allusers *Microsoft.XboxGamingOverlay* | Remove-AppxPackage -AllUsers
-    #Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
-    #Get-AppxPackage -allusers *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage | Remove-AppxPackage
-    Get-AppxPackage -allusers *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *CommsPhone* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *ConnectivityStore* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *DolbyLaboratories.DolbyAccess* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *FarmHeroesSaga* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.3dbuilder* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Appconnector* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Asphalt8Airborne* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.BingNews* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.BingWeather* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.DrawboardPDF* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.GamingApp* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.GetHelp* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Getstarted* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MSPaint* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Messaging* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Microsoft3DViewer* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftOfficeOneNote* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.MixedReality.Portal* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.OneConnect* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.People* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Print3D* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.SkypeApp* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Wallet* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.Whiteboard* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsAlarms* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsCommunicationsApps* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsMaps* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.YourPhone* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.ZuneMusic* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft.ZuneVideo* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Microsoft3DViewer* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *MinecraftUWP* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Netflix* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Office.Sway* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *OneNote* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *PandoraMediaInc* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Todos* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *Twitter* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *WindowsScan* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *bingsports* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *candycrush* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *empires* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *microsoft.windowscommunicationsapps* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *spotify* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage -allusers *xing* | Remove-AppxPackage -AllUsers
-    Get-AppxPackage Microsoft3DViewer | Remove-AppxPackage -AllUsers
-    #  Description:
-    #This script removes unwanted Apps that come with Windows. If you  do not want
-    #to remove certain Apps comment out the corresponding lines below.
-
-    Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
-    Import-Module -DisableNameChecking $PSScriptRoot\..\lib\Mkdir -Force .psm1
-
-    Write-Output "Elevating privileges for this process"
-    do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
-
-    Write-Output "Uninstalling default apps"
-    $apps = @(
-        #default Windows 10 apps
-        "Microsoft.549981C3F5F10" #Cortana
-        "Microsoft.3DBuilder"
-        "Microsoft.Appconnector"
-        "Microsoft.BingFinance"
-        "Microsoft.BingNews"
-        "Microsoft.BingSports"
-        "Microsoft.BingTranslator"
-        "Microsoft.BingWeather"
-        #"Microsoft.FreshPaint"
-        "Microsoft.GamingServices"
-        "Microsoft.Microsoft3DViewer"
-        "Microsoft.MicrosoftOfficeHub"
-        "Microsoft.MicrosoftPowerBIForWindows"
-        "Microsoft.MicrosoftSolitaireCollection"
-        #"Microsoft.MicrosoftStickyNotes"
-        "Microsoft.MinecraftUWP"
-        "Microsoft.NetworkSpeedTest"
-        "Microsoft.Office.OneNote"
-        "Microsoft.People"
-        "Microsoft.Print3D"
-        "Microsoft.SkypeApp"
-        "Microsoft.Wallet"
-        #"Microsoft.Windows.Photos"
-        "Microsoft.WindowsAlarms"
-        #"Microsoft.WindowsCalculator"
-        "Microsoft.WindowsCamera"
-        "microsoft.windowscommunicationsapps"
-        "Microsoft.WindowsMaps"
-        "Microsoft.WindowsPhone"
-        "Microsoft.WindowsSoundRecorder"
-        #"Microsoft.WindowsStore"   #can't be re-installed
-        #"Microsoft.Xbox.TCUI"
-        #"Microsoft.XboxApp"
-        #"Microsoft.XboxGameOverlay"
-        #"Microsoft.XboxGamingOverlay"
-        #"Microsoft.XboxSpeechToTextOverlay"
-        "Microsoft.YourPhone"
-        "Microsoft.ZuneMusic"
-        "Microsoft.ZuneVideo"
-
-        #Threshold 2 apps
-        "Microsoft.CommsPhone"
-        "Microsoft.ConnectivityStore"
-        "Microsoft.GetHelp"
-        "Microsoft.Getstarted"
-        "Microsoft.Messaging"
-        "Microsoft.Office.Sway"
-        "Microsoft.OneConnect"
-        "Microsoft.WindowsFeedbackHub"
-
-        #Creators Update apps
-        "Microsoft.Microsoft3DViewer"
-        #"Microsoft.MSPaint"
-
-        #Redstone apps
-        "Microsoft.BingFoodAndDrink"
-        "Microsoft.BingHealthAndFitness"
-        "Microsoft.BingTravel"
-        "Microsoft.WindowsReadingList"
-
-        #Redstone 5 apps
-        "Microsoft.MixedReality.Portal"
-        "Microsoft.ScreenSketch"
-        #"Microsoft.XboxGamingOverlay"
-        "Microsoft.YourPhone"
-
-        #non-Microsoft
-        "2FE3CB00.PicsArt-PhotoStudio"
-        "46928bounde.EclipseManager"
-        "4DF9E0F8.Netflix"
-        "613EBCEA.PolarrPhotoEditorAcademicEdition"
-        "6Wunderkinder.Wunderlist"
-        "7EE7776C.LinkedInforWindows"
-        "89006A2E.AutodeskSketchBook"
-        "9E2F88E3.Twitter"
-        "A278AB0D.DisneyMagicKingdoms"
-        "A278AB0D.MarchofEmpires"
-        "ActiproSoftwareLLC.562882FEEB491" #next one is for the Code Writer from Actipro Software LLC
-        "CAF9E577.Plex"  
-        "ClearChannelRadioDigital.iHeartRadio"
-        "D52A8D61.FarmVille2CountryEscape"
-        "D5EA27B7.Duolingo-LearnLanguagesforFree"
-        "DB6EA5DB.CyberLinkMediaSuiteEssentials"
-        "DolbyLaboratories.DolbyAccess"
-        "DolbyLaboratories.DolbyAccess"
-        "Drawboard.DrawboardPDF"
-        "Facebook.Facebook"
-        "Fitbit.FitbitCoach"
-        "Flipboard.Flipboard"
-        "GAMELOFTSA.Asphalt8Airborne"
-        "KeeperSecurityInc.Keeper"
-        "NORDCURRENT.COOKINGFEVER"
-        "PandoraMediaInc.29680B314EFC2"
-        "Playtika.CaesarsSlotsFreeCasino"
-        "ShazamEntertainmentLtd.Shazam"
-        "SlingTVLLC.SlingTV"
-        "SpotifyAB.SpotifyMusic"
-        #"TheNewYorkTimes.NYTCrossword"
-        "ThumbmunkeysLtd.PhototasticCollage"
-        "TuneIn.TuneInRadio"
-        "WinZipComputing.WinZipUniversal"
-        "XINGAG.XING"
-        "flaregamesGmbH.RoyalRevolt2"
-        "king.com.*"
-        "king.com.BubbleWitch3Saga"
-        "king.com.CandyCrushSaga"
-        "king.com.CandyCrushSodaSaga"
-
-        #apps which other apps depend on
-        "Microsoft.Advertising.Xaml"
-    )
-
-    foreach ($app in $apps) {
-        Write-Output "Trying to remove $app"
-
-        Get-AppxPackage -Name $app -AllUsers | Remove-AppxPackage -AllUsers
-
-        Get-AppXProvisionedPackage -Online |
-        Where-Object DisplayName -EQ $app |
-        Remove-AppxProvisionedPackage -Online
+    Write-Host "Removing Bloat Windows Apps"
+    $WindowsApps = "*ACGMediaPlayer*","*ActiproSoftwareLLC*","*AdobePhotoshopExpress*","*AdobeSystemsIncorporated.AdobePhotoshopExpress*","*BubbleWitch3Saga*","*CandyCrush*","*CommsPhone*","*ConnectivityStore*","*Dolby*","*Duolingo-LearnLanguagesforFree*","*EclipseManager*","*Facebook*","*FarmHeroesSaga*","*Flipboard*","*HiddenCity*","*Hulu*","*LinkedInforWindows*","*Microsoft.3dbuilder*","*Microsoft.549981C3F5F10*","*Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe*","*Microsoft.Advertising.Xaml_10.1712.5.0_x86__8wekyb3d8bbwe*","*Microsoft.Appconnector*","*Microsoft.Asphalt8Airborne*","*Microsoft.BingNews*","*Microsoft.BingWeather*","*Microsoft.DrawboardPDF*","*Microsoft.GamingApp*","*Microsoft.GetHelp*","*Microsoft.Getstarted*","*Microsoft.MSPaint*","*Microsoft.Messaging*","*Microsoft.Microsoft3DViewer*","*Microsoft.MicrosoftOfficeHub*","*Microsoft.MicrosoftOfficeOneNote*","*Microsoft.MicrosoftSolitaireCollection*","*Microsoft.MicrosoftStickyNotes*","*Microsoft.MixedReality.Portal*","*Microsoft.OneConnect*","*Microsoft.People*","*Microsoft.Print3D*","*Microsoft.SkypeApp*","*Microsoft.Wallet*","*Microsoft.Whiteboard*","*Microsoft.WindowsAlarms*","*Microsoft.WindowsCommunicationsApps*","*Microsoft.WindowsFeedbackHub*","*Microsoft.WindowsMaps*","*Microsoft.WindowsSoundRecorder*","*Microsoft.YourPhone*","*Microsoft.ZuneMusic*","*Microsoft.ZuneVideo*","*Microsoft3DViewer*","*MinecraftUWP*","*Netflix*","*Office.Sway*","*OneCalendar*","*OneNote*","*PandoraMediaInc*","*Royal Revolt*","*Speed Test*","*Sway*","*Todos*","*Twitter*","*Viber*","*WindowsScan*","*Wunderlist*","*bingsports*","*empires*","*spotify*","*windowsphone*","*xing*","2FE3CB00.PicsArt-PhotoStudio","46928bounde.EclipseManager","4DF9E0F8.Netflix","613EBCEA.PolarrPhotoEditorAcademicEdition","6Wunderkinder.Wunderlist","7EE7776C.LinkedInforWindows","89006A2E.AutodeskSketchBook","9E2F88E3.Twitter","A278AB0D.DisneyMagicKingdoms","A278AB0D.MarchofEmpires","ActiproSoftwareLLC.562882FEEB491","CAF9E577.Plex","ClearChannelRadioDigital.iHeartRadio","D52A8D61.FarmVille2CountryEscape","D5EA27B7.Duolingo-LearnLanguagesforFree","DB6EA5DB.CyberLinkMediaSuiteEssentials","DolbyLaboratories.DolbyAccess","Drawboard.DrawboardPDF","Facebook.Facebook","Fitbit.FitbitCoach","Flipboard.Flipboard","GAMELOFTSA.Asphalt8Airborne","KeeperSecurityInc.Keeper","Microsoft.3DBuilder","Microsoft.549981C3F5F10","Microsoft.Advertising.Xaml","Microsoft.AppConnector","Microsoft.BingFinance","Microsoft.BingFoodAndDrink","Microsoft.BingHealthAndFitness","Microsoft.BingNews","Microsoft.BingSports","Microsoft.BingTranslator","Microsoft.BingTravel","Microsoft.BingWeather","Microsoft.CommsPhone","Microsoft.ConnectivityStore","Microsoft.GamingServices","Microsoft.GetHelp","Microsoft.Getstarted","Microsoft.Messaging","Microsoft.Microsoft3DViewer","Microsoft.MicrosoftOfficeHub","Microsoft.MicrosoftPowerBIForWindows","Microsoft.MicrosoftSolitaireCollection","Microsoft.MinecraftUWP","Microsoft.MixedReality.Portal","Microsoft.NetworkSpeedTest","Microsoft.News","Microsoft.Office.Lens","Microsoft.Office.OneNote","Microsoft.Office.Sway","Microsoft.OneConnect","Microsoft.People","Microsoft.Print3D","Microsoft.ScreenSketch","Microsoft.SkypeApp","Microsoft.Wallet","Microsoft.Whiteboard","Microsoft.WindowsAlarms","Microsoft.WindowsCamera","Microsoft.WindowsFeedbackHub","Microsoft.WindowsMaps","Microsoft.WindowsPhone","Microsoft.WindowsReadingList","Microsoft.WindowsSoundRecorder","Microsoft.YourPhone","Microsoft.ZuneMusic","Microsoft.ZuneVideo","Microsoft3DViewer","NORDCURRENT.COOKINGFEVER","PandoraMediaInc.29680B314EFC2","Playtika.CaesarsSlotsFreeCasino","ShazamEntertainmentLtd.Shazam","SlingTVLLC.SlingTV","SpotifyAB.SpotifyMusic","TheNewYorkTimes.NYTCrossword","ThumbmunkeysLtd.PhototasticCollage","TuneIn.TuneInRadio","WinZipComputing.WinZipUniversal","XINGAG.XING","flaregamesGmbH.RoyalRevolt2","king.com.*","king.com.BubbleWitch3Saga","king.com.CandyCrushSaga","king.com.CandyCrushSodaSaga","microsoft.windowscommunicationsapps"
+    ForEach ($WindowsApp in $WindowsApps){
+        Get-AppxPackage -allusers $WindowsApp | Remove-AppxPackage -AllUsers
+        Get-AppXProvisionedPackage -Online | Where-Object DisplayName -eq $WindowsApp | Remove-AppxProvisionedPackage -Online
     }
 
     #Prevents Apps from re-installing
@@ -844,7 +654,7 @@ Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
         "SystemPaneSuggestionsEnabled"
     )
 
-    Mkdir -Force  "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
+    New-Item -Force  "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
     foreach ($key in $cdm) {
         Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" $key 0
     }
