@@ -149,12 +149,9 @@ Start-Job -Name "Windows Defender Hardening" -ScriptBlock {
     #Enable real-time monitoring
     Write-Host "Enable real-time monitoring"
     Set-MpPreference -DisableRealtimeMonitoring 0
-    #Enable cloud-deliveredprotection
-    Write-Host "Enable cloud-deliveredprotection"
-    Set-MpPreference -MAPSReporting Advanced
     #Enable sample submission
     Write-Host "Enable sample submission"
-    Set-MpPreference -SubmitSamplesConsent Always
+    Set-MpPreference -SubmitSamplesConsent 2
     #Enable checking signatures before scanning
     Write-Host "Enable checking signatures before scanning"
     Set-MpPreference -CheckForSignaturesBeforeRunningScan 1
@@ -202,8 +199,8 @@ Start-Job -Name "Windows Defender Hardening" -ScriptBlock {
     Set-MpPreference -CloudExtendedTimeout 50
     Write-Host "`nUpdating Windows Defender Exploit Guard settings`n" -ForegroundColor Green 
     #Enabling Controlled Folder Access and setting to block mode
-    Write-Host "Enabling Controlled Folder Access and setting to block mode"
-    Set-MpPreference -EnableControlledFolderAccess Enabled 
+    #Write-Host "Enabling Controlled Folder Access and setting to block mode"
+    #Set-MpPreference -EnableControlledFolderAccess Enabled 
     #Enabling Network Protection and setting to block mode
     Write-Host "Enabling Network Protection and setting to block mode"
     Set-MpPreference -EnableNetworkProtection Enabled
