@@ -69,7 +69,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [Whonix - Disable TCP Timestamps](https://www.whonix.org/wiki/Disable_TCP_and_ICMP_Timestamps)
 
 ## Additions:
-** This script adds, removes, and changes settings on your system. Please review the script before running it.**
+**This script adds, removes, and changes settings on your system. Please review the script before running it.**
 - Browsers will have additional extentions installed to aid in privacy and security. See [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/11) for additional information.
 - To aid in automating Windows Updates the PowerShell [PSWindowsUpdate](https://www.powershellgallery.com/packages/PSWindowsUpdate/2.0.0.4) will be added to your system.
 
