@@ -70,8 +70,9 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 
 ## Additions:
 **This script adds, removes, and changes settings on your system. Please review the script before running it.**
-- Browsers will have additional extentions installed to aid in privacy and security. See [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/11) for additional information.
-- To aid in automating Windows Updates the PowerShell [PSWindowsUpdate](https://www.powershellgallery.com/packages/PSWindowsUpdate/2.0.0.4) will be added to your system.
+- Browsers will have additional extentions installed to aid in privacy and security. 
+ - See [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/11) for additional information.
+- To aid in automating Windows Updates the PowerShell [PSWindowsUpdate](https://www.powershellgallery.com/packages/PSWindowsUpdate/2.0.0.4) module will be added to your system.
 
 ## STIGS/SRGs Applied:
 - [Adobe Reader Pro DC Classic V1R3](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_Adobe_Acrobat_Pro_DC_Continuous_V1R2_STIG.zip)
