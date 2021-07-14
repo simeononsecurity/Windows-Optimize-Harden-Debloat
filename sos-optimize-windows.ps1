@@ -5,6 +5,9 @@ $ErrorActionPreference = 'silentlycontinue'
 #Require elivation for script run
 #Requires -RunAsAdministrator
 
+#Set Directory to PSScriptRoot
+if ((Get-Location).Path -NE $PSScriptRoot) { Set-Location $PSScriptRoot }
+
 #Install PowerShell Modules
 Copy-Item -Path .\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
 #Unblock New PowerShell Modules
@@ -629,8 +632,8 @@ Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
     #Removing Windows Bloatware
     Write-Host "Removing Bloatware"
     Write-Host "Removing Bloat Windows Apps"
-    $WindowsApps = "*ACGMediaPlayer*","*ActiproSoftwareLLC*","*AdobePhotoshopExpress*","*AdobeSystemsIncorporated.AdobePhotoshopExpress*","*BubbleWitch3Saga*","*CandyCrush*","*CommsPhone*","*ConnectivityStore*","*Dolby*","*Duolingo-LearnLanguagesforFree*","*EclipseManager*","*Facebook*","*FarmHeroesSaga*","*Flipboard*","*HiddenCity*","*Hulu*","*LinkedInforWindows*","*Microsoft.3dbuilder*","*Microsoft.549981C3F5F10*","*Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe*","*Microsoft.Advertising.Xaml_10.1712.5.0_x86__8wekyb3d8bbwe*","*Microsoft.Appconnector*","*Microsoft.Asphalt8Airborne*","*Microsoft.BingNews*","*Microsoft.BingWeather*","*Microsoft.DrawboardPDF*","*Microsoft.GamingApp*","*Microsoft.GetHelp*","*Microsoft.Getstarted*","*Microsoft.MSPaint*","*Microsoft.Messaging*","*Microsoft.Microsoft3DViewer*","*Microsoft.MicrosoftOfficeHub*","*Microsoft.MicrosoftOfficeOneNote*","*Microsoft.MicrosoftSolitaireCollection*","*Microsoft.MicrosoftStickyNotes*","*Microsoft.MixedReality.Portal*","*Microsoft.OneConnect*","*Microsoft.People*","*Microsoft.Print3D*","*Microsoft.SkypeApp*","*Microsoft.Wallet*","*Microsoft.Whiteboard*","*Microsoft.WindowsAlarms*","*Microsoft.WindowsCommunicationsApps*","*Microsoft.WindowsFeedbackHub*","*Microsoft.WindowsMaps*","*Microsoft.WindowsSoundRecorder*","*Microsoft.YourPhone*","*Microsoft.ZuneMusic*","*Microsoft.ZuneVideo*","*Microsoft3DViewer*","*MinecraftUWP*","*Netflix*","*Office.Sway*","*OneCalendar*","*OneNote*","*PandoraMediaInc*","*Royal Revolt*","*Speed Test*","*Sway*","*Todos*","*Twitter*","*Viber*","*WindowsScan*","*Wunderlist*","*bingsports*","*empires*","*spotify*","*windowsphone*","*xing*","2FE3CB00.PicsArt-PhotoStudio","46928bounde.EclipseManager","4DF9E0F8.Netflix","613EBCEA.PolarrPhotoEditorAcademicEdition","6Wunderkinder.Wunderlist","7EE7776C.LinkedInforWindows","89006A2E.AutodeskSketchBook","9E2F88E3.Twitter","A278AB0D.DisneyMagicKingdoms","A278AB0D.MarchofEmpires","ActiproSoftwareLLC.562882FEEB491","CAF9E577.Plex","ClearChannelRadioDigital.iHeartRadio","D52A8D61.FarmVille2CountryEscape","D5EA27B7.Duolingo-LearnLanguagesforFree","DB6EA5DB.CyberLinkMediaSuiteEssentials","DolbyLaboratories.DolbyAccess","Drawboard.DrawboardPDF","Facebook.Facebook","Fitbit.FitbitCoach","Flipboard.Flipboard","GAMELOFTSA.Asphalt8Airborne","KeeperSecurityInc.Keeper","Microsoft.3DBuilder","Microsoft.549981C3F5F10","Microsoft.Advertising.Xaml","Microsoft.AppConnector","Microsoft.BingFinance","Microsoft.BingFoodAndDrink","Microsoft.BingHealthAndFitness","Microsoft.BingNews","Microsoft.BingSports","Microsoft.BingTranslator","Microsoft.BingTravel","Microsoft.BingWeather","Microsoft.CommsPhone","Microsoft.ConnectivityStore","Microsoft.GamingServices","Microsoft.GetHelp","Microsoft.Getstarted","Microsoft.Messaging","Microsoft.Microsoft3DViewer","Microsoft.MicrosoftOfficeHub","Microsoft.MicrosoftPowerBIForWindows","Microsoft.MicrosoftSolitaireCollection","Microsoft.MinecraftUWP","Microsoft.MixedReality.Portal","Microsoft.NetworkSpeedTest","Microsoft.News","Microsoft.Office.Lens","Microsoft.Office.OneNote","Microsoft.Office.Sway","Microsoft.OneConnect","Microsoft.People","Microsoft.Print3D","Microsoft.ScreenSketch","Microsoft.SkypeApp","Microsoft.Wallet","Microsoft.Whiteboard","Microsoft.WindowsAlarms","Microsoft.WindowsCamera","Microsoft.WindowsFeedbackHub","Microsoft.WindowsMaps","Microsoft.WindowsPhone","Microsoft.WindowsReadingList","Microsoft.WindowsSoundRecorder","Microsoft.YourPhone","Microsoft.ZuneMusic","Microsoft.ZuneVideo","Microsoft3DViewer","NORDCURRENT.COOKINGFEVER","PandoraMediaInc.29680B314EFC2","Playtika.CaesarsSlotsFreeCasino","ShazamEntertainmentLtd.Shazam","SlingTVLLC.SlingTV","SpotifyAB.SpotifyMusic","TheNewYorkTimes.NYTCrossword","ThumbmunkeysLtd.PhototasticCollage","TuneIn.TuneInRadio","WinZipComputing.WinZipUniversal","XINGAG.XING","flaregamesGmbH.RoyalRevolt2","king.com.*","king.com.BubbleWitch3Saga","king.com.CandyCrushSaga","king.com.CandyCrushSodaSaga","microsoft.windowscommunicationsapps"
-    ForEach ($WindowsApp in $WindowsApps){
+    $WindowsApps = "*ACGMediaPlayer*", "*ActiproSoftwareLLC*", "*AdobePhotoshopExpress*", "*AdobeSystemsIncorporated.AdobePhotoshopExpress*", "*BubbleWitch3Saga*", "*CandyCrush*", "*CommsPhone*", "*ConnectivityStore*", "*Dolby*", "*Duolingo-LearnLanguagesforFree*", "*EclipseManager*", "*Facebook*", "*FarmHeroesSaga*", "*Flipboard*", "*HiddenCity*", "*Hulu*", "*LinkedInforWindows*", "*Microsoft.3dbuilder*", "*Microsoft.549981C3F5F10*", "*Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe*", "*Microsoft.Advertising.Xaml_10.1712.5.0_x86__8wekyb3d8bbwe*", "*Microsoft.Appconnector*", "*Microsoft.Asphalt8Airborne*", "*Microsoft.BingNews*", "*Microsoft.BingWeather*", "*Microsoft.DrawboardPDF*", "*Microsoft.GamingApp*", "*Microsoft.GetHelp*", "*Microsoft.Getstarted*", "*Microsoft.MSPaint*", "*Microsoft.Messaging*", "*Microsoft.Microsoft3DViewer*", "*Microsoft.MicrosoftOfficeHub*", "*Microsoft.MicrosoftOfficeOneNote*", "*Microsoft.MicrosoftSolitaireCollection*", "*Microsoft.MicrosoftStickyNotes*", "*Microsoft.MixedReality.Portal*", "*Microsoft.OneConnect*", "*Microsoft.People*", "*Microsoft.Print3D*", "*Microsoft.SkypeApp*", "*Microsoft.Wallet*", "*Microsoft.Whiteboard*", "*Microsoft.WindowsAlarms*", "*Microsoft.WindowsCommunicationsApps*", "*Microsoft.WindowsFeedbackHub*", "*Microsoft.WindowsMaps*", "*Microsoft.WindowsSoundRecorder*", "*Microsoft.YourPhone*", "*Microsoft.ZuneMusic*", "*Microsoft.ZuneVideo*", "*Microsoft3DViewer*", "*MinecraftUWP*", "*Netflix*", "*Office.Sway*", "*OneCalendar*", "*OneNote*", "*PandoraMediaInc*", "*Royal Revolt*", "*Speed Test*", "*Sway*", "*Todos*", "*Twitter*", "*Viber*", "*WindowsScan*", "*Wunderlist*", "*bingsports*", "*empires*", "*spotify*", "*windowsphone*", "*xing*", "2FE3CB00.PicsArt-PhotoStudio", "46928bounde.EclipseManager", "4DF9E0F8.Netflix", "613EBCEA.PolarrPhotoEditorAcademicEdition", "6Wunderkinder.Wunderlist", "7EE7776C.LinkedInforWindows", "89006A2E.AutodeskSketchBook", "9E2F88E3.Twitter", "A278AB0D.DisneyMagicKingdoms", "A278AB0D.MarchofEmpires", "ActiproSoftwareLLC.562882FEEB491", "CAF9E577.Plex", "ClearChannelRadioDigital.iHeartRadio", "D52A8D61.FarmVille2CountryEscape", "D5EA27B7.Duolingo-LearnLanguagesforFree", "DB6EA5DB.CyberLinkMediaSuiteEssentials", "DolbyLaboratories.DolbyAccess", "Drawboard.DrawboardPDF", "Facebook.Facebook", "Fitbit.FitbitCoach", "Flipboard.Flipboard", "GAMELOFTSA.Asphalt8Airborne", "KeeperSecurityInc.Keeper", "Microsoft.3DBuilder", "Microsoft.549981C3F5F10", "Microsoft.Advertising.Xaml", "Microsoft.AppConnector", "Microsoft.BingFinance", "Microsoft.BingFoodAndDrink", "Microsoft.BingHealthAndFitness", "Microsoft.BingNews", "Microsoft.BingSports", "Microsoft.BingTranslator", "Microsoft.BingTravel", "Microsoft.BingWeather", "Microsoft.CommsPhone", "Microsoft.ConnectivityStore", "Microsoft.GamingServices", "Microsoft.GetHelp", "Microsoft.Getstarted", "Microsoft.Messaging", "Microsoft.Microsoft3DViewer", "Microsoft.MicrosoftOfficeHub", "Microsoft.MicrosoftPowerBIForWindows", "Microsoft.MicrosoftSolitaireCollection", "Microsoft.MinecraftUWP", "Microsoft.MixedReality.Portal", "Microsoft.NetworkSpeedTest", "Microsoft.News", "Microsoft.Office.Lens", "Microsoft.Office.OneNote", "Microsoft.Office.Sway", "Microsoft.OneConnect", "Microsoft.People", "Microsoft.Print3D", "Microsoft.ScreenSketch", "Microsoft.SkypeApp", "Microsoft.Wallet", "Microsoft.Whiteboard", "Microsoft.WindowsAlarms", "Microsoft.WindowsCamera", "Microsoft.WindowsFeedbackHub", "Microsoft.WindowsMaps", "Microsoft.WindowsPhone", "Microsoft.WindowsReadingList", "Microsoft.WindowsSoundRecorder", "Microsoft.YourPhone", "Microsoft.ZuneMusic", "Microsoft.ZuneVideo", "Microsoft3DViewer", "NORDCURRENT.COOKINGFEVER", "PandoraMediaInc.29680B314EFC2", "Playtika.CaesarsSlotsFreeCasino", "ShazamEntertainmentLtd.Shazam", "SlingTVLLC.SlingTV", "SpotifyAB.SpotifyMusic", "TheNewYorkTimes.NYTCrossword", "ThumbmunkeysLtd.PhototasticCollage", "TuneIn.TuneInRadio", "WinZipComputing.WinZipUniversal", "XINGAG.XING", "flaregamesGmbH.RoyalRevolt2", "king.com.*", "king.com.BubbleWitch3Saga", "king.com.CandyCrushSaga", "king.com.CandyCrushSodaSaga", "microsoft.windowscommunicationsapps"
+    ForEach ($WindowsApp in $WindowsApps) {
         Get-AppxPackage -allusers $WindowsApp | Remove-AppxPackage -AllUsers
         Get-AppXProvisionedPackage -Online | Where-Object DisplayName -eq $WindowsApp | Remove-AppxProvisionedPackage -Online
     }
@@ -2493,6 +2496,78 @@ ForEach ($DotNetVersion in (Get-ChildItem $netframework64 -Directory)) {
         Write-Host "No Machine.Conf file exists for .Net version $DotNetVersion" -ForegroundColor Red -BackgroundColor Black
     }#End testpath
 }
+
+Write-Host "Implementing simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
+Write-Host "https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
+
+#Specify host file location
+$hosts_file = "$env:systemroot\System32\drivers\etc\hosts"
+
+#Use only latest .Net 
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework" -Name "OnlyUseLatestCLR" -PropertyType "DWORD" -Value "1" -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework" -Name "OnlyUseLatestCLR" -PropertyType "DWORD" -Value "1" -Force
+
+# Download the StevenBlack/hosts file
+# Test if web access to the repo is available, if so download latest version of config
+# First we create the request.
+$HTTP_Request = [System.Net.WebRequest]::Create('https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts')
+# We then get a response from the site.
+$HTTP_Response = $HTTP_Request.GetResponse()
+# We then get the HTTP code as an integer.
+$HTTP_Status = [int]$HTTP_Response.StatusCode
+If ($HTTP_Status -eq 200) {
+    Write-Host "Repo Access is Available. Downloading Latest Host File" -ForegroundColor White -BackgroundColor Black
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" -OutFile $PSScriptRoot/Files/hosts.txt
+    Write-Output "Writing to System Host File...." -ForegroundColor White -BackgroundColor Black
+    Try {
+        Write-Output "" | Out-File -Encoding ASCII $hosts_file
+        Get-Content $PSScriptRoot/Files/hosts.txt | Out-File -Encoding ASCII -Append $hosts_file
+        Write-Output "Write Successful.." -ForegroundColor Green -BackgroundColor Black
+    }
+    Catch {
+        Write-Output "Error writing to System Host File...." -ForegroundColor Red -BackgroundColor Black
+    }    
+}
+Else {
+    # Test if web access to the repo is available, if so download latest version of config
+    # First we create the request.
+    $HTTP_Request2 = [System.Net.WebRequest]::Create('http://sbc.io/hosts/hosts')
+    # We then get a response from the site.
+    $HTTP_Response2 = $HTTP_Request.GetResponse()
+    # We then get the HTTP code as an integer.
+    $HTTP_Status2 = [int]$HTTP_Response.StatusCode
+    If ($HTTP_Status2 -eq 200) {
+        Write-Host "Repo Access is Available. Downloading Latest Host File" -ForegroundColor White -BackgroundColor Black
+        Invoke-WebRequest -Uri "http://sbc.io/hosts/hosts" -OutFile $PSScriptRoot/Files/hosts.txt
+        Write-Output "Writing to System Host File...." -ForegroundColor White -BackgroundColor Black
+        Try {
+            Write-Output "" | Out-File -Encoding ASCII $hosts_file
+            Get-Content $PSScriptRoot/Files/hosts.txt | Out-File -Encoding ASCII -Append $hosts_file
+            Write-Output "Write Successful.." -ForegroundColor Green -BackgroundColor Black
+        }
+        Catch {
+            Write-Output "Error writing to System Host File...." -ForegroundColor Red -BackgroundColor Black
+        }        
+    }
+    Else {
+        Write-Host "Unable to download host file. Please check your internet and proxy settings...." -ForegroundColor Red -BackgroundColor Black
+        Write-Host "Continuing with Local Copy..." -ForegroundColor White -BackgroundColor Black
+        Try {
+            Write-Output "" | Out-File -Encoding ASCII $hosts_file
+            Get-Content $PSScriptRoot/Files/hosts.txt | Out-File -Encoding ASCII -Append $hosts_file
+            Write-Output "Write Successful.." -ForegroundColor Green -BackgroundColor Black
+        }
+        Catch {
+            Write-Output "Error writing to System Host File...." -ForegroundColor Red -BackgroundColor Black
+        } 
+    }
+    # Finally, we clean up the http request by closing it.
+    If ($null -eq $HTTP_Response) { } 
+    Else { $HTTP_Response.Close() }
+}
+# Finally, we clean up the http request by closing it.
+If ($null -eq $HTTP_Response) { } 
+Else { $HTTP_Response.Close() }
 
 Write-Host "Importing Policies"
 #GPO Configurations
