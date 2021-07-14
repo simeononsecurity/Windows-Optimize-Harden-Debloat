@@ -2506,7 +2506,6 @@ ForEach ($DotNetVersion in (Get-ChildItem $netframework64 -Directory)) {
     }#End testpath
 }
 
-<# Commenting Out For Futher Dev Testing
 Write-Host "Implementing simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
 Write-Host "https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
 
@@ -2593,19 +2592,17 @@ $HTTP_Status3 = [int]$HTTP_Response3.StatusCode
 If ($HTTP_Status3 -eq 200) {
     Write-Host "Repo Access is Available. Downloading Latest Sysmon Config" -ForegroundColor Green -BackgroundColor Black
     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml" -OutFile $PSScriptRoot\Files\Sysmon\sysmonconfig-export.xml
-    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe" -ArgumentList "-u" -NoNewWindow
-    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-accepteula -i $PSScriptRoot\Files\Sysmon\sysmonconfig-export.xml" -NoNewWindow
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe" -ArgumentList "-u > $null 2>&1" -NoNewWindow
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-accepteula -i $PSScriptRoot\Files\Sysmon\sysmonconfig-export.xml > $null 2>&1" -NoNewWindow
 }
 Else {
     Write-Host "Repo Access is Not Available. Defaulting to the local copy." -ForegroundColor Orange -BackgroundColor Black
-    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-u" -NoNewWindow
-    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-accepteula -i $PSScriptRootFiles\Sysmon\sysmonconfig-export.xml" -NoNewWindow
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-u > $null 2>&1" -NoNewWindow
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-accepteula -i $PSScriptRootFiles\Sysmon\sysmonconfig-export.xml > $null 2>&1" -NoNewWindow
 }
 # Finally, we clean up the http request by closing it.
 If ($null -eq $HTTP_Response3) { } 
 Else { $HTTP_Response3.Close() }
-#>
-
 
 Write-Host "Importing Group Policies" -ForegroundColor Green -BackgroundColor Black
 #GPO Configurations
