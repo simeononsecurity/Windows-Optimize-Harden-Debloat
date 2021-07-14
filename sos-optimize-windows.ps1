@@ -2506,6 +2506,7 @@ ForEach ($DotNetVersion in (Get-ChildItem $netframework64 -Directory)) {
     }#End testpath
 }
 
+<# Commenting Out For Futher Dev Testing
 Write-Host "Implementing simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
 Write-Host "https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
 
@@ -2603,6 +2604,8 @@ Else {
 # Finally, we clean up the http request by closing it.
 If ($null -eq $HTTP_Response3) { } 
 Else { $HTTP_Response3.Close() }
+#>
+
 
 Write-Host "Importing Group Policies" -ForegroundColor Green -BackgroundColor Black
 #GPO Configurations
