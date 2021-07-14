@@ -2167,6 +2167,9 @@ Start-Job -Name "Image Cleanup" -ScriptBlock {
     reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Applets\Regedit" /va /f
 }
 
+Write-Host "simeononsecurity/FireFox-STIG-Script" -ForegroundColor Green -BackgroundColor Black
+Write-Host "https://github.com/simeononsecurity/FireFox-STIG-Script" -ForegroundColor Green -BackgroundColor Black 
+
 #https://www.itsupportguides.com/knowledge-base/tech-tips-tricks/how-to-customise-firefox-installs-using-mozilla-cfg/
 $firefox64 = "C:\Program Files\Mozilla Firefox"
 $firefox32 = "C:\Program Files (x86)\Mozilla Firefox"
@@ -2191,6 +2194,9 @@ Else {
     Write-Host "FireFox 32-Bit Is Not Installed" -ForegroundColor Red -BackgroundColor Black
 }
 
+Write-Host "Implementing simeononsecurity/JAVA-STIG-Script" -ForegroundColor Green -BackgroundColor Black
+Write-Host "https://github.com/simeononsecurity/JAVA-STIG-Script" -ForegroundColor Green -BackgroundColor Black 
+
 #https://gist.github.com/MyITGuy/9628895
 #http://stu.cbu.edu/java/docs/technotes/guides/deploy/properties.html
 
@@ -2208,7 +2214,7 @@ Else {
     Write-Host "JAVA Configs Installed" -ForegroundColor White -BackgroundColor Black
 }
 If (Test-Path -Path "C:\temp\JAVA\") {
-    Write-Host " JAVA Configs Already Deployed" -ForegroundColor Green -BackgroundColor Black
+    Write-Host "JAVA Configs Already Deployed" -ForegroundColor Green -BackgroundColor Black
 }
 Else {
     Write-Host "Installing JAVA Configurations...." -ForegroundColor Green -BackgroundColor Black
@@ -2222,6 +2228,9 @@ Else {
 #https://github.com/simeononsecurity
 #https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MS_DotNet_Framework_4-0_V1R9_STIG.zip
 #https://docs.microsoft.com/en-us/dotnet/framework/tools/caspol-exe-code-access-security-policy-tool
+
+Write-Host "Implementing simeononsecurity/.NET-STIG-Script" -ForegroundColor Green -BackgroundColor Black
+Write-Host "https://github.com/simeononsecurity/.NET-STIG-Script" -ForegroundColor Green -BackgroundColor Black 
 
 #Setting Netframework path variables
 $NetFramework32 = "C:\Windows\Microsoft.NET\Framework"
@@ -2518,14 +2527,14 @@ $HTTP_Status = [int]$HTTP_Response.StatusCode
 If ($HTTP_Status -eq 200) {
     Write-Host "Repo Access is Available. Downloading Latest Host File" -ForegroundColor White -BackgroundColor Black
     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" -OutFile $PSScriptRoot/Files/hosts.txt
-    Write-Output "Writing to System Host File...." -ForegroundColor White -BackgroundColor Black
+    Write-Host "Writing to System Host File...." -ForegroundColor White -BackgroundColor Black
     Try {
         Write-Output "" | Out-File -Encoding ASCII $hosts_file
         Get-Content $PSScriptRoot/Files/hosts.txt | Out-File -Encoding ASCII -Append $hosts_file
-        Write-Output "Write Successful.." -ForegroundColor Green -BackgroundColor Black
+        Write-Host "Write Successful.." -ForegroundColor Green -BackgroundColor Black
     }
     Catch {
-        Write-Output "Error writing to System Host File...." -ForegroundColor Red -BackgroundColor Black
+        Write-Host "Error writing to System Host File...." -ForegroundColor Red -BackgroundColor Black
     }    
 }
 Else {
@@ -2533,32 +2542,32 @@ Else {
     # First we create the request.
     $HTTP_Request2 = [System.Net.WebRequest]::Create('http://sbc.io/hosts/hosts')
     # We then get a response from the site.
-    $HTTP_Response2 = $HTTP_Request.GetResponse()
+    $HTTP_Response2 = $HTTP_Request2.GetResponse()
     # We then get the HTTP code as an integer.
-    $HTTP_Status2 = [int]$HTTP_Response.StatusCode
+    $HTTP_Status2 = [int]$HTTP_Response2.StatusCode
     If ($HTTP_Status2 -eq 200) {
         Write-Host "Repo Access is Available. Downloading Latest Host File" -ForegroundColor White -BackgroundColor Black
         Invoke-WebRequest -Uri "http://sbc.io/hosts/hosts" -OutFile $PSScriptRoot/Files/hosts.txt
-        Write-Output "Writing to System Host File...." -ForegroundColor White -BackgroundColor Black
+        Write-Host "Writing to System Host File...." -ForegroundColor White -BackgroundColor Black
         Try {
             Write-Output "" | Out-File -Encoding ASCII $hosts_file
             Get-Content $PSScriptRoot/Files/hosts.txt | Out-File -Encoding ASCII -Append $hosts_file
-            Write-Output "Write Successful.." -ForegroundColor Green -BackgroundColor Black
+            Write-Host "Write Successful.." -ForegroundColor Green -BackgroundColor Black
         }
         Catch {
-            Write-Output "Error writing to System Host File...." -ForegroundColor Red -BackgroundColor Black
+            Write-Host "Error writing to System Host File...." -ForegroundColor Red -BackgroundColor Black
         }        
     }
     Else {
         Write-Host "Unable to download host file. Please check your internet and proxy settings...." -ForegroundColor Red -BackgroundColor Black
-        Write-Host "Continuing with Local Copy..." -ForegroundColor White -BackgroundColor Black
+        Write-Host "Continuing with Local Copy..." -ForegroundColor Orange -BackgroundColor Black
         Try {
             Write-Output "" | Out-File -Encoding ASCII $hosts_file
             Get-Content $PSScriptRoot/Files/hosts.txt | Out-File -Encoding ASCII -Append $hosts_file
-            Write-Output "Write Successful.." -ForegroundColor Green -BackgroundColor Black
+            Write-Host "Write Successful.." -ForegroundColor Green -BackgroundColor Black
         }
         Catch {
-            Write-Output "Error writing to System Host File...." -ForegroundColor Red -BackgroundColor Black
+            Write-Host "Error writing to System Host File...." -ForegroundColor Red -BackgroundColor Black
         } 
     }
     # Finally, we clean up the http request by closing it.
@@ -2566,15 +2575,41 @@ Else {
     Else { $HTTP_Response.Close() }
 }
 # Finally, we clean up the http request by closing it.
-If ($null -eq $HTTP_Response) { } 
-Else { $HTTP_Response.Close() }
+If ($null -eq $HTTP_Response2) { } 
+Else { $HTTP_Response2.Close() }
 
-Write-Host "Importing Policies"
+Write-Host "Implementing simeononsecurity/Automate-Sysmon" -ForegroundColor Green -BackgroundColor Black
+Write-Host "https://github.com/simeononsecurity/Automate-Sysmon" -ForegroundColor Green -BackgroundColor Black 
+
+# Download SwiftOnSecurity Sysmon Configuration
+# Test if web access to the repo is available, if so download latest version of config
+# First we create the request.
+$HTTP_Request3 = [System.Net.WebRequest]::Create('https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml')
+# We then get a response from the site.
+$HTTP_Response3 = $HTTP_Request3.GetResponse()
+# We then get the HTTP code as an integer.
+$HTTP_Status3 = [int]$HTTP_Response3.StatusCode
+If ($HTTP_Status3 -eq 200) {
+    Write-Host "Repo Access is Available. Downloading Latest Sysmon Config" -ForegroundColor Green -BackgroundColor Black
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml" -OutFile $PSScriptRoot\Files\Sysmon\sysmonconfig-export.xml
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe" -ArgumentList "-u" -NoNewWindow
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-accepteula -i $PSScriptRoot\Files\Sysmon\sysmonconfig-export.xml" -NoNewWindow
+}
+Else {
+    Write-Host "Repo Access is Not Available. Defaulting to the local copy." -ForegroundColor Orange -BackgroundColor Black
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-u" -NoNewWindow
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-accepteula -i $PSScriptRootFiles\Sysmon\sysmonconfig-export.xml" -NoNewWindow
+}
+# Finally, we clean up the http request by closing it.
+If ($null -eq $HTTP_Response3) { } 
+Else { $HTTP_Response3.Close() }
+
+Write-Host "Importing Group Policies" -ForegroundColor Green -BackgroundColor Black
 #GPO Configurations
 $gposdir = "$(Get-Location)\Files\GPOs"
 Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
     
-    Write-Host "Importing $gpocategory GPOs..." -ForegroundColor Green -BackgroundColor Black
+    Write-Host "Importing $gpocategory GPOs..." -ForegroundColor White -BackgroundColor Black
 
     Foreach ($gpo in (Get-ChildItem "$(Get-Location)\Files\GPOs\$gpocategory")) {
         $gpopath = "$gposdir\$gpocategory\$gpo"
