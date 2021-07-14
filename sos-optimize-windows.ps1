@@ -2164,50 +2164,55 @@ Start-Job -Name "Image Cleanup" -ScriptBlock {
     reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Applets\Regedit" /va /f
 }
 
-#Firefox Config Import
 #https://www.itsupportguides.com/knowledge-base/tech-tips-tricks/how-to-customise-firefox-installs-using-mozilla-cfg/
-#https://github.com/simeononsecurity/FireFox-STIG-Script
-Write-Host "Implementing FireFox STIG"
 $firefox64 = "C:\Program Files\Mozilla Firefox"
 $firefox32 = "C:\Program Files (x86)\Mozilla Firefox"
-If ((Test-Path -Path $firefox64) -eq $true) {
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\* -Destination $firefox64 -Force -Recurse | Out-Null
-    Write-Host "Firefox 64-Bit Configurations Installed"
+Write-Host "Installing Firefox Configurations - Please Wait." -ForegroundColor White -BackgroundColor Black
+Write-Host "Window will close after install is complete" -ForegroundColor White -BackgroundColor Black
+If (Test-Path -Path $firefox64) {
+    Copy-Item -Path .\Files\"FireFox Configuration Files"\defaults -Destination $firefox64 -Force -Recurse
+    Copy-Item -Path .\Files\"FireFox Configuration Files"\mozilla.cfg -Destination $firefox64 -Force
+    Copy-Item -Path .\Files\"FireFox Configuration Files"\local-settings.js -Destination $firefox64 -Force 
+    Write-Host "Firefox 64-Bit Configurations Installed" -ForegroundColor Green -BackgroundColor Black
 }
 Else {
-    Write-Host "FireFox 64-Bit Is Not Installed"
+    Write-Host "FireFox 64-Bit Is Not Installed" -ForegroundColor Red -BackgroundColor Black
 }
-If ((Test-Path -Path $firefox32) -eq $true) {
-    Copy-Item -Path .\Files\"FireFox Configuration Files"\* -Destination $firefox32 -Force -Recurse | Out-Null
-    Write-Host "Firefox 32-Bit Configurations Installed"
+If (Test-Path -Path $firefox32) {
+    Copy-Item -Path .\Files\"FireFox Configuration Files"\defaults -Destination $firefox32 -Force -Recurse
+    Copy-Item -Path .\Files\"FireFox Configuration Files"\mozilla.cfg -Destination $firefox32 -Force
+    Copy-Item -Path .\Files\"FireFox Configuration Files"\local-settings.js -Destination $firefox32 -Force 
+    Write-Host "Firefox 32-Bit Configurations Installed" -ForegroundColor Green -BackgroundColor Black
 }
 Else {
-    Write-Host "FireFox 32-Bit Is Not Installed"
+    Write-Host "FireFox 32-Bit Is Not Installed" -ForegroundColor Red -BackgroundColor Black
 }
 
-#Java Config Import
 #https://gist.github.com/MyITGuy/9628895
 #http://stu.cbu.edu/java/docs/technotes/guides/deploy/properties.html
-#https://github.com/simeononsecurity/JAVA-STIG-Script
-Write-Host "Implementing Java JRE 8 STIG"
+
+#<Windows Directory>\Sun\Java\Deployment\deployment.config
+#- or -
+#<JRE Installation Directory>\lib\deployment.config
+
 If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\deployment.config") {
-    Write-Host "Deployment Config Already Installed"
+    Write-Host "JAVA Deployment Config Already Installed" -ForegroundColor Green -BackgroundColor Black
 }
 Else {
-    Write-Output "Installing Java Deployment Config...."
+    Write-Host "Installing JAVA Deployment Config...." -ForegroundColor Green -BackgroundColor Black
     Mkdir "C:\Windows\Sun\Java\Deployment\"
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force | Out-Null
-    Write-Output "JAVA Configs Installed"
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force
+    Write-Host "JAVA Configs Installed" -ForegroundColor White -BackgroundColor Black
 }
 If (Test-Path -Path "C:\temp\JAVA\") {
-    Write-Host "Configs Already Deployed"
+    Write-Host " JAVA Configs Already Deployed" -ForegroundColor Green -BackgroundColor Black
 }
 Else {
-    Write-Output "Installing Java Configurations...."
+    Write-Host "Installing JAVA Configurations...." -ForegroundColor Green -BackgroundColor Black
     Mkdir "C:\temp\JAVA"
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\temp\JAVA\" -Force | Out-Null
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\exception.sites -Destination "C:\temp\JAVA\" -Force | Out-Null
-    Write-Output "JAVA Configs Installed"
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\temp\JAVA\" -Force
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\exception.sites -Destination "C:\temp\JAVA\" -Force
+    Write-Host "JAVA Configs Installed" -ForegroundColor White -BackgroundColor Black
 }
 
 #SimeonOnSecurity - Microsoft .Net Framework 4 STIG Script
