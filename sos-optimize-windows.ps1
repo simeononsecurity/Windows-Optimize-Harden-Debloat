@@ -2574,13 +2574,13 @@ Write-Host "Importing Policies"
 $gposdir = "$(Get-Location)\Files\GPOs"
 Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
     
-    Write-Output "Importing $gpocategory Policies"
+    Write-Host "Importing $gpocategory GPOs..." -ForegroundColor Green -BackgroundColor Black
 
     Foreach ($gpo in (Get-ChildItem "$(Get-Location)\Files\GPOs\$gpocategory")) {
         $gpopath = "$gposdir\$gpocategory\$gpo"
-        Write-Output "Importing $gpo ...."
+        Write-Host "Importing $gpo" -ForegroundColor White -BackgroundColor Black
         .\Files\LGPO\LGPO.exe /g $gpopath > $null 2>&1
-        Write-Output "Done"
+        Write-Output "Done" -ForegroundColor Green -BackgroundColor Black
     }
 }
 Add-Type -AssemblyName PresentationFramework
