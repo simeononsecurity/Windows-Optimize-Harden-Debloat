@@ -39,6 +39,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 ## A list of scripts and tools this collection utilizes:
 - [Cyber.mil - Group Policy Objects](https://public.cyber.mil/stigs/gpo/)
 - [Microsoft Security Compliance Toolkit 1.0](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
+- [Microsoft Sysinternals - Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
 
 ## Additional configurations were considered from:
 - [BuiltByBel - PrivateZilla](https://github.com/builtbybel/privatezilla)
