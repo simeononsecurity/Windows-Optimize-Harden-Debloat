@@ -36,7 +36,38 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
   - [Windows Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview)
   - [Windows Defender Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-how-it-works)
 
+## Additions:
+**This script adds, removes, and changes settings on your system. Please review the script before running it.**
+- Browsers will have additional extentions installed to aid in privacy and security. 
+  - See [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/11) for additional information.
+- To aid in automating Windows Updates the PowerShell [PSWindowsUpdate](https://www.powershellgallery.com/packages/PSWindowsUpdate/2.0.0.4) module will be added to your system.
+
+## How to run the script
+### Manual Install:
+If manually downloaded, the script must be launched from an administrative powershell in the directory containing all the files from the [GitHub Repository](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat)
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force
+Get-ChildItem -Recurse *.ps1 | Unblock-File
+.\sos-optimize-windows.ps1
+```
+### Automated Install:
+Use this one-liner to automatically download, unzip all supporting files, and run the latest version of the script.
+```powershell
+iwr -useb 'https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'|iex
+```
+<img src="https://raw.githubusercontent.com/simeononsecurity/Windows-Optimize-Harden-Debloat/master/.github/images/w10automatic.gif" alt="Example of 
+Windows-Optimize-Harden-Debloat automatic install">
+
 ## A list of scripts and tools this collection utilizes:
+### First Party:
+-[.NET-STIG-Script](https://github.com/simeononsecurity/.NET-STIG-Script)
+-[Automate-Sysmon](https://github.com/simeononsecurity/Automate-Sysmon)
+-[JAVA-STIG-Script](https://github.com/simeononsecurity/JAVA-STIG-Script)
+-[Standalone-Windows-STIG-Script](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
+-[System-Wide-Windows-Ad-Blocker](https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker)
+-[Windows-Defender-STIG-Script](https://github.com/simeononsecurity/Windows-Defender-STIG-Script)
+-[Windows-Optimize-Debloat](https://github.com/simeononsecurity/Windows-Optimize-Debloat)
+### Second Party:
 - [Cyber.mil - Group Policy Objects](https://public.cyber.mil/stigs/gpo/)
 - [Microsoft Security Compliance Toolkit 1.0](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
 - [Microsoft Sysinternals - Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
@@ -68,12 +99,6 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [W4H4WK - Debloat Windows 10](https://github.com/W4RH4WK/Debloat-Windows-10/tree/master/scripts)
 - [Whonix - Disable TCP Timestamps](https://www.whonix.org/wiki/Disable_TCP_and_ICMP_Timestamps)
 
-## Additions:
-**This script adds, removes, and changes settings on your system. Please review the script before running it.**
-- Browsers will have additional extentions installed to aid in privacy and security. 
-  - See [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/11) for additional information.
-- To aid in automating Windows Updates the PowerShell [PSWindowsUpdate](https://www.powershellgallery.com/packages/PSWindowsUpdate/2.0.0.4) module will be added to your system.
-
 ## STIGS/SRGs Applied:
 - [Adobe Reader Pro DC Classic V1R3](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_Adobe_Acrobat_Pro_DC_Continuous_V1R2_STIG.zip)
 - [Adobe Reader Pro DC Continous V1R2](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_Adobe_Acrobat_Pro_DC_Classic_V1R3_STIG.zip)
@@ -89,19 +114,3 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [Windows 10 V2R1](https://dl.cyber.mil/stigs/zip/U_MS_Windows_Defender_Antivirus_V2R1_STIG.zip)
 - [Windows Defender Antivirus V2R1](https://dl.cyber.mil/stigs/zip/U_MS_Windows_Defender_Antivirus_V2R1_STIG.zip)
 - [Windows Firewall V1R7](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_Windows_Firewall_V1R7_STIG.zip)
-
-## How to run the script
-### Manual Install:
-If manually downloaded, the script must be launched from an administrative powershell in the directory containing all the files from the [GitHub Repository](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat)
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force
-Get-ChildItem -Recurse *.ps1 | Unblock-File
-.\sos-optimize-windows.ps1
-```
-### Automated Install:
-Use this one-liner to automatically download, unzip all supporting files, and run the latest version of the script.
-```powershell
-iwr -useb 'https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'|iex
-```
-<img src="https://raw.githubusercontent.com/simeononsecurity/Windows-Optimize-Harden-Debloat/master/.github/images/w10automatic.gif" alt="Example of 
-Windows-Optimize-Harden-Debloat automatic install">
