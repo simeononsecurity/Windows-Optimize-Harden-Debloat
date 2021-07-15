@@ -2604,6 +2604,22 @@ Else {
 If ($null -eq $HTTP_Response3) { } 
 Else { $HTTP_Response3.Close() }
 
+Write-Host "Implementing simeononsecurity/Windows-Audit-Policy" -ForegroundColor Green -BackgroundColor Black
+Write-Host "https://github.com/simeononsecurity/Windows-Audit-Policy" -ForegroundColor Green -BackgroundColor Black 
+
+New-Item -Force -ItemType "Directory" "C:\temp"
+Copy-Item $PSScriptRoot\files\auditing\auditbaseline.csv C:\temp\auditbaseline.csv 
+
+#Clear Audit Policy
+auditpol /clear /y
+
+#Enforce the Audit Policy Baseline
+auditpol /restore /file:C:\temp\auditbaseline.csv
+
+#Confirm Changes
+auditpol /list /user /v
+auditpol.exe /get /category:*
+
 Write-Host "Importing Group Policies" -ForegroundColor Green -BackgroundColor Black
 #GPO Configurations
 $gposdir = "$(Get-Location)\Files\GPOs"
