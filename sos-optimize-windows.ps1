@@ -2167,6 +2167,100 @@ Start-Job -Name "Image Cleanup" -ScriptBlock {
     reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Applets\Regedit" /va /f
 }
 
+Start-Job -Name "Nessus Plugin ID 63155 - Microsoft Windows Unquoted Service Path Enumeration" -ScriptBlock {
+    # https://github.com/VectorBCO/windows-path-enumerate/blob/development/Windows_Path_Enumerate.ps1
+    ForEach ($i in 1..2) {
+        # Get all services
+        $FixParameters = @()
+        If ($i = 1) {
+            $FixParameters += @{"Path" = "HKLM:\SYSTEM\CurrentControlSet\Services\" ; "ParamName" = "ImagePath" }
+        }
+        If ($i = 2) {
+            $FixParameters += @{"Path" = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\" ; "ParamName" = "UninstallString" }
+            # If OS x64 - adding paths for x86 programs
+            If (Test-Path "$($env:SystemDrive)\Program Files (x86)\") {
+                $FixParameters += @{"Path" = "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\" ; "ParamName" = "UninstallString" }
+            }
+        }
+        $PTElements = @()
+        ForEach ($FixParameter in $FixParameters) {
+            Get-ChildItem $FixParameter.Path -ErrorAction SilentlyContinue | ForEach-Object {
+                $SpCharREGEX = '([\[\]])'
+                $RegistryPath = $_.name -Replace 'HKEY_LOCAL_MACHINE', 'HKLM:' -replace $SpCharREGEX, '`$1'
+                $OriginalPath = (Get-ItemProperty "$RegistryPath")
+                $ImagePath = $OriginalPath.$($FixParameter.ParamName)
+                If ($i = 1, 2) {
+                    If ($($OriginalPath.$($FixParameter.ParamName)) -match '%(?''envVar''[^%]+)%') {
+                        $EnvVar = $Matches['envVar']
+                        $FullVar = (Get-ChildItem env: | Where-Object { $_.Name -eq $EnvVar }).value
+                        $ImagePath = $OriginalPath.$($FixParameter.ParamName) -replace "%$EnvVar%", $FullVar
+                        Clear-Variable Matches
+                    } # End If
+                } # End If $fixEnv
+                # Get all services with vulnerability
+                If (($ImagePath -like "* *") -and ($ImagePath -notLike '"*"*') -and ($ImagePath -like '*.exe*')) {
+                    # Skip MsiExec.exe in uninstall strings
+                    If ((($FixParameter.ParamName -eq 'UninstallString') -and ($ImagePath -NotMatch 'MsiExec(\.exe)?') -and ($ImagePath -Match '^((\w\:)|(%[-\w_()]+%))\\')) -or ($FixParameter.ParamName -eq 'ImagePath')) {
+                        $NewPath = ($ImagePath -split ".exe ")[0]
+                        $key = ($ImagePath -split ".exe ")[1]
+                        $trigger = ($ImagePath -split ".exe ")[2]
+                        $NewValue = ''
+                        # Get service with vulnerability with key in ImagePath
+                        If (-not ($trigger | Measure-Object).count -ge 1) {
+                            If (($NewPath -like "* *") -and ($NewPath -notLike "*.exe")) {
+                                $NewValue = "`"$NewPath.exe`" $key"
+                            } # End If
+                            # Get service with vulnerability with out key in ImagePath
+                            ElseIf (($NewPath -like "* *") -and ($NewPath -like "*.exe")) {
+                                $NewValue = "`"$NewPath`""
+                            } # End ElseIf
+                            If ((-not ([string]::IsNullOrEmpty($NewValue))) -and ($NewPath -like "* *")) {
+                                try {
+                                    $soft_service = $(if ($FixParameter.ParamName -Eq 'ImagePath') { 'Service' }Else { 'Software' })
+                                    $OriginalPSPathOptimized = $OriginalPath.PSPath -replace $SpCharREGEX, '`$1'
+                                    Write-Host "$(get-date -format u)  :  Old Value : $soft_service : '$($OriginalPath.PSChildName)' - $($OriginalPath.$($FixParameter.ParamName))"
+                                    Write-Host "$(get-date -format u)  :  Expected  : $soft_service : '$($OriginalPath.PSChildName)' - $NewValue"
+                                    if ($Passthru) {
+                                        $PTElements += '' | Select-Object `
+                                        @{n = 'Name'; e = { $OriginalPath.PSChildName } }, `
+                                        @{n = 'Type'; e = { $soft_service } }, `
+                                        @{n = 'ParamName'; e = { $FixParameter.ParamName } }, `
+                                        @{n = 'Path'; e = { $OriginalPSPathOptimized } }, `
+                                        @{n = 'OriginalValue'; e = { $OriginalPath.$($FixParameter.ParamName) } }, `
+                                        @{n = 'ExpectedValue'; e = { $NewValue } }
+                                    }
+                                    If (! ($i -gt 2)) {
+                                        Set-ItemProperty -Path $OriginalPSPathOptimized -Name $($FixParameter.ParamName) -Value $NewValue -ErrorAction Stop
+                                        $DisplayName = ''
+                                        $keyTmp = (Get-ItemProperty -Path $OriginalPSPathOptimized)
+                                        If ($soft_service -match 'Software') {
+                                            $DisplayName = $keyTmp.DisplayName
+                                        }
+                                        If ($keyTmp.$($FixParameter.ParamName) -eq $NewValue) {
+                                            Write-Host "$(get-date -format u)  :  SUCCESS  : Path value was changed for $soft_service '$($OriginalPath.PSChildName)' $(if($DisplayName){"($DisplayName)"})"
+                                        } # End If
+                                        Else {
+                                            Write-Host "$(get-date -format u)  :  ERROR  : Something is going wrong. Path was not changed for $soft_service '$(if($DisplayName){$DisplayName}else{$OriginalPath.PSChildName})'."
+                                        } # End Else
+                                    } # End If
+                                } # End try
+                                Catch {
+                                    Write-Host "$(get-date -format u)  :  ERROR  : Something is going wrong. Value changing failed in service '$($OriginalPath.PSChildName)'."
+                                    Write-Host "$(get-date -format u)  :  ERROR  : $_"
+                                } # End Catch
+                                Clear-Variable NewValue
+                            } # End If
+                        } # End Main If
+                    } # End if (Skip not needed strings)
+                } # End If
+                If (($trigger | Measure-Object).count -ge 1) {
+                    Write-Host "$(get-date -format u)  :  ERROR  : Can't parse  $($OriginalPath.$($FixParameter.ParamName)) in registry  $($OriginalPath.PSPath -replace 'Microsoft\.PowerShell\.Core\\Registry\:\:') "
+                } # End If
+            } # End Foreach
+        } # End Foreach
+    } # End Foreach   
+} # End Job
+
 Write-Host "simeononsecurity/FireFox-STIG-Script" -ForegroundColor Green -BackgroundColor Black
 Write-Host "https://github.com/simeononsecurity/FireFox-STIG-Script" -ForegroundColor Green -BackgroundColor Black 
 
@@ -2592,13 +2686,13 @@ $HTTP_Status3 = [int]$HTTP_Response3.StatusCode
 If ($HTTP_Status3 -eq 200) {
     Write-Host "Repo Access is Available. Downloading Latest Sysmon Config" -ForegroundColor Green -BackgroundColor Black
     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml" -OutFile $PSScriptRoot\Files\Sysmon\sysmonconfig-export.xml
-    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe" -ArgumentList "-u > $null 2>&1" -NoNewWindow
-    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-accepteula -i $PSScriptRoot\Files\Sysmon\sysmonconfig-export.xml" -Window Hidden
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe" -ArgumentList "-u" -WindowStyle Hidden 
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-accepteula -i $PSScriptRoot\Files\Sysmon\sysmonconfig-export.xml" -WindowStyle Hidden 
 }
 Else {
     Write-Host "Repo Access is Not Available. Defaulting to the local copy." -ForegroundColor Orange -BackgroundColor Black
-    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-u" -NoNewWindow
-    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-accepteula -i $PSScriptRoot\Files\Sysmon\sysmonconfig-export.xml" -Window Hidden
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-u" -WindowStyle Hidden 
+    Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-accepteula -i $PSScriptRoot\Files\Sysmon\sysmonconfig-export.xml" -WindowStyle Hidden 
 }
 # Finally, we clean up the http request by closing it.
 If ($null -eq $HTTP_Response3) { } 
