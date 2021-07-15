@@ -42,7 +42,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
   - See [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/11) for additional information.
 - To aid in automating Windows Updates the PowerShell [PSWindowsUpdate](https://www.powershellgallery.com/packages/PSWindowsUpdate/2.0.0.4) module will be added to your system.
 
-## How to run the script
+## How to run the script:
 ### Manual Install:
 If manually downloaded, the script must be launched from an administrative powershell in the directory containing all the files from the [GitHub Repository](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat)
 ```powershell
@@ -67,6 +67,7 @@ Windows-Optimize-Harden-Debloat automatic install">
 -[System-Wide-Windows-Ad-Blocker](https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker)
 -[Windows-Defender-STIG-Script](https://github.com/simeononsecurity/Windows-Defender-STIG-Script)
 -[Windows-Optimize-Debloat](https://github.com/simeononsecurity/Windows-Optimize-Debloat)
+
 ### Second Party:
 - [Cyber.mil - Group Policy Objects](https://public.cyber.mil/stigs/gpo/)
 - [Microsoft Security Compliance Toolkit 1.0](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
