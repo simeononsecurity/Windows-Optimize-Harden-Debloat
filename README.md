@@ -60,13 +60,13 @@ Windows-Optimize-Harden-Debloat automatic install">
 
 ## A list of scripts and tools this collection utilizes:
 ### First Party:
--[.NET-STIG-Script](https://github.com/simeononsecurity/.NET-STIG-Script)
--[Automate-Sysmon](https://github.com/simeononsecurity/Automate-Sysmon)
--[JAVA-STIG-Script](https://github.com/simeononsecurity/JAVA-STIG-Script)
--[Standalone-Windows-STIG-Script](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
--[System-Wide-Windows-Ad-Blocker](https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker)
--[Windows-Defender-STIG-Script](https://github.com/simeononsecurity/Windows-Defender-STIG-Script)
--[Windows-Optimize-Debloat](https://github.com/simeononsecurity/Windows-Optimize-Debloat)
+- [.NET-STIG-Script](https://github.com/simeononsecurity/.NET-STIG-Script)
+- [Automate-Sysmon](https://github.com/simeononsecurity/Automate-Sysmon)
+- [JAVA-STIG-Script](https://github.com/simeononsecurity/JAVA-STIG-Script)
+- [Standalone-Windows-STIG-Script](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
+- [System-Wide-Windows-Ad-Blocker](https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker)
+- [Windows-Defender-STIG-Script](https://github.com/simeononsecurity/Windows-Defender-STIG-Script)
+- [Windows-Optimize-Debloat](https://github.com/simeononsecurity/Windows-Optimize-Debloat)
 
 ### Second Party:
 - [Cyber.mil - Group Policy Objects](https://public.cyber.mil/stigs/gpo/)
