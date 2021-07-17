@@ -52,7 +52,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [Windows-Defender-STIG-Script](https://github.com/simeononsecurity/Windows-Defender-STIG-Script)
 - [Windows-Optimize-Debloat](https://github.com/simeononsecurity/Windows-Optimize-Debloat)
 
-### Second Party:
+### Third Party:
 - [Cyber.mil - Group Policy Objects](https://public.cyber.mil/stigs/gpo/)
 - [Microsoft Security Compliance Toolkit 1.0](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
 - [Microsoft Sysinternals - Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
