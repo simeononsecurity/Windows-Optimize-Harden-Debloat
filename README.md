@@ -46,6 +46,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 ### First Party:
 - [.NET-STIG-Script](https://github.com/simeononsecurity/.NET-STIG-Script)
 - [Automate-Sysmon](https://github.com/simeononsecurity/Automate-Sysmon)
+- [FireFox-STIG-Script](https://github.com/simeononsecurity/FireFox-STIG-Script)
 - [JAVA-STIG-Script](https://github.com/simeononsecurity/JAVA-STIG-Script)
 - [Standalone-Windows-STIG-Script](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
 - [System-Wide-Windows-Ad-Blocker](https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker)
