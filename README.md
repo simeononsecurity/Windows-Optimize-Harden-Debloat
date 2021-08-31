@@ -98,6 +98,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [Microsoft Office 2019/Office 365 Pro Plus V2R3](https://public.cyber.mil/stigs/downloads/)
 - [Microsoft OneDrive STIG V2R1](https://public.cyber.mil/stigs/downloads/)
 - [Oracle JRE 8 V1R5](https://public.cyber.mil/stigs/downloads/) 
+- [Windows 10 V2R2](https://public.cyber.mil/stigs/downloads/)
 - [Windows Defender Antivirus V2R2](https://public.cyber.mil/stigs/downloads/) 
 - [Windows Firewall V1R7](https://public.cyber.mil/stigs/downloads/)
 
