@@ -2389,10 +2389,10 @@ Function Set-SecureConfig {
     #Ensureing file is closed
     [IO.File]::OpenWrite((Resolve-Path $MachineConfigPath).Path).close()
 
-    <#Apply Machine.conf Configurations
+    #Apply Machine.conf Configurations
     #Pulled XML assistance from https://stackoverflow.com/questions/9944885/powershell-xml-importnode-from-different-file
     #Pulled more XML details from http://www.maxtblog.com/2012/11/add-from-one-xml-data-to-another-existing-xml-file/
-    #>
+ 
     Write-Host "Begining work on $MachineConfigPath..." -ForegroundColor White -BackgroundColor Black
    
     # Do out. Automate each individual childnode for infinite nested. Currently only goes two deep
@@ -2511,7 +2511,7 @@ ForEach ($DotNetVersion in (Get-ChildItem $netframework32 -Directory)) {
     https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/netfx40-legacysecuritypolicy-element (4.0 or higher)
     https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/etwenable-element (Doesn't specify. Assuming 3.0 or higher because it mentions Vista)
     https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings (Doesn't specify.)
-    #>
+
     
     #Ensuring .net version has machine.config
     If (Test-Path "$($DotNetVersion.FullName)\Config\Machine.config") {
@@ -2534,8 +2534,9 @@ ForEach ($DotNetVersion in (Get-ChildItem $netframework32 -Directory)) {
     Else {
         Write-Host "No Machine.Conf file exists for .Net version $DotNetVersion" -ForegroundColor Red -BackgroundColor Black
     }#End testpath
+      #>
 }
-    #>
+  
 
 # .Net 64-Bit
 ForEach ($DotNetVersion in (Get-ChildItem $netframework64 -Directory)) {  
@@ -2599,8 +2600,9 @@ ForEach ($DotNetVersion in (Get-ChildItem $netframework64 -Directory)) {
     Else {
         Write-Host "No Machine.Conf file exists for .Net version $DotNetVersion" -ForegroundColor Red -BackgroundColor Black
     }#End testpath
+        #>
 }
-    #>
+
 
 Write-Host "Implementing simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
 Write-Host "https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
