@@ -2367,7 +2367,7 @@ ForEach ($UserSID in (Get-ChildItem "HKU:\")) {
 Creating secure configuration Function. It needs to be called in the
 two foreach loops as it has to touch every config file in each
 .net framework version folder
-#>
+
 Function Set-SecureConfig {
     param (
         $VersionPath,
@@ -2470,7 +2470,7 @@ Function Set-SecureConfig {
    
     Write-Host "Merge Complete" -ForegroundColor White -BackgroundColor Black
 }
-
+#>
 
 # .Net 32-Bit
 ForEach ($DotNetVersion in (Get-ChildItem $netframework32 -Directory)) {
@@ -2535,6 +2535,7 @@ ForEach ($DotNetVersion in (Get-ChildItem $netframework32 -Directory)) {
         Write-Host "No Machine.Conf file exists for .Net version $DotNetVersion" -ForegroundColor Red -BackgroundColor Black
     }#End testpath
 }
+    #>
 
 # .Net 64-Bit
 ForEach ($DotNetVersion in (Get-ChildItem $netframework64 -Directory)) {  
@@ -2575,7 +2576,7 @@ ForEach ($DotNetVersion in (Get-ChildItem $netframework64 -Directory)) {
     https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/netfx40-legacysecuritypolicy-element (4.0 or higher)
     https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/etwenable-element (Doesn't specify. Assuming 3.0 or higher because it mentions Vista)
     https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings (Doesn't specify.)
-    #>
+
     
     #Ensuring current version has a machine.config to use
     If (Test-Path "$($DotNetVersion.FullName)\Config\Machine.config") {
@@ -2599,6 +2600,7 @@ ForEach ($DotNetVersion in (Get-ChildItem $netframework64 -Directory)) {
         Write-Host "No Machine.Conf file exists for .Net version $DotNetVersion" -ForegroundColor Red -BackgroundColor Black
     }#End testpath
 }
+    #>
 
 Write-Host "Implementing simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
 Write-Host "https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
