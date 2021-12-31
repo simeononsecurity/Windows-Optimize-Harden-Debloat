@@ -2594,27 +2594,6 @@ ForEach ($DotNetVersion in (Get-ChildItem $netframework64 -Directory)) {
         #>
 }
 
-
-Write-Host "Implementing simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
-Write-Host "https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker" -ForegroundColor Green -BackgroundColor Black
-
-#Specify host file location
-$hosts_file = "$env:systemroot\System32\drivers\etc\hosts"
-
-#Use only latest .Net 
-New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework" -Name "OnlyUseLatestCLR" -PropertyType "DWORD" -Value "1" -Force | Out-Null
-New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework" -Name "OnlyUseLatestCLR" -PropertyType "DWORD" -Value "1" -Force | Out-Null
-
-    Write-Host "Writing to System Host File...." -ForegroundColor White -BackgroundColor Black
-    Try {
-        Write-Output "" | Out-File -Encoding ASCII $hosts_file
-        Get-Content $PSScriptRoot/Files/hosts.txt | Out-File -Encoding ASCII -Append $hosts_file
-        Write-Host "Write Successful.." -ForegroundColor Green -BackgroundColor Black
-    }
-    Catch {
-        Write-Host "Error writing to System Host File...." -ForegroundColor Red -BackgroundColor Black
-    }    
-
 Write-Host "Implementing simeononsecurity/Automate-Sysmon" -ForegroundColor Green -BackgroundColor Black
 Write-Host "https://github.com/simeononsecurity/Automate-Sysmon" -ForegroundColor Green -BackgroundColor Black 
 
