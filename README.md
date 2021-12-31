@@ -48,7 +48,6 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [FireFox-STIG-Script](https://github.com/simeononsecurity/FireFox-STIG-Script)
 - [JAVA-STIG-Script](https://github.com/simeononsecurity/JAVA-STIG-Script)
 - [Standalone-Windows-STIG-Script](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
-- [System-Wide-Windows-Ad-Blocker](https://github.com/simeononsecurity/System-Wide-Windows-Ad-Blocker)
 - [Windows-Defender-STIG-Script](https://github.com/simeononsecurity/Windows-Defender-STIG-Script)
 - [Windows-Optimize-Debloat](https://github.com/simeononsecurity/Windows-Optimize-Debloat)
 
