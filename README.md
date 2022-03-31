@@ -34,7 +34,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - To aid in automating Windows Updates the PowerShell [PSWindowsUpdate](https://www.powershellgallery.com/packages/PSWindowsUpdate/2.0.0.4) module will be added to your system.
 
 ## Fixing Microsoft Account or Xbox Services:
-This is because we block signing into a microsoft account. Microsoft's telemetry and identity association is frouned upon. 
+This is because we block signing into microsoft accounts. Microsoft's telemetry and identity association is frowned upon. 
 However, if you still wish to use these services see the following issue tickets for the resolution:
 - https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/19
 - https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/22
