@@ -33,6 +33,12 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
   - See [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/11) for additional information.
 - To aid in automating Windows Updates the PowerShell [PSWindowsUpdate](https://www.powershellgallery.com/packages/PSWindowsUpdate/2.0.0.4) module will be added to your system.
 
+## Fixing Microsoft Account or Xbox Services:
+This is because we block signing into a microsoft account. Microsoft's telemetry and identity association is frouned upon. 
+However, if you still wish to use these services see the following issue tickets for the resolution:
+- https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/19
+- https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/22
+
 ## Recommended reading material:
   - [System Guard Secure Launch](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-system-guard/system-guard-secure-launch-and-smm-protection#requirements-met-by-system-guard-enabled-machines)
   - [System Guard Root of Trust](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
