@@ -3,7 +3,7 @@
 **Note:** This script should work for most, if not all, systems without issue. While [@SimeonOnSecurity](https://github.com/simeononsecurity) creates, reviews, and tests each repo intensively, we can not test every possible configuration nor does [@SimeonOnSecurity](https://github.com/simeononsecurity) take any responsibility for breaking your system. If something goes wrong, be prepared to submit an [issue](../../issues). Do not run this script if you don't understand what it does. It is your responsibility to review and test the script before running it.
 
 ## Introduction:
-Windows 10 is an invasive and insecure operating system out of the box. 
+Windows 10 and Windows 11 are invasive and insecure operating system out of the box. 
 Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https://microsoft.com), [Cyber.mil](https://public.cyber.mil), the [Department of Defense](https://dod.gov), and the [National Security Agency](https://www.nsa.gov/) have recommended configuration changes to lockdown, harden, and secure the operating system. These changes cover a wide range of mitigations including blocking telemetry, macros, removing bloatware, and preventing many digital and physical attacks on a system. This script aims to automate the configurations recommended by those organizations.
 
 ## Notes: 
@@ -13,12 +13,12 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - If you seek a minimized script targeted only to commercial environments, please see this [GitHub Repository](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
 
 ## Requirements:
-- [X] Windows 10 Enterprise (**Preferred**) or Windows 10 Professional
-  - Windows 10 Home does not support GPO configurations. 
-  - Windows 10 "N" Editions are not tested.
+- [X] Windows 10/1 Enterprise (**Preferred**) or Windows 10 Professional
+  - Windows 10/11 Home does not support GPO configurations. 
+  - Window "N" Editions are not tested.
 - [X] [Standards](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure) for a highly secure Windows 10 device
 - [X] System is [fully up to date and supported](https://support.microsoft.com/en-gb/help/4027667/windows-10-update)
-  - Run the [Windows 10 Upgrade Assistant](https://support.microsoft.com/en-us/help/3159635/windows-10-update-assistant) to update and verify latest major release.
+  - Run the [Windows Upgrade Assistant](https://support.microsoft.com/en-us/help/3159635/windows-10-update-assistant) to update and verify latest major release.
 - [X] Bitlocker must be suspended or turned off prior to implementing this script, it can be enabled again after rebooting.
   - Follow-up runs of this script can be run without disabling bitlocker.
 - [X] Hardware Requirements
