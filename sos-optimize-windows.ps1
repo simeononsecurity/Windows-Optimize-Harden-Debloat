@@ -2630,10 +2630,7 @@ Foreach ($gpocategory in Get-ChildItem "$(Get-Location)\Files\GPOs") {
         Write-Host "Done" -ForegroundColor Green -BackgroundColor Black
     }
 }
-Add-Type -AssemblyName PresentationFramework
-$Answer = [System.Windows.MessageBox]::Show("Reboot to make changes effective?", "Restart Computer", "YesNo", "Question")
-Switch ($Answer) {
-    "Yes" { Write-Host "Performing Gpupdate"; Get-Job; Gpupdate /force /boot; Write-Warning "Restarting Computer in 15 Seconds"; Start-sleep -seconds 15; Restart-Computer -Force }
-    "No" { Write-Host "Performing Gpupdate" ; Get-Job; Gpupdate /force; Write-Warning "A reboot is required for all changed to take effect" }
-    Default { Write-Warning "A reboot is required for all changed to take effect" }
-}
+
+Write-Host "Checking Backgrounded Processes" ; Get-Job
+Write-Host "Performing Group Policy Update" ; Gpupdate /force
+Write-Warning "A reboot is required for all changed to take effect"
