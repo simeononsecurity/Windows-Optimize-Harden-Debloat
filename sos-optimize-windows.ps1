@@ -675,8 +675,8 @@ Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
     Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
     Write-Output "Kill OneDrive process"
-    Stop-Process -Force -Force -Name "OneDrive.exe"
-    Stop-Process -Force -Force -Name "explorer.exe"
+    Stop-Process -Force -Name "OneDrive.exe"
+    Stop-Process -Force -Name "explorer.exe"
 
     Write-Output "Remove OneDrive"
     if (Test-Path "$env:systemroot\System32\OneDriveSetup.exe") {
@@ -1708,12 +1708,12 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     Set-Service "AdobeARMservice" -StartupType Disabled
 
     #Disable CCleaner Health Check
-    Stop-Process -Force -Force -Name  ccleaner.exe
-    Stop-Process -Force -Force -Name  ccleaner64.exe
+    Stop-Process -Force -Name  ccleaner.exe
+    Stop-Process -Force -Name  ccleaner64.exe
     Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "HomeScreen" -Type "String" -Value 2 -Force
 
     #Disable CCleaner Monitoring && more
-    Stop-Process -Force -Force -Name "IMAGENAME eq CCleaner*"
+    Stop-Process -Force -Name "IMAGENAME eq CCleaner*"
     schtasks /Change /TN "CCleaner Update" /Disable
     Get-ScheduledTask -TaskName "CCleaner Update" | Disable-ScheduledTask
     Set-ItemProperty -Path "HKCU:\Software\Piriform\CCleaner" -Name "Monitoring" -Type "DWORD" -Value 0 -Force
