@@ -115,7 +115,7 @@ If manually downloaded, the script must be launched from an administrative power
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force
 Get-ChildItem -Recurse *.ps1 | Unblock-File
-.\sos-optimize-windows.ps1
+powershell.exe -ExecutionPolicy ByPass -File ./sos-optimize-windows.ps1
 ```
 ### Automated Install:
 Use this one-liner to automatically download, unzip all supporting files, and run the latest version of the script.
