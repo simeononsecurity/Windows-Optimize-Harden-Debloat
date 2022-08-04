@@ -41,21 +41,21 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 - [Windows Defender Application Guard](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-guard/wd-app-guard-overview)
 - [Windows Defender Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-how-it-works)
 
-## Additions:
+## Additions, notable changes, and bugfixes:
 
 **This script adds, removes, and changes settings on your system. Please review the script before running it.**
 
-## Browsers:
+### Browsers:
 
 - Browsers will have additional extentions installed to aid in privacy and security.
   - See [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/11) for additional information.
 - Due to the DoD STIGs implemented for browsers, extension management and other enterprise settings are set. For instructions on how to see these options, you'll need to look at the GPO instructions below.
 
-## Powershell Modules:
+### Powershell Modules:
 
 - To aid in automating Windows Updates the PowerShell [PSWindowsUpdate](https://www.powershellgallery.com/packages/PSWindowsUpdate/2.0.0.4) module will be added to your system.
 
-## Fixing Microsoft Account, Store, or Xbox Services:
+### Fixing Microsoft Account, Store, or Xbox Services:
 
 This is because we block signing into microsoft accounts. Microsoft's telemetry and identity association is frowned upon.
 However, if you still wish to use these services see the following issue tickets for the resolution:
@@ -64,7 +64,7 @@ However, if you still wish to use these services see the following issue tickets
 - https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/16
 - https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/22
 
-## Editing policies in Local Group Policy after the fact:
+### Editing policies in Local Group Policy after the fact:
 
 If you need to modify or change a setting, they are most likely configurable via GPO:
 
