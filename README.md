@@ -125,3 +125,14 @@ iwr -useb 'https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'|iex
 <img src="https://raw.githubusercontent.com/simeononsecurity/Windows-Optimize-Harden-Debloat/master/.github/images/w10automatic.gif" alt="Example of 
 Windows-Optimize-Harden-Debloat automatic install">
 
+## Editing policies in Local Group Policy after the fact:
+
+- Import the ADMX Policy definitions from this [repo](https://github.com/simeononsecurity/STIG-Compliant-Domain-Prep/tree/master/Files/PolicyDefinitions) into *C:\windows\PolicyDefinitions* on the system you're trying to modify.
+
+- Open ```gpedit.msc``` on on the system you're trying to modify. 
+
+
+
+
+
+
