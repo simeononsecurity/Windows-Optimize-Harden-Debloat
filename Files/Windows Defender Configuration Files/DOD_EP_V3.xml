@@ -4,6 +4,7 @@
     <DEP OverrideDEP="false" />
     <ASLR OverrideRelocateImages="false" />
     <Payload OverrideEnableExportAddressFilter="false" OverrideEnableExportAddressFilterPlus="false" OverrideEnableImportAddressFilter="false" OverrideEnableRopStackPivot="false" OverrideEnableRopCallerCheck="false" OverrideEnableRopSimExec="false" />
+    <SignedBinaries MicrosoftSignedOnly="true" AllowStoreSignedBinaries="false" Audit="false" AuditStoreSigned="false" />
     <ImageLoad OverrideBlockRemoteImages="false" />
   </AppConfig>
   <AppConfig Executable="firefox.exe">
@@ -99,6 +100,13 @@
   <AppConfig Executable="PPTVIEW.EXE">
     <DEP OverrideDEP="false" />
     <ASLR ForceRelocateImages="true" />
+    <Payload OverrideEnableExportAddressFilter="false" OverrideEnableExportAddressFilterPlus="false" OverrideEnableImportAddressFilter="false" OverrideEnableRopStackPivot="false" OverrideEnableRopCallerCheck="false" OverrideEnableRopSimExec="false" />
+  </AppConfig>
+  <AppConfig Executable="teams.exe">
+    <ASLR ForceRelocateImages="true" RequireInfo="false" />
+    <ExtensionPoints DisableExtensionPoints="true" />
+    <SignedBinaries MicrosoftSignedOnly="true" AllowStoreSignedBinaries="false" Audit="false" AuditStoreSigned="false" />
+    <DEP OverrideDEP="false" />
     <Payload OverrideEnableExportAddressFilter="false" OverrideEnableExportAddressFilterPlus="false" OverrideEnableImportAddressFilter="false" OverrideEnableRopStackPivot="false" OverrideEnableRopCallerCheck="false" OverrideEnableRopSimExec="false" />
   </AppConfig>
   <AppConfig Executable="VISIO.EXE">
