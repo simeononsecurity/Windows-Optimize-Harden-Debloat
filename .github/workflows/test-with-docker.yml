@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build the Docker image
-        run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes && docker buildx build -t simeononsecurity/windows-optimize-harden-debloat:latest --progress=plain .
+        run: docker build -t simeononsecurity/windows-optimize-harden-debloat:latest --progress=plain .
       - name: Build
         uses: docker/build-push-action@v2
         with:
