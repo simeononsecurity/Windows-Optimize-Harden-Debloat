@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows:20H2
+FROM mcr.microsoft.com/ltsc2019
 
 LABEL org.opencontainers.image.source="https://github.com/simeononsecurity/windows-optimize-harden-debloat"
 LABEL org.opencontainers.image.description="Test Image for SimeonOnSecurity"
