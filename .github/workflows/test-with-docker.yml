@@ -2,7 +2,7 @@ name: Test script against windows docker container
 
 on:
   push:
-    branches: [cicd-test-branch]
+    branches: [master]
 jobs:
   build:
     runs-on: windows-latest
@@ -15,4 +15,4 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build the Docker image
-        run: docker build -t simeononsecurity/windows-optimize-harden-debloat:latest --progress=plain .
+        run: docker build -t simeononsecurity/windows-optimize-harden-debloat:latest --progress=plain --push . 
