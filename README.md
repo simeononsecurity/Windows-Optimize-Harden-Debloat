@@ -1,4 +1,5 @@
 # Optimize, Harden, and Debloat Windows 10 and Windows 11 Deployments
+[![Script Test CICD](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/actions/workflows/test-with-docker.yml/badge.svg)](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/actions/workflows/test-with-docker.yml)
 
 **Warning:**
 This script should work for most, if not all, systems without issue. While [@SimeonOnSecurity](https://github.com/simeononsecurity) creates, reviews, and tests each repo intensively, we can not test every possible configuration nor does [@SimeonOnSecurity](https://github.com/simeononsecurity) take any responsibility for breaking your system. If something goes wrong, be prepared to submit an [issue](../../issues).
