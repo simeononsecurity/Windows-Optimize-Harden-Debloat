@@ -2303,9 +2303,9 @@ If (Test-Path -Path "C:\temp\JAVA\") {
 }
 Else {
     Write-Host "Installing JAVA Configurations...." -ForegroundColor Green -BackgroundColor Black
-    Mkdir "C:\temp\JAVA"
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\temp\JAVA\" -Force
-    Copy-Item -Path .\Files\"JAVA Configuration Files"\exception.sites -Destination "C:\temp\JAVA\" -Force
+    Mkdir "C:\Windows\Java\Deployment\"
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\Windows\Java\Deployment\" -Force
+    Copy-Item -Path .\Files\"JAVA Configuration Files"\exception.sites -Destination "C:\Windows\Java\Deployment\" -Force
     Write-Host "JAVA Configs Installed" -ForegroundColor White -BackgroundColor Black
 }
 
