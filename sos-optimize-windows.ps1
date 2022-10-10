@@ -2298,7 +2298,7 @@ Else {
     Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force
     Write-Host "JAVA Configs Installed" -ForegroundColor White -BackgroundColor Black
 }
-If (Test-Path -Path "C:\temp\JAVA\") {
+If (Test-Path -Path "C:\Windows\Java\Deployment\") {
     Write-Host "JAVA Configs Already Deployed" -ForegroundColor Green -BackgroundColor Black
 }
 Else {
