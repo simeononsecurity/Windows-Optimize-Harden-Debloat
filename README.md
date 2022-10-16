@@ -19,7 +19,7 @@ Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https
 
 ## Requirements:
 
-- [x] Windows 10/1 Enterprise (**Preferred**) or Windows 10 Professional
+- [x] Windows 10/21 Enterprise (**Preferred**) or Professional
   - Windows 10/11 Home does not support GPO configurations.
   - Window "N" Editions are not tested.
 - [x] [Standards](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure) for a highly secure Windows 10 device
