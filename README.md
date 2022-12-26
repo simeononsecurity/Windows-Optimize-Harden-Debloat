@@ -5,6 +5,7 @@
 This script should work for most, if not all, systems without issue. While [@SimeonOnSecurity](https://github.com/simeononsecurity) creates, reviews, and tests each repo intensively, we can not test every possible configuration nor does [@SimeonOnSecurity](https://github.com/simeononsecurity) take any responsibility for breaking your system. If something goes wrong, be prepared to submit an [issue](../../issues).
 
 **Do not run this script if you don't understand what it does. It is your responsibility to review and test the script before running it.**
+
 **FOR EXAMPLE, THE FOLOWING WILL BREAK IF YOU RUN THIS WITHOUT TAKING PREVENTATIVE STEPS:**
 - Using the default administrator account named "Administrator" is disabled and renamed per DoD STIG (
   - Does not apply do default account created but does apply to using the Default Administrator account often found on Enterprise, IOT, and Windows Server Versions
