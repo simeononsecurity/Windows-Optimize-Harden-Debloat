@@ -6,7 +6,7 @@ This script should work for most, if not all, systems without issue. While [@Sim
 
 **Do not run this script if you don't understand what it does. It is your responsibility to review and test the script before running it.**
 
-**FOR EXAMPLE, THE FOLOWING WILL BREAK IF YOU RUN THIS WITHOUT TAKING PREVENTATIVE STEPS:**
+**FOR EXAMPLE, THE FOLLOWING WILL BREAK IF YOU RUN THIS WITHOUT TAKING PREVENTATIVE STEPS:**
 - Using the default administrator account named "Administrator" is disabled and renamed per DoD STIG
   - Does not apply do default account created but does apply to using the Default Administrator account often found on Enterprise, IOT, and Windows Server Versions
   - Create a new account under Computer Management and set it as an administrator if you wish. Then copy the contents of the previous users folder into the new one after signing into the new user for the first time to work around this prior to running the script.
