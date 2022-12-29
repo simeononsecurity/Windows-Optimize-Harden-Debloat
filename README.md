@@ -20,7 +20,6 @@ This script should work for most, if not all, systems without issue. While [@Sim
   - Due to how bitlocker is implemented, when this changes occur and if you already have bitlocker enabled it will break the bitlocker implementation. 
   - Disable bitlocker, run the script, then reenable bitlocker to workaround this issue. 
 
-
 ## Introduction:
 
 Windows 10 and Windows 11 are invasive and insecure operating system out of the box.
