@@ -19,7 +19,7 @@ RUN refreshenv
 
 RUN Write-Host "Install Latest Windows Updates" ; choco install pswindowsupdate; Set-Executionpolicy -ExecutionPolicy RemoteSigned -Force ; Import-Module PSWindowsUpdate -Force ; 
 RUN refreshenv
-RUN Add-WUServiceManager -ServiceID 7971f918-a847-4430-9279-4a52d1efe18d -Confirm:$false ; Install-WindowsUpdate -MicrosoftUpdate -AcceptAll -Install ; Get-WuInstall -AcceptAll -IgnoreReboot -IgnoreUserInput -nottitle 'preview' ; Get-WindowsUpdate –Install    
+RUN Add-WUServiceManager -ServiceID 7971f918-a847-4430-9279-4a52d1efe18d -Confirm:$false ; Install-WindowsUpdate -MicrosoftUpdate -AcceptAll -Install ; Get-WuInstall -AcceptAll -IgnoreReboot -IgnoreUserInput -nottitle 'preview' 
 
 RUN iwr -useb 'https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'|iex
 
