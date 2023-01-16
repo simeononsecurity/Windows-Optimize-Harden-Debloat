@@ -2900,35 +2900,35 @@ else {
 }
 
 if ($emet -eq $true) {
-    Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
+    Write-Host "Implementing the EMET Hardening Beyond STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
 }
 else {
-    Write-Output "The Google Chrome Section Was Skipped..."
+    Write-Output "The EMET Section Was Skipped..."
 }
 
 if ($updatemanagement -eq $true) {
-    Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
+    Write-Host "Implementing the SoS Update Management Configurations" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
 }
 else {
-    Write-Output "The Google Chrome Section Was Skipped..."
+    Write-Output "The Update Management Section Was Skipped..."
 }
 
 if ($deviceguard -eq $true) {
-    Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
+    Write-Host "Implementing the SoS Device Guard Configurations" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
 }
 else {
-    Write-Output "The Google Chrome Section Was Skipped..."
+    Write-Output "The Device Guard Section Was Skipped..."
 }
 
 if ($sosbrowsers -eq $true) {
-    Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
+    Write-Host "Implementing the SoS Browser Configurations" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
 }
 else {
-    Write-Output "The Google Chrome Section Was Skipped..."
+    Write-Output "The Browsers Config Section Was Skipped..."
 }
 
 # only run final gpo refresh and reboot statement if any peramater was true
