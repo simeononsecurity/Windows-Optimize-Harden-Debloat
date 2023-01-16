@@ -580,7 +580,7 @@ else {
     Write-Output "The Oracle Java JRE 8 Section Was Skipped..."
 }
 
-if ($windows= $true){
+if ($windows -eq $true){
     Write-Host "Implementing the Windows 10/11 STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Windows"
 
