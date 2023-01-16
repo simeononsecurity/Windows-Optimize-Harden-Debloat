@@ -1,12 +1,3 @@
-######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
-#Continue on error
-$ErrorActionPreference = 'silentlycontinue'
-
-#Require elivation for script run
-#Requires -RunAsAdministrator
-
-#Set Directory to PSScriptRoot
-if ((Get-Location).Path -NE $PSScriptRoot) { Set-Location $PSScriptRoot }
 
 param(
     [Parameter(Mandatory = $false)]
@@ -75,28 +66,43 @@ param(
     [bool]$sosbrowsers = $true
 )
 
-$params = $cleargpos, $installupdates, $adobe, $firefox, $chrome, $IE11, $edge, $dotnet, $office, $onedrive, $java, $windows, $defender, $firewall, $mitigations, $defenderhardening, $pshardening, $sslhardening, $smbhardening, $applockerhardening, $bitlockerhardening, $removebloatware, $disabletelemetry, $privacy, $imagecleanup, $nessusPID, $sysmon, $diskcompression, $emet, $updatemanagement, $deviceguard, $sosbrowsers
+######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
+#Continue on error
+$ErrorActionPreference = 'silentlycontinue'
 
-# # run a warning if no options are set to true
-# if ($params | Where-Object {$_ -eq $false} | Select-Object -Count -EQ $params.Count) {
-#     Write-Error "No Options Were Selected. Exiting..."
-#     Exit
-# }
+#Require elivation for script run
+#Requires -RunAsAdministrator
 
-# if any parameters are set to true take a restore point
-if ($params | Where-Object {$_} | Select-Object) {
-    Checkpoint-Computer -Description "RestorePoint1" -RestorePointType "MODIFY_SETTINGS"
+#Set Directory to PSScriptRoot
+if ((Get-Location).Path -NE $PSScriptRoot) { Set-Location $PSScriptRoot }
+
+Write-Host "$cleargpos"
+if ($cleargpos -eq $true) {
+    Write-Host "-eq"
 }
+
+# $paramscheck = $cleargpos, $installupdates, $adobe, $firefox, $chrome, $IE11, $edge, $dotnet, $office, $onedrive, $java, $windows, $defender, $firewall, $mitigations, $defenderhardening, $pshardening, $sslhardening, $smbhardening, $applockerhardening, $bitlockerhardening, $removebloatware, $disabletelemetry, $privacy, $imagecleanup, $nessusPID, $sysmon, $diskcompression, $emet, $updatemanagement, $deviceguard, $sosbrowsers
+
+# # # run a warning if no options are set to true
+# # if ($paramscheck | Where-Object {$_ -eq $false} | Select-Object -Count -EQ $params.Count) {
+# #     Write-Error "No Options Were Selected. Exiting..."
+# #     Exit
+# # }
+
+# # if any parameters are set to true take a restore point
+# if ($paramscheck | Where-Object { $_ } | Select-Object) {
+#     Checkpoint-Computer -Description "RestorePoint1" -RestorePointType "MODIFY_SETTINGS"
+# }
 
 #GPO Configurations
 function Import-GPOs([string]$gposdir) {
     Write-Host "Importing Group Policies from $gposdir ..." -ForegroundColor Green
     Foreach ($gpoitem in Get-ChildItem $gposdir) {
         Write-Host "Importing $gpoitem GPOs..." -ForegroundColor White
-            $gpopath = "$gposdir\$gpoitem"
-            #Write-Host "Importing $gpo" -ForegroundColor White
-            .\Files\LGPO\LGPO.exe /g $gpopath > $null 2>&1
-            #Write-Host "Done" -ForegroundColor Green
+        $gpopath = "$gposdir\$gpoitem"
+        #Write-Host "Importing $gpo" -ForegroundColor White
+        .\Files\LGPO\LGPO.exe /g $gpopath > $null 2>&1
+        #Write-Host "Done" -ForegroundColor Green
     }
 }
 
@@ -108,7 +114,7 @@ if ($cleargpos -eq $true) {
     secedit /configure /cfg "$env:WinDir\inf\defltbase.inf" /db defltbase.sdb /verbose | Out-Null
     gpupdate /force | Out-Null
 }
-else{
+else {
     Write-Output "The Clear Existing GPOs Section Was Skipped..."
 }
 
@@ -556,19 +562,19 @@ if ($java -eq $true) {
     #- or -
     #<JRE Installation Directory>\lib\deployment.config
 
-    If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\deployment.config") {
+    if (Test-Path -Path "C:\Windows\Sun\Java\Deployment\deployment.config") {
         Write-Host "JAVA Deployment Config Already Installed" -ForegroundColor Green
     }
-    Else {
+    else {
         Write-Host "Installing JAVA Deployment Config...." -ForegroundColor Green
         Mkdir "C:\Windows\Sun\Java\Deployment\"
         Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force
         Write-Host "JAVA Configs Installed" -ForegroundColor White
     }
-    If (Test-Path -Path "C:\Windows\Java\Deployment\") {
+    if (Test-Path -Path "C:\Windows\Java\Deployment\") {
         Write-Host "JAVA Configs Already Deployed" -ForegroundColor Green
     }
-    Else {
+    else {
         Write-Host "Installing JAVA Configurations...." -ForegroundColor Green
         Mkdir "C:\Windows\Java\Deployment\"
         Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\Windows\Java\Deployment\" -Force
@@ -580,7 +586,7 @@ else {
     Write-Output "The Oracle Java JRE 8 Section Was Skipped..."
 }
 
-if ($windows -eq $true){
+if ($windows -eq $true) {
     Write-Host "Implementing the Windows 10/11 STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Windows"
 
@@ -921,7 +927,6 @@ else {
     Write-Output "The Bitlocker Hardening Section Was Skipped..."
 }
 
-
 if ($sslhardening -eq $true) {
     Write-Host "Implementing SSL Hardening Beyond STIGs" -ForegroundColor Green
     Start-Job -Name "SSL Hardening" -ScriptBlock {
@@ -1118,7 +1123,7 @@ if ($removebloatware -eq $true) {
         #Removing Windows Bloatware
         Write-Host "Removing Bloatware"
         Write-Host "Removing Bloat Windows Apps"
-        $WindowsApps="*ACGMediaPlayer*","*ActiproSoftwareLLC*","*AdobePhotoshopExpress*","*AdobeSystemsIncorporated.AdobePhotoshopExpress*","*BubbleWitch3Saga*","*CandyCrush*","*CommsPhone*","*ConnectivityStore*","*Dolby*","*Duolingo-LearnLanguagesforFree*","*EclipseManager*","*Facebook*","*FarmHeroesSaga*","*Flipboard*","*HiddenCity*","*Hulu*","*LinkedInforWindows*","*Microsoft.3dbuilder*","*Microsoft.549981C3F5F10*","*Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe*","*Microsoft.Advertising.Xaml_10.1712.5.0_x86__8wekyb3d8bbwe*","*Microsoft.Appconnector*","*Microsoft.Asphalt8Airborne*","*Microsoft.BingNews*","*Microsoft.BingWeather*","*Microsoft.DrawboardPDF*","*Microsoft.GamingApp*","*Microsoft.GetHelp*","*Microsoft.Getstarted*","*Microsoft.MSPaint*","*Microsoft.Messaging*","*Microsoft.Microsoft3DViewer*","*Microsoft.MicrosoftOfficeHub*","*Microsoft.MicrosoftOfficeOneNote*","*Microsoft.MicrosoftSolitaireCollection*","*Microsoft.MicrosoftStickyNotes*","*Microsoft.MixedReality.Portal*","*Microsoft.OneConnect*","*Microsoft.People*","*Microsoft.Print3D*","*Microsoft.SkypeApp*","*Microsoft.Wallet*","*Microsoft.Whiteboard*","*Microsoft.WindowsAlarms*","*Microsoft.WindowsCommunicationsApps*","*Microsoft.WindowsFeedbackHub*","*Microsoft.WindowsMaps*","*Microsoft.WindowsSoundRecorder*","*Microsoft.YourPhone*","*Microsoft.ZuneMusic*","*Microsoft.ZuneVideo*","*Microsoft3DViewer*","*MinecraftUWP*","*Netflix*","*Office.Sway*","*OneCalendar*","*OneNote*","*PandoraMediaInc*","*RoyalRevolt*","*SpeedTest*","*Sway*","*Todos*","*Twitter*","*Viber*","*WindowsScan*","*Wunderlist*","*bingsports*","*empires*","*spotify*","*windowsphone*","*xing*","2FE3CB00.PicsArt-PhotoStudio","46928bounde.EclipseManager","4DF9E0F8.Netflix","613EBCEA.PolarrPhotoEditorAcademicEdition","6Wunderkinder.Wunderlist","7EE7776C.LinkedInforWindows","89006A2E.AutodeskSketchBook","9E2F88E3.Twitter","A278AB0D.DisneyMagicKingdoms","A278AB0D.MarchofEmpires","ActiproSoftwareLLC.562882FEEB491","CAF9E577.Plex","ClearChannelRadioDigital.iHeartRadio","D52A8D61.FarmVille2CountryEscape","D5EA27B7.Duolingo-LearnLanguagesforFree","DB6EA5DB.CyberLinkMediaSuiteEssentials","DolbyLaboratories.DolbyAccess","Drawboard.DrawboardPDF","Facebook.Facebook","Fitbit.FitbitCoach","Flipboard.Flipboard","GAMELOFTSA.Asphalt8Airborne","KeeperSecurityInc.Keeper","Microsoft.3DBuilder","Microsoft.549981C3F5F10","Microsoft.549981C3F5F10","Microsoft.Advertising.Xaml","Microsoft.AppConnector","Microsoft.BingFinance","Microsoft.BingFoodAndDrink","Microsoft.BingHealthAndFitness","Microsoft.BingNews","Microsoft.BingSports","Microsoft.BingTranslator","Microsoft.BingTravel","Microsoft.BingWeather","Microsoft.CommsPhone","Microsoft.ConnectivityStore","Microsoft.GamingServices","Microsoft.GetHelp","Microsoft.Getstarted","Microsoft.Messaging","Microsoft.Microsoft3DViewer","Microsoft.MicrosoftOfficeHub","Microsoft.MicrosoftPowerBIForWindows","Microsoft.MicrosoftSolitaireCollection","Microsoft.MinecraftUWP","Microsoft.MixedReality.Portal","Microsoft.NetworkSpeedTest","Microsoft.News","Microsoft.Office.Lens","Microsoft.Office.OneNote","Microsoft.Office.Sway","Microsoft.OneConnect","Microsoft.People","Microsoft.Print3D","Microsoft.ScreenSketch","Microsoft.SkypeApp","Microsoft.Wallet","Microsoft.Whiteboard","Microsoft.WindowsAlarms","Microsoft.WindowsCamera","Microsoft.WindowsFeedbackHub","Microsoft.WindowsMaps","Microsoft.WindowsPhone","Microsoft.WindowsReadingList","Microsoft.WindowsSoundRecorder","Microsoft.Xbox.TCUI","Microsoft.XboxApp","Microsoft.XboxGameOverlay","Microsoft.XboxSpeechToTextOverlay","Microsoft.YourPhone","Microsoft.ZuneMusic","Microsoft.ZuneVideo","Microsoft3DViewer","NORDCURRENT.COOKINGFEVER","PandoraMediaInc.29680B314EFC2","Playtika.CaesarsSlotsFreeCasino","ShazamEntertainmentLtd.Shazam","SlingTVLLC.SlingTV","SpotifyAB.SpotifyMusic","TheNewYorkTimes.NYTCrossword","ThumbmunkeysLtd.PhototasticCollage","TuneIn.TuneInRadio","WinZipComputing.WinZipUniversal","XINGAG.XING","flaregamesGmbH.RoyalRevolt2","king.com.*","king.com.BubbleWitch3Saga","king.com.CandyCrushSaga","king.com.CandyCrushSodaSaga","microsoft.windowscommunicationsapps"
+        $WindowsApps = "*ACGMediaPlayer*", "*ActiproSoftwareLLC*", "*AdobePhotoshopExpress*", "*AdobeSystemsIncorporated.AdobePhotoshopExpress*", "*BubbleWitch3Saga*", "*CandyCrush*", "*CommsPhone*", "*ConnectivityStore*", "*Dolby*", "*Duolingo-LearnLanguagesforFree*", "*EclipseManager*", "*Facebook*", "*FarmHeroesSaga*", "*Flipboard*", "*HiddenCity*", "*Hulu*", "*LinkedInforWindows*", "*Microsoft.3dbuilder*", "*Microsoft.549981C3F5F10*", "*Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe*", "*Microsoft.Advertising.Xaml_10.1712.5.0_x86__8wekyb3d8bbwe*", "*Microsoft.Appconnector*", "*Microsoft.Asphalt8Airborne*", "*Microsoft.BingNews*", "*Microsoft.BingWeather*", "*Microsoft.DrawboardPDF*", "*Microsoft.GamingApp*", "*Microsoft.GetHelp*", "*Microsoft.Getstarted*", "*Microsoft.MSPaint*", "*Microsoft.Messaging*", "*Microsoft.Microsoft3DViewer*", "*Microsoft.MicrosoftOfficeHub*", "*Microsoft.MicrosoftOfficeOneNote*", "*Microsoft.MicrosoftSolitaireCollection*", "*Microsoft.MicrosoftStickyNotes*", "*Microsoft.MixedReality.Portal*", "*Microsoft.OneConnect*", "*Microsoft.People*", "*Microsoft.Print3D*", "*Microsoft.SkypeApp*", "*Microsoft.Wallet*", "*Microsoft.Whiteboard*", "*Microsoft.WindowsAlarms*", "*Microsoft.WindowsCommunicationsApps*", "*Microsoft.WindowsFeedbackHub*", "*Microsoft.WindowsMaps*", "*Microsoft.WindowsSoundRecorder*", "*Microsoft.YourPhone*", "*Microsoft.ZuneMusic*", "*Microsoft.ZuneVideo*", "*Microsoft3DViewer*", "*MinecraftUWP*", "*Netflix*", "*Office.Sway*", "*OneCalendar*", "*OneNote*", "*PandoraMediaInc*", "*RoyalRevolt*", "*SpeedTest*", "*Sway*", "*Todos*", "*Twitter*", "*Viber*", "*WindowsScan*", "*Wunderlist*", "*bingsports*", "*empires*", "*spotify*", "*windowsphone*", "*xing*", "2FE3CB00.PicsArt-PhotoStudio", "46928bounde.EclipseManager", "4DF9E0F8.Netflix", "613EBCEA.PolarrPhotoEditorAcademicEdition", "6Wunderkinder.Wunderlist", "7EE7776C.LinkedInforWindows", "89006A2E.AutodeskSketchBook", "9E2F88E3.Twitter", "A278AB0D.DisneyMagicKingdoms", "A278AB0D.MarchofEmpires", "ActiproSoftwareLLC.562882FEEB491", "CAF9E577.Plex", "ClearChannelRadioDigital.iHeartRadio", "D52A8D61.FarmVille2CountryEscape", "D5EA27B7.Duolingo-LearnLanguagesforFree", "DB6EA5DB.CyberLinkMediaSuiteEssentials", "DolbyLaboratories.DolbyAccess", "Drawboard.DrawboardPDF", "Facebook.Facebook", "Fitbit.FitbitCoach", "Flipboard.Flipboard", "GAMELOFTSA.Asphalt8Airborne", "KeeperSecurityInc.Keeper", "Microsoft.3DBuilder", "Microsoft.549981C3F5F10", "Microsoft.549981C3F5F10", "Microsoft.Advertising.Xaml", "Microsoft.AppConnector", "Microsoft.BingFinance", "Microsoft.BingFoodAndDrink", "Microsoft.BingHealthAndFitness", "Microsoft.BingNews", "Microsoft.BingSports", "Microsoft.BingTranslator", "Microsoft.BingTravel", "Microsoft.BingWeather", "Microsoft.CommsPhone", "Microsoft.ConnectivityStore", "Microsoft.GamingServices", "Microsoft.GetHelp", "Microsoft.Getstarted", "Microsoft.Messaging", "Microsoft.Microsoft3DViewer", "Microsoft.MicrosoftOfficeHub", "Microsoft.MicrosoftPowerBIForWindows", "Microsoft.MicrosoftSolitaireCollection", "Microsoft.MinecraftUWP", "Microsoft.MixedReality.Portal", "Microsoft.NetworkSpeedTest", "Microsoft.News", "Microsoft.Office.Lens", "Microsoft.Office.OneNote", "Microsoft.Office.Sway", "Microsoft.OneConnect", "Microsoft.People", "Microsoft.Print3D", "Microsoft.ScreenSketch", "Microsoft.SkypeApp", "Microsoft.Wallet", "Microsoft.Whiteboard", "Microsoft.WindowsAlarms", "Microsoft.WindowsCamera", "Microsoft.WindowsFeedbackHub", "Microsoft.WindowsMaps", "Microsoft.WindowsPhone", "Microsoft.WindowsReadingList", "Microsoft.WindowsSoundRecorder", "Microsoft.Xbox.TCUI", "Microsoft.XboxApp", "Microsoft.XboxGameOverlay", "Microsoft.XboxSpeechToTextOverlay", "Microsoft.YourPhone", "Microsoft.ZuneMusic", "Microsoft.ZuneVideo", "Microsoft3DViewer", "NORDCURRENT.COOKINGFEVER", "PandoraMediaInc.29680B314EFC2", "Playtika.CaesarsSlotsFreeCasino", "ShazamEntertainmentLtd.Shazam", "SlingTVLLC.SlingTV", "SpotifyAB.SpotifyMusic", "TheNewYorkTimes.NYTCrossword", "ThumbmunkeysLtd.PhototasticCollage", "TuneIn.TuneInRadio", "WinZipComputing.WinZipUniversal", "XINGAG.XING", "flaregamesGmbH.RoyalRevolt2", "king.com.*", "king.com.BubbleWitch3Saga", "king.com.CandyCrushSaga", "king.com.CandyCrushSodaSaga", "microsoft.windowscommunicationsapps"
         ForEach ($WindowsApp in $WindowsApps) {
             Get-AppxPackage -allusers $WindowsApp | Remove-AppxPackage -AllUsers
             Get-AppXProvisionedPackage -Online | Where-Object DisplayName -eq $WindowsApp | Remove-AppxProvisionedPackage -Online
@@ -2680,8 +2685,8 @@ if ($imagecleanup -eq $true) {
         Remove-Item /f /q "$env:LocalAppData\Google\Software Reporter Tool\*.log"
         Remove-Item /s /q "$env:USERPROFILE\Local Settings\Application Data\Google\Chrome\User Data"
         Remove-Item /s /q "$env:LocalAppData\Google\Chrome\User Data"
-        Remove-Item /s /q "$env:LocalAppData\Google\CrashReports\""
-        Remove-Item /s /q "$env:LocalAppData\Google\Chrome\User Data\Crashpad\reports\""
+        Remove-Item /s /q "$env:LocalAppData\Google\CrashReports\"
+        Remove-Item /s /q "$env:LocalAppData\Google\Chrome\User Data\Crashpad\reports\"
         #Clear Opera traces
         Remove-Item /s /q "$env:USERPROFILE\AppData\Local\Opera\Opera"
         Remove-Item /s /q "$env:APPDATA\Opera\Opera"
@@ -2932,7 +2937,7 @@ else {
 }
 
 # only run final gpo refresh and reboot statement if any peramater was true
-if ($params | Where-Object {$_} | Select-Object) {
+if ($paramscheck | Where-Object { $_ } | Select-Object) {
     Write-Host "Checking Backgrounded Processes" ; Get-Job
     Write-Host "Performing Group Policy Update" ; Gpupdate /force
     Write-Warning "A reboot is required for all changed to take effect"
