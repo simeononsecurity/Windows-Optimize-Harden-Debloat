@@ -77,11 +77,11 @@ param(
 
 $params = $cleargpos, $installupdates, $adobe, $firefox, $chrome, $IE11, $edge, $dotnet, $office, $onedrive, $java, $windows, $defender, $firewall, $mitigations, $defenderhardening, $pshardening, $sslhardening, $smbhardening, $applockerhardening, $bitlockerhardening, $removebloatware, $disabletelemetry, $privacy, $imagecleanup, $nessusPID, $sysmon, $diskcompression, $emet, $updatemanagement, $deviceguard, $sosbrowsers
 
-# run a warning if no options are set to true
-if ($params | Where-Object {$_ -eq $false} | Select-Object -Count -EQ $params.Count) {
-    Write-Error "No Options Were Selected. Exiting..."
-    Exit
-}
+# # run a warning if no options are set to true
+# if ($params | Where-Object {$_ -eq $false} | Select-Object -Count -EQ $params.Count) {
+#     Write-Error "No Options Were Selected. Exiting..."
+#     Exit
+# }
 
 # if any parameters are set to true take a restore point
 if ($params | Where-Object {$_} | Select-Object) {
