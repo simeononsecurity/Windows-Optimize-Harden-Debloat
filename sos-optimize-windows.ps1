@@ -100,7 +100,7 @@ function Import-GPOs([string]$gposdir) {
     }
 }
 
-if ($cleargpos = $true) {
+if ($cleargpos -eq $true) {
     Write-Host "Removing Existing Local GPOs" -ForegroundColor Green
     #Remove and Refresh Local Policies
     Remove-Item -Recurse -Force "$env:WinDir\System32\GroupPolicy" | Out-Null
@@ -112,7 +112,7 @@ else{
     Write-Output "The Clear Existing GPOs Section Was Skipped..."
 }
 
-if ($installupdates = $true) {
+if ($installupdates -eq $true) {
     Write-Host "Installing the Latest Windows Updates" -ForegroundColor Green
     #Install PowerShell Modules
     Copy-Item -Path .\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
@@ -130,7 +130,7 @@ else {
     Write-Output "The Install Update Section Was Skipped..."
 }
 
-if ($adobe = $true){
+if ($adobe -eq $true) {
     Write-Host "Implementing the Adobe STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Adobe"
 
@@ -171,7 +171,7 @@ else {
     Write-Output "The Adobe Section Was Skipped..."
 }
 
-if ($firefox = $true){
+if ($firefox -eq $true) {
     Write-Host "Implementing the FireFox STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\FireFox"
     Import-GPOs -gposdir ".\Files\GPOs\SoS\FireFox"
@@ -207,7 +207,7 @@ else {
     Write-Output "The FireFox Section Was Skipped..."
 }
 
-if ($chrome = $true){
+if ($chrome -eq $true) {
     Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
 }
@@ -215,7 +215,7 @@ else {
     Write-Output "The Google Chrome Section Was Skipped..."
 }
 
-if ($IE11 = $true){
+if ($IE11 -eq $true) {
     Write-Host "Implementing the Internet Explorer 11 STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\IE11"
 }
@@ -223,7 +223,7 @@ else {
     Write-Output "The Internet Explorer 11 Section Was Skipped..."
 }
 
-if ($edge = $true){
+if ($edge -eq $true) {
     Write-Host "Implementing the Microsoft Edge STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Edge"
 
@@ -237,7 +237,7 @@ else {
     Write-Output "The Microsoft Edge Section Was Skipped..."
 }
 
-if ($dotnet = $true){
+if ($dotnet -eq $true) {
     Write-Host "Implementing the Dot Net Framework STIGs" -ForegroundColor Green
     #SimeonOnSecurity - Microsoft .Net Framework 4 STIG Script
     #https://github.com/simeononsecurity
@@ -528,7 +528,7 @@ else {
     Write-Output "The Dot Net Framework Section Was Skipped..."
 }
 
-if ($office = $true){
+if ($office -eq $true) {
     Write-Host "Implementing the Microsoft Office STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Office"
 }
@@ -536,7 +536,7 @@ else {
     Write-Output "The Microsoft Office Section Was Skipped..."
 }
 
-if ($onedrive = $true){
+if ($onedrive -eq $true) {
     Write-Host "Implementing the Microsoft OneDrive STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\SoS\Onedrive"
 }
@@ -544,7 +544,7 @@ else {
     Write-Output "The OneDrive Section Was Skipped..."
 }
 
-if ($java = $true){
+if ($java -eq $true) {
     Write-Host "Implementing the Oracle Java JRE 8 STIGs" -ForegroundColor Green
     Write-Host "Implementing simeononsecurity/JAVA-STIG-Script" -ForegroundColor Green
     Write-Host "https://github.com/simeononsecurity/JAVA-STIG-Script" -ForegroundColor Green 
@@ -645,7 +645,7 @@ else {
     Write-Output "The Windows Desktop Section Was Skipped..."
 }
 
-if ($defender = $true){
+if ($defender -eq $true) {
     Write-Host "Implementing the Windows Defender STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Defender"
 }
@@ -653,7 +653,7 @@ else {
     Write-Output "The Windows Defender Section Was Skipped..."
 }
 
-if ($firewall = $true){
+if ($firewall -eq $true) {
     Write-Host "Implementing the Windows Firewall STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\FireWall"
 }
@@ -661,7 +661,7 @@ else {
     Write-Output "The Windows Firewall Section Was Skipped..."
 }
 
-if ($mitigations = $true){
+if ($mitigations -eq $true) {
     Write-Host "Implementing the General Vulnerability Mitigations" -ForegroundColor Green
     Start-Job -Name "Mitigations" -ScriptBlock {
         #####SPECTURE MELTDOWN#####
@@ -739,7 +739,7 @@ else {
     Write-Output "The General Mitigations Section Was Skipped..."
 }
 
-if ($defenderhardening = $true){
+if ($defenderhardening -eq $true) {
     Write-Host "Implementing Windows Defender Hardening Beyond STIGs" -ForegroundColor Green
 
     Import-GPOs -gposdir ".\Files\GPOs\SoS\WDAC"
@@ -859,7 +859,7 @@ else {
     Write-Output "The Windows Defender Hardening Section Was Skipped..."
 }
 
-if ($pshardening = $true){
+if ($pshardening -eq $true) {
     Write-Host "Implementing PowerShell Hardening Beyond STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\SoS\Powershell"
 
@@ -905,7 +905,7 @@ else {
     Write-Output "The PowerShell Hardening Section Was Skipped..."
 }
 
-if ($applockerhardening = $true){
+if ($applockerhardening -eq $true) {
     Write-Host "Implementing Applocker Hardening Beyond STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\NSACyber\Applocker"
 }
@@ -913,7 +913,7 @@ else {
     Write-Output "The Applocker Hardening Section Was Skipped..."
 }
 
-if ($bitlockerhardening = $true){
+if ($bitlockerhardening -eq $true) {
     Write-Host "Implementing Bitlocker Hardening Beyond STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\NSACyber\Bitlocker"
 }
@@ -922,7 +922,7 @@ else {
 }
 
 
-if ($sslhardening = $true){
+if ($sslhardening -eq $true) {
     Write-Host "Implementing SSL Hardening Beyond STIGs" -ForegroundColor Green
     Start-Job -Name "SSL Hardening" -ScriptBlock {
 
@@ -1071,7 +1071,7 @@ else {
     Write-Output "The SSL Hardening Section Was Skipped..."
 }
 
-if ($smbhardening = $true){
+if ($smbhardening -eq $true) {
     Write-Host "Implementing SMB Hardening Beyond STIGs" -ForegroundColor Green
     Start-Job -Name "SMB Optimizations and Hardening" -ScriptBlock {
         #https://docs.microsoft.com/en-us/windows/privacy/
@@ -1112,7 +1112,7 @@ else {
     Write-Output "The SMB Hardening Section Was Skipped..."
 }
 
-if ($removebloatware = $true){
+if ($removebloatware -eq $true) {
     Write-Host "Removing Windows Bloatware" -ForegroundColor Green
     Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
         #Removing Windows Bloatware
@@ -1352,7 +1352,7 @@ else {
     Write-Output "The Remove Bloatware Section Was Skipped..."
 }
 
-if ($disabletelemetry = $true){
+if ($disabletelemetry -eq $true) {
     Write-Host "Disabling Telemetry Reporting and Related Services" -ForegroundColor Green
     Start-Job -Name "Disable Telemetry" -ScriptBlock {
         #Disabling Telemetry and Services
@@ -1652,7 +1652,7 @@ else {
     Write-Output "The Disable Telemetry Section Was Skipped..."
 }
 
-if ($privacy = $true){
+if ($privacy -eq $true) {
     Write-Host "Enabling Privacy and Security Focused" -ForegroundColor Green
     Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
         #Do not let apps on other devices open and message apps on this device, and vice versa
@@ -2567,7 +2567,7 @@ else {
     Write-Output "The Privacy Section Was Skipped..."
 }
 
-if ($imagecleanup = $true){
+if ($imagecleanup -eq $true) {
     Write-Host "Cleaning Up Install Files and Cleanining Up the Image" -ForegroundColor Green
     Start-Job -Name "Image Cleanup" -ScriptBlock {
         #Delete "windows.old" folder
@@ -2766,7 +2766,7 @@ else {
     Write-Output "The Image Cleanup Section Was Skipped..."
 }
 
-if ($nessusPID = $true){
+if ($nessusPID -eq $true) {
     Write-Host "Resolve: Nessus Plugin ID 63155 - Microsoft Windows Unquoted Service Path Enumeration" -ForegroundColor Green
     Start-Job -Name "Nessus Plugin ID 63155 - Microsoft Windows Unquoted Service Path Enumeration" -ScriptBlock {
         # https://github.com/VectorBCO/windows-path-enumerate/blob/development/Windows_Path_Enumerate.ps1
@@ -2866,7 +2866,7 @@ else {
     Write-Output "The Nessus PID 63155 Section Was Skipped..."
 }
 
-if ($sysmon = $true){
+if ($sysmon -eq $true) {
     Write-Host "Implementing simeononsecurity/Automate-Sysmon" -ForegroundColor Green
     Write-Host "https://github.com/simeononsecurity/Automate-Sysmon" -ForegroundColor Green 
 
@@ -2877,7 +2877,7 @@ else {
     Write-Output "The Install and Configure Sysmon Section Was Skipped..."
 }
 
-if ($diskcompression = $true){
+if ($diskcompression -eq $true) {
     Write-Host "Compressing Disk to Save Space" -ForegroundColor Green
     #Enable Disk Compression and Disable File Indexing
     Start-Job -Name "Enable Disk Compression and Disable File Indexing" -ScriptBlock {
@@ -2899,7 +2899,7 @@ else {
     Write-Output "The Disk Compression Section Was Skipped..."
 }
 
-if ($emet = $true){
+if ($emet -eq $true) {
     Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
 }
@@ -2907,7 +2907,7 @@ else {
     Write-Output "The Google Chrome Section Was Skipped..."
 }
 
-if ($updatemanagement = $true){
+if ($updatemanagement -eq $true) {
     Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
 }
@@ -2915,7 +2915,7 @@ else {
     Write-Output "The Google Chrome Section Was Skipped..."
 }
 
-if ($deviceguard = $true){
+if ($deviceguard -eq $true) {
     Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
 }
@@ -2923,7 +2923,7 @@ else {
     Write-Output "The Google Chrome Section Was Skipped..."
 }
 
-if ($sosbrowsers = $true){
+if ($sosbrowsers -eq $true) {
     Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
 }
