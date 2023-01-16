@@ -48,6 +48,10 @@ param(
     [Parameter(Mandatory = $false)]
     [bool]$smbhardening = $true,
     [Parameter(Mandatory = $false)]
+    [bool]$applockerhardening = $true,
+    [Parameter(Mandatory = $false)]
+    [bool]$bitlockerhardening = $true,
+    [Parameter(Mandatory = $false)]
     [bool]$removebloatware = $true,
     [Parameter(Mandatory = $false)]
     [bool]$disabletelemetry = $true,
@@ -60,26 +64,44 @@ param(
     [Parameter(Mandatory = $false)]
     [bool]$sysmon = $true,
     [Parameter(Mandatory = $false)]
-    [bool]$diskcompression = $true
+    [bool]$diskcompression = $true,
+    [Parameter(Mandatory = $false)]
+    [bool]$emet = $true,
+    [Parameter(Mandatory = $false)]
+    [bool]$updatemanagement = $true,
+    [Parameter(Mandatory = $false)]
+    [bool]$deviceguard = $true,
+    [Parameter(Mandatory = $false)]
+    [bool]$sosbrowsers = $true
 )
+
+$params = $cleargpos, $installupdates, $adobe, $firefox, $chrome, $IE11, $edge, $dotnet, $office, $onedrive, $java, $windows, $defender, $firewall, $mitigations, $defenderhardening, $pshardening, $sslhardening, $smbhardening, $applockerhardening, $bitlockerhardening, $removebloatware, $disabletelemetry, $privacy, $imagecleanup, $nessusPID, $sysmon, $diskcompression, $emet, $updatemanagement, $deviceguard, $sosbrowsers
+
+# run a warning if no options are set to true
+if ($params | Where-Object {$_ -eq $false} | Select-Object -Count -EQ $params.Count) {
+    Write-Error "No Options Were Selected. Exiting..."
+    Exit
+}
+
+# if any parameters are set to true take a restore point
+if ($params | Where-Object {$_} | Select-Object) {
+    Checkpoint-Computer -Description "RestorePoint1" -RestorePointType "MODIFY_SETTINGS"
+}
 
 #GPO Configurations
 function Import-GPOs([string]$gposdir) {
-    Write-Host "Importing Group Policies from $gposdir ..." -ForegroundColor Green -BackgroundColor Black
-    Foreach ($gpocategory in Get-ChildItem $gposdir) {
-
-        Write-Host "Importing $gpocategory GPOs..." -ForegroundColor White -BackgroundColor Black
-
-        Foreach ($gpo in (Get-ChildItem "$gposdir\$gpocategory")) {
-            $gpopath = "$gposdir\$gpocategory\$gpo"
-            Write-Host "Importing $gpo" -ForegroundColor White -BackgroundColor Black
+    Write-Host "Importing Group Policies from $gposdir ..." -ForegroundColor Green
+    Foreach ($gpoitem in Get-ChildItem $gposdir) {
+        Write-Host "Importing $gpoitem GPOs..." -ForegroundColor White
+            $gpopath = "$gposdir\$gpoitem"
+            #Write-Host "Importing $gpo" -ForegroundColor White
             .\Files\LGPO\LGPO.exe /g $gpopath > $null 2>&1
-            Write-Host "Done" -ForegroundColor Green -BackgroundColor Black
-        }
+            #Write-Host "Done" -ForegroundColor Green
     }
 }
 
 if ($cleargpos = $true) {
+    Write-Host "Removing Existing Local GPOs" -ForegroundColor Green
     #Remove and Refresh Local Policies
     Remove-Item -Recurse -Force "$env:WinDir\System32\GroupPolicy" | Out-Null
     Remove-Item -Recurse -Force "$env:WinDir\System32\GroupPolicyUsers" | Out-Null
@@ -91,6 +113,7 @@ else{
 }
 
 if ($installupdates = $true) {
+    Write-Host "Installing the Latest Windows Updates" -ForegroundColor Green
     #Install PowerShell Modules
     Copy-Item -Path .\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
     #Unblock New PowerShell Modules
@@ -108,7 +131,8 @@ else {
 }
 
 if ($adobe = $true){
-    Import-GPOs -gposdir ".\Files\GPOs\DoD\Adobe\"
+    Write-Host "Implementing the Adobe STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\DoD\Adobe"
 
     Start-Job -Name "Adobe Reader DC STIG" -ScriptBlock {
         #Adobe Reader DC STIG
@@ -148,34 +172,35 @@ else {
 }
 
 if ($firefox = $true){
-    Import-GPOs -gposdir ".\Files\GPOs\DoD\FireFox\"
-    Import-GPOs -gposdir ".\Files\GPOs\SoS\FireFox\"
+    Write-Host "Implementing the FireFox STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\DoD\FireFox"
+    Import-GPOs -gposdir ".\Files\GPOs\SoS\FireFox"
 
-    Write-Host "simeononsecurity/FireFox-STIG-Script" -ForegroundColor Green -BackgroundColor Black
-    Write-Host "https://github.com/simeononsecurity/FireFox-STIG-Script" -ForegroundColor Green -BackgroundColor Black 
+    Write-Host "simeononsecurity/FireFox-STIG-Script" -ForegroundColor Green
+    Write-Host "https://github.com/simeononsecurity/FireFox-STIG-Script" -ForegroundColor Green 
 
     #https://www.itsupportguides.com/knowledge-base/tech-tips-tricks/how-to-customise-firefox-installs-using-mozilla-cfg/
     $firefox64 = "C:\Program Files\Mozilla Firefox"
     $firefox32 = "C:\Program Files (x86)\Mozilla Firefox"
-    Write-Host "Installing Firefox Configurations - Please Wait." -ForegroundColor White -BackgroundColor Black
-    Write-Host "Window will close after install is complete" -ForegroundColor White -BackgroundColor Black
+    Write-Host "Installing Firefox Configurations - Please Wait." -ForegroundColor White
+    Write-Host "Window will close after install is complete" -ForegroundColor White
     If (Test-Path -Path $firefox64) {
         Copy-Item -Path .\Files\"FireFox Configuration Files"\defaults -Destination $firefox64 -Force -Recurse
         Copy-Item -Path .\Files\"FireFox Configuration Files"\mozilla.cfg -Destination $firefox64 -Force
         Copy-Item -Path .\Files\"FireFox Configuration Files"\local-settings.js -Destination $firefox64 -Force 
-        Write-Host "Firefox 64-Bit Configurations Installed" -ForegroundColor Green -BackgroundColor Black
+        Write-Host "Firefox 64-Bit Configurations Installed" -ForegroundColor Green
     }
     Else {
-        Write-Host "FireFox 64-Bit Is Not Installed" -ForegroundColor Red -BackgroundColor Black
+        Write-Host "FireFox 64-Bit Is Not Installed" -ForegroundColor Red
     }
     If (Test-Path -Path $firefox32) {
         Copy-Item -Path .\Files\"FireFox Configuration Files"\defaults -Destination $firefox32 -Force -Recurse
         Copy-Item -Path .\Files\"FireFox Configuration Files"\mozilla.cfg -Destination $firefox32 -Force
         Copy-Item -Path .\Files\"FireFox Configuration Files"\local-settings.js -Destination $firefox32 -Force 
-        Write-Host "Firefox 32-Bit Configurations Installed" -ForegroundColor Green -BackgroundColor Black
+        Write-Host "Firefox 32-Bit Configurations Installed" -ForegroundColor Green
     }
     Else {
-        Write-Host "FireFox 32-Bit Is Not Installed" -ForegroundColor Red -BackgroundColor Black
+        Write-Host "FireFox 32-Bit Is Not Installed" -ForegroundColor Red
     }
 }
 else {
@@ -183,21 +208,24 @@ else {
 }
 
 if ($chrome = $true){
-    Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome\"
+    Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
 }
 else {
     Write-Output "The Google Chrome Section Was Skipped..."
 }
 
 if ($IE11 = $true){
-    Import-GPOs -gposdir ".\Files\GPOs\DoD\IE11\"
+    Write-Host "Implementing the Internet Explorer 11 STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\DoD\IE11"
 }
 else {
     Write-Output "The Internet Explorer 11 Section Was Skipped..."
 }
 
 if ($edge = $true){
-    Import-GPOs -gposdir ".\Files\GPOs\DoD\Edge\"
+    Write-Host "Implementing the Microsoft Edge STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\DoD\Edge"
 
     #InPrivate browsing in Microsoft Edge must be disabled.
     Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\MicrosoftEdge\Main" -Name "AllowInPrivate" -Type "DWORD" -Value 0 -Force
@@ -210,19 +238,20 @@ else {
 }
 
 if ($dotnet = $true){
+    Write-Host "Implementing the Dot Net Framework STIGs" -ForegroundColor Green
     #SimeonOnSecurity - Microsoft .Net Framework 4 STIG Script
     #https://github.com/simeononsecurity
     #https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MS_DotNet_Framework_4-0_V1R9_STIG.zip
     #https://docs.microsoft.com/en-us/dotnet/framework/tools/caspol-exe-code-access-security-policy-tool
 
-    Write-Host "Implementing simeononsecurity/.NET-STIG-Script" -ForegroundColor Green -BackgroundColor Black
-    Write-Host "https://github.com/simeononsecurity/.NET-STIG-Script" -ForegroundColor Green -BackgroundColor Black 
+    Write-Host "Implementing simeononsecurity/.NET-STIG-Script" -ForegroundColor Green
+    Write-Host "https://github.com/simeononsecurity/.NET-STIG-Script" -ForegroundColor Green 
 
     #Setting Netframework path variables
     $NetFramework32 = "C:\Windows\Microsoft.NET\Framework"
     $NetFramework64 = "C:\Windows\Microsoft.NET\Framework64"
 
-    Write-Host "Beginning .NET STIG Script" -ForegroundColor Green -BackgroundColor Black
+    Write-Host "Beginning .NET STIG Script" -ForegroundColor Green
 
     #Vul ID: V-7055	   	Rule ID: SV-7438r3_rule	   	STIG ID: APPNET0031
     #Removing registry value
@@ -231,7 +260,7 @@ if ($dotnet = $true){
         Write-Host ".Net StrongName Verification Registry Removed"
     } 
     Else {
-        Write-Host ".Net StrongName Verification Registry Does Not Exist" -ForegroundColor Green -BackgroundColor Black
+        Write-Host ".Net StrongName Verification Registry Does Not Exist" -ForegroundColor Green
     }
 
     #Vul ID: V-7061	   	Rule ID: SV-7444r3_rule   	STIG ID: APPNET0046
@@ -243,12 +272,12 @@ if ($dotnet = $true){
             #Vul ID: V-30935	   	Rule ID: SV-40977r3_rule	   	STIG ID: APPNET0063
             If (Test-Path -Path "HKU:\$SID\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing\State") {
                 Set-ItemProperty -Path "HKU:\$SID\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing\" -Name "State" -Value "0x23C00" -Force | Out-Null
-                Write-Host "Set Trust Providers Software Publishing State to 146432/0x23C00 for SID $SID" -ForegroundColor White -BackgroundColor Black
+                Write-Host "Set Trust Providers Software Publishing State to 146432/0x23C00 for SID $SID" -ForegroundColor White
             }
             Else {
                 New-Item -Path "HKU:\$SID\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing\" -Name "State" -Force | Out-Null
                 New-ItemProperty -Path "HKU:\$SID\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing\" -Name "State" -Value "0x23C00" -Force | Out-Null
-                Write-Host "Set Trust Providers Software Publishing State to 146432/0x23C00 for SID $SID" -ForegroundColor White -BackgroundColor Black
+                Write-Host "Set Trust Providers Software Publishing State to 146432/0x23C00 for SID $SID" -ForegroundColor White
             }
         }
     }
@@ -285,7 +314,7 @@ if ($dotnet = $true){
         #Pulled XML assistance from https://stackoverflow.com/questions/9944885/powershell-xml-importnode-from-different-file
         #Pulled more XML details from http://www.maxtblog.com/2012/11/add-from-one-xml-data-to-another-existing-xml-file/
     
-        Write-Host "Begining work on $MachineConfigPath..." -ForegroundColor White -BackgroundColor Black
+        Write-Host "Begining work on $MachineConfigPath..." -ForegroundColor White
     
         # Do out. Automate each individual childnode for infinite nested. Currently only goes two deep
         $SecureChildNodes = $SecureMachineConfig.configuration | Get-Member | Where-Object MemberType -match "^Property" | Select-Object -ExpandProperty Name
@@ -360,13 +389,13 @@ if ($dotnet = $true){
             }#Else end for an if statement checking if the desired childnode is in the parent file
         }#End of iterating through SecureChildNodes
     
-        Write-Host "Merge Complete" -ForegroundColor White -BackgroundColor Black
+        Write-Host "Merge Complete" -ForegroundColor White
     }
     #>
 
     # .Net 32-Bit
     ForEach ($DotNetVersion in (Get-ChildItem $netframework32 -Directory)) {
-        Write-Host ".Net 32-Bit $DotNetVersion Is Installed" -ForegroundColor Green -BackgroundColor Black
+        Write-Host ".Net 32-Bit $DotNetVersion Is Installed" -ForegroundColor Green
         #Starting .net exe/API to pass configuration Arguments
         If (Test-Path "$($DotNetVersion.FullName)\caspol.exe") {
             Start-Process "$($DotNetVersion.FullName)\caspol.exe" -ArgumentList "-q -f -pp on" -WindowStyle Hidden
@@ -374,27 +403,27 @@ if ($dotnet = $true){
             # Comment lines above and uncomment lines below to see output
             #Start-Process "$($DotNetVersion.FullName)\caspol.exe" -ArgumentList "-q -f -pp on" -NoNewWindow
             #Start-Process "$($DotNetVersion.FullName)\caspol.exe" -ArgumentList "-m -lg" -NoNewWindow
-            Write-Host "Set CAS policy for $DotNetVersion 32-Bit" -ForegroundColor White -BackgroundColor Black
+            Write-Host "Set CAS policy for $DotNetVersion 32-Bit" -ForegroundColor White
         }
         #Vul ID: V-30935	   	Rule ID: SV-40977r3_rule	   	STIG ID: APPNET0063
         If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass") {
             Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -Value "0" -Force | Out-Null
-            Write-Host "Disabled Strong Name Bypass for $DotNetVersion 32-Bit" -ForegroundColor White -BackgroundColor Black
+            Write-Host "Disabled Strong Name Bypass for $DotNetVersion 32-Bit" -ForegroundColor White
         }
         Else {
             New-Item -Path "HKLM:\SOFTWARE\Microsoft\" -Name ".NETFramework" -Force | Out-Null
             New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0" -Force | Out-Null
-            Write-Host "Disabled Strong Name Bypass for $DotNetVersion 32-Bit" -ForegroundColor White -BackgroundColor Black
+            Write-Host "Disabled Strong Name Bypass for $DotNetVersion 32-Bit" -ForegroundColor White
         }
         #Vul ID: V-81495	   	Rule ID: SV-96209r2_rule	   	STIG ID: APPNET0075	
         If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\$DotNetVersion\SchUseStrongCrypto") {
             Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\$DotNetVersion\" -Name "SchUseStrongCrypto" -Value "1" -Force | Out-Null
-            Write-Host "Enforced Strong Crypto for $DotNetVersion 32-Bit" -ForegroundColor White -BackgroundColor Black
+            Write-Host "Enforced Strong Crypto for $DotNetVersion 32-Bit" -ForegroundColor White
         }
         Else {
             New-Item -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework" -Name "$DotNetVersion" -Force | Out-Null
             New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\$DotNetVersion\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1" -Force | Out-Null
-            Write-Host "Enforced Strong Crypto for $DotNetVersion 32-Bit" -ForegroundColor White -BackgroundColor Black
+            Write-Host "Enforced Strong Crypto for $DotNetVersion 32-Bit" -ForegroundColor White
         }
 
         <# Source for specifying configs for specific .Net versions
@@ -411,20 +440,20 @@ if ($dotnet = $true){
             If (($DotNetVersion -Split "v" )[1] -ge 2) {
                 #.net version testing.
                 If (($DotNetVersion -Split "v" )[1] -ge 4) {
-                    Write-Host ".Net version 4 or higher... Continuing with v4.0+ Machine.conf Merge..." -ForegroundColor White -BackgroundColor Black
+                    Write-Host ".Net version 4 or higher... Continuing with v4.0+ Machine.conf Merge..." -ForegroundColor White
                     Set-SecureConfig -VersionPath "$($DotNetVersion.FullName)\Config\Machine.config" -SecureMachineConfigPath "$PSScriptRoot\Files\.Net Configuration Files\secure.machine-v4.config"
                 }
                 Else {
-                    Write-Host ".Net version is less than 4... Continuing with v2.0+ Machine.conf Merge..." -ForegroundColor White -BackgroundColor Black
+                    Write-Host ".Net version is less than 4... Continuing with v2.0+ Machine.conf Merge..." -ForegroundColor White
                     Set-SecureConfig -VersionPath "$($DotNetVersion.FullName)\Config\Machine.config" -SecureMachineConfigPath "$PSScriptRoot\Files\.Net Configuration Files\secure.machine-v2.config"
                 }
             }
             Else {
-                Write-Host ".Net version is less than 2... Skipping Machine.conf Merge..." -ForegroundColor Yellow -BackgroundColor Black
+                Write-Host ".Net version is less than 2... Skipping Machine.conf Merge..." -ForegroundColor Yellow
             }#End dotnet version test
         }
         Else {
-            Write-Host "No Machine.Conf file exists for .Net version $DotNetVersion" -ForegroundColor Red -BackgroundColor Black
+            Write-Host "No Machine.Conf file exists for .Net version $DotNetVersion" -ForegroundColor Red
         }#End testpath
         #>
     }
@@ -432,7 +461,7 @@ if ($dotnet = $true){
 
     # .Net 64-Bit
     ForEach ($DotNetVersion in (Get-ChildItem $netframework64 -Directory)) {  
-        Write-Host ".Net 64-Bit $DotNetVersion Is Installed" -ForegroundColor Green -BackgroundColor Black
+        Write-Host ".Net 64-Bit $DotNetVersion Is Installed" -ForegroundColor Green
         #Starting .net exe/API to pass configuration Arguments
         If (Test-Path "$($DotNetVersion.FullName)\caspol.exe") {
             Start-Process "$($DotNetVersion.FullName)\caspol.exe" -ArgumentList "-q -f -pp on" -WindowStyle Hidden
@@ -440,27 +469,27 @@ if ($dotnet = $true){
             # Comment lines above and uncomment lines below to see output
             #Start-Process "$($DotNetVersion.FullName)\caspol.exe" -ArgumentList "-q -f -pp on" -NoNewWindow
             #Start-Process "$($DotNetVersion.FullName)\caspol.exe" -ArgumentList "-m -lg" -NoNewWindow
-            Write-Host "Set CAS policy for $DotNetVersion 64-Bit" -ForegroundColor White -BackgroundColor Black
+            Write-Host "Set CAS policy for $DotNetVersion 64-Bit" -ForegroundColor White
         }
         #Vul ID: V-30935	   	Rule ID: SV-40977r3_rule	   	STIG ID: APPNET0063
         If (Test-Path -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass") {
             Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -Value "0" -Force | Out-Null
-            Write-Host "Disabled Strong Name Bypass for $DotNetVersion 64-Bit" -ForegroundColor White -BackgroundColor Black
+            Write-Host "Disabled Strong Name Bypass for $DotNetVersion 64-Bit" -ForegroundColor White
         }
         Else {
             New-Item -Path "HKLM:\SOFTWARE\Microsoft\" -Name ".NETFramework" -Force | Out-Null
             New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\.NETFramework\" -Name "AllowStrongNameBypass" -PropertyType "DWORD" -Value "0" -Force | Out-Null
-            Write-Host "Disabled Strong Name Bypass for $DotNetVersion 64-Bit" -ForegroundColor White -BackgroundColor Black
+            Write-Host "Disabled Strong Name Bypass for $DotNetVersion 64-Bit" -ForegroundColor White
         }
         #Vul ID: V-81495	   	Rule ID: SV-96209r2_rule	   	STIG ID: APPNET0075	
         If (Test-Path -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\$DotNetVersion\") {
             Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\$DotNetVersion\" -Name "SchUseStrongCrypto" -Value "1" -Force | Out-Null
-            Write-Host "Enforced Strong Crypto for $DotNetVersion 64-Bit" -ForegroundColor White -BackgroundColor Black
+            Write-Host "Enforced Strong Crypto for $DotNetVersion 64-Bit" -ForegroundColor White
         }
         Else {
             New-Item -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\" -Name "$DotNetVersion" -Force | Out-Null
             New-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\$DotNetVersion\" -Name "SchUseStrongCrypto" -PropertyType "DWORD" -Value "1" -Force | Out-Null
-            Write-Host "Enforced Strong Crypto for $DotNetVersion 64-Bit" -ForegroundColor White -BackgroundColor Black
+            Write-Host "Enforced Strong Crypto for $DotNetVersion 64-Bit" -ForegroundColor White
         }
 
         <# Source for specifying configs for specific .Net versions
@@ -477,20 +506,20 @@ if ($dotnet = $true){
             If (($DotNetVersion -Split "v" )[1] -ge 2) {
                 #More version testing.
                 If (($DotNetVersion -Split "v" )[1] -ge 4) {
-                    Write-Host ".Net version 4 or higher... Continuing with v4.0+ Machine.conf Merge..." -ForegroundColor White -BackgroundColor Black
+                    Write-Host ".Net version 4 or higher... Continuing with v4.0+ Machine.conf Merge..." -ForegroundColor White
                     Set-SecureConfig -VersionPath "$($DotNetVersion.FullName)\Config\Machine.config" -SecureMachineConfigPath "$PSScriptRoot\Files\.Net Configuration Files\secure.machine-v4.config"
                 }
                 Else {
-                    Write-Host ".Net version is less than 4... Continuing with v2.0+ Machine.conf Merge..." -ForegroundColor White -BackgroundColor Black
+                    Write-Host ".Net version is less than 4... Continuing with v2.0+ Machine.conf Merge..." -ForegroundColor White
                     Set-SecureConfig -VersionPath "$($DotNetVersion.FullName)\Config\Machine.config" -SecureMachineConfigPath "$PSScriptRoot\Files\.Net Configuration Files\secure.machine-v2.config"
                 }
             }
             Else {
-                Write-Host ".Net version is less than 2... Skipping Machine.conf Merge..." -ForegroundColor Yellow -BackgroundColor Black
+                Write-Host ".Net version is less than 2... Skipping Machine.conf Merge..." -ForegroundColor Yellow
             }#End .net version test
         }
         Else {
-            Write-Host "No Machine.Conf file exists for .Net version $DotNetVersion" -ForegroundColor Red -BackgroundColor Black
+            Write-Host "No Machine.Conf file exists for .Net version $DotNetVersion" -ForegroundColor Red
         }#End testpath
             #>
     }
@@ -500,22 +529,25 @@ else {
 }
 
 if ($office = $true){
-    Import-GPOs -gposdir ".\Files\GPOs\DoD\Office\"
+    Write-Host "Implementing the Microsoft Office STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\DoD\Office"
 }
 else {
     Write-Output "The Microsoft Office Section Was Skipped..."
 }
 
 if ($onedrive = $true){
-    Import-GPOs -gposdir ".\Files\GPOs\SoS\Onedrive\"
+    Write-Host "Implementing the Microsoft OneDrive STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\SoS\Onedrive"
 }
 else {
     Write-Output "The OneDrive Section Was Skipped..."
 }
 
 if ($java = $true){
-    Write-Host "Implementing simeononsecurity/JAVA-STIG-Script" -ForegroundColor Green -BackgroundColor Black
-    Write-Host "https://github.com/simeononsecurity/JAVA-STIG-Script" -ForegroundColor Green -BackgroundColor Black 
+    Write-Host "Implementing the Oracle Java JRE 8 STIGs" -ForegroundColor Green
+    Write-Host "Implementing simeononsecurity/JAVA-STIG-Script" -ForegroundColor Green
+    Write-Host "https://github.com/simeononsecurity/JAVA-STIG-Script" -ForegroundColor Green 
 
     #https://gist.github.com/MyITGuy/9628895
     #http://stu.cbu.edu/java/docs/technotes/guides/deploy/properties.html
@@ -525,23 +557,23 @@ if ($java = $true){
     #<JRE Installation Directory>\lib\deployment.config
 
     If (Test-Path -Path "C:\Windows\Sun\Java\Deployment\deployment.config") {
-        Write-Host "JAVA Deployment Config Already Installed" -ForegroundColor Green -BackgroundColor Black
+        Write-Host "JAVA Deployment Config Already Installed" -ForegroundColor Green
     }
     Else {
-        Write-Host "Installing JAVA Deployment Config...." -ForegroundColor Green -BackgroundColor Black
+        Write-Host "Installing JAVA Deployment Config...." -ForegroundColor Green
         Mkdir "C:\Windows\Sun\Java\Deployment\"
         Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.config -Destination "C:\Windows\Sun\Java\Deployment\" -Force
-        Write-Host "JAVA Configs Installed" -ForegroundColor White -BackgroundColor Black
+        Write-Host "JAVA Configs Installed" -ForegroundColor White
     }
     If (Test-Path -Path "C:\Windows\Java\Deployment\") {
-        Write-Host "JAVA Configs Already Deployed" -ForegroundColor Green -BackgroundColor Black
+        Write-Host "JAVA Configs Already Deployed" -ForegroundColor Green
     }
     Else {
-        Write-Host "Installing JAVA Configurations...." -ForegroundColor Green -BackgroundColor Black
+        Write-Host "Installing JAVA Configurations...." -ForegroundColor Green
         Mkdir "C:\Windows\Java\Deployment\"
         Copy-Item -Path .\Files\"JAVA Configuration Files"\deployment.properties -Destination "C:\Windows\Java\Deployment\" -Force
         Copy-Item -Path .\Files\"JAVA Configuration Files"\exception.sites -Destination "C:\Windows\Java\Deployment\" -Force
-        Write-Host "JAVA Configs Installed" -ForegroundColor White -BackgroundColor Black
+        Write-Host "JAVA Configs Installed" -ForegroundColor White
     }
 }
 else {
@@ -549,10 +581,11 @@ else {
 }
 
 if ($windows= $true){
+    Write-Host "Implementing the Windows 10/11 STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Windows"
 
-    Write-Host "Implementing simeononsecurity/Windows-Audit-Policy" -ForegroundColor Green -BackgroundColor Black
-    Write-Host "https://github.com/simeononsecurity/Windows-Audit-Policy" -ForegroundColor Green -BackgroundColor Black 
+    Write-Host "Implementing simeononsecurity/Windows-Audit-Policy" -ForegroundColor Green
+    Write-Host "https://github.com/simeononsecurity/Windows-Audit-Policy" -ForegroundColor Green 
 
     New-Item -Force -ItemType "Directory" "C:\temp"
     Copy-Item $PSScriptRoot\files\auditing\auditbaseline.csv C:\temp\auditbaseline.csv 
@@ -613,6 +646,7 @@ else {
 }
 
 if ($defender = $true){
+    Write-Host "Implementing the Windows Defender STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\Defender"
 }
 else {
@@ -620,6 +654,7 @@ else {
 }
 
 if ($firewall = $true){
+    Write-Host "Implementing the Windows Firewall STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\DoD\FireWall"
 }
 else {
@@ -627,6 +662,7 @@ else {
 }
 
 if ($mitigations = $true){
+    Write-Host "Implementing the General Vulnerability Mitigations" -ForegroundColor Green
     Start-Job -Name "Mitigations" -ScriptBlock {
         #####SPECTURE MELTDOWN#####
         #https://support.microsoft.com/en-us/help/4073119/protect-against-speculative-execution-side-channel-vulnerabilities-in
@@ -704,6 +740,10 @@ else {
 }
 
 if ($defenderhardening = $true){
+    Write-Host "Implementing Windows Defender Hardening Beyond STIGs" -ForegroundColor Green
+
+    Import-GPOs -gposdir ".\Files\GPOs\SoS\WDAC"
+
     #Windows Defender Configuration Files
     New-Item -Path "C:\" -Name "Temp" -ItemType "directory" -Force | Out-Null; New-Item -Path "C:\temp\" -Name "Windows Defender" -ItemType "directory" -Force | Out-Null; Copy-Item -Path .\Files\"Windows Defender Configuration Files"\* -Destination "C:\temp\Windows Defender\" -Force -Recurse -ErrorAction SilentlyContinue | Out-Null
 
@@ -820,6 +860,7 @@ else {
 }
 
 if ($pshardening = $true){
+    Write-Host "Implementing PowerShell Hardening Beyond STIGs" -ForegroundColor Green
     Import-GPOs -gposdir ".\Files\GPOs\SoS\Powershell"
 
     Start-Job -Name "PowerShell Hardening" -ScriptBlock {
@@ -864,7 +905,25 @@ else {
     Write-Output "The PowerShell Hardening Section Was Skipped..."
 }
 
+if ($applockerhardening = $true){
+    Write-Host "Implementing Applocker Hardening Beyond STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\NSACyber\Applocker"
+}
+else {
+    Write-Output "The Applocker Hardening Section Was Skipped..."
+}
+
+if ($bitlockerhardening = $true){
+    Write-Host "Implementing Bitlocker Hardening Beyond STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\NSACyber\Bitlocker"
+}
+else {
+    Write-Output "The Bitlocker Hardening Section Was Skipped..."
+}
+
+
 if ($sslhardening = $true){
+    Write-Host "Implementing SSL Hardening Beyond STIGs" -ForegroundColor Green
     Start-Job -Name "SSL Hardening" -ScriptBlock {
 
         #Increase Diffie-Hellman key (DHK) exchange to 4096-bit
@@ -1013,6 +1072,7 @@ else {
 }
 
 if ($smbhardening = $true){
+    Write-Host "Implementing SMB Hardening Beyond STIGs" -ForegroundColor Green
     Start-Job -Name "SMB Optimizations and Hardening" -ScriptBlock {
         #https://docs.microsoft.com/en-us/windows/privacy/
         #https://docs.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services
@@ -1053,6 +1113,7 @@ else {
 }
 
 if ($removebloatware = $true){
+    Write-Host "Removing Windows Bloatware" -ForegroundColor Green
     Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
         #Removing Windows Bloatware
         Write-Host "Removing Bloatware"
@@ -1292,6 +1353,7 @@ else {
 }
 
 if ($disabletelemetry = $true){
+    Write-Host "Disabling Telemetry Reporting and Related Services" -ForegroundColor Green
     Start-Job -Name "Disable Telemetry" -ScriptBlock {
         #Disabling Telemetry and Services
         Write-Host "Disabling Telemetry and Related Services"
@@ -1591,6 +1653,7 @@ else {
 }
 
 if ($privacy = $true){
+    Write-Host "Enabling Privacy and Security Focused" -ForegroundColor Green
     Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
         #Do not let apps on other devices open and message apps on this device, and vice versa
         New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\CDP" -Name RomeSdkChannelUserAuthzPolicy -PropertyType DWord -Value 1 -Force
@@ -2505,6 +2568,7 @@ else {
 }
 
 if ($imagecleanup = $true){
+    Write-Host "Cleaning Up Install Files and Cleanining Up the Image" -ForegroundColor Green
     Start-Job -Name "Image Cleanup" -ScriptBlock {
         #Delete "windows.old" folder
         #Cmd.exe /c Cleanmgr /sageset:65535 
@@ -2703,6 +2767,7 @@ else {
 }
 
 if ($nessusPID = $true){
+    Write-Host "Resolve: Nessus Plugin ID 63155 - Microsoft Windows Unquoted Service Path Enumeration" -ForegroundColor Green
     Start-Job -Name "Nessus Plugin ID 63155 - Microsoft Windows Unquoted Service Path Enumeration" -ScriptBlock {
         # https://github.com/VectorBCO/windows-path-enumerate/blob/development/Windows_Path_Enumerate.ps1
         ForEach ($i in 1..2) {
@@ -2802,8 +2867,8 @@ else {
 }
 
 if ($sysmon = $true){
-    Write-Host "Implementing simeononsecurity/Automate-Sysmon" -ForegroundColor Green -BackgroundColor Black
-    Write-Host "https://github.com/simeononsecurity/Automate-Sysmon" -ForegroundColor Green -BackgroundColor Black 
+    Write-Host "Implementing simeononsecurity/Automate-Sysmon" -ForegroundColor Green
+    Write-Host "https://github.com/simeononsecurity/Automate-Sysmon" -ForegroundColor Green 
 
     Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe" -ArgumentList "-u" -WindowStyle Hidden 
     Start-Process "$($PSScriptRoot)\Files\Sysmon\sysmon.exe"  -ArgumentList "-accepteula -i $PSScriptRoot\Files\Sysmon\sysmonconfig-export.xml" -WindowStyle Hidden 
@@ -2813,6 +2878,7 @@ else {
 }
 
 if ($diskcompression = $true){
+    Write-Host "Compressing Disk to Save Space" -ForegroundColor Green
     #Enable Disk Compression and Disable File Indexing
     Start-Job -Name "Enable Disk Compression and Disable File Indexing" -ScriptBlock {
         $DriveLetters = (Get-WmiObject -Class Win32_Volume).DriveLetter
@@ -2829,9 +2895,44 @@ if ($diskcompression = $true){
         }
     }
 }
+else {
+    Write-Output "The Disk Compression Section Was Skipped..."
+}
 
-$params = $cleargpos, $installupdates, $adobe, $firefox, $chrome, $IE11, $edge, $dotnet, $office, $onedrive, $java, $windows, $defender, $firewall, $mitigations, $pshardening, $debloatappx, $sslhardening, $smbhardening, $removebloatware, $disabletelemetry, $privacy, $imagecleanup, $nessusPID, $sysmon
-if ($params | Where-Object { $_ } | Select-Object) {
+if ($emet = $true){
+    Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
+}
+else {
+    Write-Output "The Google Chrome Section Was Skipped..."
+}
+
+if ($updatemanagement = $true){
+    Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
+}
+else {
+    Write-Output "The Google Chrome Section Was Skipped..."
+}
+
+if ($deviceguard = $true){
+    Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
+}
+else {
+    Write-Output "The Google Chrome Section Was Skipped..."
+}
+
+if ($sosbrowsers = $true){
+    Write-Host "Implementing the Google Chrome STIGs" -ForegroundColor Green
+    Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
+}
+else {
+    Write-Output "The Google Chrome Section Was Skipped..."
+}
+
+# only run final gpo refresh and reboot statement if any peramater was true
+if ($params | Where-Object {$_} | Select-Object) {
     Write-Host "Checking Backgrounded Processes" ; Get-Job
     Write-Host "Performing Group Policy Update" ; Gpupdate /force
     Write-Warning "A reboot is required for all changed to take effect"
