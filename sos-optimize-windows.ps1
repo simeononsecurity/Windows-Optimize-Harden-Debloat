@@ -76,11 +76,6 @@ $ErrorActionPreference = 'silentlycontinue'
 #Set Directory to PSScriptRoot
 if ((Get-Location).Path -NE $PSScriptRoot) { Set-Location $PSScriptRoot }
 
-Write-Host "$cleargpos"
-if ($cleargpos -eq $true) {
-    Write-Host "-eq"
-}
-
 # $paramscheck = $cleargpos, $installupdates, $adobe, $firefox, $chrome, $IE11, $edge, $dotnet, $office, $onedrive, $java, $windows, $defender, $firewall, $mitigations, $defenderhardening, $pshardening, $sslhardening, $smbhardening, $applockerhardening, $bitlockerhardening, $removebloatware, $disabletelemetry, $privacy, $imagecleanup, $nessusPID, $sysmon, $diskcompression, $emet, $updatemanagement, $deviceguard, $sosbrowsers
 
 # # # run a warning if no options are set to true
@@ -2906,7 +2901,7 @@ else {
 
 if ($emet -eq $true) {
     Write-Host "Implementing the EMET Hardening Beyond STIGs" -ForegroundColor Green
-    Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
+    Import-GPOs -gposdir ".\Files\GPOs\SoS\EMET"
 }
 else {
     Write-Output "The EMET Section Was Skipped..."
@@ -2914,7 +2909,7 @@ else {
 
 if ($updatemanagement -eq $true) {
     Write-Host "Implementing the SoS Update Management Configurations" -ForegroundColor Green
-    Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
+    Import-GPOs -gposdir ".\Files\GPOs\SoS\Update Management"
 }
 else {
     Write-Output "The Update Management Section Was Skipped..."
@@ -2922,7 +2917,7 @@ else {
 
 if ($deviceguard -eq $true) {
     Write-Host "Implementing the SoS Device Guard Configurations" -ForegroundColor Green
-    Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
+    Import-GPOs -gposdir ".\Files\GPOs\SoS\Device Guard"
 }
 else {
     Write-Output "The Device Guard Section Was Skipped..."
@@ -2930,7 +2925,7 @@ else {
 
 if ($sosbrowsers -eq $true) {
     Write-Host "Implementing the SoS Browser Configurations" -ForegroundColor Green
-    Import-GPOs -gposdir ".\Files\GPOs\DoD\Chrome"
+    Import-GPOs -gposdir ".\Files\GPOs\SoS\Browsers"
 }
 else {
     Write-Output "The Browsers Config Section Was Skipped..."
