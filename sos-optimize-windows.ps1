@@ -2932,8 +2932,6 @@ else {
 }
 
 # only run final gpo refresh and reboot statement if any peramater was true
-if ($paramscheck | Where-Object { $_ } | Select-Object) {
     Write-Host "Checking Backgrounded Processes" ; Get-Job
     Write-Host "Performing Group Policy Update" ; Gpupdate /force
     Write-Warning "A reboot is required for all changed to take effect"
-}
