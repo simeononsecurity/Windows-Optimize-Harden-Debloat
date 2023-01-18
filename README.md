@@ -164,6 +164,14 @@ Get-ChildItem -Recurse *.ps1 | Unblock-File
 powershell.exe -ExecutionPolicy ByPass -File ./sos-optimize-windows.ps1
 ```
 
+### GUI - Guided Install:
+
+Download the latest release [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/releases/):
+Choose the options you want and hit execute.
+
+<img src="https://raw.githubusercontent.com/simeononsecurity/Windows-Optimize-Harden-Debloat/master/.github/images/WOHD-GUI.gif" alt="Example of 
+Windows-Optimize-Harden-Debloat GUI Based Guided install">
+
 ### Automated Install:
 
 Use this one-liner to automatically download, unzip all supporting files, and run the latest version of the script.
