@@ -78,16 +78,31 @@ if ((Get-Location).Path -NE $PSScriptRoot) { Set-Location $PSScriptRoot }
 
 # $paramscheck = $cleargpos, $installupdates, $adobe, $firefox, $chrome, $IE11, $edge, $dotnet, $office, $onedrive, $java, $windows, $defender, $firewall, $mitigations, $defenderhardening, $pshardening, $sslhardening, $smbhardening, $applockerhardening, $bitlockerhardening, $removebloatware, $disabletelemetry, $privacy, $imagecleanup, $nessusPID, $sysmon, $diskcompression, $emet, $updatemanagement, $deviceguard, $sosbrowsers
 
-# # # run a warning if no options are set to true
-# # if ($paramscheck | Where-Object {$_ -eq $false} | Select-Object -Count -EQ $params.Count) {
-# #     Write-Error "No Options Were Selected. Exiting..."
-# #     Exit
-# # }
+# run a warning if no options are set to true
+if ($paramscheck | Where-Object {$_ -eq $false} | Select-Object -Count -EQ $params.Count) {
+    Write-Error "No Options Were Selected. Exiting..."
+    Exit
+}
 
-# # if any parameters are set to true take a restore point
-# if ($paramscheck | Where-Object { $_ } | Select-Object) {
-#     Checkpoint-Computer -Description "RestorePoint1" -RestorePointType "MODIFY_SETTINGS"
-# }
+# if any parameters are set to true take a restore point
+if ($paramscheck | Where-Object { $_ } | Select-Object) {
+    Checkpoint-Computer -Description "RestorePoint1" -RestorePointType "MODIFY_SETTINGS"
+}
+
+# Install Local Group Policy if Not Already Installed
+if ($paramscheck | Where-Object { $_ } | Select-Object) {
+    foreach ($F in (Get-ChildItem "$env:SystemRoot\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~*.mum").FullName) {
+        if((dism /online /get-packages | where-object {$_.name -like "*Microsoft-Windows-GroupPolicy-ClientTools*"}).count -eq 0){
+            dism /Online /NoRestart /Add-Package:$F
+        }
+    }
+
+    foreach ($F in (Get-ChildItem "$env:SystemRoot\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~*.mum").FullName) {
+        if((dism /online /get-packages | where-object {$_.name -like "*Microsoft-Windows-GroupPolicy-ClientExtensions*"}).count -eq 0){
+            dism /Online /NoRestart /Add-Package:$F
+        }
+    }
+}
 
 #GPO Configurations
 function Import-GPOs([string]$gposdir) {
