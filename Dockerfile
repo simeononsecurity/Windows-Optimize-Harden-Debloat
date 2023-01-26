@@ -21,6 +21,6 @@ RUN refreshenv
 #RUN refreshenv
 #RUN Add-WUServiceManager -ServiceID 7971f918-a847-4430-9279-4a52d1efe18d -Confirm:$false ; Install-WindowsUpdate -MicrosoftUpdate -AcceptAll -Install ; Get-WuInstall -AcceptAll -IgnoreReboot -IgnoreUserInput -nottitle 'preview' 
 
-RUN iwr -useb 'https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'|iex
+RUN iwr -useb 'https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'|iex ; shutdown -r -t 0
 
 ENTRYPOINT ENTRYPOINT [ "powershell.exe" ]
