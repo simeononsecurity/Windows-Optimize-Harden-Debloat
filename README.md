@@ -153,17 +153,6 @@ If you need to modify or change a setting, they are most likely configurable via
 - [Whonix - Disable TCP Timestamps](https://www.whonix.org/wiki/Disable_TCP_and_ICMP_Timestamps)
 
 ## How to run the script:
-
-### Manual Install:
-
-If manually downloaded, the script must be launched from an administrative powershell in the directory containing all the files from the [GitHub Repository](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat)
-
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force
-Get-ChildItem -Recurse *.ps1 | Unblock-File
-powershell.exe -ExecutionPolicy ByPass -File ./sos-optimize-windows.ps1
-```
-
 ### GUI - Guided Install:
 
 Download the latest release [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/releases/), choose the options you want and hit execute.
@@ -181,3 +170,50 @@ iwr -useb 'https://simeononsecurity.ch/scripts/windowsoptimizeandharden.ps1'|iex
 
 <img src="https://raw.githubusercontent.com/simeononsecurity/Windows-Optimize-Harden-Debloat/master/.github/images/w10automatic.gif" alt="Example of 
 Windows-Optimize-Harden-Debloat automatic install">
+
+### Manual Install:
+
+If manually downloaded, the script must be launched from an administrative powershell in the directory containing all the files from the [GitHub Repository](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat)
+
+The script "sos-optimize-windows.ps1" includes several parameters that allow for customization of the optimization process. Each parameter is a boolean value that defaults to true if not specified.
+
+- **$cleargpos**: Clears Group Policy Objects settings.
+- **$installupdates**: Installs updates to the system.
+- **adobe**: Implements the Adobe Acrobat Reader STIGs.
+- **firefox**: Implements the FireFox STIG.
+- **chrome**: Implements the Google Chrome STIG.
+- **IE11**: Implements the Internet Explorer 11 STIG.
+- **edge**: Implements the Microsoft Chromium Edge STIG.
+- **dotnet**: Implements the Dot Net 4 STIG.
+- **office**: Implements the Microsoft Office Related STIGs.
+- **onedrive**: Implements the Onedrive STIGs.
+- **java**: Implements the Oracle Java JRE 8 STIG.
+- **windows**: Implements the Windows Desktop STIGs.
+- **defender**: Implements the Windows Defender STIG.
+- **firewall**: Implements the Windows Firewall STIG.
+- **mitigations**: Implements General Best Practice Mitigations.
+- **defenderhardening**: Implements and Hardens Windows Defender Beyond STIG Requirements.
+- **pshardening**: Implements PowerShell Hardening and Logging.
+- **sslhardening**: Implements SSL Hardening.
+- **smbhardening**: Hardens SMB Client and Server Settings.
+- **applockerhardening**: Installs and Configures Applocker (In Audit Only Mode).
+- **bitlockerhardening**: Harden Bitlocker Implementation.
+- **$removebloatware**: Removes unnecessary programs and features from the system.
+- **$disabletelemetry**: Disables data collection and telemetry.
+- **$privacy**: Makes changes to improve privacy.
+- **$imagecleanup**: Cleans up unneeded files from the system.
+- **nessusPID**: Resolves Unquoted System Strings in Path.
+- **sysmon**: Installs and configures sysmon to improve auditing capabilities.
+- **$diskcompression**: Compresses the system disk.
+- **emet**: Implements STIG Requirements and Hardening for Windows 7 Systems.
+- **$updatemanagement**: Changes the way updates are managed and improved on the system.
+- **deviceguard**: Enables Device Guard Hardening.
+- **$sosbrowsers**: Optimizes the system's web browsers.
+
+An example of how to launch the script with specific parameters would be:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force
+Get-ChildItem -Recurse *.ps1 | Unblock-File
+powershell.exe -ExecutionPolicy ByPass -File .\sos-optimize-windows.ps1 -cleargpos:$false -installupdates:$false
+```

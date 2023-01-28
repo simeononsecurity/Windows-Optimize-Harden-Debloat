@@ -76,30 +76,46 @@ $ErrorActionPreference = 'silentlycontinue'
 #Set Directory to PSScriptRoot
 if ((Get-Location).Path -NE $PSScriptRoot) { Set-Location $PSScriptRoot }
 
-# $paramscheck = $cleargpos, $installupdates, $adobe, $firefox, $chrome, $IE11, $edge, $dotnet, $office, $onedrive, $java, $windows, $defender, $firewall, $mitigations, $defenderhardening, $pshardening, $sslhardening, $smbhardening, $applockerhardening, $bitlockerhardening, $removebloatware, $disabletelemetry, $privacy, $imagecleanup, $nessusPID, $sysmon, $diskcompression, $emet, $updatemanagement, $deviceguard, $sosbrowsers
+$paramscheck = $cleargpos, $installupdates, $adobe, $firefox, $chrome, $IE11, $edge, $dotnet, $office, $onedrive, $java, $windows, $defender, $firewall, $mitigations, $defenderhardening, $pshardening, $sslhardening, $smbhardening, $applockerhardening, $bitlockerhardening, $removebloatware, $disabletelemetry, $privacy, $imagecleanup, $nessusPID, $sysmon, $diskcompression, $emet, $updatemanagement, $deviceguard, $sosbrowsers
 
 # run a warning if no options are set to true
-if ($paramscheck | Where-Object {$_ -eq $false} | Select-Object -Count -EQ $params.Count) {
+if ($paramscheck | Where-Object { $_ -eq $false } | Select-Object -Count -EQ $params.Count) {
     Write-Error "No Options Were Selected. Exiting..."
     Exit
 }
 
 # if any parameters are set to true take a restore point
+$date = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+$scriptName = $MyInvocation.MyCommand.Name
 if ($paramscheck | Where-Object { $_ } | Select-Object) {
-    Checkpoint-Computer -Description "RestorePoint1" -RestorePointType "MODIFY_SETTINGS"
+    $freespace = (Get-WmiObject -class Win32_LogicalDisk | Where-Object { $_.DeviceID -eq 'C:' }).FreeSpace
+    $minfreespace = 10000000000 #10GB
+    if ($freespace -gt $minfreespace) {
+        Write-Host "Taking a Restore Point Before Continuing...."
+        $job = Start-Job -Name Take Restore Point -ScriptBlock {
+            New-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\SystemRestore' -Name 'SystemRestorePointCreationFrequency' -PropertyType DWORD -Value 0 -Force
+            Checkpoint-Computer -Description "RestorePoint $scriptName $date" -RestorePointType "MODIFY_SETTINGS"
+        }
+        Wait-Job -Job $job
+    }
+    else {
+        Write-Output "Not enough disk space to create a restore point. Current free space: $(($freespace/1GB)) GB"
+    }
 }
 
 # Install Local Group Policy if Not Already Installed
 if ($paramscheck | Where-Object { $_ } | Select-Object) {
-    foreach ($F in (Get-ChildItem "$env:SystemRoot\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~*.mum").FullName) {
-        if((dism /online /get-packages | where-object {$_.name -like "*Microsoft-Windows-GroupPolicy-ClientTools*"}).count -eq 0){
-            dism /Online /NoRestart /Add-Package:$F
+    Start-Job -Name InstallGPOPackages -ScriptBlock {
+        foreach ($F in (Get-ChildItem "$env:SystemRoot\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~*.mum").FullName) {
+            if ((dism /online /get-packages | where-object { $_.name -like "*Microsoft-Windows-GroupPolicy-ClientTools*" }).count -eq 0) {
+                dism /Online /NoRestart /Add-Package:$F
+            }
         }
-    }
 
-    foreach ($F in (Get-ChildItem "$env:SystemRoot\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~*.mum").FullName) {
-        if((dism /online /get-packages | where-object {$_.name -like "*Microsoft-Windows-GroupPolicy-ClientExtensions*"}).count -eq 0){
-            dism /Online /NoRestart /Add-Package:$F
+        foreach ($F in (Get-ChildItem "$env:SystemRoot\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~*.mum").FullName) {
+            if ((dism /online /get-packages | where-object { $_.name -like "*Microsoft-Windows-GroupPolicy-ClientExtensions*" }).count -eq 0) {
+                dism /Online /NoRestart /Add-Package:$F
+            }
         }
     }
 }
@@ -2946,7 +2962,6 @@ else {
     Write-Output "The Browsers Config Section Was Skipped..."
 }
 
-# only run final gpo refresh and reboot statement if any peramater was true
-    Write-Host "Checking Backgrounded Processes" ; Get-Job
-    Write-Host "Performing Group Policy Update" ; Gpupdate /force
-    Write-Warning "A reboot is required for all changed to take effect"
+Write-Host "Checking Backgrounded Processes" ; Get-Job
+Write-Host "Performing Group Policy Update" ; Gpupdate /force
+Write-Warning "A reboot is required for all changed to take effect"
