@@ -177,8 +177,8 @@ If manually downloaded, the script must be launched from an administrative power
 
 The script "sos-optimize-windows.ps1" includes several parameters that allow for customization of the optimization process. Each parameter is a boolean value that defaults to true if not specified.
 
-- **$cleargpos**: Clears Group Policy Objects settings.
-- **$installupdates**: Installs updates to the system.
+- **cleargpos**: Clears Group Policy Objects settings.
+- **installupdates**: Installs updates to the system.
 - **adobe**: Implements the Adobe Acrobat Reader STIGs.
 - **firefox**: Implements the FireFox STIG.
 - **chrome**: Implements the Google Chrome STIG.
@@ -198,17 +198,17 @@ The script "sos-optimize-windows.ps1" includes several parameters that allow for
 - **smbhardening**: Hardens SMB Client and Server Settings.
 - **applockerhardening**: Installs and Configures Applocker (In Audit Only Mode).
 - **bitlockerhardening**: Harden Bitlocker Implementation.
-- **$removebloatware**: Removes unnecessary programs and features from the system.
-- **$disabletelemetry**: Disables data collection and telemetry.
-- **$privacy**: Makes changes to improve privacy.
-- **$imagecleanup**: Cleans up unneeded files from the system.
+- **removebloatware**: Removes unnecessary programs and features from the system.
+- **disabletelemetry**: Disables data collection and telemetry.
+- **privacy**: Makes changes to improve privacy.
+- **imagecleanup**: Cleans up unneeded files from the system.
 - **nessusPID**: Resolves Unquoted System Strings in Path.
 - **sysmon**: Installs and configures sysmon to improve auditing capabilities.
-- **$diskcompression**: Compresses the system disk.
+- **diskcompression**: Compresses the system disk.
 - **emet**: Implements STIG Requirements and Hardening for Windows 7 Systems.
-- **$updatemanagement**: Changes the way updates are managed and improved on the system.
+- **updatemanagement**: Changes the way updates are managed and improved on the system.
 - **deviceguard**: Enables Device Guard Hardening.
-- **$sosbrowsers**: Optimizes the system's web browsers.
+- **sosbrowsers**: Optimizes the system's web browsers.
 
 An example of how to launch the script with specific parameters would be:
 
