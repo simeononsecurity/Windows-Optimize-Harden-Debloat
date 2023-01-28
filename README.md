@@ -205,7 +205,7 @@ The script "sos-optimize-windows.ps1" includes several parameters that allow for
 - **nessusPID**: Resolves Unquoted System Strings in Path.
 - **sysmon**: Installs and configures sysmon to improve auditing capabilities.
 - **diskcompression**: Compresses the system disk.
-- **emet**: Implements STIG Requirements and Hardening for Windows 7 Systems.
+- **emet**: Implements STIG Requirements and Hardening for EMET on Windows 7 Systems.
 - **updatemanagement**: Changes the way updates are managed and improved on the system.
 - **deviceguard**: Enables Device Guard Hardening.
 - **sosbrowsers**: Optimizes the system's web browsers.
