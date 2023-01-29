@@ -6,13 +6,11 @@
 Windows 10 and Windows 11 are invasive and insecure operating system out of the box.
 Organizations like [PrivacyTools.io](https://PrivacyTools.io), [Microsoft](https://microsoft.com), [Cyber.mil](https://public.cyber.mil), the [Department of Defense](https://dod.gov), and the [National Security Agency](https://www.nsa.gov/) have recommended configuration changes to lockdown, harden, and secure the operating system. These changes cover a wide range of mitigations including blocking telemetry, macros, removing bloatware, and preventing many digital and physical attacks on a system. This script aims to automate the configurations recommended by those organizations.
 
-## Notes and Warnings:
+## Notes, Warnings, and Considerations:
 
 **WARNING:**
 
 This script should work for most, if not all, systems without issue. While [@SimeonOnSecurity](https://github.com/simeononsecurity) creates, reviews, and tests each repo intensively, we can not test every possible configuration nor does [@SimeonOnSecurity](https://github.com/simeononsecurity) take any responsibility for breaking your system. If something goes wrong, be prepared to submit an [issue](../../issues).
-
-
 
 - This script is designed for operation in primarily **Personal Use** environments. With that in mind, certain enterprise configuration settings are not implemented. This script is not designed to bring a system to 100% compliance. Rather it should be used as a stepping stone to complete most, if not all, the configuration changes that can be scripted while skipping past issues like branding and banners where those should not be implemented even in a hardened personal use environment.
 - This script is designed in such a way that the optimizations, unlike some other scripts, will not break core windows functionality.
@@ -20,11 +18,7 @@ This script should work for most, if not all, systems without issue. While [@Sim
 - If you seek a minimized script targeted only to commercial environments, please see this [GitHub Repository](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
 
 
-
-
 **Do not run this script if you don't understand what it does. It is your responsibility to review and test the script before running it.**
-
-
 
 **FOR EXAMPLE, THE FOLLOWING WILL BREAK IF YOU RUN THIS WITHOUT TAKING PREVENTATIVE STEPS:**
 
@@ -51,9 +45,6 @@ This script should work for most, if not all, systems without issue. While [@Sim
   - Due to how bitlocker is implemented, when this changes occur and if you already have bitlocker enabled it will break the bitlocker implementation. 
 
   - Disable bitlocker, run the script, then reenable bitlocker to workaround this issue. 
-
-
-
 
 ## Requirements:
 
