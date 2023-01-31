@@ -1,69 +1,70 @@
 
 param(
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Clears Group Policy Objects settings.")]
     [bool]$cleargpos = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Installs updates to the system.")]
     [bool]$installupdates = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the Adobe Acrobat Reader STIGs.")]
     [bool]$adobe = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the FireFox STIG.")]
     [bool]$firefox = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the Google Chrome STIG.")]
     [bool]$chrome = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the Internet Explorer 11 STIG.")]
     [bool]$IE11 = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the Microsoft Chromium Edge STIG.")]
     [bool]$edge = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the Dot Net 4 STIG.")]
     [bool]$dotnet = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the Microsoft Office Related STIGs.")]
     [bool]$office = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the Onedrive STIGs.")]
     [bool]$onedrive = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the Oracle Java JRE 8 STIG.")]
     [bool]$java = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the Windows Desktop STIGs.")]
     [bool]$windows = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the Windows Defender STIG.")]
     [bool]$defender = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements the Windows Firewall STIG.")]
     [bool]$firewall = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements General Best Practice Mitigations.")]
     [bool]$mitigations = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements and Hardens Windows Defender Beyond STIG Requirements.")]
     [bool]$defenderhardening = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements PowerShell Hardening and Logging.")]
     [bool]$pshardening = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements SSL Hardening.")]
     [bool]$sslhardening = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Hardens SMB Client and Server Settings.")]
     [bool]$smbhardening = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Installs and Configures Applocker (In Audit Only Mode).")]
     [bool]$applockerhardening = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Harden Bitlocker Implementation.")]
     [bool]$bitlockerhardening = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Removes unnecessary programs and features from the system.")]
     [bool]$removebloatware = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Disables data collection and telemetry.")]
     [bool]$disabletelemetry = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Makes changes to improve privacy.")]
     [bool]$privacy = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Cleans up unneeded files from the system")]
     [bool]$imagecleanup = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Resolves Unquoted System Strings in Path")]
     [bool]$nessusPID = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="nstalls and configures sysmon to improve auditing capabilities.")]
     [bool]$sysmon = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Compresses the system disk.")]
     [bool]$diskcompression = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Implements STIG Requirements and Hardening for EMET on Windows 7 Systems.")]
     [bool]$emet = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Changes the way updates are managed and improved on the system.")]
     [bool]$updatemanagement = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Enables Device Guard Hardening.")]
     [bool]$deviceguard = $true,
-    [Parameter(Mandatory = $false)]
+    [Parameter(Mandatory = $false, HelpMessage="Optimizes the system's web browsers.")]
     [bool]$sosbrowsers = $true
+    
 )
 
 ######SCRIPT FOR FULL INSTALL AND CONFIGURE ON STANDALONE MACHINE#####
