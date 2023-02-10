@@ -1,0 +1,21 @@
+name: VirusTotal Scan
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Scan files
+        uses: crazy-max/ghaction-virustotal@v3
+        with:
+          vt_api_key: ${{ secrets.VT_API_KEY }}
+          files: |
+            Dockerfile
+            sos-optimize-windows.ps1
