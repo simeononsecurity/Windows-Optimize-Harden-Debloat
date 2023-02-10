@@ -19,3 +19,6 @@ jobs:
           files: |
             Dockerfile
             sos-optimize-windows.ps1
+
+      - name: Calculate SHA-256 Hashes
+        run: find . -type f -print0 | xargs -0 sha256sum | awk '{print $1}'
