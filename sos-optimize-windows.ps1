@@ -1597,7 +1597,8 @@ if ($disabletelemetry -eq $true) {
         Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "DisallowRun" -Type "DWORD" -Value 1 -Force
         Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" -Name "1" -Type "String" -Value "software_reporter_tool.exe" /f
         Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\software_reporter_tool.exe" -Name Debugger -Type "String" -Value "%windir%\System32\taskkill.exe" -Force
-        Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeCleanupEnabled" -Type "String" -Value 0 -Force
+        Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "Chrome
+        Enabled" -Type "String" -Value 0 -Force
         Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeCleanupReportingEnabled" -Type "String" -Value 0 -Force
         Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "MetricsReportingEnabled" -Type "String" -Value 0 -Force
     
@@ -2603,8 +2604,9 @@ if ($imagecleanup -eq $true) {
     Write-Host "Cleaning Up Install Files and Cleanining Up the Image" -ForegroundColor Green
     Start-Job -Name "Image Cleanup" -ScriptBlock {
         #Delete "windows.old" folder
+        # command currently also deletes restore points
         #Cmd.exe /c Cleanmgr /sageset:65535 
-        Cmd.exe /c Cleanmgr /sagerun:65535
+        #Cmd.exe /c Cleanmgr /sagerun:65535
         Write-Verbose "Removing .tmp, .etl, .evtx, thumbcache*.db, *.log files not in use"
         Get-ChildItem -Path c:\ -Include *.tmp, *.dmp, *.etl, *.evtx, thumbcache*.db, *.log -File -Recurse -Force -ErrorAction SilentlyContinue | Remove-Item -ErrorAction SilentlyContinue
         #Delete "RetailDemo" content (if it exits)
