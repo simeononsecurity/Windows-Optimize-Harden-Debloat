@@ -2965,6 +2965,16 @@ else {
     Write-Output "The Browsers Config Section Was Skipped..."
 }
 
-Write-Host "Checking Backgrounded Processes" ; Get-Job
-Write-Host "Performing Group Policy Update" ; Gpupdate /force
-Write-Warning "A reboot is required for all changed to take effect"
+Write-Host "Checking Backgrounded Processes"; Get-Job
+
+Write-Host "Performing Group Policy Update"
+$timeoutSeconds = 180
+$gpupdateJob = Start-Job -ScriptBlock { Gpupdate /force }
+$gpupdateResult = Receive-Job -Job $gpupdateJob -Wait -Timeout $timeoutSeconds
+if ($gpupdateResult -eq $null) {
+    Write-Host "Group Policy Update timed out after $timeoutSeconds seconds."
+} else {
+    Write-Host "Group Policy Update completed."
+}
+
+Write-Warning "A reboot is required for all changes to take effect"
