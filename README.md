@@ -166,7 +166,7 @@ If you need to modify or change a setting, they are most likely configurable via
 - [W4H4WK - Debloat Windows 10](https://github.com/W4RH4WK/Debloat-Windows-10/tree/master/scripts)
 - [Whonix - Disable TCP Timestamps](https://www.whonix.org/wiki/Disable_TCP_and_ICMP_Timestamps)
 
-## [Learn more about Windows-Optimize-Harden-Debloat](https://simeononsecurity.ch/github/optimizing-and-hardening-windows10-deployments/)
+## Learn more about [Optimizing and Hardening Windows 10 and Windows 11](https://simeononsecurity.ch/github/optimizing-and-hardening-windows10-deployments/)
 
 ## How to run the script:
 ### GUI - Guided Install:
