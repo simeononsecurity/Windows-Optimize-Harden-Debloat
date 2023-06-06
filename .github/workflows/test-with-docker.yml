@@ -1,18 +1,59 @@
-name: Test script against windows docker container
+name: Docker Image CI
 
 on:
   push:
     branches: [master]
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_PLATFORMS: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6,linux/386
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2.1.0
+
+      - name: setup docker buildx
+        uses: docker/setup-buildx-action@v2
+        id: buildx
+        with:
+          install: true
+
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Build the Docker image
-        run: docker build -t simeononsecurity/windows-optimize-harden-debloat:latest . ; docker push simeononsecurity/windows-optimize-harden-debloat:latest
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.PAT_TOKEN }}
+
+      - name: Build and push Docker images
+        run: |
+          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes && \
+          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6,linux/386 -t simeononsecurity/docker-vlmcsd:latest --progress=plain --push . && \
+          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6,linux/386 -t ghcr.io/simeononsecurity/docker-vlmcsd:latest --progress=plain --push .
+
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          platforms: |
+            linux/amd64
+            linux/arm64
+            linux/arm/v7
+            linux/arm/v6
+            linux/386
+          tags: |
+            simeononsecurity/docker-vlmcsd:latest
+            ghcr.io/simeononsecurity/docker-vlmcsd:latest
+
+
