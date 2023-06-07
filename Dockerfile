@@ -11,9 +11,7 @@ ENV container docker
 ENV chocolateyUseWindowsCompression false
 SHELL ["powershell.exe"]
 
-RUN iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); \
-    choco feature disable --name showDownloadProgress; \
-    choco feature enable -n allowGlobalConfirmation
+RUN iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); choco feature disable --name showDownloadProgress; choco feature enable -n allowGlobalConfirmation
 
 RUN Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
 
