@@ -26,15 +26,8 @@ jobs:
 
       - name: Build and push Docker images
         run: |
-          docker build -t simeononsecurity/windows-optimize-harden-debloat:latest . && docker build -t ghcr.io/simeononsecurity/windows-optimize-harden-debloat:latest .
+          docker build -t simeononsecurity/windows-optimize-harden-debloat:latest . && docker build -t ghcr.io/simeononsecurity/windows-optimize-harden-debloat:latest . && docker push simeononsecurity/windows-optimize-harden-debloat:latest && docker push ghcr.io/simeononsecurity/windows-optimize-harden-debloat:latest
 
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: true
-          tags: |
-            simeononsecurity/windows-optimize-harden-debloat:latest 
-            ghcr.io/simeononsecurity/windows-optimize-harden-debloat:latest 
+ 
 
 
