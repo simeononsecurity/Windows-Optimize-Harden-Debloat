@@ -3,6 +3,7 @@ name: Docker Image CI
 on:
   push:
     branches: [master]
+
 jobs:
   build:
     runs-on: windows-latest
@@ -24,10 +25,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.PAT_TOKEN }}
 
-      - name: Build and push Docker images
+      - name: Build Docker image
+        run: docker build -t simeononsecurity/windows-optimize-harden-debloat:latest .
+      
+      - name: Tag Docker image
+        run: docker tag simeononsecurity/windows-optimize-harden-debloat:latest ghcr.io/simeononsecurity/windows-optimize-harden-debloat:latest
+      
+      - name: Push Docker image
         run: |
-          docker build -t simeononsecurity/windows-optimize-harden-debloat:latest . && docker build -t ghcr.io/simeononsecurity/windows-optimize-harden-debloat:latest . && docker push simeononsecurity/windows-optimize-harden-debloat:latest && docker push ghcr.io/simeononsecurity/windows-optimize-harden-debloat:latest
-
- 
-
+          docker push simeononsecurity/windows-optimize-harden-debloat:latest
+          docker push ghcr.io/simeononsecurity/windows-optimize-harden-debloat:latest
 
