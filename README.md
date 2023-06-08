@@ -94,6 +94,11 @@ However, if you still wish to use these services see the following issue tickets
 - https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/16
 - https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/22
 
+### If you use Thunder Bolt Devices:
+You may run into issues. There are multiple vulnerabilities assosiated with using Thunderbolt and advanced USB-C type devices. Because of this we have disabled it by default.
+If you'd like to ignore this, please read:
+- https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/60
+
 ### Editing policies in Local Group Policy after the fact:
 
 If you need to modify or change a setting, they are most likely configurable via GPO:
