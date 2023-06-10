@@ -1,4 +1,3 @@
-
 param(
     [Parameter(Mandatory = $false, HelpMessage="SoS Configurations: Clear Existing GPOs: Clears Group Policy Objects settings.")]
     [bool]$cleargpos = $true,
