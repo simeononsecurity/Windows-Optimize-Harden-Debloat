@@ -92,7 +92,7 @@ if ($paramscheck | Where-Object { $_ } | Select-Object) {
     $minfreespace = 10000000000 #10GB
     if ($freespace -gt $minfreespace) {
         Write-Host "Taking a Restore Point Before Continuing...."
-        $job = Start-Job -Name Take Restore Point -ScriptBlock {
+        $job = Start-Job -Name "Take Restore Point" -ScriptBlock {
             New-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\SystemRestore' -Name 'SystemRestorePointCreationFrequency' -PropertyType DWORD -Value 0 -Force
             Checkpoint-Computer -Description "RestorePoint $scriptName $date" -RestorePointType "MODIFY_SETTINGS"
         }
