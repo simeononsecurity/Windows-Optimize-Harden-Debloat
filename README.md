@@ -133,8 +133,7 @@ If you need to modify or change a setting, they are most likely configurable via
 |                                    |  |                                    | [TheVDIGuys - Windows 10 VDI Optimize](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize) |
 |                                    |  |                                    | [VectorBCO - windows-path-enumerate](https://github.com/VectorBCO/windows-path-enumerate) |
 |                                    |  |                                    | [W4H4WK - Debloat Windows 10](https://github.com/W4RH4WK/Debloat-Windows-10/tree/master/scripts) |
-|                                    |  |                                    | [Whonix - Disable TCP Timestamps](https://www.whonix.org
-
+|                                    |  |                                    | [Whonix - Disable TCP Timestamps](https://www.whonix.org/wiki/Disable_TCP_and_ICMP_Timestamps) |
 
 ## Learn more about [Optimizing and Hardening Windows 10 and Windows 11](https://simeononsecurity.ch/github/optimizing-and-hardening-windows10-deployments/)
 
