@@ -108,68 +108,33 @@ If you need to modify or change a setting, they are most likely configurable via
 - Open `gpedit.msc` on on the system you're trying to modify.
 
 ## A list of scripts and tools this collection utilizes:
+| First Party                        | Third Party                      | STIGs/SRGs Applied                                   | Additional Considerations                                     |
+|------------------------------------|----------------------------------|-----------------------------------------------------|-------------------------------------------------------------|
+| [.NET-STIG-Script](https://github.com/simeononsecurity/.NET-STIG-Script) | [Cyber.mil - Group Policy Objects](https://public.cyber.mil/stigs/gpo/) | [Adobe Acrobat Pro DC Continuous V2R1](https://public.cyber.mil/stigs/downloads/) | [BuiltByBel - PrivateZilla](https://github.com/builtbybel/privatezilla) |
+| [Automate-Sysmon](https://github.com/simeononsecurity/Automate-Sysmon) | [Microsoft Security Compliance Toolkit 1.0](https://www.microsoft.com/en-us/download/details.aspx?id=55319) | [Adobe Acrobat Reader DC Continuous V2R1](https://public.cyber.mil/stigs/downloads/) | [MelodysTweaks - Basic Tweaks](https://sites.google.com/view/melodystweaks/basictweaks) |
+| [FireFox-STIG-Script](https://github.com/simeononsecurity/FireFox-STIG-Script) | [Microsoft Sysinternals - Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon) | [Firefox V5R2](https://public.cyber.mil/stigs/downloads/) | [Dirteam - SSL Hardening](https://dirteam.com/sander/2019/07/30/howto-disable-weak-protocols-cipher-suites-and-hashing-algorithms-on-web-application-proxies-ad-fs-servers-and-windows-servers-running-azure-ad-connect/) |
+| [JAVA-STIG-Script](https://github.com/simeononsecurity/JAVA-STIG-Script) |  | [Google Chrome V2R4](https://public.cyber.mil/stigs/downloads/) | [Microsoft - Managing Windows 10 Telemetry and Callbacks](https://docs.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services) |
+| [Standalone-Windows-STIG-Script](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script) |  | [Internet Explorer 11 V1R19](https://public.cyber.mil/stigs/downloads/) | [Microsoft - Reduce attack surfaces with attack surface reduction rules](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction) |
+| [Windows-Defender-STIG-Script](https://github.com/simeononsecurity/Windows-Defender-STIG-Script) |  | [Microsoft Edge V1R2](https://public.cyber.mil/stigs/downloads/) | [Microsoft - Recommended block rules](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) |
+| [Windows-Optimize-Debloat](https://github.com/simeononsecurity/Windows-Optimize-Debloat) |  | [Microsoft .Net Framework 4 V1R9](https://public.cyber.mil/stigs/downloads/) | [Microsoft - Recommended driver block rules](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules) |
+|                                    |  | [Microsoft Office 2013 V2R1](https://public.cyber.mil/stigs/downloads/) | [Microsoft - Spectre and Meltdown Mitigations](https://support.microsoft.com/en-us/help/4072698/windows-server-speculative-execution-side-channel-vulnerabilities) |
+|                                    |  | [Microsoft Office 2016 V2R1](https://public.cyber.mil/stigs/downloads/) | [Microsoft - Windows 10 Privacy](https://docs.microsoft.com/en-us/windows/privacy/) |
+|                                    |  | [Microsoft Office 2019/Office 365 Pro Plus V2R3](https://public.cyber.mil/stigs/downloads/) | [Microsoft - Windows 10 VDI Recommendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909) |
+|                                    |  | [Microsoft OneDrive STIG V2R1](https://public.cyber.mil/stigs/downloads/) | [Microsoft - Windows Defender Application Control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-design-guide) |
+|                                    |  | [Oracle JRE 8 V1R5](https://public.cyber.mil/stigs/downloads/) | [Mirinsoft - SharpApp](https://github.com/builtbybel/sharpapp) |
+|                                    |  | [Windows 10 V2R2](https://public.cyber.mil/stigs/downloads/) | [Mirinsoft - debotnet](https://github.com/builtbybel/debotnet) |
+|                                    |  | [Windows Defender Antivirus V2R2](https://public.cyber.mil/stigs/downloads/) | [NSACyber - Application Whitelisting Using Microsoft AppLocker](https://apps.nsa.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm) |
+|                                    |  | [Windows Firewall V1R7](https://public.cyber.mil/stigs/downloads/) | [NSACyber - Bitlocker Guidance](https://github.com/nsacyber/BitLocker-Guidance) |
+|                                    |  |                                    | [NSACyber - Hardware-and-Firmware-Security-Guidance](https://github.com/nsacyber/Hardware-and-Firmware-Security-Guidance) |
+|                                    |  |                                    | [NSACyber - Windows Secure Host Baseline](https://github.com/nsacyber/Windows-Secure-Host-Baseline) |
+|                                    |  |                                    | [UnderGroundWires - Privacy.S**Y](https://github.com/undergroundwires/privacy.sexy) |
+|                                    |  |                                    | [Sycnex - Windows10Debloater](https://github.com/Sycnex/Windows10Debloater) |
+|                                    |  |                                    | [The-Virtual-Desktop-Team - Virtual-Desktop-Optimization-Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) |
+|                                    |  |                                    | [TheVDIGuys - Windows 10 VDI Optimize](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize) |
+|                                    |  |                                    | [VectorBCO - windows-path-enumerate](https://github.com/VectorBCO/windows-path-enumerate) |
+|                                    |  |                                    | [W4H4WK - Debloat Windows 10](https://github.com/W4RH4WK/Debloat-Windows-10/tree/master/scripts) |
+|                                    |  |                                    | [Whonix - Disable TCP Timestamps](https://www.whonix.org
 
-### First Party:
-
-- [.NET-STIG-Script](https://github.com/simeononsecurity/.NET-STIG-Script)
-- [Automate-Sysmon](https://github.com/simeononsecurity/Automate-Sysmon)
-- [FireFox-STIG-Script](https://github.com/simeononsecurity/FireFox-STIG-Script)
-- [JAVA-STIG-Script](https://github.com/simeononsecurity/JAVA-STIG-Script)
-- [Standalone-Windows-STIG-Script](https://github.com/simeononsecurity/Standalone-Windows-STIG-Script)
-- [Windows-Defender-STIG-Script](https://github.com/simeononsecurity/Windows-Defender-STIG-Script)
-- [Windows-Optimize-Debloat](https://github.com/simeononsecurity/Windows-Optimize-Debloat)
-
-### Third Party:
-
-- [Cyber.mil - Group Policy Objects](https://public.cyber.mil/stigs/gpo/)
-- [Microsoft Security Compliance Toolkit 1.0](https://www.microsoft.com/en-us/download/details.aspx?id=55319)
-- [Microsoft Sysinternals - Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
-
-## STIGS/SRGs Applied:
-
-- [Adobe Acrobat Pro DC Continuous V2R1](https://public.cyber.mil/stigs/downloads/)
-- [Adobe Acrobat Reader DC Continuous V2R1](https://public.cyber.mil/stigs/downloads/)
-- [Firefox V5R2](https://public.cyber.mil/stigs/downloads/)
-- [Google Chrome V2R4](https://public.cyber.mil/stigs/downloads/)
-- [Internet Explorer 11 V1R19](https://public.cyber.mil/stigs/downloads/)
-- [Microsoft Edge V1R2](https://public.cyber.mil/stigs/downloads/)
-- [Microsoft .Net Framework 4 V1R9](https://public.cyber.mil/stigs/downloads/)
-- [Microsoft Office 2013 V2R1](https://public.cyber.mil/stigs/downloads/)
-- [Microsoft Office 2016 V2R1](https://public.cyber.mil/stigs/downloads/)
-- [Microsoft Office 2019/Office 365 Pro Plus V2R3](https://public.cyber.mil/stigs/downloads/)
-- [Microsoft OneDrive STIG V2R1](https://public.cyber.mil/stigs/downloads/)
-- [Oracle JRE 8 V1R5](https://public.cyber.mil/stigs/downloads/)
-- [Windows 10 V2R2](https://public.cyber.mil/stigs/downloads/)
-- [Windows Defender Antivirus V2R2](https://public.cyber.mil/stigs/downloads/)
-- [Windows Firewall V1R7](https://public.cyber.mil/stigs/downloads/)
-
-## Additional configurations were considered from:
-
-- [BuiltByBel - PrivateZilla](https://github.com/builtbybel/privatezilla)
-- [CERT - IE Scripting Engine Memory Corruption](https://kb.cert.org/vuls/id/573168/)
-- [Dirteam - SSL Hardening](https://dirteam.com/sander/2019/07/30/howto-disable-weak-protocols-cipher-suites-and-hashing-algorithms-on-web-application-proxies-ad-fs-servers-and-windows-servers-running-azure-ad-connect/)
-- [MelodysTweaks - Basic Tweaks](https://sites.google.com/view/melodystweaks/basictweaks)
-- [Microsoft - Managing Windows 10 Telemetry and Callbacks](https://docs.microsoft.com/en-us/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services)
-- [Microsoft - Reduce attack surfaces with attack surface reduction rules](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)
-- [Microsoft - Recommended block rules](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules)
-- [Microsoft - Recommended driver block rules](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules)
-- [Microsoft - Specture and Meltdown Mitigations](https://support.microsoft.com/en-us/help/4072698/windows-server-speculative-execution-side-channel-vulnerabilities)
-- [Microsoft - Windows 10 Privacy](https://docs.microsoft.com/en-us/windows/privacy/)
-- [Microsoft - Windows 10 VDI Recomendations](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds_vdi-recommendations-1909)
-- [Microsoft - Windows Defender Application Control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-design-guide)
-- [Mirinsoft - SharpApp](https://github.com/builtbybel/sharpapp)
-- [Mirinsoft - debotnet](https://github.com/builtbybel/debotnet)
-- [NSACyber - Application Whitelisting Using Microsoft AppLocker](https://apps.nsa.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting-using-microsoft-applocker.cfm)
-- [NSACyber - Bitlocker Guidance](https://github.com/nsacyber/BitLocker-Guidance)
-- [NSACyber - Hardware-and-Firmware-Security-Guidance](https://github.com/nsacyber/Hardware-and-Firmware-Security-Guidance)
-- [NSACyber - Windows Secure Host Baseline](https://github.com/nsacyber/Windows-Secure-Host-Baseline)
-- [UnderGroundWires - Privacy.S\*\*Y](https://github.com/undergroundwires/privacy.sexy)
-- [Sycnex - Windows10Debloater](https://github.com/Sycnex/Windows10Debloater)
-- [The-Virtual-Desktop-Team - Virtual-Desktop-Optimization-Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
-- [TheVDIGuys - Windows 10 VDI Optimize](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize)
-- [VectorBCO - windows-path-enumerate](https://github.com/VectorBCO/windows-path-enumerate)
-- [W4H4WK - Debloat Windows 10](https://github.com/W4RH4WK/Debloat-Windows-10/tree/master/scripts)
-- [Whonix - Disable TCP Timestamps](https://www.whonix.org/wiki/Disable_TCP_and_ICMP_Timestamps)
 
 ## Learn more about [Optimizing and Hardening Windows 10 and Windows 11](https://simeononsecurity.ch/github/optimizing-and-hardening-windows10-deployments/)
 
