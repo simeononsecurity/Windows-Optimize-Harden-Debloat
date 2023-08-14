@@ -1,6 +1,8 @@
 # Optimize, Harden, and Debloat Windows 10 and Windows 11 Deployments
 [![Script Test CICD](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/actions/workflows/test-with-docker.yml/badge.svg)](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/actions/workflows/test-with-docker.yml)[![VirusTotal Scan](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/actions/workflows/virustotal.yml/badge.svg)](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/actions/workflows/virustotal.yml)[![PSScriptAnalyzer](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/actions/workflows/powershell.yml/badge.svg)](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/actions/workflows/powershell.yml) 
 
+[windows-optimize-harden-debloat test docker container](https://hub.docker.com/repository/docker/simeononsecurity/windows-optimize-harden-debloat/general)
+
 ## Introduction:
 
 Windows 10 and Windows 11 are invasive and insecure operating system out of the box.
