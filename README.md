@@ -81,7 +81,7 @@ This script should work for most, if not all, systems without issue. While [@Sim
 
 - Browsers will have additional extentions installed to aid in privacy and security.
   - See [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/11) for additional information.
-- Due to the DoD STIGs implemented for browsers, extension management and other enterprise settings are set. For instructions on how to see these options, you'll need to look at the GPO instructions below.
+- Due to the DoD STIGs implemented for browsers, extension management and other enterprise settings are set. For instructions on how to see these options, you'll need to look at the [GPO instructions](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat#editing-policies-in-local-group-policy-after-the-fact) below.
 
 ### Powershell Modules:
 
