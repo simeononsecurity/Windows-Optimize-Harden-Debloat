@@ -101,6 +101,11 @@ You may run into issues. There are multiple vulnerabilities assosiated with usin
 If you'd like to ignore this, please read:
 - https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/60
 
+### SSL issues With Chocolatey
+Chocolatey's servers have issues supporting the latest, and most secure, TLS 1.3 Ciphers out there. These are fixed using some of the Windows category changes. However if you opt out of those, you may run into issues. 
+Keep in mind, this is primarily a Chocolatey issue, all fixes for this are just workarounds.
+- https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/67
+
 ### Editing policies in Local Group Policy after the fact:
 
 If you need to modify or change a setting, they are most likely configurable via GPO:
