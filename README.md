@@ -87,6 +87,10 @@ This script should work for most, if not all, systems without issue. While [@Sim
 
 - To aid in automating Windows Updates the PowerShell [PSWindowsUpdate](https://www.powershellgallery.com/packages/PSWindowsUpdate/2.0.0.4) module will be added to your system.
 
+### Using a Laptop with Sleep
+
+- To renable sleep on your device. See https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/discussions/75
+
 ### Fixing Microsoft Account, Store, or Xbox Services:
 
 This is because we block signing into microsoft accounts. Microsoft's telemetry and identity association is frowned upon.
