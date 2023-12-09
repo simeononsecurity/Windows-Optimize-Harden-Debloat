@@ -1,3 +1,40 @@
+<#PSScriptInfo
+
+.VERSION 4.0.2
+
+.GUID 0805b351-a70d-4688-83d1-f8b8827e8ce0
+
+.AUTHOR SimeonOnSecurity
+
+.COMPANYNAME SimeonOnSecurity
+
+.COPYRIGHT '2020 - Present SimeonOnSecurity, All Rights Reserved'
+
+.TAGS 'Windows', 'Optimization', 'Hardening', 'Debloat'
+
+.LICENSEURI 'https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/blob/master/LICENSE'
+
+.PROJECTURI 'https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat'
+
+.ICONURI 'https://simeononsecurity.com/img/transparentavatar.png"
+
+.EXTERNALMODULEDEPENDENCIES 
+
+.REQUIREDSCRIPTS
+
+.EXTERNALSCRIPTDEPENDENCIES
+
+.RELEASENOTES 'Initial release.'
+
+.PRIVATEDATA
+
+#>
+
+<# 
+
+.DESCRIPTION "Enhance the security and privacy of your Windows 10 and Windows 11 deployments with our fully optimized, hardened, and debloated script. Adhere to industry best practices and Department of Defense STIG/SRG requirements for optimal performance and security."
+
+#> 
 param(
     [Parameter(Mandatory = $false, HelpMessage="SoS Configurations: Clear Existing GPOs: Clears Group Policy Objects settings.")]
     [bool]$cleargpos = $true,
