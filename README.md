@@ -110,6 +110,10 @@ Chocolatey's servers have issues supporting the latest, and most secure, TLS 1.3
 Keep in mind, this is primarily a Chocolatey issue, all fixes for this are just workarounds.
 - https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/issues/67
 
+### Enabling Remote Desktop (RDP) Again
+This script is meant for standalone systems, STIGs and Hardening Best Practices Dictate Disabling RDP. See the Following issue for steps to enable it again:
+https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/discussions/81
+
 ### Editing policies in Local Group Policy after the fact:
 
 If you need to modify or change a setting, they are most likely configurable via GPO:
