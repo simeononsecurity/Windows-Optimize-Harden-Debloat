@@ -22,7 +22,7 @@ We appreciate and encourage pull requests that improve the script's functionalit
 
 ## Code of Conduct
 
-Please note that this project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). Be respectful and considerate in all interactions.
+Please note that this project follows the [Contributor Covenant Code of Conduct](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/blob/master/CODE_OF_CONDUCT.md). Be respectful and considerate in all interactions.
 
 ## License
 
