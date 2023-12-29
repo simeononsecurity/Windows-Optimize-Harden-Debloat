@@ -2672,22 +2672,22 @@ if ($imagecleanup -eq $true) {
         #Delete controversial default0 user
         net user defaultuser0 /delete 2>nul
         #Clear thumbnail cache
-        Remove-Item /f /s /q /a $env:LocalAppData\Microsoft\Windows\Explorer\*.db
+        Remove-Item -Force -Recurse /q /a $env:LocalAppData\Microsoft\Windows\Explorer\*.db
         #Clear Windows temp files
-        Remove-Item /f /q $env:localappdata\Temp\*
-        Remove-Item /s /q "$env:WINDIR\Temp"
-        Remove-Item /s /q "$env:TEMP"
+        Remove-Item -Force -ErrorAction SilentlyContinue $env:localappdata\Temp\*
+        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:WINDIR\Temp"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:TEMP"
         #Clear main telemetry file
         takeown /f "$env:ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl" /r -Value y
         icacls "$env:ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl" /grant administrators:F /t
         Write-Output"" > "$env:ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl"
         Write-Output Clear successful: "$env:ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl"
         #Clear Distributed Transaction Coordinator logs
-        Remove-Item /f /q $env:SystemRoot\DtcInstall.log
+        Remove-Item /f -ErrorAction SilentlyContinue $env:SystemRoot\DtcInstall.log
         #Clear Optional Component Manager and COM+ components logs
-        Remove-Item /f /q $env:SystemRoot\comsetup.log
+        Remove-Item /f -ErrorAction SilentlyContinue $env:SystemRoot\comsetup.log
         #Clear Pending File Rename Operations logs
-        Remove-Item /f /q $env:SystemRoot\PFRO.log
+        Remove-Item /f -ErrorAction SilentlyContinue $env:SystemRoot\PFRO.log
         #Clear Windows Deployment Upgrade Process Logs
         Remove-Item /f /q $env:SystemRoot\setupact.log
         Remove-Item /f /q $env:SystemRoot\setuperr.log
@@ -2737,9 +2737,9 @@ if ($imagecleanup -eq $true) {
         Remove-Item /f /q "$env:LocalAppData\Microsoft\Windows\INetCache\IE\*"
         reg delete "HKCU\SOFTWARE\Microsoft\Internet Explorer\TypedURLs" /va /f
         reg delete "HKCU\SOFTWARE\Microsoft\Internet Explorer\TypedURLsTime" /va /f
-        Remove-Item /s /q "$env:LocalAppData\Microsoft\Internet Explorer"
-        Remove-Item /s /q "$env:APPDATA\Microsoft\Windows\Cookies"
-        Remove-Item /s /q "$env:USERPROFILE\Cookies"
+        Remove-Item -Recurse /q "$env:LocalAppData\Microsoft\Internet Explorer"
+        Remove-Item -Recurse /q "$env:APPDATA\Microsoft\Windows\Cookies"
+        Remove-Item -Recurse /q "$env:USERPROFILE\Cookies"
         Remove-Item /s /q "$env:USERPROFILE\Local Settings\Traces"
         Remove-Item /s /q "$env:LocalAppData\Temporary Internet Files"
         Remove-Item /s /q "$env:LocalAppData\Microsoft\Windows\Temporary Internet Files"
