@@ -2672,7 +2672,7 @@ if ($imagecleanup -eq $true) {
         #Delete controversial default0 user
         net user defaultuser0 /delete 2>nul
         #Clear thumbnail cache
-        Remove-Item -Force -Recurse - ErrErrorAction SiileSilentlyContinue /a $env:LocalAppData\Microsoft\Windows\Explorer\*.db
+        Remove-Item -Force -Recurse -ErrorAction SilentlyContinue /a $env:LocalAppData\Microsoft\Windows\Explorer\*.db
         #Clear Windows temp files
         Remove-Item -Force -ErrorAction SilentlyContinue $env:localappdata\Temp\*
         Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:WINDIR\Temp"
@@ -2759,13 +2759,13 @@ if ($imagecleanup -eq $true) {
         #Clear Safari traces
         Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:USERPROFILE\AppData\Local\Apple Computer\Safari\Traces"
         Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:APPDATA\Apple Computer\Safari"
-        Remove-Item -Recurse - Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\AppData\Local\Apple Computer\Safari\Cache.db"
-        Remove-Item -Recurse - Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\AppData\Local\Apple Computer\Safari\WebpageIcons.db"
+        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\AppData\Local\Apple Computer\Safari\Cache.db"
+        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\AppData\Local\Apple Computer\Safari\WebpageIcons.db"
         Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:USERPROFILE\Local Settings\Application Data\Apple Computer\Safari\Traces"
-        Remove-Item -Recurse - Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\Local Settings\Application Data\Apple Computer\Safari\Cache.db"
-        Remove-Item -Recurse - Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\Local Settings\Application Data\Safari\WebpageIcons.db"
+        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\Local Settings\Application Data\Apple Computer\Safari\Cache.db"
+        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\Local Settings\Application Data\Safari\WebpageIcons.db"
         #Clear Listary indexes
-        Remove-Item -Fre/ /q $env:APPDATA\Listary\UserData > nul
+        Remove-Item -Force -Recurse -ErrorAction SilentlyContinue $env:APPDATA\Listary\UserData > nul
         #Clear Java cache
         Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:APPDATA\Sun\Java\Deployment\cache"
         #Clear Flash traces
