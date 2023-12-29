@@ -2580,7 +2580,7 @@ if ($privacy -eq $true) {
         Write-Output "Disabling live tiles"
         $Live = 'HKCU:\Software\Policies\Microsoft\Windows\CurrentVersion\PushNotifications'    
         If (!(Test-Path $Live)) {
-            mkdir $Live -ErrorAction SilentlyContinue     
+            mkdir $Live -ErrorAction SilentlyContinue    
             New-ItemProperty $Live -Name NoTileApplicationNotification -Value 1 -Verbose
         }
         
@@ -2675,7 +2675,7 @@ if ($imagecleanup -eq $true) {
         Remove-Item -Force -Recurse -ErrorAction SilentlyContinue /a $env:LocalAppData\Microsoft\Windows\Explorer\*.db
         #Clear Windows temp files
         Remove-Item -Force -ErrorAction SilentlyContinue $env:localappdata\Temp\*
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:WINDIR\Temp"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:WINDIR\Temp"
         Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:TEMP"
         #Clear main telemetry file
         takeown /f "$env:ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl" /r -Value y
@@ -2706,8 +2706,8 @@ if ($imagecleanup -eq $true) {
         #Clear system temp folder when noone is logged in
         Remove-Item -Force -ErrorAction SilentlyContinue $env:SystemRoot\ServiceProfiles\LocalService\AppData\Local\Temp\*.*
         #Clear DISM (Deployment Image Servicing and Management) Logs
-        Remove-Item -Force -ErrorAction SilentlyContinue  $env:SystemRoot\Logs\CBS\CBS.log
-        Remove-Item -Force -ErrorAction SilentlyContinue  $env:SystemRoot\Logs\DISM\DISM.log
+        Remove-Item -Force -ErrorAction SilentlyContinue $env:SystemRoot\Logs\CBS\CBS.log
+        Remove-Item -Force -ErrorAction SilentlyContinue $env:SystemRoot\Logs\DISM\DISM.log
         #Clear Server-initiated Healing Events Logs
         Remove-Item -Force -ErrorAction SilentlyContinue "$env:SystemRoot\Logs\SIH\*"
         #Common Language Runtime Logs
@@ -2722,7 +2722,7 @@ if ($imagecleanup -eq $true) {
         #Clear Windows Update Medic Service logs
         takeown /f $env:SystemRoot\Logs\waasmedic /r -Value y
         icacls $env:SystemRoot\Logs\waasmedic /grant administrators:F /t
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  $env:SystemRoot\Logs\waasmedic
+        Remove-Item -Recurse -ErrorAction SilentlyContinue $env:SystemRoot\Logs\waasmedic
         #Clear Cryptographic Services Traces
         Remove-Item -Force -ErrorAction SilentlyContinue $env:SystemRoot\System32\catroot2\dberr.txt
         Remove-Item -Force -ErrorAction SilentlyContinue $env:SystemRoot\System32\catroot2.log
@@ -2737,56 +2737,56 @@ if ($imagecleanup -eq $true) {
         Remove-Item -Force -ErrorAction SilentlyContinue "$env:LocalAppData\Microsoft\Windows\INetCache\IE\*"
         reg delete "HKCU\SOFTWARE\Microsoft\Internet Explorer\TypedURLs" /va /f
         reg delete "HKCU\SOFTWARE\Microsoft\Internet Explorer\TypedURLsTime" /va /f
-        Remove-Item -Recurse /q "$env:LocalAppData\Microsoft\Internet Explorer"
-        Remove-Item -Recurse /q "$env:APPDATA\Microsoft\Windows\Cookies"
-        Remove-Item -Recurse /q "$env:USERPROFILE\Cookies"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:USERPROFILE\Local Settings\Traces"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:LocalAppData\Temporary Internet Files"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:LocalAppData\Microsoft\Windows\Temporary Internet Files"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:LocalAppData\Microsoft\Windows\INetCookies\PrivacIE"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:LocalAppData\Microsoft\Feeds Cache"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:LocalAppData\Microsoft\InternetExplorer\DOMStore"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:LocalAppData\Microsoft\Internet Explorer"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:APPDATA\Microsoft\Windows\Cookies"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:USERPROFILE\Cookies"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:USERPROFILE\Local Settings\Traces"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:LocalAppData\Temporary Internet Files"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:LocalAppData\Microsoft\Windows\Temporary Internet Files"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:LocalAppData\Microsoft\Windows\INetCookies\PrivacIE"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:LocalAppData\Microsoft\Feeds Cache"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:LocalAppData\Microsoft\InternetExplorer\DOMStore"
         #Clear Google Chrome traces
         Remove-Item -Force -ErrorAction SilentlyContinue "$env:LocalAppData\Google\Software Reporter Tool\*.log"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:USERPROFILE\Local Settings\Application Data\Google\Chrome\User Data"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:LocalAppData\Google\Chrome\User Data"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:LocalAppData\Google\CrashReports\"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:LocalAppData\Google\Chrome\User Data\Crashpad\reports\"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:USERPROFILE\Local Settings\Application Data\Google\Chrome\User Data"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:LocalAppData\Google\Chrome\User Data"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:LocalAppData\Google\CrashReports\"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:LocalAppData\Google\Chrome\User Data\Crashpad\reports\"
         #Clear Opera traces
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:USERPROFILE\AppData\Local\Opera\Opera"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:APPDATA\Opera\Opera"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:USERPROFILE\Local Settings\Application Data\Opera\Opera"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:USERPROFILE\AppData\Local\Opera\Opera"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:APPDATA\Opera\Opera"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:USERPROFILE\Local Settings\Application Data\Opera\Opera"
         #Clear Safari traces
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:USERPROFILE\AppData\Local\Apple Computer\Safari\Traces"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:APPDATA\Apple Computer\Safari"
-        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\AppData\Local\Apple Computer\Safari\Cache.db"
-        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\AppData\Local\Apple Computer\Safari\WebpageIcons.db"
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:USERPROFILE\Local Settings\Application Data\Apple Computer\Safari\Traces"
-        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\Local Settings\Application Data\Apple Computer\Safari\Cache.db"
-        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue  "$env:USERPROFILE\Local Settings\Application Data\Safari\WebpageIcons.db"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:USERPROFILE\AppData\Local\Apple Computer\Safari\Traces"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:APPDATA\Apple Computer\Safari"
+        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:USERPROFILE\AppData\Local\Apple Computer\Safari\Cache.db"
+        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:USERPROFILE\AppData\Local\Apple Computer\Safari\WebpageIcons.db"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:USERPROFILE\Local Settings\Application Data\Apple Computer\Safari\Traces"
+        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:USERPROFILE\Local Settings\Application Data\Apple Computer\Safari\Cache.db"
+        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:USERPROFILE\Local Settings\Application Data\Safari\WebpageIcons.db"
         #Clear Listary indexes
         Remove-Item -Force -Recurse -ErrorAction SilentlyContinue $env:APPDATA\Listary\UserData > nul
         #Clear Java cache
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:APPDATA\Sun\Java\Deployment\cache"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:APPDATA\Sun\Java\Deployment\cache"
         #Clear Flash traces
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:APPDATA\Macromedia\Flash Player"
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:APPDATA\Macromedia\Flash Player"
         #Clear Steam dumps, logs and traces
         Remove-Item -Force -ErrorAction SilentlyContinue %ProgramFiles(x86)%\Steam\Dumps
         Remove-Item -Force -ErrorAction SilentlyContinue %ProgramFiles(x86)%\Steam\Traces
         Remove-Item -Force -ErrorAction SilentlyContinue %ProgramFiles(x86)%\Steam\appcache\*.log
         #Clear Visual Studio telemetry and feedback data
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:APPDATA\vstelemetry" 2>nul
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:LocalAppData\Microsoft\VSApplicationInsights" 2>nul
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:ProgramData\Microsoft\VSApplicationInsights" 2>nul
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:TEMP\Microsoft\VSApplicationInsights" 2>nul
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:TEMP\VSFaultInfo" 2>nul
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:TEMP\VSFeedbackPerfWatsonData" 2>nul
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:TEMP\VSFeedbackVSRTCLogs" 2>nul
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:TEMP\VSRemoteControl" 2>nul
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:TEMP\VSTelem" 2>nul
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:TEMP\VSTelem.Out" 2>nul
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:APPDATA\vstelemetry" 2>nul
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:LocalAppData\Microsoft\VSApplicationInsights" 2>nul
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:ProgramData\Microsoft\VSApplicationInsights" 2>nul
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:TEMP\Microsoft\VSApplicationInsights" 2>nul
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:TEMP\VSFaultInfo" 2>nul
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:TEMP\VSFeedbackPerfWatsonData" 2>nul
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:TEMP\VSFeedbackVSRTCLogs" 2>nul
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:TEMP\VSRemoteControl" 2>nul
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:TEMP\VSTelem" 2>nul
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:TEMP\VSTelem.Out" 2>nul
         #Clear Dotnet CLI telemetry
-        Remove-Item -Recurse -ErrorAction SilentlyContinue  "$env:USERPROFILE\.dotnet\TelemetryStorageService" 2>nul
+        Remove-Item -Recurse -ErrorAction SilentlyContinue "$env:USERPROFILE\.dotnet\TelemetryStorageService" 2>nul
         #Clear regedit last key
         reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit" /va /f
         reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Applets\Regedit" /va /f
