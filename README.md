@@ -49,10 +49,14 @@ This script should work for most, if not all, systems without issue. While [@Sim
   - Disable bitlocker, run the script, then reenable bitlocker to workaround this issue. 
 
 ## Requirements:
-
+- [X] A Proper Backup of Your System
+  - We test things in a controlled environment but that can't possibly cover every combination of settings.
+  - In lue of a backup, the next best thing is [using a restore point](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/wiki/How-to-Reverse-the-Changes-performed-in-Windows%E2%80%90Optimize%E2%80%90Harden%E2%80%90Debloat)
 - [x] Windows 10/11 Enterprise (**Preferred**) or Professional
   - Windows 10/11 Home editions do not support GPO configurations and are not tested.
   - Window "N" Editions are not tested.
+  - Premodified windows ISOs are not recommended. Use an official ISO.
+  - Use of our script in combination with others is not recommended or supported. Mix and match at your own risk.
 - [x] [Standards](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure) for a highly secure Windows 10 device
 - [x] System is [fully up to date and supported](https://support.microsoft.com/en-gb/help/4027667/windows-10-update)
   - Run the [Windows Upgrade Assistant](https://support.microsoft.com/en-us/help/3159635/windows-10-update-assistant) to update and verify latest major release.
