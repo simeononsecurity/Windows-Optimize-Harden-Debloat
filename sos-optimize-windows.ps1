@@ -1220,7 +1220,27 @@ if ($removebloatware -eq $true) {
         #Prevents "Suggested Applications" returning
         New-Item -Force  "HKLM:\Software\Policies\Microsoft\Windows\CloudContent"
         Set-ItemProperty "HKLM:\Software\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
-    
+
+        # Disable Windows Copilot for the current user
+        New-Item -Path "HKCU:\Software\Policies\Microsoft\Windows\WindowsCopilot" -Force | Out-Null
+        Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\WindowsCopilot" -Name "TurnOffWindowsCopilot" -Type DWord -Value 1
+        
+        # Disable Windows Copilot for all users
+        New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsCopilot" -Force | Out-Null
+        Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsCopilot" -Name "TurnOffWindowsCopilot" -Type DWord -Value 1
+        
+        # Hide the Copilot button and disable its functionality for the current user
+        New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Force | Out-Null
+        Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCopilotButton" -Type DWord -Value 0
+        
+        # Output a confirmation message
+        Write-Output "The Copilot button has been disabled and hidden from the taskbar."
+        
+        # Uninstall the Copilot application
+        Get-AppxPackage *Windows.Copilot* | Remove-AppxPackage
+        
+        # Output a confirmation message
+        Write-Output "The Copilot application has been uninstalled."
     
         #  Description:
         #This script will remove and disable OneDrive integration.
