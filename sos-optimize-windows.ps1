@@ -1230,7 +1230,7 @@ if ($removebloatware -eq $true) {
         Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\WindowsCopilot" -Name "TurnOffWindowsCopilot" -Type DWord -Value 1
         
         # Hide the Copilot button and disable its functionality for the current user
-        New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Force | Out-Null
+        #New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Force | Out-Null
         Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCopilotButton" -Type DWord -Value 0
         
         # Output a confirmation message
@@ -1238,6 +1238,7 @@ if ($removebloatware -eq $true) {
         
         # Uninstall the Copilot application
         Get-AppxPackage *Windows.Copilot* | Remove-AppxPackage
+        Get-AppxPackage *Microsoft.Copilot* | Remove-AppxPackage
         
         # Output a confirmation message
         Write-Output "The Copilot application has been uninstalled."
