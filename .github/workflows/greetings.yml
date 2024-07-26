@@ -9,5 +9,29 @@ jobs:
     - uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'Message that will be displayed on users'' first issue'
-        pr-message: 'Message that will be displayed on users'' first pr'
+        issue-message: >
+          Thank you for opening your first issue! Please make sure to include the following information:
+          - The specific Windows version you're on. You can get this information by running `winver` in the Run dialog or by checking the System Information.
+          - The commands and examples you used.
+          - The version of the script that was run and from where.
+          - If using the manual option, the configuration flags that were used.
+
+          **Warning:** Systems using other hardening scripts or unsupported OS are not supported by us. Please consult the readme and test the script in a virtual machine prior to running it on your system. 
+
+          **Note:** Users need to show they have read the readme. If you haven't read the most basic documentation in the readme, you are not in need of support yet.
+
+          For general questions, please use the [discussions page](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/discussions). We will move an issue to the discussions if we see fit to do so.
+
+          To learn how to customize, troubleshoot, or revert the changes in the script, please see the [wiki](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/wiki).
+
+        pr-message: >
+          Thank you for your first pull request! We appreciate your contribution. To help us review and merge your PR, please ensure the following:
+          - Provide a detailed description of your changes, including the problem you're solving and how your changes address it.
+          - Mention the specific Windows version and environment you tested your changes on.
+          - If applicable, reference any related issues or discussions.
+          - Ensure your code adheres to our contribution guidelines and passes all automated tests.
+          - Include any relevant configuration flags or settings used during testing.
+          
+          **Important:** 
+          - Systems using other hardening scripts or unsupported OS may not be compatible. Please consult the readme and test using a clean VM before applying changes to a live system.
+          - Changes should be tested thoroughly to avoid disruptions. Please mention any potential impact your changes might have.
