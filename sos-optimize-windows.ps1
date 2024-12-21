@@ -1242,6 +1242,9 @@ if ($removebloatware -eq $true) {
         
         # Output a confirmation message
         Write-Output "The Copilot application has been uninstalled."
+
+        DISM /Online /Disable-Feature /FeatureName:"Recall"​
+        Disable-WindowsOptionalFeature -Online -FeatureName "Recall"​
     
         #  Description:
         #This script will remove and disable OneDrive integration.
