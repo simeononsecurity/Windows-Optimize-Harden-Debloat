@@ -685,8 +685,15 @@ if ($windows -eq $true) {
     #Turn on the auto-complete feature for user names and passwords on forms must be disabled.
     Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "FormSuggest PW Ask" -Type "String" -Value no -Force
     Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Internet Explorer\Main Criteria" -Name "FormSuggest PW Ask" -Type "String" -Value no -Force
-    #Windows 10 must be configured to prioritize ECC Curves with longer key lengths first.
-    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002" -Name "EccCurves" -Type "MultiString" -Value "NistP384 NistP256" -Force
+    # Check if the OS is Windows 10
+    $osVersion = (Get-CimInstance -ClassName Win32_OperatingSystem).Version
+    if ($osVersion.StartsWith("10.0") -and -not ($osVersion -ge "10.0.22000")) {
+        # Windows 10 specific configuration
+        Write-Host "Configuring ECC Curves for Windows 10..."
+        Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002" -Name "EccCurves" -Type "MultiString" -Value "NistP384 NistP256" -Force
+    } else {
+        Write-Host "This section doesn't apply to Windows 11 or newer because it seemingly breaks tls v1.2 and v1.3 on Windows 11."
+    }
     #Zone information must be preserved when saving attachments.
     New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments\" -Name "Main Criteria" -Force
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments\" -Name "SaveZoneInformation" -Type "DWORD" -Value 2 -Force
