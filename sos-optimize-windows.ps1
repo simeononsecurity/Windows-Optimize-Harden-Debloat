@@ -1664,8 +1664,7 @@ if ($disabletelemetry -eq $true) {
         Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "DisallowRun" -Type "DWORD" -Value 1 -Force
         Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" -Name "1" -Type "String" -Value "software_reporter_tool.exe" /f
         Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\software_reporter_tool.exe" -Name Debugger -Type "String" -Value "%windir%\System32\taskkill.exe" -Force
-        Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "Chrome
-        Enabled" -Type "String" -Value 0 -Force
+        Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeEnabled" -Type "String" -Value 0 -Force
         Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "ChromeCleanupReportingEnabled" -Type "String" -Value 0 -Force
         Set-ItemProperty -Path "HKLM:\Software\Policies\Google\Chrome" -Name "MetricsReportingEnabled" -Type "String" -Value 0 -Force
     
