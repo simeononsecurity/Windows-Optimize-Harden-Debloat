@@ -213,7 +213,7 @@ The script "sos-optimize-windows.ps1" includes several parameters that allow for
 - **emet**: Implements STIG Requirements and Hardening for EMET on Windows 7 Systems.
 - **updatemanagement**: Changes the way updates are managed and improved on the system.
 - **deviceguard**: Enables Device Guard Hardening.
-- **sosbrowsers**: Optimizes the system's web browsers.
+- **sosbrowsers**: Optimizes and furhter hardens the system's web browsers and installs additional recomended extensions.
 
 An example of how to launch the script with specific parameters would be:
 
